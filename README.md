@@ -1,60 +1,118 @@
 # Collaborative workflow
 
-Thank you for your interest in developing a collaborative workflow for FIMS.
-First and foremost,
-we would like to emphasize that all contributions are welcome and helpful.
-Second,
-we acknowledge the fact that guidelines are rarely static and
-should reflect the behaviour that is desired.
-Thus, the information posted here may change as FIMS develops and
-participants learn from the greater open source software community.
-Third, [GitHub](www.github.com)
-will be the backbone of our collaborative efforts.
-[GitHub's motto](https://help.github.com/articles/using-pull-requests),
-*collaboration without upfront coordination*,
-is fitting given
-(1) FIMS has already successfully employed GitHub without a formal workflow and
-(2) over 31 million individuals are successfully using it to share their research.
-We hope to put the GitHub motto to practice such that
-all individuals wishing to contribute feel little barriers to doing so.
+Thank you for your interest using the collaborative workflow developed for FIMS.
+We would like to emphasize that all contributions are welcome and helpful.
+We hope to implement the [GitHub motto](https://help.github.com/articles/using-pull-requests),
+
+>collaboration without upfront coordination
+
+such that all individuals wishing to contribute feel little barriers to doing so.
+See the [Code of Conduct]() for information on
+our standards that we abide by while collaborating.
 
 [Lowndes et al. (2017)](https://www.nature.com/articles/s41559-017-0160)
 remind us that
 
 >engagement may best be approached as an evolution rather than as a revolution that may never come.
 
-As we decide on an overarching workflow for FIMS,
-we will also implement small incremental changes regarding the way
-(1) communicate,
-(2) document, and
-(3) engage
-while collaborating.
-These small changes will help
-(1) increase transparency,
-(2) promote increased awareness, and
-(3) reduce the overhead needed for communication.
+The crux of the workflow will be based on facilitating
+
+1. **goal setting** and
+1. **quality control**
+
+(Balkundi and Harrison, 2006).
+Quality assurance will come from code reviews initiated by pull requests.
+A goal will be complete when a pull request is merged into the main branch.
+Details provided in the workflow will help individuals
+communicate,
+document, and
+engage
+while collaborating,
+which will 
+increase transparency and awareness while reducing the overhead needed for communication.
 For example,
 Christine's efforts to ensure meeting notes are available in a document on google drive for each meeting
 reduces overhead because people know exactly where to look for these notes and do not have to email Christine.
 
-The crux of the workflow will be based on facilitating
-**goal setting** and **quality control**,
-which are important to the success of any project
-(Balkundi and Harrison, 2006).
-Goals will be complete when a pull request is accepted and the features are available in the main branch.
-Quality assurance will come from code reviews initiated by pull requests.
-Therefore,
-**developing a workflow outlining best practices for pull requests is the main goal of the collaborative workflow repository**.
+The highest priority is to develop a workflow outlining
+**best practices for pull requests**, i.e., GitHub workflow.
 
-## GitHub workflow options
+## Best practices
 
-The flexibility offered within GitHub allows for projects to choose many workflows and
-even switch back and forth between workflows.
-All workflows stress code reviews as best practice.
-Most projects settle on one of the following workflows:
+The complete workflow includes information on
 
-  1. centralized:
-  2. forks:
-  3. branches:
-  4. branches with main and development:
-  5. gitflow
+  * **GitHub workflow**: all options stress code reviews as best practice.
+
+    * Available options
+
+      * centralized:
+      * forks:
+      * branches:
+      * branches with main and development:
+      * gitflow
+
+    * Teams
+
+      * Who can contribute code == anyone
+      * Who can review code
+      * Who can merge into main branch
+      * Sub-team size (suggestions of 4-5)
+
+    * Commit size
+
+  * Git commit message
+
+    * what it means to be human readable
+    * subject line
+    * additional information
+
+  * GitHub issues
+
+    * issue templates
+    * labels
+
+  * [Context switching in git](opensource.com/article/21/4/context-switching-git)
+
+    * stash + branch
+    * WIP commit + branch
+    * new clone
+    * worktree
+
+  * Code style guide
+  * Working directory
+
+    * [Don't use `setwd()` within R by Jenny Bryan](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
+    * Relative paths with standard folder structure
+
+## Potential problems
+
+  * updating issues requires effort;
+  * lack of communication infrastructure for non-coders that do not already know GitHub;
+  * merge conflicts because originating from a lack of knowledge on what others are working on;
+  * insufficient options for pointed discussions between a small number of team members,
+    individuals tend to migrate to instant messaging or email to work things out rather then keeping conversations on GitHub;
+  * centralized and branch workflows require trust;
+
+## References
+
+Balkundi, P., and Harrison, D.A. 2006.
+Ties, leaders, and time in teams: strong inference about network structure's effects on team viability and performance.
+Academy of Management Journal, 49(1):59-68. https://doi.org/10.5465/amj.2006.20785500.
+
+Lowndes, J.S.S., Best, B.D., Scarborough, C., Afflerback, J.C., Frazier, M.R., O'Hara, C.C., Jian, N., and Halpern, B.S. 2017
+Our path to better science in less time using open data science tools.
+Nature Ecology and Evolution, 1:0160. https://doi.org/10.1038/s41559-017-0160.
+
+## Random
+
+### [Nadia Eghbal](https://nadiaeghbal.com/user-support)
+
+Support can come in two forms,
+support for users who need help in their own situation and
+support for individuals who need help contributing to a project.
+
+### Lowndes et al. 2017
+
+  * code-centric communication attaches comments directly to code to increase awareness;
+  * public code and comments increases self-consciousness;
+  * exposure to other projects in GitHub increases learning opportunities;
