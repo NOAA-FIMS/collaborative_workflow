@@ -71,7 +71,7 @@ The complete workflow includes information on
     * issue templates
     * labels
 
-  * [Context switching in git](opensource.com/article/21/4/context-switching-git)
+  * [Context switching in git](https://opensource.com/article/21/4/context-switching-git)
 
     * stash + branch
     * WIP commit + branch
