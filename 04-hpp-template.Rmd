@@ -1,0 +1,3 @@
+# .hpp template for C++ modules
+
+In this section we will describe how to structure a new .hpp file in FIMS.
