@@ -2,5 +2,7 @@ about
 usage
 render-book
 preview-book
-hello-bookdown
-a-section
+developer-proess-overview
+developing-a-new-feature
+fixing-a-bug
+opening-a-pull-request
