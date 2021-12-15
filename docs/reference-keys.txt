@@ -2,7 +2,14 @@ about
 usage
 render-book
 preview-book
-developer-proess-overview
+developer-process-overview
 developing-a-new-feature
 fixing-a-bug
 opening-a-pull-request
+developer-process-overview-1
+developing-a-new-feature-1
+fixing-a-bug-1
+opening-a-pull-request-1
+hpp-template-for-c-modules
+test-case-template
+documentation-template

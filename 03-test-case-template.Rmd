@@ -1,0 +1,3 @@
+# Test case template
+
+In this section we will describe how to write a test case for your FIMS code.
