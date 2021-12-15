@@ -5,8 +5,8 @@ bookdown::gitbook:
       before: |
         <li><a href="./">FIMS Developer Guide</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
+        <li><a href="https://noaa-fims.github.io/collaborative_workflow" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/noaa-fims/collaborative_workflow/main/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
