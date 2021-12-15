@@ -2,12 +2,12 @@ about
 usage
 render-book
 preview-book
-documentation-template
-documentation-template-1
+code-of-conduct
+developer-style-guide
 developer-process-overview
 developing-a-new-feature
 fixing-a-bug
 opening-a-pull-request
 hpp-template-for-c-modules
 test-case-template
-documentation-template-2
+documentation-template
