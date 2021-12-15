@@ -1,3 +1,0 @@
-# Documentation template
-
-In this section we will describe how to document your code

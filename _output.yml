@@ -6,6 +6,7 @@ bookdown::gitbook:
         <li><a href="./">FIMS Developer Guide</a></li>
       after: |
         <li><a href="https://noaa-fims.github.io/collaborative_workflow" target="blank">Published with bookdown</a></li>
+    view: https://github.com/noaa-fims/collaborative_workflow/blob/main/%s
     edit: https://github.com/noaa-fims/collaborative_workflow/edit/main/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
