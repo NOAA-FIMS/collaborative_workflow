@@ -116,3 +116,6 @@ support for individuals who need help contributing to a project.
   * code-centric communication attaches comments directly to code to increase awareness;
   * public code and comments increases self-consciousness;
   * exposure to other projects in GitHub increases learning opportunities;
+
+### Stan developer guidelines
+This seems to cover a lot of what we need to for FIMS https://github.com/stan-dev/stan/wiki/Developer-process-overview
