@@ -6,6 +6,10 @@ In this section we will describe the process FIMS developers should follow when 
 
 Start by creating a feature branch on Github...
 
+To learn more about branches, see the ["About branches" section of the Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).
+
 ## Fixing a bug
 
 ## Opening a pull request
+
+Guidance is available in the ["Creating a pull request" section of the Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
