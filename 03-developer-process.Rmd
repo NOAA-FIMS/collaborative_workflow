@@ -1,6 +1,6 @@
 # Developer process overview
 
-In this section we will describe the process FIMS developers should follow when writing and checking in code
+In this section we will describe the process FIMS developers should follow when writing and checking in code.
 
 ## Developing a new feature
 
