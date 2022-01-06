@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Code of Conduct | FIMS Developer Handbook</title>
+  <title>Chapter 4 Contributor Guidelines | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Code of Conduct | FIMS Developer Handbook" />
+  <meta property="og:title" content="Chapter 4 Contributor Guidelines | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Code of Conduct | FIMS Developer Handbook" />
+  <meta name="twitter:title" content="Chapter 4 Contributor Guidelines | FIMS Developer Handbook" />
   
   <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="style-guide.html"/>
+<link rel="prev" href="style-guide.html"/>
+<link rel="next" href="hpp-template-for-c-modules.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -216,27 +216,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="code-of-conduct" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Code of Conduct</h1>
-<div id="fims-contributor-conduct" class="section level2">
-<h2><span class="header-section-number">2.1</span> FIMS Contributor Conduct</h2>
-<p>All contributors participating and contributing to the FIMS project are expected to adhere to the <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Contributor Covenant</a>. Briefly, these standards are adopted to ensure a positive and harassment-free enviroment for all participants. Examples of behavior that contributes to a positive environment for our community include:</p>
+<div id="contributor-guidelines" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Contributor Guidelines</h1>
+<p>External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides information for FIMS developers and collaborators on how to contribute to the project.</p>
+<div id="fims-branching-strategy" class="section level2">
+<h2><span class="header-section-number">4.1</span> FIMS Branching Strategy</h2>
+<p>There are several branching strategies available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking.</p>
+<p>The FIMS Project uses <a href="https://docs.github.com/en/get-started/quickstart/github-flow">GitHub Flow</a> (also known as <a href="https://trunkbaseddevelopment.com/">trunk-based development</a>) to make tasks easier without compromising quality. This branching strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:</p>
 <ul>
-<li>Demonstrating empathy and kindness toward other people</li>
-<li>Being respectful of differing opinions, viewpoints, and experiences</li>
-<li>Giving and gracefully accepting constructive feedback</li>
-<li>Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience</li>
-<li>Focusing on what is best not just for us as individuals, but for the overall community</li>
+<li>Short-lived branches to minimize stale code and merge conflicts</li>
+<li>Fast release times, especially for bug fixes</li>
+<li>Ability to release bug fixes without new features</li>
 </ul>
+<div id="branching-best-practices" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Branching Best Practices</h3>
+<p>The following suggestions will help ensure optimal performance of the trunk-based branching strategy:</p>
+<ol style="list-style-type: decimal">
+<li>Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments.</li>
+<li>Use feature flags to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).</li>
+<li>Delete branches after it is merged to the trunk; avoid repositories with a large number of “active” branches.</li>
+<li>Merge branches to the trunk at least daily (tag as a release commit).</li>
+<li>Use caching layers where appropriate to optimize build and test execution times.</li>
+</ol>
 </div>
-<div id="ensuring-good-conduct" class="section level2">
-<h2><span class="header-section-number">2.2</span> Ensuring Good Conduct</h2>
-<p>FIMS Community leaders will create default community health files (e.g. CONTRIBUTING, CODE_OF_CONDUCT) to be used in all repositories owned by FIMS.</p>
-<div id="questions-or-reporting-unacceptable-behavior" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Questions or Reporting Unacceptable Behavior</h3>
-<p>For questions about the FIMS Code of Conduct, or to report unacceptable behavior, contact the FIMS Community leaders at [INSERT FIMS EMAIL WHEN AVAILABLE]. All inquiries and reports will be reviewed promptly and fairly.</p>
+</div>
+<div id="issue-tracking" class="section level2">
+<h2><span class="header-section-number">4.2</span> Issue Tracking</h2>
+<p>Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch for version 3.3. This will minimize stale code and large merge conflicts.</p>
+</div>
+<div id="code-review" class="section level2">
+<h2><span class="header-section-number">4.3</span> Code Review</h2>
+<p>CI/CD requires rapid review of all new/modified code. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch.</p>
+<div id="automated-testing" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Automated Testing</h3>
+<p>Automated testing provides an initial layer of review and assures human readers that the code meets certain standards. For more on FIMS testing, see <a href="https://noaa-fims.github.io/collaborative_workflow/test-case-template.html">Chapter 6</a>.</p>
+</div>
+<div id="review-process" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Review Process</h3>
+<p><em>who reviews?
+</em>what is the review process?</p>
+</div>
+<div id="branch-protection" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Branch Protection</h3>
+<p>Branch protection allows for searching branch names with <code>grep</code> functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.</p>
+</div>
+</div>
+<div id="external-collaborators" class="section level2">
+<h2><span class="header-section-number">4.4</span> External Collaborators</h2>
+<p>External collaborators interested in contributing to FIMS development are required to fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to forking. In general, forks are discouraged for everyday development as it becomes difficult to keep track of multiple forks.</p>
+<p>Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -244,8 +273,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="style-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="style-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hpp-template-for-c-modules.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -276,7 +305,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/01-code-of-conduct.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/03-developer-process.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -284,7 +313,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/01-code-of-conduct.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/03-developer-process.Rmd",
 "text": null
 },
 "download": ["_main.pdf", "_main.epub"],
