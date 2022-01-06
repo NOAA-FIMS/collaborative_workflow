@@ -1,15 +1,50 @@
-# Developer process overview
+# Contributor Guidelines
 
-In this section we will describe the process FIMS developers should follow when writing and checking in code.
+External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides information for FIMS developers and collaborators on how to contribute to the project.
 
-## Developing a new feature
+## FIMS Branching Strategy
 
-Start by creating a feature branch on Github...
+There are several branching strategies available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking. 
 
-To learn more about branches, see the ["About branches" section of the Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).
+The FIMS Project uses [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow) (also known as [trunk-based development](https://trunkbaseddevelopment.com/)) to make tasks easier without compromising quality. This branching strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:
 
-## Fixing a bug
+* Short-lived branches to minimize stale code and merge conflicts
+* Fast release times, especially for bug fixes
+* Ability to release bug fixes without new features
 
-## Opening a pull request
+### Branching Best Practices
 
-Guidance is available in the ["Creating a pull request" section of the Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+The following suggestions will help ensure optimal performance of the trunk-based branching strategy:
+
+1. Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments. 
+2. Use feature flags to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).
+3. Delete branches after it is merged to the trunk; avoid repositories with a large number of "active" branches.
+4. Merge branches to the trunk at least daily (tag as a release commit).
+5. Use caching layers where appropriate to optimize build and test execution times. 
+
+## Issue Tracking
+
+Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch for version 3.3. This will minimize stale code and large merge conflicts.
+
+## Code Review
+
+CI/CD requires rapid review of all new/modified code. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
+
+### Automated Testing
+
+Automated testing provides an initial layer of review and assures human readers that the code meets certain standards. For more on FIMS testing, see [Chapter 6](https://noaa-fims.github.io/collaborative_workflow/test-case-template.html).
+
+### Review Process
+
+*who reviews?
+*what is the review process?
+
+### Branch Protection
+
+Branch protection allows for searching branch names with `grep` functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.
+
+## External Collaborators
+
+External collaborators interested in contributing to FIMS development are required to fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to forking. In general, forks are discouraged for everyday development as it becomes difficult to keep track of multiple forks. 
+
+Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.
