@@ -22,9 +22,24 @@ The following suggestions will help ensure optimal performance of the trunk-base
 4. Merge branches to the trunk at least daily (tag as a release commit).
 5. Use caching layers where appropriate to optimize build and test execution times. 
 
+### Branch Protection
+
+Branch protection allows for searching branch names with `grep` functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.
+
 ## Issue Tracking
 
 Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch for version 3.3. This will minimize stale code and large merge conflicts.
+
+### Issue Template
+
+
+## Coding Best Practices
+
+
+
+### Commit Messages
+
+
 
 ## Code Review
 
@@ -36,12 +51,8 @@ Automated testing provides an initial layer of review and assures human readers 
 
 ### Review Process
 
-*who reviews?
-*what is the review process?
-
-### Branch Protection
-
-Branch protection allows for searching branch names with `grep` functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.
+* *How are reviews assigned?
+* *What is the review process?
 
 ## External Collaborators
 
