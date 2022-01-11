@@ -53,3 +53,5 @@ platform-compatibility-testing
 beta-testing
 one-off-testing
 documentation-template
+writing-function-reference
+writing-a-vignette
