@@ -32,8 +32,8 @@ The only difference between syntax for `R` and `C++` code is how comments are de
 #' @param sex
 #' @return length_at_age
 ```
-You should, at minimum, include the tags @param, @return, and @examples in your function reference if it is an exported function.
-Functions that are only called internally do not require an @examples tag. Other useful tags include @seealso and @export for Roxygen chunks.
+You should, at minimum, include the tags `@param`, `@return`, and `@examples` in your function reference if it is an exported function.
+Functions that are only called internally do not require an `@examples` tag. Other useful tags include `@seealso` and `@export` for Roxygen chunks.
 
 # Writing a vignette
 If this is an exported function, a vignette can be a helpful tool to users to know how to use your function. 
