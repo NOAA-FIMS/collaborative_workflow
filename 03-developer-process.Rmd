@@ -47,16 +47,22 @@ Pull requests are used to identify changes pushed to development branches. Open 
 
 ## Coding Good Practices
 
-Following good software development and coding practices simplifies collaboration and streamlines testing and review. The following are industry-accepted standards:
+Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:
 
+* Adhere to the [FIMS Project style guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html)
+* Avoid rework - take the time to check for existing options (e.g. in-house, open source, etc.) before writing code
+* Keep code as simple as possible
 * Use meaningful variable names that are easy to understand and clearly represent the data they store
 * Use descriptive titles and consistent conventions for class and function names
+* Use consistent names for temporary variables that have the same kind of role
 * Add clear and concise coding comments
 * Use consistent formatting and indentation to improve readability and organization
-* Avoid hard-coded values to ensure portability of your code
+* Group code into separate blocks for individual tasks
+* Avoid hard-coded values to ensure portability of code
 * Follow the DRY principle - "Don't Repeat Yourself" (or your code)
 * Avoid deep nesting
 * Limit line length (wrap ~72 characters)
+* Capitalize SQL queries so they are readily distinguishable from table/column names
 
 ## Commit Messages
 
