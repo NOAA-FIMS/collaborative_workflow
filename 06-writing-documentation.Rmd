@@ -49,4 +49,4 @@ For Roxygen, the function `roxygen2::roxygenize()` will generate the function re
 
 3. Check that the function reference is correct. If not, correct it.
 
-4. Check that any vignettes or sample code that refer to your change are updated correctly.
+4. Check that any vignettes, user manuals, or sample code that refer to your change are updated correctly. This code should ideally be included in an automated test case.
