@@ -155,18 +155,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>4.1.1</b> Branching Good Practices</a></li>
 <li class="chapter" data-level="4.1.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-protection"><i class="fa fa-check"></i><b>4.1.2</b> Branch Protection</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>4.2</b> Issue Tracking</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>4.2.1</b> Issue Templates</a></li>
+<li class="chapter" data-level="4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>4.2</b> Coding Good Practices</a></li>
+<li class="chapter" data-level="4.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>4.3</b> Issue Tracking</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>4.3.1</b> Issue Templates</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>4.3</b> Pull Requests</a></li>
-<li class="chapter" data-level="4.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>4.4</b> Coding Good Practices</a></li>
-<li class="chapter" data-level="4.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>4.5</b> Commit Messages</a></li>
-<li class="chapter" data-level="4.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>4.6</b> Code Review</a><ul>
-<li class="chapter" data-level="4.6.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>4.6.1</b> Assigning Reviewers</a></li>
-<li class="chapter" data-level="4.6.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>4.6.2</b> Automated Testing</a></li>
-<li class="chapter" data-level="4.6.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-criteria"><i class="fa fa-check"></i><b>4.6.3</b> Review Criteria</a></li>
-<li class="chapter" data-level="4.6.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>4.6.4</b> Review Good Practices</a></li>
+<li class="chapter" data-level="4.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>4.4</b> Pull Requests</a></li>
+<li class="chapter" data-level="4.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>4.5</b> Code Review</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>4.5.1</b> Assigning Reviewers</a></li>
+<li class="chapter" data-level="4.5.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>4.5.2</b> Automated Testing</a></li>
+<li class="chapter" data-level="4.5.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>4.5.3</b> Review Checklist</a></li>
+<li class="chapter" data-level="4.5.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>4.5.4</b> Review Good Practices</a></li>
 </ul></li>
+<li class="chapter" data-level="4.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>4.6</b> Commit Messages</a></li>
 <li class="chapter" data-level="4.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#external-collaborators"><i class="fa fa-check"></i><b>4.7</b> External Collaborators</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>5</b> .hpp template for C++ modules</a></li>
@@ -250,8 +250,8 @@ Both can include LaTeX syntax to denote equations, and both use <code>@</code> t
 #&#39; @param age
 #&#39; @param sex
 #&#39; @return length_at_age</code></pre>
-<p>You should, at minimum, include the tags <span class="citation">(<span class="citeproc-not-found" data-reference-id="param"><strong>???</strong></span>)</span>, <span class="citation">(<span class="citeproc-not-found" data-reference-id="return"><strong>???</strong></span>)</span>, and <span class="citation">(<span class="citeproc-not-found" data-reference-id="examples"><strong>???</strong></span>)</span> in your function reference if it is an exported function.
-Functions that are only called internally do not require an <span class="citation">(<span class="citeproc-not-found" data-reference-id="examples"><strong>???</strong></span>)</span> tag. Other useful tags include <span class="citation">(<span class="citeproc-not-found" data-reference-id="seealso"><strong>???</strong></span>)</span> and <span class="citation">(<span class="citeproc-not-found" data-reference-id="export"><strong>???</strong></span>)</span> for Roxygen chunks.</p>
+<p>You should, at minimum, include the tags <code>@param</code>, <code>@return</code>, and <code>@examples</code> in your function reference if it is an exported function.
+Functions that are only called internally do not require an <code>@examples</code> tag. Other useful tags include <code>@seealso</code> and <code>@export</code> for Roxygen chunks.</p>
 </div>
             </section>
 
