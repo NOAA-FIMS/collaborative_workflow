@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS implementation team" />
 
 
-<meta name="date" content="2022-01-06" />
+<meta name="date" content="2022-01-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,15 +152,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="style-guide.html"><a href="style-guide.html"><i class="fa fa-check"></i><b>3</b> Style Guide</a></li>
 <li class="chapter" data-level="4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>4</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="4.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#fims-branching-strategy"><i class="fa fa-check"></i><b>4.1</b> FIMS Branching Strategy</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-best-practices"><i class="fa fa-check"></i><b>4.1.1</b> Branching Best Practices</a></li>
+<li class="chapter" data-level="4.1.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>4.1.1</b> Branching Good Practices</a></li>
+<li class="chapter" data-level="4.1.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-protection"><i class="fa fa-check"></i><b>4.1.2</b> Branch Protection</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>4.2</b> Issue Tracking</a></li>
-<li class="chapter" data-level="4.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>4.3</b> Code Review</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>4.3.1</b> Automated Testing</a></li>
-<li class="chapter" data-level="4.3.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-process"><i class="fa fa-check"></i><b>4.3.2</b> Review Process</a></li>
-<li class="chapter" data-level="4.3.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-protection"><i class="fa fa-check"></i><b>4.3.3</b> Branch Protection</a></li>
+<li class="chapter" data-level="4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>4.2</b> Issue Tracking</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>4.2.1</b> Issue Templates</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#external-collaborators"><i class="fa fa-check"></i><b>4.4</b> External Collaborators</a></li>
+<li class="chapter" data-level="4.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>4.3</b> Pull Requests</a></li>
+<li class="chapter" data-level="4.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>4.4</b> Coding Good Practices</a></li>
+<li class="chapter" data-level="4.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>4.5</b> Commit Messages</a></li>
+<li class="chapter" data-level="4.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>4.6</b> Code Review</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>4.6.1</b> Assigning Reviewers</a></li>
+<li class="chapter" data-level="4.6.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>4.6.2</b> Automated Testing</a></li>
+<li class="chapter" data-level="4.6.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-criteria"><i class="fa fa-check"></i><b>4.6.3</b> Review Criteria</a></li>
+<li class="chapter" data-level="4.6.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>4.6.4</b> Review Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#external-collaborators"><i class="fa fa-check"></i><b>4.7</b> External Collaborators</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>5</b> .hpp template for C++ modules</a></li>
 <li class="chapter" data-level="6" data-path="test-case-template.html"><a href="test-case-template.html"><i class="fa fa-check"></i><b>6</b> Test case template</a><ul>
@@ -221,48 +228,176 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides information for FIMS developers and collaborators on how to contribute to the project.</p>
 <div id="fims-branching-strategy" class="section level2">
 <h2><span class="header-section-number">4.1</span> FIMS Branching Strategy</h2>
-<p>There are several branching strategies available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking.</p>
-<p>The FIMS Project uses <a href="https://docs.github.com/en/get-started/quickstart/github-flow">GitHub Flow</a> (also known as <a href="https://trunkbaseddevelopment.com/">trunk-based development</a>) to make tasks easier without compromising quality. This branching strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:</p>
+<p>There are several <a href="https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/">branching strategies</a> available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking.</p>
+<p>The FIMS Project uses a <a href="https://trunkbaseddevelopment.com/">Scaled Trunk Based Development</a> branching strategy to make tasks easier without compromising quality.
+<img src="https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg" alt="Scaled Trunk Based Development; image credit: https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/" />
+This strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:</p>
 <ul>
 <li>Short-lived branches to minimize stale code and merge conflicts</li>
 <li>Fast release times, especially for bug fixes</li>
 <li>Ability to release bug fixes without new features</li>
 </ul>
-<div id="branching-best-practices" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> Branching Best Practices</h3>
+<div id="branching-good-practices" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Branching Good Practices</h3>
 <p>The following suggestions will help ensure optimal performance of the trunk-based branching strategy:</p>
 <ol style="list-style-type: decimal">
 <li>Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments.</li>
-<li>Use feature flags to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).</li>
+<li>Use <a href="https://martinfowler.com/articles/feature-toggles.html">feature flags</a> to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).</li>
 <li>Delete branches after it is merged to the trunk; avoid repositories with a large number of “active” branches.</li>
-<li>Merge branches to the trunk at least daily (tag as a release commit).</li>
+<li>Merge branches to the trunk frequently (e.g. <strong>at least</strong> every few days; tag as a release commit) to avoid merge conflicts.</li>
 <li>Use caching layers where appropriate to optimize build and test execution times.</li>
 </ol>
+</div>
+<div id="branch-protection" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Branch Protection</h3>
+<p>Branch protection allows for searching branch names with <code>grep</code> functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.</p>
 </div>
 </div>
 <div id="issue-tracking" class="section level2">
 <h2><span class="header-section-number">4.2</span> Issue Tracking</h2>
-<p>Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch for version 3.3. This will minimize stale code and large merge conflicts.</p>
+<p>Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development,
+etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change
+pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will
+be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be
+assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch
+for version 3.3. This will minimize stale code and large merge conflicts.</p>
+<div id="issue-templates" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Issue Templates</h3>
+<p>To be developed (e.g. report bug, request enhancement, maintenance/feature dev)…</p>
+</div>
+</div>
+<div id="pull-requests" class="section level2">
+<h2><span class="header-section-number">4.3</span> Pull Requests</h2>
+<p>Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch.</p>
+</div>
+<div id="coding-good-practices" class="section level2">
+<h2><span class="header-section-number">4.4</span> Coding Good Practices</h2>
+<p>Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:</p>
+<ul>
+<li>Adhere to the <a href="https://noaa-fims.github.io/collaborative_workflow/style-guide.html">FIMS Project style guide</a></li>
+<li>Avoid rework - take the time to check for existing options (e.g. in-house, open source, etc.) before writing code</li>
+<li>Keep code as simple as possible</li>
+<li>Use meaningful variable names that are easy to understand and clearly represent the data they store</li>
+<li>Use descriptive titles and consistent conventions for class and function names</li>
+<li>Use consistent names for temporary variables that have the same kind of role</li>
+<li>Add clear and concise coding comments</li>
+<li>Use consistent formatting and indentation to improve readability and organization</li>
+<li>Group code into separate blocks for individual tasks</li>
+<li>Avoid hard-coded values to ensure portability of code</li>
+<li>Follow the DRY principle - “Don’t Repeat Yourself” (or your code)</li>
+<li>Avoid deep nesting</li>
+<li>Limit line length (wrap ~72 characters)</li>
+<li>Capitalize SQL queries so they are readily distinguishable from table/column names</li>
+</ul>
+</div>
+<div id="commit-messages" class="section level2">
+<h2><span class="header-section-number">4.5</span> Commit Messages</h2>
+<p>FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:</p>
+<ul>
+<li>Include a short summary of the change for the subject/title (&lt;50 characters)
+<ul>
+<li>Include a blank line in between the ‘subject’ and ‘body’</li>
+<li>Specify the type of commit:
+* <em>fix</em>: bug fix
+* <em>feat</em>: new feature
+* <em>test</em>: testing
+* <em>docs</em>: documentation
+* <em>chore</em>: regular code maintenance (e.g. updating dependencies)
+* <em>refactor</em>: refactoring codebase
+* <em>style</em>: changes that do not affect the meaning of the code; instead address code styling/formmatting
+* <em>perf</em>: performance improvements
+* <em>revert</em>: reverts a previous commit
+* <em>build</em>: changes that affect the build system</li>
+<li>If the commit addresses an issue, indicate the issue# in the title</li>
+</ul></li>
+<li>Provide a brief explanatory description of the change, addressing what and why was changed
+<ul>
+<li>Wrap to ~72 characters</li>
+<li>Write in the imperative (e.g. “Fix bug”, not “Fixed bug”)</li>
+<li>If necessary, separate paragraphs by blank lines</li>
+<li>Utilize <code>BREAKING CHANGE: &lt;description&gt;</code> to provide expanation or further context about the issue being addressed.</li>
+<li>If the commit closes an issue, include a footer to note that (i.e. “Closes #19”)</li>
+</ul></li>
+</ul>
 </div>
 <div id="code-review" class="section level2">
-<h2><span class="header-section-number">4.3</span> Code Review</h2>
-<p>CI/CD requires rapid review of all new/modified code. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch.</p>
+<h2><span class="header-section-number">4.6</span> Code Review</h2>
+<p>Code review ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase and ensure there is a diverse team of knolwedgable collaborators to support the continued development and maintenance of FIMS. CI/CD requires rapid review of all new/modified code, so processes must be in place to support this pace. FIMS code review will utilize tools available via <a href="https://github.com/features/code-review">GitHub</a>, which allows reviewers to analyze code changes, provide inline comments, and view change histories.</p>
+<div id="assigning-reviewers" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> Assigning Reviewers</h3>
+<p>Reviewers for the FIMS Project may be assigned in two different ways:</p>
+<ol style="list-style-type: decimal">
+<li>A specific member of the FIMS Development Team is requested to review a pull request, based on their specific expertise.</li>
+<li>Code review assignments are automatically assigned using the <a href="https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team">GitHub load balance routing algorithm</a>; this approach tries to ensure that each team member reviews an equal number of pull request in any 30 day period.</li>
+</ol>
+<p>Team members should keep their status in Github current (see <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status">“Setting a status”</a> for more information). Reviews will not be auto-assigned to “Busy” team members.</p>
+<p>If a review has been assigned to you and you don’t feel like you have the expertise to address it properly, please respond directly to the code owner immediately so a different reviewer can be found promptly.</p>
+</div>
 <div id="automated-testing" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Automated Testing</h3>
-<p>Automated testing provides an initial layer of review and assures human readers that the code meets certain standards. For more on FIMS testing, see <a href="https://noaa-fims.github.io/collaborative_workflow/test-case-template.html">Chapter 6</a>.</p>
+<h3><span class="header-section-number">4.6.2</span> Automated Testing</h3>
+<p>Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see <a href="https://noaa-fims.github.io/collaborative_workflow/test-case-template.html">Chapter 6</a>.</p>
 </div>
-<div id="review-process" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Review Process</h3>
-<p><em>who reviews?
-</em>what is the review process?</p>
+<div id="review-criteria" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> Review Criteria</h3>
+<p>While automated testing can assure the code structure and logic pass quality checks, human reviewers are required to evaluate things like functionality, readability, etc. Reviewers should evaluate the code critically and provide comment/feedback on the following items:</p>
+<p><strong>Readability</strong>
+* Is the code easy to understand?
+* Are there any parts of the code that are confusing?
+* Is the data flow easy to understand?
+* Is there any code commented out?
+* Does the code include any unclear names?
+* Does the code include any errors, repeats, or incomplete sections?</p>
+<p><strong>Functionality</strong>
+* Does the code function as it is expected to?
+* How will the change impact other parts of the system?
+* Are there any unhandled edge cases?
+* Are there other code improvements possible?</p>
+<p><strong>Design</strong>
+* Are files organized intuitively?
+* Are components divided up in a sensible way?
+* Does the review include too many changes? Would the code change better be broken into more focused parts?
+* Will the change be easy to maintain?
+* Does the code follow object-oriented design principles?
+* Is the code in the proper location?</p>
+<p><strong>Security</strong>
+* Does using this code open the software to possible security violations or vulnerabilities?
+* Is the correct encryption used?</p>
+<p><strong>Performance</strong>
+* Are there ways to improve on the code’s performance?
+* Is there any complex logic that could be simplified?
+* Could any of the code be replaced with built-in functions?
+* Will this change have any impacts on system performance?
+* Is there any debugging code that could be removed?
+* Are there any optimizations that could be removed and still maintain system performance?</p>
+<p><strong>Documentation</strong>
+* Are there comments available to explain the code?
+* Is the README file complete and current? Does it adequately describe the project/changes?</p>
+<p><strong>Testing</strong>
+* Is the code testable?
+* Is the automated testing adequate?
+* Have dependencies been appropriately tested?
+* Does automated testing cover the code exchange adequately?
+* Could the test structure be improved?</p>
 </div>
-<div id="branch-protection" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> Branch Protection</h3>
-<p>Branch protection allows for searching branch names with <code>grep</code> functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.</p>
+<div id="review-good-practices" class="section level3">
+<h3><span class="header-section-number">4.6.4</span> Review Good Practices</h3>
+<p>Good reviews require good review habits. Try to follow these suggestions:</p>
+<ul>
+<li>Review in short sessions (&lt; 60 minutes) to maintain focus and attention to detail</li>
+<li>Don’t try to review more than 400 lines of code in a single session</li>
+<li>Provide constructive and supportive feedback
+* Ask open-ended questions and offer alternatives or possible workarounds
+* Avoid strong/opinionated statements
+* Applaud good solutions
+* Don’t say “you”</li>
+<li>Be clear about which questions/comments are non-blocking or unimportant; likewise, be explicit when approving a change or requesting follow-up
+* Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)</li>
+<li>Use the <a href="https://noaa-fims.github.io/collaborative_workflow/style-guide.html">FIMS Style Guide</a> to settle any style arguments</li>
+</ul>
 </div>
 </div>
 <div id="external-collaborators" class="section level2">
-<h2><span class="header-section-number">4.4</span> External Collaborators</h2>
+<h2><span class="header-section-number">4.7</span> External Collaborators</h2>
 <p>External collaborators interested in contributing to FIMS development are required to fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to forking. In general, forks are discouraged for everyday development as it becomes difficult to keep track of multiple forks.</p>
 <p>Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.</p>
 
