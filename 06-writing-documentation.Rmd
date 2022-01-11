@@ -8,7 +8,7 @@ while below we give specific, brief instructions on developer responsibilities f
 Function reference can be written inline in comments above the function in either C++ or R. The tools
 you can use to generate reference from comments are called Doxygen and Roxygen in C++ and R respectively.
 Both can include LaTeX syntax to denote equations, and both use `@` tags to name components of the function reference
-***{c eval=FALSE}
+```
         /**
         * @brief This function calculates the von Bertalanffy growth curve.
          * \f$
@@ -22,25 +22,25 @@ Both can include LaTeX syntax to denote equations, and both use `@` tags to name
          * @param sex
          * @return length\_at\_age 
          */
-***
+```
 
 The only difference between syntax for `R` and `C++` code is how comments are denoted in the language. 
-***{r eval=FALSE}
+```
 #' This function calculates the von Bertalanffy growth curve.
 #'
 #' @param age
 #' @param sex
 #' @return length_at_age
-*** 
+```
 You should, at minimum, include the tags @param, @return, and @examples in your function reference if it is an exported function.
 Functions that are only called internally do not require an @examples tag. Other useful tags include @seealso and @export for Roxygen chunks.
 
 # Writing a vignette
 If this is an exported function, a vignette can be a helpful tool to users to know how to use your function. 
 If you include a vignette for your function, you can link to it in the Roxygen documentation with the following code.
-***{r eval=FALSE}
+```
 #' \code{vignette("help", package = "mypkg")}
-***
+```
 #   Step by step documentation update process
 1. Write the function reference in either R or C++ as described above
 
