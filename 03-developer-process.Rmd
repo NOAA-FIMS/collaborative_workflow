@@ -59,9 +59,19 @@ be assigned to the current version number augmented for a hot fix and developmen
 assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
 for version 3.3. This will minimize stale code and large merge conflicts.
 
+### Issue Labels
+
+Utilize labels on issues:
+* To describe the kind of work to be done: bug, enhancement, task, discussion, question
+* To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
+
 ### Issue Templates
 
-To be developed (e.g. report bug, request enhancement, maintenance/feature dev)...
+To be developed...
+
+### Issue Lifecycle
+
+
 
 ## Pull Requests
 
