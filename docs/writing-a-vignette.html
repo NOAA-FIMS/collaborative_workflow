@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="writing-function-reference.html"/>
-<link rel="next" href="glossary-1.html"/>
+<link rel="next" href="step-by-step-documentation-update-process.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -204,6 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>7</b> Documentation template</a></li>
 <li class="chapter" data-level="8" data-path="writing-function-reference.html"><a href="writing-function-reference.html"><i class="fa fa-check"></i><b>8</b> Writing function reference</a></li>
 <li class="chapter" data-level="9" data-path="writing-a-vignette.html"><a href="writing-a-vignette.html"><i class="fa fa-check"></i><b>9</b> Writing a vignette</a></li>
+<li class="chapter" data-level="10" data-path="step-by-step-documentation-update-process.html"><a href="step-by-step-documentation-update-process.html"><i class="fa fa-check"></i><b>10</b> Step by step documentation update process</a></li>
 <li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
 <li class="divider"></li>
 <li><a href="https://noaa-fims.github.io/collaborative_workflow" target="blank">Published with bookdown</a></li>
@@ -228,19 +229,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="writing-a-vignette" class="section level1">
 <h1><span class="header-section-number">Chapter 9</span> Writing a vignette</h1>
 <p>If this is an exported function, a vignette can be a helpful tool to users to know how to use your function.
-If you include a vignette for your function, you can link to it in the Roxygen documentation with the following code.
-<strong><em>{r eval=FALSE}
-#’ 
-</em></strong>
-# Step by step documentation update process
-1. Write the function reference in either R or C++ as described above</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>You can use Roxygen and Doxygen to compile the reference written in the comments. Doxygen can be run using the doxywizard software.
-For Roxygen, the function <code>roxygen2::roxygenize()</code> will generate the function reference from the comments.</p></li>
-<li><p>Check that the function reference is correct. If not, correct it.</p></li>
-<li><p>Check that any vignettes or sample code that refer to your change are updated correctly.</p></li>
-</ol>
-
+If you include a vignette for your function, you can link to it in the Roxygen documentation with the following code.</p>
+<pre><code>#&#39; \code{vignette(&quot;help&quot;, package = &quot;mypkg&quot;)}</code></pre>
 </div>
             </section>
 
@@ -248,7 +238,7 @@ For Roxygen, the function <code>roxygen2::roxygenize()</code> will generate the 
         </div>
       </div>
 <a href="writing-function-reference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="glossary-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="step-by-step-documentation-update-process.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
