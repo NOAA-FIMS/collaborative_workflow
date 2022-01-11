@@ -6,8 +6,10 @@ External contributions and feedback are important to the development and future 
 
 There are several [branching strategies](https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/) available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking. 
 
-The FIMS Project uses a [Scaled Trunk Based Development](https://trunkbaseddevelopment.com/) branching strategy to make tasks easier without compromising quality. 
+The FIMS Project uses a [Scaled Trunk Based Development](https://trunkbaseddevelopment.com/) branching strategy to make tasks easier without compromising quality.
+
 ![Scaled Trunk Based Development; image credit: https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/](https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg)
+
 This  strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:
 
 * Short-lived branches to minimize stale code and merge conflicts
@@ -28,23 +30,6 @@ The following suggestions will help ensure optimal performance of the trunk-base
 
 Branch protection allows for searching branch names with `grep` functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.
 
-## Issue Tracking
-
-Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, 
-etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change 
-pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will 
-be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be 
-assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
-for version 3.3. This will minimize stale code and large merge conflicts.
-
-### Issue Templates
-
-To be developed (e.g. report bug, request enhancement, maintenance/feature dev)...
-
-## Pull Requests
-
-Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
-
 ## Coding Good Practices
 
 Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:
@@ -63,31 +48,24 @@ Following good software development and coding practices simplifies collaboratio
 * Avoid deep nesting
 * Limit line length (wrap ~72 characters)
 * Capitalize SQL queries so they are readily distinguishable from table/column names
+* Lint your code
 
-## Commit Messages
+## Issue Tracking
 
-FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
+Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, 
+etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change 
+pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will 
+be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be 
+assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
+for version 3.3. This will minimize stale code and large merge conflicts.
 
-* Include a short summary of the change for the subject/title (<50 characters)
-    * Include a blank line in between the 'subject' and 'body'
-    * Specify the type of commit:
-          * *fix*: bug fix
-          * *feat*: new feature
-          * *test*: testing
-          * *docs*: documentation
-          * *chore*: regular code maintenance (e.g. updating dependencies)
-          * *refactor*: refactoring codebase
-          * *style*: changes that do not affect the meaning of the code; instead address code styling/formmatting
-          * *perf*: performance improvements
-          * *revert*: reverts a previous commit
-          * *build*: changes that affect the build system
-    * If the commit addresses an issue, indicate the issue# in the title
-* Provide a brief explanatory description of the change, addressing what and why was changed
-    * Wrap to ~72 characters
-    * Write in the imperative (e.g. "Fix bug", not "Fixed bug")
-    * If necessary, separate paragraphs by blank lines
-    * Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
-    * If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
+### Issue Templates
+
+To be developed (e.g. report bug, request enhancement, maintenance/feature dev)...
+
+## Pull Requests
+
+Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
 
 ## Code Review
 
@@ -108,7 +86,7 @@ If a review has been assigned to you and you don't feel like you have the expert
 
 Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Chapter 6](https://noaa-fims.github.io/collaborative_workflow/test-case-template.html).
 
-### Review Criteria
+### Review Checklist
 
 While automated testing can assure the code structure and logic pass quality checks, human reviewers are required to evaluate things like functionality, readability, etc. Reviewers should evaluate the code critically and provide comment/feedback on the following items:
 
@@ -171,6 +149,31 @@ Good reviews require good review habits. Try to follow these suggestions:
 * Be clear about which questions/comments are non-blocking or unimportant; likewise, be explicit when approving a change or requesting follow-up
       * Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
 * Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html) to settle any style arguments
+
+## Commit Messages
+
+FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
+
+* Include a short summary of the change for the subject/title (<50 characters)
+    * Include a blank line in between the 'subject' and 'body'
+    * Specify the type of commit:
+          * *fix*: bug fix
+          * *feat*: new feature
+          * *test*: testing
+          * *docs*: documentation
+          * *chore*: regular code maintenance (e.g. updating dependencies)
+          * *refactor*: refactoring codebase
+          * *style*: changes that do not affect the meaning of the code; instead address code styling/formmatting
+          * *perf*: performance improvements
+          * *revert*: reverts a previous commit
+          * *build*: changes that affect the build system
+    * If the commit addresses an issue, indicate the issue# in the title
+* Provide a brief explanatory description of the change, addressing what and why was changed
+    * Wrap to ~72 characters
+    * Write in the imperative (e.g. "Fix bug", not "Fixed bug")
+    * If necessary, separate paragraphs by blank lines
+    * Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
+    * If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
 
 ## External Collaborators
 
