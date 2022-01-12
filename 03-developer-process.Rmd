@@ -62,6 +62,7 @@ for version 3.3. This will minimize stale code and large merge conflicts.
 ### Issue Labels
 
 Utilize labels on issues:
+
 * To describe the kind of work to be done: bug, enhancement, task, discussion, question
 * To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
 
@@ -71,7 +72,7 @@ To be developed...
 
 ### Issue Lifecycle
 
-
+To be added...
 
 ## Pull Requests
 
@@ -101,6 +102,7 @@ Automated testing provides an initial layer of quality assurance and lets review
 While automated testing can assure the code structure and logic pass quality checks, human reviewers are required to evaluate things like functionality, readability, etc. Reviewers should evaluate the code critically and provide comment/feedback on the following items:
 
 **Readability**
+
 * Is the code easy to understand?
 * Are there any parts of the code that are confusing?
 * Is the data flow easy to understand?
@@ -109,12 +111,14 @@ While automated testing can assure the code structure and logic pass quality che
 * Does the code include any errors, repeats, or incomplete sections?
 
 **Functionality**
+
 * Does the code function as it is expected to?
 * How will the change impact other parts of the system?
 * Are there any unhandled edge cases?
 * Are there other code improvements possible?
 
 **Design**
+
 * Are files organized intuitively?
 * Are components divided up in a sensible way?
 * Does the review include too many changes? Would the code change better be broken into more focused parts?
@@ -123,10 +127,12 @@ While automated testing can assure the code structure and logic pass quality che
 * Is the code in the proper location?
 
 **Security**
+
 * Does using this code open the software to possible security violations or vulnerabilities?
 * Is the correct encryption used?
 
 **Performance**
+
 * Are there ways to improve on the code's performance?
 * Is there any complex logic that could be simplified?
 * Could any of the code be replaced with built-in functions?
@@ -135,10 +141,12 @@ While automated testing can assure the code structure and logic pass quality che
 * Are there any optimizations that could be removed and still maintain system performance?
 
 **Documentation**
+
 * Are there comments available to explain the code?
 * Is the README file complete and current? Does it adequately describe the project/changes?
 
 **Testing**
+
 * Is the code testable?
 * Is the automated testing adequate?
 * Have dependencies been appropriately tested?
@@ -152,12 +160,12 @@ Good reviews require good review habits. Try to follow these suggestions:
 * Review in short sessions (< 60 minutes) to maintain focus and attention to detail
 * Don't try to review more than 400 lines of code in a single session
 * Provide constructive and supportive feedback
-      * Ask open-ended questions and offer alternatives or possible workarounds
-      * Avoid strong/opinionated statements
-      * Applaud good solutions
-      * Don't say "you"
+* Ask open-ended questions and offer alternatives or possible workarounds
+* Avoid strong/opinionated statements
+* Applaud good solutions
+* Don't say "you"
 * Be clear about which questions/comments are non-blocking or unimportant; likewise, be explicit when approving a change or requesting follow-up
-      * Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
+* Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
 * Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html) to settle any style arguments
 
 ## Commit Messages
@@ -165,8 +173,9 @@ Good reviews require good review habits. Try to follow these suggestions:
 FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
 
 * Include a short summary of the change for the subject/title (<50 characters)
-    * Include a blank line in between the 'subject' and 'body'
-    * Specify the type of commit:
+* Include a blank line in between the 'subject' and 'body'
+* Specify the type of commit:
+
           * *fix*: bug fix
           * *feat*: new feature
           * *test*: testing
@@ -177,16 +186,11 @@ FIMS Project contributors should provide clear, descriptive commit messages to c
           * *perf*: performance improvements
           * *revert*: reverts a previous commit
           * *build*: changes that affect the build system
-    * If the commit addresses an issue, indicate the issue# in the title
+
+* If the commit addresses an issue, indicate the issue# in the title
 * Provide a brief explanatory description of the change, addressing what and why was changed
-    * Wrap to ~72 characters
-    * Write in the imperative (e.g. "Fix bug", not "Fixed bug")
-    * If necessary, separate paragraphs by blank lines
-    * Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
-    * If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
-
-## External Collaborators
-
-External collaborators interested in contributing to FIMS development are required to fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to forking. In general, forks are discouraged for everyday development as it becomes difficult to keep track of multiple forks. 
-
-Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.
+* Wrap to ~72 characters
+* Write in the imperative (e.g. "Fix bug", not "Fixed bug")
+* If necessary, separate paragraphs by blank lines
+* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
+* If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
