@@ -13,7 +13,9 @@ branching-good-practices
 branch-protection
 coding-good-practices
 issue-tracking
+issue-labels
 issue-templates
+issue-lifecycle
 pull-requests
 code-review
 assigning-reviewers

@@ -157,7 +157,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>4.2</b> Coding Good Practices</a></li>
 <li class="chapter" data-level="4.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>4.3</b> Issue Tracking</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>4.3.1</b> Issue Templates</a></li>
+<li class="chapter" data-level="4.3.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>4.3.1</b> Issue Labels</a></li>
+<li class="chapter" data-level="4.3.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>4.3.2</b> Issue Templates</a></li>
+<li class="chapter" data-level="4.3.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-lifecycle"><i class="fa fa-check"></i><b>4.3.3</b> Issue Lifecycle</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>4.4</b> Pull Requests</a></li>
 <li class="chapter" data-level="4.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>4.5</b> Code Review</a><ul>
@@ -272,7 +274,7 @@ If you include a vignette for your function, you can link to it in the Roxygen d
 <li><p>You can use Roxygen and Doxygen to compile the reference written in the comments. Doxygen can be run using the doxywizard software.
 For Roxygen, the function <code>roxygen2::roxygenize()</code> will generate the function reference from the comments.</p></li>
 <li><p>Check that the function reference is correct. If not, correct it.</p></li>
-<li><p>Check that any vignettes or sample code that refer to your change are updated correctly.</p></li>
+<li><p>Check that any vignettes, user manuals, or sample code that refer to your change are updated correctly. This code should ideally be included in an automated test case.</p></li>
 </ol>
 
 </div>
