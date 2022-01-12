@@ -4,8 +4,9 @@ render-book
 preview-book
 code-of-conduct
 fims-contributor-conduct
-ensuring-good-conduct
-questions-or-reporting-unacceptable-behavior
+supporting-good-conduct
+reporting-unacceptable-behavior
+consequences-of-violating-conduct
 style-guide
 contributor-guidelines
 fims-branching-strategy
@@ -58,3 +59,4 @@ writing-function-reference
 writing-a-vignette
 step-by-step-documentation-update-process
 fims-governance
+external-collaborators
