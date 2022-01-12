@@ -1,1 +1,11 @@
 # FIMS Governance
+
+The FIMS Terms of Reference describes the high level organization of the FIMS Project. Additional details on roles and responsibilities are provided here.
+
+
+
+## External Collaborators
+
+External collaborators interested in contributing to FIMS development are required to fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to forking. In general, forks are discouraged for everyday development as it becomes difficult to keep track of multiple forks. 
+
+Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.
