@@ -23,7 +23,6 @@ automated-testing
 review-checklist
 review-good-practices
 commit-messages
-external-collaborators
 hpp-template-for-c-modules
 test-case-template
 introduction
@@ -58,3 +57,4 @@ documentation-template
 writing-function-reference
 writing-a-vignette
 step-by-step-documentation-update-process
+fims-governance
