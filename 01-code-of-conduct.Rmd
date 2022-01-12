@@ -10,10 +10,14 @@ All contributors participating and contributing to the FIMS project are expected
 * Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
 * Focusing on what is best not just for us as individuals, but for the overall community
 
-## Ensuring Good Conduct
+## Supporting Good Conduct
 
 FIMS Community leaders will create default community health files (e.g. CONTRIBUTING, CODE_OF_CONDUCT) to be used in all repositories owned by FIMS. 
 
-### Questions or Reporting Unacceptable Behavior
+### Reporting Unacceptable Behavior
 
-For questions about the FIMS Code of Conduct, or to report unacceptable behavior, contact the FIMS Community leaders at [INSERT FIMS EMAIL WHEN AVAILABLE]. All inquiries and reports will be reviewed promptly and fairly. 
+Questions about the FIMS Code of Conduct or reports of unacceptable behavior should be sent to [INSERT FIMS EMAIL WHEN AVAILABLE]. Reports will be reviewed by a member of the NOAA Fisheries Office of Science and Technology who is not participating in the FIMS Project [TBD], but has the full support of FIMS Community Leaders. All reports will be reviewed promptly and fairly. 
+
+### Consequences of Violating Conduct
+
+People who violate the FIMS Contribute Conduct will face meaningful consequences, up to and including explusion from the FIMS Community. The Code of Conduct, as well as consequences for violations, apply equally to all participants. 
