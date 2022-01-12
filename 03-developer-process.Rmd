@@ -63,7 +63,7 @@ for version 3.3. This will minimize stale code and large merge conflicts.
 
 Utilize labels on issues:
 
-* To describe the kind of work to be done: bug, enhancement, task, discussion, question
+* To describe the kind of work to be done: bug, enhancement, task, discussion, question, suitable for beginners
 * To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
 
 ### Issue Templates
