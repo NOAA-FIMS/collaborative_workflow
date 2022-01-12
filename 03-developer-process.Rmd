@@ -176,16 +176,16 @@ FIMS Project contributors should provide clear, descriptive commit messages to c
 * Include a blank line in between the 'subject' and 'body'
 * Specify the type of commit:
 
-          * *fix*: bug fix
-          * *feat*: new feature
-          * *test*: testing
-          * *docs*: documentation
-          * *chore*: regular code maintenance (e.g. updating dependencies)
-          * *refactor*: refactoring codebase
-          * *style*: changes that do not affect the meaning of the code; instead address code styling/formmatting
-          * *perf*: performance improvements
-          * *revert*: reverts a previous commit
-          * *build*: changes that affect the build system
+          * fix: bug fix
+          * feat: new feature
+          * test: testing
+          * docs: documentation
+          * chore: regular code maintenance (e.g. updating dependencies)
+          * refactor: refactoring codebase
+          * style: changes that do not affect the meaning of the code; instead address code styling/formmatting
+          * perf: performance improvements
+          * revert: reverts a previous commit
+          * build: changes that affect the build system
 
 * If the commit addresses an issue, indicate the issue# in the title
 * Provide a brief explanatory description of the change, addressing what and why was changed
