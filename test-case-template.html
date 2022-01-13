@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Test case template | FIMS Developer Handbook</title>
+  <meta name="description" content="This is a handbook for FIMS developers and contributors." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Test case template | FIMS Developer Handbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a handbook for FIMS developers and contributors." />
+  <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Test case template | FIMS Developer Handbook" />
+  
+  <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
+  
+
+<meta name="author" content="FIMS implementation team" />
+
+
+<meta name="date" content="2022-01-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hpp-template-for-c-modules.html"/>
+<link rel="next" href="documentation-template.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="extra.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FIMS Developer Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
+<li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.2</b> Supporting Good Conduct</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#reporting-unacceptable-behavior"><i class="fa fa-check"></i><b>2.2.1</b> Reporting Unacceptable Behavior</a></li>
+<li class="chapter" data-level="2.2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#consequences-of-violating-conduct"><i class="fa fa-check"></i><b>2.2.2</b> Consequences of Violating Conduct</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="style-guide.html"><a href="style-guide.html"><i class="fa fa-check"></i><b>3</b> Style Guide</a></li>
+<li class="chapter" data-level="4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>4</b> Contributor Guidelines</a><ul>
+<li class="chapter" data-level="4.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#fims-branching-strategy"><i class="fa fa-check"></i><b>4.1</b> FIMS Branching Strategy</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>4.1.1</b> Branching Good Practices</a></li>
+<li class="chapter" data-level="4.1.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-protection"><i class="fa fa-check"></i><b>4.1.2</b> Branch Protection</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>4.2</b> Coding Good Practices</a></li>
+<li class="chapter" data-level="4.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>4.3</b> Issue Tracking</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>4.3.1</b> Issue Labels</a></li>
+<li class="chapter" data-level="4.3.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>4.3.2</b> Issue Templates</a></li>
+<li class="chapter" data-level="4.3.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-lifecycle"><i class="fa fa-check"></i><b>4.3.3</b> Issue Lifecycle</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>4.4</b> Pull Requests</a></li>
+<li class="chapter" data-level="4.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>4.5</b> Code Review</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>4.5.1</b> Assigning Reviewers</a></li>
+<li class="chapter" data-level="4.5.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>4.5.2</b> Automated Testing</a></li>
+<li class="chapter" data-level="4.5.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>4.5.3</b> Review Checklist</a></li>
+<li class="chapter" data-level="4.5.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>4.5.4</b> Review Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>4.6</b> Commit Messages</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>5</b> .hpp template for C++ modules</a></li>
+<li class="chapter" data-level="6" data-path="test-case-template.html"><a href="test-case-template.html"><i class="fa fa-check"></i><b>6</b> Test case template</a><ul>
+<li class="chapter" data-level="6.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>6.2</b> C++ unit testing and benchmarking</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>6.2.1</b> Requirements</a></li>
+<li class="chapter" data-level="6.2.2" data-path="test-case-template.html"><a href="test-case-template.html#quickstart-for-windows-user"><i class="fa fa-check"></i><b>6.2.2</b> Quickstart for Windows user</a></li>
+<li class="chapter" data-level="6.2.3" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>6.2.3</b> Set up FIMS testing project</a></li>
+<li class="chapter" data-level="6.2.4" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>6.2.4</b> Unit test template</a></li>
+<li class="chapter" data-level="6.2.5" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>6.2.5</b> Unit test example</a></li>
+<li class="chapter" data-level="6.2.6" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>6.2.6</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
+<li class="chapter" data-level="6.2.7" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>6.2.7</b> Benchmark template</a></li>
+<li class="chapter" data-level="6.2.8" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>6.2.8</b> Benchmark example</a></li>
+<li class="chapter" data-level="6.2.9" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>6.2.9</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>6.3</b> R testing</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>6.3.1</b> R testthat template</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>6.4</b> Test case template and examples</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>6.4.1</b> Test case template</a></li>
+<li class="chapter" data-level="6.4.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>6.4.2</b> Test case examples</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="test-case-template.html"><a href="test-case-template.html#glossary"><i class="fa fa-check"></i><b>6.5</b> Glossary</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-testing"><i class="fa fa-check"></i><b>6.5.1</b> Unit testing</a></li>
+<li class="chapter" data-level="6.5.2" data-path="test-case-template.html"><a href="test-case-template.html#functional-testing"><i class="fa fa-check"></i><b>6.5.2</b> Functional testing</a></li>
+<li class="chapter" data-level="6.5.3" data-path="test-case-template.html"><a href="test-case-template.html#integration-testing"><i class="fa fa-check"></i><b>6.5.3</b> Integration testing</a></li>
+<li class="chapter" data-level="6.5.4" data-path="test-case-template.html"><a href="test-case-template.html#run-time-testing"><i class="fa fa-check"></i><b>6.5.4</b> Run-time testing</a></li>
+<li class="chapter" data-level="6.5.5" data-path="test-case-template.html"><a href="test-case-template.html#regression-testing"><i class="fa fa-check"></i><b>6.5.5</b> Regression testing</a></li>
+<li class="chapter" data-level="6.5.6" data-path="test-case-template.html"><a href="test-case-template.html#platform-compatibility-testing"><i class="fa fa-check"></i><b>6.5.6</b> Platform compatibility testing</a></li>
+<li class="chapter" data-level="6.5.7" data-path="test-case-template.html"><a href="test-case-template.html#beta-testing"><i class="fa fa-check"></i><b>6.5.7</b> Beta testing</a></li>
+<li class="chapter" data-level="6.5.8" data-path="test-case-template.html"><a href="test-case-template.html#one-off-testing"><i class="fa fa-check"></i><b>6.5.8</b> One-off testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>7</b> Documentation template</a><ul>
+<li class="chapter" data-level="7.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>7.1</b> Writing function reference</a></li>
+<li class="chapter" data-level="7.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>7.2</b> Writing a vignette</a></li>
+<li class="chapter" data-level="7.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>7.3</b> Step by step documentation update process</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
+<li class="chapter" data-level="8" data-path="fims-governance.html"><a href="fims-governance.html"><i class="fa fa-check"></i><b>8</b> FIMS Governance</a><ul>
+<li class="chapter" data-level="8.1" data-path="fims-governance.html"><a href="fims-governance.html#external-collaborators"><i class="fa fa-check"></i><b>8.1</b> External Collaborators</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://noaa-fims.github.io/collaborative_workflow" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FIMS Developer Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="test-case-template" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Test case template</h1>
+<p>[Work in progress]</p>
+<p>In this section we will describe how to write a test case for your FIMS code.</p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">6.1</span> Introduction</h2>
+<p>FIMS testing framework will include different types of testing to make sure that changes to FIMS code are working as expected. The unit and functional tests will be developed during the initial development stage when writing individual functions or modules. After completing development of multiple modules, integration testing will be developed to verify that different modules work well together. Checks will be added in the software to catch user input errors when conducting run-time testing. Regression testing and platform compatibility testing will be executed before pre-releasing FIMS. Beta-testing will be used to gather feedback from users (i.e. Members of FIMS implementation team and other users) during the pre-releasing stage. After releasing the first version of FIMS, the team will go back to the beginning of the testing cycle and write unit tests when a new feature needs to be implemented. One-off testing will be used for fixing user-reported bugs when maintaining FIMS. More details of each type of test can be found in the Glossary section.</p>
+<p>FIMS will use GoogleTest to build a C++ unit testing framework and R testthat to build an R testing framework. FIMS will use Google Benchmark to measure the real time and CPU time used for running the produced binaries.</p>
+</div>
+<div id="c-unit-testing-and-benchmarking" class="section level2">
+<h2><span class="header-section-number">6.2</span> C++ unit testing and benchmarking</h2>
+<div id="requirements" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Requirements</h3>
+<p>To use GoogleTest, you will need:</p>
+<ul>
+<li><p>A compatible operating system (e.g. Windows, masOS, or Linux).</p></li>
+<li><p>A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0.</p></li>
+<li><p>A build system for building the testing project. <a href="https://cmake.org/"><span class="ul">CMake</span></a> and a compatible build tool such as <a href="https://ninja-build.org/"><span class="ul">Ninja</span></a> are approved softwares by NMFS HQ.</p></li>
+</ul>
+</div>
+<div id="quickstart-for-windows-user" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Quickstart for Windows user</h3>
+<ul>
+<li><p>Download <a href="https://cmake.org/download/"><span class="ul">CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)</span></a> and put the file folder to <code>Documents\Apps</code> or other preferred folder.</p></li>
+<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2 (ninja-win.zip)</span></a> and put the application to <code>Documents\Apps</code> or other preferred folder.</p></li>
+<li><p>Search <code>Edit environment variables for your account</code> and open the <code>Environment Variables</code> window.</p></li>
+<li><p>Click <code>Edit...</code> under the <code>User variables for firstname.lastname</code> section.</p></li>
+<li><p>Click <code>New</code>, add path to <code>cmake-3.21.4-windows-x86_64\bin</code>, add click <code>OK</code>.</p></li>
+<li><p>Click <code>New</code>, add path to <code>Documents\Apps</code>, add click <code>OK</code>.</p></li>
+<li><p>Open your Command Prompt and type <code>cmake</code>. If you see details of usage, you install the build system successfully.</p></li>
+<li><p>See <a href="https://cmake.org/install"><span class="ul">CMake installation instructions</span></a> for installing CMake on other platforms.</p></li>
+</ul>
+</div>
+<div id="set-up-fims-testing-project" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Set up FIMS testing project</h3>
+<ul>
+<li>Go to the FIMS C++ tests folder and create a <code>CMakeLists.txt</code> file. Declare a dependency on GoogleTest with following contents:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb4-1"><a href="test-case-template.html#cb4-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.14)</span>
+<span id="cb4-2"><a href="test-case-template.html#cb4-2"></a><span class="kw">project</span>(FIMS_project)</span>
+<span id="cb4-3"><a href="test-case-template.html#cb4-3"></a></span>
+<span id="cb4-4"><a href="test-case-template.html#cb4-4"></a><span class="co"># GoogleTest requires at least C++11</span></span>
+<span id="cb4-5"><a href="test-case-template.html#cb4-5"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD</span> 11)</span>
+<span id="cb4-6"><a href="test-case-template.html#cb4-6"></a></span>
+<span id="cb4-7"><a href="test-case-template.html#cb4-7"></a><span class="kw">include</span>(FetchContent)</span>
+<span id="cb4-8"><a href="test-case-template.html#cb4-8"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb4-9"><a href="test-case-template.html#cb4-9"></a>  googletest</span>
+<span id="cb4-10"><a href="test-case-template.html#cb4-10"></a>  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip</span>
+<span id="cb4-11"><a href="test-case-template.html#cb4-11"></a>)</span>
+<span id="cb4-12"><a href="test-case-template.html#cb4-12"></a></span>
+<span id="cb4-13"><a href="test-case-template.html#cb4-13"></a><span class="co"># For Windows: Prevent overriding the parent project&#39;s compiler/linker settings</span></span>
+<span id="cb4-14"><a href="test-case-template.html#cb4-14"></a><span class="kw">set</span>(gtest_force_shared_crt ON <span class="ot">CACHE</span> <span class="ot">BOOL</span> <span class="st">&quot;&quot;</span> <span class="ot">FORCE</span>)</span>
+<span id="cb4-15"><a href="test-case-template.html#cb4-15"></a><span class="fu">FetchContent_MakeAvailable</span>(googletest)</span></code></pre></div>
+<ul>
+<li>If a <code>CMakeLists.txt</code> file already exists in the tests folder, you can start creating a unit test and add it to the <code>CMakeLists.txt</code>.</li>
+</ul>
+</div>
+<div id="unit-test-template" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Unit test template</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="test-case-template.html#cb5-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb5-2"><a href="test-case-template.html#cb5-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb5-3"><a href="test-case-template.html#cb5-3"></a></span>
+<span id="cb5-4"><a href="test-case-template.html#cb5-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb5-5"><a href="test-case-template.html#cb5-5"></a></span>
+<span id="cb5-6"><a href="test-case-template.html#cb5-6"></a>namespace {</span>
+<span id="cb5-7"><a href="test-case-template.html#cb5-7"></a></span>
+<span id="cb5-8"><a href="test-case-template.html#cb5-8"></a>  <span class="co">// Description of Test 1 </span></span>
+<span id="cb5-9"><a href="test-case-template.html#cb5-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
+<span id="cb5-10"><a href="test-case-template.html#cb5-10"></a>    </span>
+<span id="cb5-11"><a href="test-case-template.html#cb5-11"></a>    ... test body ... </span>
+<span id="cb5-12"><a href="test-case-template.html#cb5-12"></a>    </span>
+<span id="cb5-13"><a href="test-case-template.html#cb5-13"></a>  }</span>
+<span id="cb5-14"><a href="test-case-template.html#cb5-14"></a>  </span>
+<span id="cb5-15"><a href="test-case-template.html#cb5-15"></a>  <span class="co">// Description of Test 2</span></span>
+<span id="cb5-16"><a href="test-case-template.html#cb5-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
+<span id="cb5-17"><a href="test-case-template.html#cb5-17"></a>    </span>
+<span id="cb5-18"><a href="test-case-template.html#cb5-18"></a>    ... test body ...</span>
+<span id="cb5-19"><a href="test-case-template.html#cb5-19"></a>    </span>
+<span id="cb5-20"><a href="test-case-template.html#cb5-20"></a>  }</span>
+<span id="cb5-21"><a href="test-case-template.html#cb5-21"></a>  </span>
+<span id="cb5-22"><a href="test-case-template.html#cb5-22"></a>}</span></code></pre></div>
+</div>
+<div id="unit-test-example" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> Unit test example</h3>
+<p>Let’s create dlognorm.hpp that has a simple function:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="test-case-template.html#cb6-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
+<span id="cb6-2"><a href="test-case-template.html#cb6-2"></a></span>
+<span id="cb6-3"><a href="test-case-template.html#cb6-3"></a>template&lt;class Type&gt;</span>
+<span id="cb6-4"><a href="test-case-template.html#cb6-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
+<span id="cb6-5"><a href="test-case-template.html#cb6-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
+<span id="cb6-6"><a href="test-case-template.html#cb6-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
+<span id="cb6-7"><a href="test-case-template.html#cb6-7"></a>  <span class="cf">return</span> logres; </span>
+<span id="cb6-8"><a href="test-case-template.html#cb6-8"></a>}</span></code></pre></div>
+<p>We can create a test file dlognorm-unit.cpp that has a test suite for this function:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="test-case-template.html#cb7-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb7-2"><a href="test-case-template.html#cb7-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
+<span id="cb7-3"><a href="test-case-template.html#cb7-3"></a></span>
+<span id="cb7-4"><a href="test-case-template.html#cb7-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb7-5"><a href="test-case-template.html#cb7-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0) = -0.9189385</span></span>
+<span id="cb7-6"><a href="test-case-template.html#cb7-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5) = -9.07679</span></span>
+<span id="cb7-7"><a href="test-case-template.html#cb7-7"></a></span>
+<span id="cb7-8"><a href="test-case-template.html#cb7-8"></a>namespace {</span>
+<span id="cb7-9"><a href="test-case-template.html#cb7-9"></a></span>
+<span id="cb7-10"><a href="test-case-template.html#cb7-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
+<span id="cb7-11"><a href="test-case-template.html#cb7-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
+<span id="cb7-12"><a href="test-case-template.html#cb7-12"></a>  </span>
+<span id="cb7-13"><a href="test-case-template.html#cb7-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
+<span id="cb7-14"><a href="test-case-template.html#cb7-14"></a>    </span>
+<span id="cb7-15"><a href="test-case-template.html#cb7-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> ); </span>
+<span id="cb7-16"><a href="test-case-template.html#cb7-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> ); </span>
+<span id="cb7-17"><a href="test-case-template.html#cb7-17"></a>    </span>
+<span id="cb7-18"><a href="test-case-template.html#cb7-18"></a>  }</span>
+<span id="cb7-19"><a href="test-case-template.html#cb7-19"></a>  </span>
+<span id="cb7-20"><a href="test-case-template.html#cb7-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
+<span id="cb7-21"><a href="test-case-template.html#cb7-21"></a>  </span>
+<span id="cb7-22"><a href="test-case-template.html#cb7-22"></a>  TEST(dlognormTest, IntInput) {</span>
+<span id="cb7-23"><a href="test-case-template.html#cb7-23"></a>    </span>
+<span id="cb7-24"><a href="test-case-template.html#cb7-24"></a>    EXPECT_NE( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> );</span>
+<span id="cb7-25"><a href="test-case-template.html#cb7-25"></a>    </span>
+<span id="cb7-26"><a href="test-case-template.html#cb7-26"></a>  }</span>
+<span id="cb7-27"><a href="test-case-template.html#cb7-27"></a>  </span>
+<span id="cb7-28"><a href="test-case-template.html#cb7-28"></a>}</span></code></pre></div>
+<p><code>EXPECT_NEAR(val1, val2, absolute_error)</code> verifies that the difference between <code>val1</code> and <code>val2</code> does not exceed the absolute error bound <code>absolute_error</code>. <code>EXPECT_NE(val1, val2)</code> verifies that <code>val1</code> is not equal to <code>val2</code>. Please see GoogleTest <a href="https://google.github.io/googletest/reference/assertions.html">assertions reference</a> for more <code>EXPECT_</code> macros.</p>
+</div>
+<div id="add-tests-to-cmakelists.txt-and-run-a-binary" class="section level3">
+<h3><span class="header-section-number">6.2.6</span> Add tests to <code>CMakeLists.txt</code> and run a binary</h3>
+<p>To build the code, add the following contents to the end of your <code>CMakeLists.txt</code> file:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb8-1"><a href="test-case-template.html#cb8-1"></a><span class="kw">enable_testing</span>()</span>
+<span id="cb8-2"><a href="test-case-template.html#cb8-2"></a></span>
+<span id="cb8-3"><a href="test-case-template.html#cb8-3"></a><span class="kw">add_executable</span>(</span>
+<span id="cb8-4"><a href="test-case-template.html#cb8-4"></a>  dlognorm_test</span>
+<span id="cb8-5"><a href="test-case-template.html#cb8-5"></a>  dlognorm-unit.cpp</span>
+<span id="cb8-6"><a href="test-case-template.html#cb8-6"></a>)</span>
+<span id="cb8-7"><a href="test-case-template.html#cb8-7"></a></span>
+<span id="cb8-8"><a href="test-case-template.html#cb8-8"></a><span class="kw">target_include_directories</span>(</span>
+<span id="cb8-9"><a href="test-case-template.html#cb8-9"></a>  dlognorm_test <span class="ot">PUBLIC</span></span>
+<span id="cb8-10"><a href="test-case-template.html#cb8-10"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb8-11"><a href="test-case-template.html#cb8-11"></a>)</span>
+<span id="cb8-12"><a href="test-case-template.html#cb8-12"></a></span>
+<span id="cb8-13"><a href="test-case-template.html#cb8-13"></a><span class="kw">target_link_libraries</span>(</span>
+<span id="cb8-14"><a href="test-case-template.html#cb8-14"></a>  dlognorm_test</span>
+<span id="cb8-15"><a href="test-case-template.html#cb8-15"></a>  gtest_main</span>
+<span id="cb8-16"><a href="test-case-template.html#cb8-16"></a>)</span>
+<span id="cb8-17"><a href="test-case-template.html#cb8-17"></a></span>
+<span id="cb8-18"><a href="test-case-template.html#cb8-18"></a><span class="kw">include</span>(GoogleTest)</span>
+<span id="cb8-19"><a href="test-case-template.html#cb8-19"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
+<p>The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="test-case-template.html#cb9-1"></a><span class="bu">cd</span> tests</span>
+<span id="cb9-2"><a href="test-case-template.html#cb9-2"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span>
+<span id="cb9-3"><a href="test-case-template.html#cb9-3"></a><span class="bu">cd</span> build </span>
+<span id="cb9-4"><a href="test-case-template.html#cb9-4"></a><span class="fu">cmake</span> --build .</span>
+<span id="cb9-5"><a href="test-case-template.html#cb9-5"></a><span class="ex">ctest</span></span></code></pre></div>
+<p>The output might look like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="test-case-template.html#cb10-1"></a>    <span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
+<span id="cb10-2"><a href="test-case-template.html#cb10-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.36 sec</span></span>
+<span id="cb10-3"><a href="test-case-template.html#cb10-3"></a>    <span class="ex">Start</span> 2: dlognormTest.IntInput</span>
+<span id="cb10-4"><a href="test-case-template.html#cb10-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.01 sec</span></span>
+<span id="cb10-5"><a href="test-case-template.html#cb10-5"></a></span>
+<span id="cb10-6"><a href="test-case-template.html#cb10-6"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 2</span>
+<span id="cb10-7"><a href="test-case-template.html#cb10-7"></a></span>
+<span id="cb10-8"><a href="test-case-template.html#cb10-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.37</span> sec</span></code></pre></div>
+<p>Congratulations! You’ve successfully set up a test project and run a test binary using GoogleTest. Let’s use Google Benchmark to measure the real time and CPU time used for running the produced binary.</p>
+</div>
+<div id="benchmark-template" class="section level3">
+<h3><span class="header-section-number">6.2.7</span> Benchmark template</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="test-case-template.html#cb11-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb11-2"><a href="test-case-template.html#cb11-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb11-3"><a href="test-case-template.html#cb11-3"></a></span>
+<span id="cb11-4"><a href="test-case-template.html#cb11-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
+<span id="cb11-5"><a href="test-case-template.html#cb11-5"></a>{</span>
+<span id="cb11-6"><a href="test-case-template.html#cb11-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb11-7"><a href="test-case-template.html#cb11-7"></a>    <span class="co">// This code gets timed</span></span>
+<span id="cb11-8"><a href="test-case-template.html#cb11-8"></a>    Function()</span>
+<span id="cb11-9"><a href="test-case-template.html#cb11-9"></a>}</span>
+<span id="cb11-10"><a href="test-case-template.html#cb11-10"></a></span>
+<span id="cb11-11"><a href="test-case-template.html#cb11-11"></a><span class="co">// Register the function as a benchmark</span></span>
+<span id="cb11-12"><a href="test-case-template.html#cb11-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
+</div>
+<div id="benchmark-example" class="section level3">
+<h3><span class="header-section-number">6.2.8</span> Benchmark example</h3>
+<p>We will continue using the dlognorm.hpp example. We can create a benchmark file dlognorm_benchmark.cpp and put it in the tests folder:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="test-case-template.html#cb12-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb12-2"><a href="test-case-template.html#cb12-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
+<span id="cb12-3"><a href="test-case-template.html#cb12-3"></a></span>
+<span id="cb12-4"><a href="test-case-template.html#cb12-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
+<span id="cb12-5"><a href="test-case-template.html#cb12-5"></a>{</span>
+<span id="cb12-6"><a href="test-case-template.html#cb12-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb12-7"><a href="test-case-template.html#cb12-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
+<span id="cb12-8"><a href="test-case-template.html#cb12-8"></a>}</span>
+<span id="cb12-9"><a href="test-case-template.html#cb12-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
+<p>Please see more examples on <a href="https://github.com/google/benchmark">Google Benchmark GitHub repository</a> for a more comprehensive feature overview.</p>
+</div>
+<div id="add-benchmarks-to-cmakelists.txt-and-run-the-benchmark" class="section level3">
+<h3><span class="header-section-number">6.2.9</span> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</h3>
+<p>To build the code, add the following contents to the end of your <code>CMakeLists.txt</code> file:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb13-1"><a href="test-case-template.html#cb13-1"></a></span>
+<span id="cb13-2"><a href="test-case-template.html#cb13-2"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb13-3"><a href="test-case-template.html#cb13-3"></a>  googlebenchmark</span>
+<span id="cb13-4"><a href="test-case-template.html#cb13-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
+<span id="cb13-5"><a href="test-case-template.html#cb13-5"></a>)</span>
+<span id="cb13-6"><a href="test-case-template.html#cb13-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
+<span id="cb13-7"><a href="test-case-template.html#cb13-7"></a></span>
+<span id="cb13-8"><a href="test-case-template.html#cb13-8"></a><span class="kw">add_executable</span>(</span>
+<span id="cb13-9"><a href="test-case-template.html#cb13-9"></a>  dlognorm_benchmark</span>
+<span id="cb13-10"><a href="test-case-template.html#cb13-10"></a>  dlognorm_benchmark.cpp</span>
+<span id="cb13-11"><a href="test-case-template.html#cb13-11"></a>)</span>
+<span id="cb13-12"><a href="test-case-template.html#cb13-12"></a></span>
+<span id="cb13-13"><a href="test-case-template.html#cb13-13"></a><span class="kw">target_include_directories</span>(</span>
+<span id="cb13-14"><a href="test-case-template.html#cb13-14"></a>  dlognorm_benchmark <span class="ot">PUBLIC</span></span>
+<span id="cb13-15"><a href="test-case-template.html#cb13-15"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb13-16"><a href="test-case-template.html#cb13-16"></a>)</span>
+<span id="cb13-17"><a href="test-case-template.html#cb13-17"></a></span>
+<span id="cb13-18"><a href="test-case-template.html#cb13-18"></a><span class="kw">target_link_libraries</span>(</span>
+<span id="cb13-19"><a href="test-case-template.html#cb13-19"></a>  dlognorm_benchmark</span>
+<span id="cb13-20"><a href="test-case-template.html#cb13-20"></a>  benchmark_main</span>
+<span id="cb13-21"><a href="test-case-template.html#cb13-21"></a>)</span></code></pre></div>
+<p>To run the benchmark,</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="test-case-template.html#cb14-1"></a><span class="bu">cd</span> build</span>
+<span id="cb14-2"><a href="test-case-template.html#cb14-2"></a><span class="ex">./dlognorm_benchmark.exe</span></span></code></pre></div>
+<p>The output might look like this:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="test-case-template.html#cb15-1"></a></span>
+<span id="cb15-2"><a href="test-case-template.html#cb15-2"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
+<span id="cb15-3"><a href="test-case-template.html#cb15-3"></a><span class="ex">----------------------------------------------------------------</span></span>
+<span id="cb15-4"><a href="test-case-template.html#cb15-4"></a><span class="ex">Benchmark</span>                      Time             CPU   Iterations</span>
+<span id="cb15-5"><a href="test-case-template.html#cb15-5"></a><span class="ex">----------------------------------------------------------------</span></span>
+<span id="cb15-6"><a href="test-case-template.html#cb15-6"></a><span class="ex">BM_dlgnorm</span>                   128 ns          126 ns      5600000</span></code></pre></div>
+</div>
+</div>
+<div id="r-testing" class="section level2">
+<h2><span class="header-section-number">6.3</span> R testing</h2>
+<p>FIMS uses R testthat package for writing R tests. You can install the packages following the instructions on <a href="https://testthat.r-lib.org/">testthat website</a>. If you are not familiar with testthat, the <a href="https://r-pkgs.org/tests.html">testing chapter</a> in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.</p>
+<div id="r-testthat-template" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> R testthat template</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="test-case-template.html#cb16-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb16-2"><a href="test-case-template.html#cb16-2"></a>  </span>
+<span id="cb16-3"><a href="test-case-template.html#cb16-3"></a>  ...test body...</span>
+<span id="cb16-4"><a href="test-case-template.html#cb16-4"></a>  </span>
+<span id="cb16-5"><a href="test-case-template.html#cb16-5"></a>})</span></code></pre></div>
+</div>
+</div>
+<div id="test-case-template-and-examples" class="section level2">
+<h2><span class="header-section-number">6.4</span> Test case template and examples</h2>
+<div id="test-case-template-1" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Test case template</h3>
+<p>Individual functional or integration test cases will be designed following the template below.</p>
+<ul>
+<li><p><em>Test ID</em>. Create a meaningful name for the test case.</p></li>
+<li><p><em>Features to be tested</em>. Provide a brief statement of test objectives and description of the features to be tested. (Identify the test items following the <a href="https://docs.google.com/document/d/1iSEhJqcpSD269QdABeDE4aBZGqGcBrIrLnS7eMkSYv0/edit?usp=sharing"><span class="ul">FIMS software design specification document</span></a> and identify all features that will not be tested and the rationale for exclusion)</p></li>
+<li><p><em>Approach</em>. Specify the approach that will ensure that the features are adequately tested and specify which type of test is used in this case.</p></li>
+<li><p><em>Evaluation criteria</em>. Provide a list of expected results and acceptance criteria.</p>
+<ul>
+<li><p>Pass/fail criteria. Specify the criteria used to determine whether each feature has passed or failed testing.</p></li>
+<li><p>In addition to setting pass/fail criteria with specific tolerance values, a documentation that just views the outputs of some tests may be useful if the tests require additional computations, simulations, and comparisons</p></li>
+</ul></li>
+<li><p><em>Test deliverables</em>. Identify all information that is to be delivered by the test activity.</p>
+<ul>
+<li>Test logs and automated status reports</li>
+</ul></li>
+</ul>
+</div>
+<div id="test-case-examples" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Test case examples</h3>
+<div id="general-test-case" class="section level4">
+<h4><span class="header-section-number">6.4.2.1</span> General test case</h4>
+<p>The test case below is a general case and it can be applied to many functions/modules. For individual functions/modules, please make detailed test cases for specific options to avoid duplication as much as possible.</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Test ID</th>
+<th>General test case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Features to be tested</td>
+<td><ul>
+<li><p>The function/module returns correct output values given different input values</p></li>
+<li><p>The function/module returns error messages when users give wrong types of inputs</p></li>
+<li><p>The function/module notifies an error if the input value is outside the bound of the input parameter</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Approach</td>
+<td><ul>
+<li><p>Prepare expected true values using R</p></li>
+<li><p>Run tests in R using testthat and compare output values with expected values</p></li>
+<li><p>Push tests to the working repository and run tests using GitHub Actions</p></li>
+<li><p>Run tests in different OS environments (windows latest, macOS latest, and ubuntu latest) using GitHub Actions</p></li>
+<li><p>Submit pull request for code review</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Evaluation Criteria</td>
+<td><ul>
+<li><p>The tests pass if the output values equal to the expected true values</p></li>
+<li><p>The tests pass if the function/module returns error messages when users give wrong types of inputs</p></li>
+<li><p>The tests pass if the function/module returns error messages when user provides an input value that is outside the bound of the input parameter</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Test deliverables</td>
+<td><ul>
+<li>Test logs on GitHub Actions</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="functional-test-example-tmb-probability-mass-function-of-the-multinomial-distribution" class="section level4">
+<h4><span class="header-section-number">6.4.2.2</span> Functional test example: TMB probability mass function of the multinomial distribution</h4>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Test ID</th>
+<th>Probability mass function of the multinomial distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Features to be tested</td>
+<td><ul>
+<li>Same as the general test case</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Approach</td>
+<td><p>Functional test</p>
+<ul>
+<li>Prepare expected true values using R function dmultinom from package ‘stats’</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Evaluation Criteria</td>
+<td><ul>
+<li>Same as the general test case</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Test deliverables</td>
+<td><ul>
+<li>Same as the general test case</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="integration-test-example-li-et-al.-2021-age-structured-stock-assessment-model-comparison" class="section level4">
+<h4><span class="header-section-number">6.4.2.3</span> Integration test example: <a href="https://doi.org/10.7755/FB.119.2-3.5"><span class="ul">Li et al. 2021 age-structured stock assessment model comparison</span></a></h4>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="90%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Test ID</th>
+<th>Age-structured stock assessment comparison (<a href="https://doi.org/10.7755/FB.119.2-3.5"><span class="ul">Li et al. 2021</span></a>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Features to be tested</td>
+<td><ul>
+<li><p>Null case (update standard deviation of the log of recruitment from 0.2 to 0.5 based on <a href="http://dx.doi.org/10.1139/cjfas-2015-0398"><span class="ul">Siegfried et al. 2016</span></a> snapper-grouper complex)</p></li>
+<li><p>Recruitment variability</p></li>
+<li><p>Stochastic Fishing mortality (F)</p></li>
+<li><p>F patterns (e.g., roller coaster: up then down and down then up; constant F<sub>low</sub>, F<sub>MSY</sub>, and F<sub>high</sub>)</p></li>
+<li><p>Selectivity patterns</p></li>
+<li><p>Recruitment bias adjustment</p></li>
+<li><p>Initial condition</p></li>
+<li><p>(unit of catch: number or weight)</p></li>
+<li><p>Model misspecification (e.g., growth, natural mortality, and steepness, catchability etc)</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Approach</td>
+<td><p>Integration test</p>
+<ul>
+<li>Prepare expected true values from an operating model using R functions from <a href="https://github.com/Bai-Li-NOAA/Age_Structured_Stock_Assessment_Model_Comparison"><span class="ul">Age_Structured_Stock_Assessment_Model_Comparison</span></a> GitHub repository</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Evaluation Criteria</td>
+<td><ul>
+<li><p>Summarize median absolute relative error (MARE) between true values from the operating model and the FIMS estimation model</p></li>
+<li><p>If all MAREs from the null case are less than 10% and all MARES are less than 15%, the tests pass. If the MAREs are greater than 15%, a closer examination is needed.</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Test deliverables</td>
+<td><ul>
+<li><p>In addition to the test logs on GitHub Actions, a document that includes comparison figures from various cases (e.g., Fig 5 and 6 from Li et al. 2021) will be automatically generated</p></li>
+<li><p>A table that shows median absolute relative errors in unfished recruitment, catchability, spawning stock biomass, recruitment, fishing mortality, and reference points (e.g., Table 6 from Li et al. 2021) will be automatically generated</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="glossary" class="section level2">
+<h2><span class="header-section-number">6.5</span> Glossary</h2>
+<div id="unit-testing" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Unit testing</h3>
+<ul>
+<li><p>Description: It tests individual methods and functions of the classes, components or modules used by the software independently. It executes only small portions of the test cases during the development process.</p></li>
+<li><p>Writer: Developer</p></li>
+<li><p>Advantages: It finds problems early and helps trace the bugs in the development cycle; cheap to automate when a method has clear input parameters and output; can be run quickly.</p></li>
+<li><p>Limitations: Tedious to create; it won’t catch integration errors if a method or a function has interactions with something external to the software.</p></li>
+<li><p>Examples: A recruitment module may consist of a few stock-recruit functions. We could use a set of unit test cases that ensure each stock-recruit function is correct and meets its design as intended while developing the function.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Unit_testing"><span class="ul">Wikipedia description</span></a></p></li>
+</ul>
+</div>
+<div id="functional-testing" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Functional testing</h3>
+<ul>
+<li><p>Description: It checks software’s performance with respect to its specified requirements. Testers do not need to examine the internal structure of the piece of software tested but just test a slice of functionality of the whole system after it has been developed.</p></li>
+<li><p>Writer: Tester</p></li>
+<li><p>Advantages: It verifies that the functionalities of the software are working as defined; lead to reduced developer bias since the tester has not been involved in the software’s development.</p></li>
+<li><p>Limitations: Need to create input data and determine output based on each function’s specifications; need to know how to compare actual and expected outputs and how to check whether the software works as the requirements specified.</p></li>
+<li><p>Examples: The software requires development of catch-based projection. We could use a set of functional test cases that help verify if the model produces correct output given specified catch input after catch-based projection has been implemented in the system.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Functional_testing"><span class="ul">Wikipedia description</span></a>; <a href="https://github.com/timjmiller/wham/tree/master/tests/testthat"><span class="ul">WHAM testthat examples</span></a></p></li>
+</ul>
+</div>
+<div id="integration-testing" class="section level3">
+<h3><span class="header-section-number">6.5.3</span> Integration testing</h3>
+<ul>
+<li><p>Description: A group of software modules are coupled together and tested. Integrate software modules all together and verify the interfaces between modules against the software design. It is tested until the software works as a system.</p></li>
+<li><p>Writer: Tester</p></li>
+<li><p>Advantages: It builds a working version of the system by putting the modules together. It assembles a software system and helps detect errors associated with interfacing.</p></li>
+<li><p>Limitations: The tests only can be executed after all the modules are developed. It may be difficult to locate errors because all components are integrated together.</p></li>
+<li><p>Examples: After developing all the modules, we could set up a few stock assessment test models and check if the software can read the input file, run the stock assessment models, and provide desired output.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Integration_testing"><span class="ul">Wikipedia description</span></a></p></li>
+</ul>
+</div>
+<div id="run-time-testing" class="section level3">
+<h3><span class="header-section-number">6.5.4</span> Run-time testing</h3>
+<ul>
+<li><p>Description: Checks added in the software that catch user input errors. The developer will add in checks to the software; the user will trigger these checks if there are input errors</p></li>
+<li><p>Writer: developer</p></li>
+<li><p>Advantages: Provides guidance to the user while using the software</p></li>
+<li><p>Limitations: Adding many checks can cause the software to run more slowly, the messages need to be helpful so the user can fix the input error.</p></li>
+<li><p>Examples: A user inputs a vector of values when they only need to input a single integer value. When running the software, they get an error message telling them that they should use a single integer value instead.</p></li>
+<li><p>Reference: <a href="http://www.crcpress.com/9781498763653"><span class="ul">Testing R code book</span></a></p></li>
+</ul>
+</div>
+<div id="regression-testing" class="section level3">
+<h3><span class="header-section-number">6.5.5</span> Regression testing</h3>
+<ul>
+<li><p>Description: Re-running tests to ensure that previously developed and tested software still performs after a change. Testers can execute regression testing after adding a new feature to the software or whenever a previously discovered issue has been fixed. Testers can run all tests or a part of the test suite to check the correctness or quality of the software.</p></li>
+<li><p>Writer: Tester</p></li>
+<li><p>Advantages: It ensures that the changes made to the software have not affected the existing functionalities or correctness of the software.</p></li>
+<li><p>Limitations: If the team makes changes to the software often, it may be difficult to run all tests from the test suite frequently. In that case, it’s a good idea to have a regression testing schedule. For example, run a part of the test suite that is higher in priority after every change and run the full test suite weekly or monthly, etc.</p></li>
+<li><p>Examples: Set up a test suit like the <a href="https://github.com/nmfs-stock-synthesis/ss-test-models"><span class="ul">ss-test-models</span></a> repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a “reference run” (e.g., the last release of the software).</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Regression_testing"><span class="ul">Wikipedia description</span></a></p></li>
+</ul>
+</div>
+<div id="platform-compatibility-testing" class="section level3">
+<h3><span class="header-section-number">6.5.6</span> Platform compatibility testing</h3>
+<ul>
+<li><p>Description: It checks whether the software is capable of running on different operating systems and versions of other softwares. Testers need to define a set of environments or platforms the application is expected to work on. Testers can test the software on different operating systems or platforms and report the bugs.</p></li>
+<li><p>Writer: Tester</p></li>
+<li><p>Advantages: It ensures that the developed software works under different configurations and is compatible with the client’s environment.</p></li>
+<li><p>Limitations: Testers need to have knowledge of the testing environment and platforms to understand the expected software behavior under different configurations. It may be difficult to figure out why the software produces different results when using different operating systems.</p></li>
+<li><p>Examples: Set up an automated workflow and see if the software can be compatible with different operating systems, such as Windows, macOS, and Linux. Also, testers can check if the software is compatible with different versions of R (e.g., release version and version 3.6, etc).</p></li>
+<li><p>Reference: <a href="https://glossary.istqb.org/en/search/compatibility"><span class="ul">International Software Testing Qualification Board</span></a></p></li>
+</ul>
+</div>
+<div id="beta-testing" class="section level3">
+<h3><span class="header-section-number">6.5.7</span> Beta testing</h3>
+<ul>
+<li><p>Description: It is a form of external user acceptance testing and the feedback from users can ensure the software has fewer bugs. The software is released to a limited end-users outside of the implementation team and the end-users (beta testers) can report issues of beta software to the implementation team after further testing.</p></li>
+<li><p>Writer: Members of implementation team and other users</p></li>
+<li><p>Advantages: It helps in uncovering unexpected errors that happen in the client’s environment. The implementation team can receive direct feedback from users before shipping the software to users.</p></li>
+<li><p>Limitations: The testing environment is not under the control of the implementation team and it may be hard to reproduce the bugs.</p></li>
+<li><p>Examples: Prepare a document that describes the new features of the software and share it with selected end-users. Send a pre-release of the software to selected users for further testing and gather feedback from users.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Software_testing"><span class="ul">Wikipedia description</span></a>; <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/tag/v3.30.18-prerel"><span class="ul">SS prerelease example</span></a></p></li>
+</ul>
+</div>
+<div id="one-off-testing" class="section level3">
+<h3><span class="header-section-number">6.5.8</span> One-off testing</h3>
+<ul>
+<li><p>Description: It is for replicating and fixing user-reported bugs. It is a special testing that needs to be completed outside of the ordinary routine. Testers write a test that replicates the bug and run the test to check if the test is failing as expected. After fixing the bug, the testers can run the test again and check if the test is passing.</p></li>
+<li><p>Writer: Developer and tester</p></li>
+<li><p>Advantages: The test is simple, fast, and efficient for fixing bugs.</p></li>
+<li><p>Limitations: The tests are specific to bugs and may require manual testing.</p></li>
+<li><p>Examples: A bug is found in the code and the software does not work properly. Tester can create a test to replicate the bug and the test would fail as expected. After the developer fixes the bug, the tester can run the test and see if the issue is resolved.</p></li>
+<li><p>Reference: <a href="https://glossary.istqb.org/en/search/confirmation"><span class="ul">International Software Testing Qualification Board</span></a>; <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/issues/148"><span class="ul">SS bug fix example</span></a></p></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hpp-template-for-c-modules.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="documentation-template.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/05-test-case-template.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/05-test-case-template.Rmd",
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
