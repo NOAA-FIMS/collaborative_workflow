@@ -16,7 +16,7 @@ FIMS Community leaders will create default community health files (e.g. CONTRIBU
 
 ### Reporting Unacceptable Behavior
 
-Questions about the FIMS Code of Conduct or reports of unacceptable behavior should be sent to [INSERT FIMS EMAIL WHEN AVAILABLE]. Reports will be reviewed by a member of the NOAA Fisheries Office of Science and Technology who is not participating in the FIMS Project [TBD], but has the full support of FIMS Community Leaders. All reports will be reviewed promptly and fairly. 
+Questions about the FIMS Code of Conduct or reports of unacceptable behavior should be sent to jim.berkson@noaa.gov. Reports will be reviewed by a member of the NOAA Fisheries Office of Science and Technology who is not participating in the FIMS Project [Jim Berkson], but has the full support of FIMS Community Leaders. All reports will be reviewed promptly and fairly. 
 
 ### Consequences of Violating Conduct
 

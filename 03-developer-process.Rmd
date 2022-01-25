@@ -68,15 +68,27 @@ Utilize labels on issues:
 
 ### Issue Templates
 
-To be developed...
+There are two issue templates currently available in the FIMS repository.
+1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
+2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
 
 ### Issue Lifecycle
 
-To be added...
+FIMS development will adhere to a lifecycle for issues that makes it clear which issues can be resolved when.
+
+* Creation — The event that marks the creation of an issue. An issue is not Active when it is Created. Issues that are opened are assigned to the FIMS Project Lead with the label: `needs-triage`. A issue is not considered Active until this label is removed.
+* Activation — When the `needs-triage` label is removed and the issue is assigned to a developer, the issue becomes Active. This event happens once in the lifecycle of an issue. Activation usually is not undone but it can be undone if an issue needs additional discussion; in this case, the `needs-triage` label is applied again. An issue is Active from the time it is Activated until reaches Resolution.
+* Response — This event only happens if the triage team deems an issue to a wont-fix or delayed. This requires communication with the party who opened the issue as to why this will not be addressed or will be moved to a later milestone.
+* Resolution — The event that marks the resolution of an issue. This event happens once in the lifetime of an issue. This event can be undone if an issue transitions from a resolved status to an unresolved status, in which case the system considers the issue as never had been resolved. A resolution involves a code check-in and pull request, at which point someone must review and approve the pull request before the issue can transition states.
+* In Review - The issue is "in review" after a code solution has been proposed and is being considered via a pull request. If this is approved, the issue can move into the "Closed" state.
+* Closure—The event that marks the closure of an Issue. This even happens once in the lifetime of an issue. The issue can enter the Closed state from either the "In Review" or "Response" state.
+
+![Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed]("New Flowchart.png")
 
 ## Pull Requests
 
 Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
+Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) to create pull requests. Pull requests without this template attached will not be approved.
 
 ## Code Review
 
