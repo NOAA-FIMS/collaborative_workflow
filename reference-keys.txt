@@ -8,6 +8,8 @@ supporting-good-conduct
 reporting-unacceptable-behavior
 consequences-of-violating-conduct
 style-guide
+fims-governance
+external-collaborators
 contributor-guidelines
 fims-branching-strategy
 branching-good-practices
@@ -58,5 +60,3 @@ documentation-template
 writing-function-reference
 writing-a-vignette
 step-by-step-documentation-update-process
-fims-governance
-external-collaborators
