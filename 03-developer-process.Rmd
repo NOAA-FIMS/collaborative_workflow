@@ -83,7 +83,7 @@ FIMS development will adhere to a lifecycle for issues that makes it clear which
 * In Review - The issue is "in review" after a code solution has been proposed and is being considered via a pull request. If this is approved, the issue can move into the "Closed" state.
 * Closure—The event that marks the closure of an Issue. This even happens once in the lifetime of an issue. The issue can enter the Closed state from either the "In Review" or "Response" state.
 
-```{r flowchart, echo = FALSE out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
+```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
 knitr::include_graphics("New Flowchart.png")
 ```
 
