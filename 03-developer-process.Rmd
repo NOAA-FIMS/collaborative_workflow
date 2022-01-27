@@ -50,7 +50,7 @@ Following good software development and coding practices simplifies collaboratio
 * Capitalize SQL queries so they are readily distinguishable from table/column names
 * Lint your code
 
-## Issue Tracking
+# Issue Tracking
 
 Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, 
 etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change 
@@ -59,20 +59,20 @@ be assigned to the current version number augmented for a hot fix and developmen
 assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
 for version 3.3. This will minimize stale code and large merge conflicts.
 
-### Issue Labels
+## Issue Labels
 
 Utilize labels on issues:
 
 * To describe the kind of work to be done: bug, enhancement, task, discussion, question, suitable for beginners
 * To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
 
-### Issue Templates
+## Issue Templates
 
 There are two issue templates currently available in the FIMS repository.
 1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
 2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
 
-### Issue Lifecycle
+## Issue Lifecycle
 
 FIMS development will adhere to a lifecycle for issues that makes it clear which issues can be resolved when.
 
@@ -83,8 +83,8 @@ FIMS development will adhere to a lifecycle for issues that makes it clear which
 * In Review - The issue is "in review" after a code solution has been proposed and is being considered via a pull request. If this is approved, the issue can move into the "Closed" state.
 * Closure—The event that marks the closure of an Issue. This even happens once in the lifetime of an issue. The issue can enter the Closed state from either the "In Review" or "Response" state.
 
-```{r flowchart, out.width='50%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
-knitr::include_graphics('New Flowchart.png')
+```{r flowchart, echo = FALSE out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
+knitr::include_graphics("New Flowchart.png")
 ```
 
 ## Pull Requests
