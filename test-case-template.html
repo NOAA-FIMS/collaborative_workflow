@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS implementation team" />
 
 
-<meta name="date" content="2022-01-25" />
+<meta name="date" content="2022-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -270,194 +270,194 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Go to the FIMS C++ tests folder and create a <code>CMakeLists.txt</code> file. Declare a dependency on GoogleTest with following contents:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb4-1"><a href="test-case-template.html#cb4-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.14)</span>
-<span id="cb4-2"><a href="test-case-template.html#cb4-2"></a><span class="kw">project</span>(FIMS_project)</span>
-<span id="cb4-3"><a href="test-case-template.html#cb4-3"></a></span>
-<span id="cb4-4"><a href="test-case-template.html#cb4-4"></a><span class="co"># GoogleTest requires at least C++11</span></span>
-<span id="cb4-5"><a href="test-case-template.html#cb4-5"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD</span> 11)</span>
-<span id="cb4-6"><a href="test-case-template.html#cb4-6"></a></span>
-<span id="cb4-7"><a href="test-case-template.html#cb4-7"></a><span class="kw">include</span>(FetchContent)</span>
-<span id="cb4-8"><a href="test-case-template.html#cb4-8"></a><span class="fu">FetchContent_Declare</span>(</span>
-<span id="cb4-9"><a href="test-case-template.html#cb4-9"></a>  googletest</span>
-<span id="cb4-10"><a href="test-case-template.html#cb4-10"></a>  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip</span>
-<span id="cb4-11"><a href="test-case-template.html#cb4-11"></a>)</span>
-<span id="cb4-12"><a href="test-case-template.html#cb4-12"></a></span>
-<span id="cb4-13"><a href="test-case-template.html#cb4-13"></a><span class="co"># For Windows: Prevent overriding the parent project&#39;s compiler/linker settings</span></span>
-<span id="cb4-14"><a href="test-case-template.html#cb4-14"></a><span class="kw">set</span>(gtest_force_shared_crt ON <span class="ot">CACHE</span> <span class="ot">BOOL</span> <span class="st">&quot;&quot;</span> <span class="ot">FORCE</span>)</span>
-<span id="cb4-15"><a href="test-case-template.html#cb4-15"></a><span class="fu">FetchContent_MakeAvailable</span>(googletest)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb5-1"><a href="test-case-template.html#cb5-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.14)</span>
+<span id="cb5-2"><a href="test-case-template.html#cb5-2"></a><span class="kw">project</span>(FIMS_project)</span>
+<span id="cb5-3"><a href="test-case-template.html#cb5-3"></a></span>
+<span id="cb5-4"><a href="test-case-template.html#cb5-4"></a><span class="co"># GoogleTest requires at least C++11</span></span>
+<span id="cb5-5"><a href="test-case-template.html#cb5-5"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD</span> 11)</span>
+<span id="cb5-6"><a href="test-case-template.html#cb5-6"></a></span>
+<span id="cb5-7"><a href="test-case-template.html#cb5-7"></a><span class="kw">include</span>(FetchContent)</span>
+<span id="cb5-8"><a href="test-case-template.html#cb5-8"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb5-9"><a href="test-case-template.html#cb5-9"></a>  googletest</span>
+<span id="cb5-10"><a href="test-case-template.html#cb5-10"></a>  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip</span>
+<span id="cb5-11"><a href="test-case-template.html#cb5-11"></a>)</span>
+<span id="cb5-12"><a href="test-case-template.html#cb5-12"></a></span>
+<span id="cb5-13"><a href="test-case-template.html#cb5-13"></a><span class="co"># For Windows: Prevent overriding the parent project&#39;s compiler/linker settings</span></span>
+<span id="cb5-14"><a href="test-case-template.html#cb5-14"></a><span class="kw">set</span>(gtest_force_shared_crt ON <span class="ot">CACHE</span> <span class="ot">BOOL</span> <span class="st">&quot;&quot;</span> <span class="ot">FORCE</span>)</span>
+<span id="cb5-15"><a href="test-case-template.html#cb5-15"></a><span class="fu">FetchContent_MakeAvailable</span>(googletest)</span></code></pre></div>
 <ul>
 <li>If a <code>CMakeLists.txt</code> file already exists in the tests folder, you can start creating a unit test and add it to the <code>CMakeLists.txt</code>.</li>
 </ul>
 </div>
 <div id="unit-test-template" class="section level3">
 <h3><span class="header-section-number">7.2.4</span> Unit test template</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="test-case-template.html#cb5-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb5-2"><a href="test-case-template.html#cb5-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
-<span id="cb5-3"><a href="test-case-template.html#cb5-3"></a></span>
-<span id="cb5-4"><a href="test-case-template.html#cb5-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb5-5"><a href="test-case-template.html#cb5-5"></a></span>
-<span id="cb5-6"><a href="test-case-template.html#cb5-6"></a>namespace {</span>
-<span id="cb5-7"><a href="test-case-template.html#cb5-7"></a></span>
-<span id="cb5-8"><a href="test-case-template.html#cb5-8"></a>  <span class="co">// Description of Test 1 </span></span>
-<span id="cb5-9"><a href="test-case-template.html#cb5-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
-<span id="cb5-10"><a href="test-case-template.html#cb5-10"></a>    </span>
-<span id="cb5-11"><a href="test-case-template.html#cb5-11"></a>    ... test body ... </span>
-<span id="cb5-12"><a href="test-case-template.html#cb5-12"></a>    </span>
-<span id="cb5-13"><a href="test-case-template.html#cb5-13"></a>  }</span>
-<span id="cb5-14"><a href="test-case-template.html#cb5-14"></a>  </span>
-<span id="cb5-15"><a href="test-case-template.html#cb5-15"></a>  <span class="co">// Description of Test 2</span></span>
-<span id="cb5-16"><a href="test-case-template.html#cb5-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
-<span id="cb5-17"><a href="test-case-template.html#cb5-17"></a>    </span>
-<span id="cb5-18"><a href="test-case-template.html#cb5-18"></a>    ... test body ...</span>
-<span id="cb5-19"><a href="test-case-template.html#cb5-19"></a>    </span>
-<span id="cb5-20"><a href="test-case-template.html#cb5-20"></a>  }</span>
-<span id="cb5-21"><a href="test-case-template.html#cb5-21"></a>  </span>
-<span id="cb5-22"><a href="test-case-template.html#cb5-22"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="test-case-template.html#cb6-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb6-2"><a href="test-case-template.html#cb6-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb6-3"><a href="test-case-template.html#cb6-3"></a></span>
+<span id="cb6-4"><a href="test-case-template.html#cb6-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb6-5"><a href="test-case-template.html#cb6-5"></a></span>
+<span id="cb6-6"><a href="test-case-template.html#cb6-6"></a>namespace {</span>
+<span id="cb6-7"><a href="test-case-template.html#cb6-7"></a></span>
+<span id="cb6-8"><a href="test-case-template.html#cb6-8"></a>  <span class="co">// Description of Test 1 </span></span>
+<span id="cb6-9"><a href="test-case-template.html#cb6-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
+<span id="cb6-10"><a href="test-case-template.html#cb6-10"></a>    </span>
+<span id="cb6-11"><a href="test-case-template.html#cb6-11"></a>    ... test body ... </span>
+<span id="cb6-12"><a href="test-case-template.html#cb6-12"></a>    </span>
+<span id="cb6-13"><a href="test-case-template.html#cb6-13"></a>  }</span>
+<span id="cb6-14"><a href="test-case-template.html#cb6-14"></a>  </span>
+<span id="cb6-15"><a href="test-case-template.html#cb6-15"></a>  <span class="co">// Description of Test 2</span></span>
+<span id="cb6-16"><a href="test-case-template.html#cb6-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
+<span id="cb6-17"><a href="test-case-template.html#cb6-17"></a>    </span>
+<span id="cb6-18"><a href="test-case-template.html#cb6-18"></a>    ... test body ...</span>
+<span id="cb6-19"><a href="test-case-template.html#cb6-19"></a>    </span>
+<span id="cb6-20"><a href="test-case-template.html#cb6-20"></a>  }</span>
+<span id="cb6-21"><a href="test-case-template.html#cb6-21"></a>  </span>
+<span id="cb6-22"><a href="test-case-template.html#cb6-22"></a>}</span></code></pre></div>
 </div>
 <div id="unit-test-example" class="section level3">
 <h3><span class="header-section-number">7.2.5</span> Unit test example</h3>
 <p>Let’s create dlognorm.hpp that has a simple function:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="test-case-template.html#cb6-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
-<span id="cb6-2"><a href="test-case-template.html#cb6-2"></a></span>
-<span id="cb6-3"><a href="test-case-template.html#cb6-3"></a>template&lt;class Type&gt;</span>
-<span id="cb6-4"><a href="test-case-template.html#cb6-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
-<span id="cb6-5"><a href="test-case-template.html#cb6-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
-<span id="cb6-6"><a href="test-case-template.html#cb6-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
-<span id="cb6-7"><a href="test-case-template.html#cb6-7"></a>  <span class="cf">return</span> logres; </span>
-<span id="cb6-8"><a href="test-case-template.html#cb6-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="test-case-template.html#cb7-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
+<span id="cb7-2"><a href="test-case-template.html#cb7-2"></a></span>
+<span id="cb7-3"><a href="test-case-template.html#cb7-3"></a>template&lt;class Type&gt;</span>
+<span id="cb7-4"><a href="test-case-template.html#cb7-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
+<span id="cb7-5"><a href="test-case-template.html#cb7-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
+<span id="cb7-6"><a href="test-case-template.html#cb7-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
+<span id="cb7-7"><a href="test-case-template.html#cb7-7"></a>  <span class="cf">return</span> logres; </span>
+<span id="cb7-8"><a href="test-case-template.html#cb7-8"></a>}</span></code></pre></div>
 <p>We can create a test file dlognorm-unit.cpp that has a test suite for this function:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="test-case-template.html#cb7-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb7-2"><a href="test-case-template.html#cb7-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
-<span id="cb7-3"><a href="test-case-template.html#cb7-3"></a></span>
-<span id="cb7-4"><a href="test-case-template.html#cb7-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb7-5"><a href="test-case-template.html#cb7-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0) = -0.9189385</span></span>
-<span id="cb7-6"><a href="test-case-template.html#cb7-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5) = -9.07679</span></span>
-<span id="cb7-7"><a href="test-case-template.html#cb7-7"></a></span>
-<span id="cb7-8"><a href="test-case-template.html#cb7-8"></a>namespace {</span>
-<span id="cb7-9"><a href="test-case-template.html#cb7-9"></a></span>
-<span id="cb7-10"><a href="test-case-template.html#cb7-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
-<span id="cb7-11"><a href="test-case-template.html#cb7-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
-<span id="cb7-12"><a href="test-case-template.html#cb7-12"></a>  </span>
-<span id="cb7-13"><a href="test-case-template.html#cb7-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
-<span id="cb7-14"><a href="test-case-template.html#cb7-14"></a>    </span>
-<span id="cb7-15"><a href="test-case-template.html#cb7-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> ); </span>
-<span id="cb7-16"><a href="test-case-template.html#cb7-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> ); </span>
-<span id="cb7-17"><a href="test-case-template.html#cb7-17"></a>    </span>
-<span id="cb7-18"><a href="test-case-template.html#cb7-18"></a>  }</span>
-<span id="cb7-19"><a href="test-case-template.html#cb7-19"></a>  </span>
-<span id="cb7-20"><a href="test-case-template.html#cb7-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
-<span id="cb7-21"><a href="test-case-template.html#cb7-21"></a>  </span>
-<span id="cb7-22"><a href="test-case-template.html#cb7-22"></a>  TEST(dlognormTest, IntInput) {</span>
-<span id="cb7-23"><a href="test-case-template.html#cb7-23"></a>    </span>
-<span id="cb7-24"><a href="test-case-template.html#cb7-24"></a>    EXPECT_NE( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> );</span>
-<span id="cb7-25"><a href="test-case-template.html#cb7-25"></a>    </span>
-<span id="cb7-26"><a href="test-case-template.html#cb7-26"></a>  }</span>
-<span id="cb7-27"><a href="test-case-template.html#cb7-27"></a>  </span>
-<span id="cb7-28"><a href="test-case-template.html#cb7-28"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="test-case-template.html#cb8-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb8-2"><a href="test-case-template.html#cb8-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
+<span id="cb8-3"><a href="test-case-template.html#cb8-3"></a></span>
+<span id="cb8-4"><a href="test-case-template.html#cb8-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb8-5"><a href="test-case-template.html#cb8-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0) = -0.9189385</span></span>
+<span id="cb8-6"><a href="test-case-template.html#cb8-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5) = -9.07679</span></span>
+<span id="cb8-7"><a href="test-case-template.html#cb8-7"></a></span>
+<span id="cb8-8"><a href="test-case-template.html#cb8-8"></a>namespace {</span>
+<span id="cb8-9"><a href="test-case-template.html#cb8-9"></a></span>
+<span id="cb8-10"><a href="test-case-template.html#cb8-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
+<span id="cb8-11"><a href="test-case-template.html#cb8-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
+<span id="cb8-12"><a href="test-case-template.html#cb8-12"></a>  </span>
+<span id="cb8-13"><a href="test-case-template.html#cb8-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
+<span id="cb8-14"><a href="test-case-template.html#cb8-14"></a>    </span>
+<span id="cb8-15"><a href="test-case-template.html#cb8-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> ); </span>
+<span id="cb8-16"><a href="test-case-template.html#cb8-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> ); </span>
+<span id="cb8-17"><a href="test-case-template.html#cb8-17"></a>    </span>
+<span id="cb8-18"><a href="test-case-template.html#cb8-18"></a>  }</span>
+<span id="cb8-19"><a href="test-case-template.html#cb8-19"></a>  </span>
+<span id="cb8-20"><a href="test-case-template.html#cb8-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
+<span id="cb8-21"><a href="test-case-template.html#cb8-21"></a>  </span>
+<span id="cb8-22"><a href="test-case-template.html#cb8-22"></a>  TEST(dlognormTest, IntInput) {</span>
+<span id="cb8-23"><a href="test-case-template.html#cb8-23"></a>    </span>
+<span id="cb8-24"><a href="test-case-template.html#cb8-24"></a>    EXPECT_NE( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> );</span>
+<span id="cb8-25"><a href="test-case-template.html#cb8-25"></a>    </span>
+<span id="cb8-26"><a href="test-case-template.html#cb8-26"></a>  }</span>
+<span id="cb8-27"><a href="test-case-template.html#cb8-27"></a>  </span>
+<span id="cb8-28"><a href="test-case-template.html#cb8-28"></a>}</span></code></pre></div>
 <p><code>EXPECT_NEAR(val1, val2, absolute_error)</code> verifies that the difference between <code>val1</code> and <code>val2</code> does not exceed the absolute error bound <code>absolute_error</code>. <code>EXPECT_NE(val1, val2)</code> verifies that <code>val1</code> is not equal to <code>val2</code>. Please see GoogleTest <a href="https://google.github.io/googletest/reference/assertions.html">assertions reference</a> for more <code>EXPECT_</code> macros.</p>
 </div>
 <div id="add-tests-to-cmakelists.txt-and-run-a-binary" class="section level3">
 <h3><span class="header-section-number">7.2.6</span> Add tests to <code>CMakeLists.txt</code> and run a binary</h3>
 <p>To build the code, add the following contents to the end of your <code>CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb8-1"><a href="test-case-template.html#cb8-1"></a><span class="kw">enable_testing</span>()</span>
-<span id="cb8-2"><a href="test-case-template.html#cb8-2"></a></span>
-<span id="cb8-3"><a href="test-case-template.html#cb8-3"></a><span class="kw">add_executable</span>(</span>
-<span id="cb8-4"><a href="test-case-template.html#cb8-4"></a>  dlognorm_test</span>
-<span id="cb8-5"><a href="test-case-template.html#cb8-5"></a>  dlognorm-unit.cpp</span>
-<span id="cb8-6"><a href="test-case-template.html#cb8-6"></a>)</span>
-<span id="cb8-7"><a href="test-case-template.html#cb8-7"></a></span>
-<span id="cb8-8"><a href="test-case-template.html#cb8-8"></a><span class="kw">target_include_directories</span>(</span>
-<span id="cb8-9"><a href="test-case-template.html#cb8-9"></a>  dlognorm_test <span class="ot">PUBLIC</span></span>
-<span id="cb8-10"><a href="test-case-template.html#cb8-10"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb8-11"><a href="test-case-template.html#cb8-11"></a>)</span>
-<span id="cb8-12"><a href="test-case-template.html#cb8-12"></a></span>
-<span id="cb8-13"><a href="test-case-template.html#cb8-13"></a><span class="kw">target_link_libraries</span>(</span>
-<span id="cb8-14"><a href="test-case-template.html#cb8-14"></a>  dlognorm_test</span>
-<span id="cb8-15"><a href="test-case-template.html#cb8-15"></a>  gtest_main</span>
-<span id="cb8-16"><a href="test-case-template.html#cb8-16"></a>)</span>
-<span id="cb8-17"><a href="test-case-template.html#cb8-17"></a></span>
-<span id="cb8-18"><a href="test-case-template.html#cb8-18"></a><span class="kw">include</span>(GoogleTest)</span>
-<span id="cb8-19"><a href="test-case-template.html#cb8-19"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb9-1"><a href="test-case-template.html#cb9-1"></a><span class="kw">enable_testing</span>()</span>
+<span id="cb9-2"><a href="test-case-template.html#cb9-2"></a></span>
+<span id="cb9-3"><a href="test-case-template.html#cb9-3"></a><span class="kw">add_executable</span>(</span>
+<span id="cb9-4"><a href="test-case-template.html#cb9-4"></a>  dlognorm_test</span>
+<span id="cb9-5"><a href="test-case-template.html#cb9-5"></a>  dlognorm-unit.cpp</span>
+<span id="cb9-6"><a href="test-case-template.html#cb9-6"></a>)</span>
+<span id="cb9-7"><a href="test-case-template.html#cb9-7"></a></span>
+<span id="cb9-8"><a href="test-case-template.html#cb9-8"></a><span class="kw">target_include_directories</span>(</span>
+<span id="cb9-9"><a href="test-case-template.html#cb9-9"></a>  dlognorm_test <span class="ot">PUBLIC</span></span>
+<span id="cb9-10"><a href="test-case-template.html#cb9-10"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb9-11"><a href="test-case-template.html#cb9-11"></a>)</span>
+<span id="cb9-12"><a href="test-case-template.html#cb9-12"></a></span>
+<span id="cb9-13"><a href="test-case-template.html#cb9-13"></a><span class="kw">target_link_libraries</span>(</span>
+<span id="cb9-14"><a href="test-case-template.html#cb9-14"></a>  dlognorm_test</span>
+<span id="cb9-15"><a href="test-case-template.html#cb9-15"></a>  gtest_main</span>
+<span id="cb9-16"><a href="test-case-template.html#cb9-16"></a>)</span>
+<span id="cb9-17"><a href="test-case-template.html#cb9-17"></a></span>
+<span id="cb9-18"><a href="test-case-template.html#cb9-18"></a><span class="kw">include</span>(GoogleTest)</span>
+<span id="cb9-19"><a href="test-case-template.html#cb9-19"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
 <p>The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="test-case-template.html#cb9-1"></a><span class="bu">cd</span> tests</span>
-<span id="cb9-2"><a href="test-case-template.html#cb9-2"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span>
-<span id="cb9-3"><a href="test-case-template.html#cb9-3"></a><span class="bu">cd</span> build </span>
-<span id="cb9-4"><a href="test-case-template.html#cb9-4"></a><span class="fu">cmake</span> --build .</span>
-<span id="cb9-5"><a href="test-case-template.html#cb9-5"></a><span class="ex">ctest</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="test-case-template.html#cb10-1"></a><span class="bu">cd</span> tests</span>
+<span id="cb10-2"><a href="test-case-template.html#cb10-2"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span>
+<span id="cb10-3"><a href="test-case-template.html#cb10-3"></a><span class="bu">cd</span> build </span>
+<span id="cb10-4"><a href="test-case-template.html#cb10-4"></a><span class="fu">cmake</span> --build .</span>
+<span id="cb10-5"><a href="test-case-template.html#cb10-5"></a><span class="ex">ctest</span></span></code></pre></div>
 <p>The output might look like this:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="test-case-template.html#cb10-1"></a>    <span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
-<span id="cb10-2"><a href="test-case-template.html#cb10-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.36 sec</span></span>
-<span id="cb10-3"><a href="test-case-template.html#cb10-3"></a>    <span class="ex">Start</span> 2: dlognormTest.IntInput</span>
-<span id="cb10-4"><a href="test-case-template.html#cb10-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.01 sec</span></span>
-<span id="cb10-5"><a href="test-case-template.html#cb10-5"></a></span>
-<span id="cb10-6"><a href="test-case-template.html#cb10-6"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 2</span>
-<span id="cb10-7"><a href="test-case-template.html#cb10-7"></a></span>
-<span id="cb10-8"><a href="test-case-template.html#cb10-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.37</span> sec</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="test-case-template.html#cb11-1"></a>    <span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
+<span id="cb11-2"><a href="test-case-template.html#cb11-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.36 sec</span></span>
+<span id="cb11-3"><a href="test-case-template.html#cb11-3"></a>    <span class="ex">Start</span> 2: dlognormTest.IntInput</span>
+<span id="cb11-4"><a href="test-case-template.html#cb11-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.01 sec</span></span>
+<span id="cb11-5"><a href="test-case-template.html#cb11-5"></a></span>
+<span id="cb11-6"><a href="test-case-template.html#cb11-6"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 2</span>
+<span id="cb11-7"><a href="test-case-template.html#cb11-7"></a></span>
+<span id="cb11-8"><a href="test-case-template.html#cb11-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.37</span> sec</span></code></pre></div>
 <p>Congratulations! You’ve successfully set up a test project and run a test binary using GoogleTest. Let’s use Google Benchmark to measure the real time and CPU time used for running the produced binary.</p>
 </div>
 <div id="benchmark-template" class="section level3">
 <h3><span class="header-section-number">7.2.7</span> Benchmark template</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="test-case-template.html#cb11-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb11-2"><a href="test-case-template.html#cb11-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
-<span id="cb11-3"><a href="test-case-template.html#cb11-3"></a></span>
-<span id="cb11-4"><a href="test-case-template.html#cb11-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
-<span id="cb11-5"><a href="test-case-template.html#cb11-5"></a>{</span>
-<span id="cb11-6"><a href="test-case-template.html#cb11-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb11-7"><a href="test-case-template.html#cb11-7"></a>    <span class="co">// This code gets timed</span></span>
-<span id="cb11-8"><a href="test-case-template.html#cb11-8"></a>    Function()</span>
-<span id="cb11-9"><a href="test-case-template.html#cb11-9"></a>}</span>
-<span id="cb11-10"><a href="test-case-template.html#cb11-10"></a></span>
-<span id="cb11-11"><a href="test-case-template.html#cb11-11"></a><span class="co">// Register the function as a benchmark</span></span>
-<span id="cb11-12"><a href="test-case-template.html#cb11-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="test-case-template.html#cb12-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb12-2"><a href="test-case-template.html#cb12-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb12-3"><a href="test-case-template.html#cb12-3"></a></span>
+<span id="cb12-4"><a href="test-case-template.html#cb12-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
+<span id="cb12-5"><a href="test-case-template.html#cb12-5"></a>{</span>
+<span id="cb12-6"><a href="test-case-template.html#cb12-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb12-7"><a href="test-case-template.html#cb12-7"></a>    <span class="co">// This code gets timed</span></span>
+<span id="cb12-8"><a href="test-case-template.html#cb12-8"></a>    Function()</span>
+<span id="cb12-9"><a href="test-case-template.html#cb12-9"></a>}</span>
+<span id="cb12-10"><a href="test-case-template.html#cb12-10"></a></span>
+<span id="cb12-11"><a href="test-case-template.html#cb12-11"></a><span class="co">// Register the function as a benchmark</span></span>
+<span id="cb12-12"><a href="test-case-template.html#cb12-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
 </div>
 <div id="benchmark-example" class="section level3">
 <h3><span class="header-section-number">7.2.8</span> Benchmark example</h3>
 <p>We will continue using the dlognorm.hpp example. We can create a benchmark file dlognorm_benchmark.cpp and put it in the tests folder:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="test-case-template.html#cb12-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb12-2"><a href="test-case-template.html#cb12-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
-<span id="cb12-3"><a href="test-case-template.html#cb12-3"></a></span>
-<span id="cb12-4"><a href="test-case-template.html#cb12-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
-<span id="cb12-5"><a href="test-case-template.html#cb12-5"></a>{</span>
-<span id="cb12-6"><a href="test-case-template.html#cb12-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb12-7"><a href="test-case-template.html#cb12-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
-<span id="cb12-8"><a href="test-case-template.html#cb12-8"></a>}</span>
-<span id="cb12-9"><a href="test-case-template.html#cb12-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="test-case-template.html#cb13-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb13-2"><a href="test-case-template.html#cb13-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
+<span id="cb13-3"><a href="test-case-template.html#cb13-3"></a></span>
+<span id="cb13-4"><a href="test-case-template.html#cb13-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
+<span id="cb13-5"><a href="test-case-template.html#cb13-5"></a>{</span>
+<span id="cb13-6"><a href="test-case-template.html#cb13-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb13-7"><a href="test-case-template.html#cb13-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
+<span id="cb13-8"><a href="test-case-template.html#cb13-8"></a>}</span>
+<span id="cb13-9"><a href="test-case-template.html#cb13-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
 <p>Please see more examples on <a href="https://github.com/google/benchmark">Google Benchmark GitHub repository</a> for a more comprehensive feature overview.</p>
 </div>
 <div id="add-benchmarks-to-cmakelists.txt-and-run-the-benchmark" class="section level3">
 <h3><span class="header-section-number">7.2.9</span> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</h3>
 <p>To build the code, add the following contents to the end of your <code>CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb13-1"><a href="test-case-template.html#cb13-1"></a></span>
-<span id="cb13-2"><a href="test-case-template.html#cb13-2"></a><span class="fu">FetchContent_Declare</span>(</span>
-<span id="cb13-3"><a href="test-case-template.html#cb13-3"></a>  googlebenchmark</span>
-<span id="cb13-4"><a href="test-case-template.html#cb13-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
-<span id="cb13-5"><a href="test-case-template.html#cb13-5"></a>)</span>
-<span id="cb13-6"><a href="test-case-template.html#cb13-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
-<span id="cb13-7"><a href="test-case-template.html#cb13-7"></a></span>
-<span id="cb13-8"><a href="test-case-template.html#cb13-8"></a><span class="kw">add_executable</span>(</span>
-<span id="cb13-9"><a href="test-case-template.html#cb13-9"></a>  dlognorm_benchmark</span>
-<span id="cb13-10"><a href="test-case-template.html#cb13-10"></a>  dlognorm_benchmark.cpp</span>
-<span id="cb13-11"><a href="test-case-template.html#cb13-11"></a>)</span>
-<span id="cb13-12"><a href="test-case-template.html#cb13-12"></a></span>
-<span id="cb13-13"><a href="test-case-template.html#cb13-13"></a><span class="kw">target_include_directories</span>(</span>
-<span id="cb13-14"><a href="test-case-template.html#cb13-14"></a>  dlognorm_benchmark <span class="ot">PUBLIC</span></span>
-<span id="cb13-15"><a href="test-case-template.html#cb13-15"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb13-16"><a href="test-case-template.html#cb13-16"></a>)</span>
-<span id="cb13-17"><a href="test-case-template.html#cb13-17"></a></span>
-<span id="cb13-18"><a href="test-case-template.html#cb13-18"></a><span class="kw">target_link_libraries</span>(</span>
-<span id="cb13-19"><a href="test-case-template.html#cb13-19"></a>  dlognorm_benchmark</span>
-<span id="cb13-20"><a href="test-case-template.html#cb13-20"></a>  benchmark_main</span>
-<span id="cb13-21"><a href="test-case-template.html#cb13-21"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb14-1"><a href="test-case-template.html#cb14-1"></a></span>
+<span id="cb14-2"><a href="test-case-template.html#cb14-2"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb14-3"><a href="test-case-template.html#cb14-3"></a>  googlebenchmark</span>
+<span id="cb14-4"><a href="test-case-template.html#cb14-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
+<span id="cb14-5"><a href="test-case-template.html#cb14-5"></a>)</span>
+<span id="cb14-6"><a href="test-case-template.html#cb14-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
+<span id="cb14-7"><a href="test-case-template.html#cb14-7"></a></span>
+<span id="cb14-8"><a href="test-case-template.html#cb14-8"></a><span class="kw">add_executable</span>(</span>
+<span id="cb14-9"><a href="test-case-template.html#cb14-9"></a>  dlognorm_benchmark</span>
+<span id="cb14-10"><a href="test-case-template.html#cb14-10"></a>  dlognorm_benchmark.cpp</span>
+<span id="cb14-11"><a href="test-case-template.html#cb14-11"></a>)</span>
+<span id="cb14-12"><a href="test-case-template.html#cb14-12"></a></span>
+<span id="cb14-13"><a href="test-case-template.html#cb14-13"></a><span class="kw">target_include_directories</span>(</span>
+<span id="cb14-14"><a href="test-case-template.html#cb14-14"></a>  dlognorm_benchmark <span class="ot">PUBLIC</span></span>
+<span id="cb14-15"><a href="test-case-template.html#cb14-15"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb14-16"><a href="test-case-template.html#cb14-16"></a>)</span>
+<span id="cb14-17"><a href="test-case-template.html#cb14-17"></a></span>
+<span id="cb14-18"><a href="test-case-template.html#cb14-18"></a><span class="kw">target_link_libraries</span>(</span>
+<span id="cb14-19"><a href="test-case-template.html#cb14-19"></a>  dlognorm_benchmark</span>
+<span id="cb14-20"><a href="test-case-template.html#cb14-20"></a>  benchmark_main</span>
+<span id="cb14-21"><a href="test-case-template.html#cb14-21"></a>)</span></code></pre></div>
 <p>To run the benchmark,</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="test-case-template.html#cb14-1"></a><span class="bu">cd</span> build</span>
-<span id="cb14-2"><a href="test-case-template.html#cb14-2"></a><span class="ex">./dlognorm_benchmark.exe</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="test-case-template.html#cb15-1"></a><span class="bu">cd</span> build</span>
+<span id="cb15-2"><a href="test-case-template.html#cb15-2"></a><span class="ex">./dlognorm_benchmark.exe</span></span></code></pre></div>
 <p>The output might look like this:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="test-case-template.html#cb15-1"></a></span>
-<span id="cb15-2"><a href="test-case-template.html#cb15-2"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
-<span id="cb15-3"><a href="test-case-template.html#cb15-3"></a><span class="ex">----------------------------------------------------------------</span></span>
-<span id="cb15-4"><a href="test-case-template.html#cb15-4"></a><span class="ex">Benchmark</span>                      Time             CPU   Iterations</span>
-<span id="cb15-5"><a href="test-case-template.html#cb15-5"></a><span class="ex">----------------------------------------------------------------</span></span>
-<span id="cb15-6"><a href="test-case-template.html#cb15-6"></a><span class="ex">BM_dlgnorm</span>                   128 ns          126 ns      5600000</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="test-case-template.html#cb16-1"></a></span>
+<span id="cb16-2"><a href="test-case-template.html#cb16-2"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
+<span id="cb16-3"><a href="test-case-template.html#cb16-3"></a><span class="ex">----------------------------------------------------------------</span></span>
+<span id="cb16-4"><a href="test-case-template.html#cb16-4"></a><span class="ex">Benchmark</span>                      Time             CPU   Iterations</span>
+<span id="cb16-5"><a href="test-case-template.html#cb16-5"></a><span class="ex">----------------------------------------------------------------</span></span>
+<span id="cb16-6"><a href="test-case-template.html#cb16-6"></a><span class="ex">BM_dlgnorm</span>                   128 ns          126 ns      5600000</span></code></pre></div>
 </div>
 </div>
 <div id="r-testing" class="section level2">
@@ -465,11 +465,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>FIMS uses R testthat package for writing R tests. You can install the packages following the instructions on <a href="https://testthat.r-lib.org/">testthat website</a>. If you are not familiar with testthat, the <a href="https://r-pkgs.org/tests.html">testing chapter</a> in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.</p>
 <div id="r-testthat-template" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> R testthat template</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="test-case-template.html#cb16-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
-<span id="cb16-2"><a href="test-case-template.html#cb16-2"></a>  </span>
-<span id="cb16-3"><a href="test-case-template.html#cb16-3"></a>  ...test body...</span>
-<span id="cb16-4"><a href="test-case-template.html#cb16-4"></a>  </span>
-<span id="cb16-5"><a href="test-case-template.html#cb16-5"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="test-case-template.html#cb17-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb17-2"><a href="test-case-template.html#cb17-2"></a>  </span>
+<span id="cb17-3"><a href="test-case-template.html#cb17-3"></a>  ...test body...</span>
+<span id="cb17-4"><a href="test-case-template.html#cb17-4"></a>  </span>
+<span id="cb17-5"><a href="test-case-template.html#cb17-5"></a>})</span></code></pre></div>
 </div>
 </div>
 <div id="test-case-template-and-examples" class="section level2">
