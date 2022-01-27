@@ -11,6 +11,7 @@ description: |
   This is a handbook for FIMS developers and contributors.
 link-citations: yes
 github-repo: noaa-fims/collaborative_workflow
+favicon: "favicon/favicon.ico"
 ---
 
 # About
