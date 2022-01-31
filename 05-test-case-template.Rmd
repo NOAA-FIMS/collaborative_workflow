@@ -1,12 +1,10 @@
 # Test case template
 
-[Work in progress]
-
 In this section we will describe how to write a test case for your FIMS code.
 
 ## Introduction
 
-FIMS testing framework will include different types of testing to make sure that changes to FIMS code are working as expected. The unit and functional tests will be developed during the initial development stage when writing individual functions or modules. After completing development of multiple modules, integration testing will be developed to verify that different modules work well together. Checks will be added in the software to catch user input errors when conducting run-time testing. Regression testing and platform compatibility testing will be executed before pre-releasing FIMS. Beta-testing will be used to gather feedback from users (i.e. Members of FIMS implementation team and other users) during the pre-releasing stage. After releasing the first version of FIMS, the team will go back to the beginning of the testing cycle and write unit tests when a new feature needs to be implemented. One-off testing will be used for fixing user-reported bugs when maintaining FIMS. More details of each type of test can be found in the Glossary section.
+FIMS testing framework will include different types of testing to make sure that changes to FIMS code are working as expected. The unit and functional tests will be developed during the initial development stage when writing individual functions or modules. After completing development of multiple modules, integration testing will be developed to verify that different modules work well together. Checks will be added in the software to catch user input errors when conducting run-time testing. Regression testing and platform compatibility testing will be executed before pre-releasing FIMS. Beta-testing will be used to gather feedback from users (i.e., members of FIMS implementation team and other users) during the pre-release stage. After releasing the first version of FIMS, the development team will go back to the beginning of the testing cycle and write unit tests when a new feature needs to be implemented. One-off testing will be used for testing new features and fixing user-reported bugs when maintaining FIMS. More details of each type of test can be found in the Glossary section. 
 
 FIMS will use GoogleTest to build a C++ unit testing framework and R testthat to build an R testing framework. FIMS will use Google Benchmark to measure the real time and CPU time used for running the produced binaries.
 
@@ -393,6 +391,16 @@ The test case below is a general case and it can be applied to many functions/mo
 |                       |                                                                                                                                                                                                                                                |
 |                       | -   A table that shows median absolute relative errors in unfished recruitment, catchability, spawning stock biomass, recruitment, fishing mortality, and reference points (e.g., Table 6 from Li et al. 2021) will be automatically generated |
 +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+#### simulation testing: challenges and solutions
+
+One thing that might be challenging for comparing simulation results is that changes to the order of different calls to simulation will change the simulated values and then tests may fail even though it is just because different random numbers are used or the order of the simulation changes through model development. Several solutions could be used to address the simulation testing issue. Please see [discussions](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) on the FIMS-planning issue page for details.  
+
+- Once we start developing simulation modules, there are two ways that help compare simulated data from FIMS and a test.
+  - Add a TRUE/FALSE parameter in each FIMS simulation module for setting up testing seed. When testing the module, use the parameter=TRUE to fix the seed number in R and conduct tests. 
+  - If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error. 
+   
+- FIMS will use set.seed() from R to set seed. “rstream” package will be investigated if one of the requirements of FIMS simulation module is to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. rstream was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. Please see [rstream paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf) and [RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/) for more details.
 
 ## Glossary
 
