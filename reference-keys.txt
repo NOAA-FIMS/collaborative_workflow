@@ -48,6 +48,7 @@ test-case-examples
 general-test-case
 functional-test-example-tmb-probability-mass-function-of-the-multinomial-distribution
 integration-test-example-li-et-al.-2021-age-structured-stock-assessment-model-comparison
+simulation-testing-challenges-and-solutions
 glossary
 unit-testing
 functional-testing
