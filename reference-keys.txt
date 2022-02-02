@@ -10,6 +10,10 @@ reporting-unacceptable-behavior
 consequences-of-violating-conduct
 style-guide
 fims-governance
+developers
+reviewers
+project-lead
+code-of-conduct-adjudicator
 external-collaborators
 contributor-guidelines
 fims-branching-strategy

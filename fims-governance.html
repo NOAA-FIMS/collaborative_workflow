@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS implementation team" />
 
 
-<meta name="date" content="2022-02-01" />
+<meta name="date" content="2022-02-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,7 +152,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="style-guide.html"><a href="style-guide.html"><i class="fa fa-check"></i><b>3</b> Style Guide</a></li>
 <li class="chapter" data-level="4" data-path="fims-governance.html"><a href="fims-governance.html"><i class="fa fa-check"></i><b>4</b> FIMS Governance</a><ul>
-<li class="chapter" data-level="4.1" data-path="fims-governance.html"><a href="fims-governance.html#external-collaborators"><i class="fa fa-check"></i><b>4.1</b> External Collaborators</a></li>
+<li class="chapter" data-level="4.1" data-path="fims-governance.html"><a href="fims-governance.html#developers"><i class="fa fa-check"></i><b>4.1</b> Developers</a></li>
+<li class="chapter" data-level="4.2" data-path="fims-governance.html"><a href="fims-governance.html#reviewers"><i class="fa fa-check"></i><b>4.2</b> Reviewers</a></li>
+<li class="chapter" data-level="4.3" data-path="fims-governance.html"><a href="fims-governance.html#project-lead"><i class="fa fa-check"></i><b>4.3</b> Project Lead</a></li>
+<li class="chapter" data-level="4.4" data-path="fims-governance.html"><a href="fims-governance.html#code-of-conduct-adjudicator"><i class="fa fa-check"></i><b>4.4</b> Code of Conduct Adjudicator</a></li>
+<li class="chapter" data-level="4.5" data-path="fims-governance.html"><a href="fims-governance.html#external-collaborators"><i class="fa fa-check"></i><b>4.5</b> External Collaborators</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>5</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#fims-branching-strategy"><i class="fa fa-check"></i><b>5.1</b> FIMS Branching Strategy</a><ul>
@@ -234,9 +238,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="fims-governance" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> FIMS Governance</h1>
-<p>The FIMS Terms of Reference describes the high level organization of the FIMS Project. Additional details on roles and responsibilities are provided here.</p>
+<p>The <a href="https://drive.google.com/file/d/1gMDQbAhjM2E3nct4Hc6u-DT1Ta8bizLd/view?usp=sharing">FIMS Terms of Reference</a> describes the high level organization of the FIMS Project. Additional details on roles and responsibilities are provided here.</p>
+<div id="developers" class="section level2">
+<h2><span class="header-section-number">4.1</span> Developers</h2>
+<p>Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a>, <a href="style-guide.html#style-guide">Style Guide</a>, <a href="issue-tracking.html#issue-tracking">Issue Tracking</a>, and <a href="test-case-template.html#test-case-template">Test Case Template</a>. The developer responsibilities include:</p>
+<ul>
+<li>Writing the module code.</li>
+<li>Creating documentation for the module and building the documentation to ensure it is error-free.</li>
+<li>Implementing the suite of required test cases for the module.</li>
+<li>Ensuring the module runs through the FIMS Github actions.</li>
+</ul>
+<p>Once development of a bug fix or a new component of FIMS is complete, the developer should create a <a href="issue-tracking.html#pull-requests">pull request</a> according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch.</p>
+</div>
+<div id="reviewers" class="section level2">
+<h2><span class="header-section-number">4.2</span> Reviewers</h2>
+<p>The reviewers are responsible for adhering to documented guidelines in the <a href="issue-tracking.html#code-review">Code Review</a> section. Reviewers should confirm that the new code is able to build and run within their own development environment. Reviewers should clearly document which components of the code need to be improved to be accurate, comply with project guidelines and style, or do not work, in the pull request thread so that the developer knows what they need to fix.</p>
+</div>
+<div id="project-lead" class="section level2">
+<h2><span class="header-section-number">4.3</span> Project Lead</h2>
+<p>The Project Lead is responsible for ensuring development and code review occur in a timely manner and according to project guidelines and standards. The Project Lead will triage issues and pull requests weekly and prompt involved parties to resolve outstanding issues and reviews. The Project Lead is also responsible for communicating project status via maintenance of the <a href="https://noaa-fims.github.io/status">status dashboard</a>.</p>
+</div>
+<div id="code-of-conduct-adjudicator" class="section level2">
+<h2><span class="header-section-number">4.4</span> Code of Conduct Adjudicator</h2>
+<p>The Code of Conduct Adjudicator is responsible for responding to allegations of <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a> violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.</p>
+</div>
 <div id="external-collaborators" class="section level2">
-<h2><span class="header-section-number">4.1</span> External Collaborators</h2>
+<h2><span class="header-section-number">4.5</span> External Collaborators</h2>
 <p>External collaborators interested in contributing to FIMS development are required to fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to forking. In general, forks are discouraged for everyday development as it becomes difficult to keep track of multiple forks.</p>
 <p>Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.</p>
 
