@@ -31,6 +31,16 @@ automated-testing
 review-checklist
 review-good-practices
 commit-messages
+software-specification
+beverton-holt-expected-recruitment-function
+logistic-function-for-maturity-and-selectivity
+baranov-catch-equation
+modeling-loops
+expected-numbers-and-quantities
+initial-values
+initial-n
+initial-f
+likelihood-calculations
 hpp-template-for-c-modules
 test-case-template
 introduction
