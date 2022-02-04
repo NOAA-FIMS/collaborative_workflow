@@ -185,16 +185,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="model-specification.html"><a href="model-specification.html"><i class="fa fa-check"></i><b>8</b> Model specification</a><ul>
 <li class="chapter" data-level="8.1" data-path="model-specification.html"><a href="model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>8.1</b> Model variables and bounds</a></li>
-<li class="chapter" data-level="8.2" data-path="model-specification.html"><a href="model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>8.2</b> Beverton-Holt expected recruitment function</a></li>
-<li class="chapter" data-level="8.3" data-path="model-specification.html"><a href="model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>8.3</b> Logistic function with extensions</a></li>
-<li class="chapter" data-level="8.4" data-path="model-specification.html"><a href="model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>8.4</b> Catch and fishing mortality</a></li>
-<li class="chapter" data-level="8.5" data-path="model-specification.html"><a href="model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>8.5</b> Modeling loops</a></li>
-<li class="chapter" data-level="8.6" data-path="model-specification.html"><a href="model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>8.6</b> Expected numbers and quantities</a></li>
-<li class="chapter" data-level="8.7" data-path="model-specification.html"><a href="model-specification.html#initial-values"><i class="fa fa-check"></i><b>8.7</b> Initial values</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="model-specification.html"><a href="model-specification.html#initial-n"><i class="fa fa-check"></i><b>8.7.1</b> Initial N</a></li>
-<li class="chapter" data-level="8.7.2" data-path="model-specification.html"><a href="model-specification.html#initial-f"><i class="fa fa-check"></i><b>8.7.2</b> Initial F</a></li>
+<li class="chapter" data-level="8.2" data-path="model-specification.html"><a href="model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>8.2</b> Inherited functors from <code>TMB</code></a><ul>
+<li class="chapter" data-level="8.2.1" data-path="model-specification.html"><a href="model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>8.2.1</b> Atomic functions</a></li>
+<li class="chapter" data-level="8.2.2" data-path="model-specification.html"><a href="model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>8.2.2</b> Statistical distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="8.8" data-path="model-specification.html"><a href="model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>8.8</b> Likelihood calculations</a></li>
+<li class="chapter" data-level="8.3" data-path="model-specification.html"><a href="model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>8.3</b> Beverton-Holt expected recruitment function</a></li>
+<li class="chapter" data-level="8.4" data-path="model-specification.html"><a href="model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>8.4</b> Logistic function with extensions</a></li>
+<li class="chapter" data-level="8.5" data-path="model-specification.html"><a href="model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>8.5</b> Catch and fishing mortality</a></li>
+<li class="chapter" data-level="8.6" data-path="model-specification.html"><a href="model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>8.6</b> Modeling loops</a></li>
+<li class="chapter" data-level="8.7" data-path="model-specification.html"><a href="model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>8.7</b> Expected numbers and quantities</a></li>
+<li class="chapter" data-level="8.8" data-path="model-specification.html"><a href="model-specification.html#initial-values"><i class="fa fa-check"></i><b>8.8</b> Initial values</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="model-specification.html"><a href="model-specification.html#initial-n"><i class="fa fa-check"></i><b>8.8.1</b> Initial N</a></li>
+<li class="chapter" data-level="8.8.2" data-path="model-specification.html"><a href="model-specification.html#initial-f"><i class="fa fa-check"></i><b>8.8.2</b> Initial F</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="model-specification.html"><a href="model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>8.9</b> Likelihood calculations</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="software-specification.html"><a href="software-specification.html"><i class="fa fa-check"></i><b>9</b> Software specification</a><ul>
 <li class="chapter" data-level="9.1" data-path="software-specification.html"><a href="software-specification.html#beverton-holt-expected-recruitment-function-1"><i class="fa fa-check"></i><b>9.1</b> Beverton-Holt expected recruitment function</a></li>
@@ -272,8 +276,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="model-variables-and-bounds" class="section level2">
 <h2><span class="header-section-number">8.1</span> Model variables and bounds</h2>
 </div>
+<div id="inherited-functors-from-tmb" class="section level2">
+<h2><span class="header-section-number">8.2</span> Inherited functors from <code>TMB</code></h2>
+<div id="atomic-functions" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Atomic functions</h3>
+<p>Wherever possible, <code>FIMS</code> should not reinvent atomic functions with extant definitions in <code>TMB</code>. If there is a need for a new atomic function the development team can add it to <code>TMB</code> using the <code>TMB_ATOMIC_VECTOR_FUNCTION()</code> macro following the instructions <a href="https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives">here</a>.</p>
+</div>
+<div id="statistical-distributions" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Statistical distributions</h3>
+<p>All of the statistical distributions needed for the first milestone of <code>FIMS</code> are implemented in <code>TMB</code> and need not be replicated.
+Code can be found <a href="https://github.com/kaskr/adcomp/blob/master/TMB/inst/include/distributions_R.hpp">here</a>.
+|Distribution | Location|
+| ————|———|</p>
+</div>
+</div>
 <div id="beverton-holt-expected-recruitment-function" class="section level2">
-<h2><span class="header-section-number">8.2</span> Beverton-Holt expected recruitment function</h2>
+<h2><span class="header-section-number">8.3</span> Beverton-Holt expected recruitment function</h2>
 <p>For parity with existing stock assessment models, the first recruitment option in FIMS is a Beverton-Holt [cite] parameterized with R0 and h.</p>
 <p><span class="math display">\[R_t  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}\]</span>
 Where <span class="math inline">\(R_t\)</span> and <span class="math inline">\(S_t\)</span> are mean recruitment and spawning biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(h\)</span> is Mace-Doonan steepness, and <span class="math inline">\(\phi_0\)</span> are the unfished spawning biomass per recruit. The initial FIMS model will implement a static spawning biomass-per-recruit function, with the ability to overload the method in the future to allow for time-variation in mortality, maturity, and weight-at-age over time to account for changes in spawning biomass per recruit. Deviations are assumed to be lognormally distributed such that realized recruitment is the product of mean recruitment and the exponentiated recruitment deviation.
@@ -283,7 +301,7 @@ Where <span class="math inline">\(R_t\)</span> and <span class="math inline">\(S
 The recruitment function should take as input the <span class="math inline">\(R\)</span> , <span class="math inline">\(S\)</span> values, the <span class="math inline">\(h\)</span>, <span class="math inline">\(ln(R_0)\)</span>, and R parameters and <span class="math inline">\(\phi_0\)</span> and return mean and realized recruitment.</p>
 </div>
 <div id="logistic-function-with-extensions" class="section level2">
-<h2><span class="header-section-number">8.3</span> Logistic function with extensions</h2>
+<h2><span class="header-section-number">8.4</span> Logistic function with extensions</h2>
 <p><span class="math display">\[x_i=\frac{1}{1+\mathrm{exp}(-ln(19)(i-\nu_1)/\nu_2)}\]</span></p>
 <p>Where <span class="math inline">\(x_i\)</span> is the quantity of interest (proportion mature, selected, etc.), <span class="math inline">\(i\)</span> is the index (can be age or size or any other quantity),
 <span class="math inline">\(\nu_1\)</span> is the index of 50% mature and <span class="math inline">\(\nu_2\)</span> is the difference in the index at 50% and the index at 95% (<span class="math inline">\(\nu_2 = \mathrm{ln}(19)/s\)</span> where
@@ -291,7 +309,7 @@ The recruitment function should take as input the <span class="math inline">\(R\
 upon the base logistic function implementation.</p>
 </div>
 <div id="catch-and-fishing-mortality" class="section level2">
-<h2><span class="header-section-number">8.4</span> Catch and fishing mortality</h2>
+<h2><span class="header-section-number">8.5</span> Catch and fishing mortality</h2>
 <p>The Baranov catch equation relates catch to instantaneous fishing and natural mortality.</p>
 <p><span class="math display">\[ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}(1-\mathrm{exp}(-(F_{f,a,t}+M)))N_{a,t}\]</span></p>
 <p>Where <span class="math inline">\(C_{f,a,t}\)</span> is the catch at age <span class="math inline">\(a\)</span> at time <span class="math inline">\(t\)</span> for fleet <span class="math inline">\(f\)</span>, <span class="math inline">\(F\)</span> is instantaneous fishing mortality,
@@ -306,14 +324,14 @@ age <span class="math inline">\(a\)</span> fish at time <span class="math inline
 Where <span class="math inline">\(I_t\)</span> is the survey index and <span class="math inline">\(q_t\)</span> is survey catchability at time <span class="math inline">\(t\)</span>.</p>
 </div>
 <div id="modeling-loops" class="section level2">
-<h2><span class="header-section-number">8.5</span> Modeling loops</h2>
+<h2><span class="header-section-number">8.6</span> Modeling loops</h2>
 <p>This tier associates the expected values for each population section associated with a data source to that data source using a likelihood function. These likelihood functions are then combined into an objective function that is passed to TMB.</p>
 <p>The population loop will be initialized at a user-specified age, time increment, and seasonal structure, rather than assuming ages, years, or seasons follow any pre-defined structure. Population categories will be described flexibly, such that subpopulations such as unique sexes, stocks, species, or areas can be handled identically to reduce duplication. Each subpopulation will have a unique set of attributes assigned to it, such that each subpopulation can share or have a different functional process (e.g. recruitment function, size-at-age) than a different category.</p>
 <p>Spawning time and recruitment time are user-specified and can occur more than once per year. For the purposes of replicating model comparison project outputs, in milestone 1, all processes including spawning and recruitment occur January 1, but these should be specified via the <code>spawn_time</code> and <code>recruit_time</code> inputs into FIMS to allow for future flexibility. Spawning and recruitment timing can be input as a scalar or vector to account for multiple options.</p>
 <p>Within the population loop, matrices denoting population properties at different partitions (age, season, sex) are translated into a single, dimension-folded index. A lookup table is computed at model start so that the dimension-folded index can be mapped to its corresponding population partition or time partition (e.g. population(sex, area, age, species, time, …)) so the programmer can understand what is happening. The model steps through each specified timestep to match the data to expected values, and population processes occur in the closest specified timestep to the user-input process timing (e.g. recruitment) across a small timestep that is a predefined constant.</p>
 </div>
 <div id="expected-numbers-and-quantities" class="section level2">
-<h2><span class="header-section-number">8.6</span> Expected numbers and quantities</h2>
+<h2><span class="header-section-number">8.7</span> Expected numbers and quantities</h2>
 <p>The expected values are calculated as follows in the population.hpp file:
 <span class="math display">\[ B_t=\sum_{a=0}^AN_{a,t}w_a\]</span>
 where <span class="math inline">\(B_t\)</span> is total biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(N\)</span> is total numbers, <span class="math inline">\(w_a\)</span> is weight-at-age <span class="math inline">\(a\)</span> in kilograms.</p>
@@ -321,16 +339,16 @@ where <span class="math inline">\(B_t\)</span> is total biomass in time <span cl
 where <span class="math inline">\(N_t\)</span> is the total number of fish in time <span class="math inline">\(t\)</span>.</p>
 </div>
 <div id="initial-values" class="section level2">
-<h2><span class="header-section-number">8.7</span> Initial values</h2>
+<h2><span class="header-section-number">8.8</span> Initial values</h2>
 <div id="initial-n" class="section level3">
-<h3><span class="header-section-number">8.7.1</span> Initial N</h3>
+<h3><span class="header-section-number">8.8.1</span> Initial N</h3>
 </div>
 <div id="initial-f" class="section level3">
-<h3><span class="header-section-number">8.7.2</span> Initial F</h3>
+<h3><span class="header-section-number">8.8.2</span> Initial F</h3>
 </div>
 </div>
 <div id="likelihood-calculations" class="section level2">
-<h2><span class="header-section-number">8.8</span> Likelihood calculations</h2>
+<h2><span class="header-section-number">8.9</span> Likelihood calculations</h2>
 <p>Age composition likelihood links proportions at age from data to model using a multinomial likelihood function. The multinomial and lognormal distributions, including atomic functions are provided within <code>TMB</code>.</p>
 <p>Survey index likelihood links estimated CPUE to input data CPUE in biomass using a lognormal distribution. (model.hpp)</p>
 <p>Catch index likelihood links estimated catch to input data catch in biomass using a lognormal distribution. (model.hpp)</p>

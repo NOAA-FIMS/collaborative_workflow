@@ -37,6 +37,9 @@ specifying-and-compiling-the-model
 extracting-model-output
 model-specification
 model-variables-and-bounds
+inherited-functors-from-tmb
+atomic-functions
+statistical-distributions
 beverton-holt-expected-recruitment-function
 logistic-function-with-extensions
 catch-and-fishing-mortality
