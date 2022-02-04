@@ -4,6 +4,18 @@ This section describes the implementation of the modules in FIMS in milestone 1.
 
 ## Model variables and bounds
 
+## Inherited functors from `TMB`
+
+### Atomic functions
+
+Wherever possible, `FIMS` should not reinvent atomic functions with extant definitions in `TMB`. If there is a need for a new atomic function the development team can add it to `TMB` using the `TMB_ATOMIC_VECTOR_FUNCTION()` macro following the instructions [here](https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives).
+
+### Statistical distributions
+
+All of the statistical distributions needed for the first milestone of `FIMS` are implemented in `TMB` and need not be replicated.
+Code can be found [here](https://github.com/kaskr/adcomp/blob/master/TMB/inst/include/distributions_R.hpp).
+|Distribution | Location|
+| ------------|---------|
 
 
 ## Beverton-Holt expected recruitment function 
