@@ -36,9 +36,10 @@ installing-the-package-from-github
 specifying-and-compiling-the-model
 extracting-model-output
 model-specification
+model-variables-and-bounds
 beverton-holt-expected-recruitment-function
-logistic-function-for-maturity-and-selectivity
-baranov-catch-equation
+logistic-function-with-extensions
+catch-and-fishing-mortality
 modeling-loops
 expected-numbers-and-quantities
 initial-values
@@ -47,8 +48,8 @@ initial-f
 likelihood-calculations
 software-specification
 beverton-holt-expected-recruitment-function-1
-logistic-function-for-maturity-and-selectivity-1
-baranov-catch-equation-1
+logistic-function-for-maturity-and-selectivity
+baranov-catch-equation
 modeling-loops-1
 expected-numbers-and-quantities-1
 initial-values-1
