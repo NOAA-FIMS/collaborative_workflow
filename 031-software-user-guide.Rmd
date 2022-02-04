@@ -1,0 +1,28 @@
+# Software user guide
+
+This section describes how to install and run the model.
+
+## Installing the package from Github
+
+Before you install the `FIMS` package, you will need to install the Rtools executable corresponding to your `R` version as well as the `TMB` package and its dependencies. `FIMS` has only been developed and tested on `R` version 4.+, and so in order to install the package you will need to ensure you are using `R` version 4.+ and an RStudio version that is at least 1.2.5042. Instructions on how to install `Rtools` are [here](https://cran.r-project.org/bin/windows/Rtools/rtools40.html). Instructions on how to install `TMB` are [here](https://github.com/kaskr/adcomp/wiki/Download). Please ensure you have tested your `TMB` setup before moving on to install FIMS.
+
+```{r eval=FALSE}
+remotes::install_github("NOAA-FIMS/FIMS")
+library(FIMS)
+```
+
+## Specifying and compiling the model
+You can add components to the model using S4 classes.
+```{r}
+#TODO: add script to populate the model
+```
+
+
+## Extracting model output
+
+Here is how you get the model output.
+
+```{r}
+#Todo add code for how to extract model output
+```
+
