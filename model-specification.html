@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Software specification | FIMS Developer Handbook</title>
+  <title>Chapter 8 Model specification | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Software specification | FIMS Developer Handbook" />
+  <meta property="og:title" content="Chapter 8 Model specification | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Software specification | FIMS Developer Handbook" />
+  <meta name="twitter:title" content="Chapter 8 Model specification | FIMS Developer Handbook" />
   
   <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="model-specification.html"/>
-<link rel="next" href="hpp-template-for-c-modules.html"/>
+<link rel="prev" href="software-user-guide.html"/>
+<link rel="next" href="software-specification.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,11 +265,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="software-specification" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> Software specification</h1>
+<div id="model-specification" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Model specification</h1>
 <p>This section describes the implementation of the modules in FIMS in milestone 1. For the first milestone, we must implement enough complexity to adequately test a very standard population model. For this reason, we implement the minimum structure that can run the model described in <a href="">Li et al. 2020</a>.</p>
-<div id="beverton-holt-expected-recruitment-function-1" class="section level2">
-<h2><span class="header-section-number">9.1</span> Beverton-Holt expected recruitment function</h2>
+<div id="beverton-holt-expected-recruitment-function" class="section level2">
+<h2><span class="header-section-number">8.1</span> Beverton-Holt expected recruitment function</h2>
 <p>For parity with existing stock assessment models, the first recruitment option in FIMS is a Beverton-Holt [cite] parameterized with R0 and h.</p>
 <p><span class="math display">\[R_t  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}\]</span>
 Where <span class="math inline">\(R_t\)</span> and <span class="math inline">\(S_t\)</span> are mean recruitment and spawning biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(h\)</span> is Mace-Doonan steepness, and <span class="math inline">\(\phi_0\)</span> are the unfished spawning biomass per recruit. The initial FIMS model will implement a static spawning biomass-per-recruit function, with the ability to overload the method in the future to allow for time-variation in mortality, maturity, and weight-at-age over time to account for changes in spawning biomass per recruit. Deviations are assumed to be lognormally distributed such that realized recruitment is the product of mean recruitment and the exponentiated recruitment deviation.
@@ -278,47 +278,50 @@ Where <span class="math inline">\(R_t\)</span> and <span class="math inline">\(S
 <span class="math display">\[R^*_t=R_t\mathrm{exp}(r_{dev,t}-b_y\frac{\sigma_R^2}{2})\]</span>
 The recruitment function should take as input the <span class="math inline">\(R\)</span> , <span class="math inline">\(S\)</span> values, the <span class="math inline">\(h\)</span>, <span class="math inline">\(ln(R_0)\)</span>, and R parameters and <span class="math inline">\(\phi_0\)</span> and return mean and realized recruitment.</p>
 </div>
-<div id="logistic-function-for-maturity-and-selectivity-1" class="section level2">
-<h2><span class="header-section-number">9.2</span> Logistic function for maturity and selectivity</h2>
+<div id="logistic-function-for-maturity-and-selectivity" class="section level2">
+<h2><span class="header-section-number">8.2</span> Logistic function for maturity and selectivity</h2>
 <p><span class="math display">\[x_i=\frac{1}{1+\mathrm{exp}(-ln(19)(i-\nu_1)/\nu_2)}\]</span>
-Where xi is the quantity of interest (proportion mature, selected, etc.), i is the index (can be age or size or any other quantity), 1 is the index of 50% mature and 2 is the difference in the index at 50% and the index at 95% (2 = ln(19)/slope parameter from an alternative parameterization). See Appendix A on more details of the parameterization. The selectivity.hpp and maturity.hpp files should right now only include interfaces to the logistic function implemented in common. [from Li et al:</p>
+Where xi is the quantity of interest (proportion mature, selected, etc.), i is the index (can be age or size or any other quantity), <span class="math inline">\(nu_1\)</span> is the index of 50% mature and <span class="math inline">\(nu_2\)</span> is the difference in the index at 50% and the index at 95% (<span class="math inline">\(\nu_2 = ln(19)/s\)</span> where <span class="math inline">\(s\)</span> is the slope parameter from an alternative parameterization). Logistic functions for maturity and selectivity should inherit and extend upon the base logistic function implementation, and the base function should be able to index over both age and size.</p>
 </div>
-<div id="baranov-catch-equation-1" class="section level2">
-<h2><span class="header-section-number">9.3</span> Baranov catch equation</h2>
-<p><span class="math display">\[ C_{a,t}=\frac{Fa,t}{F_{a,t}+M}(1-\mathrm{exp}(-(F_{a,t}+M)))N_{a,t}\]</span>
-Where Ca,t is the catch at age at time t, F is instantaneous fishing mortality, M is assumed constant over ages and time in the minimum viable assessment model, Na,t is the number of age a fish at time t.</p>
+<div id="baranov-catch-equation" class="section level2">
+<h2><span class="header-section-number">8.3</span> Baranov catch equation</h2>
+<p>The Baranov catch equation relates</p>
+<p><span class="math display">\[ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}(1-\mathrm{exp}(-(F_{f,a,t}+M)))N_{a,t}\]</span>
+Where <span class="math inline">\(C_{a,t}\)</span> is the catch at age at time <span class="math inline">\(t\)</span>, <span class="math inline">\(F\)</span> is instantaneous fishing mortality, <span class="math inline">\(M\)</span> is assumed constant over ages and time in the minimum viable assessment model, <span class="math inline">\(N_a,t\)</span> is the number of age <span class="math inline">\(a\)</span> fish at time <span class="math inline">\(t\)</span>.</p>
 </div>
-<div id="modeling-loops-1" class="section level2">
-<h2><span class="header-section-number">9.4</span> Modeling loops</h2>
-<p>This tier associates the expected values for each population section associated with a data source to that data source using a likelihood function. These likelihood functions are then combined into an objective function that is passed to TMB.
-The population loop will be initialized at a user-specified age, year, and seasonal structure, rather than assuming ages, years, or seasons follow any pre-defined structure. Population categories will be described flexibly, such that subpopulations such as unique sexes, stocks, species, or areas can be handled identically to reduce duplication. Each subpopulation will have a unique set of attributes assigned to it, such that each subpopulation can share or have a different functional process (e.g. recruitment function, size-at-age) than a different category.</p>
-<p>Spawning time and recruitment time are user-specified and can occur more than once per year. For the purposes of the model comparison project comparison, all processes including spawning and recruitment occur January 1, but these should be specified in the input file, not hardcoded into FIMS. Spawning and recruitment timing can be input as a scalar or vector to account for multiple options.</p>
+<div id="modeling-loops" class="section level2">
+<h2><span class="header-section-number">8.4</span> Modeling loops</h2>
+<p>This tier associates the expected values for each population section associated with a data source to that data source using a likelihood function. These likelihood functions are then combined into an objective function that is passed to TMB.</p>
+<p>The population loop will be initialized at a user-specified age, time increment, and seasonal structure, rather than assuming ages, years, or seasons follow any pre-defined structure. Population categories will be described flexibly, such that subpopulations such as unique sexes, stocks, species, or areas can be handled identically to reduce duplication. Each subpopulation will have a unique set of attributes assigned to it, such that each subpopulation can share or have a different functional process (e.g. recruitment function, size-at-age) than a different category.</p>
+<p>Spawning time and recruitment time are user-specified and can occur more than once per year. For the purposes of replicating model comparison project outputs, in milestone 1, all processes including spawning and recruitment occur January 1, but these should be specified via the <span class="math inline">\(spawnTime\)</span> and <span class="math inline">\(recruitTime\)</span> inputs into FIMS to allow for future flexibility. Spawning and recruitment timing can be input as a scalar or vector to account for multiple options.</p>
 <p>Within the population loop, matrices denoting population properties at different partitions (age, season, sex) are translated into a single, dimension-folded index. A lookup table is computed at model start so that the dimension-folded index can be mapped to its corresponding population partition or time partition (e.g. population(sex, area, age, species, time, …)) so the programmer can understand what is happening. The model steps through each specified timestep to match the data to expected values, and population processes occur in the closest specified timestep to the user-input process timing (e.g. recruitment) across a small timestep that is a predefined constant.</p>
 </div>
-<div id="expected-numbers-and-quantities-1" class="section level2">
-<h2><span class="header-section-number">9.5</span> Expected numbers and quantities</h2>
+<div id="expected-numbers-and-quantities" class="section level2">
+<h2><span class="header-section-number">8.5</span> Expected numbers and quantities</h2>
 <p>The expected values are calculated as follows in the population.hpp file:
 <span class="math display">\[ B_t=\sum_{a=0}^AN_{a,t}w_a\]</span>
-where <span class="math inline">\(B_t\)</span> is total biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(N\)</span> is total numbers, <span class="math inline">\(w_a\)</span> is weight-at-age <span class="math inline">\(a\)</span>.</p>
+where <span class="math inline">\(B_t\)</span> is total biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(N\)</span> is total numbers, <span class="math inline">\(w_a\)</span> is weight-at-age <span class="math inline">\(a\)</span> in kilograms.</p>
 <p><span class="math display">\[N_t=\sum_{a=0}^AN_{a,t}\]</span>
-<span class="math display">\[I_t=q\sum_{a=0}^ANt\]</span>
-Where q is survey catchability, s is selectivity indexed over the fish’s age selectivity-at-age is constant over time.</p>
-<p><span class="math display">\[F_{a,t}=\sum_{a=0}^A s_{a,f}F\]</span></p>
-<p>Catch is in metric tons and survey is in number, so calculating catch weight (CWt) is done as follows:
+where <span class="math inline">\(N_t\)</span> is the total number of fish in time <span class="math inline">\(t\)</span>.</p>
+<p><span class="math display">\[I_t=q\sum_{a=0}^AN_{a,t}\]</span>
+Where <span class="math inline">\(q_t\)</span> is survey catchability at time <span class="math inline">\(t\)</span>.</p>
+<p><span class="math display">\[F_{a,t}=\sum_{a=0}^A s_{a,f,t}F\]</span></p>
+<p><span class="math inline">\(s_a,f\)</span> is selectivity at age <span class="math inline">\(a\)</span> for fleet <span class="math inline">\(f\)</span>. Selectivity-at-age is constant over time.
+Catch is in metric tons and survey is in number, so calculating catch weight (<span class="math inline">\(CW_t\)</span>) is done as follows:
 <span class="math display">\[ CW_t=\sum_{a=0}^A C_{a,t}w_a \]</span></p>
 </div>
-<div id="initial-values-1" class="section level2">
-<h2><span class="header-section-number">9.6</span> Initial values</h2>
-<div id="initial-n-1" class="section level3">
-<h3><span class="header-section-number">9.6.1</span> Initial N</h3>
+<div id="initial-values" class="section level2">
+<h2><span class="header-section-number">8.6</span> Initial values</h2>
+<div id="initial-n" class="section level3">
+<h3><span class="header-section-number">8.6.1</span> Initial N</h3>
 </div>
-<div id="initial-f-1" class="section level3">
-<h3><span class="header-section-number">9.6.2</span> Initial F</h3>
+<div id="initial-f" class="section level3">
+<h3><span class="header-section-number">8.6.2</span> Initial F</h3>
 </div>
 </div>
-<div id="likelihood-calculations-1" class="section level2">
-<h2><span class="header-section-number">9.7</span> Likelihood calculations</h2>
-<p>Age composition likelihood links proportions at age from data to model using a multinomial likelihood function. The multinomial and lognormal distributions, including atomic functions are provided within TMB now so we can use it.</p>
+<div id="likelihood-calculations" class="section level2">
+<h2><span class="header-section-number">8.7</span> Likelihood calculations</h2>
+<p>Age composition likelihood links proportions at age from data to model using a multinomial likelihood function. The multinomial and lognormal distributions, including atomic functions are provided within <code>TMB</code>.</p>
 <p>Survey index likelihood links estimated CPUE to input data CPUE in biomass using a lognormal distribution. (model.hpp)</p>
 <p>Catch index likelihood links estimated catch to input data catch in biomass using a lognormal distribution. (model.hpp)</p>
 <p>Age composition likelihoods link catch-at-age to expected catch-at-age using a multinomial distribution.</p>
@@ -330,8 +333,8 @@ Where q is survey catchability, s is selectivity indexed over the fish’s age s
           </div>
         </div>
       </div>
-<a href="model-specification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hpp-template-for-c-modules.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="software-user-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="software-specification.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -362,7 +365,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/035-software-specification.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/035-model-specification.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -370,7 +373,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/035-software-specification.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/035-model-specification.Rmd",
 "text": null
 },
 "download": ["_main.pdf", "_main.epub"],
