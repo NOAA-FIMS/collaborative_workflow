@@ -355,8 +355,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-2"><a href="test-case-template.html#cb11-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
 <span id="cb11-3"><a href="test-case-template.html#cb11-3"></a></span>
 <span id="cb11-4"><a href="test-case-template.html#cb11-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb11-5"><a href="test-case-template.html#cb11-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0) = -0.9189385</span></span>
-<span id="cb11-6"><a href="test-case-template.html#cb11-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5) = -9.07679</span></span>
+<span id="cb11-5"><a href="test-case-template.html#cb11-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
+<span id="cb11-6"><a href="test-case-template.html#cb11-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
 <span id="cb11-7"><a href="test-case-template.html#cb11-7"></a></span>
 <span id="cb11-8"><a href="test-case-template.html#cb11-8"></a>namespace {</span>
 <span id="cb11-9"><a href="test-case-template.html#cb11-9"></a></span>
@@ -410,14 +410,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-4"><a href="test-case-template.html#cb13-4"></a><span class="fu">cmake</span> --build .</span>
 <span id="cb13-5"><a href="test-case-template.html#cb13-5"></a><span class="ex">ctest</span></span></code></pre></div>
 <p>The output might look like this:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="test-case-template.html#cb14-1"></a>    <span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
-<span id="cb14-2"><a href="test-case-template.html#cb14-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.36 sec</span></span>
-<span id="cb14-3"><a href="test-case-template.html#cb14-3"></a>    <span class="ex">Start</span> 2: dlognormTest.IntInput</span>
-<span id="cb14-4"><a href="test-case-template.html#cb14-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.01 sec</span></span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="test-case-template.html#cb14-1"></a><span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
+<span id="cb14-2"><a href="test-case-template.html#cb14-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.11 sec</span></span>
+<span id="cb14-3"><a href="test-case-template.html#cb14-3"></a><span class="ex">Start</span> 2: dlognormTest.IntInput</span>
+<span id="cb14-4"><a href="test-case-template.html#cb14-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.11 sec</span></span>
 <span id="cb14-5"><a href="test-case-template.html#cb14-5"></a></span>
 <span id="cb14-6"><a href="test-case-template.html#cb14-6"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 2</span>
 <span id="cb14-7"><a href="test-case-template.html#cb14-7"></a></span>
-<span id="cb14-8"><a href="test-case-template.html#cb14-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.37</span> sec</span></code></pre></div>
+<span id="cb14-8"><a href="test-case-template.html#cb14-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.25</span> sec</span></code></pre></div>
 <p>Congratulations! You’ve successfully set up a test project and run a test binary using GoogleTest. Let’s use Google Benchmark to measure the real time and CPU time used for running the produced binary.</p>
 </div>
 <div id="benchmark-template" class="section level3">
@@ -474,15 +474,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-20"><a href="test-case-template.html#cb17-20"></a>  benchmark_main</span>
 <span id="cb17-21"><a href="test-case-template.html#cb17-21"></a>)</span></code></pre></div>
 <p>To run the benchmark,</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="test-case-template.html#cb18-1"></a><span class="bu">cd</span> build</span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="test-case-template.html#cb18-1"></a><span class="fu">cmake</span> --build .</span>
 <span id="cb18-2"><a href="test-case-template.html#cb18-2"></a><span class="ex">./dlognorm_benchmark.exe</span></span></code></pre></div>
 <p>The output might look like this:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="test-case-template.html#cb19-1"></a></span>
-<span id="cb19-2"><a href="test-case-template.html#cb19-2"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
-<span id="cb19-3"><a href="test-case-template.html#cb19-3"></a><span class="ex">----------------------------------------------------------------</span></span>
-<span id="cb19-4"><a href="test-case-template.html#cb19-4"></a><span class="ex">Benchmark</span>                      Time             CPU   Iterations</span>
-<span id="cb19-5"><a href="test-case-template.html#cb19-5"></a><span class="ex">----------------------------------------------------------------</span></span>
-<span id="cb19-6"><a href="test-case-template.html#cb19-6"></a><span class="ex">BM_dlgnorm</span>                   128 ns          126 ns      5600000</span></code></pre></div>
+<span id="cb19-2"><a href="test-case-template.html#cb19-2"></a><span class="ex">Run</span> on (8 X 2112 MHz CPU s)</span>
+<span id="cb19-3"><a href="test-case-template.html#cb19-3"></a><span class="ex">CPU</span> Caches:</span>
+<span id="cb19-4"><a href="test-case-template.html#cb19-4"></a>  <span class="ex">L1</span> Data 32 KiB (x4)</span>
+<span id="cb19-5"><a href="test-case-template.html#cb19-5"></a><span class="ex">L1</span> Instruction 32 KiB (x4)</span>
+<span id="cb19-6"><a href="test-case-template.html#cb19-6"></a><span class="ex">L2</span> Unified 256 KiB (x4)</span>
+<span id="cb19-7"><a href="test-case-template.html#cb19-7"></a><span class="ex">L3</span> Unified 8192 KiB (x1)</span>
+<span id="cb19-8"><a href="test-case-template.html#cb19-8"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
+<span id="cb19-9"><a href="test-case-template.html#cb19-9"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb19-10"><a href="test-case-template.html#cb19-10"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
+<span id="cb19-11"><a href="test-case-template.html#cb19-11"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb19-12"><a href="test-case-template.html#cb19-12"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
 </div>
 </div>
 <div id="r-testing" class="section level2">
