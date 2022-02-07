@@ -49,16 +49,6 @@ initial-values
 initial-n
 initial-f
 likelihood-calculations
-software-specification
-beverton-holt-expected-recruitment-function-1
-logistic-function-for-maturity-and-selectivity
-baranov-catch-equation
-modeling-loops-1
-expected-numbers-and-quantities-1
-initial-values-1
-initial-n-1
-initial-f-1
-likelihood-calculations-1
 hpp-template-for-c-modules
 test-case-template
 introduction
