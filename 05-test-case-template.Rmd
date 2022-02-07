@@ -110,8 +110,8 @@ We can create a test file dlognorm-unit.cpp that has a test suite for this funct
 #include "../src/dlognorm.hpp"
 
 // # R code that generates true values for the test
-// dlnorm(1.0, 0.0, 1.0) = -0.9189385
-// dlnorm(5.0, 10.0, 2.5) = -9.07679
+// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385
+// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679
 
 namespace {
 
@@ -176,14 +176,14 @@ ctest
 The output might look like this:
 
 ```bash
-    Start 1: dlognormTest.DoubleInput
-1/2 Test #1: dlognormTest.DoubleInput .........   Passed    0.36 sec
-    Start 2: dlognormTest.IntInput
-2/2 Test #2: dlognormTest.IntInput ............   Passed    0.01 sec
+Start 1: dlognormTest.DoubleInput
+1/2 Test #1: dlognormTest.DoubleInput .........   Passed    0.11 sec
+Start 2: dlognormTest.IntInput
+2/2 Test #2: dlognormTest.IntInput ............   Passed    0.11 sec
 
 100% tests passed, 0 tests failed out of 2
 
-Total Test time (real) =   0.37 sec
+Total Test time (real) =   0.25 sec
 ```
 Congratulations! You’ve successfully set up a test project and run a test binary using GoogleTest. Let's use Google Benchmark to measure the real time and CPU time used for running the produced binary.
 
@@ -255,18 +255,24 @@ target_link_libraries(
 To run the benchmark, 
 
 ```bash
-cd build
+cmake --build .
 ./dlognorm_benchmark.exe
 ```
 The output might look like this:
 
 ```bash
 
+Run on (8 X 2112 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x4)
+L1 Instruction 32 KiB (x4)
+L2 Unified 256 KiB (x4)
+L3 Unified 8192 KiB (x1)
 ***WARNING*** Library was built as DEBUG. Timings may be affected.
-----------------------------------------------------------------
-Benchmark                      Time             CPU   Iterations
-----------------------------------------------------------------
-BM_dlgnorm                   128 ns          126 ns      5600000
+-----------------------------------------------------
+  Benchmark           Time             CPU   Iterations
+-----------------------------------------------------
+  BM_dlgnorm        153 ns          153 ns      4480000
 ```
 
 ## R testing
