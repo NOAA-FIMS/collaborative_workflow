@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS implementation team" />
 
 
-<meta name="date" content="2022-02-07" />
+<meta name="date" content="2022-02-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -179,9 +179,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="issue-tracking.html"><a href="issue-tracking.html#commit-messages"><i class="fa fa-check"></i><b>6.6</b> Commit Messages</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="software-user-guide.html"><a href="software-user-guide.html"><i class="fa fa-check"></i><b>7</b> Software user guide</a><ul>
-<li class="chapter" data-level="7.1" data-path="software-user-guide.html"><a href="software-user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>7.1</b> Installing the package from Github</a></li>
-<li class="chapter" data-level="7.2" data-path="software-user-guide.html"><a href="software-user-guide.html#specifying-and-compiling-the-model"><i class="fa fa-check"></i><b>7.2</b> Specifying and compiling the model</a></li>
-<li class="chapter" data-level="7.3" data-path="software-user-guide.html"><a href="software-user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>7.3</b> Extracting model output</a></li>
+<li class="chapter" data-level="7.1" data-path="software-user-guide.html"><a href="software-user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>7.1</b> Installing the package from Github</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="software-user-guide.html"><a href="software-user-guide.html#windows-users"><i class="fa fa-check"></i><b>7.1.1</b> Windows users</a></li>
+<li class="chapter" data-level="7.1.2" data-path="software-user-guide.html"><a href="software-user-guide.html#mac-users"><i class="fa fa-check"></i><b>7.1.2</b> Mac users</a></li>
+<li class="chapter" data-level="7.1.3" data-path="software-user-guide.html"><a href="software-user-guide.html#linux-users"><i class="fa fa-check"></i><b>7.1.3</b> Linux users</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="software-user-guide.html"><a href="software-user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>7.2</b> Installing from <code>R</code></a></li>
+<li class="chapter" data-level="7.3" data-path="software-user-guide.html"><a href="software-user-guide.html#specifying-and-compiling-the-model"><i class="fa fa-check"></i><b>7.3</b> Specifying and compiling the model</a></li>
+<li class="chapter" data-level="7.4" data-path="software-user-guide.html"><a href="software-user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>7.4</b> Extracting model output</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="model-specification.html"><a href="model-specification.html"><i class="fa fa-check"></i><b>8</b> Model specification</a><ul>
 <li class="chapter" data-level="8.1" data-path="model-specification.html"><a href="model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>8.1</b> Model variables and bounds</a></li>
@@ -273,9 +278,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="statistical-distributions" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Statistical distributions</h3>
 <p>All of the statistical distributions needed for the first milestone of <code>FIMS</code> are implemented in <code>TMB</code> and need not be replicated.
-Code can be found <a href="https://github.com/kaskr/adcomp/blob/master/TMB/inst/include/distributions_R.hpp">here</a>.
-|Distribution | Location|
-| ————|———|</p>
+Code can be found <a href="http://kaskr.github.io/adcomp/group__R__style__distribution.html">here</a>.
+|Distribution | Name|
+| ————|———|
+|Normal | <a href="http://kaskr.github.io/adcomp/dnorm_8hpp.html">dnorm</a>|
+|Multinomial | <a href="http://kaskr.github.io/adcomp/group__R__style__distribution.html#gafd0ae6b53840267138bb9250115fbe8b">dmultinom</a><br />
+</p>
 </div>
 </div>
 <div id="beverton-holt-expected-recruitment-function" class="section level2">

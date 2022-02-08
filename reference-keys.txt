@@ -33,6 +33,10 @@ review-good-practices
 commit-messages
 software-user-guide
 installing-the-package-from-github
+windows-users
+mac-users
+linux-users
+installing-from-r
 specifying-and-compiling-the-model
 extracting-model-output
 model-specification
