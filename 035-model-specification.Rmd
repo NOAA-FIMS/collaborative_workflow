@@ -13,10 +13,11 @@ Wherever possible, `FIMS` should not reinvent atomic functions with extant defin
 ### Statistical distributions
 
 All of the statistical distributions needed for the first milestone of `FIMS` are implemented in `TMB` and need not be replicated.
-Code can be found [here](https://github.com/kaskr/adcomp/blob/master/TMB/inst/include/distributions_R.hpp).
-|Distribution | Location|
+Code can be found [here](http://kaskr.github.io/adcomp/group__R__style__distribution.html).
+|Distribution | Name| 
 | ------------|---------|
-
+|Normal       |  [dnorm](http://kaskr.github.io/adcomp/dnorm_8hpp.html)|
+|Multinomial  |  [dmultinom](http://kaskr.github.io/adcomp/group__R__style__distribution.html#gafd0ae6b53840267138bb9250115fbe8b)\
 
 ## Beverton-Holt expected recruitment function 
 
