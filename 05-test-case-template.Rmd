@@ -22,7 +22,7 @@ To use GoogleTest, you will need:
 
 ### Quickstart for Windows user
 
--   Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://cmake.org/download/) and put the file folder to `Documents\Apps` or other preferred folder.
+-   Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases) and put the file folder to `Documents\Apps` or other preferred folder.
 
 -   Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
 
