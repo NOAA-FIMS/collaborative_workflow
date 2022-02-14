@@ -13,6 +13,7 @@ fims-governance
 developers
 reviewers
 project-lead
+director-of-software-development
 code-of-conduct-adjudicator
 external-collaborators
 contributor-guidelines
