@@ -21,6 +21,10 @@ The reviewers are responsible for adhering to documented guidelines in the [Code
 
 The Project Lead is responsible for ensuring development and code review occur in a timely manner and according to project guidelines and standards. The Project Lead will triage issues and pull requests weekly and prompt involved parties to resolve outstanding issues and reviews. The Project Lead is also responsible for communicating project status via maintenance of the [status dashboard](https://noaa-fims.github.io/status). 
 
+## Director Of Software Development
+
+The Director of Software Development is responsible for the successful creation and delivery of the FIMS product to the end user by managing technical risks and opportunities; making key software design and implementation decisions with the development teams, scheduling of tasks, managing change requests, and guaranteeing quality of deliveries and educating the team on technical best practices.
+
 ## Code of Conduct Adjudicator
 
 The Code of Conduct Adjudicator is responsible for responding to allegations of [Code of Conduct](#code-of-conduct) violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.
