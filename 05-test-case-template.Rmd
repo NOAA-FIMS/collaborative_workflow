@@ -30,7 +30,7 @@ To use GoogleTest, you will need:
 
 -   Click `Edit...` under the `User variables for firstname.lastname` section.
 
--   Click `New`, add path to `cmake-3.21.4-windows-x86_64\bin`, add click `OK`.
+-   Click `New`, add path to `cmake-3.22.1-windows-x86_64\bin`, add click `OK`.
 
 -   Click `New`, add path to `Documents\Apps`, add click `OK`.
 
