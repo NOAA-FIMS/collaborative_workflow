@@ -4,18 +4,32 @@ The [FIMS Terms of Reference](https://drive.google.com/file/d/1gMDQbAhjM2E3nct4H
 
 ## Developers
 
-Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the [Code of Conduct](#code-of-conduct), [Style Guide](#style-guide), [Issue Tracking](#issue-tracking), and [Test Case Template](#test-case-template). The developer responsibilities include: 
+Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the [Code of Conduct](#code-of-conduct), [Style Guide](#style-guide), [Issue Tracking](#issue-tracking), and [Test Case Template](#test-case-template). 
+
+## C++ developers
+
+The C++ developer responsibilities include: 
 
 * Writing the module code.
-* Creating documentation for the module and building the documentation to ensure it is error-free.
-* Implementing the suite of required test cases for the module.
+* Creating documentation for the module and building the [documentation](#documentation) in `doxygen` to ensure it is error-free.
+* Implementing the suite of required test cases in [Google Test](#test-case-template) for the module.
 * Ensuring the module runs through the FIMS Github actions.
 
 Once development of a bug fix or a new component of FIMS is complete, the developer should create a [pull request](#pull-requests) according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch. 
 
+## R developers
+
+The R developers responsibilities include
+* Writing the `Rcpp` interface to the C++ code.
+* Writing Roxygen documentation for any R functions
+* Writing `testthat()` test cases for any R functionality
+* Ensuring the code passes the `R CMD CHECK`, `styler`, and any other automated checks.
+
+Once these are complete, the developer should create a [pull request](#pull-requests) according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch. 
+
 ## Reviewers
 
-The reviewers are responsible for adhering to documented guidelines in the [Code Review](#code-review) section. Reviewers should confirm that the new code is able to build and run within their own development environment. Reviewers should clearly document which components of the code need to be improved to be accurate, comply with project guidelines and style, or do not work, in the pull request thread so that the developer knows what they need to fix. 
+The reviewers are responsible for adhering to documented guidelines in the [Code Review](#code-review) section. Reviewers should confirm that the new code is able to build and run within their own development environment as well as via the Github actions on the repository. Reviewers should clearly document which components of the code need to be improved to be accurate, comply with project guidelines and style, or do not work, in the pull request thread so that the developer knows what they need to fix. 
 
 ## Project Lead
 
@@ -23,11 +37,11 @@ The Project Lead is responsible for ensuring development and code review occur i
 
 ## Director Of Software Development
 
-The Director of Software Development is responsible for the successful creation and delivery of the FIMS product to the end user by managing technical risks and opportunities; making key software design and implementation decisions with the development teams, scheduling of tasks, managing change requests, and guaranteeing quality of deliveries and educating the team on technical best practices.
+The Director of Software Development is responsible for the successful creation and delivery of the FIMS product to the end user by managing technical risks and opportunities; making key software design and implementation decisions with the development teams, scheduling of tasks, managing change requests, and guaranteeing quality of deliveries and educating the team on technical best practices.
 
-## Code of Conduct Adjudicator
+## Code of Conduct Enforcement
 
-The Code of Conduct Adjudicator is responsible for responding to allegations of [Code of Conduct](#code-of-conduct) violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.
+The Code of Conduct enforcer is responsible for responding to allegations of [Code of Conduct](#code-of-conduct) violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.
 
 ## External Collaborators
 

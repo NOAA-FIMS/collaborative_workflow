@@ -1,0 +1,42 @@
+# Software developer guide
+
+This section describes the software you will need to contribute to this project. This is in addition to the software dependencies described in the [software user guide](#software-user-guide) which you should ensure are installed first.
+
+## git
+
+You will need git installed locally, and you may prefer to use an additional git [GUI client](https://git-scm.com/downloads/guis) such as GitKraken or Github Desktop. If your preferred git client is the RStudio IDE, you can configure Git and RStudio integration following these [instructions](https://happygitwithr.com/rstudio-git-github.html). 
+
+To install git, please follow the instructions on [this page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your operating system. You can find the downloads for your operating system on the left-hand navigation bar on that page.
+
+## Development environment
+
+An integrated development environment is recommended to organize code files, outputs, and build and debug environments. The most popular IDEs on the development team are [RStudio](https://www.rstudio.com/) and [Visual Studio Code](https://code.visualstudio.com/). You are welcome to use another IDE if you'd like. 
+
+## C++ compiler
+Windows users who installed Rtools should have a C++ compiler (`gcc`) as part of the bundle. To ensure the C++ compiler is on your path, open a command prompt and type `gcc`. If you get the below message, you are all set:
+
+```{R eval = FALSE}
+gcc: fatal error: no input files
+compilation terminated.
+```
+
+If not, you will need to check that the compiler is on the path. The easiest way to do so is by creating a text file .Renviron in your Documents folder which contains the following line:
+```
+PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"
+```
+
+You can do this with a text editor, or from R like so (note that in R code you need to escape backslashes):
+```{r eval=FALSE}
+write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
+```
+
+Restart R, and verify that make can be found, which should show the path to your Rtools installation.
+
+```{r eval=FALSE}
+Sys.which("make")
+## "C:\\rtools40\\usr\\bin\\make.exe"
+```
+
+## Google test
+
+You will need to install `CMake` and `ninja` and validate you have the correct setup by following the steps outlined in the [test case template](#test-case-template).
