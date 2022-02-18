@@ -11,10 +11,12 @@ consequences-of-violating-conduct
 style-guide
 fims-governance
 developers
+c-developers
+r-developers
 reviewers
 project-lead
 director-of-software-development
-code-of-conduct-adjudicator
+code-of-conduct-enforcement
 external-collaborators
 contributor-guidelines
 fims-branching-strategy
@@ -40,6 +42,11 @@ linux-users
 installing-from-r
 specifying-and-compiling-the-model
 extracting-model-output
+software-developer-guide
+git
+development-environment
+c-compiler
+google-test
 model-specification
 model-variables-and-bounds
 inherited-functors-from-tmb
@@ -85,7 +92,7 @@ regression-testing
 platform-compatibility-testing
 beta-testing
 one-off-testing
-documentation-template
+documentation
 writing-function-reference
 writing-a-vignette
 step-by-step-documentation-update-process

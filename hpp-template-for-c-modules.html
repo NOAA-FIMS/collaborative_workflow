@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 .hpp template for C++ modules | FIMS Developer Handbook</title>
+  <title>Chapter 10 .hpp template for C++ modules | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 .hpp template for C++ modules | FIMS Developer Handbook" />
+  <meta property="og:title" content="Chapter 10 .hpp template for C++ modules | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 .hpp template for C++ modules | FIMS Developer Handbook" />
+  <meta name="twitter:title" content="Chapter 10 .hpp template for C++ modules | FIMS Developer Handbook" />
   
   <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
   
@@ -153,11 +153,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="style-guide.html"><a href="style-guide.html"><i class="fa fa-check"></i><b>3</b> Style Guide</a></li>
 <li class="chapter" data-level="4" data-path="fims-governance.html"><a href="fims-governance.html"><i class="fa fa-check"></i><b>4</b> FIMS Governance</a><ul>
 <li class="chapter" data-level="4.1" data-path="fims-governance.html"><a href="fims-governance.html#developers"><i class="fa fa-check"></i><b>4.1</b> Developers</a></li>
-<li class="chapter" data-level="4.2" data-path="fims-governance.html"><a href="fims-governance.html#reviewers"><i class="fa fa-check"></i><b>4.2</b> Reviewers</a></li>
-<li class="chapter" data-level="4.3" data-path="fims-governance.html"><a href="fims-governance.html#project-lead"><i class="fa fa-check"></i><b>4.3</b> Project Lead</a></li>
-<li class="chapter" data-level="4.4" data-path="fims-governance.html"><a href="fims-governance.html#director-of-software-development"><i class="fa fa-check"></i><b>4.4</b> Director Of Software Development</a></li>
-<li class="chapter" data-level="4.5" data-path="fims-governance.html"><a href="fims-governance.html#code-of-conduct-adjudicator"><i class="fa fa-check"></i><b>4.5</b> Code of Conduct Adjudicator</a></li>
-<li class="chapter" data-level="4.6" data-path="fims-governance.html"><a href="fims-governance.html#external-collaborators"><i class="fa fa-check"></i><b>4.6</b> External Collaborators</a></li>
+<li class="chapter" data-level="4.2" data-path="fims-governance.html"><a href="fims-governance.html#c-developers"><i class="fa fa-check"></i><b>4.2</b> C++ developers</a></li>
+<li class="chapter" data-level="4.3" data-path="fims-governance.html"><a href="fims-governance.html#r-developers"><i class="fa fa-check"></i><b>4.3</b> R developers</a></li>
+<li class="chapter" data-level="4.4" data-path="fims-governance.html"><a href="fims-governance.html#reviewers"><i class="fa fa-check"></i><b>4.4</b> Reviewers</a></li>
+<li class="chapter" data-level="4.5" data-path="fims-governance.html"><a href="fims-governance.html#project-lead"><i class="fa fa-check"></i><b>4.5</b> Project Lead</a></li>
+<li class="chapter" data-level="4.6" data-path="fims-governance.html"><a href="fims-governance.html#director-of-software-development"><i class="fa fa-check"></i><b>4.6</b> Director Of Software Development</a></li>
+<li class="chapter" data-level="4.7" data-path="fims-governance.html"><a href="fims-governance.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>4.7</b> Code of Conduct Enforcement</a></li>
+<li class="chapter" data-level="4.8" data-path="fims-governance.html"><a href="fims-governance.html#external-collaborators"><i class="fa fa-check"></i><b>4.8</b> External Collaborators</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>5</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#fims-branching-strategy"><i class="fa fa-check"></i><b>5.1</b> FIMS Branching Strategy</a><ul>
@@ -189,59 +191,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="software-user-guide.html"><a href="software-user-guide.html#specifying-and-compiling-the-model"><i class="fa fa-check"></i><b>7.3</b> Specifying and compiling the model</a></li>
 <li class="chapter" data-level="7.4" data-path="software-user-guide.html"><a href="software-user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>7.4</b> Extracting model output</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="model-specification.html"><a href="model-specification.html"><i class="fa fa-check"></i><b>8</b> Model specification</a><ul>
-<li class="chapter" data-level="8.1" data-path="model-specification.html"><a href="model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>8.1</b> Model variables and bounds</a></li>
-<li class="chapter" data-level="8.2" data-path="model-specification.html"><a href="model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>8.2</b> Inherited functors from <code>TMB</code></a><ul>
-<li class="chapter" data-level="8.2.1" data-path="model-specification.html"><a href="model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>8.2.1</b> Atomic functions</a></li>
-<li class="chapter" data-level="8.2.2" data-path="model-specification.html"><a href="model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>8.2.2</b> Statistical distributions</a></li>
+<li class="chapter" data-level="8" data-path="software-developer-guide.html"><a href="software-developer-guide.html"><i class="fa fa-check"></i><b>8</b> Software developer guide</a><ul>
+<li class="chapter" data-level="8.1" data-path="software-developer-guide.html"><a href="software-developer-guide.html#git"><i class="fa fa-check"></i><b>8.1</b> git</a></li>
+<li class="chapter" data-level="8.2" data-path="software-developer-guide.html"><a href="software-developer-guide.html#development-environment"><i class="fa fa-check"></i><b>8.2</b> Development environment</a></li>
+<li class="chapter" data-level="8.3" data-path="software-developer-guide.html"><a href="software-developer-guide.html#c-compiler"><i class="fa fa-check"></i><b>8.3</b> C++ compiler</a></li>
+<li class="chapter" data-level="8.4" data-path="software-developer-guide.html"><a href="software-developer-guide.html#google-test"><i class="fa fa-check"></i><b>8.4</b> Google test</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="model-specification.html"><a href="model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>8.3</b> Beverton-Holt expected recruitment function</a></li>
-<li class="chapter" data-level="8.4" data-path="model-specification.html"><a href="model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>8.4</b> Logistic function with extensions</a></li>
-<li class="chapter" data-level="8.5" data-path="model-specification.html"><a href="model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>8.5</b> Catch and fishing mortality</a></li>
-<li class="chapter" data-level="8.6" data-path="model-specification.html"><a href="model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>8.6</b> Modeling loops</a></li>
-<li class="chapter" data-level="8.7" data-path="model-specification.html"><a href="model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>8.7</b> Expected numbers and quantities</a></li>
-<li class="chapter" data-level="8.8" data-path="model-specification.html"><a href="model-specification.html#initial-values"><i class="fa fa-check"></i><b>8.8</b> Initial values</a><ul>
-<li class="chapter" data-level="8.8.1" data-path="model-specification.html"><a href="model-specification.html#initial-n"><i class="fa fa-check"></i><b>8.8.1</b> Initial N</a></li>
-<li class="chapter" data-level="8.8.2" data-path="model-specification.html"><a href="model-specification.html#initial-f"><i class="fa fa-check"></i><b>8.8.2</b> Initial F</a></li>
+<li class="chapter" data-level="9" data-path="model-specification.html"><a href="model-specification.html"><i class="fa fa-check"></i><b>9</b> Model specification</a><ul>
+<li class="chapter" data-level="9.1" data-path="model-specification.html"><a href="model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>9.1</b> Model variables and bounds</a></li>
+<li class="chapter" data-level="9.2" data-path="model-specification.html"><a href="model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>9.2</b> Inherited functors from <code>TMB</code></a><ul>
+<li class="chapter" data-level="9.2.1" data-path="model-specification.html"><a href="model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>9.2.1</b> Atomic functions</a></li>
+<li class="chapter" data-level="9.2.2" data-path="model-specification.html"><a href="model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>9.2.2</b> Statistical distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="8.9" data-path="model-specification.html"><a href="model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>8.9</b> Likelihood calculations</a></li>
+<li class="chapter" data-level="9.3" data-path="model-specification.html"><a href="model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>9.3</b> Beverton-Holt expected recruitment function</a></li>
+<li class="chapter" data-level="9.4" data-path="model-specification.html"><a href="model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>9.4</b> Logistic function with extensions</a></li>
+<li class="chapter" data-level="9.5" data-path="model-specification.html"><a href="model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>9.5</b> Catch and fishing mortality</a></li>
+<li class="chapter" data-level="9.6" data-path="model-specification.html"><a href="model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>9.6</b> Modeling loops</a></li>
+<li class="chapter" data-level="9.7" data-path="model-specification.html"><a href="model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>9.7</b> Expected numbers and quantities</a></li>
+<li class="chapter" data-level="9.8" data-path="model-specification.html"><a href="model-specification.html#initial-values"><i class="fa fa-check"></i><b>9.8</b> Initial values</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="model-specification.html"><a href="model-specification.html#initial-n"><i class="fa fa-check"></i><b>9.8.1</b> Initial N</a></li>
+<li class="chapter" data-level="9.8.2" data-path="model-specification.html"><a href="model-specification.html#initial-f"><i class="fa fa-check"></i><b>9.8.2</b> Initial F</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>9</b> .hpp template for C++ modules</a></li>
-<li class="chapter" data-level="10" data-path="test-case-template.html"><a href="test-case-template.html"><i class="fa fa-check"></i><b>10</b> Test case template</a><ul>
-<li class="chapter" data-level="10.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
-<li class="chapter" data-level="10.2.2" data-path="test-case-template.html"><a href="test-case-template.html#quickstart-for-windows-user"><i class="fa fa-check"></i><b>10.2.2</b> Quickstart for Windows user</a></li>
-<li class="chapter" data-level="10.2.3" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>10.2.3</b> Set up FIMS testing project</a></li>
-<li class="chapter" data-level="10.2.4" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>10.2.4</b> Unit test template</a></li>
-<li class="chapter" data-level="10.2.5" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>10.2.5</b> Unit test example</a></li>
-<li class="chapter" data-level="10.2.6" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.6</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="10.2.7" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>10.2.7</b> Benchmark template</a></li>
-<li class="chapter" data-level="10.2.8" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.8</b> Benchmark example</a></li>
-<li class="chapter" data-level="10.2.9" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.9</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="9.9" data-path="model-specification.html"><a href="model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>9.9</b> Likelihood calculations</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>10.3</b> R testing</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>10.3.1</b> R testthat template</a></li>
+<li class="chapter" data-level="10" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>10</b> .hpp template for C++ modules</a></li>
+<li class="chapter" data-level="11" data-path="test-case-template.html"><a href="test-case-template.html"><i class="fa fa-check"></i><b>11</b> Test case template</a><ul>
+<li class="chapter" data-level="11.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>11.2</b> C++ unit testing and benchmarking</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>11.2.1</b> Requirements</a></li>
+<li class="chapter" data-level="11.2.2" data-path="test-case-template.html"><a href="test-case-template.html#quickstart-for-windows-user"><i class="fa fa-check"></i><b>11.2.2</b> Quickstart for Windows user</a></li>
+<li class="chapter" data-level="11.2.3" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>11.2.3</b> Set up FIMS testing project</a></li>
+<li class="chapter" data-level="11.2.4" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>11.2.4</b> Unit test template</a></li>
+<li class="chapter" data-level="11.2.5" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>11.2.5</b> Unit test example</a></li>
+<li class="chapter" data-level="11.2.6" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>11.2.6</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
+<li class="chapter" data-level="11.2.7" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>11.2.7</b> Benchmark template</a></li>
+<li class="chapter" data-level="11.2.8" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>11.2.8</b> Benchmark example</a></li>
+<li class="chapter" data-level="11.2.9" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>11.2.9</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>10.4</b> Test case template and examples</a><ul>
-<li class="chapter" data-level="10.4.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>10.4.1</b> Test case template</a></li>
-<li class="chapter" data-level="10.4.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>10.4.2</b> Test case examples</a></li>
+<li class="chapter" data-level="11.3" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>11.3</b> R testing</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>11.3.1</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="test-case-template.html"><a href="test-case-template.html#glossary"><i class="fa fa-check"></i><b>10.5</b> Glossary</a><ul>
-<li class="chapter" data-level="10.5.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-testing"><i class="fa fa-check"></i><b>10.5.1</b> Unit testing</a></li>
-<li class="chapter" data-level="10.5.2" data-path="test-case-template.html"><a href="test-case-template.html#functional-testing"><i class="fa fa-check"></i><b>10.5.2</b> Functional testing</a></li>
-<li class="chapter" data-level="10.5.3" data-path="test-case-template.html"><a href="test-case-template.html#integration-testing"><i class="fa fa-check"></i><b>10.5.3</b> Integration testing</a></li>
-<li class="chapter" data-level="10.5.4" data-path="test-case-template.html"><a href="test-case-template.html#run-time-testing"><i class="fa fa-check"></i><b>10.5.4</b> Run-time testing</a></li>
-<li class="chapter" data-level="10.5.5" data-path="test-case-template.html"><a href="test-case-template.html#regression-testing"><i class="fa fa-check"></i><b>10.5.5</b> Regression testing</a></li>
-<li class="chapter" data-level="10.5.6" data-path="test-case-template.html"><a href="test-case-template.html#platform-compatibility-testing"><i class="fa fa-check"></i><b>10.5.6</b> Platform compatibility testing</a></li>
-<li class="chapter" data-level="10.5.7" data-path="test-case-template.html"><a href="test-case-template.html#beta-testing"><i class="fa fa-check"></i><b>10.5.7</b> Beta testing</a></li>
-<li class="chapter" data-level="10.5.8" data-path="test-case-template.html"><a href="test-case-template.html#one-off-testing"><i class="fa fa-check"></i><b>10.5.8</b> One-off testing</a></li>
+<li class="chapter" data-level="11.4" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>11.4</b> Test case template and examples</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>11.4.1</b> Test case template</a></li>
+<li class="chapter" data-level="11.4.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>11.4.2</b> Test case examples</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="test-case-template.html"><a href="test-case-template.html#glossary"><i class="fa fa-check"></i><b>11.5</b> Glossary</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-testing"><i class="fa fa-check"></i><b>11.5.1</b> Unit testing</a></li>
+<li class="chapter" data-level="11.5.2" data-path="test-case-template.html"><a href="test-case-template.html#functional-testing"><i class="fa fa-check"></i><b>11.5.2</b> Functional testing</a></li>
+<li class="chapter" data-level="11.5.3" data-path="test-case-template.html"><a href="test-case-template.html#integration-testing"><i class="fa fa-check"></i><b>11.5.3</b> Integration testing</a></li>
+<li class="chapter" data-level="11.5.4" data-path="test-case-template.html"><a href="test-case-template.html#run-time-testing"><i class="fa fa-check"></i><b>11.5.4</b> Run-time testing</a></li>
+<li class="chapter" data-level="11.5.5" data-path="test-case-template.html"><a href="test-case-template.html#regression-testing"><i class="fa fa-check"></i><b>11.5.5</b> Regression testing</a></li>
+<li class="chapter" data-level="11.5.6" data-path="test-case-template.html"><a href="test-case-template.html#platform-compatibility-testing"><i class="fa fa-check"></i><b>11.5.6</b> Platform compatibility testing</a></li>
+<li class="chapter" data-level="11.5.7" data-path="test-case-template.html"><a href="test-case-template.html#beta-testing"><i class="fa fa-check"></i><b>11.5.7</b> Beta testing</a></li>
+<li class="chapter" data-level="11.5.8" data-path="test-case-template.html"><a href="test-case-template.html#one-off-testing"><i class="fa fa-check"></i><b>11.5.8</b> One-off testing</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>11</b> Documentation template</a><ul>
-<li class="chapter" data-level="11.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>11.1</b> Writing function reference</a></li>
-<li class="chapter" data-level="11.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>11.2</b> Writing a vignette</a></li>
-<li class="chapter" data-level="11.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>11.3</b> Step by step documentation update process</a></li>
+<li class="chapter" data-level="12" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>12</b> Documentation</a><ul>
+<li class="chapter" data-level="12.1" data-path="documentation.html"><a href="documentation.html#writing-function-reference"><i class="fa fa-check"></i><b>12.1</b> Writing function reference</a></li>
+<li class="chapter" data-level="12.2" data-path="documentation.html"><a href="documentation.html#writing-a-vignette"><i class="fa fa-check"></i><b>12.2</b> Writing a vignette</a></li>
+<li class="chapter" data-level="12.3" data-path="documentation.html"><a href="documentation.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>12.3</b> Step by step documentation update process</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
 <li class="divider"></li>
@@ -265,159 +273,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="hpp-template-for-c-modules" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> .hpp template for C++ modules</h1>
+<h1><span class="header-section-number">Chapter 10</span> .hpp template for C++ modules</h1>
 <p>In this section we will describe how to structure a new .hpp file in FIMS.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="hpp-template-for-c-modules.html#cb7-1"></a><span class="co">//  tmplate.hpp</span></span>
-<span id="cb7-2"><a href="hpp-template-for-c-modules.html#cb7-2"></a><span class="co">//  Fisheries Integrated Modeling System (FIMS)</span></span>
-<span id="cb7-3"><a href="hpp-template-for-c-modules.html#cb7-3"></a></span>
-<span id="cb7-4"><a href="hpp-template-for-c-modules.html#cb7-4"></a><span class="co">//define the header gaurd</span></span>
-<span id="cb7-5"><a href="hpp-template-for-c-modules.html#cb7-5"></a><span class="pp">#ifndef template_hpp </span></span>
-<span id="cb7-6"><a href="hpp-template-for-c-modules.html#cb7-6"></a><span class="pp">#define template_hpp</span></span>
-<span id="cb7-7"><a href="hpp-template-for-c-modules.html#cb7-7"></a></span>
-<span id="cb7-8"><a href="hpp-template-for-c-modules.html#cb7-8"></a><span class="co">//inherit from model_base</span></span>
-<span id="cb7-9"><a href="hpp-template-for-c-modules.html#cb7-9"></a><span class="pp">#include </span><span class="im">&quot;../common.hpp&quot;</span><span class="pp"> </span></span>
-<span id="cb7-10"><a href="hpp-template-for-c-modules.html#cb7-10"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb7-11"><a href="hpp-template-for-c-modules.html#cb7-11"></a></span>
-<span id="cb7-12"><a href="hpp-template-for-c-modules.html#cb7-12"></a><span class="co">/**</span></span>
-<span id="cb7-13"><a href="hpp-template-for-c-modules.html#cb7-13"></a><span class="co"> * In this example, we utilize the concept of inheritence and </span></span>
-<span id="cb7-14"><a href="hpp-template-for-c-modules.html#cb7-14"></a><span class="co"> * polymorphism (https://www.geeksforgeeks.org/polymorphism-in-c/). All</span></span>
-<span id="cb7-15"><a href="hpp-template-for-c-modules.html#cb7-15"></a><span class="co"> * classes inherit from model_base. Name1 and Name2 inherit from NameBase.</span></span>
-<span id="cb7-16"><a href="hpp-template-for-c-modules.html#cb7-16"></a><span class="co"> * Classes Name1 and Name2 must implement they&#39;re own version of </span></span>
-<span id="cb7-17"><a href="hpp-template-for-c-modules.html#cb7-17"></a><span class="co"> * &quot;virtual T evaluate(const T&amp; t)&quot;, which will have unique logic. </span></span>
-<span id="cb7-18"><a href="hpp-template-for-c-modules.html#cb7-18"></a><span class="co"> */</span></span>
-<span id="cb7-19"><a href="hpp-template-for-c-modules.html#cb7-19"></a></span>
-<span id="cb7-20"><a href="hpp-template-for-c-modules.html#cb7-20"></a></span>
-<span id="cb7-21"><a href="hpp-template-for-c-modules.html#cb7-21"></a><span class="co">/*</span></span>
-<span id="cb7-22"><a href="hpp-template-for-c-modules.html#cb7-22"></a><span class="co"> * fims namespace</span></span>
-<span id="cb7-23"><a href="hpp-template-for-c-modules.html#cb7-23"></a><span class="co"> */</span></span>
-<span id="cb7-24"><a href="hpp-template-for-c-modules.html#cb7-24"></a>namespace fims{</span>
-<span id="cb7-25"><a href="hpp-template-for-c-modules.html#cb7-25"></a></span>
-<span id="cb7-26"><a href="hpp-template-for-c-modules.html#cb7-26"></a><span class="co">/**</span></span>
-<span id="cb7-27"><a href="hpp-template-for-c-modules.html#cb7-27"></a><span class="co"> * NameBase class. Inherits from model_base.</span></span>
-<span id="cb7-28"><a href="hpp-template-for-c-modules.html#cb7-28"></a><span class="co"> */</span></span>
-<span id="cb7-29"><a href="hpp-template-for-c-modules.html#cb7-29"></a>template &lt;class T&gt;</span>
-<span id="cb7-30"><a href="hpp-template-for-c-modules.html#cb7-30"></a>class NameBase: public model_base&lt;T&gt;{ <span class="co">//note that model_base gets template parameter T.</span></span>
-<span id="cb7-31"><a href="hpp-template-for-c-modules.html#cb7-31"></a>protected:</span>
-<span id="cb7-32"><a href="hpp-template-for-c-modules.html#cb7-32"></a></span>
-<span id="cb7-33"><a href="hpp-template-for-c-modules.html#cb7-33"></a>public:</span>
-<span id="cb7-34"><a href="hpp-template-for-c-modules.html#cb7-34"></a>  virtual T Evaluate(<span class="dt">const</span> T&amp; t)=<span class="dv">0</span>; <span class="co">//&quot;= 0;&quot; means this must be implemented in child.</span></span>
-<span id="cb7-35"><a href="hpp-template-for-c-modules.html#cb7-35"></a>};</span>
-<span id="cb7-36"><a href="hpp-template-for-c-modules.html#cb7-36"></a>  </span>
-<span id="cb7-37"><a href="hpp-template-for-c-modules.html#cb7-37"></a><span class="co">/* </span></span>
-<span id="cb7-38"><a href="hpp-template-for-c-modules.html#cb7-38"></a><span class="co">* Template class inherits from  NameBase</span></span>
-<span id="cb7-39"><a href="hpp-template-for-c-modules.html#cb7-39"></a><span class="co">*/</span></span>
-<span id="cb7-40"><a href="hpp-template-for-c-modules.html#cb7-40"></a>template &lt;class T&gt;</span>
-<span id="cb7-41"><a href="hpp-template-for-c-modules.html#cb7-41"></a>class Name1: public NameBase&lt;T&gt;{</span>
-<span id="cb7-42"><a href="hpp-template-for-c-modules.html#cb7-42"></a></span>
-<span id="cb7-43"><a href="hpp-template-for-c-modules.html#cb7-43"></a>public:</span>
-<span id="cb7-44"><a href="hpp-template-for-c-modules.html#cb7-44"></a> </span>
-<span id="cb7-45"><a href="hpp-template-for-c-modules.html#cb7-45"></a>    </span>
-<span id="cb7-46"><a href="hpp-template-for-c-modules.html#cb7-46"></a>  <span class="co">/*</span></span>
-<span id="cb7-47"><a href="hpp-template-for-c-modules.html#cb7-47"></a><span class="co">   *Default constructor</span></span>
-<span id="cb7-48"><a href="hpp-template-for-c-modules.html#cb7-48"></a><span class="co">   *Initialize any memory here.</span></span>
-<span id="cb7-49"><a href="hpp-template-for-c-modules.html#cb7-49"></a><span class="co">   */</span></span>
-<span id="cb7-50"><a href="hpp-template-for-c-modules.html#cb7-50"></a>  Name1(){</span>
-<span id="cb7-51"><a href="hpp-template-for-c-modules.html#cb7-51"></a>  }</span>
-<span id="cb7-52"><a href="hpp-template-for-c-modules.html#cb7-52"></a>  </span>
-<span id="cb7-53"><a href="hpp-template-for-c-modules.html#cb7-53"></a> </span>
-<span id="cb7-54"><a href="hpp-template-for-c-modules.html#cb7-54"></a>  <span class="co">/**</span></span>
-<span id="cb7-55"><a href="hpp-template-for-c-modules.html#cb7-55"></a><span class="co">   * Destructor; this method destructs Name1 object.</span></span>
-<span id="cb7-56"><a href="hpp-template-for-c-modules.html#cb7-56"></a><span class="co">   * Delete any allocated memory here.</span></span>
-<span id="cb7-57"><a href="hpp-template-for-c-modules.html#cb7-57"></a><span class="co">   */</span></span>
-<span id="cb7-58"><a href="hpp-template-for-c-modules.html#cb7-58"></a>  ~ Name1(){</span>
-<span id="cb7-59"><a href="hpp-template-for-c-modules.html#cb7-59"></a>    std::cout &lt;&lt;<span class="st">&quot;I just deleted Name1 object&quot;</span> &lt;&lt; std::endl;</span>
-<span id="cb7-60"><a href="hpp-template-for-c-modules.html#cb7-60"></a>  }</span>
-<span id="cb7-61"><a href="hpp-template-for-c-modules.html#cb7-61"></a>  </span>
-<span id="cb7-62"><a href="hpp-template-for-c-modules.html#cb7-62"></a>   <span class="co">/**</span></span>
-<span id="cb7-63"><a href="hpp-template-for-c-modules.html#cb7-63"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
-<span id="cb7-64"><a href="hpp-template-for-c-modules.html#cb7-64"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
-<span id="cb7-65"><a href="hpp-template-for-c-modules.html#cb7-65"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
-<span id="cb7-66"><a href="hpp-template-for-c-modules.html#cb7-66"></a><span class="co">    * </span></span>
-<span id="cb7-67"><a href="hpp-template-for-c-modules.html#cb7-67"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
-<span id="cb7-68"><a href="hpp-template-for-c-modules.html#cb7-68"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t+1</span></span>
-<span id="cb7-69"><a href="hpp-template-for-c-modules.html#cb7-69"></a><span class="co">    */</span></span>
-<span id="cb7-70"><a href="hpp-template-for-c-modules.html#cb7-70"></a>   virtual T Evaluate(<span class="dt">const</span> T&amp; t) {</span>
-<span id="cb7-71"><a href="hpp-template-for-c-modules.html#cb7-71"></a>     std::cout&lt;&lt;<span class="st">&quot;evaluate in Name1 received &quot;</span>&lt;&lt;t&lt;&lt;</span>
-<span id="cb7-72"><a href="hpp-template-for-c-modules.html#cb7-72"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span>&lt;&lt;(t+<span class="dv">1</span>)&lt;&lt;std::endl;</span>
-<span id="cb7-73"><a href="hpp-template-for-c-modules.html#cb7-73"></a>     <span class="cf">return</span> t+<span class="dv">1</span>; <span class="co">//unique logic for Name1 class</span></span>
-<span id="cb7-74"><a href="hpp-template-for-c-modules.html#cb7-74"></a>   }</span>
-<span id="cb7-75"><a href="hpp-template-for-c-modules.html#cb7-75"></a></span>
-<span id="cb7-76"><a href="hpp-template-for-c-modules.html#cb7-76"></a>};</span>
-<span id="cb7-77"><a href="hpp-template-for-c-modules.html#cb7-77"></a></span>
-<span id="cb7-78"><a href="hpp-template-for-c-modules.html#cb7-78"></a>  <span class="co">/* </span></span>
-<span id="cb7-79"><a href="hpp-template-for-c-modules.html#cb7-79"></a><span class="co">* Template class inherits from  NameBase</span></span>
-<span id="cb7-80"><a href="hpp-template-for-c-modules.html#cb7-80"></a><span class="co">*/</span></span>
-<span id="cb7-81"><a href="hpp-template-for-c-modules.html#cb7-81"></a>template &lt;class T&gt;</span>
-<span id="cb7-82"><a href="hpp-template-for-c-modules.html#cb7-82"></a>class Name2: public NameBase&lt;T&gt;{</span>
-<span id="cb7-83"><a href="hpp-template-for-c-modules.html#cb7-83"></a></span>
-<span id="cb7-84"><a href="hpp-template-for-c-modules.html#cb7-84"></a>public:</span>
-<span id="cb7-85"><a href="hpp-template-for-c-modules.html#cb7-85"></a> </span>
-<span id="cb7-86"><a href="hpp-template-for-c-modules.html#cb7-86"></a>    </span>
-<span id="cb7-87"><a href="hpp-template-for-c-modules.html#cb7-87"></a>  <span class="co">/*</span></span>
-<span id="cb7-88"><a href="hpp-template-for-c-modules.html#cb7-88"></a><span class="co">   *Default constructor.</span></span>
-<span id="cb7-89"><a href="hpp-template-for-c-modules.html#cb7-89"></a><span class="co">   *Initialize any memory here.</span></span>
-<span id="cb7-90"><a href="hpp-template-for-c-modules.html#cb7-90"></a><span class="co">   */</span></span>
-<span id="cb7-91"><a href="hpp-template-for-c-modules.html#cb7-91"></a>  Name2(){</span>
-<span id="cb7-92"><a href="hpp-template-for-c-modules.html#cb7-92"></a>  }</span>
-<span id="cb7-93"><a href="hpp-template-for-c-modules.html#cb7-93"></a>  </span>
-<span id="cb7-94"><a href="hpp-template-for-c-modules.html#cb7-94"></a> </span>
-<span id="cb7-95"><a href="hpp-template-for-c-modules.html#cb7-95"></a>  <span class="co">/**</span></span>
-<span id="cb7-96"><a href="hpp-template-for-c-modules.html#cb7-96"></a><span class="co">   * Destructor; this method destructs the Name2 object.</span></span>
-<span id="cb7-97"><a href="hpp-template-for-c-modules.html#cb7-97"></a><span class="co">   * Delete any allocated memory here.</span></span>
-<span id="cb7-98"><a href="hpp-template-for-c-modules.html#cb7-98"></a><span class="co">   */</span></span>
-<span id="cb7-99"><a href="hpp-template-for-c-modules.html#cb7-99"></a>  ~ Name2(){</span>
-<span id="cb7-100"><a href="hpp-template-for-c-modules.html#cb7-100"></a>    std::cout &lt;&lt;<span class="st">&quot;I just deleted Name2 object&quot;</span> &lt;&lt; std::endl;</span>
-<span id="cb7-101"><a href="hpp-template-for-c-modules.html#cb7-101"></a>  }</span>
-<span id="cb7-102"><a href="hpp-template-for-c-modules.html#cb7-102"></a>  </span>
-<span id="cb7-103"><a href="hpp-template-for-c-modules.html#cb7-103"></a>   <span class="co">/**</span></span>
-<span id="cb7-104"><a href="hpp-template-for-c-modules.html#cb7-104"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
-<span id="cb7-105"><a href="hpp-template-for-c-modules.html#cb7-105"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
-<span id="cb7-106"><a href="hpp-template-for-c-modules.html#cb7-106"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
-<span id="cb7-107"><a href="hpp-template-for-c-modules.html#cb7-107"></a><span class="co">    * </span></span>
-<span id="cb7-108"><a href="hpp-template-for-c-modules.html#cb7-108"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
-<span id="cb7-109"><a href="hpp-template-for-c-modules.html#cb7-109"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t^2</span></span>
-<span id="cb7-110"><a href="hpp-template-for-c-modules.html#cb7-110"></a><span class="co">    */</span></span>
-<span id="cb7-111"><a href="hpp-template-for-c-modules.html#cb7-111"></a>   virtual T Evaluate(<span class="dt">const</span> T&amp; t) {</span>
-<span id="cb7-112"><a href="hpp-template-for-c-modules.html#cb7-112"></a>     std::cout&lt;&lt;<span class="st">&quot;evaluate in Name2 received &quot;</span>&lt;&lt;t&lt;&lt;</span>
-<span id="cb7-113"><a href="hpp-template-for-c-modules.html#cb7-113"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span>&lt;&lt;(t*t)&lt;&lt;std::endl;</span>
-<span id="cb7-114"><a href="hpp-template-for-c-modules.html#cb7-114"></a>     <span class="cf">return</span> t*t; <span class="co">//unique logic for Name2 class</span></span>
-<span id="cb7-115"><a href="hpp-template-for-c-modules.html#cb7-115"></a>   }</span>
-<span id="cb7-116"><a href="hpp-template-for-c-modules.html#cb7-116"></a></span>
-<span id="cb7-117"><a href="hpp-template-for-c-modules.html#cb7-117"></a>};</span>
-<span id="cb7-118"><a href="hpp-template-for-c-modules.html#cb7-118"></a>  </span>
-<span id="cb7-119"><a href="hpp-template-for-c-modules.html#cb7-119"></a><span class="co">/**</span></span>
-<span id="cb7-120"><a href="hpp-template-for-c-modules.html#cb7-120"></a><span class="co"> * Add additional implementations below.</span></span>
-<span id="cb7-121"><a href="hpp-template-for-c-modules.html#cb7-121"></a><span class="co"> */</span></span>
-<span id="cb7-122"><a href="hpp-template-for-c-modules.html#cb7-122"></a>  </span>
-<span id="cb7-123"><a href="hpp-template-for-c-modules.html#cb7-123"></a></span>
-<span id="cb7-124"><a href="hpp-template-for-c-modules.html#cb7-124"></a></span>
-<span id="cb7-125"><a href="hpp-template-for-c-modules.html#cb7-125"></a></span>
-<span id="cb7-126"><a href="hpp-template-for-c-modules.html#cb7-126"></a>} <span class="co">//end namespace</span></span>
-<span id="cb7-127"><a href="hpp-template-for-c-modules.html#cb7-127"></a></span>
-<span id="cb7-128"><a href="hpp-template-for-c-modules.html#cb7-128"></a><span class="co">/**</span></span>
-<span id="cb7-129"><a href="hpp-template-for-c-modules.html#cb7-129"></a><span class="co"> *Example usage:</span></span>
-<span id="cb7-130"><a href="hpp-template-for-c-modules.html#cb7-130"></a><span class="co"> *</span></span>
-<span id="cb7-131"><a href="hpp-template-for-c-modules.html#cb7-131"></a><span class="co"> * void main(int argc, char** argv){</span></span>
-<span id="cb7-132"><a href="hpp-template-for-c-modules.html#cb7-132"></a><span class="co"> *    NameBase</span><span class="kw">&lt;double&gt;</span><span class="co">* name = NULL; //pointer to a NameBase object</span></span>
-<span id="cb7-133"><a href="hpp-template-for-c-modules.html#cb7-133"></a><span class="co"> *    Name1</span><span class="kw">&lt;double&gt;</span><span class="co"> n1; //inherits from NameBase</span></span>
-<span id="cb7-134"><a href="hpp-template-for-c-modules.html#cb7-134"></a><span class="co"> *    Name2</span><span class="kw">&lt;double&gt;</span><span class="co"> n2; //inherits from NameBase</span></span>
-<span id="cb7-135"><a href="hpp-template-for-c-modules.html#cb7-135"></a><span class="co"> *</span></span>
-<span id="cb7-136"><a href="hpp-template-for-c-modules.html#cb7-136"></a><span class="co"> *    name = &amp;n1; //name now points to n1</span></span>
-<span id="cb7-137"><a href="hpp-template-for-c-modules.html#cb7-137"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n1</span></span>
-<span id="cb7-138"><a href="hpp-template-for-c-modules.html#cb7-138"></a><span class="co"> *</span></span>
-<span id="cb7-139"><a href="hpp-template-for-c-modules.html#cb7-139"></a><span class="co"> *    name = &amp;n2; //name now points to n2</span></span>
-<span id="cb7-140"><a href="hpp-template-for-c-modules.html#cb7-140"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n2</span></span>
-<span id="cb7-141"><a href="hpp-template-for-c-modules.html#cb7-141"></a><span class="co"> * }</span></span>
-<span id="cb7-142"><a href="hpp-template-for-c-modules.html#cb7-142"></a><span class="co"> *</span></span>
-<span id="cb7-143"><a href="hpp-template-for-c-modules.html#cb7-143"></a><span class="co"> * Output:</span></span>
-<span id="cb7-144"><a href="hpp-template-for-c-modules.html#cb7-144"></a><span class="co"> * evaluate in Name1 received 2 as a method parameter, returning 3</span></span>
-<span id="cb7-145"><a href="hpp-template-for-c-modules.html#cb7-145"></a><span class="co"> * evaluate in Name2 received 2 as a method parameter, returning 4</span></span>
-<span id="cb7-146"><a href="hpp-template-for-c-modules.html#cb7-146"></a><span class="co"> *</span></span>
-<span id="cb7-147"><a href="hpp-template-for-c-modules.html#cb7-147"></a><span class="co"> */</span></span>
-<span id="cb7-148"><a href="hpp-template-for-c-modules.html#cb7-148"></a></span>
-<span id="cb7-149"><a href="hpp-template-for-c-modules.html#cb7-149"></a></span>
-<span id="cb7-150"><a href="hpp-template-for-c-modules.html#cb7-150"></a></span>
-<span id="cb7-151"><a href="hpp-template-for-c-modules.html#cb7-151"></a><span class="pp">#endif </span><span class="co">/*template_hpp */</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="hpp-template-for-c-modules.html#cb11-1"></a><span class="co">//  tmplate.hpp</span></span>
+<span id="cb11-2"><a href="hpp-template-for-c-modules.html#cb11-2"></a><span class="co">//  Fisheries Integrated Modeling System (FIMS)</span></span>
+<span id="cb11-3"><a href="hpp-template-for-c-modules.html#cb11-3"></a></span>
+<span id="cb11-4"><a href="hpp-template-for-c-modules.html#cb11-4"></a><span class="co">//define the header gaurd</span></span>
+<span id="cb11-5"><a href="hpp-template-for-c-modules.html#cb11-5"></a><span class="pp">#ifndef template_hpp </span></span>
+<span id="cb11-6"><a href="hpp-template-for-c-modules.html#cb11-6"></a><span class="pp">#define template_hpp</span></span>
+<span id="cb11-7"><a href="hpp-template-for-c-modules.html#cb11-7"></a></span>
+<span id="cb11-8"><a href="hpp-template-for-c-modules.html#cb11-8"></a><span class="co">//inherit from model_base</span></span>
+<span id="cb11-9"><a href="hpp-template-for-c-modules.html#cb11-9"></a><span class="pp">#include </span><span class="im">&quot;../common.hpp&quot;</span><span class="pp"> </span></span>
+<span id="cb11-10"><a href="hpp-template-for-c-modules.html#cb11-10"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb11-11"><a href="hpp-template-for-c-modules.html#cb11-11"></a></span>
+<span id="cb11-12"><a href="hpp-template-for-c-modules.html#cb11-12"></a><span class="co">/**</span></span>
+<span id="cb11-13"><a href="hpp-template-for-c-modules.html#cb11-13"></a><span class="co"> * In this example, we utilize the concept of inheritence and </span></span>
+<span id="cb11-14"><a href="hpp-template-for-c-modules.html#cb11-14"></a><span class="co"> * polymorphism (https://www.geeksforgeeks.org/polymorphism-in-c/). All</span></span>
+<span id="cb11-15"><a href="hpp-template-for-c-modules.html#cb11-15"></a><span class="co"> * classes inherit from model_base. Name1 and Name2 inherit from NameBase.</span></span>
+<span id="cb11-16"><a href="hpp-template-for-c-modules.html#cb11-16"></a><span class="co"> * Classes Name1 and Name2 must implement they&#39;re own version of </span></span>
+<span id="cb11-17"><a href="hpp-template-for-c-modules.html#cb11-17"></a><span class="co"> * &quot;virtual T evaluate(const T&amp; t)&quot;, which will have unique logic. </span></span>
+<span id="cb11-18"><a href="hpp-template-for-c-modules.html#cb11-18"></a><span class="co"> */</span></span>
+<span id="cb11-19"><a href="hpp-template-for-c-modules.html#cb11-19"></a></span>
+<span id="cb11-20"><a href="hpp-template-for-c-modules.html#cb11-20"></a></span>
+<span id="cb11-21"><a href="hpp-template-for-c-modules.html#cb11-21"></a><span class="co">/*</span></span>
+<span id="cb11-22"><a href="hpp-template-for-c-modules.html#cb11-22"></a><span class="co"> * fims namespace</span></span>
+<span id="cb11-23"><a href="hpp-template-for-c-modules.html#cb11-23"></a><span class="co"> */</span></span>
+<span id="cb11-24"><a href="hpp-template-for-c-modules.html#cb11-24"></a>namespace fims{</span>
+<span id="cb11-25"><a href="hpp-template-for-c-modules.html#cb11-25"></a></span>
+<span id="cb11-26"><a href="hpp-template-for-c-modules.html#cb11-26"></a><span class="co">/**</span></span>
+<span id="cb11-27"><a href="hpp-template-for-c-modules.html#cb11-27"></a><span class="co"> * NameBase class. Inherits from model_base.</span></span>
+<span id="cb11-28"><a href="hpp-template-for-c-modules.html#cb11-28"></a><span class="co"> */</span></span>
+<span id="cb11-29"><a href="hpp-template-for-c-modules.html#cb11-29"></a>template &lt;class T&gt;</span>
+<span id="cb11-30"><a href="hpp-template-for-c-modules.html#cb11-30"></a>class NameBase: public model_base&lt;T&gt;{ <span class="co">//note that model_base gets template parameter T.</span></span>
+<span id="cb11-31"><a href="hpp-template-for-c-modules.html#cb11-31"></a>protected:</span>
+<span id="cb11-32"><a href="hpp-template-for-c-modules.html#cb11-32"></a></span>
+<span id="cb11-33"><a href="hpp-template-for-c-modules.html#cb11-33"></a>public:</span>
+<span id="cb11-34"><a href="hpp-template-for-c-modules.html#cb11-34"></a>  virtual T Evaluate(<span class="dt">const</span> T&amp; t)=<span class="dv">0</span>; <span class="co">//&quot;= 0;&quot; means this must be implemented in child.</span></span>
+<span id="cb11-35"><a href="hpp-template-for-c-modules.html#cb11-35"></a>};</span>
+<span id="cb11-36"><a href="hpp-template-for-c-modules.html#cb11-36"></a>  </span>
+<span id="cb11-37"><a href="hpp-template-for-c-modules.html#cb11-37"></a><span class="co">/* </span></span>
+<span id="cb11-38"><a href="hpp-template-for-c-modules.html#cb11-38"></a><span class="co">* Template class inherits from  NameBase</span></span>
+<span id="cb11-39"><a href="hpp-template-for-c-modules.html#cb11-39"></a><span class="co">*/</span></span>
+<span id="cb11-40"><a href="hpp-template-for-c-modules.html#cb11-40"></a>template &lt;class T&gt;</span>
+<span id="cb11-41"><a href="hpp-template-for-c-modules.html#cb11-41"></a>class Name1: public NameBase&lt;T&gt;{</span>
+<span id="cb11-42"><a href="hpp-template-for-c-modules.html#cb11-42"></a></span>
+<span id="cb11-43"><a href="hpp-template-for-c-modules.html#cb11-43"></a>public:</span>
+<span id="cb11-44"><a href="hpp-template-for-c-modules.html#cb11-44"></a> </span>
+<span id="cb11-45"><a href="hpp-template-for-c-modules.html#cb11-45"></a>    </span>
+<span id="cb11-46"><a href="hpp-template-for-c-modules.html#cb11-46"></a>  <span class="co">/*</span></span>
+<span id="cb11-47"><a href="hpp-template-for-c-modules.html#cb11-47"></a><span class="co">   *Default constructor</span></span>
+<span id="cb11-48"><a href="hpp-template-for-c-modules.html#cb11-48"></a><span class="co">   *Initialize any memory here.</span></span>
+<span id="cb11-49"><a href="hpp-template-for-c-modules.html#cb11-49"></a><span class="co">   */</span></span>
+<span id="cb11-50"><a href="hpp-template-for-c-modules.html#cb11-50"></a>  Name1(){</span>
+<span id="cb11-51"><a href="hpp-template-for-c-modules.html#cb11-51"></a>  }</span>
+<span id="cb11-52"><a href="hpp-template-for-c-modules.html#cb11-52"></a>  </span>
+<span id="cb11-53"><a href="hpp-template-for-c-modules.html#cb11-53"></a> </span>
+<span id="cb11-54"><a href="hpp-template-for-c-modules.html#cb11-54"></a>  <span class="co">/**</span></span>
+<span id="cb11-55"><a href="hpp-template-for-c-modules.html#cb11-55"></a><span class="co">   * Destructor; this method destructs Name1 object.</span></span>
+<span id="cb11-56"><a href="hpp-template-for-c-modules.html#cb11-56"></a><span class="co">   * Delete any allocated memory here.</span></span>
+<span id="cb11-57"><a href="hpp-template-for-c-modules.html#cb11-57"></a><span class="co">   */</span></span>
+<span id="cb11-58"><a href="hpp-template-for-c-modules.html#cb11-58"></a>  ~ Name1(){</span>
+<span id="cb11-59"><a href="hpp-template-for-c-modules.html#cb11-59"></a>    std::cout &lt;&lt;<span class="st">&quot;I just deleted Name1 object&quot;</span> &lt;&lt; std::endl;</span>
+<span id="cb11-60"><a href="hpp-template-for-c-modules.html#cb11-60"></a>  }</span>
+<span id="cb11-61"><a href="hpp-template-for-c-modules.html#cb11-61"></a>  </span>
+<span id="cb11-62"><a href="hpp-template-for-c-modules.html#cb11-62"></a>   <span class="co">/**</span></span>
+<span id="cb11-63"><a href="hpp-template-for-c-modules.html#cb11-63"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
+<span id="cb11-64"><a href="hpp-template-for-c-modules.html#cb11-64"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
+<span id="cb11-65"><a href="hpp-template-for-c-modules.html#cb11-65"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
+<span id="cb11-66"><a href="hpp-template-for-c-modules.html#cb11-66"></a><span class="co">    * </span></span>
+<span id="cb11-67"><a href="hpp-template-for-c-modules.html#cb11-67"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
+<span id="cb11-68"><a href="hpp-template-for-c-modules.html#cb11-68"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t+1</span></span>
+<span id="cb11-69"><a href="hpp-template-for-c-modules.html#cb11-69"></a><span class="co">    */</span></span>
+<span id="cb11-70"><a href="hpp-template-for-c-modules.html#cb11-70"></a>   virtual T Evaluate(<span class="dt">const</span> T&amp; t) {</span>
+<span id="cb11-71"><a href="hpp-template-for-c-modules.html#cb11-71"></a>     std::cout&lt;&lt;<span class="st">&quot;evaluate in Name1 received &quot;</span>&lt;&lt;t&lt;&lt;</span>
+<span id="cb11-72"><a href="hpp-template-for-c-modules.html#cb11-72"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span>&lt;&lt;(t+<span class="dv">1</span>)&lt;&lt;std::endl;</span>
+<span id="cb11-73"><a href="hpp-template-for-c-modules.html#cb11-73"></a>     <span class="cf">return</span> t+<span class="dv">1</span>; <span class="co">//unique logic for Name1 class</span></span>
+<span id="cb11-74"><a href="hpp-template-for-c-modules.html#cb11-74"></a>   }</span>
+<span id="cb11-75"><a href="hpp-template-for-c-modules.html#cb11-75"></a></span>
+<span id="cb11-76"><a href="hpp-template-for-c-modules.html#cb11-76"></a>};</span>
+<span id="cb11-77"><a href="hpp-template-for-c-modules.html#cb11-77"></a></span>
+<span id="cb11-78"><a href="hpp-template-for-c-modules.html#cb11-78"></a>  <span class="co">/* </span></span>
+<span id="cb11-79"><a href="hpp-template-for-c-modules.html#cb11-79"></a><span class="co">* Template class inherits from  NameBase</span></span>
+<span id="cb11-80"><a href="hpp-template-for-c-modules.html#cb11-80"></a><span class="co">*/</span></span>
+<span id="cb11-81"><a href="hpp-template-for-c-modules.html#cb11-81"></a>template &lt;class T&gt;</span>
+<span id="cb11-82"><a href="hpp-template-for-c-modules.html#cb11-82"></a>class Name2: public NameBase&lt;T&gt;{</span>
+<span id="cb11-83"><a href="hpp-template-for-c-modules.html#cb11-83"></a></span>
+<span id="cb11-84"><a href="hpp-template-for-c-modules.html#cb11-84"></a>public:</span>
+<span id="cb11-85"><a href="hpp-template-for-c-modules.html#cb11-85"></a> </span>
+<span id="cb11-86"><a href="hpp-template-for-c-modules.html#cb11-86"></a>    </span>
+<span id="cb11-87"><a href="hpp-template-for-c-modules.html#cb11-87"></a>  <span class="co">/*</span></span>
+<span id="cb11-88"><a href="hpp-template-for-c-modules.html#cb11-88"></a><span class="co">   *Default constructor.</span></span>
+<span id="cb11-89"><a href="hpp-template-for-c-modules.html#cb11-89"></a><span class="co">   *Initialize any memory here.</span></span>
+<span id="cb11-90"><a href="hpp-template-for-c-modules.html#cb11-90"></a><span class="co">   */</span></span>
+<span id="cb11-91"><a href="hpp-template-for-c-modules.html#cb11-91"></a>  Name2(){</span>
+<span id="cb11-92"><a href="hpp-template-for-c-modules.html#cb11-92"></a>  }</span>
+<span id="cb11-93"><a href="hpp-template-for-c-modules.html#cb11-93"></a>  </span>
+<span id="cb11-94"><a href="hpp-template-for-c-modules.html#cb11-94"></a> </span>
+<span id="cb11-95"><a href="hpp-template-for-c-modules.html#cb11-95"></a>  <span class="co">/**</span></span>
+<span id="cb11-96"><a href="hpp-template-for-c-modules.html#cb11-96"></a><span class="co">   * Destructor; this method destructs the Name2 object.</span></span>
+<span id="cb11-97"><a href="hpp-template-for-c-modules.html#cb11-97"></a><span class="co">   * Delete any allocated memory here.</span></span>
+<span id="cb11-98"><a href="hpp-template-for-c-modules.html#cb11-98"></a><span class="co">   */</span></span>
+<span id="cb11-99"><a href="hpp-template-for-c-modules.html#cb11-99"></a>  ~ Name2(){</span>
+<span id="cb11-100"><a href="hpp-template-for-c-modules.html#cb11-100"></a>    std::cout &lt;&lt;<span class="st">&quot;I just deleted Name2 object&quot;</span> &lt;&lt; std::endl;</span>
+<span id="cb11-101"><a href="hpp-template-for-c-modules.html#cb11-101"></a>  }</span>
+<span id="cb11-102"><a href="hpp-template-for-c-modules.html#cb11-102"></a>  </span>
+<span id="cb11-103"><a href="hpp-template-for-c-modules.html#cb11-103"></a>   <span class="co">/**</span></span>
+<span id="cb11-104"><a href="hpp-template-for-c-modules.html#cb11-104"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
+<span id="cb11-105"><a href="hpp-template-for-c-modules.html#cb11-105"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
+<span id="cb11-106"><a href="hpp-template-for-c-modules.html#cb11-106"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
+<span id="cb11-107"><a href="hpp-template-for-c-modules.html#cb11-107"></a><span class="co">    * </span></span>
+<span id="cb11-108"><a href="hpp-template-for-c-modules.html#cb11-108"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
+<span id="cb11-109"><a href="hpp-template-for-c-modules.html#cb11-109"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t^2</span></span>
+<span id="cb11-110"><a href="hpp-template-for-c-modules.html#cb11-110"></a><span class="co">    */</span></span>
+<span id="cb11-111"><a href="hpp-template-for-c-modules.html#cb11-111"></a>   virtual T Evaluate(<span class="dt">const</span> T&amp; t) {</span>
+<span id="cb11-112"><a href="hpp-template-for-c-modules.html#cb11-112"></a>     std::cout&lt;&lt;<span class="st">&quot;evaluate in Name2 received &quot;</span>&lt;&lt;t&lt;&lt;</span>
+<span id="cb11-113"><a href="hpp-template-for-c-modules.html#cb11-113"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span>&lt;&lt;(t*t)&lt;&lt;std::endl;</span>
+<span id="cb11-114"><a href="hpp-template-for-c-modules.html#cb11-114"></a>     <span class="cf">return</span> t*t; <span class="co">//unique logic for Name2 class</span></span>
+<span id="cb11-115"><a href="hpp-template-for-c-modules.html#cb11-115"></a>   }</span>
+<span id="cb11-116"><a href="hpp-template-for-c-modules.html#cb11-116"></a></span>
+<span id="cb11-117"><a href="hpp-template-for-c-modules.html#cb11-117"></a>};</span>
+<span id="cb11-118"><a href="hpp-template-for-c-modules.html#cb11-118"></a>  </span>
+<span id="cb11-119"><a href="hpp-template-for-c-modules.html#cb11-119"></a><span class="co">/**</span></span>
+<span id="cb11-120"><a href="hpp-template-for-c-modules.html#cb11-120"></a><span class="co"> * Add additional implementations below.</span></span>
+<span id="cb11-121"><a href="hpp-template-for-c-modules.html#cb11-121"></a><span class="co"> */</span></span>
+<span id="cb11-122"><a href="hpp-template-for-c-modules.html#cb11-122"></a>  </span>
+<span id="cb11-123"><a href="hpp-template-for-c-modules.html#cb11-123"></a></span>
+<span id="cb11-124"><a href="hpp-template-for-c-modules.html#cb11-124"></a></span>
+<span id="cb11-125"><a href="hpp-template-for-c-modules.html#cb11-125"></a></span>
+<span id="cb11-126"><a href="hpp-template-for-c-modules.html#cb11-126"></a>} <span class="co">//end namespace</span></span>
+<span id="cb11-127"><a href="hpp-template-for-c-modules.html#cb11-127"></a></span>
+<span id="cb11-128"><a href="hpp-template-for-c-modules.html#cb11-128"></a><span class="co">/**</span></span>
+<span id="cb11-129"><a href="hpp-template-for-c-modules.html#cb11-129"></a><span class="co"> *Example usage:</span></span>
+<span id="cb11-130"><a href="hpp-template-for-c-modules.html#cb11-130"></a><span class="co"> *</span></span>
+<span id="cb11-131"><a href="hpp-template-for-c-modules.html#cb11-131"></a><span class="co"> * void main(int argc, char** argv){</span></span>
+<span id="cb11-132"><a href="hpp-template-for-c-modules.html#cb11-132"></a><span class="co"> *    NameBase</span><span class="kw">&lt;double&gt;</span><span class="co">* name = NULL; //pointer to a NameBase object</span></span>
+<span id="cb11-133"><a href="hpp-template-for-c-modules.html#cb11-133"></a><span class="co"> *    Name1</span><span class="kw">&lt;double&gt;</span><span class="co"> n1; //inherits from NameBase</span></span>
+<span id="cb11-134"><a href="hpp-template-for-c-modules.html#cb11-134"></a><span class="co"> *    Name2</span><span class="kw">&lt;double&gt;</span><span class="co"> n2; //inherits from NameBase</span></span>
+<span id="cb11-135"><a href="hpp-template-for-c-modules.html#cb11-135"></a><span class="co"> *</span></span>
+<span id="cb11-136"><a href="hpp-template-for-c-modules.html#cb11-136"></a><span class="co"> *    name = &amp;n1; //name now points to n1</span></span>
+<span id="cb11-137"><a href="hpp-template-for-c-modules.html#cb11-137"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n1</span></span>
+<span id="cb11-138"><a href="hpp-template-for-c-modules.html#cb11-138"></a><span class="co"> *</span></span>
+<span id="cb11-139"><a href="hpp-template-for-c-modules.html#cb11-139"></a><span class="co"> *    name = &amp;n2; //name now points to n2</span></span>
+<span id="cb11-140"><a href="hpp-template-for-c-modules.html#cb11-140"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n2</span></span>
+<span id="cb11-141"><a href="hpp-template-for-c-modules.html#cb11-141"></a><span class="co"> * }</span></span>
+<span id="cb11-142"><a href="hpp-template-for-c-modules.html#cb11-142"></a><span class="co"> *</span></span>
+<span id="cb11-143"><a href="hpp-template-for-c-modules.html#cb11-143"></a><span class="co"> * Output:</span></span>
+<span id="cb11-144"><a href="hpp-template-for-c-modules.html#cb11-144"></a><span class="co"> * evaluate in Name1 received 2 as a method parameter, returning 3</span></span>
+<span id="cb11-145"><a href="hpp-template-for-c-modules.html#cb11-145"></a><span class="co"> * evaluate in Name2 received 2 as a method parameter, returning 4</span></span>
+<span id="cb11-146"><a href="hpp-template-for-c-modules.html#cb11-146"></a><span class="co"> *</span></span>
+<span id="cb11-147"><a href="hpp-template-for-c-modules.html#cb11-147"></a><span class="co"> */</span></span>
+<span id="cb11-148"><a href="hpp-template-for-c-modules.html#cb11-148"></a></span>
+<span id="cb11-149"><a href="hpp-template-for-c-modules.html#cb11-149"></a></span>
+<span id="cb11-150"><a href="hpp-template-for-c-modules.html#cb11-150"></a></span>
+<span id="cb11-151"><a href="hpp-template-for-c-modules.html#cb11-151"></a><span class="pp">#endif </span><span class="co">/*template_hpp */</span></span></code></pre></div>
 
 </div>
             </section>
@@ -440,17 +448,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": null,
 "fontsettings": {
 "theme": "white",
 "family": "sans",
@@ -468,7 +466,7 @@ gitbook.start({
 "link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/04-hpp-template.Rmd",
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Style Guide | FIMS Developer Handbook</title>
+  <title>Chapter 12 Documentation | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Style Guide | FIMS Developer Handbook" />
+  <meta property="og:title" content="Chapter 12 Documentation | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Style Guide | FIMS Developer Handbook" />
+  <meta name="twitter:title" content="Chapter 12 Documentation | FIMS Developer Handbook" />
   
   <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="code-of-conduct.html"/>
-<link rel="next" href="fims-governance.html"/>
+<link rel="prev" href="test-case-template.html"/>
+<link rel="next" href="glossary-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -272,18 +272,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="style-guide" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Style Guide</h1>
-<p>The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a> and <a href="https://google.github.io/styleguide/Rguide.html">Google’s R Style Guide</a>. Google’s R Style Guide is based off of the <a href="https://style.tidyverse.org/">tidyverse style guide</a>, with a few minor modifications to improve readability and portability.</p>
+<div id="documentation" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Documentation</h1>
+<p>In this section we will describe how to document your code. For more information about code documentation in general, please see the
+toolbox blog post <a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/code-documentation/">here</a>. This post describes the differences between the types of documentation,
+while below we give specific, brief instructions on developer responsibilities for FIMS.</p>
+<div id="writing-function-reference" class="section level2">
+<h2><span class="header-section-number">12.1</span> Writing function reference</h2>
+<p>Function reference can be written inline in comments above the function in either C++ or R. The tools
+you can use to generate reference from comments are called Doxygen and Roxygen in C++ and R respectively.
+Both can include LaTeX syntax to denote equations, and both use <code>@</code> tags to name components of the function reference</p>
+<pre><code>        /**
+        * @brief This function calculates the von Bertalanffy growth curve.
+         * \f$
+         * 
+         * length\_at\_age = lmin + (lmax - lmin)*\frac{(1.0 -
+                    c^ {(age - a\_min)}))}{(1.0  - c^{(a\_max - a\_min)})}
+         * 
+         * \f$
+         * 
+         * @param age
+         * @param sex
+         * @return length\_at\_age 
+         */</code></pre>
+<p>The only difference between syntax for <code>R</code> and <code>C++</code> code is how comments are denoted in the language.</p>
+<pre><code>#&#39; This function calculates the von Bertalanffy growth curve.
+#&#39;
+#&#39; @param age
+#&#39; @param sex
+#&#39; @return length_at_age</code></pre>
+<p>You should, at minimum, include the tags <code>@param</code>, <code>@return</code>, and <code>@examples</code> in your function reference if it is an exported function.
+Functions that are only called internally do not require an <code>@examples</code> tag. Other useful tags include <code>@seealso</code> and <code>@export</code> for Roxygen chunks.</p>
+</div>
+<div id="writing-a-vignette" class="section level2">
+<h2><span class="header-section-number">12.2</span> Writing a vignette</h2>
+<p>If this is an exported function, a vignette can be a helpful tool to users to know how to use your function. For now, a rough approximation of the “get started” vignette is written in the <a href="software-user-guide.html#software-user-guide">software user guide</a> page of this book.
+If you include a vignette for your function, you can link to it in the Roxygen documentation with the following code.</p>
+<pre><code>#&#39; \code{vignette(&quot;help&quot;, package = &quot;mypkg&quot;)}</code></pre>
+</div>
+<div id="step-by-step-documentation-update-process" class="section level2">
+<h2><span class="header-section-number">12.3</span> Step by step documentation update process</h2>
+<ol style="list-style-type: decimal">
+<li><p>Write the function reference in either R or C++ as described above.</p></li>
+<li><p>Check the <a href="software-user-guide.html#software-user-guide">software user guide</a> and check that any changes you have made to the code are reflected in the code snippets on that page.</p></li>
+<li><p>Push to the feature branch.</p></li>
+<li><p>Ensure that the documentation created by the automated workflow is correct and that any test cases execute successfully before merging into main.</p></li>
+</ol>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="code-of-conduct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="fims-governance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="test-case-template.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="glossary-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -304,7 +348,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/02-style-guide.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/06-writing-documentation.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -312,7 +356,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/02-style-guide.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/06-writing-documentation.Rmd",
 "text": null
 },
 "download": null,
