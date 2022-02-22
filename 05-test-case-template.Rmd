@@ -20,26 +20,42 @@ To use GoogleTest, you will need:
 
 -   A build system for building the testing project. [[CMake]{.ul}](https://cmake.org/) and a compatible build tool such as [[Ninja]{.ul}](https://ninja-build.org/) are approved softwares by NMFS HQ.
 
-### Quickstart for Windows user
+### Quickstart for Windows users
 
--   Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases) and put the file folder to `Documents\Apps` or other preferred folder.
+- Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases) and put the file folder to `Documents\Apps` or other preferred folder.
 
--   Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
+- Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
 
--   Search `Edit environment variables for your account` and open the `Environment Variables` window.
+- Open your Command Prompt and type `cmake`. If you see details of usage, you install the build system successfully. If not, follow the follow the instructions below to add cmake to your PATH.
 
--   Click `Edit...` under the `User variables for firstname.lastname` section.
+Example usage message, indicating install was successful:
 
--   Click `New`, add path to `cmake-3.22.1-windows-x86_64\bin`, add click `OK`.
+```
+Usage
 
--   Click `New`, add path to `Documents\Apps`, add click `OK`.
+  cmake [options] <path-to-source>
+  cmake [options] <path-to-existing-build>
+  cmake [options] -S <path-to-source> -B <path-to-build>
 
--   Open your Command Prompt and type `cmake`. If you see details of usage, you install the build system successfully.
+Specify a source directory to (re-)generate a build system for it in the
+current working directory.  Specify an existing build directory to
+re-generate its build system.
 
--   See [[CMake installation instructions]{.ul}](https://cmake.org/install) for installing CMake on other platforms.
+Run 'cmake --help' for more information.
+```
+
+- In the Windows search bar next to the start menu, search for `Edit environment variables for your account` and open the `Environment Variables` window. 
+
+- Click `Edit...` under the `User variables for firstname.lastname` section.
+
+- Click `New`, add path to `cmake-3.22.1-windows-x86_64\bin`, add click `OK`. Click `New`, add path to `Documents\Apps`, add click `OK`.
+
+## Quickstart for Linux and Mac users
+
+- See [[CMake installation instructions]{.ul}](https://cmake.org/install) for installing CMake on other platforms.
 
 ### Set up FIMS testing project
--   Go to the FIMS C++ tests folder and create a `CMakeLists.txt` file. Declare a dependency on GoogleTest with following contents: 
+-   Create an empty folder named "FIMS_project". Within the folder, create a two subfolders: "tests" that will contain the testing code and "src" that will contain the source code.  Wiithin the tests subfolder, create a file named `CMakeLists.txt`. Declare a dependency on GoogleTest by adding the following contents to the CMakeLists.txt file: 
 
 ```cmake
 cmake_minimum_required(VERSION 3.14)
@@ -58,39 +74,10 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 ```
--   If a `CMakeLists.txt` file already exists in the tests folder, you can start creating a unit test and add it to the `CMakeLists.txt`.  
-
-### Unit test template
-
-```c
-#include "gtest/gtest.h"
-#include "../src/code.hpp"
-
-// # R code that generates true values for the test
-
-namespace {
-
-  // Description of Test 1 
-  TEST(TestSuiteName, Test1Name) {
-    
-    ... test body ... 
-    
-  }
-  
-  // Description of Test 2
-  TEST(TestSuiteName, Test2Name) {
-    
-    ... test body ...
-    
-  }
-  
-}
-
-```
 
 ### Unit test example
 
-Let's create dlognorm.hpp that has a simple function:
+Create a file dlognorm.hpp within the src subfolder that contains a simple function:
 
 ```c
 #include <cmath>
@@ -103,7 +90,7 @@ Type dlognorm(Type x, Type meanlog, Type sdlog){
 }
 ```
 
-We can create a test file dlognorm-unit.cpp that has a test suite for this function:
+Then, create a test file dlognorm-unit.cpp in the tests subfolder that has a test suite for the dlognorm function:
 
 ```c
 #include "gtest/gtest.h"
@@ -140,7 +127,7 @@ namespace {
 
 ### Add tests to `CMakeLists.txt` and run a binary
 
-To build the code, add the following contents to the end of your `CMakeLists.txt` file:
+To build the code, add the following contents to the end of the `CMakeLists.txt` file:
 
 ```cmake
 enable_testing()
@@ -164,16 +151,24 @@ include(GoogleTest)
 gtest_discover_tests(dlognorm_test)
 ```
 
-The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test:
+The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test. Open a command window in FIMS_project/tests and type:
 
 ```bash
-cd tests
 cmake -S . -B build -G Ninja
+```
+
+This generates the build system using Ninja as the generator.
+
+Next, in the same command window, use cmake to build:
+```bash
 cd build 
 cmake --build .
+```
+Finally, run the tests in the same command window:
+```bash
 ctest
 ```
-The output might look like this:
+The output when running `ctest` might look like this:
 
 ```bash
 Start 1: dlognormTest.DoubleInput
@@ -185,29 +180,10 @@ Start 2: dlognormTest.IntInput
 
 Total Test time (real) =   0.25 sec
 ```
-Congratulations! You’ve successfully set up a test project and run a test binary using GoogleTest. Let's use Google Benchmark to measure the real time and CPU time used for running the produced binary.
-
-### Benchmark template
-
-```c
-#include "benchmark/benchmark.h"
-#include "../src/code.hpp"
-
-void BM_FunctionName(benchmark::State& state)
-{
-  for (auto _ : state)
-    // This code gets timed
-    Function()
-}
-
-// Register the function as a benchmark
-BENCHMARK(BM_FunctionName);
-
-```
 
 ### Benchmark example
 
-We will continue using the dlognorm.hpp example. We can create a benchmark file dlognorm_benchmark.cpp and put it in the tests folder:
+Let's use Google Benchmark to measure the real time and CPU time used for running the produced binary.We will continue using the dlognorm.hpp example. We can create a benchmark file dlognorm_benchmark.cpp and put it in the tests folder:
 
 ```c
 #include "benchmark/benchmark.h"
@@ -274,6 +250,54 @@ L3 Unified 8192 KiB (x1)
 -----------------------------------------------------
   BM_dlgnorm        153 ns          153 ns      4480000
 ```
+## Templates for GoogleTest testing
+
+### Unit test template
+
+```c
+#include "gtest/gtest.h"
+#include "../src/code.hpp"
+
+// # R code that generates true values for the test
+
+namespace {
+
+  // Description of Test 1 
+  TEST(TestSuiteName, Test1Name) {
+    
+    ... test body ... 
+    
+  }
+  
+  // Description of Test 2
+  TEST(TestSuiteName, Test2Name) {
+    
+    ... test body ...
+    
+  }
+  
+}
+
+```
+
+### Benchmark template
+
+```c
+#include "benchmark/benchmark.h"
+#include "../src/code.hpp"
+
+void BM_FunctionName(benchmark::State& state)
+{
+  for (auto _ : state)
+    // This code gets timed
+    Function()
+}
+
+// Register the function as a benchmark
+BENCHMARK(BM_FunctionName);
+
+```
+
 
 ## R testing
 
@@ -291,6 +315,7 @@ test_that("TestName", {
 ```
 
 ## Test case template and examples
+
 
 ### Test case template
 
