@@ -16,46 +16,73 @@ To use GoogleTest, you will need:
 
 -   A compatible operating system (e.g. Windows, masOS, or Linux).
 
--   A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0.
+-   A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0. For R users, [rtools4](https://cran.r-project.org/bin/windows/Rtools/rtools40.html) includes gcc.
 
--   A build system for building the testing project. [[CMake]{.ul}](https://cmake.org/) and a compatible build tool such as [[Ninja]{.ul}](https://ninja-build.org/) are approved softwares by NMFS HQ.
+-   A build system for building the testing project. [[CMake]{.ul}](https://cmake.org/) and a compatible build tool such as [[Ninja]{.ul}](https://ninja-build.org/) are approved by NMFS HQ.
 
-### Quickstart for Windows users
+### Setup for Windows users
 
-- Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases) and put the file folder to `Documents\Apps` or other preferred folder.
+1. Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases) and put the file folder to `Documents\Apps` or other preferred folder.
 
-- Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
+2. Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
 
-- Open your Command Prompt and type `cmake`. If you see details of usage, you install the build system successfully. If not, follow the follow the instructions below to add cmake to your PATH.
+3. Open your Command Prompt and type `cmake`. If you see details of usage, cmake is already in your PATH. If not, follow the follow the instructions below to add cmake to your PATH.
 
-Example usage message, indicating install was successful:
+4. In the same command prompt, type `ninja`. If you see a message that starts with `ninja:`, even if it is an error about not finding build.ninja, this means that ninja is already in your PATH. If ninja is not found, follow the instructions below to add ninja to your path.
 
-```
-Usage
+### Adding cmake and ninja to your PATH on Windows
 
-  cmake [options] <path-to-source>
-  cmake [options] <path-to-existing-build>
-  cmake [options] -S <path-to-source> -B <path-to-build>
+1. In the Windows search bar next to the start menu, search for `Edit environment variables for your account` and open the `Environment Variables` window. 
 
-Specify a source directory to (re-)generate a build system for it in the
-current working directory.  Specify an existing build directory to
-re-generate its build system.
+2. Click `Edit...` under the `User variables for firstname.lastname` section.
 
-Run 'cmake --help' for more information.
-```
+3. Click `New`, add path to cmake, if needed (e.g., `cmake-3.22.1-windows-x86_64\bin` or `C:\Program Files\CMake\bin` are common paths), and click `OK`. Click `New`, add path to the location of the Ninja executable, if needed (e.g., `Documents\Apps`), and click `OK`.
 
-- In the Windows search bar next to the start menu, search for `Edit environment variables for your account` and open the `Environment Variables` window. 
+4. You may need to restart your computer to updat the envirionmental variables.
 
-- Click `Edit...` under the `User variables for firstname.lastname` section.
+### Setup for Linux and Mac users
 
-- Click `New`, add path to `cmake-3.22.1-windows-x86_64\bin`, add click `OK`. Click `New`, add path to `Documents\Apps`, add click `OK`.
+1. See [[CMake installation instructions]{.ul}](https://cmake.org/install) for installing CMake on other platforms. Add cmake to your PATH.
 
-## Quickstart for Linux and Mac users
+2. Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the binary in your preferred location. Add Ninja to your PATH.
 
-- See [[CMake installation instructions]{.ul}](https://cmake.org/install) for installing CMake on other platforms.
+3. Open a command window and type `cmake`. If you see usage, cmake is found. If not, cmake may still need to be added to your PATH.
+
+4. Open a command window and type `ninja`. If you see a message starting with `ninja:`, ninja is found. Otherwise, try changing the permissions or adding to your path.
+
+### How to edit your PATH and change file permissions for Linux and Mac
+
+To check if the binary is in your path, assuming the binary is named ninja:
+open a Terminal window and type `which ninja` and hit enter.
+If you get nothing returned, then ninja is not in your path.
+The easiest way to fix this is to move the ninja binary
+to a folder that's already in your path.
+To find existing path folders type `echo $PATH`
+in the terminal and hit enter.
+Now move the ninja binary to one of these folders.
+For example, in a Terminal window type:
+
+    sudo cp ~/Downloads/ninja /usr/bin/
+
+To move ninja from the downloads folder to /usr/bin. You will need to use `sudo` and enter your password after to have permission to move a file to a folder like `/usr/bin/`.
+
+Also note that you may need to add executable permissions to the ninja binary after downloading it.
+You can do that by switching to the folder where you placed the binary
+(`cd /usr/bin/` if you followed the instructions above),
+and running the command:
+
+    sudo chmod +x ninja
+
+Check that ninja is now executable and in your path:
+
+    which ninja
+
+If you followed the instructions above, you will see the following line returned:
+
+    /usr/bin/ninja
 
 ### Set up FIMS testing project
--   Create an empty folder named "FIMS_project". Within the folder, create a two subfolders: "tests" that will contain the testing code and "src" that will contain the source code.  Wiithin the tests subfolder, create a file named `CMakeLists.txt`. Declare a dependency on GoogleTest by adding the following contents to the CMakeLists.txt file: 
+Create an empty folder named "FIMS_project". Within the folder, create a two subfolders: "tests" that will contain the testing code and "src" that will contain the source code.  Within the tests subfolder, create a file named `CMakeLists.txt`. Declare a dependency on GoogleTest by adding the following contents to the CMakeLists.txt file: 
 
 ```cmake
 cmake_minimum_required(VERSION 3.14)
@@ -183,7 +210,7 @@ Total Test time (real) =   0.25 sec
 
 ### Benchmark example
 
-Let's use Google Benchmark to measure the real time and CPU time used for running the produced binary.We will continue using the dlognorm.hpp example. We can create a benchmark file dlognorm_benchmark.cpp and put it in the tests folder:
+Let's use Google Benchmark to measure the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create a benchmark file dlognorm_benchmark.cpp and put it in the tests subfolder within the FIMS_project folder:
 
 ```c
 #include "benchmark/benchmark.h"
@@ -228,13 +255,13 @@ target_link_libraries(
 
 ```
 
-To run the benchmark, 
+To run the benchmark, run on the command line open in FIMS_project/tests/build:
 
 ```bash
 cmake --build .
 ./dlognorm_benchmark.exe
 ```
-The output might look like this:
+The output from `./dlognorm_benchmark.exe` might look like this:
 
 ```bash
 
@@ -251,6 +278,9 @@ L3 Unified 8192 KiB (x1)
   BM_dlgnorm        153 ns          153 ns      4480000
 ```
 ## Templates for GoogleTest testing
+
+This section includes templates for creating unit tests and benchmark. This is
+the code that would go into the .cpp files.
 
 ### Unit test template
 
@@ -297,7 +327,6 @@ void BM_FunctionName(benchmark::State& state)
 BENCHMARK(BM_FunctionName);
 
 ```
-
 
 ## R testing
 
@@ -501,7 +530,7 @@ One thing that might be challenging for comparing simulation results is that cha
 
 -   Limitations: If the team makes changes to the software often, it may be difficult to run all tests from the test suite frequently. In that case, it's a good idea to have a regression testing schedule. For example, run a part of the test suite that is higher in priority after every change and run the full test suite weekly or monthly, etc.
 
--   Examples: Set up a test suit like the [[ss-test-models]{.ul}](https://github.com/nmfs-stock-synthesis/ss-test-models) repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a "reference run" (e.g., the last release of the software).
+-   Examples: Set up a test suite like the [[the Stock Synethesis test-models]{.ul}](https://github.com/nmfs-stock-synthesis/test-models) repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a "reference run" (e.g., the last release of the software).
 
 -   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Regression_testing)
 
