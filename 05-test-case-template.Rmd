@@ -26,7 +26,7 @@ To use GoogleTest, you will need:
 
 2. Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
 
-3. Open your Command Prompt and type `cmake`. If you see details of usage, cmake is already in your PATH. If not, follow the follow the instructions below to add cmake to your PATH.
+3. Open your Command Prompt and type `cmake`. If you see details of usage, cmake is already in your PATH. If not, follow the the instructions below to add cmake to your PATH.
 
 4. In the same command prompt, type `ninja`. If you see a message that starts with `ninja:`, even if it is an error about not finding build.ninja, this means that ninja is already in your PATH. If ninja is not found, follow the instructions below to add ninja to your path.
 
@@ -38,7 +38,7 @@ To use GoogleTest, you will need:
 
 3. Click `New`, add path to cmake, if needed (e.g., `cmake-3.22.1-windows-x86_64\bin` or `C:\Program Files\CMake\bin` are common paths), and click `OK`. Click `New`, add path to the location of the Ninja executable, if needed (e.g., `Documents\Apps`), and click `OK`.
 
-4. You may need to restart your computer to updat the envirionmental variables.
+4. You may need to restart your computer to update the envirionmental variables.
 
 ### Setup for Linux and Mac users
 
