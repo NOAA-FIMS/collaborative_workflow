@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS implementation team" />
 
 
-<meta name="date" content="2022-02-18" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -219,31 +219,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
 <li class="chapter" data-level="11.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>11.2</b> C++ unit testing and benchmarking</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>11.2.1</b> Requirements</a></li>
-<li class="chapter" data-level="11.2.2" data-path="test-case-template.html"><a href="test-case-template.html#quickstart-for-windows-user"><i class="fa fa-check"></i><b>11.2.2</b> Quickstart for Windows user</a></li>
-<li class="chapter" data-level="11.2.3" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>11.2.3</b> Set up FIMS testing project</a></li>
-<li class="chapter" data-level="11.2.4" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>11.2.4</b> Unit test template</a></li>
-<li class="chapter" data-level="11.2.5" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>11.2.5</b> Unit test example</a></li>
-<li class="chapter" data-level="11.2.6" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>11.2.6</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="11.2.7" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>11.2.7</b> Benchmark template</a></li>
-<li class="chapter" data-level="11.2.8" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>11.2.8</b> Benchmark example</a></li>
-<li class="chapter" data-level="11.2.9" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>11.2.9</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="11.2.2" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-windows-users"><i class="fa fa-check"></i><b>11.2.2</b> Setup for Windows users</a></li>
+<li class="chapter" data-level="11.2.3" data-path="test-case-template.html"><a href="test-case-template.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>11.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
+<li class="chapter" data-level="11.2.4" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-linux-and-mac-users"><i class="fa fa-check"></i><b>11.2.4</b> Setup for Linux and Mac users</a></li>
+<li class="chapter" data-level="11.2.5" data-path="test-case-template.html"><a href="test-case-template.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac"><i class="fa fa-check"></i><b>11.2.5</b> How to edit your PATH and change file permissions for Linux and Mac</a></li>
+<li class="chapter" data-level="11.2.6" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>11.2.6</b> Set up FIMS testing project</a></li>
+<li class="chapter" data-level="11.2.7" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>11.2.7</b> Unit test example</a></li>
+<li class="chapter" data-level="11.2.8" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>11.2.8</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
+<li class="chapter" data-level="11.2.9" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>11.2.9</b> Benchmark example</a></li>
+<li class="chapter" data-level="11.2.10" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>11.2.10</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>11.3</b> R testing</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>11.3.1</b> R testthat template</a></li>
+<li class="chapter" data-level="11.3" data-path="test-case-template.html"><a href="test-case-template.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>11.3</b> Templates for GoogleTest testing</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>11.3.1</b> Unit test template</a></li>
+<li class="chapter" data-level="11.3.2" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>11.3.2</b> Benchmark template</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>11.4</b> Test case template and examples</a><ul>
-<li class="chapter" data-level="11.4.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>11.4.1</b> Test case template</a></li>
-<li class="chapter" data-level="11.4.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>11.4.2</b> Test case examples</a></li>
+<li class="chapter" data-level="11.4" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>11.4</b> R testing</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>11.4.1</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="test-case-template.html"><a href="test-case-template.html#glossary"><i class="fa fa-check"></i><b>11.5</b> Glossary</a><ul>
-<li class="chapter" data-level="11.5.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-testing"><i class="fa fa-check"></i><b>11.5.1</b> Unit testing</a></li>
-<li class="chapter" data-level="11.5.2" data-path="test-case-template.html"><a href="test-case-template.html#functional-testing"><i class="fa fa-check"></i><b>11.5.2</b> Functional testing</a></li>
-<li class="chapter" data-level="11.5.3" data-path="test-case-template.html"><a href="test-case-template.html#integration-testing"><i class="fa fa-check"></i><b>11.5.3</b> Integration testing</a></li>
-<li class="chapter" data-level="11.5.4" data-path="test-case-template.html"><a href="test-case-template.html#run-time-testing"><i class="fa fa-check"></i><b>11.5.4</b> Run-time testing</a></li>
-<li class="chapter" data-level="11.5.5" data-path="test-case-template.html"><a href="test-case-template.html#regression-testing"><i class="fa fa-check"></i><b>11.5.5</b> Regression testing</a></li>
-<li class="chapter" data-level="11.5.6" data-path="test-case-template.html"><a href="test-case-template.html#platform-compatibility-testing"><i class="fa fa-check"></i><b>11.5.6</b> Platform compatibility testing</a></li>
-<li class="chapter" data-level="11.5.7" data-path="test-case-template.html"><a href="test-case-template.html#beta-testing"><i class="fa fa-check"></i><b>11.5.7</b> Beta testing</a></li>
-<li class="chapter" data-level="11.5.8" data-path="test-case-template.html"><a href="test-case-template.html#one-off-testing"><i class="fa fa-check"></i><b>11.5.8</b> One-off testing</a></li>
+<li class="chapter" data-level="11.5" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>11.5</b> Test case template and examples</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>11.5.1</b> Test case template</a></li>
+<li class="chapter" data-level="11.5.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>11.5.2</b> Test case examples</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="test-case-template.html"><a href="test-case-template.html#glossary"><i class="fa fa-check"></i><b>11.6</b> Glossary</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-testing"><i class="fa fa-check"></i><b>11.6.1</b> Unit testing</a></li>
+<li class="chapter" data-level="11.6.2" data-path="test-case-template.html"><a href="test-case-template.html#functional-testing"><i class="fa fa-check"></i><b>11.6.2</b> Functional testing</a></li>
+<li class="chapter" data-level="11.6.3" data-path="test-case-template.html"><a href="test-case-template.html#integration-testing"><i class="fa fa-check"></i><b>11.6.3</b> Integration testing</a></li>
+<li class="chapter" data-level="11.6.4" data-path="test-case-template.html"><a href="test-case-template.html#run-time-testing"><i class="fa fa-check"></i><b>11.6.4</b> Run-time testing</a></li>
+<li class="chapter" data-level="11.6.5" data-path="test-case-template.html"><a href="test-case-template.html#regression-testing"><i class="fa fa-check"></i><b>11.6.5</b> Regression testing</a></li>
+<li class="chapter" data-level="11.6.6" data-path="test-case-template.html"><a href="test-case-template.html#platform-compatibility-testing"><i class="fa fa-check"></i><b>11.6.6</b> Platform compatibility testing</a></li>
+<li class="chapter" data-level="11.6.7" data-path="test-case-template.html"><a href="test-case-template.html#beta-testing"><i class="fa fa-check"></i><b>11.6.7</b> Beta testing</a></li>
+<li class="chapter" data-level="11.6.8" data-path="test-case-template.html"><a href="test-case-template.html#one-off-testing"><i class="fa fa-check"></i><b>11.6.8</b> One-off testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>12</b> Documentation</a><ul>
@@ -287,240 +292,278 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To use GoogleTest, you will need:</p>
 <ul>
 <li><p>A compatible operating system (e.g. Windows, masOS, or Linux).</p></li>
-<li><p>A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0.</p></li>
-<li><p>A build system for building the testing project. <a href="https://cmake.org/"><span class="ul">CMake</span></a> and a compatible build tool such as <a href="https://ninja-build.org/"><span class="ul">Ninja</span></a> are approved softwares by NMFS HQ.</p></li>
+<li><p>A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0. For R users, <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">rtools4</a> includes gcc.</p></li>
+<li><p>A build system for building the testing project. <a href="https://cmake.org/"><span class="ul">CMake</span></a> and a compatible build tool such as <a href="https://ninja-build.org/"><span class="ul">Ninja</span></a> are approved by NMFS HQ.</p></li>
 </ul>
 </div>
-<div id="quickstart-for-windows-user" class="section level3">
-<h3><span class="header-section-number">11.2.2</span> Quickstart for Windows user</h3>
-<ul>
+<div id="setup-for-windows-users" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Setup for Windows users</h3>
+<ol style="list-style-type: decimal">
 <li><p>Download <a href="https://github.com/Kitware/CMake/releases"><span class="ul">CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)</span></a> and put the file folder to <code>Documents\Apps</code> or other preferred folder.</p></li>
 <li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2 (ninja-win.zip)</span></a> and put the application to <code>Documents\Apps</code> or other preferred folder.</p></li>
-<li><p>Search <code>Edit environment variables for your account</code> and open the <code>Environment Variables</code> window.</p></li>
+<li><p>Open your Command Prompt and type <code>cmake</code>. If you see details of usage, cmake is already in your PATH. If not, follow the the instructions below to add cmake to your PATH.</p></li>
+<li><p>In the same command prompt, type <code>ninja</code>. If you see a message that starts with <code>ninja:</code>, even if it is an error about not finding build.ninja, this means that ninja is already in your PATH. If ninja is not found, follow the instructions below to add ninja to your path.</p></li>
+</ol>
+</div>
+<div id="adding-cmake-and-ninja-to-your-path-on-windows" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> Adding cmake and ninja to your PATH on Windows</h3>
+<ol style="list-style-type: decimal">
+<li><p>In the Windows search bar next to the start menu, search for <code>Edit environment variables for your account</code> and open the <code>Environment Variables</code> window.</p></li>
 <li><p>Click <code>Edit...</code> under the <code>User variables for firstname.lastname</code> section.</p></li>
-<li><p>Click <code>New</code>, add path to <code>cmake-3.22.1-windows-x86_64\bin</code>, add click <code>OK</code>.</p></li>
-<li><p>Click <code>New</code>, add path to <code>Documents\Apps</code>, add click <code>OK</code>.</p></li>
-<li><p>Open your Command Prompt and type <code>cmake</code>. If you see details of usage, you install the build system successfully.</p></li>
-<li><p>See <a href="https://cmake.org/install"><span class="ul">CMake installation instructions</span></a> for installing CMake on other platforms.</p></li>
-</ul>
+<li><p>Click <code>New</code>, add path to cmake, if needed (e.g., <code>cmake-3.22.1-windows-x86_64\bin</code> or <code>C:\Program Files\CMake\bin</code> are common paths), and click <code>OK</code>. Click <code>New</code>, add path to the location of the Ninja executable, if needed (e.g., <code>Documents\Apps</code>), and click <code>OK</code>.</p></li>
+<li><p>You may need to restart your computer to update the envirionmental variables.</p></li>
+</ol>
+</div>
+<div id="setup-for-linux-and-mac-users" class="section level3">
+<h3><span class="header-section-number">11.2.4</span> Setup for Linux and Mac users</h3>
+<ol style="list-style-type: decimal">
+<li><p>See <a href="https://cmake.org/install"><span class="ul">CMake installation instructions</span></a> for installing CMake on other platforms. Add cmake to your PATH.</p></li>
+<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2 (ninja-win.zip)</span></a> and put the binary in your preferred location. Add Ninja to your PATH.</p></li>
+<li><p>Open a command window and type <code>cmake</code>. If you see usage, cmake is found. If not, cmake may still need to be added to your PATH.</p></li>
+<li><p>Open a command window and type <code>ninja</code>. If you see a message starting with <code>ninja:</code>, ninja is found. Otherwise, try changing the permissions or adding to your path.</p></li>
+</ol>
+</div>
+<div id="how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac" class="section level3">
+<h3><span class="header-section-number">11.2.5</span> How to edit your PATH and change file permissions for Linux and Mac</h3>
+<p>To check if the binary is in your path, assuming the binary is named ninja:
+open a Terminal window and type <code>which ninja</code> and hit enter.
+If you get nothing returned, then ninja is not in your path.
+The easiest way to fix this is to move the ninja binary
+to a folder that’s already in your path.
+To find existing path folders type <code>echo $PATH</code>
+in the terminal and hit enter.
+Now move the ninja binary to one of these folders.
+For example, in a Terminal window type:</p>
+<pre><code>sudo cp ~/Downloads/ninja /usr/bin/</code></pre>
+<p>To move ninja from the downloads folder to /usr/bin. You will need to use <code>sudo</code> and enter your password after to have permission to move a file to a folder like <code>/usr/bin/</code>.</p>
+<p>Also note that you may need to add executable permissions to the ninja binary after downloading it.
+You can do that by switching to the folder where you placed the binary
+(<code>cd /usr/bin/</code> if you followed the instructions above),
+and running the command:</p>
+<pre><code>sudo chmod +x ninja</code></pre>
+<p>Check that ninja is now executable and in your path:</p>
+<pre><code>which ninja</code></pre>
+<p>If you followed the instructions above, you will see the following line returned:</p>
+<pre><code>/usr/bin/ninja</code></pre>
 </div>
 <div id="set-up-fims-testing-project" class="section level3">
-<h3><span class="header-section-number">11.2.3</span> Set up FIMS testing project</h3>
-<ul>
-<li>Go to the FIMS C++ tests folder and create a <code>CMakeLists.txt</code> file. Declare a dependency on GoogleTest with following contents:</li>
-</ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb12-1"><a href="test-case-template.html#cb12-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.14)</span>
-<span id="cb12-2"><a href="test-case-template.html#cb12-2"></a><span class="kw">project</span>(FIMS_project)</span>
-<span id="cb12-3"><a href="test-case-template.html#cb12-3"></a></span>
-<span id="cb12-4"><a href="test-case-template.html#cb12-4"></a><span class="co"># GoogleTest requires at least C++11</span></span>
-<span id="cb12-5"><a href="test-case-template.html#cb12-5"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD</span> 11)</span>
-<span id="cb12-6"><a href="test-case-template.html#cb12-6"></a></span>
-<span id="cb12-7"><a href="test-case-template.html#cb12-7"></a><span class="kw">include</span>(FetchContent)</span>
-<span id="cb12-8"><a href="test-case-template.html#cb12-8"></a><span class="fu">FetchContent_Declare</span>(</span>
-<span id="cb12-9"><a href="test-case-template.html#cb12-9"></a>  googletest</span>
-<span id="cb12-10"><a href="test-case-template.html#cb12-10"></a>  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip</span>
-<span id="cb12-11"><a href="test-case-template.html#cb12-11"></a>)</span>
-<span id="cb12-12"><a href="test-case-template.html#cb12-12"></a></span>
-<span id="cb12-13"><a href="test-case-template.html#cb12-13"></a><span class="co"># For Windows: Prevent overriding the parent project&#39;s compiler/linker settings</span></span>
-<span id="cb12-14"><a href="test-case-template.html#cb12-14"></a><span class="kw">set</span>(gtest_force_shared_crt ON <span class="ot">CACHE</span> <span class="ot">BOOL</span> <span class="st">&quot;&quot;</span> <span class="ot">FORCE</span>)</span>
-<span id="cb12-15"><a href="test-case-template.html#cb12-15"></a><span class="fu">FetchContent_MakeAvailable</span>(googletest)</span></code></pre></div>
-<ul>
-<li>If a <code>CMakeLists.txt</code> file already exists in the tests folder, you can start creating a unit test and add it to the <code>CMakeLists.txt</code>.</li>
-</ul>
-</div>
-<div id="unit-test-template" class="section level3">
-<h3><span class="header-section-number">11.2.4</span> Unit test template</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="test-case-template.html#cb13-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb13-2"><a href="test-case-template.html#cb13-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
-<span id="cb13-3"><a href="test-case-template.html#cb13-3"></a></span>
-<span id="cb13-4"><a href="test-case-template.html#cb13-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb13-5"><a href="test-case-template.html#cb13-5"></a></span>
-<span id="cb13-6"><a href="test-case-template.html#cb13-6"></a>namespace {</span>
-<span id="cb13-7"><a href="test-case-template.html#cb13-7"></a></span>
-<span id="cb13-8"><a href="test-case-template.html#cb13-8"></a>  <span class="co">// Description of Test 1 </span></span>
-<span id="cb13-9"><a href="test-case-template.html#cb13-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
-<span id="cb13-10"><a href="test-case-template.html#cb13-10"></a>    </span>
-<span id="cb13-11"><a href="test-case-template.html#cb13-11"></a>    ... test body ... </span>
-<span id="cb13-12"><a href="test-case-template.html#cb13-12"></a>    </span>
-<span id="cb13-13"><a href="test-case-template.html#cb13-13"></a>  }</span>
-<span id="cb13-14"><a href="test-case-template.html#cb13-14"></a>  </span>
-<span id="cb13-15"><a href="test-case-template.html#cb13-15"></a>  <span class="co">// Description of Test 2</span></span>
-<span id="cb13-16"><a href="test-case-template.html#cb13-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
-<span id="cb13-17"><a href="test-case-template.html#cb13-17"></a>    </span>
-<span id="cb13-18"><a href="test-case-template.html#cb13-18"></a>    ... test body ...</span>
-<span id="cb13-19"><a href="test-case-template.html#cb13-19"></a>    </span>
-<span id="cb13-20"><a href="test-case-template.html#cb13-20"></a>  }</span>
-<span id="cb13-21"><a href="test-case-template.html#cb13-21"></a>  </span>
-<span id="cb13-22"><a href="test-case-template.html#cb13-22"></a>}</span></code></pre></div>
+<h3><span class="header-section-number">11.2.6</span> Set up FIMS testing project</h3>
+<p>Create an empty folder named “FIMS_project”. Within the folder, create a two subfolders: “tests” that will contain the testing code and “src” that will contain the source code. Within the tests subfolder, create a file named <code>CMakeLists.txt</code>. Declare a dependency on GoogleTest by adding the following contents to the CMakeLists.txt file:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb16-1"><a href="test-case-template.html#cb16-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.14)</span>
+<span id="cb16-2"><a href="test-case-template.html#cb16-2"></a><span class="kw">project</span>(FIMS_project)</span>
+<span id="cb16-3"><a href="test-case-template.html#cb16-3"></a></span>
+<span id="cb16-4"><a href="test-case-template.html#cb16-4"></a><span class="co"># GoogleTest requires at least C++11</span></span>
+<span id="cb16-5"><a href="test-case-template.html#cb16-5"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD</span> 11)</span>
+<span id="cb16-6"><a href="test-case-template.html#cb16-6"></a></span>
+<span id="cb16-7"><a href="test-case-template.html#cb16-7"></a><span class="kw">include</span>(FetchContent)</span>
+<span id="cb16-8"><a href="test-case-template.html#cb16-8"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb16-9"><a href="test-case-template.html#cb16-9"></a>  googletest</span>
+<span id="cb16-10"><a href="test-case-template.html#cb16-10"></a>  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip</span>
+<span id="cb16-11"><a href="test-case-template.html#cb16-11"></a>)</span>
+<span id="cb16-12"><a href="test-case-template.html#cb16-12"></a></span>
+<span id="cb16-13"><a href="test-case-template.html#cb16-13"></a><span class="co"># For Windows: Prevent overriding the parent project&#39;s compiler/linker settings</span></span>
+<span id="cb16-14"><a href="test-case-template.html#cb16-14"></a><span class="kw">set</span>(gtest_force_shared_crt ON <span class="ot">CACHE</span> <span class="ot">BOOL</span> <span class="st">&quot;&quot;</span> <span class="ot">FORCE</span>)</span>
+<span id="cb16-15"><a href="test-case-template.html#cb16-15"></a><span class="fu">FetchContent_MakeAvailable</span>(googletest)</span></code></pre></div>
 </div>
 <div id="unit-test-example" class="section level3">
-<h3><span class="header-section-number">11.2.5</span> Unit test example</h3>
-<p>Let’s create dlognorm.hpp that has a simple function:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="test-case-template.html#cb14-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
-<span id="cb14-2"><a href="test-case-template.html#cb14-2"></a></span>
-<span id="cb14-3"><a href="test-case-template.html#cb14-3"></a>template&lt;class Type&gt;</span>
-<span id="cb14-4"><a href="test-case-template.html#cb14-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
-<span id="cb14-5"><a href="test-case-template.html#cb14-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
-<span id="cb14-6"><a href="test-case-template.html#cb14-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
-<span id="cb14-7"><a href="test-case-template.html#cb14-7"></a>  <span class="cf">return</span> logres; </span>
-<span id="cb14-8"><a href="test-case-template.html#cb14-8"></a>}</span></code></pre></div>
-<p>We can create a test file dlognorm-unit.cpp that has a test suite for this function:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="test-case-template.html#cb15-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb15-2"><a href="test-case-template.html#cb15-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
-<span id="cb15-3"><a href="test-case-template.html#cb15-3"></a></span>
-<span id="cb15-4"><a href="test-case-template.html#cb15-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb15-5"><a href="test-case-template.html#cb15-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
-<span id="cb15-6"><a href="test-case-template.html#cb15-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
-<span id="cb15-7"><a href="test-case-template.html#cb15-7"></a></span>
-<span id="cb15-8"><a href="test-case-template.html#cb15-8"></a>namespace {</span>
-<span id="cb15-9"><a href="test-case-template.html#cb15-9"></a></span>
-<span id="cb15-10"><a href="test-case-template.html#cb15-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
-<span id="cb15-11"><a href="test-case-template.html#cb15-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
-<span id="cb15-12"><a href="test-case-template.html#cb15-12"></a>  </span>
-<span id="cb15-13"><a href="test-case-template.html#cb15-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
-<span id="cb15-14"><a href="test-case-template.html#cb15-14"></a>    </span>
-<span id="cb15-15"><a href="test-case-template.html#cb15-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> ); </span>
-<span id="cb15-16"><a href="test-case-template.html#cb15-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> ); </span>
-<span id="cb15-17"><a href="test-case-template.html#cb15-17"></a>    </span>
-<span id="cb15-18"><a href="test-case-template.html#cb15-18"></a>  }</span>
-<span id="cb15-19"><a href="test-case-template.html#cb15-19"></a>  </span>
-<span id="cb15-20"><a href="test-case-template.html#cb15-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
-<span id="cb15-21"><a href="test-case-template.html#cb15-21"></a>  </span>
-<span id="cb15-22"><a href="test-case-template.html#cb15-22"></a>  TEST(dlognormTest, IntInput) {</span>
-<span id="cb15-23"><a href="test-case-template.html#cb15-23"></a>    </span>
-<span id="cb15-24"><a href="test-case-template.html#cb15-24"></a>    EXPECT_NE( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> );</span>
-<span id="cb15-25"><a href="test-case-template.html#cb15-25"></a>    </span>
-<span id="cb15-26"><a href="test-case-template.html#cb15-26"></a>  }</span>
-<span id="cb15-27"><a href="test-case-template.html#cb15-27"></a>  </span>
-<span id="cb15-28"><a href="test-case-template.html#cb15-28"></a>}</span></code></pre></div>
+<h3><span class="header-section-number">11.2.7</span> Unit test example</h3>
+<p>Create a file dlognorm.hpp within the src subfolder that contains a simple function:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="test-case-template.html#cb17-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
+<span id="cb17-2"><a href="test-case-template.html#cb17-2"></a></span>
+<span id="cb17-3"><a href="test-case-template.html#cb17-3"></a>template&lt;class Type&gt;</span>
+<span id="cb17-4"><a href="test-case-template.html#cb17-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
+<span id="cb17-5"><a href="test-case-template.html#cb17-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
+<span id="cb17-6"><a href="test-case-template.html#cb17-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
+<span id="cb17-7"><a href="test-case-template.html#cb17-7"></a>  <span class="cf">return</span> logres; </span>
+<span id="cb17-8"><a href="test-case-template.html#cb17-8"></a>}</span></code></pre></div>
+<p>Then, create a test file dlognorm-unit.cpp in the tests subfolder that has a test suite for the dlognorm function:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="test-case-template.html#cb18-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb18-2"><a href="test-case-template.html#cb18-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
+<span id="cb18-3"><a href="test-case-template.html#cb18-3"></a></span>
+<span id="cb18-4"><a href="test-case-template.html#cb18-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb18-5"><a href="test-case-template.html#cb18-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
+<span id="cb18-6"><a href="test-case-template.html#cb18-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
+<span id="cb18-7"><a href="test-case-template.html#cb18-7"></a></span>
+<span id="cb18-8"><a href="test-case-template.html#cb18-8"></a>namespace {</span>
+<span id="cb18-9"><a href="test-case-template.html#cb18-9"></a></span>
+<span id="cb18-10"><a href="test-case-template.html#cb18-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
+<span id="cb18-11"><a href="test-case-template.html#cb18-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
+<span id="cb18-12"><a href="test-case-template.html#cb18-12"></a>  </span>
+<span id="cb18-13"><a href="test-case-template.html#cb18-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
+<span id="cb18-14"><a href="test-case-template.html#cb18-14"></a>    </span>
+<span id="cb18-15"><a href="test-case-template.html#cb18-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> ); </span>
+<span id="cb18-16"><a href="test-case-template.html#cb18-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> ); </span>
+<span id="cb18-17"><a href="test-case-template.html#cb18-17"></a>    </span>
+<span id="cb18-18"><a href="test-case-template.html#cb18-18"></a>  }</span>
+<span id="cb18-19"><a href="test-case-template.html#cb18-19"></a>  </span>
+<span id="cb18-20"><a href="test-case-template.html#cb18-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
+<span id="cb18-21"><a href="test-case-template.html#cb18-21"></a>  </span>
+<span id="cb18-22"><a href="test-case-template.html#cb18-22"></a>  TEST(dlognormTest, IntInput) {</span>
+<span id="cb18-23"><a href="test-case-template.html#cb18-23"></a>    </span>
+<span id="cb18-24"><a href="test-case-template.html#cb18-24"></a>    EXPECT_NE( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> );</span>
+<span id="cb18-25"><a href="test-case-template.html#cb18-25"></a>    </span>
+<span id="cb18-26"><a href="test-case-template.html#cb18-26"></a>  }</span>
+<span id="cb18-27"><a href="test-case-template.html#cb18-27"></a>  </span>
+<span id="cb18-28"><a href="test-case-template.html#cb18-28"></a>}</span></code></pre></div>
 <p><code>EXPECT_NEAR(val1, val2, absolute_error)</code> verifies that the difference between <code>val1</code> and <code>val2</code> does not exceed the absolute error bound <code>absolute_error</code>. <code>EXPECT_NE(val1, val2)</code> verifies that <code>val1</code> is not equal to <code>val2</code>. Please see GoogleTest <a href="https://google.github.io/googletest/reference/assertions.html">assertions reference</a> for more <code>EXPECT_</code> macros.</p>
 </div>
 <div id="add-tests-to-cmakelists.txt-and-run-a-binary" class="section level3">
-<h3><span class="header-section-number">11.2.6</span> Add tests to <code>CMakeLists.txt</code> and run a binary</h3>
-<p>To build the code, add the following contents to the end of your <code>CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb16-1"><a href="test-case-template.html#cb16-1"></a><span class="kw">enable_testing</span>()</span>
-<span id="cb16-2"><a href="test-case-template.html#cb16-2"></a></span>
-<span id="cb16-3"><a href="test-case-template.html#cb16-3"></a><span class="kw">add_executable</span>(</span>
-<span id="cb16-4"><a href="test-case-template.html#cb16-4"></a>  dlognorm_test</span>
-<span id="cb16-5"><a href="test-case-template.html#cb16-5"></a>  dlognorm-unit.cpp</span>
-<span id="cb16-6"><a href="test-case-template.html#cb16-6"></a>)</span>
-<span id="cb16-7"><a href="test-case-template.html#cb16-7"></a></span>
-<span id="cb16-8"><a href="test-case-template.html#cb16-8"></a><span class="kw">target_include_directories</span>(</span>
-<span id="cb16-9"><a href="test-case-template.html#cb16-9"></a>  dlognorm_test <span class="ot">PUBLIC</span></span>
-<span id="cb16-10"><a href="test-case-template.html#cb16-10"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb16-11"><a href="test-case-template.html#cb16-11"></a>)</span>
-<span id="cb16-12"><a href="test-case-template.html#cb16-12"></a></span>
-<span id="cb16-13"><a href="test-case-template.html#cb16-13"></a><span class="kw">target_link_libraries</span>(</span>
-<span id="cb16-14"><a href="test-case-template.html#cb16-14"></a>  dlognorm_test</span>
-<span id="cb16-15"><a href="test-case-template.html#cb16-15"></a>  gtest_main</span>
-<span id="cb16-16"><a href="test-case-template.html#cb16-16"></a>)</span>
-<span id="cb16-17"><a href="test-case-template.html#cb16-17"></a></span>
-<span id="cb16-18"><a href="test-case-template.html#cb16-18"></a><span class="kw">include</span>(GoogleTest)</span>
-<span id="cb16-19"><a href="test-case-template.html#cb16-19"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
-<p>The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="test-case-template.html#cb17-1"></a><span class="bu">cd</span> tests</span>
-<span id="cb17-2"><a href="test-case-template.html#cb17-2"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span>
-<span id="cb17-3"><a href="test-case-template.html#cb17-3"></a><span class="bu">cd</span> build </span>
-<span id="cb17-4"><a href="test-case-template.html#cb17-4"></a><span class="fu">cmake</span> --build .</span>
-<span id="cb17-5"><a href="test-case-template.html#cb17-5"></a><span class="ex">ctest</span></span></code></pre></div>
-<p>The output might look like this:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="test-case-template.html#cb18-1"></a><span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
-<span id="cb18-2"><a href="test-case-template.html#cb18-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.11 sec</span></span>
-<span id="cb18-3"><a href="test-case-template.html#cb18-3"></a><span class="ex">Start</span> 2: dlognormTest.IntInput</span>
-<span id="cb18-4"><a href="test-case-template.html#cb18-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.11 sec</span></span>
-<span id="cb18-5"><a href="test-case-template.html#cb18-5"></a></span>
-<span id="cb18-6"><a href="test-case-template.html#cb18-6"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 2</span>
-<span id="cb18-7"><a href="test-case-template.html#cb18-7"></a></span>
-<span id="cb18-8"><a href="test-case-template.html#cb18-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.25</span> sec</span></code></pre></div>
-<p>Congratulations! You’ve successfully set up a test project and run a test binary using GoogleTest. Let’s use Google Benchmark to measure the real time and CPU time used for running the produced binary.</p>
-</div>
-<div id="benchmark-template" class="section level3">
-<h3><span class="header-section-number">11.2.7</span> Benchmark template</h3>
-<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="test-case-template.html#cb19-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb19-2"><a href="test-case-template.html#cb19-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
-<span id="cb19-3"><a href="test-case-template.html#cb19-3"></a></span>
-<span id="cb19-4"><a href="test-case-template.html#cb19-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
-<span id="cb19-5"><a href="test-case-template.html#cb19-5"></a>{</span>
-<span id="cb19-6"><a href="test-case-template.html#cb19-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb19-7"><a href="test-case-template.html#cb19-7"></a>    <span class="co">// This code gets timed</span></span>
-<span id="cb19-8"><a href="test-case-template.html#cb19-8"></a>    Function()</span>
-<span id="cb19-9"><a href="test-case-template.html#cb19-9"></a>}</span>
-<span id="cb19-10"><a href="test-case-template.html#cb19-10"></a></span>
-<span id="cb19-11"><a href="test-case-template.html#cb19-11"></a><span class="co">// Register the function as a benchmark</span></span>
-<span id="cb19-12"><a href="test-case-template.html#cb19-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
+<h3><span class="header-section-number">11.2.8</span> Add tests to <code>CMakeLists.txt</code> and run a binary</h3>
+<p>To build the code, add the following contents to the end of the <code>CMakeLists.txt</code> file:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb19-1"><a href="test-case-template.html#cb19-1"></a><span class="kw">enable_testing</span>()</span>
+<span id="cb19-2"><a href="test-case-template.html#cb19-2"></a></span>
+<span id="cb19-3"><a href="test-case-template.html#cb19-3"></a><span class="kw">add_executable</span>(</span>
+<span id="cb19-4"><a href="test-case-template.html#cb19-4"></a>  dlognorm_test</span>
+<span id="cb19-5"><a href="test-case-template.html#cb19-5"></a>  dlognorm-unit.cpp</span>
+<span id="cb19-6"><a href="test-case-template.html#cb19-6"></a>)</span>
+<span id="cb19-7"><a href="test-case-template.html#cb19-7"></a></span>
+<span id="cb19-8"><a href="test-case-template.html#cb19-8"></a><span class="kw">target_include_directories</span>(</span>
+<span id="cb19-9"><a href="test-case-template.html#cb19-9"></a>  dlognorm_test <span class="ot">PUBLIC</span></span>
+<span id="cb19-10"><a href="test-case-template.html#cb19-10"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb19-11"><a href="test-case-template.html#cb19-11"></a>)</span>
+<span id="cb19-12"><a href="test-case-template.html#cb19-12"></a></span>
+<span id="cb19-13"><a href="test-case-template.html#cb19-13"></a><span class="kw">target_link_libraries</span>(</span>
+<span id="cb19-14"><a href="test-case-template.html#cb19-14"></a>  dlognorm_test</span>
+<span id="cb19-15"><a href="test-case-template.html#cb19-15"></a>  gtest_main</span>
+<span id="cb19-16"><a href="test-case-template.html#cb19-16"></a>)</span>
+<span id="cb19-17"><a href="test-case-template.html#cb19-17"></a></span>
+<span id="cb19-18"><a href="test-case-template.html#cb19-18"></a><span class="kw">include</span>(GoogleTest)</span>
+<span id="cb19-19"><a href="test-case-template.html#cb19-19"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
+<p>The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test. Open a command window in FIMS_project/tests and type:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="test-case-template.html#cb20-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
+<p>This generates the build system using Ninja as the generator.</p>
+<p>Next, in the same command window, use cmake to build:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="test-case-template.html#cb21-1"></a><span class="bu">cd</span> build </span>
+<span id="cb21-2"><a href="test-case-template.html#cb21-2"></a><span class="fu">cmake</span> --build .</span></code></pre></div>
+<p>Finally, run the tests in the same command window:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="test-case-template.html#cb22-1"></a><span class="ex">ctest</span></span></code></pre></div>
+<p>The output when running <code>ctest</code> might look like this:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="test-case-template.html#cb23-1"></a><span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
+<span id="cb23-2"><a href="test-case-template.html#cb23-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.11 sec</span></span>
+<span id="cb23-3"><a href="test-case-template.html#cb23-3"></a><span class="ex">Start</span> 2: dlognormTest.IntInput</span>
+<span id="cb23-4"><a href="test-case-template.html#cb23-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.11 sec</span></span>
+<span id="cb23-5"><a href="test-case-template.html#cb23-5"></a></span>
+<span id="cb23-6"><a href="test-case-template.html#cb23-6"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 2</span>
+<span id="cb23-7"><a href="test-case-template.html#cb23-7"></a></span>
+<span id="cb23-8"><a href="test-case-template.html#cb23-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.25</span> sec</span></code></pre></div>
 </div>
 <div id="benchmark-example" class="section level3">
-<h3><span class="header-section-number">11.2.8</span> Benchmark example</h3>
-<p>We will continue using the dlognorm.hpp example. We can create a benchmark file dlognorm_benchmark.cpp and put it in the tests folder:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="test-case-template.html#cb20-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb20-2"><a href="test-case-template.html#cb20-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
-<span id="cb20-3"><a href="test-case-template.html#cb20-3"></a></span>
-<span id="cb20-4"><a href="test-case-template.html#cb20-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
-<span id="cb20-5"><a href="test-case-template.html#cb20-5"></a>{</span>
-<span id="cb20-6"><a href="test-case-template.html#cb20-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb20-7"><a href="test-case-template.html#cb20-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
-<span id="cb20-8"><a href="test-case-template.html#cb20-8"></a>}</span>
-<span id="cb20-9"><a href="test-case-template.html#cb20-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
+<h3><span class="header-section-number">11.2.9</span> Benchmark example</h3>
+<p>Let’s use Google Benchmark to measure the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create a benchmark file dlognorm_benchmark.cpp and put it in the tests subfolder within the FIMS_project folder:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="test-case-template.html#cb24-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb24-2"><a href="test-case-template.html#cb24-2"></a><span class="pp">#include </span><span class="im">&quot;../src/dlognorm.hpp&quot;</span></span>
+<span id="cb24-3"><a href="test-case-template.html#cb24-3"></a></span>
+<span id="cb24-4"><a href="test-case-template.html#cb24-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
+<span id="cb24-5"><a href="test-case-template.html#cb24-5"></a>{</span>
+<span id="cb24-6"><a href="test-case-template.html#cb24-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb24-7"><a href="test-case-template.html#cb24-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
+<span id="cb24-8"><a href="test-case-template.html#cb24-8"></a>}</span>
+<span id="cb24-9"><a href="test-case-template.html#cb24-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
 <p>Please see more examples on <a href="https://github.com/google/benchmark">Google Benchmark GitHub repository</a> for a more comprehensive feature overview.</p>
 </div>
 <div id="add-benchmarks-to-cmakelists.txt-and-run-the-benchmark" class="section level3">
-<h3><span class="header-section-number">11.2.9</span> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</h3>
+<h3><span class="header-section-number">11.2.10</span> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</h3>
 <p>To build the code, add the following contents to the end of your <code>CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb21-1"><a href="test-case-template.html#cb21-1"></a></span>
-<span id="cb21-2"><a href="test-case-template.html#cb21-2"></a><span class="fu">FetchContent_Declare</span>(</span>
-<span id="cb21-3"><a href="test-case-template.html#cb21-3"></a>  googlebenchmark</span>
-<span id="cb21-4"><a href="test-case-template.html#cb21-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
-<span id="cb21-5"><a href="test-case-template.html#cb21-5"></a>)</span>
-<span id="cb21-6"><a href="test-case-template.html#cb21-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
-<span id="cb21-7"><a href="test-case-template.html#cb21-7"></a></span>
-<span id="cb21-8"><a href="test-case-template.html#cb21-8"></a><span class="kw">add_executable</span>(</span>
-<span id="cb21-9"><a href="test-case-template.html#cb21-9"></a>  dlognorm_benchmark</span>
-<span id="cb21-10"><a href="test-case-template.html#cb21-10"></a>  dlognorm_benchmark.cpp</span>
-<span id="cb21-11"><a href="test-case-template.html#cb21-11"></a>)</span>
-<span id="cb21-12"><a href="test-case-template.html#cb21-12"></a></span>
-<span id="cb21-13"><a href="test-case-template.html#cb21-13"></a><span class="kw">target_include_directories</span>(</span>
-<span id="cb21-14"><a href="test-case-template.html#cb21-14"></a>  dlognorm_benchmark <span class="ot">PUBLIC</span></span>
-<span id="cb21-15"><a href="test-case-template.html#cb21-15"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb21-16"><a href="test-case-template.html#cb21-16"></a>)</span>
-<span id="cb21-17"><a href="test-case-template.html#cb21-17"></a></span>
-<span id="cb21-18"><a href="test-case-template.html#cb21-18"></a><span class="kw">target_link_libraries</span>(</span>
-<span id="cb21-19"><a href="test-case-template.html#cb21-19"></a>  dlognorm_benchmark</span>
-<span id="cb21-20"><a href="test-case-template.html#cb21-20"></a>  benchmark_main</span>
-<span id="cb21-21"><a href="test-case-template.html#cb21-21"></a>)</span></code></pre></div>
-<p>To run the benchmark,</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="test-case-template.html#cb22-1"></a><span class="fu">cmake</span> --build .</span>
-<span id="cb22-2"><a href="test-case-template.html#cb22-2"></a><span class="ex">./dlognorm_benchmark.exe</span></span></code></pre></div>
-<p>The output might look like this:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="test-case-template.html#cb23-1"></a></span>
-<span id="cb23-2"><a href="test-case-template.html#cb23-2"></a><span class="ex">Run</span> on (8 X 2112 MHz CPU s)</span>
-<span id="cb23-3"><a href="test-case-template.html#cb23-3"></a><span class="ex">CPU</span> Caches:</span>
-<span id="cb23-4"><a href="test-case-template.html#cb23-4"></a>  <span class="ex">L1</span> Data 32 KiB (x4)</span>
-<span id="cb23-5"><a href="test-case-template.html#cb23-5"></a><span class="ex">L1</span> Instruction 32 KiB (x4)</span>
-<span id="cb23-6"><a href="test-case-template.html#cb23-6"></a><span class="ex">L2</span> Unified 256 KiB (x4)</span>
-<span id="cb23-7"><a href="test-case-template.html#cb23-7"></a><span class="ex">L3</span> Unified 8192 KiB (x1)</span>
-<span id="cb23-8"><a href="test-case-template.html#cb23-8"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
-<span id="cb23-9"><a href="test-case-template.html#cb23-9"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb23-10"><a href="test-case-template.html#cb23-10"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
-<span id="cb23-11"><a href="test-case-template.html#cb23-11"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb23-12"><a href="test-case-template.html#cb23-12"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb25-1"><a href="test-case-template.html#cb25-1"></a></span>
+<span id="cb25-2"><a href="test-case-template.html#cb25-2"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb25-3"><a href="test-case-template.html#cb25-3"></a>  googlebenchmark</span>
+<span id="cb25-4"><a href="test-case-template.html#cb25-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
+<span id="cb25-5"><a href="test-case-template.html#cb25-5"></a>)</span>
+<span id="cb25-6"><a href="test-case-template.html#cb25-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
+<span id="cb25-7"><a href="test-case-template.html#cb25-7"></a></span>
+<span id="cb25-8"><a href="test-case-template.html#cb25-8"></a><span class="kw">add_executable</span>(</span>
+<span id="cb25-9"><a href="test-case-template.html#cb25-9"></a>  dlognorm_benchmark</span>
+<span id="cb25-10"><a href="test-case-template.html#cb25-10"></a>  dlognorm_benchmark.cpp</span>
+<span id="cb25-11"><a href="test-case-template.html#cb25-11"></a>)</span>
+<span id="cb25-12"><a href="test-case-template.html#cb25-12"></a></span>
+<span id="cb25-13"><a href="test-case-template.html#cb25-13"></a><span class="kw">target_include_directories</span>(</span>
+<span id="cb25-14"><a href="test-case-template.html#cb25-14"></a>  dlognorm_benchmark <span class="ot">PUBLIC</span></span>
+<span id="cb25-15"><a href="test-case-template.html#cb25-15"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb25-16"><a href="test-case-template.html#cb25-16"></a>)</span>
+<span id="cb25-17"><a href="test-case-template.html#cb25-17"></a></span>
+<span id="cb25-18"><a href="test-case-template.html#cb25-18"></a><span class="kw">target_link_libraries</span>(</span>
+<span id="cb25-19"><a href="test-case-template.html#cb25-19"></a>  dlognorm_benchmark</span>
+<span id="cb25-20"><a href="test-case-template.html#cb25-20"></a>  benchmark_main</span>
+<span id="cb25-21"><a href="test-case-template.html#cb25-21"></a>)</span></code></pre></div>
+<p>To run the benchmark, run on the command line open in FIMS_project/tests/build:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="test-case-template.html#cb26-1"></a><span class="fu">cmake</span> --build .</span>
+<span id="cb26-2"><a href="test-case-template.html#cb26-2"></a><span class="ex">./dlognorm_benchmark.exe</span></span></code></pre></div>
+<p>The output from <code>./dlognorm_benchmark.exe</code> might look like this:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="test-case-template.html#cb27-1"></a></span>
+<span id="cb27-2"><a href="test-case-template.html#cb27-2"></a><span class="ex">Run</span> on (8 X 2112 MHz CPU s)</span>
+<span id="cb27-3"><a href="test-case-template.html#cb27-3"></a><span class="ex">CPU</span> Caches:</span>
+<span id="cb27-4"><a href="test-case-template.html#cb27-4"></a>  <span class="ex">L1</span> Data 32 KiB (x4)</span>
+<span id="cb27-5"><a href="test-case-template.html#cb27-5"></a><span class="ex">L1</span> Instruction 32 KiB (x4)</span>
+<span id="cb27-6"><a href="test-case-template.html#cb27-6"></a><span class="ex">L2</span> Unified 256 KiB (x4)</span>
+<span id="cb27-7"><a href="test-case-template.html#cb27-7"></a><span class="ex">L3</span> Unified 8192 KiB (x1)</span>
+<span id="cb27-8"><a href="test-case-template.html#cb27-8"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
+<span id="cb27-9"><a href="test-case-template.html#cb27-9"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb27-10"><a href="test-case-template.html#cb27-10"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
+<span id="cb27-11"><a href="test-case-template.html#cb27-11"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb27-12"><a href="test-case-template.html#cb27-12"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
+</div>
+</div>
+<div id="templates-for-googletest-testing" class="section level2">
+<h2><span class="header-section-number">11.3</span> Templates for GoogleTest testing</h2>
+<p>This section includes templates for creating unit tests and benchmark. This is
+the code that would go into the .cpp files.</p>
+<div id="unit-test-template" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Unit test template</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb28-1"><a href="test-case-template.html#cb28-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb28-2"><a href="test-case-template.html#cb28-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb28-3"><a href="test-case-template.html#cb28-3"></a></span>
+<span id="cb28-4"><a href="test-case-template.html#cb28-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb28-5"><a href="test-case-template.html#cb28-5"></a></span>
+<span id="cb28-6"><a href="test-case-template.html#cb28-6"></a>namespace {</span>
+<span id="cb28-7"><a href="test-case-template.html#cb28-7"></a></span>
+<span id="cb28-8"><a href="test-case-template.html#cb28-8"></a>  <span class="co">// Description of Test 1 </span></span>
+<span id="cb28-9"><a href="test-case-template.html#cb28-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
+<span id="cb28-10"><a href="test-case-template.html#cb28-10"></a>    </span>
+<span id="cb28-11"><a href="test-case-template.html#cb28-11"></a>    ... test body ... </span>
+<span id="cb28-12"><a href="test-case-template.html#cb28-12"></a>    </span>
+<span id="cb28-13"><a href="test-case-template.html#cb28-13"></a>  }</span>
+<span id="cb28-14"><a href="test-case-template.html#cb28-14"></a>  </span>
+<span id="cb28-15"><a href="test-case-template.html#cb28-15"></a>  <span class="co">// Description of Test 2</span></span>
+<span id="cb28-16"><a href="test-case-template.html#cb28-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
+<span id="cb28-17"><a href="test-case-template.html#cb28-17"></a>    </span>
+<span id="cb28-18"><a href="test-case-template.html#cb28-18"></a>    ... test body ...</span>
+<span id="cb28-19"><a href="test-case-template.html#cb28-19"></a>    </span>
+<span id="cb28-20"><a href="test-case-template.html#cb28-20"></a>  }</span>
+<span id="cb28-21"><a href="test-case-template.html#cb28-21"></a>  </span>
+<span id="cb28-22"><a href="test-case-template.html#cb28-22"></a>}</span></code></pre></div>
+</div>
+<div id="benchmark-template" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Benchmark template</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb29-1"><a href="test-case-template.html#cb29-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb29-2"><a href="test-case-template.html#cb29-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb29-3"><a href="test-case-template.html#cb29-3"></a></span>
+<span id="cb29-4"><a href="test-case-template.html#cb29-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
+<span id="cb29-5"><a href="test-case-template.html#cb29-5"></a>{</span>
+<span id="cb29-6"><a href="test-case-template.html#cb29-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb29-7"><a href="test-case-template.html#cb29-7"></a>    <span class="co">// This code gets timed</span></span>
+<span id="cb29-8"><a href="test-case-template.html#cb29-8"></a>    Function()</span>
+<span id="cb29-9"><a href="test-case-template.html#cb29-9"></a>}</span>
+<span id="cb29-10"><a href="test-case-template.html#cb29-10"></a></span>
+<span id="cb29-11"><a href="test-case-template.html#cb29-11"></a><span class="co">// Register the function as a benchmark</span></span>
+<span id="cb29-12"><a href="test-case-template.html#cb29-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
 </div>
 </div>
 <div id="r-testing" class="section level2">
-<h2><span class="header-section-number">11.3</span> R testing</h2>
+<h2><span class="header-section-number">11.4</span> R testing</h2>
 <p>FIMS uses R testthat package for writing R tests. You can install the packages following the instructions on <a href="https://testthat.r-lib.org/">testthat website</a>. If you are not familiar with testthat, the <a href="https://r-pkgs.org/tests.html">testing chapter</a> in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.</p>
 <div id="r-testthat-template" class="section level3">
-<h3><span class="header-section-number">11.3.1</span> R testthat template</h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="test-case-template.html#cb24-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
-<span id="cb24-2"><a href="test-case-template.html#cb24-2"></a>  </span>
-<span id="cb24-3"><a href="test-case-template.html#cb24-3"></a>  ...test body...</span>
-<span id="cb24-4"><a href="test-case-template.html#cb24-4"></a>  </span>
-<span id="cb24-5"><a href="test-case-template.html#cb24-5"></a>})</span></code></pre></div>
+<h3><span class="header-section-number">11.4.1</span> R testthat template</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="test-case-template.html#cb30-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb30-2"><a href="test-case-template.html#cb30-2"></a>  </span>
+<span id="cb30-3"><a href="test-case-template.html#cb30-3"></a>  ...test body...</span>
+<span id="cb30-4"><a href="test-case-template.html#cb30-4"></a>  </span>
+<span id="cb30-5"><a href="test-case-template.html#cb30-5"></a>})</span></code></pre></div>
 </div>
 </div>
 <div id="test-case-template-and-examples" class="section level2">
-<h2><span class="header-section-number">11.4</span> Test case template and examples</h2>
+<h2><span class="header-section-number">11.5</span> Test case template and examples</h2>
 <div id="test-case-template-1" class="section level3">
-<h3><span class="header-section-number">11.4.1</span> Test case template</h3>
+<h3><span class="header-section-number">11.5.1</span> Test case template</h3>
 <p>Individual functional or integration test cases will be designed following the template below.</p>
 <ul>
 <li><p><em>Test ID</em>. Create a meaningful name for the test case.</p></li>
@@ -538,9 +581,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="test-case-examples" class="section level3">
-<h3><span class="header-section-number">11.4.2</span> Test case examples</h3>
+<h3><span class="header-section-number">11.5.2</span> Test case examples</h3>
 <div id="general-test-case" class="section level4">
-<h4><span class="header-section-number">11.4.2.1</span> General test case</h4>
+<h4><span class="header-section-number">11.5.2.1</span> General test case</h4>
 <p>The test case below is a general case and it can be applied to many functions/modules. For individual functions/modules, please make detailed test cases for specific options to avoid duplication as much as possible.</p>
 <table>
 <colgroup>
@@ -590,7 +633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 <div id="functional-test-example-tmb-probability-mass-function-of-the-multinomial-distribution" class="section level4">
-<h4><span class="header-section-number">11.4.2.2</span> Functional test example: TMB probability mass function of the multinomial distribution</h4>
+<h4><span class="header-section-number">11.5.2.2</span> Functional test example: TMB probability mass function of the multinomial distribution</h4>
 <table>
 <colgroup>
 <col width="22%" />
@@ -632,7 +675,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 <div id="integration-test-example-li-et-al.-2021-age-structured-stock-assessment-model-comparison" class="section level4">
-<h4><span class="header-section-number">11.4.2.3</span> Integration test example: <a href="https://doi.org/10.7755/FB.119.2-3.5"><span class="ul">Li et al. 2021 age-structured stock assessment model comparison</span></a></h4>
+<h4><span class="header-section-number">11.5.2.3</span> Integration test example: <a href="https://doi.org/10.7755/FB.119.2-3.5"><span class="ul">Li et al. 2021 age-structured stock assessment model comparison</span></a></h4>
 <table>
 <colgroup>
 <col width="9%" />
@@ -684,7 +727,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 <div id="simulation-testing-challenges-and-solutions" class="section level4">
-<h4><span class="header-section-number">11.4.2.4</span> simulation testing: challenges and solutions</h4>
+<h4><span class="header-section-number">11.5.2.4</span> simulation testing: challenges and solutions</h4>
 <p>One thing that might be challenging for comparing simulation results is that changes to the order of different calls to simulation will change the simulated values and then tests may fail even though it is just because different random numbers are used or the order of the simulation changes through model development. Several solutions could be used to address the simulation testing issue. Please see <a href="https://github.com/NOAA-FIMS/FIMS-planning/issues/25">discussions</a> on the FIMS-planning issue page for details.</p>
 <ul>
 <li>Once we start developing simulation modules, there are two ways that help compare simulated data from FIMS and a test.
@@ -698,9 +741,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="glossary" class="section level2">
-<h2><span class="header-section-number">11.5</span> Glossary</h2>
+<h2><span class="header-section-number">11.6</span> Glossary</h2>
 <div id="unit-testing" class="section level3">
-<h3><span class="header-section-number">11.5.1</span> Unit testing</h3>
+<h3><span class="header-section-number">11.6.1</span> Unit testing</h3>
 <ul>
 <li><p>Description: It tests individual methods and functions of the classes, components or modules used by the software independently. It executes only small portions of the test cases during the development process.</p></li>
 <li><p>Writer: Developer</p></li>
@@ -711,7 +754,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="functional-testing" class="section level3">
-<h3><span class="header-section-number">11.5.2</span> Functional testing</h3>
+<h3><span class="header-section-number">11.6.2</span> Functional testing</h3>
 <ul>
 <li><p>Description: It checks software’s performance with respect to its specified requirements. Testers do not need to examine the internal structure of the piece of software tested but just test a slice of functionality of the whole system after it has been developed.</p></li>
 <li><p>Writer: Tester</p></li>
@@ -722,7 +765,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="integration-testing" class="section level3">
-<h3><span class="header-section-number">11.5.3</span> Integration testing</h3>
+<h3><span class="header-section-number">11.6.3</span> Integration testing</h3>
 <ul>
 <li><p>Description: A group of software modules are coupled together and tested. Integrate software modules all together and verify the interfaces between modules against the software design. It is tested until the software works as a system.</p></li>
 <li><p>Writer: Tester</p></li>
@@ -733,7 +776,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="run-time-testing" class="section level3">
-<h3><span class="header-section-number">11.5.4</span> Run-time testing</h3>
+<h3><span class="header-section-number">11.6.4</span> Run-time testing</h3>
 <ul>
 <li><p>Description: Checks added in the software that catch user input errors. The developer will add in checks to the software; the user will trigger these checks if there are input errors</p></li>
 <li><p>Writer: developer</p></li>
@@ -744,18 +787,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="regression-testing" class="section level3">
-<h3><span class="header-section-number">11.5.5</span> Regression testing</h3>
+<h3><span class="header-section-number">11.6.5</span> Regression testing</h3>
 <ul>
 <li><p>Description: Re-running tests to ensure that previously developed and tested software still performs after a change. Testers can execute regression testing after adding a new feature to the software or whenever a previously discovered issue has been fixed. Testers can run all tests or a part of the test suite to check the correctness or quality of the software.</p></li>
 <li><p>Writer: Tester</p></li>
 <li><p>Advantages: It ensures that the changes made to the software have not affected the existing functionalities or correctness of the software.</p></li>
 <li><p>Limitations: If the team makes changes to the software often, it may be difficult to run all tests from the test suite frequently. In that case, it’s a good idea to have a regression testing schedule. For example, run a part of the test suite that is higher in priority after every change and run the full test suite weekly or monthly, etc.</p></li>
-<li><p>Examples: Set up a test suit like the <a href="https://github.com/nmfs-stock-synthesis/ss-test-models"><span class="ul">ss-test-models</span></a> repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a “reference run” (e.g., the last release of the software).</p></li>
+<li><p>Examples: Set up a test suite like the <a href="https://github.com/nmfs-stock-synthesis/test-models"><span class="ul">the Stock Synethesis test-models</span></a> repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a “reference run” (e.g., the last release of the software).</p></li>
 <li><p>Reference: <a href="https://en.wikipedia.org/wiki/Regression_testing"><span class="ul">Wikipedia description</span></a></p></li>
 </ul>
 </div>
 <div id="platform-compatibility-testing" class="section level3">
-<h3><span class="header-section-number">11.5.6</span> Platform compatibility testing</h3>
+<h3><span class="header-section-number">11.6.6</span> Platform compatibility testing</h3>
 <ul>
 <li><p>Description: It checks whether the software is capable of running on different operating systems and versions of other softwares. Testers need to define a set of environments or platforms the application is expected to work on. Testers can test the software on different operating systems or platforms and report the bugs.</p></li>
 <li><p>Writer: Tester</p></li>
@@ -766,7 +809,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="beta-testing" class="section level3">
-<h3><span class="header-section-number">11.5.7</span> Beta testing</h3>
+<h3><span class="header-section-number">11.6.7</span> Beta testing</h3>
 <ul>
 <li><p>Description: It is a form of external user acceptance testing and the feedback from users can ensure the software has fewer bugs. The software is released to a limited end-users outside of the implementation team and the end-users (beta testers) can report issues of beta software to the implementation team after further testing.</p></li>
 <li><p>Writer: Members of implementation team and other users</p></li>
@@ -777,7 +820,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="one-off-testing" class="section level3">
-<h3><span class="header-section-number">11.5.8</span> One-off testing</h3>
+<h3><span class="header-section-number">11.6.8</span> One-off testing</h3>
 <ul>
 <li><p>Description: It is for replicating and fixing user-reported bugs. It is a special testing that needs to be completed outside of the ordinary routine. Testers write a test that replicates the bug and run the test to check if the test is failing as expected. After fixing the bug, the testers can run the test again and check if the test is passing.</p></li>
 <li><p>Writer: Developer and tester</p></li>

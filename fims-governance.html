@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS implementation team" />
 
 
-<meta name="date" content="2022-02-18" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -219,31 +219,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
 <li class="chapter" data-level="11.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>11.2</b> C++ unit testing and benchmarking</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>11.2.1</b> Requirements</a></li>
-<li class="chapter" data-level="11.2.2" data-path="test-case-template.html"><a href="test-case-template.html#quickstart-for-windows-user"><i class="fa fa-check"></i><b>11.2.2</b> Quickstart for Windows user</a></li>
-<li class="chapter" data-level="11.2.3" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>11.2.3</b> Set up FIMS testing project</a></li>
-<li class="chapter" data-level="11.2.4" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>11.2.4</b> Unit test template</a></li>
-<li class="chapter" data-level="11.2.5" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>11.2.5</b> Unit test example</a></li>
-<li class="chapter" data-level="11.2.6" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>11.2.6</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="11.2.7" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>11.2.7</b> Benchmark template</a></li>
-<li class="chapter" data-level="11.2.8" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>11.2.8</b> Benchmark example</a></li>
-<li class="chapter" data-level="11.2.9" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>11.2.9</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="11.2.2" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-windows-users"><i class="fa fa-check"></i><b>11.2.2</b> Setup for Windows users</a></li>
+<li class="chapter" data-level="11.2.3" data-path="test-case-template.html"><a href="test-case-template.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>11.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
+<li class="chapter" data-level="11.2.4" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-linux-and-mac-users"><i class="fa fa-check"></i><b>11.2.4</b> Setup for Linux and Mac users</a></li>
+<li class="chapter" data-level="11.2.5" data-path="test-case-template.html"><a href="test-case-template.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac"><i class="fa fa-check"></i><b>11.2.5</b> How to edit your PATH and change file permissions for Linux and Mac</a></li>
+<li class="chapter" data-level="11.2.6" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>11.2.6</b> Set up FIMS testing project</a></li>
+<li class="chapter" data-level="11.2.7" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>11.2.7</b> Unit test example</a></li>
+<li class="chapter" data-level="11.2.8" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>11.2.8</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
+<li class="chapter" data-level="11.2.9" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>11.2.9</b> Benchmark example</a></li>
+<li class="chapter" data-level="11.2.10" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>11.2.10</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>11.3</b> R testing</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>11.3.1</b> R testthat template</a></li>
+<li class="chapter" data-level="11.3" data-path="test-case-template.html"><a href="test-case-template.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>11.3</b> Templates for GoogleTest testing</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>11.3.1</b> Unit test template</a></li>
+<li class="chapter" data-level="11.3.2" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>11.3.2</b> Benchmark template</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>11.4</b> Test case template and examples</a><ul>
-<li class="chapter" data-level="11.4.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>11.4.1</b> Test case template</a></li>
-<li class="chapter" data-level="11.4.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>11.4.2</b> Test case examples</a></li>
+<li class="chapter" data-level="11.4" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>11.4</b> R testing</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>11.4.1</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="test-case-template.html"><a href="test-case-template.html#glossary"><i class="fa fa-check"></i><b>11.5</b> Glossary</a><ul>
-<li class="chapter" data-level="11.5.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-testing"><i class="fa fa-check"></i><b>11.5.1</b> Unit testing</a></li>
-<li class="chapter" data-level="11.5.2" data-path="test-case-template.html"><a href="test-case-template.html#functional-testing"><i class="fa fa-check"></i><b>11.5.2</b> Functional testing</a></li>
-<li class="chapter" data-level="11.5.3" data-path="test-case-template.html"><a href="test-case-template.html#integration-testing"><i class="fa fa-check"></i><b>11.5.3</b> Integration testing</a></li>
-<li class="chapter" data-level="11.5.4" data-path="test-case-template.html"><a href="test-case-template.html#run-time-testing"><i class="fa fa-check"></i><b>11.5.4</b> Run-time testing</a></li>
-<li class="chapter" data-level="11.5.5" data-path="test-case-template.html"><a href="test-case-template.html#regression-testing"><i class="fa fa-check"></i><b>11.5.5</b> Regression testing</a></li>
-<li class="chapter" data-level="11.5.6" data-path="test-case-template.html"><a href="test-case-template.html#platform-compatibility-testing"><i class="fa fa-check"></i><b>11.5.6</b> Platform compatibility testing</a></li>
-<li class="chapter" data-level="11.5.7" data-path="test-case-template.html"><a href="test-case-template.html#beta-testing"><i class="fa fa-check"></i><b>11.5.7</b> Beta testing</a></li>
-<li class="chapter" data-level="11.5.8" data-path="test-case-template.html"><a href="test-case-template.html#one-off-testing"><i class="fa fa-check"></i><b>11.5.8</b> One-off testing</a></li>
+<li class="chapter" data-level="11.5" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>11.5</b> Test case template and examples</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>11.5.1</b> Test case template</a></li>
+<li class="chapter" data-level="11.5.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>11.5.2</b> Test case examples</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="test-case-template.html"><a href="test-case-template.html#glossary"><i class="fa fa-check"></i><b>11.6</b> Glossary</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-testing"><i class="fa fa-check"></i><b>11.6.1</b> Unit testing</a></li>
+<li class="chapter" data-level="11.6.2" data-path="test-case-template.html"><a href="test-case-template.html#functional-testing"><i class="fa fa-check"></i><b>11.6.2</b> Functional testing</a></li>
+<li class="chapter" data-level="11.6.3" data-path="test-case-template.html"><a href="test-case-template.html#integration-testing"><i class="fa fa-check"></i><b>11.6.3</b> Integration testing</a></li>
+<li class="chapter" data-level="11.6.4" data-path="test-case-template.html"><a href="test-case-template.html#run-time-testing"><i class="fa fa-check"></i><b>11.6.4</b> Run-time testing</a></li>
+<li class="chapter" data-level="11.6.5" data-path="test-case-template.html"><a href="test-case-template.html#regression-testing"><i class="fa fa-check"></i><b>11.6.5</b> Regression testing</a></li>
+<li class="chapter" data-level="11.6.6" data-path="test-case-template.html"><a href="test-case-template.html#platform-compatibility-testing"><i class="fa fa-check"></i><b>11.6.6</b> Platform compatibility testing</a></li>
+<li class="chapter" data-level="11.6.7" data-path="test-case-template.html"><a href="test-case-template.html#beta-testing"><i class="fa fa-check"></i><b>11.6.7</b> Beta testing</a></li>
+<li class="chapter" data-level="11.6.8" data-path="test-case-template.html"><a href="test-case-template.html#one-off-testing"><i class="fa fa-check"></i><b>11.6.8</b> One-off testing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>12</b> Documentation</a><ul>
