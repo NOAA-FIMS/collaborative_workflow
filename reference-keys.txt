@@ -22,6 +22,9 @@ contributor-guidelines
 fims-branching-strategy
 branching-good-practices
 branch-protection
+branch-workflow
+branch-naming-conventions
+git-workflow
 coding-good-practices
 issue-tracking
 issue-labels

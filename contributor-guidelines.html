@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS implementation team" />
 
 
-<meta name="date" content="2022-02-23" />
+<meta name="date" content="2022-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -165,6 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#fims-branching-strategy"><i class="fa fa-check"></i><b>5.1</b> FIMS Branching Strategy</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>5.1.1</b> Branching Good Practices</a></li>
 <li class="chapter" data-level="5.1.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-protection"><i class="fa fa-check"></i><b>5.1.2</b> Branch Protection</a></li>
+<li class="chapter" data-level="5.1.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>5.1.3</b> Branch Workflow</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>5.2</b> Coding Good Practices</a></li>
 </ul></li>
@@ -308,6 +309,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="branch-protection" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> Branch Protection</h3>
 <p>Branch protection allows for searching branch names with <code>grep</code> functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.</p>
+</div>
+<div id="branch-workflow" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Branch Workflow</h3>
+<p>This section details the workflow to create a branch and pull request in order to contribute to FIMS.</p>
+<div id="branch-naming-conventions" class="section level4">
+<h4><span class="header-section-number">5.1.3.1</span> Branch Naming Conventions</h4>
+<p>Example: <strong>feat-issue-3-R-package-skeleton</strong></p>
+<ol style="list-style-type: decimal">
+<li>When creating a branch, start the branch name with a group word:</li>
+</ol>
+<ul>
+<li><p><strong>bug</strong>: bug fix</p></li>
+<li><p><strong>feat</strong>: new feature</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Use issue tracker ID in branch name</p></li>
+<li><p>Include brief description</p></li>
+<li><p>Use a hyphen as separators</p></li>
+</ol>
+</div>
+<div id="git-workflow" class="section level4">
+<h4><span class="header-section-number">5.1.3.2</span> git workflow</h4>
+<ol style="list-style-type: decimal">
+<li>Use the following commands to create a branch:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="contributor-guidelines.html#cb3-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b feat<span class="op">-</span>issue<span class="dv">-3</span><span class="op">-</span>R<span class="op">-</span>package<span class="op">-</span>skeleton main  <span class="co">#creates a local branch</span></span>
+<span id="cb3-2"><a href="contributor-guidelines.html#cb3-2"></a><span class="op">$</span><span class="st"> </span>git push origin feat<span class="op">-</span>issue<span class="dv">-3</span><span class="op">-</span>R<span class="op">-</span>package<span class="op">-</span>skeleton       <span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Periodically merge changes from main into branch</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="contributor-guidelines.html#cb4-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>While editing code, commit regularly following <a href="issue-tracking.html#commit-messages">commit messages</a> guidelines</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="contributor-guidelines.html#cb5-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                        </span><span class="co">#stages file for commit</span></span>
+<span id="cb5-2"><a href="contributor-guidelines.html#cb5-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>             <span class="co">#commits changes</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>To push changes to gitHub, first set the upstream location:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="contributor-guidelines.html#cb6-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin feat<span class="op">-</span>issue<span class="dv">-3</span><span class="op">-</span>R<span class="op">-</span>package<span class="op">-</span>skeleton  <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<p>After which, changes can be pushed as:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="contributor-guidelines.html#cb7-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>When finished, create a pull request to the main branch following <a href="#pull-request">pull request</a> guidelines</li>
+</ol>
+</div>
 </div>
 </div>
 <div id="coding-good-practices" class="section level2">
