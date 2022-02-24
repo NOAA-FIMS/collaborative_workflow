@@ -30,6 +30,57 @@ The following suggestions will help ensure optimal performance of the trunk-base
 
 Branch protection allows for searching branch names with `grep` functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.
 
+### Branch Workflow
+
+This section details the workflow to create a branch and pull request in order to contribute to FIMS.
+
+#### Branch Naming Conventions
+
+Example: **feat-issue-3-R-package-skeleton**
+
+1. When creating a branch, start the branch name with a group word:
+
+  - **bug**: bug fix
+  
+  - **feat**: new feature
+
+2. Use issue tracker ID in branch name
+
+3. Include brief description
+
+3. Use a hyphen as separators
+
+#### git workflow
+
+1. Use the following commands to create a branch:
+
+```{r eval = FALSE}
+$ git checkout -b feat-issue-3-R-package-skeleton main  #creates a local branch
+$ git push origin feat-issue-3-R-package-skeleton       #pushes branch back to gitHub
+```
+
+2. Periodically merge changes from main into branch
+```{r eval = FALSE}
+$ git merge main                              #merges changes from main into branch
+```
+
+3. While editing code, commit regularly following [commit messages](#commit-messages) guidelines
+```{r eval = FALSE}
+$ git add <filename>                        #stages file for commit
+$ git commit -m"Commit Message"             #commits changes
+```
+
+4. To push changes to gitHub, first set the upstream location:
+```{r eval = FALSE}
+$ git push --set-upstream origin feat-issue-3-R-package-skeleton  #pushes change to feature branch on gitHub
+```
+After which, changes can be pushed as:
+```{r eval = FALSE}
+$ git push                 #pushes change to feature branch on gitHub
+```
+
+4. When finished, create a pull request to the main branch following [pull request](#pull-request) guidelines
+
 ## Coding Good Practices
 
 Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:
