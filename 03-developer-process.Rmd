@@ -55,8 +55,8 @@ Example: **feat-issue-3-R-package-skeleton**
 1. Use the following commands to create a branch:
 
 ```{r eval = FALSE}
-$ git checkout -b feat-issue-3-R-package-skeleton main  #creates a local branch
-$ git push origin feat-issue-3-R-package-skeleton       #pushes branch back to gitHub
+$ git checkout -b <branchname> main           #creates a local branch
+$ git push origin <branchname>                #pushes branch back to gitHub
 ```
 
 2. Periodically merge changes from main into branch
@@ -66,13 +66,13 @@ $ git merge main                              #merges changes from main into bra
 
 3. While editing code, commit regularly following [commit messages](#commit-messages) guidelines
 ```{r eval = FALSE}
-$ git add <filename>                        #stages file for commit
-$ git commit -m"Commit Message"             #commits changes
+$ git add <filename>                          #stages file for commit
+$ git commit -m"Commit Message"               #commits changes
 ```
 
 4. To push changes to gitHub, first set the upstream location:
 ```{r eval = FALSE}
-$ git push --set-upstream origin feat-issue-3-R-package-skeleton  #pushes change to feature branch on gitHub
+$ git push --set-upstream origin <branchname> #pushes change to feature branch on gitHub
 ```
 After which, changes can be pushed as:
 ```{r eval = FALSE}
