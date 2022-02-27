@@ -147,6 +147,10 @@ FIMS development will adhere to a lifecycle for issues that makes it clear which
 knitr::include_graphics("New Flowchart.png")
 ```
 
+## Feature Validation
+
+FIMS uses a standardized set of criteria to prioritize and determine which features will be incorporated into the next development milestone. 
+
 ## Pull Requests
 
 Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
