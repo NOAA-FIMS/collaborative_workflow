@@ -4,7 +4,7 @@ The [FIMS Terms of Reference](https://drive.google.com/file/d/1gMDQbAhjM2E3nct4H
 
 ## Developers
 
-Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the [Code of Conduct](#code-of-conduct), [Style Guide](#style-guide), [Issue Tracking](#issue-tracking), and [Test Case Template](#test-case-template). 
+Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the [Code of Conduct](#code-of-conduct), [Contributer Guidelines](#contributor-guidelines), [Style Guide](#style-guide), [Issue Tracking](#issue-tracking), and [Test Case Template](#test-case-template). 
 
 ## C++ developers
 
@@ -19,7 +19,8 @@ Once development of a bug fix or a new component of FIMS is complete, the develo
 
 ## R developers
 
-The R developers responsibilities include
+The R developers responsibilities include:
+
 * Writing the `Rcpp` interface to the C++ code.
 * Writing Roxygen documentation for any R functions
 * Writing `testthat()` test cases for any R functionality
@@ -45,6 +46,6 @@ The Code of Conduct enforcer is responsible for responding to allegations of [Co
 
 ## External Collaborators
 
-External collaborators interested in contributing to FIMS development are required to fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to forking. In general, forks are discouraged for development that is intended for integration into FIMS as it becomes difficult to keep track of multiple forks. If collaborators wish to use FIMS as a starting-point for a brand new project that they do not intend to merge back into the main branch, they can start a fork. However, if they intend to create a pull request, they should use a branch.
+External collaborators interested in contributing to FIMS development are required to clone or fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to development. In general, forks are discouraged for development that is intended for integration into FIMS as it becomes difficult to keep track of multiple forks. If collaborators wish to use FIMS as a starting-point for a brand new project that they do not intend to merge back into the main branch, they can start a fork. However, if they intend to create a pull request, they should clone the repository and use a branch.
 
 Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.
