@@ -1,6 +1,6 @@
 # Model specification
 
-This section describes the implementation of the modules in FIMS in milestone 1. For the first milestone, we must implement enough complexity to adequately test a very standard population model. For this reason, we implement the minimum structure that can run the model described in [Li et al. 2020]().
+This section describes the implementation of the modules in FIMS in milestone 1. For the first milestone, we must implement enough complexity to adequately test a very standard population model. For this reason, we implement the minimum structure that can run the model described in [Li et al. 2020](). The product will be an age-structured integrated assessment model with two fleets (one survey, one fishery) and two sexes.
 
 ## Model variables and bounds
 
