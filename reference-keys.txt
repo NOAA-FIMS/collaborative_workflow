@@ -16,9 +16,12 @@ r-developers
 reviewers
 project-lead
 director-of-software-development
+lead-of-test-development
+lead-of-research-development
 code-of-conduct-enforcement
 external-collaborators
 contributor-guidelines
+github-collaborative-environment
 fims-branching-strategy
 branching-good-practices
 branch-protection
@@ -30,7 +33,12 @@ issue-tracking
 issue-labels
 issue-templates
 issue-lifecycle
+feature-validation
 pull-requests
+merge-conflicts
+what-is-a-merge-conflict
+how-to-prevent-merge-conflicts
+how-to-resolve-merge-conflicts
 code-review
 assigning-reviewers
 automated-testing
@@ -43,7 +51,11 @@ windows-users
 mac-users
 linux-users
 installing-from-r
-specifying-and-compiling-the-model
+specifying-the-model
+naming-conventions
+structuing-data-input
+defining-model-specifications
+how-to-run-the-model
 extracting-model-output
 software-developer-guide
 git
@@ -55,6 +67,8 @@ model-variables-and-bounds
 inherited-functors-from-tmb
 atomic-functions
 statistical-distributions
+normal-distribution
+multinomial-distribution
 beverton-holt-expected-recruitment-function
 logistic-function-with-extensions
 catch-and-fishing-mortality
@@ -64,6 +78,7 @@ initial-values
 initial-n
 initial-f
 likelihood-calculations
+statistical-inference
 hpp-template-for-c-modules
 test-case-template
 introduction
