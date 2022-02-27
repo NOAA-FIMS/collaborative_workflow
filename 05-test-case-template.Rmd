@@ -40,6 +40,8 @@ To use GoogleTest, you will need:
 
 4. You may need to restart your computer to update the envirionmental variables.
 
+5. Note that in certain Fisheries centers, NOAA employees do not have administrative privileges enabled to edit the local environmental path. In this situation it is necessary to create a ticket with IT to add cmake and ninja to your PATH on Windows. 
+
 ### Setup for Linux and Mac users
 
 1. See [[CMake installation instructions]{.ul}](https://cmake.org/install) for installing CMake on other platforms. Add cmake to your PATH.
