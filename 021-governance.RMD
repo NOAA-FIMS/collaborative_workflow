@@ -40,6 +40,12 @@ The Project Lead is responsible for ensuring development and code review occur i
 
 The Director of Software Development is responsible for the successful creation and delivery of the FIMS product to the end user by managing technical risks and opportunities; making key software design and implementation decisions with the development teams, scheduling of tasks, managing change requests, and guaranteeing quality of deliveries and educating the team on technical best practices.
 
+## Lead of Test Development
+
+## Lead of Research & Development
+
+The Lead of Research & Development oversees the investigations into stock assessment modeling best practices that spans the scope of computer science, statistical inference, and population and community modeling. Provides methods and guidelines for prioritizing features to be incorporated into subsequent milestones.  
+
 ## Code of Conduct Enforcement
 
 The Code of Conduct enforcer is responsible for responding to allegations of [Code of Conduct](#code-of-conduct) violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.
