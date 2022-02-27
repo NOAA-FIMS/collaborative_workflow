@@ -119,3 +119,7 @@ Survey index likelihood links estimated CPUE to input data CPUE in biomass using
 Catch index likelihood links estimated catch to input data catch in biomass using a lognormal distribution. (model.hpp)
 
 Age composition likelihoods link catch-at-age to expected catch-at-age using a multinomial distribution.
+
+## Statistical Inference:
+
+TODO: Add description detailing the statistical inference used in M1
