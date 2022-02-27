@@ -2,6 +2,15 @@
 
 External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides information for FIMS developers and collaborators on how to contribute to the project.
 
+## GitHub Collaborative Environment
+
+Communication is managed via the [NOAA-FIMS Github](https://github.com/NOAA-FIMS) organization.
+
+* New features requests and bugs should be submitted as issues to the [FIMS development repo](https://github.com/NOAA-FIMS/FIMS/issues). For guidelines on submitting issues, see [Issue Tracking](#issue-tracking).
+* [GitProjects](https://github.com/orgs/NOAA-FIMS/projects/1)
+* [GitHub Teams](https://github.com/orgs/NOAA-FIMS/teams)
+* All contributers, both internal and external, are required to abide by the [Code of Conduct](#code-of-conduct)
+
 ## FIMS Branching Strategy
 
 There are several [branching strategies](https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/) available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking. 
