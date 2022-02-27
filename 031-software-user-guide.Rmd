@@ -19,12 +19,26 @@ remotes::install_github("NOAA-FIMS/FIMS")
 library(FIMS)
 ```
 
-## Specifying and compiling the model
+## Specifying the model
+
+### Naming conventions
+TODO: add description and link to naming conventions
+
+### Structuing data input
 You can add components to the model using S4 classes.
 ```{r}
-#TODO: add script to populate the model
+#TODO: add script to demonstrate how to structure data input
 ```
 
+### Defining model specifications
+```{r}
+#TODO: add scripts detailing how to set up different components of the model
+```
+
+## How to run the model
+```{r}
+#TODO: add script with examples on how to run the model
+```
 
 ## Extracting model output
 
