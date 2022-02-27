@@ -156,6 +156,16 @@ FIMS uses a standardized set of criteria to prioritize and determine which featu
 Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
 Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) to create pull requests. Pull requests without this template attached will not be approved.
 
+## Merge Conflicts
+
+### What is a merge conflict?
+
+### How to prevent merge conflicts
+
+### How to resolve merge conflicts
+
+Helpful [resource](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md)
+
 ## Code Review
 
 Code review ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase and ensure there is a diverse team of knolwedgable collaborators to support the continued development and maintenance of FIMS. CI/CD requires rapid review of all new/modified code, so processes must be in place to support this pace. FIMS code review will utilize tools available via [GitHub](https://github.com/features/code-review), which allows reviewers to analyze code changes, provide inline comments, and view change histories.
