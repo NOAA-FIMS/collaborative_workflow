@@ -7,8 +7,8 @@ External contributions and feedback are important to the development and future 
 Communication is managed via the [NOAA-FIMS Github](https://github.com/NOAA-FIMS) organization.
 
 * New features requests and bugs should be submitted as issues to the [FIMS development repo](https://github.com/NOAA-FIMS/FIMS/issues). For guidelines on submitting issues, see [Issue Tracking](#issue-tracking).
-* [GitProjects](https://github.com/orgs/NOAA-FIMS/projects/1)
-* [GitHub Teams](https://github.com/orgs/NOAA-FIMS/teams)
+* [GitProjects](https://github.com/orgs/NOAA-FIMS/projects/1) TODO: add description
+* [GitHub Teams](https://github.com/orgs/NOAA-FIMS/teams) TODO: add description
 * All contributers, both internal and external, are required to abide by the [Code of Conduct](#code-of-conduct)
 
 ## FIMS Branching Strategy
@@ -149,7 +149,9 @@ knitr::include_graphics("New Flowchart.png")
 
 ## Feature Validation
 
-FIMS uses a standardized set of criteria to prioritize and determine which features will be incorporated into the next development milestone. 
+FIMS uses a standardized set of criteria to prioritize and determine which features will be incorporated into the next development milestone.
+
+TODO: add criteria (to be defined) used to prioritize features for future milestones
 
 ## Pull Requests
 
@@ -160,9 +162,15 @@ Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.git
 
 ### What is a merge conflict?
 
+TODO: add description defining a merge conflict and detailing common practices that lead to one
+
 ### How to prevent merge conflicts
 
+TODO: add list of best practices that minimize merge conflicts
+
 ### How to resolve merge conflicts
+
+TODO: add step-by-step guide that walks a user through how to resolve merge conflicts
 
 Helpful [resource](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md)
 

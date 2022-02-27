@@ -42,6 +42,8 @@ The Director of Software Development is responsible for the successful creation 
 
 ## Lead of Test Development
 
+TODO: add decription for lead of test development
+
 ## Lead of Research & Development
 
 The Lead of Research & Development oversees the investigations into stock assessment modeling best practices that spans the scope of computer science, statistical inference, and population and community modeling. Provides methods and guidelines for prioritizing features to be incorporated into subsequent milestones.  
