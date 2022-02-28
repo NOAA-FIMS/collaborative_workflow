@@ -42,7 +42,7 @@ The Director of Software Development is responsible for the successful creation 
 
 ## Lead of Test Development
 
-TODO: add decription for lead of test development
+The Lead of Test Development is responsible for ensuring development of test objectives, test strategies and test plans of the FIMS product at subsequent milestones. The lead of Test Development will identify the tools for test reporting, management and automation, guide and monitor the design, implementation, and execution of test cases and test procedures. 
 
 ## Lead of Research & Development
 
