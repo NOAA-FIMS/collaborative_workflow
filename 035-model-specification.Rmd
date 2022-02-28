@@ -106,7 +106,7 @@ where $N_t$ is the total number of fish in time $t$.
 
 ## Initial values
 
-The initial equilibrium recruitment ($R_eq$) is calculated as follows:
+The initial equilibrium recruitment ($R_{eq}$) is calculated as follows:
 
 $$R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} $$
 where $\phi_{F}$ is the initial spawning biomass per recruitment given fishing mortality.
