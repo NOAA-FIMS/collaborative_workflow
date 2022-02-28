@@ -75,8 +75,6 @@ catch-and-fishing-mortality
 modeling-loops
 expected-numbers-and-quantities
 initial-values
-initial-n
-initial-f
 likelihood-calculations
 statistical-inference
 hpp-template-for-c-modules

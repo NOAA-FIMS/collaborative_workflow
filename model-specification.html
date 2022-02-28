@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-02-27" />
+<meta name="date" content="2022-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -223,10 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.5" data-path="model-specification.html"><a href="model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>9.5</b> Catch and fishing mortality</a></li>
 <li class="chapter" data-level="9.6" data-path="model-specification.html"><a href="model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>9.6</b> Modeling loops</a></li>
 <li class="chapter" data-level="9.7" data-path="model-specification.html"><a href="model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>9.7</b> Expected numbers and quantities</a></li>
-<li class="chapter" data-level="9.8" data-path="model-specification.html"><a href="model-specification.html#initial-values"><i class="fa fa-check"></i><b>9.8</b> Initial values</a><ul>
-<li class="chapter" data-level="9.8.1" data-path="model-specification.html"><a href="model-specification.html#initial-n"><i class="fa fa-check"></i><b>9.8.1</b> Initial N</a></li>
-<li class="chapter" data-level="9.8.2" data-path="model-specification.html"><a href="model-specification.html#initial-f"><i class="fa fa-check"></i><b>9.8.2</b> Initial F</a></li>
-</ul></li>
+<li class="chapter" data-level="9.8" data-path="model-specification.html"><a href="model-specification.html#initial-values"><i class="fa fa-check"></i><b>9.8</b> Initial values</a></li>
 <li class="chapter" data-level="9.9" data-path="model-specification.html"><a href="model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>9.9</b> Likelihood calculations</a></li>
 <li class="chapter" data-level="9.10" data-path="model-specification.html"><a href="model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>9.10</b> Statistical Inference:</a></li>
 </ul></li>
@@ -393,12 +390,9 @@ where <span class="math inline">\(N_t\)</span> is the total number of fish in ti
 </div>
 <div id="initial-values" class="section level2">
 <h2><span class="header-section-number">9.8</span> Initial values</h2>
-<div id="initial-n" class="section level3">
-<h3><span class="header-section-number">9.8.1</span> Initial N</h3>
-</div>
-<div id="initial-f" class="section level3">
-<h3><span class="header-section-number">9.8.2</span> Initial F</h3>
-</div>
+<p>The initial equilibrium recruitment (<span class="math inline">\(R_{eq}\)</span>) is calculated as follows:</p>
+<p><span class="math display">\[R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} \]</span>
+where <span class="math inline">\(\phi_{F}\)</span> is the initial spawning biomass per recruitment given fishing mortality.</p>
 </div>
 <div id="likelihood-calculations" class="section level2">
 <h2><span class="header-section-number">9.9</span> Likelihood calculations</h2>
