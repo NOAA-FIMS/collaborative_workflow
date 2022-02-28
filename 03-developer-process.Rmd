@@ -191,7 +191,7 @@ If a review has been assigned to you and you don't feel like you have the expert
 
 ### Automated Testing
 
-Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Chapter 6](https://noaa-fims.github.io/collaborative_workflow/test-case-template.html).
+Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Test Case Template](#test-case-template).
 
 ### Review Checklist
 
