@@ -1,3 +1,0 @@
-# Style Guide
-
-The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html). Google's R Style Guide is based off of the [tidyverse style guide](https://style.tidyverse.org/), with a few minor modifications to improve readability and portability. 

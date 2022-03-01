@@ -2,28 +2,9 @@
 
 External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides information for FIMS developers and collaborators on how to contribute to the project.
 
-## GitHub Collaborative Environment
+## Style Guide
 
-Communication is managed via the [NOAA-FIMS Github](https://github.com/NOAA-FIMS) organization.
-
-* New features requests and bugs should be submitted as issues to the [FIMS development repo](https://github.com/NOAA-FIMS/FIMS/issues). For guidelines on submitting issues, see [Issue Tracking](#issue-tracking).
-* [GitProjects](https://github.com/orgs/NOAA-FIMS/projects/1) TODO: add description
-* [GitHub Teams](https://github.com/orgs/NOAA-FIMS/teams) TODO: add description
-* All contributers, both internal and external, are required to abide by the [Code of Conduct](#code-of-conduct)
-
-## FIMS Branching Strategy
-
-There are several [branching strategies](https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/) available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking. 
-
-The FIMS Project uses a [Scaled Trunk Based Development](https://trunkbaseddevelopment.com/) branching strategy to make tasks easier without compromising quality.
-
-![Scaled Trunk Based Development; image credit: https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/](https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg)
-
-This  strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:
-
-* Short-lived branches to minimize stale code and merge conflicts
-* Fast release times, especially for bug fixes
-* Ability to release bug fixes without new features
+The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html). Google's R Style Guide is based off of the [tidyverse style guide](https://style.tidyverse.org/), with a few minor modifications to improve readability and portability. 
 
 ### Branching Good Practices
 
@@ -35,9 +16,7 @@ The following suggestions will help ensure optimal performance of the trunk-base
 4. Merge branches to the trunk frequently (e.g. **at least** every few days; tag as a release commit) to avoid merge conflicts.
 5. Use caching layers where appropriate to optimize build and test execution times. 
 
-### Branch Protection
 
-Branch protection allows for searching branch names with `grep` functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.
 
 ### Branch Workflow
 
@@ -132,26 +111,6 @@ There are two issue templates currently available in the FIMS repository.
 1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
 2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
 
-## Issue Lifecycle
-
-FIMS development will adhere to a lifecycle for issues that makes it clear which issues can be resolved when.
-
-* Creation — The event that marks the creation of an issue. An issue is not Active when it is Created. Issues that are opened are assigned to the FIMS Project Lead with the label: `needs-triage`. A issue is not considered Active until this label is removed.
-* Activation — When the `needs-triage` label is removed and the issue is assigned to a developer, the issue becomes Active. This event happens once in the lifecycle of an issue. Activation usually is not undone but it can be undone if an issue needs additional discussion; in this case, the `needs-triage` label is applied again. An issue is Active from the time it is Activated until reaches Resolution.
-* Response — This event only happens if the triage team deems an issue to a wont-fix or delayed. This requires communication with the party who opened the issue as to why this will not be addressed or will be moved to a later milestone.
-* Resolution — The event that marks the resolution of an issue. This event happens once in the lifetime of an issue. This event can be undone if an issue transitions from a resolved status to an unresolved status, in which case the system considers the issue as never had been resolved. A resolution involves a code check-in and pull request, at which point someone must review and approve the pull request before the issue can transition states.
-* In Review - The issue is "in review" after a code solution has been proposed and is being considered via a pull request. If this is approved, the issue can move into the "Closed" state.
-* Closure—The event that marks the closure of an Issue. This even happens once in the lifetime of an issue. The issue can enter the Closed state from either the "In Review" or "Response" state.
-
-```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
-knitr::include_graphics("New Flowchart.png")
-```
-
-## Feature Validation
-
-FIMS uses a standardized set of criteria to prioritize and determine which features will be incorporated into the next development milestone.
-
-TODO: add criteria (to be defined) used to prioritize features for future milestones
 
 ## Pull Requests
 
