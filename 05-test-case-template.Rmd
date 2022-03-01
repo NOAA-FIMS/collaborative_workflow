@@ -145,7 +145,7 @@ namespace {
   
   TEST(dlognormTest, IntInput) {
     
-    EXPECT_NE( dlognorm(1, 0, 1) , -0.9189385 );
+    EXPECT_NEAR( dlognorm(1, 0, 1) , -0.9189385 , 0.0001 );
     
   }
   
@@ -161,18 +161,16 @@ To build the code, add the following contents to the end of the `CMakeLists.txt`
 ```cmake
 enable_testing()
 
-add_executable(
-  dlognorm_test
+add_executable(dlognorm_test
   dlognorm-unit.cpp
 )
 
-target_include_directories(
-  dlognorm_test PUBLIC
-  ${CMAKE_SOURCE_DIR}/../
+target_include_directories(dlognorm_test 
+  PUBLIC
+    ${CMAKE_SOURCE_DIR}/../
 )
 
-target_link_libraries(
-  dlognorm_test
+target_link_libraries(dlognorm_test
   gtest_main
 )
 
@@ -201,13 +199,19 @@ The output when running `ctest` might look like this:
 
 ```bash
 Start 1: dlognormTest.DoubleInput
-1/2 Test #1: dlognormTest.DoubleInput .........   Passed    0.11 sec
+1/2 Test #1: dlognormTest.DoubleInput .........   Passed    0.17 sec
 Start 2: dlognormTest.IntInput
-2/2 Test #2: dlognormTest.IntInput ............   Passed    0.11 sec
+2/2 Test #2: dlognormTest.IntInput ............***Failed    0.11 sec
 
-100% tests passed, 0 tests failed out of 2
+50% tests passed, 1 tests failed out of 2
 
-Total Test time (real) =   0.25 sec
+Total Test time (real) =   0.32 sec
+
+The following tests FAILED:
+          2 - dlognorm.IntInput (Failed)
+Errors while running CTest
+Output from these tests are in: C:/Users/FIMS/build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
 ```
 
 ### Benchmark example
@@ -240,18 +244,16 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googlebenchmark)
 
-add_executable(
-  dlognorm_benchmark
+add_executable(dlognorm_benchmark
   dlognorm_benchmark.cpp
 )
 
-target_include_directories(
-  dlognorm_benchmark PUBLIC
-  ${CMAKE_SOURCE_DIR}/../
+target_include_directories(dlognorm_benchmark 
+  PUBLIC
+    ${CMAKE_SOURCE_DIR}/../
 )
 
-target_link_libraries(
-  dlognorm_benchmark
+target_link_libraries(dlognorm_benchmark
   benchmark_main
 )
 
@@ -279,6 +281,32 @@ L3 Unified 8192 KiB (x1)
 -----------------------------------------------------
   BM_dlgnorm        153 ns          153 ns      4480000
 ```
+
+### Clean up after running C++ tests
+
+#### Clean up CMake-generated files and re-run tests
+After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in `build` folder. The examples above demonstrate an "out-of-source" build which puts generated files in a completely separate directory `build`, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need for clean away files that differ between builds. If you still would like to clean CMake-generated files, just delete the `build` folder, and then build and run tests by repeating the commands below. The files from the `build` folder does not need to be pushed to the FIMS repository. 
+
+```bash
+cmake -S . -B build -G Ninja
+cd build 
+cmake --build . --parallel 16
+ctest
+```
+Here `--parallel 16` means that the maximum number of concurrent processes to use when building is 16. 
+
+To build and run tests without navigating to the `build` folder, you can use the commands below:
+
+```bash
+cmake -S . -B build -G Ninja 
+cmake --build build --parallel 16
+ctest --test-dir build
+```
+
+#### Clean up individual tests
+For simple C++ function like the examples above, we do not need to clean up the tests. If you allocated memory for an object during testing, you need to delete the object (e.g., `delete object`). If you used test fixture from GoogleTest to use the same data configuration for multiple tests, `TearDown()` can be used to clean up the test and then the test fixture will be deleted. Please see more details from [GoogleTest user's guide](https://google.github.io/googletest/primer.html#same-data-multiple-tests).    
+
+
 ## Templates for GoogleTest testing
 
 This section includes templates for creating unit tests and benchmark. This is
@@ -327,6 +355,51 @@ void BM_FunctionName(benchmark::State& state)
 
 // Register the function as a benchmark
 BENCHMARK(BM_FunctionName);
+
+```
+
+### CMakeLists.txt template
+
+```c
+// Add test suite 1
+add_executable(TestSuiteName1
+  test1.cpp
+)
+
+target_link_libraries(TestSuiteName1
+  gtest_main
+)
+
+gtest_discover_tests(TestSuiteName1)
+
+// Add test suite 2
+add_executable(TestSuiteName2
+  test2.cpp
+)
+
+target_link_libraries(TestSuiteName2
+  gtest_main
+)
+
+gtest_discover_tests(TestSuiteName2)
+
+// Add benchmark 1
+add_executable(benchmark1
+  benchmark1.cpp
+)
+
+target_link_libraries(benchmark1
+  benchmark_main
+)
+
+// Add benchmark 2
+add_executable(benchmark2
+  benchmark2.cpp
+)
+
+target_link_libraries(benchmark2
+  benchmark_main
+)
 
 ```
 
