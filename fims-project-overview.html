@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | FIMS Developer Handbook</title>
+  <title>Chapter 3 FIMS Project Overview | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | FIMS Developer Handbook" />
+  <meta property="og:title" content="Chapter 3 FIMS Project Overview | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | FIMS Developer Handbook" />
+  <meta name="twitter:title" content="Chapter 3 FIMS Project Overview | FIMS Developer Handbook" />
   
   <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
-
-
+<link rel="prev" href="code-of-conduct.html"/>
+<link rel="next" href="m1-model-specification.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -303,19 +303,138 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="fims-project-overview" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> FIMS Project Overview</h1>
+<div id="fims-governance" class="section level2">
+<h2><span class="header-section-number">3.1</span> FIMS Governance</h2>
+<p>The <a href="https://drive.google.com/file/d/1gMDQbAhjM2E3nct4Hc6u-DT1Ta8bizLd/view?usp=sharing">FIMS Terms of Reference</a> describes the high level organization of the FIMS Project. Additional details on roles and responsibilities are provided here.</p>
+<div id="developers" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Developers</h3>
+<p>Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a>, <a href="contributor-guidelines.html#contributor-guidelines">Contributer Guidelines</a>, <a href="contributor-guidelines.html#style-guide">Style Guide</a>, <a href="contributor-guidelines.html#issue-tracking">Issue Tracking</a>, and <a href="test-case-template.html#test-case-template">Test Case Template</a>.</p>
+</div>
+<div id="c-developers" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> C++ developers</h3>
+<p>The C++ developer responsibilities include:</p>
+<ul>
+<li>Writing the module code.</li>
+<li>Creating documentation for the module and building the <a href="#documentation">documentation</a> in <code>doxygen</code> to ensure it is error-free.</li>
+<li>Implementing the suite of required test cases in <a href="test-case-template.html#test-case-template">Google Test</a> for the module.</li>
+<li>Ensuring the module runs through the FIMS Github actions.</li>
+</ul>
+<p>Once development of a bug fix or a new component of FIMS is complete, the developer should create a <a href="contributor-guidelines.html#pull-requests">pull request</a> according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch.</p>
+</div>
+<div id="r-developers" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> R developers</h3>
+<p>The R developers responsibilities include:</p>
+<ul>
+<li>Writing the <code>Rcpp</code> interface to the C++ code.</li>
+<li>Writing Roxygen documentation for any R functions</li>
+<li>Writing <code>testthat()</code> test cases for any R functionality</li>
+<li>Ensuring the code passes the <code>R CMD CHECK</code>, <code>styler</code>, and any other automated checks.</li>
+</ul>
+<p>Once these are complete, the developer should create a <a href="contributor-guidelines.html#pull-requests">pull request</a> according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch.</p>
+</div>
+<div id="reviewers" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Reviewers</h3>
+<p>The reviewers are responsible for adhering to documented guidelines in the <a href="contributor-guidelines.html#code-review">Code Review</a> section. Reviewers should confirm that the new code is able to build and run within their own development environment as well as via the Github actions on the repository. Reviewers should clearly document which components of the code need to be improved to be accurate, comply with project guidelines and style, or do not work, in the pull request thread so that the developer knows what they need to fix.</p>
+</div>
+<div id="project-lead" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> Project Lead</h3>
+<p>The Project Lead is responsible for ensuring development and code review occur in a timely manner and according to project guidelines and standards. The Project Lead will triage issues and pull requests weekly and prompt involved parties to resolve outstanding issues and reviews. The Project Lead is also responsible for communicating project status via maintenance of the <a href="https://noaa-fims.github.io/status">status dashboard</a>.</p>
+</div>
+<div id="director-of-software-development" class="section level3">
+<h3><span class="header-section-number">3.1.6</span> Director Of Software Development</h3>
+<p>The Director of Software Development is responsible for the successful creation and delivery of the FIMS product to the end user by managing technical risks and opportunities; making key software design and implementation decisions with the development teams, scheduling of tasks, managing change requests, and guaranteeing quality of deliveries and educating the team on technical best practices.</p>
+</div>
+<div id="lead-of-test-development" class="section level3">
+<h3><span class="header-section-number">3.1.7</span> Lead of Test Development</h3>
+<p>The Lead of Test Development is responsible for ensuring development of test objectives, test strategies and test plans of the FIMS product at subsequent milestones. The lead of Test Development will identify the tools for test reporting, management and automation, guide and monitor the design, implementation, and execution of test cases and test procedures.</p>
+</div>
+<div id="lead-of-research-development" class="section level3">
+<h3><span class="header-section-number">3.1.8</span> Lead of Research &amp; Development</h3>
+<p>The Lead of Research &amp; Development oversees the investigations into stock assessment modeling best practices that spans the scope of computer science, statistical inference, and population and community modeling. Provides methods and guidelines for prioritizing features to be incorporated into subsequent milestones.</p>
+</div>
+<div id="code-of-conduct-enforcement" class="section level3">
+<h3><span class="header-section-number">3.1.9</span> Code of Conduct Enforcement</h3>
+<p>The Code of Conduct enforcer is responsible for responding to allegations of <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a> violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.</p>
+</div>
+<div id="external-collaborators" class="section level3">
+<h3><span class="header-section-number">3.1.10</span> External Collaborators</h3>
+<p>External collaborators interested in contributing to FIMS development are required to clone or fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to development. In general, forks are discouraged for development that is intended for integration into FIMS as it becomes difficult to keep track of multiple forks. If collaborators wish to use FIMS as a starting-point for a brand new project that they do not intend to merge back into the main branch, they can start a fork. However, if they intend to create a pull request, they should clone the repository and use a branch.</p>
+<p>Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.</p>
+</div>
+</div>
+<div id="fims-development-cycle" class="section level2">
+<h2><span class="header-section-number">3.2</span> FIMS Development Cycle</h2>
+<p>FIMS is structured as an agile software development process with live development on the web and Github. The development process cycles through a planning, analysis, and design phase leading to the establishment of a developmental Milestone. The implementation phase is made up of several development sprints that meet the objectives of the established Milestone. This is followed by testing &amp; integration and a maintenance phase before the cycle starts over again. FIMS is currently in the implementation phase of Milestone 1. See <a href="m1-model-specification.html#m1-model-specification">M1 model specification</a> for a description of the model.</p>
+<div class="figure"><span style="display:block;" id="fig:devcycle"></span>
+<img src="dev%20cycle.png" alt="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1" width="75%" />
+<p class="caption">
+Figure 3.1: FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1
+</p>
+</div>
+<div id="issue-lifecycle" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Issue Lifecycle</h3>
+<p>FIMS development will adhere to a lifecycle for issues that makes it clear which issues can be resolved when.</p>
+<ul>
+<li>Creation — The event that marks the creation of an issue. An issue is not Active when it is Created. Issues that are opened are assigned to the FIMS Project Lead with the label: <code>needs-triage</code>. A issue is not considered Active until this label is removed.</li>
+<li>Activation — When the <code>needs-triage</code> label is removed and the issue is assigned to a developer, the issue becomes Active. This event happens once in the lifecycle of an issue. Activation usually is not undone but it can be undone if an issue needs additional discussion; in this case, the <code>needs-triage</code> label is applied again. An issue is Active from the time it is Activated until reaches Resolution.</li>
+<li>Response — This event only happens if the triage team deems an issue to a wont-fix or delayed. This requires communication with the party who opened the issue as to why this will not be addressed or will be moved to a later milestone.</li>
+<li>Resolution — The event that marks the resolution of an issue. This event happens once in the lifetime of an issue. This event can be undone if an issue transitions from a resolved status to an unresolved status, in which case the system considers the issue as never had been resolved. A resolution involves a code check-in and pull request, at which point someone must review and approve the pull request before the issue can transition states.</li>
+<li>In Review - The issue is “in review” after a code solution has been proposed and is being considered via a pull request. If this is approved, the issue can move into the “Closed” state.</li>
+<li>Closure—The event that marks the closure of an Issue. This even happens once in the lifetime of an issue. The issue can enter the Closed state from either the “In Review” or “Response” state.</li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:flowchart"></span>
+<img src="New%20Flowchart.png" alt="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed." width="75%" />
+<p class="caption">
+Figure 3.2: Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed.
+</p>
+</div>
+</div>
+<div id="feature-validation" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Feature Validation</h3>
+<p>FIMS uses a standardized set of criteria to prioritize and determine which features will be incorporated into the next development milestone.</p>
+<p>TODO: add criteria (to be defined) used to prioritize features for future milestones</p>
+</div>
+</div>
+<div id="github-collaborative-environment" class="section level2">
+<h2><span class="header-section-number">3.3</span> GitHub Collaborative Environment</h2>
+<p>Communication is managed via the <a href="https://github.com/NOAA-FIMS">NOAA-FIMS Github</a> organization.</p>
+<ul>
+<li>New features requests and bugs should be submitted as issues to the <a href="https://github.com/NOAA-FIMS/FIMS/issues">FIMS development repo</a>. For guidelines on submitting issues, see <a href="contributor-guidelines.html#issue-tracking">Issue Tracking</a>.</li>
+<li><a href="https://github.com/orgs/NOAA-FIMS/projects/1">GitProjects</a> TODO: add description</li>
+<li><a href="https://github.com/orgs/NOAA-FIMS/teams">GitHub Teams</a> TODO: add description</li>
+<li>All contributers, both internal and external, are required to abide by the <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a></li>
+</ul>
+<div id="fims-branching-strategy" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> FIMS Branching Strategy</h3>
+<p>There are several <a href="https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/">branching strategies</a> available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking.</p>
+<p>The FIMS Project uses a <a href="https://trunkbaseddevelopment.com/">Scaled Trunk Based Development</a> branching strategy to make tasks easier without compromising quality.</p>
+<div class="figure">
+<img src="https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg" alt="" />
+<p class="caption">Scaled Trunk Based Development; image credit: <a href="https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/" class="uri">https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/</a></p>
+</div>
+<p>This strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:</p>
+<ul>
+<li>Short-lived branches to minimize stale code and merge conflicts</li>
+<li>Fast release times, especially for bug fixes</li>
+<li>Ability to release bug fixes without new features</li>
+</ul>
+</div>
+<div id="branch-protection" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Branch Protection</h3>
+<p>Branch protection allows for searching branch names with <code>grep</code> functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.</p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="code-of-conduct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="m1-model-specification.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -336,7 +455,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/%s",
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/02-FIMS-Project-Overview.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -344,7 +463,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/%s",
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/02-FIMS-Project-Overview.Rmd",
 "text": null
 },
 "download": null,
