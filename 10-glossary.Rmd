@@ -2,9 +2,9 @@
 
 In this section we will define terms that come up throughout this handbook.
 
-## Testing 
+## Testing Glossary {-}
 
-### Unit testing
+### Unit testing {-}
 
 -   Description: It tests individual methods and functions of the classes, components or modules used by the software independently. It executes only small portions of the test cases during the development process.
 
@@ -18,7 +18,7 @@ In this section we will define terms that come up throughout this handbook.
 
 -   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Unit_testing)
 
-### Functional testing
+### Functional testing {-}
 
 -   Description: It checks software's performance with respect to its specified requirements. Testers do not need to examine the internal structure of the piece of software tested but just test a slice of functionality of the whole system after it has been developed.
 
@@ -32,7 +32,7 @@ In this section we will define terms that come up throughout this handbook.
 
 -   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Functional_testing); [[WHAM testthat examples]{.ul}](https://github.com/timjmiller/wham/tree/master/tests/testthat)
 
-### Integration testing
+### Integration testing {-}
 
 -   Description: A group of software modules are coupled together and tested. Integrate software modules all together and verify the interfaces between modules against the software design. It is tested until the software works as a system.
 
@@ -46,7 +46,7 @@ In this section we will define terms that come up throughout this handbook.
 
 -   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Integration_testing)
 
-### Run-time testing
+### Run-time testing {-}
 
 -   Description: Checks added in the software that catch user input errors. The developer will add in checks to the software; the user will trigger these checks if there are input errors
 
@@ -60,7 +60,7 @@ In this section we will define terms that come up throughout this handbook.
 
 -   Reference: [[Testing R code book]{.ul}](http://www.crcpress.com/9781498763653)
 
-### Regression testing
+### Regression testing {-}
 
 -   Description: Re-running tests to ensure that previously developed and tested software still performs after a change. Testers can execute regression testing after adding a new feature to the software or whenever a previously discovered issue has been fixed. Testers can run all tests or a part of the test suite to check the correctness or quality of the software.
 
@@ -74,7 +74,7 @@ In this section we will define terms that come up throughout this handbook.
 
 -   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Regression_testing)
 
-### Platform compatibility testing
+### Platform compatibility testing {-}
 
 -   Description: It checks whether the software is capable of running on different operating systems and versions of other softwares. Testers need to define a set of environments or platforms the application is expected to work on. Testers can test the software on different operating systems or platforms and report the bugs.
 
@@ -88,7 +88,7 @@ In this section we will define terms that come up throughout this handbook.
 
 -   Reference: [[International Software Testing Qualification Board]{.ul}](https://glossary.istqb.org/en/search/compatibility)
 
-### Beta testing
+### Beta testing {-}
 
 -   Description: It is a form of external user acceptance testing and the feedback from users can ensure the software has fewer bugs. The software is released to a limited end-users outside of the implementation team and the end-users (beta testers) can report issues of beta software to the implementation team after further testing.
 
@@ -102,7 +102,7 @@ In this section we will define terms that come up throughout this handbook.
 
 -   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Software_testing); [[SS prerelease example]{.ul}](https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/tag/v3.30.18-prerel)
 
-### One-off testing
+### One-off testing {-}
 
 -   Description: It is for replicating and fixing user-reported bugs. It is a special testing that needs to be completed outside of the ordinary routine. Testers write a test that replicates the bug and run the test to check if the test is failing as expected. After fixing the bug, the testers can run the test again and check if the test is passing.
 
