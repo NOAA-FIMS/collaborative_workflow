@@ -1,10 +1,65 @@
 # Contributor Guidelines
 
-External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides information for FIMS developers and collaborators on how to contribute to the project.
+External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides guidelines and workflows for FIMS developers and collaborators on how to contribute to the project.
 
 ## Style Guide
 
 The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html). Google's R Style Guide is based off of the [tidyverse style guide](https://style.tidyverse.org/), with a few minor modifications to improve readability and portability. 
+
+## Naming Conventions
+TODO: add section with link to naming conventions used in FIMS
+
+## Coding Good Practices
+
+Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:
+
+* Adhere to the [FIMS Project style guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html)
+* Avoid rework - take the time to check for existing options (e.g. in-house, open source, etc.) before writing code
+* Keep code as simple as possible
+* Use meaningful variable names that are easy to understand and clearly represent the data they store
+* Use descriptive titles and consistent conventions for class and function names
+* Use consistent names for temporary variables that have the same kind of role
+* Add clear and concise coding comments
+* Use consistent formatting and indentation to improve readability and organization
+* Group code into separate blocks for individual tasks
+* Avoid hard-coded values to ensure portability of code
+* Follow the DRY principle - "Don't Repeat Yourself" (or your code)
+* Avoid deep nesting
+* Limit line length (wrap ~72 characters)
+* Capitalize SQL queries so they are readily distinguishable from table/column names
+* Lint your code
+
+## GitHub forking and cloning
+TODO: provide step-by-step instructions on how to fork/clone and guidance on when to fork versus clone
+
+
+## Issue Tracking
+
+Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, 
+etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change 
+pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will 
+be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be 
+assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
+for version 3.3. This will minimize stale code and large merge conflicts.
+
+### Issue Labels
+
+Utilize labels on issues:
+
+* To describe the kind of work to be done: bug, enhancement, task, discussion, question, suitable for beginners
+* To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
+
+### Issue Templates
+
+There are two issue templates currently available in the FIMS repository.
+
+1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
+
+2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
+
+## Branch Workflow
+
+This section details the workflow to create a branch in order to contribute to FIMS.
 
 ### Branching Good Practices
 
@@ -16,13 +71,7 @@ The following suggestions will help ensure optimal performance of the trunk-base
 4. Merge branches to the trunk frequently (e.g. **at least** every few days; tag as a release commit) to avoid merge conflicts.
 5. Use caching layers where appropriate to optimize build and test execution times. 
 
-
-
-### Branch Workflow
-
-This section details the workflow to create a branch and pull request in order to contribute to FIMS.
-
-#### Branch Naming Conventions
+### Branch Naming Conventions
 
 Example: **feat-issue-3-R-package-skeleton**
 
@@ -38,7 +87,7 @@ Example: **feat-issue-3-R-package-skeleton**
 
 3. Use a hyphen as separators
 
-#### git workflow
+### git workflow
 
 1. Use the following commands to create a branch:
 
@@ -69,53 +118,53 @@ $ git push                 #pushes change to feature branch on gitHub
 
 4. When finished, create a pull request to the main branch following [pull request](#pull-request) guidelines
 
-## Coding Good Practices
 
-Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:
+## Code Development 
+Code is written following the [Style Guide](#style-guide), [FIMS Naming Conventions](#naming conventions), and [Coding Good Practices](#coding-good-practices)
 
-* Adhere to the [FIMS Project style guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html)
-* Avoid rework - take the time to check for existing options (e.g. in-house, open source, etc.) before writing code
-* Keep code as simple as possible
-* Use meaningful variable names that are easy to understand and clearly represent the data they store
-* Use descriptive titles and consistent conventions for class and function names
-* Use consistent names for temporary variables that have the same kind of role
-* Add clear and concise coding comments
-* Use consistent formatting and indentation to improve readability and organization
-* Group code into separate blocks for individual tasks
-* Avoid hard-coded values to ensure portability of code
-* Follow the DRY principle - "Don't Repeat Yourself" (or your code)
-* Avoid deep nesting
-* Limit line length (wrap ~72 characters)
-* Capitalize SQL queries so they are readily distinguishable from table/column names
-* Lint your code
+### C++ contributor
 
-# Issue Tracking
+In addition to writing a C++ module, contributors are responsible for the following: 
 
-Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, 
-etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change 
-pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will 
-be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be 
-assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
-for version 3.3. This will minimize stale code and large merge conflicts.
+* Creating documentation for the module and building the [documentation](#documentation) in `doxygen` to ensure it is error-free.
+* Implementing the suite of required test cases in [Google Test](#test-case-template) for the module.
+* Ensuring the module runs through the FIMS Github actions.
 
-## Issue Labels
+### R Contributor
 
-Utilize labels on issues:
+In addition to writing an R script or function, contributors are responsible for the following:
 
-* To describe the kind of work to be done: bug, enhancement, task, discussion, question, suitable for beginners
-* To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
+* Writing Roxygen documentation for any R functions
+* Writing `testthat()` test cases for any R functionality
+* Ensuring the code passes the `R CMD CHECK`, `styler`, and any other automated checks.
 
-## Issue Templates
+## Commit Messages
 
-There are two issue templates currently available in the FIMS repository.
-1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
-2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
+FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
 
+* Include a short summary of the change for the subject/title (<50 characters)
+* Include a blank line in between the 'subject' and 'body'
+* Specify the type of commit:
 
-## Pull Requests
+          * fix: bug fix
+          * feat: new feature
+          * test: testing
+          * docs: documentation
+          * chore: regular code maintenance (e.g. updating dependencies)
+          * refactor: refactoring codebase
+          * style: changes that do not affect the meaning of the code; instead address code styling/formmatting
+          * perf: performance improvements
+          * revert: reverts a previous commit
+          * build: changes that affect the build system
 
-Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
-Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) to create pull requests. Pull requests without this template attached will not be approved.
+* If the commit addresses an issue, indicate the issue# in the title
+* Provide a brief explanatory description of the change, addressing what and why was changed
+* Wrap to ~72 characters
+* Write in the imperative (e.g. "Fix bug", not "Fixed bug")
+* If necessary, separate paragraphs by blank lines
+* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
+* If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
+
 
 ## Merge Conflicts
 
@@ -132,6 +181,11 @@ TODO: add list of best practices that minimize merge conflicts
 TODO: add step-by-step guide that walks a user through how to resolve merge conflicts
 
 Helpful [resource](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md)
+
+## Pull Requests
+
+Once development of a module is complete, the contributor must initiate a pull request. Github will automatically start an independent [review](#code-review) process before the branch can be merged back into the main development branch. Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted in the [branching stratgegy](#branching-strategy) section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
+Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) to create pull requests. Pull requests without this template attached will not be approved.
 
 ## Code Review
 
@@ -223,29 +277,10 @@ Good reviews require good review habits. Try to follow these suggestions:
 * Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
 * Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html) to settle any style arguments
 
-## Commit Messages
+## Clean up local branches
+If a code reviewer approves the pull request, FIMS workflow managers will merge the feature/bug branch back into the main repository and delete the branch. At this stage, the contributor should also delete the branch from the local repository using the following commands:
 
-FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
-
-* Include a short summary of the change for the subject/title (<50 characters)
-* Include a blank line in between the 'subject' and 'body'
-* Specify the type of commit:
-
-          * fix: bug fix
-          * feat: new feature
-          * test: testing
-          * docs: documentation
-          * chore: regular code maintenance (e.g. updating dependencies)
-          * refactor: refactoring codebase
-          * style: changes that do not affect the meaning of the code; instead address code styling/formmatting
-          * perf: performance improvements
-          * revert: reverts a previous commit
-          * build: changes that affect the build system
-
-* If the commit addresses an issue, indicate the issue# in the title
-* Provide a brief explanatory description of the change, addressing what and why was changed
-* Wrap to ~72 characters
-* Write in the imperative (e.g. "Fix bug", not "Fixed bug")
-* If necessary, separate paragraphs by blank lines
-* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
-* If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
+```{r, eval = FALSE}
+$ git checkout main           //switches back to main branch
+$ git branch -d <branchname>  //deletes branch from local repository
+```
