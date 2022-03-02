@@ -285,7 +285,7 @@ L3 Unified 8192 KiB (x1)
 ### Clean up after running C++ tests
 
 #### Clean up CMake-generated files and re-run tests
-After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in `build` folder. The examples above demonstrate an "out-of-source" build which puts generated files in a completely separate directory `build`, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need for clean away files that differ between builds. If you still would like to clean CMake-generated files, just delete the `build` folder, and then build and run tests by repeating the commands below. The files from the `build` folder does not need to be pushed to the FIMS repository. 
+After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in `build` folder. The examples above demonstrate an "out-of-source" build which puts generated files in a completely separate directory `build`, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need for clean away files that differ between builds. If you still would like to clean CMake-generated files, just delete the `build` folder, and then build and run tests by repeating the commands below. The files from the `build` folder should not be pushed to the FIMS repository. 
 
 ```bash
 cmake -S . -B build -G Ninja
