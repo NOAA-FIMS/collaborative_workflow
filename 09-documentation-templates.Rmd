@@ -1,4 +1,4 @@
-# Documentation 
+# Documentation Template
 
 In this section we will describe how to document your code. For more information about code documentation in general, please see the
 toolbox blog post [here](https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/code-documentation/). This post describes the differences between the types of documentation,
