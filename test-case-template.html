@@ -24,7 +24,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-02-28" />
+<meta name="date" content="2022-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -241,10 +241,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2.8" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>11.2.8</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
 <li class="chapter" data-level="11.2.9" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>11.2.9</b> Benchmark example</a></li>
 <li class="chapter" data-level="11.2.10" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>11.2.10</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="11.2.11" data-path="test-case-template.html"><a href="test-case-template.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>11.2.11</b> Clean up after running C++ tests</a></li>
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="test-case-template.html"><a href="test-case-template.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>11.3</b> Templates for GoogleTest testing</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>11.3.1</b> Unit test template</a></li>
 <li class="chapter" data-level="11.3.2" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>11.3.2</b> Benchmark template</a></li>
+<li class="chapter" data-level="11.3.3" data-path="test-case-template.html"><a href="test-case-template.html#cmakelists.txt-template"><i class="fa fa-check"></i><b>11.3.3</b> CMakeLists.txt template</a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>11.4</b> R testing</a><ul>
 <li class="chapter" data-level="11.4.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>11.4.1</b> R testthat template</a></li>
@@ -414,7 +416,7 @@ and running the command:</p>
 <span id="cb25-21"><a href="test-case-template.html#cb25-21"></a>  </span>
 <span id="cb25-22"><a href="test-case-template.html#cb25-22"></a>  TEST(dlognormTest, IntInput) {</span>
 <span id="cb25-23"><a href="test-case-template.html#cb25-23"></a>    </span>
-<span id="cb25-24"><a href="test-case-template.html#cb25-24"></a>    EXPECT_NE( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> );</span>
+<span id="cb25-24"><a href="test-case-template.html#cb25-24"></a>    EXPECT_NEAR( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> );</span>
 <span id="cb25-25"><a href="test-case-template.html#cb25-25"></a>    </span>
 <span id="cb25-26"><a href="test-case-template.html#cb25-26"></a>  }</span>
 <span id="cb25-27"><a href="test-case-template.html#cb25-27"></a>  </span>
@@ -426,23 +428,21 @@ and running the command:</p>
 <p>To build the code, add the following contents to the end of the <code>CMakeLists.txt</code> file:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb26-1"><a href="test-case-template.html#cb26-1"></a><span class="kw">enable_testing</span>()</span>
 <span id="cb26-2"><a href="test-case-template.html#cb26-2"></a></span>
-<span id="cb26-3"><a href="test-case-template.html#cb26-3"></a><span class="kw">add_executable</span>(</span>
-<span id="cb26-4"><a href="test-case-template.html#cb26-4"></a>  dlognorm_test</span>
-<span id="cb26-5"><a href="test-case-template.html#cb26-5"></a>  dlognorm-unit.cpp</span>
-<span id="cb26-6"><a href="test-case-template.html#cb26-6"></a>)</span>
-<span id="cb26-7"><a href="test-case-template.html#cb26-7"></a></span>
-<span id="cb26-8"><a href="test-case-template.html#cb26-8"></a><span class="kw">target_include_directories</span>(</span>
-<span id="cb26-9"><a href="test-case-template.html#cb26-9"></a>  dlognorm_test <span class="ot">PUBLIC</span></span>
-<span id="cb26-10"><a href="test-case-template.html#cb26-10"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb26-11"><a href="test-case-template.html#cb26-11"></a>)</span>
-<span id="cb26-12"><a href="test-case-template.html#cb26-12"></a></span>
-<span id="cb26-13"><a href="test-case-template.html#cb26-13"></a><span class="kw">target_link_libraries</span>(</span>
-<span id="cb26-14"><a href="test-case-template.html#cb26-14"></a>  dlognorm_test</span>
-<span id="cb26-15"><a href="test-case-template.html#cb26-15"></a>  gtest_main</span>
-<span id="cb26-16"><a href="test-case-template.html#cb26-16"></a>)</span>
-<span id="cb26-17"><a href="test-case-template.html#cb26-17"></a></span>
-<span id="cb26-18"><a href="test-case-template.html#cb26-18"></a><span class="kw">include</span>(GoogleTest)</span>
-<span id="cb26-19"><a href="test-case-template.html#cb26-19"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
+<span id="cb26-3"><a href="test-case-template.html#cb26-3"></a><span class="kw">add_executable</span>(dlognorm_test</span>
+<span id="cb26-4"><a href="test-case-template.html#cb26-4"></a>  dlognorm-unit.cpp</span>
+<span id="cb26-5"><a href="test-case-template.html#cb26-5"></a>)</span>
+<span id="cb26-6"><a href="test-case-template.html#cb26-6"></a></span>
+<span id="cb26-7"><a href="test-case-template.html#cb26-7"></a><span class="kw">target_include_directories</span>(dlognorm_test </span>
+<span id="cb26-8"><a href="test-case-template.html#cb26-8"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb26-9"><a href="test-case-template.html#cb26-9"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb26-10"><a href="test-case-template.html#cb26-10"></a>)</span>
+<span id="cb26-11"><a href="test-case-template.html#cb26-11"></a></span>
+<span id="cb26-12"><a href="test-case-template.html#cb26-12"></a><span class="kw">target_link_libraries</span>(dlognorm_test</span>
+<span id="cb26-13"><a href="test-case-template.html#cb26-13"></a>  gtest_main</span>
+<span id="cb26-14"><a href="test-case-template.html#cb26-14"></a>)</span>
+<span id="cb26-15"><a href="test-case-template.html#cb26-15"></a></span>
+<span id="cb26-16"><a href="test-case-template.html#cb26-16"></a><span class="kw">include</span>(GoogleTest)</span>
+<span id="cb26-17"><a href="test-case-template.html#cb26-17"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
 <p>The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test. Open a command window in FIMS_project/tests and type:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="test-case-template.html#cb27-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
 <p>This generates the build system using Ninja as the generator.</p>
@@ -453,13 +453,19 @@ and running the command:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="test-case-template.html#cb29-1"></a><span class="ex">ctest</span></span></code></pre></div>
 <p>The output when running <code>ctest</code> might look like this:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="test-case-template.html#cb30-1"></a><span class="ex">Start</span> 1: dlognormTest.DoubleInput</span>
-<span id="cb30-2"><a href="test-case-template.html#cb30-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.11 sec</span></span>
+<span id="cb30-2"><a href="test-case-template.html#cb30-2"></a><span class="ex">1/2</span> Test <span class="co">#1: dlognormTest.DoubleInput .........   Passed    0.17 sec</span></span>
 <span id="cb30-3"><a href="test-case-template.html#cb30-3"></a><span class="ex">Start</span> 2: dlognormTest.IntInput</span>
-<span id="cb30-4"><a href="test-case-template.html#cb30-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............   Passed    0.11 sec</span></span>
+<span id="cb30-4"><a href="test-case-template.html#cb30-4"></a><span class="ex">2/2</span> Test <span class="co">#2: dlognormTest.IntInput ............***Failed    0.11 sec</span></span>
 <span id="cb30-5"><a href="test-case-template.html#cb30-5"></a></span>
-<span id="cb30-6"><a href="test-case-template.html#cb30-6"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 2</span>
+<span id="cb30-6"><a href="test-case-template.html#cb30-6"></a><span class="ex">50%</span> tests passed, 1 tests failed out of 2</span>
 <span id="cb30-7"><a href="test-case-template.html#cb30-7"></a></span>
-<span id="cb30-8"><a href="test-case-template.html#cb30-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.25</span> sec</span></code></pre></div>
+<span id="cb30-8"><a href="test-case-template.html#cb30-8"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.32</span> sec</span>
+<span id="cb30-9"><a href="test-case-template.html#cb30-9"></a></span>
+<span id="cb30-10"><a href="test-case-template.html#cb30-10"></a><span class="ex">The</span> following tests FAILED:</span>
+<span id="cb30-11"><a href="test-case-template.html#cb30-11"></a>          <span class="ex">2</span> - dlognorm.IntInput (Failed)</span>
+<span id="cb30-12"><a href="test-case-template.html#cb30-12"></a><span class="ex">Errors</span> while running CTest</span>
+<span id="cb30-13"><a href="test-case-template.html#cb30-13"></a><span class="ex">Output</span> from these tests are in: C:/Users/FIMS/build/Testing/Temporary/LastTest.log</span>
+<span id="cb30-14"><a href="test-case-template.html#cb30-14"></a><span class="ex">Use</span> <span class="st">&quot;--rerun-failed --output-on-failure&quot;</span> to re-run the failed cases verbosely.</span></code></pre></div>
 </div>
 <div id="benchmark-example" class="section level3">
 <h3><span class="header-section-number">11.2.9</span> Benchmark example</h3>
@@ -485,20 +491,18 @@ and running the command:</p>
 <span id="cb32-5"><a href="test-case-template.html#cb32-5"></a>)</span>
 <span id="cb32-6"><a href="test-case-template.html#cb32-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
 <span id="cb32-7"><a href="test-case-template.html#cb32-7"></a></span>
-<span id="cb32-8"><a href="test-case-template.html#cb32-8"></a><span class="kw">add_executable</span>(</span>
-<span id="cb32-9"><a href="test-case-template.html#cb32-9"></a>  dlognorm_benchmark</span>
-<span id="cb32-10"><a href="test-case-template.html#cb32-10"></a>  dlognorm_benchmark.cpp</span>
-<span id="cb32-11"><a href="test-case-template.html#cb32-11"></a>)</span>
-<span id="cb32-12"><a href="test-case-template.html#cb32-12"></a></span>
-<span id="cb32-13"><a href="test-case-template.html#cb32-13"></a><span class="kw">target_include_directories</span>(</span>
-<span id="cb32-14"><a href="test-case-template.html#cb32-14"></a>  dlognorm_benchmark <span class="ot">PUBLIC</span></span>
-<span id="cb32-15"><a href="test-case-template.html#cb32-15"></a>  <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb32-16"><a href="test-case-template.html#cb32-16"></a>)</span>
-<span id="cb32-17"><a href="test-case-template.html#cb32-17"></a></span>
-<span id="cb32-18"><a href="test-case-template.html#cb32-18"></a><span class="kw">target_link_libraries</span>(</span>
-<span id="cb32-19"><a href="test-case-template.html#cb32-19"></a>  dlognorm_benchmark</span>
-<span id="cb32-20"><a href="test-case-template.html#cb32-20"></a>  benchmark_main</span>
-<span id="cb32-21"><a href="test-case-template.html#cb32-21"></a>)</span></code></pre></div>
+<span id="cb32-8"><a href="test-case-template.html#cb32-8"></a><span class="kw">add_executable</span>(dlognorm_benchmark</span>
+<span id="cb32-9"><a href="test-case-template.html#cb32-9"></a>  dlognorm_benchmark.cpp</span>
+<span id="cb32-10"><a href="test-case-template.html#cb32-10"></a>)</span>
+<span id="cb32-11"><a href="test-case-template.html#cb32-11"></a></span>
+<span id="cb32-12"><a href="test-case-template.html#cb32-12"></a><span class="kw">target_include_directories</span>(dlognorm_benchmark </span>
+<span id="cb32-13"><a href="test-case-template.html#cb32-13"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb32-14"><a href="test-case-template.html#cb32-14"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb32-15"><a href="test-case-template.html#cb32-15"></a>)</span>
+<span id="cb32-16"><a href="test-case-template.html#cb32-16"></a></span>
+<span id="cb32-17"><a href="test-case-template.html#cb32-17"></a><span class="kw">target_link_libraries</span>(dlognorm_benchmark</span>
+<span id="cb32-18"><a href="test-case-template.html#cb32-18"></a>  benchmark_main</span>
+<span id="cb32-19"><a href="test-case-template.html#cb32-19"></a>)</span></code></pre></div>
 <p>To run the benchmark, run on the command line open in FIMS_project/tests/build:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="test-case-template.html#cb33-1"></a><span class="fu">cmake</span> --build .</span>
 <span id="cb33-2"><a href="test-case-template.html#cb33-2"></a><span class="ex">./dlognorm_benchmark.exe</span></span></code></pre></div>
@@ -516,6 +520,26 @@ and running the command:</p>
 <span id="cb34-11"><a href="test-case-template.html#cb34-11"></a><span class="ex">-----------------------------------------------------</span></span>
 <span id="cb34-12"><a href="test-case-template.html#cb34-12"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
 </div>
+<div id="clean-up-after-running-c-tests" class="section level3">
+<h3><span class="header-section-number">11.2.11</span> Clean up after running C++ tests</h3>
+<div id="clean-up-cmake-generated-files-and-re-run-tests" class="section level4">
+<h4><span class="header-section-number">11.2.11.1</span> Clean up CMake-generated files and re-run tests</h4>
+<p>After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in <code>build</code> folder. The examples above demonstrate an “out-of-source” build which puts generated files in a completely separate directory <code>build</code>, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need for clean away files that differ between builds. If you still would like to clean CMake-generated files, just delete the <code>build</code> folder, and then build and run tests by repeating the commands below. The files from the <code>build</code> folder should not be pushed to the FIMS repository.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="test-case-template.html#cb35-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span>
+<span id="cb35-2"><a href="test-case-template.html#cb35-2"></a><span class="bu">cd</span> build </span>
+<span id="cb35-3"><a href="test-case-template.html#cb35-3"></a><span class="fu">cmake</span> --build . --parallel 16</span>
+<span id="cb35-4"><a href="test-case-template.html#cb35-4"></a><span class="ex">ctest</span></span></code></pre></div>
+<p>Here <code>--parallel 16</code> means that the maximum number of concurrent processes to use when building is 16.</p>
+<p>To build and run tests without navigating to the <code>build</code> folder, you can use the commands below:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="test-case-template.html#cb36-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja </span>
+<span id="cb36-2"><a href="test-case-template.html#cb36-2"></a><span class="fu">cmake</span> --build build --parallel 16</span>
+<span id="cb36-3"><a href="test-case-template.html#cb36-3"></a><span class="ex">ctest</span> --test-dir build</span></code></pre></div>
+</div>
+<div id="clean-up-individual-tests" class="section level4">
+<h4><span class="header-section-number">11.2.11.2</span> Clean up individual tests</h4>
+<p>For simple C++ function like the examples above, we do not need to clean up the tests. If you allocated memory for an object during testing, you need to delete the object (e.g., <code>delete object</code>). If you used test fixture from GoogleTest to use the same data configuration for multiple tests, <code>TearDown()</code> can be used to clean up the test and then the test fixture will be deleted. Please see more details from <a href="https://google.github.io/googletest/primer.html#same-data-multiple-tests">GoogleTest user’s guide</a>.</p>
+</div>
+</div>
 </div>
 <div id="templates-for-googletest-testing" class="section level2">
 <h2><span class="header-section-number">11.3</span> Templates for GoogleTest testing</h2>
@@ -523,43 +547,85 @@ and running the command:</p>
 the code that would go into the .cpp files.</p>
 <div id="unit-test-template" class="section level3">
 <h3><span class="header-section-number">11.3.1</span> Unit test template</h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb35-1"><a href="test-case-template.html#cb35-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb35-2"><a href="test-case-template.html#cb35-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
-<span id="cb35-3"><a href="test-case-template.html#cb35-3"></a></span>
-<span id="cb35-4"><a href="test-case-template.html#cb35-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb35-5"><a href="test-case-template.html#cb35-5"></a></span>
-<span id="cb35-6"><a href="test-case-template.html#cb35-6"></a>namespace {</span>
-<span id="cb35-7"><a href="test-case-template.html#cb35-7"></a></span>
-<span id="cb35-8"><a href="test-case-template.html#cb35-8"></a>  <span class="co">// Description of Test 1 </span></span>
-<span id="cb35-9"><a href="test-case-template.html#cb35-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
-<span id="cb35-10"><a href="test-case-template.html#cb35-10"></a>    </span>
-<span id="cb35-11"><a href="test-case-template.html#cb35-11"></a>    ... test body ... </span>
-<span id="cb35-12"><a href="test-case-template.html#cb35-12"></a>    </span>
-<span id="cb35-13"><a href="test-case-template.html#cb35-13"></a>  }</span>
-<span id="cb35-14"><a href="test-case-template.html#cb35-14"></a>  </span>
-<span id="cb35-15"><a href="test-case-template.html#cb35-15"></a>  <span class="co">// Description of Test 2</span></span>
-<span id="cb35-16"><a href="test-case-template.html#cb35-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
-<span id="cb35-17"><a href="test-case-template.html#cb35-17"></a>    </span>
-<span id="cb35-18"><a href="test-case-template.html#cb35-18"></a>    ... test body ...</span>
-<span id="cb35-19"><a href="test-case-template.html#cb35-19"></a>    </span>
-<span id="cb35-20"><a href="test-case-template.html#cb35-20"></a>  }</span>
-<span id="cb35-21"><a href="test-case-template.html#cb35-21"></a>  </span>
-<span id="cb35-22"><a href="test-case-template.html#cb35-22"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb37-1"><a href="test-case-template.html#cb37-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb37-2"><a href="test-case-template.html#cb37-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb37-3"><a href="test-case-template.html#cb37-3"></a></span>
+<span id="cb37-4"><a href="test-case-template.html#cb37-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb37-5"><a href="test-case-template.html#cb37-5"></a></span>
+<span id="cb37-6"><a href="test-case-template.html#cb37-6"></a>namespace {</span>
+<span id="cb37-7"><a href="test-case-template.html#cb37-7"></a></span>
+<span id="cb37-8"><a href="test-case-template.html#cb37-8"></a>  <span class="co">// Description of Test 1 </span></span>
+<span id="cb37-9"><a href="test-case-template.html#cb37-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
+<span id="cb37-10"><a href="test-case-template.html#cb37-10"></a>    </span>
+<span id="cb37-11"><a href="test-case-template.html#cb37-11"></a>    ... test body ... </span>
+<span id="cb37-12"><a href="test-case-template.html#cb37-12"></a>    </span>
+<span id="cb37-13"><a href="test-case-template.html#cb37-13"></a>  }</span>
+<span id="cb37-14"><a href="test-case-template.html#cb37-14"></a>  </span>
+<span id="cb37-15"><a href="test-case-template.html#cb37-15"></a>  <span class="co">// Description of Test 2</span></span>
+<span id="cb37-16"><a href="test-case-template.html#cb37-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
+<span id="cb37-17"><a href="test-case-template.html#cb37-17"></a>    </span>
+<span id="cb37-18"><a href="test-case-template.html#cb37-18"></a>    ... test body ...</span>
+<span id="cb37-19"><a href="test-case-template.html#cb37-19"></a>    </span>
+<span id="cb37-20"><a href="test-case-template.html#cb37-20"></a>  }</span>
+<span id="cb37-21"><a href="test-case-template.html#cb37-21"></a>  </span>
+<span id="cb37-22"><a href="test-case-template.html#cb37-22"></a>}</span></code></pre></div>
 </div>
 <div id="benchmark-template" class="section level3">
 <h3><span class="header-section-number">11.3.2</span> Benchmark template</h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb36-1"><a href="test-case-template.html#cb36-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb36-2"><a href="test-case-template.html#cb36-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
-<span id="cb36-3"><a href="test-case-template.html#cb36-3"></a></span>
-<span id="cb36-4"><a href="test-case-template.html#cb36-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
-<span id="cb36-5"><a href="test-case-template.html#cb36-5"></a>{</span>
-<span id="cb36-6"><a href="test-case-template.html#cb36-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb36-7"><a href="test-case-template.html#cb36-7"></a>    <span class="co">// This code gets timed</span></span>
-<span id="cb36-8"><a href="test-case-template.html#cb36-8"></a>    Function()</span>
-<span id="cb36-9"><a href="test-case-template.html#cb36-9"></a>}</span>
-<span id="cb36-10"><a href="test-case-template.html#cb36-10"></a></span>
-<span id="cb36-11"><a href="test-case-template.html#cb36-11"></a><span class="co">// Register the function as a benchmark</span></span>
-<span id="cb36-12"><a href="test-case-template.html#cb36-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb38-1"><a href="test-case-template.html#cb38-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb38-2"><a href="test-case-template.html#cb38-2"></a><span class="pp">#include </span><span class="im">&quot;../src/code.hpp&quot;</span></span>
+<span id="cb38-3"><a href="test-case-template.html#cb38-3"></a></span>
+<span id="cb38-4"><a href="test-case-template.html#cb38-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
+<span id="cb38-5"><a href="test-case-template.html#cb38-5"></a>{</span>
+<span id="cb38-6"><a href="test-case-template.html#cb38-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb38-7"><a href="test-case-template.html#cb38-7"></a>    <span class="co">// This code gets timed</span></span>
+<span id="cb38-8"><a href="test-case-template.html#cb38-8"></a>    Function()</span>
+<span id="cb38-9"><a href="test-case-template.html#cb38-9"></a>}</span>
+<span id="cb38-10"><a href="test-case-template.html#cb38-10"></a></span>
+<span id="cb38-11"><a href="test-case-template.html#cb38-11"></a><span class="co">// Register the function as a benchmark</span></span>
+<span id="cb38-12"><a href="test-case-template.html#cb38-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
+</div>
+<div id="cmakelists.txt-template" class="section level3">
+<h3><span class="header-section-number">11.3.3</span> CMakeLists.txt template</h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb39-1"><a href="test-case-template.html#cb39-1"></a><span class="co">// Add test suite 1</span></span>
+<span id="cb39-2"><a href="test-case-template.html#cb39-2"></a>add_executable(TestSuiteName1</span>
+<span id="cb39-3"><a href="test-case-template.html#cb39-3"></a>  test1.cpp</span>
+<span id="cb39-4"><a href="test-case-template.html#cb39-4"></a>)</span>
+<span id="cb39-5"><a href="test-case-template.html#cb39-5"></a></span>
+<span id="cb39-6"><a href="test-case-template.html#cb39-6"></a>target_link_libraries(TestSuiteName1</span>
+<span id="cb39-7"><a href="test-case-template.html#cb39-7"></a>  gtest_main</span>
+<span id="cb39-8"><a href="test-case-template.html#cb39-8"></a>)</span>
+<span id="cb39-9"><a href="test-case-template.html#cb39-9"></a></span>
+<span id="cb39-10"><a href="test-case-template.html#cb39-10"></a>gtest_discover_tests(TestSuiteName1)</span>
+<span id="cb39-11"><a href="test-case-template.html#cb39-11"></a></span>
+<span id="cb39-12"><a href="test-case-template.html#cb39-12"></a><span class="co">// Add test suite 2</span></span>
+<span id="cb39-13"><a href="test-case-template.html#cb39-13"></a>add_executable(TestSuiteName2</span>
+<span id="cb39-14"><a href="test-case-template.html#cb39-14"></a>  test2.cpp</span>
+<span id="cb39-15"><a href="test-case-template.html#cb39-15"></a>)</span>
+<span id="cb39-16"><a href="test-case-template.html#cb39-16"></a></span>
+<span id="cb39-17"><a href="test-case-template.html#cb39-17"></a>target_link_libraries(TestSuiteName2</span>
+<span id="cb39-18"><a href="test-case-template.html#cb39-18"></a>  gtest_main</span>
+<span id="cb39-19"><a href="test-case-template.html#cb39-19"></a>)</span>
+<span id="cb39-20"><a href="test-case-template.html#cb39-20"></a></span>
+<span id="cb39-21"><a href="test-case-template.html#cb39-21"></a>gtest_discover_tests(TestSuiteName2)</span>
+<span id="cb39-22"><a href="test-case-template.html#cb39-22"></a></span>
+<span id="cb39-23"><a href="test-case-template.html#cb39-23"></a><span class="co">// Add benchmark 1</span></span>
+<span id="cb39-24"><a href="test-case-template.html#cb39-24"></a>add_executable(benchmark1</span>
+<span id="cb39-25"><a href="test-case-template.html#cb39-25"></a>  benchmark1.cpp</span>
+<span id="cb39-26"><a href="test-case-template.html#cb39-26"></a>)</span>
+<span id="cb39-27"><a href="test-case-template.html#cb39-27"></a></span>
+<span id="cb39-28"><a href="test-case-template.html#cb39-28"></a>target_link_libraries(benchmark1</span>
+<span id="cb39-29"><a href="test-case-template.html#cb39-29"></a>  benchmark_main</span>
+<span id="cb39-30"><a href="test-case-template.html#cb39-30"></a>)</span>
+<span id="cb39-31"><a href="test-case-template.html#cb39-31"></a></span>
+<span id="cb39-32"><a href="test-case-template.html#cb39-32"></a><span class="co">// Add benchmark 2</span></span>
+<span id="cb39-33"><a href="test-case-template.html#cb39-33"></a>add_executable(benchmark2</span>
+<span id="cb39-34"><a href="test-case-template.html#cb39-34"></a>  benchmark2.cpp</span>
+<span id="cb39-35"><a href="test-case-template.html#cb39-35"></a>)</span>
+<span id="cb39-36"><a href="test-case-template.html#cb39-36"></a></span>
+<span id="cb39-37"><a href="test-case-template.html#cb39-37"></a>target_link_libraries(benchmark2</span>
+<span id="cb39-38"><a href="test-case-template.html#cb39-38"></a>  benchmark_main</span>
+<span id="cb39-39"><a href="test-case-template.html#cb39-39"></a>)</span></code></pre></div>
 </div>
 </div>
 <div id="r-testing" class="section level2">
@@ -567,11 +633,11 @@ the code that would go into the .cpp files.</p>
 <p>FIMS uses R testthat package for writing R tests. You can install the packages following the instructions on <a href="https://testthat.r-lib.org/">testthat website</a>. If you are not familiar with testthat, the <a href="https://r-pkgs.org/tests.html">testing chapter</a> in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.</p>
 <div id="r-testthat-template" class="section level3">
 <h3><span class="header-section-number">11.4.1</span> R testthat template</h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="test-case-template.html#cb37-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
-<span id="cb37-2"><a href="test-case-template.html#cb37-2"></a>  </span>
-<span id="cb37-3"><a href="test-case-template.html#cb37-3"></a>  ...test body...</span>
-<span id="cb37-4"><a href="test-case-template.html#cb37-4"></a>  </span>
-<span id="cb37-5"><a href="test-case-template.html#cb37-5"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="test-case-template.html#cb40-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb40-2"><a href="test-case-template.html#cb40-2"></a>  </span>
+<span id="cb40-3"><a href="test-case-template.html#cb40-3"></a>  ...test body...</span>
+<span id="cb40-4"><a href="test-case-template.html#cb40-4"></a>  </span>
+<span id="cb40-5"><a href="test-case-template.html#cb40-5"></a>})</span></code></pre></div>
 </div>
 </div>
 <div id="test-case-template-and-examples" class="section level2">

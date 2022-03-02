@@ -91,9 +91,13 @@ unit-test-example
 add-tests-to-cmakelists.txt-and-run-a-binary
 benchmark-example
 add-benchmarks-to-cmakelists.txt-and-run-the-benchmark
+clean-up-after-running-c-tests
+clean-up-cmake-generated-files-and-re-run-tests
+clean-up-individual-tests
 templates-for-googletest-testing
 unit-test-template
 benchmark-template
+cmakelists.txt-template
 r-testing
 r-testthat-template
 test-case-template-and-examples
