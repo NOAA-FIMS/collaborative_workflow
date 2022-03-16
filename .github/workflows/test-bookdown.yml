@@ -1,14 +1,13 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+# Test bookdown building on all branches
+name: test-bookdown
 on:
   push:
-    branches: main
-    paths: '**.Rmd'
+#    paths: '**.Rmd'
   workflow_dispatch:
-name: update-bookdown
-
 jobs:
-  bookdown:
+  test-bookdown:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -53,8 +52,9 @@ jobs:
       - name: Build site
         run: Rscript -e 'bookdown::render_book(quiet = TRUE)'
 
-      - name: Deploy to GitHub pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+      - name: Save artifact
+        uses: actions/upload-artifact@v3
         with:
-          branch: gh-pages
-          folder: docs/
+          name: Bookdown_html
+          path: docs
+
