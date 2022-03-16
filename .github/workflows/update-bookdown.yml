@@ -21,6 +21,9 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: install remotes
+        run: Rscript -e 'install.packages(c("remotes"))'
+
       - name: Install system dependencies
         if: runner.os == 'Linux'
         run: |
