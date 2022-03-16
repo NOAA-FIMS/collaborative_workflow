@@ -6,7 +6,7 @@ The [FIMS Terms of Reference](https://drive.google.com/file/d/1gMDQbAhjM2E3nct4H
 
 ### Developers
 
-Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the [Code of Conduct](#code-of-conduct), [Contributer Guidelines](#contributor-guidelines), [Style Guide](#style-guide), [Issue Tracking](#issue-tracking), and [Test Case Template](#test-case-template). 
+Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the [Code of Conduct](#code-of-conduct), [Contributer Guidelines](#contributor-guidelines), [Style Guide](#style-guide), [Issue Tracking](#issue-tracking), and [Testing](#testing). 
 
 ### C++ developers
 
@@ -14,7 +14,7 @@ The C++ developer responsibilities include:
 
 * Writing the module code.
 * Creating documentation for the module and building the [documentation](#documentation) in `doxygen` to ensure it is error-free.
-* Implementing the suite of required test cases in [Google Test](#test-case-template) for the module.
+* Implementing the suite of required test cases in [Google Test](#testing) for the module.
 * Ensuring the module runs through the FIMS Github actions.
 
 Once development of a bug fix or a new component of FIMS is complete, the developer should create a [pull request](#pull-requests) according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch. 
