@@ -8,7 +8,8 @@ bookdown::gitbook:
         <li><a href="https://noaa-fims.github.io/collaborative_workflow" target="blank">Published with bookdown</a></li>
     view: https://github.com/noaa-fims/collaborative_workflow/blob/main/%s
     edit: https://github.com/noaa-fims/collaborative_workflow/edit/main/%s
-    download: ["pdf", "epub"]
+    download: false
+    sharing: null
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

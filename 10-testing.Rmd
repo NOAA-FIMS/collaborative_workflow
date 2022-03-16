@@ -1,6 +1,6 @@
-# Test case template
+# Testing
 
-In this section we will describe how to write a test case for your FIMS code.
+This section describes testing for FIMS. FIMS uses Google Test for C++ unit testing and testthat for R unit testing.
 
 ## Introduction
 
@@ -16,55 +16,371 @@ To use GoogleTest, you will need:
 
 -   A compatible operating system (e.g. Windows, masOS, or Linux).
 
--   A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0.
+-   A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0. For R users, [rtools4](https://cran.r-project.org/bin/windows/Rtools/rtools40.html) includes gcc.
 
--   A build system for building the testing project. [[CMake]{.ul}](https://cmake.org/) and a compatible build tool such as [[Ninja]{.ul}](https://ninja-build.org/) are approved softwares by NMFS HQ.
+-   A build system for building the testing project. [[CMake]{.ul}](https://cmake.org/) and a compatible build tool such as [[Ninja]{.ul}](https://ninja-build.org/) are approved by NMFS HQ.
 
-### Quickstart for Windows user
+### Setup for Windows users
 
--   Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases) and put the file folder to `Documents\Apps` or other preferred folder.
+1. Download [[CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases) and put the file folder to `Documents\Apps` or other preferred folder.
 
--   Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
+2. Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the application to `Documents\Apps` or other preferred folder.
 
--   Search `Edit environment variables for your account` and open the `Environment Variables` window.
+3. Open your Command Prompt and type `cmake`. If you see details of usage, cmake is already in your PATH. If not, follow the the instructions below to add cmake to your PATH.
 
--   Click `Edit...` under the `User variables for firstname.lastname` section.
+4. In the same command prompt, type `ninja`. If you see a message that starts with `ninja:`, even if it is an error about not finding build.ninja, this means that ninja is already in your PATH. If ninja is not found, follow the instructions below to add ninja to your path.
 
--   Click `New`, add path to `cmake-3.22.1-windows-x86_64\bin`, add click `OK`.
+### Adding cmake and ninja to your PATH on Windows
 
--   Click `New`, add path to `Documents\Apps`, add click `OK`.
+1. In the Windows search bar next to the start menu, search for `Edit environment variables for your account` and open the `Environment Variables` window. 
 
--   Open your Command Prompt and type `cmake`. If you see details of usage, you install the build system successfully.
+2. Click `Edit...` under the `User variables for firstname.lastname` section.
 
--   See [[CMake installation instructions]{.ul}](https://cmake.org/install) for installing CMake on other platforms.
+3. Click `New`, add path to cmake, if needed (e.g., `cmake-3.22.1-windows-x86_64\bin` or `C:\Program Files\CMake\bin` are common paths), and click `OK`. Click `New`, add path to the location of the Ninja executable, if needed (e.g., `Documents\Apps`), and click `OK`.
+
+4. You may need to restart your computer to update the envirionmental variables.
+
+5. Note that in certain Fisheries centers, NOAA employees do not have administrative privileges enabled to edit the local environmental path. In this situation it is necessary to create a ticket with IT to add cmake and ninja to your PATH on Windows. 
+
+### Setup for Linux and Mac users
+
+1. See [[CMake installation instructions]{.ul}](https://cmake.org/install) for installing CMake on other platforms. Add cmake to your PATH.
+
+2. Download [[ninja v1.10.2 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases) and put the binary in your preferred location. Add Ninja to your PATH.
+
+3. Open a command window and type `cmake`. If you see usage, cmake is found. If not, cmake may still need to be added to your PATH.
+
+4. Open a command window and type `ninja`. If you see a message starting with `ninja:`, ninja is found. Otherwise, try changing the permissions or adding to your path.
+
+### How to edit your PATH and change file permissions for Linux and Mac
+
+To check if the binary is in your path, assuming the binary is named ninja:
+open a Terminal window and type `which ninja` and hit enter.
+If you get nothing returned, then ninja is not in your path.
+The easiest way to fix this is to move the ninja binary
+to a folder that's already in your path.
+To find existing path folders type `echo $PATH`
+in the terminal and hit enter.
+Now move the ninja binary to one of these folders.
+For example, in a Terminal window type:
+
+    sudo cp ~/Downloads/ninja /usr/bin/
+
+To move ninja from the downloads folder to /usr/bin. You will need to use `sudo` and enter your password after to have permission to move a file to a folder like `/usr/bin/`.
+
+Also note that you may need to add executable permissions to the ninja binary after downloading it.
+You can do that by switching to the folder where you placed the binary
+(`cd /usr/bin/` if you followed the instructions above),
+and running the command:
+
+    sudo chmod +x ninja
+
+Check that ninja is now executable and in your path:
+
+    which ninja
+
+If you followed the instructions above, you will see the following line returned:
+
+    /usr/bin/ninja
 
 ### Set up FIMS testing project
--   Go to the FIMS C++ tests folder and create a `CMakeLists.txt` file. Declare a dependency on GoogleTest with following contents: 
+
+Clone the [FIMS repository](https://github.com/NOAA-FIMS/FIMS) on the command line using:
+
+```bash
+git clone https://github.com/NOAA-FIMS/FIMS.git
+cd FIMS
+```
+There is a file called CMakeLists.txt in the top level of the directory. This file instructs Cmake on how to create the build files, including setting up Google Test.
+
+The Google Test testing code is in the tests/gtest subdirectory. Within this subdirectory is a file called CMakeLists.txt. This file contains additional specifications for CMake, in particular instructions on how to register the individual tests.
+
+### Build and run the tests
+
+Three commands on the command line are needed to build the tests:
+
+```bash
+cmake -S . -B build -G Ninja
+```
+This generates the build system using Ninja as the generator. Note there is now a subfolder called build.
+
+Next, in the same command window, use cmake to build in the build subfolder:
+
+```bash
+cmake --build build
+```
+Finally, run the C++ tests:
+
+```bash
+ctest --test-dir build
+```
+
+The output from running the tests should look something like:
+
+```bash
+Internal ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build
+Test project C:/github_repos/NOAA-FIMS_org/FIMS/build
+    Start 1: dlognorm.use_double_inputs
+1/5 Test #1: dlognorm.use_double_inputs .......   Passed    0.04 sec
+    Start 2: dlognorm.use_int_inputs
+2/5 Test #2: dlognorm.use_int_inputs ..........   Passed    0.04 sec
+    Start 3: modelTest.eta
+3/5 Test #3: modelTest.eta ....................   Passed    0.04 sec
+    Start 4: modelTest.nll
+4/5 Test #4: modelTest.nll ....................   Passed    0.04 sec
+    Start 5: modelTest.evaluate
+5/5 Test #5: modelTest.evaluate ...............   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 5
+
+```
+
+### Adding a C++ test
+
+Create a file dlognorm.hpp within the src subfolder that contains a simple function:
+
+```c
+#include <cmath>
+
+template<class Type>
+Type dlognorm(Type x, Type meanlog, Type sdlog){
+  Type resid = (log(x)-meanlog)/sdlog;
+  Type logres = -log(sqrt(2*M_PI)) - log(sdlog) - Type(0.5)*resid*resid - log(x);
+  return logres; 
+}
+```
+
+Then, create a test file dlognorm-unit.cpp in the tests/gtest subfolder that has a test suite for the dlognorm function:
+
+```c
+#include "gtest/gtest.h"
+#include "../../src/dlognorm.hpp"
+
+// # R code that generates true values for the test
+// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385
+// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679
+
+namespace {
+
+  // TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput
+  // Test dlognorm with double input values
+  
+  TEST(dlognormTest, DoubleInput) {
+    
+    EXPECT_NEAR( dlognorm(1.0, 0.0, 1.0) , -0.9189385 , 0.0001 ); 
+    EXPECT_NEAR( dlognorm(5.0, 10.0, 2.5) , -9.07679 , 0.0001 ); 
+    
+  }
+  
+  // Test dlognorm with integer input values
+  
+  TEST(dlognormTest, IntInput) {
+    
+    EXPECT_NEAR( dlognorm(1, 0, 1) , -0.9189385 , 0.0001 );
+    
+  }
+  
+}
+```
+
+`EXPECT_NEAR(val1, val2, absolute_error)` verifies that the difference between `val1` and `val2` does not exceed the absolute error bound `absolute_error`. `EXPECT_NE(val1, val2)` verifies that `val1` is not equal to `val2`. Please see GoogleTest [assertions reference](https://google.github.io/googletest/reference/assertions.html) for more `EXPECT_` macros. 
+
+### Add tests to `tests/gtest/CMakeLists.txt` and run a binary
+
+To build the code, add the following contents to the end of the `tests/gtest/CMakeLists.txt` file:
 
 ```cmake
-cmake_minimum_required(VERSION 3.14)
-project(FIMS_project)
 
-# GoogleTest requires at least C++11
-set(CMAKE_CXX_STANDARD 11)
-
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip
+add_executable(dlognorm_test
+  dlognorm-unit.cpp
 )
 
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+target_include_directories(dlognorm_test 
+  PUBLIC
+    ${CMAKE_SOURCE_DIR}/../
+)
+
+target_link_libraries(dlognorm_test
+  gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(dlognorm_test)
 ```
--   If a `CMakeLists.txt` file already exists in the tests folder, you can start creating a unit test and add it to the `CMakeLists.txt`.  
+
+The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test. Open a command window in the FIMS repo (if not already opened) and type:
+
+```bash
+cmake -S . -B build -G Ninja
+```
+
+This generates the build system using Ninja as the generator.
+
+Next, in the same command window, use cmake to build:
+
+```bash
+cmake --build build
+```
+
+Finally, run the tests in the same command window:
+
+```bash
+ctest --test-dir build
+```
+
+The output when running `ctest` might look like this. Note there is a failing test:
+
+```bash
+Internal ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build
+Test project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build
+    Start 1: dlognorm.use_double_inputs
+1/7 Test #1: dlognorm.use_double_inputs .......   Passed    0.04 sec
+    Start 2: dlognorm.use_int_inputs
+2/7 Test #2: dlognorm.use_int_inputs ..........   Passed    0.04 sec
+    Start 3: modelTest.eta
+3/7 Test #3: modelTest.eta ....................   Passed    0.04 sec
+    Start 4: modelTest.nll
+4/7 Test #4: modelTest.nll ....................   Passed    0.04 sec
+    Start 5: modelTest.evaluate
+5/7 Test #5: modelTest.evaluate ...............   Passed    0.04 sec
+    Start 6: dlognormTest.DoubleInput
+6/7 Test #6: dlognormTest.DoubleInput .........   Passed    0.04 sec
+    Start 7: dlognormTest.IntInput
+7/7 Test #7: dlognormTest.IntInput ............***Failed    0.04 sec
+
+86% tests passed, 1 tests failed out of 7
+
+Total Test time (real) =   0.28 sec
+
+The following tests FAILED:
+          7 - dlognormTest.IntInput (Failed)
+Errors while running CTest
+Output from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+
+```
+
+### Benchmark example
+
+Google Benchmark measures the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create a benchmark file dlognorm_benchmark.cpp and put it in the tests/gtest subfolder:
+
+```c
+#include "benchmark/benchmark.h"
+#include "../../src/dlognorm.hpp"
+
+void BM_dlgnorm(benchmark::State& state)
+{
+  for (auto _ : state)
+    dlognorm(5.0, 10.0, 2.5);
+}
+BENCHMARK(BM_dlgnorm);
+
+```
+This file runs the dlognorm function and uses BENCHMARK to see how long it takes.
+
+A more comprehensive feature overview of benchmarking is available in the [Google Benchmark GitHub repository](https://github.com/google/benchmark).
+
+### Add benchmarks to `tests/gtest/CMakeLists.txt` and run the benchmark
+
+To build the code, add the following contents to the end of your `tests/gtest/CMakeLists.txt` file:
+
+```cmake
+
+FetchContent_Declare(
+  googlebenchmark
+  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip
+)
+FetchContent_MakeAvailable(googlebenchmark)
+
+add_executable(dlognorm_benchmark
+  dlognorm_benchmark.cpp
+)
+
+target_include_directories(dlognorm_benchmark 
+  PUBLIC
+    ${CMAKE_SOURCE_DIR}/../
+)
+
+target_link_libraries(dlognorm_benchmark
+  benchmark_main
+)
+
+```
+
+To run the benchmark, open the command line open in the FIMS repo (if not already open) and run cmake, sending output to the build subfolder:
+
+```bash
+cmake --build build
+```
+
+Then run the dlognorm_benchmark executable created:
+```bash
+build/tests/gtest/dlognorm_benchmark.exe
+```
+The output from `dlognorm_benchmark.exe` might look like this:
+
+```bash
+Run on (8 X 2112 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x4)
+L1 Instruction 32 KiB (x4)
+L2 Unified 256 KiB (x4)
+L3 Unified 8192 KiB (x1)
+***WARNING*** Library was built as DEBUG. Timings may be affected.
+-----------------------------------------------------
+  Benchmark           Time             CPU   Iterations
+-----------------------------------------------------
+  BM_dlgnorm        153 ns          153 ns      4480000
+```
+
+#### Remove files produced by this example
+
+If you don't want to keep any of the files produced by this example and want to completely clear any uncommitted changes and files from the git repo, use
+```bash
+git restore .
+```
+to get rid of un committed changes in git tracked files. To get rid of all untracked files in the repo, use:
+
+```bash
+git clean -fd
+```
+
+### Clean up after running C++ tests
+
+#### Clean up CMake-generated files and re-run tests
+
+After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in the `build` subfolder. The example above demonstrates an "out-of-source" build which puts generated files in a completely separate directory, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need to delete files that differ between builds. If you still would like to delete CMake-generated files, just delete the `build` folder, and then build and run tests by repeating the commands below. The files from the `build` folder are included in the FIMS repository's .gitignore file, so should *not* be pushed to the FIMS repository. 
+
+
+<!-- KD: I didn't think this was necessary, but left just in case others disagreed. -->
+
+<!-- #### Example of rebuilding without deleting the build subfolder -->
+
+<!-- To build and run tests without navigating to the `build` folder, you can use the commands below: -->
+
+<!-- ```bash -->
+<!-- cmake -S . -B build -G Ninja  -->
+<!-- cmake --build build --parallel 16 -->
+<!-- ctest --test-dir build -->
+<!-- ``` -->
+
+#### Clean up individual tests
+
+For simple C++ functions like the examples above, we do not need to clean up the tests. Clean up is only necessary in a few situations. 
+
+- If memory for an object was allocated during testing and not deallocated - The object needs to be deleted (e.g., `delete object`). 
+- If you used a test fixture from GoogleTest to use the same data configuration for multiple tests, `TearDown()` can be used to clean up the test and then the test fixture will be deleted. Please see more details from [GoogleTest user's guide](https://google.github.io/googletest/primer.html#same-data-multiple-tests).    
+
+## Templates for GoogleTest testing
+
+This section includes templates for creating unit tests and benchmarks. This is
+the code that would go into the .cpp files in tests/gtest.
 
 ### Unit test template
 
 ```c
 #include "gtest/gtest.h"
-#include "../src/code.hpp"
+#include "../../src/code.hpp"
 
 // # R code that generates true values for the test
 
@@ -88,110 +404,11 @@ namespace {
 
 ```
 
-### Unit test example
-
-Let's create dlognorm.hpp that has a simple function:
-
-```c
-#include <cmath>
-
-template<class Type>
-Type dlognorm(Type x, Type meanlog, Type sdlog){
-  Type resid = (log(x)-meanlog)/sdlog;
-  Type logres = -log(sqrt(2*M_PI)) - log(sdlog) - Type(0.5)*resid*resid - log(x);
-  return logres; 
-}
-```
-
-We can create a test file dlognorm-unit.cpp that has a test suite for this function:
-
-```c
-#include "gtest/gtest.h"
-#include "../src/dlognorm.hpp"
-
-// # R code that generates true values for the test
-// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385
-// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679
-
-namespace {
-
-  // TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput
-  // Test dlognorm with double input values
-  
-  TEST(dlognormTest, DoubleInput) {
-    
-    EXPECT_NEAR( dlognorm(1.0, 0.0, 1.0) , -0.9189385 , 0.0001 ); 
-    EXPECT_NEAR( dlognorm(5.0, 10.0, 2.5) , -9.07679 , 0.0001 ); 
-    
-  }
-  
-  // Test dlognorm with integer input values
-  
-  TEST(dlognormTest, IntInput) {
-    
-    EXPECT_NE( dlognorm(1, 0, 1) , -0.9189385 );
-    
-  }
-  
-}
-```
-
-`EXPECT_NEAR(val1, val2, absolute_error)` verifies that the difference between `val1` and `val2` does not exceed the absolute error bound `absolute_error`. `EXPECT_NE(val1, val2)` verifies that `val1` is not equal to `val2`. Please see GoogleTest [assertions reference](https://google.github.io/googletest/reference/assertions.html) for more `EXPECT_` macros. 
-
-### Add tests to `CMakeLists.txt` and run a binary
-
-To build the code, add the following contents to the end of your `CMakeLists.txt` file:
-
-```cmake
-enable_testing()
-
-add_executable(
-  dlognorm_test
-  dlognorm-unit.cpp
-)
-
-target_include_directories(
-  dlognorm_test PUBLIC
-  ${CMAKE_SOURCE_DIR}/../
-)
-
-target_link_libraries(
-  dlognorm_test
-  gtest_main
-)
-
-include(GoogleTest)
-gtest_discover_tests(dlognorm_test)
-```
-
-The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test:
-
-```bash
-cd tests
-cmake -S . -B build -G Ninja
-cd build 
-cmake --build .
-ctest
-```
-The output might look like this:
-
-```bash
-Start 1: dlognormTest.DoubleInput
-1/2 Test #1: dlognormTest.DoubleInput .........   Passed    0.11 sec
-Start 2: dlognormTest.IntInput
-2/2 Test #2: dlognormTest.IntInput ............   Passed    0.11 sec
-
-100% tests passed, 0 tests failed out of 2
-
-Total Test time (real) =   0.25 sec
-```
-Congratulations! You’ve successfully set up a test project and run a test binary using GoogleTest. Let's use Google Benchmark to measure the real time and CPU time used for running the produced binary.
-
 ### Benchmark template
 
 ```c
 #include "benchmark/benchmark.h"
-#include "../src/code.hpp"
+#include "../../src/code.hpp"
 
 void BM_FunctionName(benchmark::State& state)
 {
@@ -205,81 +422,41 @@ BENCHMARK(BM_FunctionName);
 
 ```
 
-### Benchmark example
+### tests/gtest/CMakeLists.txt template
 
-We will continue using the dlognorm.hpp example. We can create a benchmark file dlognorm_benchmark.cpp and put it in the tests folder:
-
+These lines are added each time a new test suite (all tests in a file) is added:
 ```c
-#include "benchmark/benchmark.h"
-#include "../src/dlognorm.hpp"
+// Add test suite 1
+add_executable(TestSuiteName1
+  test1.cpp
+)
 
-void BM_dlgnorm(benchmark::State& state)
-{
-  for (auto _ : state)
-    dlognorm(5.0, 10.0, 2.5);
-}
-BENCHMARK(BM_dlgnorm);
+target_link_libraries(TestSuiteName1
+  gtest_main
+)
 
+gtest_discover_tests(TestSuiteName1)
 ```
-Please see more examples on [Google Benchmark GitHub repository](https://github.com/google/benchmark) for a more comprehensive feature overview.
 
-### Add benchmarks to `CMakeLists.txt` and run the benchmark
-
-To build the code, add the following contents to the end of your `CMakeLists.txt` file:
-
-```cmake
-
-FetchContent_Declare(
-  googlebenchmark
-  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip
-)
-FetchContent_MakeAvailable(googlebenchmark)
-
-add_executable(
-  dlognorm_benchmark
-  dlognorm_benchmark.cpp
+These lines are added each time a new benchmark file is added:
+```c
+// Add benchmark 1
+add_executable(benchmark1
+  benchmark1.cpp
 )
 
-target_include_directories(
-  dlognorm_benchmark PUBLIC
-  ${CMAKE_SOURCE_DIR}/../
-)
-
-target_link_libraries(
-  dlognorm_benchmark
+target_link_libraries(benchmark1
   benchmark_main
 )
 
 ```
 
-To run the benchmark, 
-
-```bash
-cmake --build .
-./dlognorm_benchmark.exe
-```
-The output might look like this:
-
-```bash
-
-Run on (8 X 2112 MHz CPU s)
-CPU Caches:
-  L1 Data 32 KiB (x4)
-L1 Instruction 32 KiB (x4)
-L2 Unified 256 KiB (x4)
-L3 Unified 8192 KiB (x1)
-***WARNING*** Library was built as DEBUG. Timings may be affected.
------------------------------------------------------
-  Benchmark           Time             CPU   Iterations
------------------------------------------------------
-  BM_dlgnorm        153 ns          153 ns      4480000
-```
-
 ## R testing
 
-FIMS uses R testthat package for writing R tests. You can install the packages following the instructions on [testthat website](https://testthat.r-lib.org/). If you are not familiar with testthat, the [testing chapter](https://r-pkgs.org/tests.html) in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.
+FIMS uses {testthat} for writing R tests. You can install the packages following the instructions on [testthat website](https://testthat.r-lib.org/). If you are not familiar with testthat, the [testing chapter](https://r-pkgs.org/tests.html) in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.
 
 ### R testthat template
+The format for an individual testthat test is is:
 
 ```r
 test_that("TestName", {
@@ -290,9 +467,13 @@ test_that("TestName", {
 
 ```
 
-## Test case template and examples
+Multiple testthat tests can be put in the same file.
 
-### Test case template
+## Test case documentation template and examples
+
+A testing plan must be developed while designing (i.e., before coding) new FIMS features. This testing plan is documented using the test case documentation template below.
+
+### Test case documentation template
 
 Individual functional or integration test cases will be designed following the template below.
 
@@ -312,11 +493,11 @@ Individual functional or integration test cases will be designed following the t
 
     -   Test logs and automated status reports
 
-### Test case examples
+### Test case documentation examples
 
-#### General test case
+#### General test case documentation
 
-The test case below is a general case and it can be applied to many functions/modules. For individual functions/modules, please make detailed test cases for specific options to avoid duplication as much as possible.
+The test case documentation below is a general case to apply to many functions/modules. For individual functions/modules, please make detailed test cases for specific options, noting "same as the general test case" where appropriate.
 
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | Test ID               | General test case                                                                                                                                   |
@@ -343,7 +524,7 @@ The test case below is a general case and it can be applied to many functions/mo
 |                       |                                                                                                                                                     |
 |                       | -   The tests pass if the function/module returns error messages when user provides an input value that is outside the bound of the input parameter |
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test deliverables     | -   Test logs on GitHub Actions                                                                                                                     |
+| Test deliverables     | -   Test logs on GitHub Actions. Document results of logs in the feature pull request.                                                                                                                     |
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #### Functional test example: TMB probability mass function of the multinomial distribution 
@@ -400,125 +581,10 @@ The test case below is a general case and it can be applied to many functions/mo
 
 #### simulation testing: challenges and solutions
 
-One thing that might be challenging for comparing simulation results is that changes to the order of different calls to simulation will change the simulated values and then tests may fail even though it is just because different random numbers are used or the order of the simulation changes through model development. Several solutions could be used to address the simulation testing issue. Please see [discussions](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) on the FIMS-planning issue page for details.  
+One thing that might be challenging for comparing simulation results is that changes to the order of calls to simulate will change the simulated values. Tests may fail even though it is just because different random numbers are used or the order of the simulation changes through model development. Several solutions could be used to address the simulation testing issue. Please see [discussions](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) on the FIMS-planning issue page for details.  
 
-- Once we start developing simulation modules, there are two ways that help compare simulated data from FIMS and a test.
-  - Add a TRUE/FALSE parameter in each FIMS simulation module for setting up testing seed. When testing the module, use the parameter=TRUE to fix the seed number in R and conduct tests. 
+- Once we start developing simulation modules,we can use these two ways to compare simulated data from FIMS and a test:
+  - Add a TRUE/FALSE parameter in each FIMS simulation module for setting up testing seed. When testing the module, set the paramter to TRUE to fix the seed number in R and conduct tests. 
   - If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error. 
    
-- FIMS will use set.seed() from R to set seed. “rstream” package will be investigated if one of the requirements of FIMS simulation module is to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. rstream was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. Please see [rstream paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf) and [RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/) for more details.
-
-## Glossary
-
-### Unit testing
-
--   Description: It tests individual methods and functions of the classes, components or modules used by the software independently. It executes only small portions of the test cases during the development process.
-
--   Writer: Developer
-
--   Advantages: It finds problems early and helps trace the bugs in the development cycle; cheap to automate when a method has clear input parameters and output; can be run quickly.
-
--   Limitations: Tedious to create; it won't catch integration errors if a method or a function has interactions with something external to the software.
-
--   Examples: A recruitment module may consist of a few stock-recruit functions. We could use a set of unit test cases that ensure each stock-recruit function is correct and meets its design as intended while developing the function.
-
--   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Unit_testing)
-
-### Functional testing
-
--   Description: It checks software's performance with respect to its specified requirements. Testers do not need to examine the internal structure of the piece of software tested but just test a slice of functionality of the whole system after it has been developed.
-
--   Writer: Tester
-
--   Advantages: It verifies that the functionalities of the software are working as defined; lead to reduced developer bias since the tester has not been involved in the software's development.
-
--   Limitations: Need to create input data and determine output based on each function's specifications; need to know how to compare actual and expected outputs and how to check whether the software works as the requirements specified.
-
--   Examples: The software requires development of catch-based projection. We could use a set of functional test cases that help verify if the model produces correct output given specified catch input after catch-based projection has been implemented in the system.
-
--   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Functional_testing); [[WHAM testthat examples]{.ul}](https://github.com/timjmiller/wham/tree/master/tests/testthat)
-
-### Integration testing
-
--   Description: A group of software modules are coupled together and tested. Integrate software modules all together and verify the interfaces between modules against the software design. It is tested until the software works as a system.
-
--   Writer: Tester
-
--   Advantages: It builds a working version of the system by putting the modules together. It assembles a software system and helps detect errors associated with interfacing.
-
--   Limitations: The tests only can be executed after all the modules are developed. It may be difficult to locate errors because all components are integrated together.
-
--   Examples: After developing all the modules, we could set up a few stock assessment test models and check if the software can read the input file, run the stock assessment models, and provide desired output.
-
--   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Integration_testing)
-
-### Run-time testing
-
--   Description: Checks added in the software that catch user input errors. The developer will add in checks to the software; the user will trigger these checks if there are input errors
-
--   Writer: developer
-
--   Advantages: Provides guidance to the user while using the software
-
--   Limitations: Adding many checks can cause the software to run more slowly, the messages need to be helpful so the user can fix the input error.
-
--   Examples: A user inputs a vector of values when they only need to input a single integer value. When running the software, they get an error message telling them that they should use a single integer value instead.
-
--   Reference: [[Testing R code book]{.ul}](http://www.crcpress.com/9781498763653)
-
-### Regression testing
-
--   Description: Re-running tests to ensure that previously developed and tested software still performs after a change. Testers can execute regression testing after adding a new feature to the software or whenever a previously discovered issue has been fixed. Testers can run all tests or a part of the test suite to check the correctness or quality of the software.
-
--   Writer: Tester
-
--   Advantages: It ensures that the changes made to the software have not affected the existing functionalities or correctness of the software.
-
--   Limitations: If the team makes changes to the software often, it may be difficult to run all tests from the test suite frequently. In that case, it's a good idea to have a regression testing schedule. For example, run a part of the test suite that is higher in priority after every change and run the full test suite weekly or monthly, etc.
-
--   Examples: Set up a test suit like the [[ss-test-models]{.ul}](https://github.com/nmfs-stock-synthesis/ss-test-models) repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a "reference run" (e.g., the last release of the software).
-
--   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Regression_testing)
-
-### Platform compatibility testing
-
--   Description: It checks whether the software is capable of running on different operating systems and versions of other softwares. Testers need to define a set of environments or platforms the application is expected to work on. Testers can test the software on different operating systems or platforms and report the bugs.
-
--   Writer: Tester
-
--   Advantages: It ensures that the developed software works under different configurations and is compatible with the client's environment.
-
--   Limitations: Testers need to have knowledge of the testing environment and platforms to understand the expected software behavior under different configurations. It may be difficult to figure out why the software produces different results when using different operating systems.
-
--   Examples: Set up an automated workflow and see if the software can be compatible with different operating systems, such as Windows, macOS, and Linux. Also, testers can check if the software is compatible with different versions of R (e.g., release version and version 3.6, etc).
-
--   Reference: [[International Software Testing Qualification Board]{.ul}](https://glossary.istqb.org/en/search/compatibility)
-
-### Beta testing
-
--   Description: It is a form of external user acceptance testing and the feedback from users can ensure the software has fewer bugs. The software is released to a limited end-users outside of the implementation team and the end-users (beta testers) can report issues of beta software to the implementation team after further testing.
-
--   Writer: Members of implementation team and other users
-
--   Advantages: It helps in uncovering unexpected errors that happen in the client's environment. The implementation team can receive direct feedback from users before shipping the software to users.
-
--   Limitations: The testing environment is not under the control of the implementation team and it may be hard to reproduce the bugs.
-
--   Examples: Prepare a document that describes the new features of the software and share it with selected end-users. Send a pre-release of the software to selected users for further testing and gather feedback from users.
-
--   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Software_testing); [[SS prerelease example]{.ul}](https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/tag/v3.30.18-prerel)
-
-### One-off testing
-
--   Description: It is for replicating and fixing user-reported bugs. It is a special testing that needs to be completed outside of the ordinary routine. Testers write a test that replicates the bug and run the test to check if the test is failing as expected. After fixing the bug, the testers can run the test again and check if the test is passing.
-
--   Writer: Developer and tester
-
--   Advantages: The test is simple, fast, and efficient for fixing bugs.
-
--   Limitations: The tests are specific to bugs and may require manual testing.
-
--   Examples: A bug is found in the code and the software does not work properly. Tester can create a test to replicate the bug and the test would fail as expected. After the developer fixes the bug, the tester can run the test and see if the issue is resolved.
-
--   Reference: [[International Software Testing Qualification Board]{.ul}](https://glossary.istqb.org/en/search/confirmation); [[SS bug fix example]{.ul}](https://github.com/nmfs-stock-synthesis/stock-synthesis/issues/148)
-
+- FIMS will use `set.seed()` from R to set the seed. The {rstream} package will be investigated if one of the requirements of FIMS simulation module is to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. {rstream} was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. Please see [rstream paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf) and [RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/) for more details.

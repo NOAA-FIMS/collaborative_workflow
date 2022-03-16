@@ -1,0 +1,119 @@
+# Glossary {-}
+
+In this section we will define terms that come up throughout this handbook.
+
+## Testing Glossary {-}
+
+### Unit testing {-}
+
+-   Description: It tests individual methods and functions of the classes, components or modules used by the software independently. It executes only small portions of the test cases during the development process.
+
+-   Writer: Developer
+
+-   Advantages: It finds problems early and helps trace the bugs in the development cycle; cheap to automate when a method has clear input parameters and output; can be run quickly.
+
+-   Limitations: Tedious to create; it won't catch integration errors if a method or a function has interactions with something external to the software.
+
+-   Examples: A recruitment module may consist of a few stock-recruit functions. We could use a set of unit test cases that ensure each stock-recruit function is correct and meets its design as intended while developing the function.
+
+-   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Unit_testing)
+
+### Functional testing {-}
+
+-   Description: It checks software's performance with respect to its specified requirements. Testers do not need to examine the internal structure of the piece of software tested but just test a slice of functionality of the whole system after it has been developed.
+
+-   Writer: Tester
+
+-   Advantages: It verifies that the functionalities of the software are working as defined; lead to reduced developer bias since the tester has not been involved in the software's development.
+
+-   Limitations: Need to create input data and determine output based on each function's specifications; need to know how to compare actual and expected outputs and how to check whether the software works as the requirements specified.
+
+-   Examples: The software requires development of catch-based projection. We could use a set of functional test cases that help verify if the model produces correct output given specified catch input after catch-based projection has been implemented in the system.
+
+-   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Functional_testing); [[WHAM testthat examples]{.ul}](https://github.com/timjmiller/wham/tree/master/tests/testthat)
+
+### Integration testing {-}
+
+-   Description: A group of software modules are coupled together and tested. Integrate software modules all together and verify the interfaces between modules against the software design. It is tested until the software works as a system.
+
+-   Writer: Tester
+
+-   Advantages: It builds a working version of the system by putting the modules together. It assembles a software system and helps detect errors associated with interfacing.
+
+-   Limitations: The tests only can be executed after all the modules are developed. It may be difficult to locate errors because all components are integrated together.
+
+-   Examples: After developing all the modules, we could set up a few stock assessment test models and check if the software can read the input file, run the stock assessment models, and provide desired output.
+
+-   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Integration_testing)
+
+### Run-time testing {-}
+
+-   Description: Checks added in the software that catch user input errors. The developer will add in checks to the software; the user will trigger these checks if there are input errors
+
+-   Writer: developer
+
+-   Advantages: Provides guidance to the user while using the software
+
+-   Limitations: Adding many checks can cause the software to run more slowly, the messages need to be helpful so the user can fix the input error.
+
+-   Examples: A user inputs a vector of values when they only need to input a single integer value. When running the software, they get an error message telling them that they should use a single integer value instead.
+
+-   Reference: [[Testing R code book]{.ul}](http://www.crcpress.com/9781498763653)
+
+### Regression testing {-}
+
+-   Description: Re-running tests to ensure that previously developed and tested software still performs after a change. Testers can execute regression testing after adding a new feature to the software or whenever a previously discovered issue has been fixed. Testers can run all tests or a part of the test suite to check the correctness or quality of the software.
+
+-   Writer: Tester
+
+-   Advantages: It ensures that the changes made to the software have not affected the existing functionalities or correctness of the software.
+
+-   Limitations: If the team makes changes to the software often, it may be difficult to run all tests from the test suite frequently. In that case, it's a good idea to have a regression testing schedule. For example, run a part of the test suite that is higher in priority after every change and run the full test suite weekly or monthly, etc.
+
+-   Examples: Set up a test suite like the [[the Stock Synethesis test-models]{.ul}](https://github.com/nmfs-stock-synthesis/test-models) repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a "reference run" (e.g., the last release of the software).
+
+-   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Regression_testing)
+
+### Platform compatibility testing {-}
+
+-   Description: It checks whether the software is capable of running on different operating systems and versions of other softwares. Testers need to define a set of environments or platforms the application is expected to work on. Testers can test the software on different operating systems or platforms and report the bugs.
+
+-   Writer: Tester
+
+-   Advantages: It ensures that the developed software works under different configurations and is compatible with the client's environment.
+
+-   Limitations: Testers need to have knowledge of the testing environment and platforms to understand the expected software behavior under different configurations. It may be difficult to figure out why the software produces different results when using different operating systems.
+
+-   Examples: Set up an automated workflow and see if the software can be compatible with different operating systems, such as Windows, macOS, and Linux. Also, testers can check if the software is compatible with different versions of R (e.g., release version and version 3.6, etc).
+
+-   Reference: [[International Software Testing Qualification Board]{.ul}](https://glossary.istqb.org/en/search/compatibility)
+
+### Beta testing {-}
+
+-   Description: It is a form of external user acceptance testing and the feedback from users can ensure the software has fewer bugs. The software is released to a limited end-users outside of the implementation team and the end-users (beta testers) can report issues of beta software to the implementation team after further testing.
+
+-   Writer: Members of implementation team and other users
+
+-   Advantages: It helps in uncovering unexpected errors that happen in the client's environment. The implementation team can receive direct feedback from users before shipping the software to users.
+
+-   Limitations: The testing environment is not under the control of the implementation team and it may be hard to reproduce the bugs.
+
+-   Examples: Prepare a document that describes the new features of the software and share it with selected end-users. Send a pre-release of the software to selected users for further testing and gather feedback from users.
+
+-   Reference: [[Wikipedia description]{.ul}](https://en.wikipedia.org/wiki/Software_testing); [[SS prerelease example]{.ul}](https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/tag/v3.30.18-prerel)
+
+### One-off testing {-}
+
+-   Description: It is for replicating and fixing user-reported bugs. It is a special testing that needs to be completed outside of the ordinary routine. Testers write a test that replicates the bug and run the test to check if the test is failing as expected. After fixing the bug, the testers can run the test again and check if the test is passing.
+
+-   Writer: Developer and tester
+
+-   Advantages: The test is simple, fast, and efficient for fixing bugs.
+
+-   Limitations: The tests are specific to bugs and may require manual testing.
+
+-   Examples: A bug is found in the code and the software does not work properly. Tester can create a test to replicate the bug and the test would fail as expected. After the developer fixes the bug, the tester can run the test and see if the issue is resolved.
+
+-   Reference: [[International Software Testing Qualification Board]{.ul}](https://glossary.istqb.org/en/search/confirmation); [[SS bug fix example]{.ul}](https://github.com/nmfs-stock-synthesis/stock-synthesis/issues/148)
+
+

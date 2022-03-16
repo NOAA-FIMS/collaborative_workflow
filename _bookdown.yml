@@ -1,4 +1,6 @@
+book_filename: fims_workflow
 delete_merged_file: true
+repo: https://github.com/noaa-fims/collaborative_workflow
 language:
   ui:
     chapter_name: "Chapter "

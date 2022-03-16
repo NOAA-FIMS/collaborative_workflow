@@ -1,6 +1,6 @@
 --- 
 title: "FIMS Developer Handbook"
-author: "FIMS implementation team"
+author: "FIMS Implementation Team"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -8,7 +8,7 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a handbook for FIMS developers and contributors.
+  This is a handbook for FIMS developers and contributors. 
 link-citations: yes
 github-repo: noaa-fims/collaborative_workflow
 favicon: "favicon/favicon.ico"
@@ -16,7 +16,7 @@ favicon: "favicon/favicon.ico"
 
 # About
 
-This is a book written in **Markdown** describing the FIMS development workflow. This section describes how to edit and contribute to the book.
+This is a book written in **Markdown** describing the FIMS development workflow for FIMS developers and contributors. It is intended as a living document and will change over time as the FIMS project matures. Some sections may be incomplete or missing entirely. Suggestions or contributions may be made via the FIMS github site <https://github.com/NOAA-FIMS>. This section describes how to edit and contribute to the book.
 
 ## Usage 
 

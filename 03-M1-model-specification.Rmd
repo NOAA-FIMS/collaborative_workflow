@@ -1,6 +1,6 @@
-# Model specification
+# M1 Model specification
 
-This section describes the implementation of the modules in FIMS in milestone 1. For the first milestone, we must implement enough complexity to adequately test a very standard population model. For this reason, we implement the minimum structure that can run the model described in [Li et al. 2020]().
+This section describes the implementation of the modules in FIMS in milestone 1. For the first milestone, we must implement enough complexity to adequately test a very standard population model. For this reason, we implement the minimum structure that can run the model described in [Li et al. 2020](). The product will be an age-structured integrated assessment model with two fleets (one survey, one fishery) and two sexes.
 
 ## Model variables and bounds
 
@@ -19,6 +19,26 @@ Code can be found [here](http://kaskr.github.io/adcomp/group__R__style__distribu
 | ------------|---------|
 |Normal       |  [dnorm](http://kaskr.github.io/adcomp/dnorm_8hpp.html)|
 |Multinomial  |  [dmultinom](http://kaskr.github.io/adcomp/group__R__style__distribution.html#gafd0ae6b53840267138bb9250115fbe8b)
+
+#### Normal Distribution
+
+$$f(y) = \frac{1}{\sigma\sqrt{2\pi}}exp\Bigg(-\frac{(x-\mu)^2}{2\sigma^2} \Bigg),$$
+
+where $\mu$ is the mean of the distribution and $\sigma^2$ is the variance.
+
+#### Multinomial Distribution
+
+For $k$ categories and sample size, $n$, 
+
+$$f(y) = \frac{n!}{y_{1}!... y_{k}!}p^{y_{1}}_{1}...p^{y_{k}}_{k},$$
+
+where $\sum^{k}_{i=1}y_{i} = n$, $p_{i} > 0$, and $\sum^{k}_{i=1}p_{i} = 1$. 
+
+The mean and variance of $y_{i}$ are respectively:
+
+$\mu_{i} = np_{i}$,
+
+$\sigma^{2}_{i} = np_{i}(1-p_{i})$
 
 ## Beverton-Holt expected recruitment function 
 
@@ -86,9 +106,10 @@ where $N_t$ is the total number of fish in time $t$.
 
 ## Initial values
 
+The initial equilibrium recruitment ($R_{eq}$) is calculated as follows:
 
-### Initial N
-### Initial F
+$$R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} $$
+where $\phi_{F}$ is the initial spawning biomass per recruitment given fishing mortality.
 
 ## Likelihood calculations
 
@@ -99,3 +120,7 @@ Survey index likelihood links estimated CPUE to input data CPUE in biomass using
 Catch index likelihood links estimated catch to input data catch in biomass using a lognormal distribution. (model.hpp)
 
 Age composition likelihoods link catch-at-age to expected catch-at-age using a multinomial distribution.
+
+## Statistical Inference:
+
+TODO: Add description detailing the statistical inference used in M1

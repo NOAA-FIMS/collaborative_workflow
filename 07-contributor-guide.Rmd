@@ -1,34 +1,13 @@
 # Contributor Guidelines
 
-External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides information for FIMS developers and collaborators on how to contribute to the project.
+External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides guidelines and workflows for FIMS developers and collaborators on how to contribute to the project.
 
-## FIMS Branching Strategy
+## Style Guide
 
-There are several [branching strategies](https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/) available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking. 
+The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html). Google's R Style Guide is based off of the [tidyverse style guide](https://style.tidyverse.org/), with a few minor modifications to improve readability and portability. 
 
-The FIMS Project uses a [Scaled Trunk Based Development](https://trunkbaseddevelopment.com/) branching strategy to make tasks easier without compromising quality.
-
-![Scaled Trunk Based Development; image credit: https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/](https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg)
-
-This  strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:
-
-* Short-lived branches to minimize stale code and merge conflicts
-* Fast release times, especially for bug fixes
-* Ability to release bug fixes without new features
-
-### Branching Good Practices
-
-The following suggestions will help ensure optimal performance of the trunk-based branching strategy:
-
-1. Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments. 
-2. Use [feature flags](https://martinfowler.com/articles/feature-toggles.html) to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).
-3. Delete branches after it is merged to the trunk; avoid repositories with a large number of "active" branches.
-4. Merge branches to the trunk frequently (e.g. **at least** every few days; tag as a release commit) to avoid merge conflicts.
-5. Use caching layers where appropriate to optimize build and test execution times. 
-
-### Branch Protection
-
-Branch protection allows for searching branch names with `grep` functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.
+## Naming Conventions
+TODO: add section with link to naming conventions used in FIMS
 
 ## Coding Good Practices
 
@@ -50,7 +29,11 @@ Following good software development and coding practices simplifies collaboratio
 * Capitalize SQL queries so they are readily distinguishable from table/column names
 * Lint your code
 
-# Issue Tracking
+## GitHub forking and cloning
+TODO: provide step-by-step instructions on how to fork/clone and guidance on when to fork versus clone
+
+
+## Issue Tracking
 
 Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, 
 etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change 
@@ -59,37 +42,149 @@ be assigned to the current version number augmented for a hot fix and developmen
 assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
 for version 3.3. This will minimize stale code and large merge conflicts.
 
-## Issue Labels
+### Issue Labels
 
 Utilize labels on issues:
 
 * To describe the kind of work to be done: bug, enhancement, task, discussion, question, suitable for beginners
 * To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
 
-## Issue Templates
+### Issue Templates
 
 There are two issue templates currently available in the FIMS repository.
+
 1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
+
 2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
 
-## Issue Lifecycle
+## Branch Workflow
 
-FIMS development will adhere to a lifecycle for issues that makes it clear which issues can be resolved when.
+This section details the workflow to create a branch in order to contribute to FIMS.
 
-* Creation — The event that marks the creation of an issue. An issue is not Active when it is Created. Issues that are opened are assigned to the FIMS Project Lead with the label: `needs-triage`. A issue is not considered Active until this label is removed.
-* Activation — When the `needs-triage` label is removed and the issue is assigned to a developer, the issue becomes Active. This event happens once in the lifecycle of an issue. Activation usually is not undone but it can be undone if an issue needs additional discussion; in this case, the `needs-triage` label is applied again. An issue is Active from the time it is Activated until reaches Resolution.
-* Response — This event only happens if the triage team deems an issue to a wont-fix or delayed. This requires communication with the party who opened the issue as to why this will not be addressed or will be moved to a later milestone.
-* Resolution — The event that marks the resolution of an issue. This event happens once in the lifetime of an issue. This event can be undone if an issue transitions from a resolved status to an unresolved status, in which case the system considers the issue as never had been resolved. A resolution involves a code check-in and pull request, at which point someone must review and approve the pull request before the issue can transition states.
-* In Review - The issue is "in review" after a code solution has been proposed and is being considered via a pull request. If this is approved, the issue can move into the "Closed" state.
-* Closure—The event that marks the closure of an Issue. This even happens once in the lifetime of an issue. The issue can enter the Closed state from either the "In Review" or "Response" state.
+### Branching Good Practices
 
-```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
-knitr::include_graphics("New Flowchart.png")
+The following suggestions will help ensure optimal performance of the trunk-based branching strategy:
+
+1. Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments. 
+2. Use [feature flags](https://martinfowler.com/articles/feature-toggles.html) to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).
+3. Delete branches after it is merged to the trunk; avoid repositories with a large number of "active" branches.
+4. Merge branches to the trunk frequently (e.g. **at least** every few days; tag as a release commit) to avoid merge conflicts.
+5. Use caching layers where appropriate to optimize build and test execution times. 
+
+### Branch Naming Conventions
+
+Example: **feat-issue-3-R-package-skeleton**
+
+1. When creating a branch, start the branch name with a group word:
+
+  - **bug**: bug fix
+  
+  - **feat**: new feature
+
+2. Use issue tracker ID in branch name
+
+3. Include brief description
+
+3. Use a hyphen as separators
+
+### git workflow
+
+1. Use the following commands to create a branch:
+
+```{r eval = FALSE}
+$ git checkout -b <branchname> main           #creates a local branch
+$ git push origin <branchname>                #pushes branch back to gitHub
 ```
+
+2. Periodically merge changes from main into branch
+```{r eval = FALSE}
+$ git merge main                              #merges changes from main into branch
+```
+
+3. While editing code, commit regularly following [commit messages](#commit-messages) guidelines
+```{r eval = FALSE}
+$ git add <filename>                          #stages file for commit
+$ git commit -m"Commit Message"               #commits changes
+```
+
+4. To push changes to gitHub, first set the upstream location:
+```{r eval = FALSE}
+$ git push --set-upstream origin <branchname> #pushes change to feature branch on gitHub
+```
+After which, changes can be pushed as:
+```{r eval = FALSE}
+$ git push                 #pushes change to feature branch on gitHub
+```
+
+4. When finished, create a pull request to the main branch following [pull request](#pull-request) guidelines
+
+
+## Code Development 
+Code is written following the [Style Guide](#style-guide), [FIMS Naming Conventions](#naming conventions), and [Coding Good Practices](#coding-good-practices)
+
+### C++ contributor
+
+In addition to writing a C++ module, contributors are responsible for the following: 
+
+* Creating documentation for the module and building the [documentation](#documentation) in `doxygen` to ensure it is error-free.
+* Implementing the suite of required test cases in [Google Test](#testing) for the module.
+* Ensuring the module runs through the FIMS Github actions.
+
+### R Contributor
+
+In addition to writing an R script or function, contributors are responsible for the following:
+
+* Writing Roxygen documentation for any R functions
+* Writing `testthat()` test cases for any R functionality
+* Ensuring the code passes the `R CMD CHECK`, `styler`, and any other automated checks.
+
+## Commit Messages
+
+FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
+
+* Include a short summary of the change for the subject/title (<50 characters)
+* Include a blank line in between the 'subject' and 'body'
+* Specify the type of commit:
+
+          * fix: bug fix
+          * feat: new feature
+          * test: testing
+          * docs: documentation
+          * chore: regular code maintenance (e.g. updating dependencies)
+          * refactor: refactoring codebase
+          * style: changes that do not affect the meaning of the code; instead address code styling/formmatting
+          * perf: performance improvements
+          * revert: reverts a previous commit
+          * build: changes that affect the build system
+
+* If the commit addresses an issue, indicate the issue# in the title
+* Provide a brief explanatory description of the change, addressing what and why was changed
+* Wrap to ~72 characters
+* Write in the imperative (e.g. "Fix bug", not "Fixed bug")
+* If necessary, separate paragraphs by blank lines
+* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
+* If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
+
+
+## Merge Conflicts
+
+### What is a merge conflict?
+
+TODO: add description defining a merge conflict and detailing common practices that lead to one
+
+### How to prevent merge conflicts
+
+TODO: add list of best practices that minimize merge conflicts
+
+### How to resolve merge conflicts
+
+TODO: add step-by-step guide that walks a user through how to resolve merge conflicts
+
+Helpful [resource](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md)
 
 ## Pull Requests
 
-Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted above in the branching stratgegy section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
+Once development of a module is complete, the contributor must initiate a pull request. Github will automatically start an independent [review](#code-review) process before the branch can be merged back into the main development branch. Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted in the [branching stratgegy](#branching-strategy) section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
 Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) to create pull requests. Pull requests without this template attached will not be approved.
 
 ## Code Review
@@ -109,7 +204,7 @@ If a review has been assigned to you and you don't feel like you have the expert
 
 ### Automated Testing
 
-Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Chapter 6](https://noaa-fims.github.io/collaborative_workflow/test-case-template.html).
+Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Testing](#testing).
 
 ### Review Checklist
 
@@ -182,29 +277,10 @@ Good reviews require good review habits. Try to follow these suggestions:
 * Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
 * Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html) to settle any style arguments
 
-## Commit Messages
+## Clean up local branches
+If a code reviewer approves the pull request, FIMS workflow managers will merge the feature/bug branch back into the main repository and delete the branch. At this stage, the contributor should also delete the branch from the local repository using the following commands:
 
-FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
-
-* Include a short summary of the change for the subject/title (<50 characters)
-* Include a blank line in between the 'subject' and 'body'
-* Specify the type of commit:
-
-          * fix: bug fix
-          * feat: new feature
-          * test: testing
-          * docs: documentation
-          * chore: regular code maintenance (e.g. updating dependencies)
-          * refactor: refactoring codebase
-          * style: changes that do not affect the meaning of the code; instead address code styling/formmatting
-          * perf: performance improvements
-          * revert: reverts a previous commit
-          * build: changes that affect the build system
-
-* If the commit addresses an issue, indicate the issue# in the title
-* Provide a brief explanatory description of the change, addressing what and why was changed
-* Wrap to ~72 characters
-* Write in the imperative (e.g. "Fix bug", not "Fixed bug")
-* If necessary, separate paragraphs by blank lines
-* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
-* If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
+```{r, eval = FALSE}
+$ git checkout main           //switches back to main branch
+$ git branch -d <branchname>  //deletes branch from local repository
+```
