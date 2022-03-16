@@ -46,8 +46,6 @@ user-guide
 user-installation-guide
 installing-the-package-from-github
 windows-users
-mac-users
-linux-users
 installing-from-r
 running-the-model
 specifying-the-model
