@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Code of Conduct | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Code of Conduct | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
@@ -24,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-02" />
+<meta name="date" content="2022-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -138,149 +138,150 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About<span></span></a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a><ul>
-<li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
-<li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.2</b> Supporting Good Conduct</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#reporting-unacceptable-behavior"><i class="fa fa-check"></i><b>2.2.1</b> Reporting Unacceptable Behavior</a></li>
-<li class="chapter" data-level="2.2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#consequences-of-violating-conduct"><i class="fa fa-check"></i><b>2.2.2</b> Consequences of Violating Conduct</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a><ul>
-<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#developers"><i class="fa fa-check"></i><b>3.1.1</b> Developers</a></li>
-<li class="chapter" data-level="3.1.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#c-developers"><i class="fa fa-check"></i><b>3.1.2</b> C++ developers</a></li>
-<li class="chapter" data-level="3.1.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#r-developers"><i class="fa fa-check"></i><b>3.1.3</b> R developers</a></li>
-<li class="chapter" data-level="3.1.4" data-path="fims-project-overview.html"><a href="fims-project-overview.html#reviewers"><i class="fa fa-check"></i><b>3.1.4</b> Reviewers</a></li>
-<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.5</b> Project Lead</a></li>
-<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.6</b> Director Of Software Development</a></li>
-<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-test-development"><i class="fa fa-check"></i><b>3.1.7</b> Lead of Test Development</a></li>
-<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.8</b> Lead of Research &amp; Development</a></li>
-<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement</a></li>
-<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle</a></li>
-<li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-branching-strategy"><i class="fa fa-check"></i><b>3.3.1</b> FIMS Branching Strategy</a></li>
-<li class="chapter" data-level="3.3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#branch-protection"><i class="fa fa-check"></i><b>3.3.2</b> Branch Protection</a></li>
+<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct<span></span></a><ul>
+<li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.2</b> Supporting Good Conduct<span></span></a><ul>
+<li class="chapter" data-level="2.2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#reporting-unacceptable-behavior"><i class="fa fa-check"></i><b>2.2.1</b> Reporting Unacceptable Behavior<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#consequences-of-violating-conduct"><i class="fa fa-check"></i><b>2.2.2</b> Consequences of Violating Conduct<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a><ul>
-<li class="chapter" data-level="4.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>4.1</b> Model variables and bounds</a></li>
-<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a><ul>
-<li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions</a></li>
-<li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions</a></li>
+<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview<span></span></a><ul>
+<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance<span></span></a><ul>
+<li class="chapter" data-level="3.1.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#developers"><i class="fa fa-check"></i><b>3.1.1</b> Developers<span></span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#c-developers"><i class="fa fa-check"></i><b>3.1.2</b> C++ developers<span></span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#r-developers"><i class="fa fa-check"></i><b>3.1.3</b> R developers<span></span></a></li>
+<li class="chapter" data-level="3.1.4" data-path="fims-project-overview.html"><a href="fims-project-overview.html#reviewers"><i class="fa fa-check"></i><b>3.1.4</b> Reviewers<span></span></a></li>
+<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.5</b> Project Lead<span></span></a></li>
+<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.6</b> Director Of Software Development<span></span></a></li>
+<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-test-development"><i class="fa fa-check"></i><b>3.1.7</b> Lead of Test Development<span></span></a></li>
+<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.8</b> Lead of Research &amp; Development<span></span></a></li>
+<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement<span></span></a></li>
+<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="m1-model-specification.html"><a href="m1-model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>4.3</b> Beverton-Holt expected recruitment function</a></li>
-<li class="chapter" data-level="4.4" data-path="m1-model-specification.html"><a href="m1-model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>4.4</b> Logistic function with extensions</a></li>
-<li class="chapter" data-level="4.5" data-path="m1-model-specification.html"><a href="m1-model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>4.5</b> Catch and fishing mortality</a></li>
-<li class="chapter" data-level="4.6" data-path="m1-model-specification.html"><a href="m1-model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>4.6</b> Modeling loops</a></li>
-<li class="chapter" data-level="4.7" data-path="m1-model-specification.html"><a href="m1-model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>4.7</b> Expected numbers and quantities</a></li>
-<li class="chapter" data-level="4.8" data-path="m1-model-specification.html"><a href="m1-model-specification.html#initial-values"><i class="fa fa-check"></i><b>4.8</b> Initial values</a></li>
-<li class="chapter" data-level="4.9" data-path="m1-model-specification.html"><a href="m1-model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>4.9</b> Likelihood calculations</a></li>
-<li class="chapter" data-level="4.10" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>4.10</b> Statistical Inference:</a></li>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle<span></span></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a><ul>
-<li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.1.1</b> Installing the package from Github</a></li>
-<li class="chapter" data-level="5.1.2" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.1.2</b> Installing from <code>R</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.2</b> Running the model</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.2.1</b> Specifying the model</a></li>
-<li class="chapter" data-level="5.2.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.2.2</b> How to run the model</a></li>
-<li class="chapter" data-level="5.2.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.2.3</b> Extracting model output</a></li>
+<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment<span></span></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-branching-strategy"><i class="fa fa-check"></i><b>3.3.1</b> FIMS Branching Strategy<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#branch-protection"><i class="fa fa-check"></i><b>3.3.2</b> Branch Protection<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
-<li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
-<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler</a></li>
-<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#google-test"><i class="fa fa-check"></i><b>6.0.4</b> Google test</a></li>
+<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification<span></span></a><ul>
+<li class="chapter" data-level="4.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>4.1</b> Model variables and bounds<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code><span></span></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
-<li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
-<li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions</a></li>
-<li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices</a></li>
-<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.4</b> GitHub forking and cloning</a></li>
-<li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.5</b> Issue Tracking</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.5.1</b> Issue Labels</a></li>
-<li class="chapter" data-level="7.5.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.5.2</b> Issue Templates</a></li>
+<li class="chapter" data-level="4.3" data-path="m1-model-specification.html"><a href="m1-model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>4.3</b> Beverton-Holt expected recruitment function<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="m1-model-specification.html"><a href="m1-model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>4.4</b> Logistic function with extensions<span></span></a></li>
+<li class="chapter" data-level="4.5" data-path="m1-model-specification.html"><a href="m1-model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>4.5</b> Catch and fishing mortality<span></span></a></li>
+<li class="chapter" data-level="4.6" data-path="m1-model-specification.html"><a href="m1-model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>4.6</b> Modeling loops<span></span></a></li>
+<li class="chapter" data-level="4.7" data-path="m1-model-specification.html"><a href="m1-model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>4.7</b> Expected numbers and quantities<span></span></a></li>
+<li class="chapter" data-level="4.8" data-path="m1-model-specification.html"><a href="m1-model-specification.html#initial-values"><i class="fa fa-check"></i><b>4.8</b> Initial values<span></span></a></li>
+<li class="chapter" data-level="4.9" data-path="m1-model-specification.html"><a href="m1-model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>4.9</b> Likelihood calculations<span></span></a></li>
+<li class="chapter" data-level="4.10" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>4.10</b> Statistical Inference:<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.6</b> Branch Workflow</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.6.1</b> Branching Good Practices</a></li>
-<li class="chapter" data-level="7.6.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.6.2</b> Branch Naming Conventions</a></li>
-<li class="chapter" data-level="7.6.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.6.3</b> git workflow</a></li>
+<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide<span></span></a><ul>
+<li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide<span></span></a><ul>
+<li class="chapter" data-level="5.1.1" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.1.1</b> Installing the package from Github<span></span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.1.2</b> Installing from <code>R</code><span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.7</b> Code Development</a><ul>
-<li class="chapter" data-level="7.7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.7.1</b> C++ contributor</a></li>
-<li class="chapter" data-level="7.7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.7.2</b> R Contributor</a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.8</b> Commit Messages</a></li>
-<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.9</b> Merge Conflicts</a><ul>
-<li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.9.1</b> What is a merge conflict?</a></li>
-<li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.9.2</b> How to prevent merge conflicts</a></li>
-<li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.9.3</b> How to resolve merge conflicts</a></li>
-</ul></li>
-<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.10</b> Pull Requests</a></li>
-<li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.11</b> Code Review</a><ul>
-<li class="chapter" data-level="7.11.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.11.1</b> Assigning Reviewers</a></li>
-<li class="chapter" data-level="7.11.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.11.2</b> Automated Testing</a></li>
-<li class="chapter" data-level="7.11.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.11.3</b> Review Checklist</a></li>
-<li class="chapter" data-level="7.11.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.11.4</b> Review Good Practices</a></li>
-</ul></li>
-<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.12</b> Clean up local branches</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
-<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a><ul>
-<li class="chapter" data-level="9.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>9.1</b> Writing function reference</a></li>
-<li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette</a></li>
-<li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="test-case-template.html"><a href="test-case-template.html"><i class="fa fa-check"></i><b>10</b> Test case template</a><ul>
-<li class="chapter" data-level="10.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
-<li class="chapter" data-level="10.2.2" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
-<li class="chapter" data-level="10.2.3" data-path="test-case-template.html"><a href="test-case-template.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
-<li class="chapter" data-level="10.2.4" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-linux-and-mac-users"><i class="fa fa-check"></i><b>10.2.4</b> Setup for Linux and Mac users</a></li>
-<li class="chapter" data-level="10.2.5" data-path="test-case-template.html"><a href="test-case-template.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac"><i class="fa fa-check"></i><b>10.2.5</b> How to edit your PATH and change file permissions for Linux and Mac</a></li>
-<li class="chapter" data-level="10.2.6" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>10.2.6</b> Set up FIMS testing project</a></li>
-<li class="chapter" data-level="10.2.7" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>10.2.7</b> Unit test example</a></li>
-<li class="chapter" data-level="10.2.8" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.8</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="10.2.9" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.9</b> Benchmark example</a></li>
-<li class="chapter" data-level="10.2.10" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.10</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
-<li class="chapter" data-level="10.2.11" data-path="test-case-template.html"><a href="test-case-template.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.11</b> Clean up after running C++ tests</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="test-case-template.html"><a href="test-case-template.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
-<li class="chapter" data-level="10.3.2" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
-<li class="chapter" data-level="10.3.3" data-path="test-case-template.html"><a href="test-case-template.html#cmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> CMakeLists.txt template</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a><ul>
-<li class="chapter" data-level="10.4.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.1</b> R testthat template</a></li>
-</ul></li>
-<li class="chapter" data-level="10.5" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case template and examples</a><ul>
-<li class="chapter" data-level="10.5.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>10.5.1</b> Test case template</a></li>
-<li class="chapter" data-level="10.5.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case examples</a></li>
+<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.2</b> Running the model<span></span></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.2.1</b> Specifying the model<span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.2.2</b> How to run the model<span></span></a></li>
+<li class="chapter" data-level="5.2.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.2.3</b> Extracting model output<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a><ul>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a><ul>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#unit-testing"><i class="fa fa-check"></i>Unit testing</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#functional-testing"><i class="fa fa-check"></i>Functional testing</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#integration-testing"><i class="fa fa-check"></i>Integration testing</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#run-time-testing"><i class="fa fa-check"></i>Run-time testing</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#regression-testing"><i class="fa fa-check"></i>Regression testing</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#platform-compatibility-testing"><i class="fa fa-check"></i>Platform compatibility testing</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
+<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide<span></span></a><ul>
+<li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git<span></span></a></li>
+<li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment<span></span></a></li>
+<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler<span></span></a></li>
+<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#google-test"><i class="fa fa-check"></i><b>6.0.4</b> Google test<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines<span></span></a><ul>
+<li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices<span></span></a></li>
+<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.4</b> GitHub forking and cloning<span></span></a></li>
+<li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.5</b> Issue Tracking<span></span></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.5.1</b> Issue Labels<span></span></a></li>
+<li class="chapter" data-level="7.5.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.5.2</b> Issue Templates<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.6</b> Branch Workflow<span></span></a><ul>
+<li class="chapter" data-level="7.6.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.6.1</b> Branching Good Practices<span></span></a></li>
+<li class="chapter" data-level="7.6.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.6.2</b> Branch Naming Conventions<span></span></a></li>
+<li class="chapter" data-level="7.6.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.6.3</b> git workflow<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.7</b> Code Development<span></span></a><ul>
+<li class="chapter" data-level="7.7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.7.1</b> C++ contributor<span></span></a></li>
+<li class="chapter" data-level="7.7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.7.2</b> R Contributor<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.8</b> Commit Messages<span></span></a></li>
+<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.9</b> Merge Conflicts<span></span></a><ul>
+<li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.9.1</b> What is a merge conflict?<span></span></a></li>
+<li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.9.2</b> How to prevent merge conflicts<span></span></a></li>
+<li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.9.3</b> How to resolve merge conflicts<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.10</b> Pull Requests<span></span></a></li>
+<li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.11</b> Code Review<span></span></a><ul>
+<li class="chapter" data-level="7.11.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.11.1</b> Assigning Reviewers<span></span></a></li>
+<li class="chapter" data-level="7.11.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.11.2</b> Automated Testing<span></span></a></li>
+<li class="chapter" data-level="7.11.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.11.3</b> Review Checklist<span></span></a></li>
+<li class="chapter" data-level="7.11.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.11.4</b> Review Good Practices<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.12</b> Clean up local branches<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules<span></span></a></li>
+<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template<span></span></a><ul>
+<li class="chapter" data-level="9.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>9.1</b> Writing function reference<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette<span></span></a></li>
+<li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing<span></span></a><ul>
+<li class="chapter" data-level="10.1" data-path="testing.html"><a href="testing.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking<span></span></a><ul>
+<li class="chapter" data-level="10.2.1" data-path="testing.html"><a href="testing.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements<span></span></a></li>
+<li class="chapter" data-level="10.2.2" data-path="testing.html"><a href="testing.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users<span></span></a></li>
+<li class="chapter" data-level="10.2.3" data-path="testing.html"><a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows<span></span></a></li>
+<li class="chapter" data-level="10.2.4" data-path="testing.html"><a href="testing.html#setup-for-linux-and-mac-users"><i class="fa fa-check"></i><b>10.2.4</b> Setup for Linux and Mac users<span></span></a></li>
+<li class="chapter" data-level="10.2.5" data-path="testing.html"><a href="testing.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac"><i class="fa fa-check"></i><b>10.2.5</b> How to edit your PATH and change file permissions for Linux and Mac<span></span></a></li>
+<li class="chapter" data-level="10.2.6" data-path="testing.html"><a href="testing.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>10.2.6</b> Set up FIMS testing project<span></span></a></li>
+<li class="chapter" data-level="10.2.7" data-path="testing.html"><a href="testing.html#build-and-run-the-tests"><i class="fa fa-check"></i><b>10.2.7</b> Build and run the tests<span></span></a></li>
+<li class="chapter" data-level="10.2.8" data-path="testing.html"><a href="testing.html#adding-a-c-test"><i class="fa fa-check"></i><b>10.2.8</b> Adding a C++ test<span></span></a></li>
+<li class="chapter" data-level="10.2.9" data-path="testing.html"><a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.9</b> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary<span></span></a></li>
+<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.10</b> Benchmark example<span></span></a></li>
+<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.11</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark<span></span></a></li>
+<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.12</b> Clean up after running C++ tests<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing<span></span></a><ul>
+<li class="chapter" data-level="10.3.1" data-path="testing.html"><a href="testing.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template<span></span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="testing.html"><a href="testing.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template<span></span></a></li>
+<li class="chapter" data-level="10.3.3" data-path="testing.html"><a href="testing.html#testsgtestcmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> tests/gtest/CMakeLists.txt template<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing<span></span></a><ul>
+<li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.1</b> R testthat template<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples<span></span></a><ul>
+<li class="chapter" data-level="10.5.1" data-path="testing.html"><a href="testing.html#test-case-documentation-template"><i class="fa fa-check"></i><b>10.5.1</b> Test case documentation template<span></span></a></li>
+<li class="chapter" data-level="10.5.2" data-path="testing.html"><a href="testing.html#test-case-documentation-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case documentation examples<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="glossary.html#glossary">Glossary<span></span></a><ul>
+<li><a href="glossary.html#testing-glossary">Testing Glossary<span></span></a><ul>
+<li><a href="glossary.html#unit-testing">Unit testing<span></span></a></li>
+<li><a href="glossary.html#functional-testing">Functional testing<span></span></a></li>
+<li><a href="glossary.html#integration-testing">Integration testing<span></span></a></li>
+<li><a href="glossary.html#run-time-testing">Run-time testing<span></span></a></li>
+<li><a href="glossary.html#regression-testing">Regression testing<span></span></a></li>
+<li><a href="glossary.html#platform-compatibility-testing">Platform compatibility testing<span></span></a></li>
+<li><a href="glossary.html#beta-testing">Beta testing<span></span></a></li>
+<li><a href="glossary.html#one-off-testing">One-off testing<span></span></a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -303,10 +304,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="code-of-conduct" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Code of Conduct</h1>
-<div id="fims-contributor-conduct" class="section level2">
-<h2><span class="header-section-number">2.1</span> FIMS Contributor Conduct</h2>
+<div id="code-of-conduct" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 2</span> Code of Conduct<a href="code-of-conduct.html#code-of-conduct" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="fims-contributor-conduct" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.1</span> FIMS Contributor Conduct<a href="code-of-conduct.html#fims-contributor-conduct" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>All contributors participating and contributing to the FIMS project are expected to adhere to the <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Contributor Covenant</a>. Briefly, these standards are adopted to ensure a positive and harassment-free enviroment for all participants. Examples of behavior that contributes to a positive environment for our community include:</p>
 <ul>
 <li>Demonstrating empathy and kindness toward other people</li>
@@ -316,15 +317,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Focusing on what is best not just for us as individuals, but for the overall community</li>
 </ul>
 </div>
-<div id="supporting-good-conduct" class="section level2">
-<h2><span class="header-section-number">2.2</span> Supporting Good Conduct</h2>
+<div id="supporting-good-conduct" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.2</span> Supporting Good Conduct<a href="code-of-conduct.html#supporting-good-conduct" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>FIMS Community leaders will create default community health files (e.g. CONTRIBUTING, CODE_OF_CONDUCT) to be used in all repositories owned by FIMS.</p>
-<div id="reporting-unacceptable-behavior" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Reporting Unacceptable Behavior</h3>
+<div id="reporting-unacceptable-behavior" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.1</span> Reporting Unacceptable Behavior<a href="code-of-conduct.html#reporting-unacceptable-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Questions about the FIMS Code of Conduct or reports of unacceptable behavior should be sent to <a href="mailto:fims.conduct@noaa.gov" class="email">fims.conduct@noaa.gov</a>. Reports will be reviewed by a member of the NOAA Fisheries Office of Science and Technology who is not participating in the FIMS Project [Jim Berkson], but has the full support of FIMS Community Leaders. All reports will be reviewed promptly and fairly.</p>
 </div>
-<div id="consequences-of-violating-conduct" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Consequences of Violating Conduct</h3>
+<div id="consequences-of-violating-conduct" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.2</span> Consequences of Violating Conduct<a href="code-of-conduct.html#consequences-of-violating-conduct" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>People who violate the FIMS Contribute Conduct will face meaningful consequences, up to and including explusion from the FIMS Community. The Code of Conduct, as well as consequences for violations, apply equally to all participants.</p>
 
 </div>
