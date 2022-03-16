@@ -38,4 +38,4 @@ Sys.which("make")
 
 ### Google test
 
-You will need to install `CMake` and `ninja` and validate you have the correct setup by following the steps outlined in the [test case template](#test-case-template).
+You will need to install `CMake` and `ninja` and validate you have the correct setup by following the steps outlined in the [test case template](#testing).

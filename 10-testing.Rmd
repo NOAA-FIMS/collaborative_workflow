@@ -1,6 +1,6 @@
-# Test case template
+# Testing
 
-In this section we will describe how to write a test case for your FIMS code.
+This section describes testing for FIMS. FIMS uses Google Test for C++ unit testing and testthat for R unit testing.
 
 ## Introduction
 
@@ -84,27 +84,58 @@ If you followed the instructions above, you will see the following line returned
     /usr/bin/ninja
 
 ### Set up FIMS testing project
-Create an empty folder named "FIMS_project". Within the folder, create a two subfolders: "tests" that will contain the testing code and "src" that will contain the source code.  Within the tests subfolder, create a file named `CMakeLists.txt`. Declare a dependency on GoogleTest by adding the following contents to the CMakeLists.txt file: 
 
-```cmake
-cmake_minimum_required(VERSION 3.14)
-project(FIMS_project)
+Clone the [FIMS repository](https://github.com/NOAA-FIMS/FIMS) on the command line using:
 
-# GoogleTest requires at least C++11
-set(CMAKE_CXX_STANDARD 11)
+```bash
+git clone https://github.com/NOAA-FIMS/FIMS.git
+cd FIMS
+```
+There is a file called CMakeLists.txt in the top level of the directory. This file instructs Cmake on how to create the build files, including setting up Google Test.
 
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip
-)
+The Google Test testing code is in the tests/gtest subdirectory. Within this subdirectory is a file called CMakeLists.txt. This file contains additional specifications for CMake, in particular instructions on how to register the individual tests.
 
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+### Build and run the tests
+
+Three commands on the command line are needed to build the tests:
+
+```bash
+cmake -S . -B build -G Ninja
+```
+This generates the build system using Ninja as the generator. Note there is now a subfolder called build.
+
+Next, in the same command window, use cmake to build in the build subfolder:
+
+```bash
+cmake --build build
+```
+Finally, run the C++ tests:
+
+```bash
+ctest --test-dir build
 ```
 
-### Unit test example
+The output from running the tests should look something like:
+
+```bash
+Internal ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build
+Test project C:/github_repos/NOAA-FIMS_org/FIMS/build
+    Start 1: dlognorm.use_double_inputs
+1/5 Test #1: dlognorm.use_double_inputs .......   Passed    0.04 sec
+    Start 2: dlognorm.use_int_inputs
+2/5 Test #2: dlognorm.use_int_inputs ..........   Passed    0.04 sec
+    Start 3: modelTest.eta
+3/5 Test #3: modelTest.eta ....................   Passed    0.04 sec
+    Start 4: modelTest.nll
+4/5 Test #4: modelTest.nll ....................   Passed    0.04 sec
+    Start 5: modelTest.evaluate
+5/5 Test #5: modelTest.evaluate ...............   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 5
+
+```
+
+### Adding a C++ test
 
 Create a file dlognorm.hpp within the src subfolder that contains a simple function:
 
@@ -119,11 +150,11 @@ Type dlognorm(Type x, Type meanlog, Type sdlog){
 }
 ```
 
-Then, create a test file dlognorm-unit.cpp in the tests subfolder that has a test suite for the dlognorm function:
+Then, create a test file dlognorm-unit.cpp in the tests/gtest subfolder that has a test suite for the dlognorm function:
 
 ```c
 #include "gtest/gtest.h"
-#include "../src/dlognorm.hpp"
+#include "../../src/dlognorm.hpp"
 
 // # R code that generates true values for the test
 // dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385
@@ -154,12 +185,11 @@ namespace {
 
 `EXPECT_NEAR(val1, val2, absolute_error)` verifies that the difference between `val1` and `val2` does not exceed the absolute error bound `absolute_error`. `EXPECT_NE(val1, val2)` verifies that `val1` is not equal to `val2`. Please see GoogleTest [assertions reference](https://google.github.io/googletest/reference/assertions.html) for more `EXPECT_` macros. 
 
-### Add tests to `CMakeLists.txt` and run a binary
+### Add tests to `tests/gtest/CMakeLists.txt` and run a binary
 
-To build the code, add the following contents to the end of the `CMakeLists.txt` file:
+To build the code, add the following contents to the end of the `tests/gtest/CMakeLists.txt` file:
 
 ```cmake
-enable_testing()
 
 add_executable(dlognorm_test
   dlognorm-unit.cpp
@@ -178,7 +208,7 @@ include(GoogleTest)
 gtest_discover_tests(dlognorm_test)
 ```
 
-The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test. Open a command window in FIMS_project/tests and type:
+The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test. Open a command window in the FIMS repo (if not already opened) and type:
 
 ```bash
 cmake -S . -B build -G Ninja
@@ -187,40 +217,56 @@ cmake -S . -B build -G Ninja
 This generates the build system using Ninja as the generator.
 
 Next, in the same command window, use cmake to build:
+
 ```bash
-cd build 
-cmake --build .
+cmake --build build
 ```
+
 Finally, run the tests in the same command window:
+
 ```bash
-ctest
+ctest --test-dir build
 ```
-The output when running `ctest` might look like this:
+
+The output when running `ctest` might look like this. Note there is a failing test:
 
 ```bash
-Start 1: dlognormTest.DoubleInput
-1/2 Test #1: dlognormTest.DoubleInput .........   Passed    0.17 sec
-Start 2: dlognormTest.IntInput
-2/2 Test #2: dlognormTest.IntInput ............***Failed    0.11 sec
+Internal ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build
+Test project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build
+    Start 1: dlognorm.use_double_inputs
+1/7 Test #1: dlognorm.use_double_inputs .......   Passed    0.04 sec
+    Start 2: dlognorm.use_int_inputs
+2/7 Test #2: dlognorm.use_int_inputs ..........   Passed    0.04 sec
+    Start 3: modelTest.eta
+3/7 Test #3: modelTest.eta ....................   Passed    0.04 sec
+    Start 4: modelTest.nll
+4/7 Test #4: modelTest.nll ....................   Passed    0.04 sec
+    Start 5: modelTest.evaluate
+5/7 Test #5: modelTest.evaluate ...............   Passed    0.04 sec
+    Start 6: dlognormTest.DoubleInput
+6/7 Test #6: dlognormTest.DoubleInput .........   Passed    0.04 sec
+    Start 7: dlognormTest.IntInput
+7/7 Test #7: dlognormTest.IntInput ............***Failed    0.04 sec
 
-50% tests passed, 1 tests failed out of 2
+86% tests passed, 1 tests failed out of 7
 
-Total Test time (real) =   0.32 sec
+Total Test time (real) =   0.28 sec
 
 The following tests FAILED:
-          2 - dlognorm.IntInput (Failed)
+          7 - dlognormTest.IntInput (Failed)
 Errors while running CTest
-Output from these tests are in: C:/Users/FIMS/build/Testing/Temporary/LastTest.log
+Output from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log
 Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+
 ```
 
 ### Benchmark example
 
-Let's use Google Benchmark to measure the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create a benchmark file dlognorm_benchmark.cpp and put it in the tests subfolder within the FIMS_project folder:
+Google Benchmark measures the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create a benchmark file dlognorm_benchmark.cpp and put it in the tests/gtest subfolder:
 
 ```c
 #include "benchmark/benchmark.h"
-#include "../src/dlognorm.hpp"
+#include "../../src/dlognorm.hpp"
 
 void BM_dlgnorm(benchmark::State& state)
 {
@@ -230,11 +276,13 @@ void BM_dlgnorm(benchmark::State& state)
 BENCHMARK(BM_dlgnorm);
 
 ```
-Please see more examples on [Google Benchmark GitHub repository](https://github.com/google/benchmark) for a more comprehensive feature overview.
+This file runs the dlognorm function and uses BENCHMARK to see how long it takes.
 
-### Add benchmarks to `CMakeLists.txt` and run the benchmark
+A more comprehensive feature overview of benchmarking is available in the [Google Benchmark GitHub repository](https://github.com/google/benchmark).
 
-To build the code, add the following contents to the end of your `CMakeLists.txt` file:
+### Add benchmarks to `tests/gtest/CMakeLists.txt` and run the benchmark
+
+To build the code, add the following contents to the end of your `tests/gtest/CMakeLists.txt` file:
 
 ```cmake
 
@@ -259,16 +307,19 @@ target_link_libraries(dlognorm_benchmark
 
 ```
 
-To run the benchmark, run on the command line open in FIMS_project/tests/build:
+To run the benchmark, open the command line open in the FIMS repo (if not already open) and run cmake, sending output to the build subfolder:
 
 ```bash
-cmake --build .
-./dlognorm_benchmark.exe
+cmake --build build
 ```
-The output from `./dlognorm_benchmark.exe` might look like this:
+
+Then run the dlognorm_benchmark executable created:
+```bash
+build/tests/gtest/dlognorm_benchmark.exe
+```
+The output from `dlognorm_benchmark.exe` might look like this:
 
 ```bash
-
 Run on (8 X 2112 MHz CPU s)
 CPU Caches:
   L1 Data 32 KiB (x4)
@@ -282,41 +333,54 @@ L3 Unified 8192 KiB (x1)
   BM_dlgnorm        153 ns          153 ns      4480000
 ```
 
+#### Remove files produced by this example
+
+If you don't want to keep any of the files produced by this example and want to completely clear any uncommitted changes and files from the git repo, use
+```bash
+git restore .
+```
+to get rid of un committed changes in git tracked files. To get rid of all untracked files in the repo, use:
+
+```bash
+git clean -fd
+```
+
 ### Clean up after running C++ tests
 
 #### Clean up CMake-generated files and re-run tests
-After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in `build` folder. The examples above demonstrate an "out-of-source" build which puts generated files in a completely separate directory `build`, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need for clean away files that differ between builds. If you still would like to clean CMake-generated files, just delete the `build` folder, and then build and run tests by repeating the commands below. The files from the `build` folder should not be pushed to the FIMS repository. 
 
-```bash
-cmake -S . -B build -G Ninja
-cd build 
-cmake --build . --parallel 16
-ctest
-```
-Here `--parallel 16` means that the maximum number of concurrent processes to use when building is 16. 
+After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in the `build` subfolder. The example above demonstrates an "out-of-source" build which puts generated files in a completely separate directory, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need to delete files that differ between builds. If you still would like to delete CMake-generated files, just delete the `build` folder, and then build and run tests by repeating the commands below. The files from the `build` folder are included in the FIMS repository's .gitignore file, so should *not* be pushed to the FIMS repository. 
 
-To build and run tests without navigating to the `build` folder, you can use the commands below:
 
-```bash
-cmake -S . -B build -G Ninja 
-cmake --build build --parallel 16
-ctest --test-dir build
-```
+<!-- KD: I didn't think this was necessary, but left just in case others disagreed. -->
+
+<!-- #### Example of rebuilding without deleting the build subfolder -->
+
+<!-- To build and run tests without navigating to the `build` folder, you can use the commands below: -->
+
+<!-- ```bash -->
+<!-- cmake -S . -B build -G Ninja  -->
+<!-- cmake --build build --parallel 16 -->
+<!-- ctest --test-dir build -->
+<!-- ``` -->
 
 #### Clean up individual tests
-For simple C++ function like the examples above, we do not need to clean up the tests. If you allocated memory for an object during testing, you need to delete the object (e.g., `delete object`). If you used test fixture from GoogleTest to use the same data configuration for multiple tests, `TearDown()` can be used to clean up the test and then the test fixture will be deleted. Please see more details from [GoogleTest user's guide](https://google.github.io/googletest/primer.html#same-data-multiple-tests).    
 
+For simple C++ functions like the examples above, we do not need to clean up the tests. Clean up is only necessary in a few situations. 
+
+- If memory for an object was allocated during testing and not deallocated - The object needs to be deleted (e.g., `delete object`). 
+- If you used a test fixture from GoogleTest to use the same data configuration for multiple tests, `TearDown()` can be used to clean up the test and then the test fixture will be deleted. Please see more details from [GoogleTest user's guide](https://google.github.io/googletest/primer.html#same-data-multiple-tests).    
 
 ## Templates for GoogleTest testing
 
-This section includes templates for creating unit tests and benchmark. This is
-the code that would go into the .cpp files.
+This section includes templates for creating unit tests and benchmarks. This is
+the code that would go into the .cpp files in tests/gtest.
 
 ### Unit test template
 
 ```c
 #include "gtest/gtest.h"
-#include "../src/code.hpp"
+#include "../../src/code.hpp"
 
 // # R code that generates true values for the test
 
@@ -344,7 +408,7 @@ namespace {
 
 ```c
 #include "benchmark/benchmark.h"
-#include "../src/code.hpp"
+#include "../../src/code.hpp"
 
 void BM_FunctionName(benchmark::State& state)
 {
@@ -358,8 +422,9 @@ BENCHMARK(BM_FunctionName);
 
 ```
 
-### CMakeLists.txt template
+### tests/gtest/CMakeLists.txt template
 
+These lines are added each time a new test suite (all tests in a file) is added:
 ```c
 // Add test suite 1
 add_executable(TestSuiteName1
@@ -371,18 +436,10 @@ target_link_libraries(TestSuiteName1
 )
 
 gtest_discover_tests(TestSuiteName1)
+```
 
-// Add test suite 2
-add_executable(TestSuiteName2
-  test2.cpp
-)
-
-target_link_libraries(TestSuiteName2
-  gtest_main
-)
-
-gtest_discover_tests(TestSuiteName2)
-
+These lines are added each time a new benchmark file is added:
+```c
 // Add benchmark 1
 add_executable(benchmark1
   benchmark1.cpp
@@ -392,22 +449,14 @@ target_link_libraries(benchmark1
   benchmark_main
 )
 
-// Add benchmark 2
-add_executable(benchmark2
-  benchmark2.cpp
-)
-
-target_link_libraries(benchmark2
-  benchmark_main
-)
-
 ```
 
 ## R testing
 
-FIMS uses R testthat package for writing R tests. You can install the packages following the instructions on [testthat website](https://testthat.r-lib.org/). If you are not familiar with testthat, the [testing chapter](https://r-pkgs.org/tests.html) in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.
+FIMS uses {testthat} for writing R tests. You can install the packages following the instructions on [testthat website](https://testthat.r-lib.org/). If you are not familiar with testthat, the [testing chapter](https://r-pkgs.org/tests.html) in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.
 
 ### R testthat template
+The format for an individual testthat test is is:
 
 ```r
 test_that("TestName", {
@@ -418,10 +467,13 @@ test_that("TestName", {
 
 ```
 
-## Test case template and examples
+Multiple testthat tests can be put in the same file.
 
+## Test case documentation template and examples
 
-### Test case template
+A testing plan must be developed while designing (i.e., before coding) new FIMS features. This testing plan is documented using the test case documentation template below.
+
+### Test case documentation template
 
 Individual functional or integration test cases will be designed following the template below.
 
@@ -441,11 +493,11 @@ Individual functional or integration test cases will be designed following the t
 
     -   Test logs and automated status reports
 
-### Test case examples
+### Test case documentation examples
 
-#### General test case
+#### General test case documentation
 
-The test case below is a general case and it can be applied to many functions/modules. For individual functions/modules, please make detailed test cases for specific options to avoid duplication as much as possible.
+The test case documentation below is a general case to apply to many functions/modules. For individual functions/modules, please make detailed test cases for specific options, noting "same as the general test case" where appropriate.
 
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | Test ID               | General test case                                                                                                                                   |
@@ -472,7 +524,7 @@ The test case below is a general case and it can be applied to many functions/mo
 |                       |                                                                                                                                                     |
 |                       | -   The tests pass if the function/module returns error messages when user provides an input value that is outside the bound of the input parameter |
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test deliverables     | -   Test logs on GitHub Actions                                                                                                                     |
+| Test deliverables     | -   Test logs on GitHub Actions. Document results of logs in the feature pull request.                                                                                                                     |
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #### Functional test example: TMB probability mass function of the multinomial distribution 
@@ -529,10 +581,10 @@ The test case below is a general case and it can be applied to many functions/mo
 
 #### simulation testing: challenges and solutions
 
-One thing that might be challenging for comparing simulation results is that changes to the order of different calls to simulation will change the simulated values and then tests may fail even though it is just because different random numbers are used or the order of the simulation changes through model development. Several solutions could be used to address the simulation testing issue. Please see [discussions](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) on the FIMS-planning issue page for details.  
+One thing that might be challenging for comparing simulation results is that changes to the order of calls to simulate will change the simulated values. Tests may fail even though it is just because different random numbers are used or the order of the simulation changes through model development. Several solutions could be used to address the simulation testing issue. Please see [discussions](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) on the FIMS-planning issue page for details.  
 
-- Once we start developing simulation modules, there are two ways that help compare simulated data from FIMS and a test.
-  - Add a TRUE/FALSE parameter in each FIMS simulation module for setting up testing seed. When testing the module, use the parameter=TRUE to fix the seed number in R and conduct tests. 
+- Once we start developing simulation modules,we can use these two ways to compare simulated data from FIMS and a test:
+  - Add a TRUE/FALSE parameter in each FIMS simulation module for setting up testing seed. When testing the module, set the paramter to TRUE to fix the seed number in R and conduct tests. 
   - If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error. 
    
-- FIMS will use set.seed() from R to set seed. “rstream” package will be investigated if one of the requirements of FIMS simulation module is to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. rstream was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. Please see [rstream paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf) and [RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/) for more details.
+- FIMS will use `set.seed()` from R to set the seed. The {rstream} package will be investigated if one of the requirements of FIMS simulation module is to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. {rstream} was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. Please see [rstream paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf) and [RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/) for more details.

@@ -127,7 +127,7 @@ Code is written following the [Style Guide](#style-guide), [FIMS Naming Conventi
 In addition to writing a C++ module, contributors are responsible for the following: 
 
 * Creating documentation for the module and building the [documentation](#documentation) in `doxygen` to ensure it is error-free.
-* Implementing the suite of required test cases in [Google Test](#test-case-template) for the module.
+* Implementing the suite of required test cases in [Google Test](#testing) for the module.
 * Ensuring the module runs through the FIMS Github actions.
 
 ### R Contributor
@@ -204,7 +204,7 @@ If a review has been assigned to you and you don't feel like you have the expert
 
 ### Automated Testing
 
-Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Test Case Template](#test-case-template).
+Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Testing](#testing).
 
 ### Review Checklist
 
