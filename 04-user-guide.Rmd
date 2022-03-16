@@ -5,17 +5,21 @@ This section details installation guides for [users](#user-installation-guide). 
 ## User Installation Guide
 This section describes how to install the FIMS R package and dependencies.
 
-### Installing the package from Github
+## Installing the package from Github
 
+The following software is required:
+- R version 4.0.0 or newer (or RStudio version 1.2.5042 or newer)
+  - the `remotes` R package
+- `TMB` (install instructions at are
+[here](https://github.com/kaskr/adcomp/wiki/Download).)
 
-#### Windows users
-Before you install the `FIMS` package, you will need to install the Rtools executable corresponding to your `R` version as well as the `TMB` package and its dependencies. `FIMS` has only been developed and tested on `R` version 4.+, and so in order to install the package you will need to ensure you are using `R` version 4.+ and an RStudio version that is at least 1.2.5042. Instructions on how to install `Rtools` are [here](https://cran.r-project.org/bin/windows/Rtools/rtools40.html). Instructions on how to install `TMB` are [here](https://github.com/kaskr/adcomp/wiki/Download). Please ensure you have tested your `TMB` setup before moving on to install FIMS.
+### Windows users
 
-#### Mac users
+- Rtools4 (available from [here](https://cran.r-project.org/bin/windows/Rtools/rtools40.html))
+  - this likely requires IT support to install it on NOAA computers
+  (or any without administrative accounts)
 
-#### Linux users
-
-### Installing from `R`
+## Installing from `R`
 
 ```{r eval=FALSE}
 remotes::install_github("NOAA-FIMS/FIMS")
