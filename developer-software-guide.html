@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-16" />
+<meta name="date" content="2022-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,8 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About<span></span></a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book<span></span></a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct<span></span></a><ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct<span></span></a></li>
@@ -315,20 +314,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="development-environment" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.0.2</span> Development environment<a href="developer-software-guide.html#development-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An integrated development environment is recommended to organize code files, outputs, and build and debug environments. The most popular IDEs on the development team are <a href="https://www.rstudio.com/">RStudio</a> and <a href="https://code.visualstudio.com/">Visual Studio Code</a>. You are welcome to use another IDE if you’d like.</p>
+<p>An integrated development environment is recommended to organize code
+files, outputs, and build and debug environments. The most popular IDEs
+on the development team are <a href="https://www.rstudio.com/">RStudio</a> and
+<a href="https://code.visualstudio.com/">Visual Studio Code</a>. You are welcome
+to use another IDE or a text-editor based workflow if you strongly
+prefer that.</p>
 </div>
 <div id="c-compiler" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.0.3</span> C++ compiler<a href="developer-software-guide.html#c-compiler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Windows users who installed Rtools should have a C++ compiler (<code>gcc</code>) as part of the bundle. To ensure the C++ compiler is on your path, open a command prompt and type <code>gcc</code>. If you get the below message, you are all set:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="developer-software-guide.html#cb8-1"></a>gcc<span class="op">:</span><span class="st"> </span>fatal error<span class="op">:</span><span class="st"> </span>no input files</span>
-<span id="cb8-2"><a href="developer-software-guide.html#cb8-2"></a>compilation terminated.</span></code></pre></div>
-<p>If not, you will need to check that the compiler is on the path. The easiest way to do so is by creating a text file .Renviron in your Documents folder which contains the following line:</p>
+<p>Windows users who installed Rtools should have a C++ compiler (<code>gcc</code>)
+as part of the bundle. To ensure the C++ compiler is on your path, open
+a command prompt and type <code>gcc</code>. If you get the below message, you are
+all set:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="developer-software-guide.html#cb6-1"></a>gcc<span class="op">:</span><span class="st"> </span>fatal error<span class="op">:</span><span class="st"> </span>no input files</span>
+<span id="cb6-2"><a href="developer-software-guide.html#cb6-2"></a>compilation terminated.</span></code></pre></div>
+<p>If not, you will need to check that the compiler is on the path. The
+easiest way to do so is by creating a text file .Renviron in your
+Documents folder which contains the following line:</p>
 <pre><code>PATH=&quot;${RTOOLS40_HOME}\usr\bin;${PATH}&quot;</code></pre>
-<p>You can do this with a text editor, or from R like so (note that in R code you need to escape backslashes):</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="developer-software-guide.html#cb10-1"></a><span class="kw">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="dt">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>You can do this with a text editor, or from <code>R</code> like so (note that in
+<code>R</code> code you need to escape backslashes):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="developer-software-guide.html#cb8-1"></a><span class="kw">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="dt">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Restart R, and verify that make can be found, which should show the path to your Rtools installation.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="developer-software-guide.html#cb11-1"></a><span class="kw">Sys.which</span>(<span class="st">&quot;make&quot;</span>)</span>
-<span id="cb11-2"><a href="developer-software-guide.html#cb11-2"></a><span class="co">## &quot;C:\\rtools40\\usr\\bin\\make.exe&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="developer-software-guide.html#cb9-1"></a><span class="kw">Sys.which</span>(<span class="st">&quot;make&quot;</span>)</span>
+<span id="cb9-2"><a href="developer-software-guide.html#cb9-2"></a><span class="co">## &quot;C:\\rtools40\\usr\\bin\\make.exe&quot;</span></span></code></pre></div>
 </div>
 <div id="google-test" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.0.4</span> Google test<a href="developer-software-guide.html#google-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>

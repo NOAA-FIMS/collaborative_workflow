@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-16" />
+<meta name="date" content="2022-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,8 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About<span></span></a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book<span></span></a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct<span></span></a><ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct<span></span></a></li>
@@ -401,23 +400,23 @@ for version 3.3. This will minimize stale code and large merge conflicts.</p>
 <ol style="list-style-type: decimal">
 <li>Use the following commands to create a branch:</li>
 </ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="contributor-guidelines.html#cb12-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span>main           <span class="co">#creates a local branch</span></span>
-<span id="cb12-2"><a href="contributor-guidelines.html#cb12-2"></a><span class="op">$</span><span class="st"> </span>git push origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">                </span><span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="contributor-guidelines.html#cb10-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span>main           <span class="co">#creates a local branch</span></span>
+<span id="cb10-2"><a href="contributor-guidelines.html#cb10-2"></a><span class="op">$</span><span class="st"> </span>git push origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">                </span><span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Periodically merge changes from main into branch</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="contributor-guidelines.html#cb11-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>While editing code, commit regularly following <a href="contributor-guidelines.html#commit-messages">commit messages</a> guidelines</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="contributor-guidelines.html#cb14-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                          </span><span class="co">#stages file for commit</span></span>
-<span id="cb14-2"><a href="contributor-guidelines.html#cb14-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="contributor-guidelines.html#cb12-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                          </span><span class="co">#stages file for commit</span></span>
+<span id="cb12-2"><a href="contributor-guidelines.html#cb12-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>To push changes to gitHub, first set the upstream location:</li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="contributor-guidelines.html#cb15-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span><span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span><span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <p>After which, changes can be pushed as:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="contributor-guidelines.html#cb16-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="contributor-guidelines.html#cb14-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>When finished, create a pull request to the main branch following <a href="#pull-request">pull request</a> guidelines</li>
 </ol>
@@ -585,8 +584,8 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 <div id="clean-up-local-branches" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.12</span> Clean up local branches<a href="contributor-guidelines.html#clean-up-local-branches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If a code reviewer approves the pull request, FIMS workflow managers will merge the feature/bug branch back into the main repository and delete the branch. At this stage, the contributor should also delete the branch from the local repository using the following commands:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="contributor-guidelines.html#cb18-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
-<span id="cb18-2"><a href="contributor-guidelines.html#cb18-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="contributor-guidelines.html#cb16-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
+<span id="cb16-2"><a href="contributor-guidelines.html#cb16-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
 
 </div>
 </div>

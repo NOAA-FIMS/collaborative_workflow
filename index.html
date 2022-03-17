@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-16" />
+<meta name="date" content="2022-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,8 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About<span></span></a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book<span></span></a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct<span></span></a><ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct<span></span></a></li>
@@ -308,32 +307,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">FIMS Developer Handbook</h1>
 <p class="author"><em>FIMS Implementation Team</em></p>
-<p class="date"><em>2022-03-16</em></p>
+<p class="date"><em>2022-03-17</em></p>
 </div>
 <div id="about" class="section level1 hasAnchor">
 <h1><span class="header-section-number">Chapter 1</span> About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This is a book written in <strong>Markdown</strong> describing the FIMS development workflow for FIMS developers and contributors. It is intended as a living document and will change over time as the FIMS project matures. Some sections may be incomplete or missing entirely. Suggestions or contributions may be made via the FIMS github site <a href="https://github.com/NOAA-FIMS" class="uri">https://github.com/NOAA-FIMS</a>. This section describes how to edit and contribute to the book.</p>
+<p>This is a book written in <strong>Markdown</strong> describing the FIMS development
+workflow for FIMS developers and contributors. It is intended as a
+living document and will change over time as the FIMS project matures.
+Some sections may be incomplete or missing entirely. Suggestions or
+contributions may be made via the FIMS github site
+<a href="https://github.com/NOAA-FIMS" class="uri">https://github.com/NOAA-FIMS</a>. This section describes how to edit
+and contribute to the book.</p>
 <div id="usage" class="section level2 hasAnchor">
 <h2><span class="header-section-number">1.1</span> Usage<a href="index.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Each <strong>bookdown</strong> chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter <em>must</em> start with a first-level heading: <code># A good chapter</code>, and can contain one (and only one) first-level heading.</p>
-<p>Use second-level and higher headings within chapters like: <code>## A short section</code> or <code>### An even shorter section</code>.</p>
-<p>The <code>index.Rmd</code> file is required, and is also your first book chapter. It will be the homepage when you render the book.</p>
+<p>Each <strong>bookdown</strong> chapter is an .Rmd file, and each .Rmd file can
+contain one or more chapters. A chapter <em>must</em> start with a first-level
+heading: <code># A good chapter</code>, and can contain one (and only one)
+first-level heading.</p>
+<p>Use second-level and higher headings within chapters like:
+<code>## A short section</code> or <code>### An even shorter section</code>.</p>
+<p>The <code>index.Rmd</code> file is required, and is also your first book chapter.
+It will be the homepage when you render the book.</p>
 </div>
-<div id="render-book" class="section level2 hasAnchor">
-<h2><span class="header-section-number">1.2</span> Render book<a href="index.html#render-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You can render the HTML version of this example book without changing anything:</p>
-<ol style="list-style-type: decimal">
-<li><p>Find the <strong>Build</strong> pane in the RStudio IDE, and</p></li>
-<li><p>Click on <strong>Build Book</strong>, then select your output format, or select “All formats” if you’d like to use multiple formats from the same book source files.</p></li>
-</ol>
-<p>Or build the book from the R console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a>bookdown<span class="op">::</span><span class="kw">render_book</span>()</span></code></pre></div>
-<p>To render this example to PDF as a <code>bookdown::pdf_book</code>, you’ll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
-</div>
-<div id="preview-book" class="section level2 hasAnchor">
-<h2><span class="header-section-number">1.3</span> Preview book<a href="index.html#preview-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in “Preview book”, or from the R console:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1"></a>bookdown<span class="op">::</span><span class="kw">serve_book</span>()</span></code></pre></div>
+<div id="edit-and-preview-book-changes" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.2</span> Edit and preview book changes<a href="index.html#edit-and-preview-book-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When you want to make a change to this book, follow the below steps:
+1. create a new feature branch either from the issue requesting the
+change or from the repo on Github.
+2. Pull the remote branch into your local branch and make your changes
+to the .Rmd files locally.
+3. When you are done editing, do not render the book locally, but push
+your changes to the remote feature branch.
+4. Pushing to the remote feature branch initiates a Github action that
+creates a .zip file you should download and open to preview the
+rendered .html content.
+5. When you are satisfied with the changes, submit a pull request to
+merge the feature branch into <code>main</code></p>
 
 </div>
 </div>

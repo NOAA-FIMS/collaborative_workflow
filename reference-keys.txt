@@ -2,8 +2,7 @@ fig:devcycle
 fig:flowchart
 about
 usage
-render-book
-preview-book
+edit-and-preview-book-changes
 code-of-conduct
 fims-contributor-conduct
 supporting-good-conduct
