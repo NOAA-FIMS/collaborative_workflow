@@ -338,7 +338,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="github-forking-and-cloning" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.4</span> GitHub forking and cloning<a href="contributor-guidelines.html#github-forking-and-cloning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>TODO: provide step-by-step instructions on how to fork/clone and guidance on when to fork versus clone</p>
+<p>For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="contributor-guidelines.html#cb10-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span></code></pre></div>
+<p>For contributors without write access to the FIMS repo, the repository must be forked to contribute. To fork and then clone a repository instead, follow the <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository">Github Documentation for forking a repo</a>. Once cloned, changes can be made on a feature branch. When ready to submit changes follow the <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">Github Documentation on creating a pull request from a fork</a></p>
 </div>
 <div id="issue-tracking" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.5</span> Issue Tracking<a href="contributor-guidelines.html#issue-tracking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -400,23 +402,23 @@ for version 3.3. This will minimize stale code and large merge conflicts.</p>
 <ol style="list-style-type: decimal">
 <li>Use the following commands to create a branch:</li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="contributor-guidelines.html#cb10-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span>main           <span class="co">#creates a local branch</span></span>
-<span id="cb10-2"><a href="contributor-guidelines.html#cb10-2"></a><span class="op">$</span><span class="st"> </span>git push origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">                </span><span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="contributor-guidelines.html#cb11-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span>main           <span class="co">#creates a local branch</span></span>
+<span id="cb11-2"><a href="contributor-guidelines.html#cb11-2"></a><span class="op">$</span><span class="st"> </span>git push origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">                </span><span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Periodically merge changes from main into branch</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="contributor-guidelines.html#cb11-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="contributor-guidelines.html#cb12-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>While editing code, commit regularly following <a href="contributor-guidelines.html#commit-messages">commit messages</a> guidelines</li>
 </ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="contributor-guidelines.html#cb12-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                          </span><span class="co">#stages file for commit</span></span>
-<span id="cb12-2"><a href="contributor-guidelines.html#cb12-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                          </span><span class="co">#stages file for commit</span></span>
+<span id="cb13-2"><a href="contributor-guidelines.html#cb13-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>To push changes to gitHub, first set the upstream location:</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span><span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="contributor-guidelines.html#cb14-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span><span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <p>After which, changes can be pushed as:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="contributor-guidelines.html#cb14-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="contributor-guidelines.html#cb15-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>When finished, create a pull request to the main branch following <a href="#pull-request">pull request</a> guidelines</li>
 </ol>
@@ -474,16 +476,20 @@ for version 3.3. This will minimize stale code and large merge conflicts.</p>
 <h2><span class="header-section-number">7.9</span> Merge Conflicts<a href="contributor-guidelines.html#merge-conflicts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="what-is-a-merge-conflict" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.9.1</span> What is a merge conflict?<a href="contributor-guidelines.html#what-is-a-merge-conflict" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>TODO: add description defining a merge conflict and detailing common practices that lead to one</p>
+<p>A merge conflict happens when changes have occured to the same piece of code on the two branches being merged. This means Git cannot automatically determine which version of the change should be kept. Most merge conflicts are small and easy to figure out. See the <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts">Github Documentation on merge conflicts</a> for more information.</p>
 </div>
 <div id="how-to-prevent-merge-conflicts" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.9.2</span> How to prevent merge conflicts<a href="contributor-guidelines.html#how-to-prevent-merge-conflicts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>TODO: add list of best practices that minimize merge conflicts</p>
+<ul>
+<li>Merge in small changes often rather than making many changes on a branch that is kept separate from the main branch for a long time.</li>
+<li>Avoid refactoring the same piece of code in different ways on separate branches.</li>
+<li>Avoid working in the same files on separate branches.</li>
+</ul>
 </div>
 <div id="how-to-resolve-merge-conflicts" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.9.3</span> How to resolve merge conflicts<a href="contributor-guidelines.html#how-to-resolve-merge-conflicts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>TODO: add step-by-step guide that walks a user through how to resolve merge conflicts</p>
-<p>Helpful <a href="https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md">resource</a></p>
+<p>Merge conflicts can be resolved <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-lineithub.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts">on Github</a> or <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line">locally using Git</a>.</p>
+<p>An additional helpful resource is <a href="https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md">this guide to merge conflicts</a>.</p>
 </div>
 </div>
 <div id="pull-requests" class="section level2 hasAnchor">
@@ -494,6 +500,7 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 <div id="code-review" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.11</span> Code Review<a href="contributor-guidelines.html#code-review" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Code review ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase and ensure there is a diverse team of knolwedgable collaborators to support the continued development and maintenance of FIMS. CI/CD requires rapid review of all new/modified code, so processes must be in place to support this pace. FIMS code review will utilize tools available via <a href="https://github.com/features/code-review">GitHub</a>, which allows reviewers to analyze code changes, provide inline comments, and view change histories.</p>
+<p><a href="https://google.github.io/eng-practices/review/">The Google code review developer guide</a> provides a useful set of guidelines for both reviewers and code authors.</p>
 <div id="assigning-reviewers" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.11.1</span> Assigning Reviewers<a href="contributor-guidelines.html#assigning-reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Reviewers for the FIMS Project may be assigned in two different ways:</p>
@@ -517,7 +524,7 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 <li>Are there any parts of the code that are confusing?</li>
 <li>Is the data flow easy to understand?</li>
 <li>Is there any code commented out?</li>
-<li>Does the code include any unclear names?</li>
+<li>Does the code include any unclear names</li>
 <li>Does the code include any errors, repeats, or incomplete sections?</li>
 </ul>
 <p><strong>Functionality</strong></p>
@@ -584,8 +591,8 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 <div id="clean-up-local-branches" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.12</span> Clean up local branches<a href="contributor-guidelines.html#clean-up-local-branches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If a code reviewer approves the pull request, FIMS workflow managers will merge the feature/bug branch back into the main repository and delete the branch. At this stage, the contributor should also delete the branch from the local repository using the following commands:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="contributor-guidelines.html#cb16-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
-<span id="cb16-2"><a href="contributor-guidelines.html#cb16-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="contributor-guidelines.html#cb17-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
+<span id="cb17-2"><a href="contributor-guidelines.html#cb17-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
 
 </div>
 </div>
