@@ -9,22 +9,33 @@ To install git, please follow the instructions on [this page](https://git-scm.co
 
 ### Development environment
 
-An integrated development environment is recommended to organize code files, outputs, and build and debug environments. The most popular IDEs on the development team are [RStudio](https://www.rstudio.com/) and [Visual Studio Code](https://code.visualstudio.com/). You are welcome to use another IDE if you'd like. 
+An integrated development environment is recommended to organize code 
+files, outputs, and build and debug environments. The most popular IDEs
+ on the development team are [RStudio](https://www.rstudio.com/) and 
+ [Visual Studio Code](https://code.visualstudio.com/). You are welcome 
+ to use another IDE or a text-editor based workflow if you strongly 
+ prefer that. 
 
 ### C++ compiler
-Windows users who installed Rtools should have a C++ compiler (`gcc`) as part of the bundle. To ensure the C++ compiler is on your path, open a command prompt and type `gcc`. If you get the below message, you are all set:
+Windows users who installed Rtools should have a C++ compiler (`gcc`) 
+as part of the bundle. To ensure the C++ compiler is on your path, open
+ a command prompt and type `gcc`. If you get the below message, you are
+  all set:
 
 ```{R eval = FALSE}
 gcc: fatal error: no input files
 compilation terminated.
 ```
 
-If not, you will need to check that the compiler is on the path. The easiest way to do so is by creating a text file .Renviron in your Documents folder which contains the following line:
+If not, you will need to check that the compiler is on the path. The 
+easiest way to do so is by creating a text file .Renviron in your 
+Documents folder which contains the following line:
 ```
 PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"
 ```
 
-You can do this with a text editor, or from R like so (note that in R code you need to escape backslashes):
+You can do this with a text editor, or from `R` like so (note that in 
+`R` code you need to escape backslashes):
 ```{r eval=FALSE}
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 ```
