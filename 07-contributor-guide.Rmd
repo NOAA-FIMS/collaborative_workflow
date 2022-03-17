@@ -30,8 +30,14 @@ Following good software development and coding practices simplifies collaboratio
 * Lint your code
 
 ## GitHub forking and cloning
-TODO: provide step-by-step instructions on how to fork/clone and guidance on when to fork versus clone
 
+For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:
+
+```bash
+git clone https://github.com/NOAA-FIMS/FIMS.git
+```
+
+For contributors without write access to the FIMS repo, the repository must be forked to contribute. To fork and then clone a repository instead, follow the [Github Documentation for forking a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository). Once cloned, changes can be made on a feature branch. When ready to submit changes follow the [Github Documentation on creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 ## Issue Tracking
 
@@ -170,17 +176,19 @@ FIMS Project contributors should provide clear, descriptive commit messages to c
 
 ### What is a merge conflict?
 
-TODO: add description defining a merge conflict and detailing common practices that lead to one
+A merge conflict happens when changes have occured to the same piece of code on the two branches being merged. This means Git cannot automatically determine which version of the change should be kept. Most merge conflicts are small and easy to figure out. See the [Github Documentation on merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) for more information.
 
 ### How to prevent merge conflicts
 
-TODO: add list of best practices that minimize merge conflicts
+- Merge in small changes often rather than making many changes on a branch that is kept separate from the main branch for a long time.
+- Avoid refactoring the same piece of code in different ways on separate branches.
+- Avoid working in the same files on separate branches.
 
 ### How to resolve merge conflicts
 
-TODO: add step-by-step guide that walks a user through how to resolve merge conflicts
+Merge conflicts can be resolved [on Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-lineithub.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) or [locally using Git](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
-Helpful [resource](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md)
+An additional helpful resource is [this guide to merge conflicts](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md).
 
 ## Pull Requests
 
@@ -190,6 +198,8 @@ Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.git
 ## Code Review
 
 Code review ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase and ensure there is a diverse team of knolwedgable collaborators to support the continued development and maintenance of FIMS. CI/CD requires rapid review of all new/modified code, so processes must be in place to support this pace. FIMS code review will utilize tools available via [GitHub](https://github.com/features/code-review), which allows reviewers to analyze code changes, provide inline comments, and view change histories.
+
+[The Google code review developer guide](https://google.github.io/eng-practices/review/) provides a useful set of guidelines for both reviewers and code authors.
 
 ### Assigning Reviewers
 
@@ -216,7 +226,7 @@ While automated testing can assure the code structure and logic pass quality che
 * Are there any parts of the code that are confusing?
 * Is the data flow easy to understand?
 * Is there any code commented out?
-* Does the code include any unclear names?
+* Does the code include any unclear names
 * Does the code include any errors, repeats, or incomplete sections?
 
 **Functionality**
