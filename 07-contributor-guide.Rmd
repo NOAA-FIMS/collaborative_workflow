@@ -57,11 +57,10 @@ Utilize labels on issues:
 
 ### Issue Templates
 
-There are two issue templates currently available in the FIMS repository.
-
-1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
-
-2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
+Templates are available and stored within each repository to guide users through the process of submitting a new issue.
+Example templates for issues can be found on
+[GitHub Docs](http://www.docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
+Use these references and existing templates stored in .github/ISSUE_TEMPLATE for reference when creating a new template.
 
 ## Branch Workflow
 
