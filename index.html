@@ -332,17 +332,19 @@ It will be the homepage when you render the book.</p>
 <div id="edit-and-preview-book-changes" class="section level2 hasAnchor">
 <h2><span class="header-section-number">1.2</span> Edit and preview book changes<a href="index.html#edit-and-preview-book-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When you want to make a change to this book, follow the below steps:
-1. create a new feature branch either from the issue requesting the
+1. Create a new feature branch either from the issue requesting the
 change or from the repo on Github.
 2. Pull the remote branch into your local branch and make your changes
 to the .Rmd files locally.
 3. When you are done editing, do not render the book locally, but push
 your changes to the remote feature branch.
 4. Pushing to the remote feature branch initiates a Github action that
-creates a .zip file you should download and open to preview the
-rendered .html content.
-5. When you are satisfied with the changes, submit a pull request to
-merge the feature branch into <code>main</code></p>
+creates a .zip file you should download and unzip. Open the file
+index.html in a browser to preview the rendered .html content. If the
+action fails, this means the bookdown could not be rendered. Use the
+Github action log to determine what the problem is.
+5. When the book can be rendered and you are satisfied with the changes,
+submit a pull request to merge the feature branch into <code>main</code>.</p>
 
 </div>
 </div>
