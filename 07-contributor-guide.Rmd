@@ -218,59 +218,7 @@ Automated testing provides an initial layer of quality assurance and lets review
 
 ### Review Checklist
 
-While automated testing can assure the code structure and logic pass quality checks, human reviewers are required to evaluate things like functionality, readability, etc. Reviewers should evaluate the code critically and provide comment/feedback on the following items:
-
-**Readability**
-
-* Is the code easy to understand?
-* Are there any parts of the code that are confusing?
-* Is the data flow easy to understand?
-* Is there any code commented out?
-* Does the code include any unclear names
-* Does the code include any errors, repeats, or incomplete sections?
-
-**Functionality**
-
-* Does the code function as it is expected to?
-* How will the change impact other parts of the system?
-* Are there any unhandled edge cases?
-* Are there other code improvements possible?
-
-**Design**
-
-* Are files organized intuitively?
-* Are components divided up in a sensible way?
-* Does the review include too many changes? Would the code change better be broken into more focused parts?
-* Will the change be easy to maintain?
-* Does the code follow object-oriented design principles?
-* Is the code in the proper location?
-
-**Security**
-
-* Does using this code open the software to possible security violations or vulnerabilities?
-* Is the correct encryption used?
-
-**Performance**
-
-* Are there ways to improve on the code's performance?
-* Is there any complex logic that could be simplified?
-* Could any of the code be replaced with built-in functions?
-* Will this change have any impacts on system performance?
-* Is there any debugging code that could be removed?
-* Are there any optimizations that could be removed and still maintain system performance?
-
-**Documentation**
-
-* Are there comments available to explain the code?
-* Is the README file complete and current? Does it adequately describe the project/changes?
-
-**Testing**
-
-* Is the code testable?
-* Is the automated testing adequate?
-* Have dependencies been appropriately tested?
-* Does automated testing cover the code exchange adequately?
-* Could the test structure be improved?
+When a pull request is submitted to the FIMS repository, a reviewer checklist will be automatically added as a comment. Reviewers should use this checklist to ensure their review is thorough.
 
 ### Review Good Practices
 
