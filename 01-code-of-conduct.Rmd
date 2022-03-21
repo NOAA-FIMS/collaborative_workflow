@@ -2,22 +2,39 @@
 
 ## FIMS Contributor Conduct
 
-All contributors participating and contributing to the FIMS project are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). Briefly, these standards are adopted to ensure a positive and harassment-free enviroment for all participants. Examples of behavior that contributes to a positive environment for our community include:
+All contributors participating and contributing to the FIMS project are
+expected to adhere to the [Contributor
+Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+Briefly, these standards are adopted to ensure a positive and
+harassment-free enviroment for all participants. Examples of behavior
+that contributes to a positive environment for our community include:
 
 * Demonstrating empathy and kindness toward other people
 * Being respectful of differing opinions, viewpoints, and experiences
 * Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the overall community
+* Accepting responsibility and apologizing to those affected by our
+mistakes, and learning from the experience
+* Focusing on what is best not just for us as individuals, but for the
+overall community
 
 ## Supporting Good Conduct
 
-FIMS Community leaders will create default community health files (e.g. CONTRIBUTING, CODE_OF_CONDUCT) to be used in all repositories owned by FIMS. 
+FIMS Community leaders will create default community health files (e.g.
+CONTRIBUTING, CODE_OF_CONDUCT) to be used in all repositories owned by
+FIMS.
 
 ### Reporting Unacceptable Behavior
 
-Questions about the FIMS Code of Conduct or reports of unacceptable behavior should be sent to fims.conduct@noaa.gov. Reports will be reviewed by a member of the NOAA Fisheries Office of Science and Technology who is not participating in the FIMS Project [Jim Berkson], but has the full support of FIMS Community Leaders. All reports will be reviewed promptly and fairly. 
+Questions about the FIMS Code of Conduct or reports of unacceptable
+behavior should be sent to fims.conduct@noaa.gov. Reports will be
+reviewed by a member of the NOAA Fisheries Office of Science and
+Technology who is not participating in the FIMS Project [Jim Berkson],
+but has the full support of FIMS Community Leaders. All reports will be
+reviewed promptly and fairly.
 
 ### Consequences of Violating Conduct
 
-People who violate the FIMS Contribute Conduct will face meaningful consequences, up to and including explusion from the FIMS Community. The Code of Conduct, as well as consequences for violations, apply equally to all participants. 
+People who violate the FIMS Contribute Conduct will face meaningful
+consequences, up to and including explusion from the FIMS Community. The
+Code of Conduct, as well as consequences for violations, apply equally
+to all participants.

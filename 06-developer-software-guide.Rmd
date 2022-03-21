@@ -1,11 +1,21 @@
-# Developer Software Guide
-This section describes the software you will need to contribute to this project. This is in addition to the software dependencies described in the [user installation guide](#user-installation-guide) which you should ensure are installed first.
+# Developer Software Guide This section describes the software you will
+need to contribute to this project. This is in addition to the software
+dependencies described in the [user installation
+guide](#user-installation-guide) which you should ensure are installed
+first.
 
 ### git
 
-You will need git installed locally, and you may prefer to use an additional git [GUI client](https://git-scm.com/downloads/guis) such as GitKraken or Github Desktop. If your preferred git client is the RStudio IDE, you can configure Git and RStudio integration following these [instructions](https://happygitwithr.com/rstudio-git-github.html). 
+You will need git installed locally, and you may prefer to use an
+additional git [GUI client](https://git-scm.com/downloads/guis) such as
+GitKraken or Github Desktop. If your preferred git client is the RStudio
+IDE, you can configure Git and RStudio integration following these
+[instructions](https://happygitwithr.com/rstudio-git-github.html).
 
-To install git, please follow the instructions on [this page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your operating system. You can find the downloads for your operating system on the left-hand navigation bar on that page.
+To install git, please follow the instructions on [this
+page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for
+your operating system. You can find the downloads for your operating
+system on the left-hand navigation bar on that page.
 
 ### Development environment
 
@@ -22,10 +32,8 @@ as part of the bundle. To ensure the C++ compiler is on your path, open
  a command prompt and type `gcc`. If you get the below message, you are
   all set:
 
-```{R eval = FALSE}
-gcc: fatal error: no input files
-compilation terminated.
-```
+```{R eval = FALSE} gcc: fatal error: no input files compilation
+terminated. ```
 
 If not, you will need to check that the compiler is on the path. The 
 easiest way to do so is by creating a text file .Renviron in your 
@@ -40,13 +48,14 @@ You can do this with a text editor, or from `R` like so (note that in
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 ```
 
-Restart R, and verify that make can be found, which should show the path to your Rtools installation.
+Restart R, and verify that make can be found, which should show the path
+to your Rtools installation.
 
-```{r eval=FALSE}
-Sys.which("make")
-## "C:\\rtools40\\usr\\bin\\make.exe"
-```
+```{r eval=FALSE} Sys.which("make") ##
+"C:\\rtools40\\usr\\bin\\make.exe" ```
 
 ### Google test
 
-You will need to install `CMake` and `ninja` and validate you have the correct setup by following the steps outlined in the [test case template](#testing).
+You will need to install `CMake` and `ninja` and validate you have the
+correct setup by following the steps outlined in the [test case
+template](#testing).
