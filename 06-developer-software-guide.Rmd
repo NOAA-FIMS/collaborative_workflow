@@ -1,4 +1,6 @@
-# Developer Software Guide This section describes the software you will
+# Developer Software Guide
+
+This section describes the software you will
 need to contribute to this project. This is in addition to the software
 dependencies described in the [user installation
 guide](#user-installation-guide) which you should ensure are installed
