@@ -62,6 +62,13 @@ contributor-guidelines
 style-guide
 naming-conventions-1
 coding-good-practices
+roadmap-to-fims-file-structure-and-organization
+files-that-go-in-instinclude
+common
+interface
+population-dynamics
+files-that-go-in-src
+fims.cpp
 github-forking-and-cloning
 issue-tracking
 issue-labels
