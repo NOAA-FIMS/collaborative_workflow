@@ -30,6 +30,28 @@ Following good software development and coding practices simplifies collaboratio
 * Capitalize SQL queries so they are readily distinguishable from table/column names
 * Lint your code
 
+## Roadmap to FIMS File Structure and Organization
+
+### Files that go in `inst/include`
+
+#### common
+
+This folder includes files that are shared between the interface, the `TMB` objective function, and the mathematics and population dynamics components of the package.
+
+#### interface
+
+This includes the R interface files.
+
+#### population dynamics
+
+There are subfolders underneath this folder that correspond to the different components of the population dynamics model.
+
+### Files that go in `src/`
+
+#### FIMS.cpp
+
+This is the `TMB` objective function.
+
 ## GitHub forking and cloning
 
 For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:
