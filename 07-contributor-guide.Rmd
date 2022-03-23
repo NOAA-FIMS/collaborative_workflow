@@ -44,7 +44,17 @@ This includes the R interface files.
 
 #### population dynamics
 
-There are subfolders underneath this folder that correspond to the different components of the population dynamics model.
+There are subfolders underneath this folder that correspond to the 
+different components of the population dynamics model. Each of the 
+modules will need a <module_name>.hpp file that only consists of 
+`#include` statements for the files under the subfolders.
+
+In the subfolder, there will need to be one file called 
+<module_name>_base.hpp that defines the base class for the module type.
+The base class should only need a constructor method and a number of
+methods (e.g. `evaluate()`) that are not specific to the type of 
+functions available under the subfolders but reused for all objects of 
+that class type.
 
 ### Files that go in `src/`
 
