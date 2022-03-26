@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 FIMS Project Overview | FIMS Developer Handbook</title>
+  <meta name="description" content="This is a handbook for FIMS developers and contributors." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 FIMS Project Overview | FIMS Developer Handbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a handbook for FIMS developers and contributors." />
+  <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 FIMS Project Overview | FIMS Developer Handbook" />
+  
+  <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
+  
+
+<meta name="author" content="FIMS Implementation Team" />
+
+
+<meta name="date" content="2022-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="code-of-conduct.html"/>
+<link rel="next" href="m1-model-specification.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="extra.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FIMS Developer Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
+<li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.2</b> Supporting Good Conduct</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#reporting-unacceptable-behavior"><i class="fa fa-check"></i><b>2.2.1</b> Reporting Unacceptable Behavior</a></li>
+<li class="chapter" data-level="2.2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#consequences-of-violating-conduct"><i class="fa fa-check"></i><b>2.2.2</b> Consequences of Violating Conduct</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#developers"><i class="fa fa-check"></i><b>3.1.1</b> Developers</a></li>
+<li class="chapter" data-level="3.1.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#c-developers"><i class="fa fa-check"></i><b>3.1.2</b> C++ developers</a></li>
+<li class="chapter" data-level="3.1.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#r-developers"><i class="fa fa-check"></i><b>3.1.3</b> R developers</a></li>
+<li class="chapter" data-level="3.1.4" data-path="fims-project-overview.html"><a href="fims-project-overview.html#reviewers"><i class="fa fa-check"></i><b>3.1.4</b> Reviewers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.5</b> Project Lead</a></li>
+<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.6</b> Director Of Software Development</a></li>
+<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-test-development"><i class="fa fa-check"></i><b>3.1.7</b> Lead of Test Development</a></li>
+<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.8</b> Lead of Research &amp; Development</a></li>
+<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement</a></li>
+<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle</a></li>
+<li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-branching-strategy"><i class="fa fa-check"></i><b>3.3.1</b> FIMS Branching Strategy</a></li>
+<li class="chapter" data-level="3.3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#branch-protection"><i class="fa fa-check"></i><b>3.3.2</b> Branch Protection</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>4.1</b> Model variables and bounds</a></li>
+<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions</a></li>
+<li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="m1-model-specification.html"><a href="m1-model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>4.3</b> Beverton-Holt expected recruitment function</a></li>
+<li class="chapter" data-level="4.4" data-path="m1-model-specification.html"><a href="m1-model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>4.4</b> Logistic function with extensions</a></li>
+<li class="chapter" data-level="4.5" data-path="m1-model-specification.html"><a href="m1-model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>4.5</b> Catch and fishing mortality</a></li>
+<li class="chapter" data-level="4.6" data-path="m1-model-specification.html"><a href="m1-model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>4.6</b> Modeling loops</a></li>
+<li class="chapter" data-level="4.7" data-path="m1-model-specification.html"><a href="m1-model-specification.html#expected-numbers-and-quantities"><i class="fa fa-check"></i><b>4.7</b> Expected numbers and quantities</a></li>
+<li class="chapter" data-level="4.8" data-path="m1-model-specification.html"><a href="m1-model-specification.html#initial-values"><i class="fa fa-check"></i><b>4.8</b> Initial values</a></li>
+<li class="chapter" data-level="4.9" data-path="m1-model-specification.html"><a href="m1-model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>4.9</b> Likelihood calculations</a></li>
+<li class="chapter" data-level="4.10" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>4.10</b> Statistical Inference:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.1.1</b> Installing the package from Github</a></li>
+<li class="chapter" data-level="5.1.2" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.1.2</b> Installing from <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.2</b> Running the model</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.2.1</b> Specifying the model</a></li>
+<li class="chapter" data-level="5.2.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.2.2</b> How to run the model</a></li>
+<li class="chapter" data-level="5.2.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.2.3</b> Extracting model output</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
+<li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
+<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler</a></li>
+<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#google-test"><i class="fa fa-check"></i><b>6.0.4</b> Google test</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
+<li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions</a></li>
+<li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices</a></li>
+<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.4</b> GitHub forking and cloning</a></li>
+<li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.5</b> Issue Tracking</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.5.1</b> Issue Labels</a></li>
+<li class="chapter" data-level="7.5.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.5.2</b> Issue Templates</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.6</b> Branch Workflow</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.6.1</b> Branching Good Practices</a></li>
+<li class="chapter" data-level="7.6.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.6.2</b> Branch Naming Conventions</a></li>
+<li class="chapter" data-level="7.6.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.6.3</b> git workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.7</b> Code Development</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.7.1</b> C++ contributor</a></li>
+<li class="chapter" data-level="7.7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.7.2</b> R Contributor</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.8</b> Commit Messages</a></li>
+<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.9</b> Merge Conflicts</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.9.1</b> What is a merge conflict?</a></li>
+<li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.9.2</b> How to prevent merge conflicts</a></li>
+<li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.9.3</b> How to resolve merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.10</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.11</b> Code Review</a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.11.1</b> Assigning Reviewers</a></li>
+<li class="chapter" data-level="7.11.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.11.2</b> Automated Testing</a></li>
+<li class="chapter" data-level="7.11.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.11.3</b> Review Checklist</a></li>
+<li class="chapter" data-level="7.11.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.11.4</b> Review Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.12</b> Clean up local branches</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
+<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>9.1</b> Writing function reference</a></li>
+<li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette</a></li>
+<li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="test-case-template.html"><a href="test-case-template.html"><i class="fa fa-check"></i><b>10</b> Test case template</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
+<li class="chapter" data-level="10.2.2" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
+<li class="chapter" data-level="10.2.3" data-path="test-case-template.html"><a href="test-case-template.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
+<li class="chapter" data-level="10.2.4" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-linux-and-mac-users"><i class="fa fa-check"></i><b>10.2.4</b> Setup for Linux and Mac users</a></li>
+<li class="chapter" data-level="10.2.5" data-path="test-case-template.html"><a href="test-case-template.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac"><i class="fa fa-check"></i><b>10.2.5</b> How to edit your PATH and change file permissions for Linux and Mac</a></li>
+<li class="chapter" data-level="10.2.6" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>10.2.6</b> Set up FIMS testing project</a></li>
+<li class="chapter" data-level="10.2.7" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>10.2.7</b> Unit test example</a></li>
+<li class="chapter" data-level="10.2.8" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.8</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
+<li class="chapter" data-level="10.2.9" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.9</b> Benchmark example</a></li>
+<li class="chapter" data-level="10.2.10" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.10</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="10.2.11" data-path="test-case-template.html"><a href="test-case-template.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.11</b> Clean up after running C++ tests</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="test-case-template.html"><a href="test-case-template.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
+<li class="chapter" data-level="10.3.2" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
+<li class="chapter" data-level="10.3.3" data-path="test-case-template.html"><a href="test-case-template.html#cmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> CMakeLists.txt template</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.1</b> R testthat template</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case template and examples</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>10.5.1</b> Test case template</a></li>
+<li class="chapter" data-level="10.5.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a>
+<ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a>
+<ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#unit-testing"><i class="fa fa-check"></i>Unit testing</a></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#functional-testing"><i class="fa fa-check"></i>Functional testing</a></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#integration-testing"><i class="fa fa-check"></i>Integration testing</a></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#run-time-testing"><i class="fa fa-check"></i>Run-time testing</a></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#regression-testing"><i class="fa fa-check"></i>Regression testing</a></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#platform-compatibility-testing"><i class="fa fa-check"></i>Platform compatibility testing</a></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://noaa-fims.github.io/collaborative_workflow" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FIMS Developer Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fims-project-overview" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> FIMS Project Overview</h1>
+<div id="fims-governance" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> FIMS Governance</h2>
+<p>The <a href="https://drive.google.com/file/d/1gMDQbAhjM2E3nct4Hc6u-DT1Ta8bizLd/view?usp=sharing">FIMS Terms of Reference</a> describes the high level organization of the FIMS Project. Additional details on roles and responsibilities are provided here.</p>
+<div id="developers" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Developers</h3>
+<p>Developers are expected to adhere to the principles and guidelines outlined within this handbook, including the <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a>, <a href="contributor-guidelines.html#contributor-guidelines">Contributer Guidelines</a>, <a href="contributor-guidelines.html#style-guide">Style Guide</a>, <a href="contributor-guidelines.html#issue-tracking">Issue Tracking</a>, and <a href="test-case-template.html#test-case-template">Test Case Template</a>.</p>
+</div>
+<div id="c-developers" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> C++ developers</h3>
+<p>The C++ developer responsibilities include:</p>
+<ul>
+<li>Writing the module code.</li>
+<li>Creating documentation for the module and building the <a href="#documentation">documentation</a> in <code>doxygen</code> to ensure it is error-free.</li>
+<li>Implementing the suite of required test cases in <a href="test-case-template.html#test-case-template">Google Test</a> for the module.</li>
+<li>Ensuring the module runs through the FIMS Github actions.</li>
+</ul>
+<p>Once development of a bug fix or a new component of FIMS is complete, the developer should create a <a href="contributor-guidelines.html#pull-requests">pull request</a> according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch.</p>
+</div>
+<div id="r-developers" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> R developers</h3>
+<p>The R developers responsibilities include:</p>
+<ul>
+<li>Writing the <code>Rcpp</code> interface to the C++ code.</li>
+<li>Writing Roxygen documentation for any R functions</li>
+<li>Writing <code>testthat()</code> test cases for any R functionality</li>
+<li>Ensuring the code passes the <code>R CMD CHECK</code>, <code>styler</code>, and any other automated checks.</li>
+</ul>
+<p>Once these are complete, the developer should create a <a href="contributor-guidelines.html#pull-requests">pull request</a> according to the correct template and assign the issue tracking the completion of the bug fix and/or feature to the assigned review team. The developer must resolve any issues arising from the review and get confirmation from the review team before the pull request is merged into the upstream branch.</p>
+</div>
+<div id="reviewers" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Reviewers</h3>
+<p>The reviewers are responsible for adhering to documented guidelines in the <a href="contributor-guidelines.html#code-review">Code Review</a> section. Reviewers should confirm that the new code is able to build and run within their own development environment as well as via the Github actions on the repository. Reviewers should clearly document which components of the code need to be improved to be accurate, comply with project guidelines and style, or do not work, in the pull request thread so that the developer knows what they need to fix.</p>
+</div>
+<div id="project-lead" class="section level3" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Project Lead</h3>
+<p>The Project Lead is responsible for ensuring development and code review occur in a timely manner and according to project guidelines and standards. The Project Lead will triage issues and pull requests weekly and prompt involved parties to resolve outstanding issues and reviews. The Project Lead is also responsible for communicating project status via maintenance of the <a href="https://noaa-fims.github.io/status">status dashboard</a>.</p>
+</div>
+<div id="director-of-software-development" class="section level3" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Director Of Software Development</h3>
+<p>The Director of Software Development is responsible for the successful creation and delivery of the FIMS product to the end user by managing technical risks and opportunities; making key software design and implementation decisions with the development teams, scheduling of tasks, managing change requests, and guaranteeing quality of deliveries and educating the team on technical best practices.</p>
+</div>
+<div id="lead-of-test-development" class="section level3" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> Lead of Test Development</h3>
+<p>The Lead of Test Development is responsible for ensuring development of test objectives, test strategies and test plans of the FIMS product at subsequent milestones. The lead of Test Development will identify the tools for test reporting, management and automation, guide and monitor the design, implementation, and execution of test cases and test procedures.</p>
+</div>
+<div id="lead-of-research-development" class="section level3" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> Lead of Research &amp; Development</h3>
+<p>The Lead of Research &amp; Development oversees the investigations into stock assessment modeling best practices that spans the scope of computer science, statistical inference, and population and community modeling. Provides methods and guidelines for prioritizing features to be incorporated into subsequent milestones.</p>
+</div>
+<div id="code-of-conduct-enforcement" class="section level3" number="3.1.9">
+<h3><span class="header-section-number">3.1.9</span> Code of Conduct Enforcement</h3>
+<p>The Code of Conduct enforcer is responsible for responding to allegations of <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a> violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.</p>
+</div>
+<div id="external-collaborators" class="section level3" number="3.1.10">
+<h3><span class="header-section-number">3.1.10</span> External Collaborators</h3>
+<p>External collaborators interested in contributing to FIMS development are required to clone or fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to development. In general, forks are discouraged for development that is intended for integration into FIMS as it becomes difficult to keep track of multiple forks. If collaborators wish to use FIMS as a starting-point for a brand new project that they do not intend to merge back into the main branch, they can start a fork. However, if they intend to create a pull request, they should clone the repository and use a branch.</p>
+<p>Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.</p>
+</div>
+</div>
+<div id="fims-development-cycle" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> FIMS Development Cycle</h2>
+<p>FIMS is structured as an agile software development process with live development on the web and Github. The development process cycles through a planning, analysis, and design phase leading to the establishment of a developmental Milestone. The implementation phase is made up of several development sprints that meet the objectives of the established Milestone. This is followed by testing &amp; integration and a maintenance phase before the cycle starts over again. FIMS is currently in the implementation phase of Milestone 1. See <a href="m1-model-specification.html#m1-model-specification">M1 model specification</a> for a description of the model.</p>
+<div class="figure"><span style="display:block;" id="fig:devcycle"></span>
+<img src="dev%20cycle.png" alt="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1" width="75%" />
+<p class="caption">
+Figure 3.1: FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1
+</p>
+</div>
+<div id="issue-lifecycle" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Issue Lifecycle</h3>
+<p>FIMS development will adhere to a lifecycle for issues that makes it clear which issues can be resolved when.</p>
+<ul>
+<li>Creation — The event that marks the creation of an issue. An issue is not Active when it is Created. Issues that are opened are assigned to the FIMS Project Lead with the label: <code>needs-triage</code>. A issue is not considered Active until this label is removed.</li>
+<li>Activation — When the <code>needs-triage</code> label is removed and the issue is assigned to a developer, the issue becomes Active. This event happens once in the lifecycle of an issue. Activation usually is not undone but it can be undone if an issue needs additional discussion; in this case, the <code>needs-triage</code> label is applied again. An issue is Active from the time it is Activated until reaches Resolution.</li>
+<li>Response — This event only happens if the triage team deems an issue to a wont-fix or delayed. This requires communication with the party who opened the issue as to why this will not be addressed or will be moved to a later milestone.</li>
+<li>Resolution — The event that marks the resolution of an issue. This event happens once in the lifetime of an issue. This event can be undone if an issue transitions from a resolved status to an unresolved status, in which case the system considers the issue as never had been resolved. A resolution involves a code check-in and pull request, at which point someone must review and approve the pull request before the issue can transition states.</li>
+<li>In Review - The issue is “in review” after a code solution has been proposed and is being considered via a pull request. If this is approved, the issue can move into the “Closed” state.</li>
+<li>Closure—The event that marks the closure of an Issue. This even happens once in the lifetime of an issue. The issue can enter the Closed state from either the “In Review” or “Response” state.</li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:flowchart"></span>
+<img src="New%20Flowchart.png" alt="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed." width="75%" />
+<p class="caption">
+Figure 3.2: Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed.
+</p>
+</div>
+</div>
+<div id="feature-validation" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Feature Validation</h3>
+<p>FIMS uses a standardized set of criteria to prioritize and determine which features will be incorporated into the next development milestone.</p>
+<p>TODO: add criteria (to be defined) used to prioritize features for future milestones</p>
+</div>
+</div>
+<div id="github-collaborative-environment" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> GitHub Collaborative Environment</h2>
+<p>Communication is managed via the <a href="https://github.com/NOAA-FIMS">NOAA-FIMS Github</a> organization.</p>
+<ul>
+<li>New features requests and bugs should be submitted as issues to the <a href="https://github.com/NOAA-FIMS/FIMS/issues">FIMS development repo</a>. For guidelines on submitting issues, see <a href="contributor-guidelines.html#issue-tracking">Issue Tracking</a>.</li>
+<li><a href="https://github.com/orgs/NOAA-FIMS/projects/1">GitProjects</a> TODO: add description</li>
+<li><a href="https://github.com/orgs/NOAA-FIMS/teams">GitHub Teams</a> TODO: add description</li>
+<li>All contributers, both internal and external, are required to abide by the <a href="code-of-conduct.html#code-of-conduct">Code of Conduct</a></li>
+</ul>
+<div id="fims-branching-strategy" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> FIMS Branching Strategy</h3>
+<p>There are several <a href="https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/">branching strategies</a> available that will work within the Git environment and other version control systems. However, it is important to find a strategy that works well for both current and future contributors. Branching strategies provide guidance for how, when, and why branches are created and named, which also ties into necessary guidance surrounding issue tracking.</p>
+<p>The FIMS Project uses a <a href="https://trunkbaseddevelopment.com/">Scaled Trunk Based Development</a> branching strategy to make tasks easier without compromising quality.</p>
+<div class="figure">
+<img src="https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg" alt="" />
+<p class="caption">Scaled Trunk Based Development; image credit: <a href="https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/" class="uri">https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/</a></p>
+</div>
+<p>This strategy is required for continuous integration and facilitates knowledge of steps that must be taken prior to, during, and after making changes to the code, while still allowing anyone interested in the code to read it at any time. Additionally, trunk-based development captures the following needs without being overly complicated:</p>
+<ul>
+<li>Short-lived branches to minimize stale code and merge conflicts</li>
+<li>Fast release times, especially for bug fixes</li>
+<li>Ability to release bug fixes without new features</li>
+</ul>
+</div>
+<div id="branch-protection" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Branch Protection</h3>
+<p>Branch protection allows for searching branch names with <code>grep</code> functionality to apply merging rules (i.e., protection). This will be helpful to protect the main/trunk branch such that pull requests cannot be merged in prior to passing various checks or by individuals without the authority to do so.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="code-of-conduct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="m1-model-specification.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/02-FIMS-Project-Overview.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/02-FIMS-Project-Overview.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

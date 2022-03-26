@@ -4,10 +4,11 @@ External contributions and feedback are important to the development and future 
 
 ## Style Guide
 
-The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html). Google's R Style Guide is based off of the [tidyverse style guide](https://style.tidyverse.org/), with a few minor modifications to improve readability and portability. 
+The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html). Google's R Style Guide is based off of the [tidyverse style guide](https://style.tidyverse.org/), with a few minor modifications to improve readability and portability.
 
 ## Naming Conventions
-TODO: add section with link to naming conventions used in FIMS
+
+The FIMS implementation team has chosen to use `typename` instead of `class` when defining templates for consistency with the `TMB` package. While types may be defined in many ways, for consistency developers are asked to use `Type` instead of `T` to define `Type`s within FIMS.
 
 ## Coding Good Practices
 
@@ -29,6 +30,38 @@ Following good software development and coding practices simplifies collaboratio
 * Capitalize SQL queries so they are readily distinguishable from table/column names
 * Lint your code
 
+## Roadmap to FIMS File Structure and Organization
+
+### Files that go in `inst/include`
+
+#### common
+
+This folder includes files that are shared between the interface, the `TMB` objective function, and the mathematics and population dynamics components of the package.
+
+#### interface
+
+This includes the R interface files.
+
+#### population dynamics
+
+There are subfolders underneath this folder that correspond to the 
+different components of the population dynamics model. Each of the 
+modules will need a <module_name>.hpp file that only consists of 
+`#include` statements for the files under the subfolders.
+
+In the subfolder, there will need to be one file called 
+<module_name>_base.hpp that defines the base class for the module type.
+The base class should only need a constructor method and a number of
+methods (e.g. `evaluate()`) that are not specific to the type of 
+functions available under the subfolders but reused for all objects of 
+that class type.
+
+### Files that go in `src/`
+
+#### FIMS.cpp
+
+This is the `TMB` objective function.
+
 ## GitHub forking and cloning
 
 For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:
@@ -41,11 +74,11 @@ For contributors without write access to the FIMS repo, the repository must be f
 
 ## Issue Tracking
 
-Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development, 
-etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change 
-pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will 
-be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be 
-assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch 
+Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development,
+etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change
+pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will
+be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be
+assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch
 for version 3.3. This will minimize stale code and large merge conflicts.
 
 ### Issue Labels
@@ -57,11 +90,10 @@ Utilize labels on issues:
 
 ### Issue Templates
 
-There are two issue templates currently available in the FIMS repository.
-
-1. [Feature requests](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/feature_request.md): this template should be used to request new features or changes to features, such that the described functionality differs from what is currently in the development plan.
-
-2. [Bug reports](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/ISSUE_TEMPLATE/bug_report.md): this should be used to file bugs, which describe when the existing functionality differs from what is described in the development plan.
+Templates are available and stored within each repository to guide users through the process of submitting a new issue.
+Example templates for issues can be found on
+[GitHub Docs](http://www.docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
+Use these references and existing templates stored in .github/ISSUE_TEMPLATE for reference when creating a new template.
 
 ## Branch Workflow
 
@@ -71,11 +103,11 @@ This section details the workflow to create a branch in order to contribute to F
 
 The following suggestions will help ensure optimal performance of the trunk-based branching strategy:
 
-1. Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments. 
+1. Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments.
 2. Use [feature flags](https://martinfowler.com/articles/feature-toggles.html) to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).
 3. Delete branches after it is merged to the trunk; avoid repositories with a large number of "active" branches.
 4. Merge branches to the trunk frequently (e.g. **at least** every few days; tag as a release commit) to avoid merge conflicts.
-5. Use caching layers where appropriate to optimize build and test execution times. 
+5. Use caching layers where appropriate to optimize build and test execution times.
 
 ### Branch Naming Conventions
 
@@ -84,7 +116,7 @@ Example: **feat-issue-3-R-package-skeleton**
 1. When creating a branch, start the branch name with a group word:
 
   - **bug**: bug fix
-  
+
   - **feat**: new feature
 
 2. Use issue tracker ID in branch name
@@ -122,31 +154,42 @@ After which, changes can be pushed as:
 $ git push                 #pushes change to feature branch on gitHub
 ```
 
-4. When finished, create a pull request to the main branch following [pull request](#pull-request) guidelines
+4. When finished, create a pull request to the main branch following
+[pull request](#pull-request) guidelines
 
 
-## Code Development 
-Code is written following the [Style Guide](#style-guide), [FIMS Naming Conventions](#naming conventions), and [Coding Good Practices](#coding-good-practices)
+## Code Development
+Code is written following the [Style Guide](#style-guide),
+[FIMS Naming Conventions](#naming conventions), and
+[Coding Good Practices](#coding-good-practices)
 
 ### C++ contributor
 
-In addition to writing a C++ module, contributors are responsible for the following: 
+In addition to writing a C++ module, contributors are responsible for
+the following:
 
-* Creating documentation for the module and building the [documentation](#documentation) in `doxygen` to ensure it is error-free.
-* Implementing the suite of required test cases in [Google Test](#testing) for the module.
+* Creating documentation for the module and building the
+[documentation](#documentation) in `doxygen` to ensure it is error-free.
+* Implementing the suite of required test cases in
+[Google Test](#testing) for the module.
 * Ensuring the module runs through the FIMS Github actions.
 
 ### R Contributor
 
-In addition to writing an R script or function, contributors are responsible for the following:
+In addition to writing an R script or function, contributors are
+responsible for the following:
 
 * Writing Roxygen documentation for any R functions
 * Writing `testthat()` test cases for any R functionality
-* Ensuring the code passes the `R CMD CHECK`, `styler`, and any other automated checks.
+* Ensuring the code passes the `R CMD CHECK`, `styler`, and any other
+automated checks.
 
 ## Commit Messages
 
-FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:
+FIMS Project contributors should provide clear, descriptive commit
+messages to communicate to collaborators details about changes that have
+occurred and improve team efficiency. Good commit messages follow the
+following practices:
 
 * Include a short summary of the change for the subject/title (<50 characters)
 * Include a blank line in between the 'subject' and 'body'
@@ -168,7 +211,7 @@ FIMS Project contributors should provide clear, descriptive commit messages to c
 * Wrap to ~72 characters
 * Write in the imperative (e.g. "Fix bug", not "Fixed bug")
 * If necessary, separate paragraphs by blank lines
-* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed. 
+* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed.
 * If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
 
 
@@ -192,51 +235,154 @@ An additional helpful resource is [this guide to merge conflicts](https://github
 
 ## Pull Requests
 
-Once development of a module is complete, the contributor must initiate a pull request. Github will automatically start an independent [review](#code-review) process before the branch can be merged back into the main development branch. Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted in the [branching stratgegy](#branching-strategy) section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch. 
-Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) to create pull requests. Pull requests without this template attached will not be approved.
+Once development of a module is complete, the contributor must initiate
+a pull request. Github will automatically start an independent
+[review](#code-review) process before the branch can be merged back into
+the main development branch. Pull requests are used to identify changes
+pushed to development branches. Open pull requests allow the FIMS
+Development Team to discuss and review the changes, as well as add
+follow-up commits before merging to the main branch. As noted in the
+[branching stratgegy](#branching-strategy) section, branches, commits,
+and pull requests should be kept small to enable rapid review and reduce
+the chance of merge conflicts. Any pull requests for the FIMS Project
+must be fully tested and reviewed before being merged into the main
+branch.
+Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md)
+to create pull requests. Pull requests without this template attached
+will not be approved.
 
 ## Code Review
 
-Code review ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase and ensure there is a diverse team of knolwedgable collaborators to support the continued development and maintenance of FIMS. CI/CD requires rapid review of all new/modified code, so processes must be in place to support this pace. FIMS code review will utilize tools available via [GitHub](https://github.com/features/code-review), which allows reviewers to analyze code changes, provide inline comments, and view change histories.
+Code review ensures health and continuous improvement of the FIMS
+codebase, while simultaneously helping FIMS developers become familiar
+with the codebase and ensure there is a diverse team of knolwedgable
+collaborators to support the continued development and maintenance of
+FIMS. CI/CD requires rapid review of all new/modified code, so processes
+must be in place to support this pace. FIMS code review will utilize
+tools available via [GitHub](https://github.com/features/code-review),
+which allows reviewers to analyze code changes, provide inline comments,
+and view change histories.
 
 [The Google code review developer guide](https://google.github.io/eng-practices/review/) provides a useful set of guidelines for both reviewers and code authors.
 
 ### Assigning Reviewers
 
-Reviewers for the FIMS Project may be assigned in two different ways: 
+Reviewers for the FIMS Project may be assigned in two different ways:
 
-1. A specific member of the FIMS Development Team is requested to review a pull request, based on their specific expertise.
-2. Code review assignments are automatically assigned using the [GitHub load balance routing algorithm](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team); this approach tries to ensure that each team member reviews an equal number of pull request in any 30 day period.
+1. A specific member of the FIMS Development Team is requested to review
+a pull request, based on their specific expertise. 2. Code review
+assignments are automatically assigned using the
+[GitHub load balance routing algorithm](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team);
+this approach tries to ensure that each team member reviews an equal
+number of pull request in any 30 day period.
 
-Team members should keep their status in Github current (see ["Setting a status"](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status) for more information). Reviews will not be auto-assigned to "Busy" team members. 
+Team members should keep their status in Github current
+(see ["Setting a
+status"](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)
+for more information). Reviews will not be auto-assigned to "Busy" team
+members.
 
-If a review has been assigned to you and you don't feel like you have the expertise to address it properly, please respond directly to the code owner immediately so a different reviewer can be found promptly. 
+If a review has been assigned to you and you don't feel like you have
+the expertise to address it properly, please respond directly to the
+code owner immediately so a different reviewer can be found promptly.
 
 ### Automated Testing
 
-Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see [Testing](#testing).
+Automated testing provides an initial layer of quality assurance and
+lets reviewers know that the code meets certain standards. For more on
+FIMS testing, see [Testing](#testing).
 
 ### Review Checklist
 
-When a pull request is submitted to the FIMS repository, a reviewer checklist will be automatically added as a comment. Reviewers should use this checklist to ensure their review is thorough.
+When a pull request is submitted to the FIMS repository, a reviewer 
+checklist will be automatically added as a comment. Reviewers should 
+use this checklist to ensure their review is thorough.
+While automated testing can assure the code structure and logic pass
+quality checks, human reviewers are required to evaluate things like
+functionality, readability, etc. Reviewers should evaluate the code
+critically and provide comment/feedback on the following items:
+
+**Readability**
+
+* Is the code easy to understand?
+* Are there any parts of the code that are confusing?
+* Is the data flow easy to understand?
+* Is there any code commented out?
+* Does the code include any unclear names
+* Does the code include any errors, repeats, or incomplete sections?
+
+**Functionality**
+
+* Does the code function as it is expected to?
+* How will the change impact other parts of the system?
+* Are there any unhandled edge cases?
+* Are there other code improvements possible?
+
+**Design**
+
+* Are files organized intuitively?
+* Are components divided up in a sensible way?
+* Does the review include too many changes? Would the code change better
+be broken into more focused parts?
+* Will the change be easy to maintain?
+* Does the code follow object-oriented design principles?
+* Is the code in the proper location?
+
+**Security**
+
+* Does using this code open the software to possible security violations
+or vulnerabilities?
+* Is the correct encryption used?
+
+**Performance**
+
+* Are there ways to improve on the code's performance?
+* Is there any complex logic that could be simplified?
+* Could any of the code be replaced with built-in functions?
+* Will this change have any impacts on system performance?
+* Is there any debugging code that could be removed?
+* Are there any optimizations that could be removed and still maintain
+system performance?
+
+**Documentation**
+
+* Are there comments available to explain the code?
+* Is the README file complete and current? Does it adequately describe
+the project/changes?
+
+**Testing**
+
+* Is the code testable?
+* Is the automated testing adequate?
+* Have dependencies been appropriately tested?
+* Does automated testing cover the code exchange adequately?
+* Could the test structure be improved?
 
 ### Review Good Practices
 
 Good reviews require good review habits. Try to follow these suggestions:
 
-* Review in short sessions (< 60 minutes) to maintain focus and attention to detail
+* Review in short sessions (< 60 minutes) to maintain focus and
+attention to detail
 * Don't try to review more than 400 lines of code in a single session
 * Provide constructive and supportive feedback
 * Ask open-ended questions and offer alternatives or possible workarounds
 * Avoid strong/opinionated statements
 * Applaud good solutions
 * Don't say "you"
-* Be clear about which questions/comments are non-blocking or unimportant; likewise, be explicit when approving a change or requesting follow-up
-* Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)
-* Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html) to settle any style arguments
+* Be clear about which questions/comments are non-blocking or
+unimportant; likewise, be explicit when approving a change or requesting
+follow-up
+* Aim to minimize the number of nitpicks (if there are a lot, suggest a
+team-level resolution)
+* Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html)
+to settle any style arguments
 
 ## Clean up local branches
-If a code reviewer approves the pull request, FIMS workflow managers will merge the feature/bug branch back into the main repository and delete the branch. At this stage, the contributor should also delete the branch from the local repository using the following commands:
+If a code reviewer approves the pull request, FIMS workflow managers
+will merge the feature/bug branch back into the main repository and
+delete the branch. At this stage, the contributor should also delete the
+branch from the local repository using the following commands:
 
 ```{r, eval = FALSE}
 $ git checkout main           //switches back to main branch

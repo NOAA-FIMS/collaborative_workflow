@@ -40,14 +40,16 @@ The `index.Rmd` file is required, and is also your first book chapter.
 ## Edit and preview book changes
 
 When you want to make a change to this book, follow the below steps:
-1. create a new feature branch either from the issue requesting the 
+1. Create a new feature branch either from the issue requesting the 
 change or from the repo on Github.
 2. Pull the remote branch into your local branch and make your changes
 to the .Rmd files locally.
 3. When you are done editing, do not render the book locally, but push 
 your changes to the remote feature branch.
 4. Pushing to the remote feature branch initiates a Github action that
- creates a .zip file you should download and open to preview the 
- rendered .html content.
-5. When you are satisfied with the changes, submit a pull request to 
-merge the feature branch into `main`
+creates a .zip file you should download and unzip. Open the file 
+index.html in a browser to preview the rendered .html content. If the
+action fails, this means the bookdown could not be rendered. Use the
+Github action log to determine what the problem is.
+5. When the book can be rendered and you are satisfied with the changes, 
+submit a pull request to merge the feature branch into `main`.
