@@ -1,6 +1,8 @@
 # User guide
 
-This section details installation guides for [users](#user-installation-guide). See the [developer installation guide](#developer-installation-guide).
+This section details installation guides for
+[users](#user-installation-guide). See the [developer installation
+guide](#developer-installation-guide).
 
 ## User Installation Guide
 This section describes how to install the FIMS R package and dependencies.
