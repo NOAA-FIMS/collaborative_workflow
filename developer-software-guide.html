@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-23" />
+<meta name="date" content="2022-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement<span></span></a></li>
 <li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle<span></span></a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software<span></span></a><ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle<span></span></a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation<span></span></a></li>
 </ul></li>
@@ -310,11 +310,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="developer-software-guide" class="section level1 hasAnchor">
 <h1><span class="header-section-number">Chapter 6</span> Developer Software Guide<a href="developer-software-guide.html#developer-software-guide" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This section describes the software you will need to contribute to this project. This is in addition to the software dependencies described in the <a href="user-guide.html#user-installation-guide">user installation guide</a> which you should ensure are installed first.</p>
+<p>This section describes the software you will
+need to contribute to this project. This is in addition to the software
+dependencies described in the <a href="user-guide.html#user-installation-guide">user installation
+guide</a> which you should ensure are installed
+first.</p>
 <div id="git" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.0.1</span> git<a href="developer-software-guide.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You will need git installed locally, and you may prefer to use an additional git <a href="https://git-scm.com/downloads/guis">GUI client</a> such as GitKraken or Github Desktop. If your preferred git client is the RStudio IDE, you can configure Git and RStudio integration following these <a href="https://happygitwithr.com/rstudio-git-github.html">instructions</a>.</p>
-<p>To install git, please follow the instructions on <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">this page</a> for your operating system. You can find the downloads for your operating system on the left-hand navigation bar on that page.</p>
+<p>You will need git installed locally, and you may prefer to use an
+additional git <a href="https://git-scm.com/downloads/guis">GUI client</a> such as
+GitKraken or Github Desktop. If your preferred git client is the RStudio
+IDE, you can configure Git and RStudio integration following these
+<a href="https://happygitwithr.com/rstudio-git-github.html">instructions</a>.</p>
+<p>To install git, please follow the instructions on <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">this
+page</a> for
+your operating system. You can find the downloads for your operating
+system on the left-hand navigation bar on that page.</p>
 </div>
 <div id="development-environment" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.0.2</span> Development environment<a href="developer-software-guide.html#development-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -331,22 +342,23 @@ prefer that.</p>
 as part of the bundle. To ensure the C++ compiler is on your path, open
 a command prompt and type <code>gcc</code>. If you get the below message, you are
 all set:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="developer-software-guide.html#cb6-1"></a>gcc<span class="op">:</span><span class="st"> </span>fatal error<span class="op">:</span><span class="st"> </span>no input files</span>
-<span id="cb6-2"><a href="developer-software-guide.html#cb6-2"></a>compilation terminated.</span></code></pre></div>
+<p><code>{R eval = FALSE} gcc: fatal error: no input files compilation terminated.</code></p>
 <p>If not, you will need to check that the compiler is on the path. The
 easiest way to do so is by creating a text file .Renviron in your
 Documents folder which contains the following line:</p>
 <pre><code>PATH=&quot;${RTOOLS40_HOME}\usr\bin;${PATH}&quot;</code></pre>
 <p>You can do this with a text editor, or from <code>R</code> like so (note that in
 <code>R</code> code you need to escape backslashes):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="developer-software-guide.html#cb8-1"></a><span class="kw">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="dt">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p>Restart R, and verify that make can be found, which should show the path to your Rtools installation.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="developer-software-guide.html#cb9-1"></a><span class="kw">Sys.which</span>(<span class="st">&quot;make&quot;</span>)</span>
-<span id="cb9-2"><a href="developer-software-guide.html#cb9-2"></a><span class="co">## &quot;C:\\rtools40\\usr\\bin\\make.exe&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="developer-software-guide.html#cb7-1"></a><span class="kw">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="dt">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>Restart R, and verify that make can be found, which should show the path
+to your Rtools installation.</p>
+<p><code>{r eval=FALSE} Sys.which("make") ## "C:\\rtools40\\usr\\bin\\make.exe"</code></p>
 </div>
 <div id="google-test" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.0.4</span> Google test<a href="developer-software-guide.html#google-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You will need to install <code>CMake</code> and <code>ninja</code> and validate you have the correct setup by following the steps outlined in the <a href="testing.html#testing">test case template</a>.</p>
+<p>You will need to install <code>CMake</code> and <code>ninja</code> and validate you have the
+correct setup by following the steps outlined in the <a href="testing.html#testing">test case
+template</a>.</p>
 
 </div>
 </div>

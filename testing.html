@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-23" />
+<meta name="date" content="2022-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement<span></span></a></li>
 <li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle<span></span></a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software<span></span></a><ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle<span></span></a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation<span></span></a></li>
 </ul></li>
@@ -310,11 +310,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="testing" class="section level1 hasAnchor">
 <h1><span class="header-section-number">Chapter 10</span> Testing<a href="testing.html#testing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This section describes testing for FIMS. FIMS uses Google Test for C++ unit testing and testthat for R unit testing.</p>
+<p>This section describes testing for FIMS. FIMS uses Google Test for C++
+unit testing and testthat for R unit testing.</p>
 <div id="introduction" class="section level2 hasAnchor">
 <h2><span class="header-section-number">10.1</span> Introduction<a href="testing.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>FIMS testing framework will include different types of testing to make sure that changes to FIMS code are working as expected. The unit and functional tests will be developed during the initial development stage when writing individual functions or modules. After completing development of multiple modules, integration testing will be developed to verify that different modules work well together. Checks will be added in the software to catch user input errors when conducting run-time testing. Regression testing and platform compatibility testing will be executed before pre-releasing FIMS. Beta-testing will be used to gather feedback from users (i.e., members of FIMS implementation team and other users) during the pre-release stage. After releasing the first version of FIMS, the development team will go back to the beginning of the testing cycle and write unit tests when a new feature needs to be implemented. One-off testing will be used for testing new features and fixing user-reported bugs when maintaining FIMS. More details of each type of test can be found in the Glossary section.</p>
-<p>FIMS will use GoogleTest to build a C++ unit testing framework and R testthat to build an R testing framework. FIMS will use Google Benchmark to measure the real time and CPU time used for running the produced binaries.</p>
+<p>FIMS testing framework will include different types of testing to make
+sure that changes to FIMS code are working as expected. The unit and
+functional tests will be developed during the initial development stage
+when writing individual functions or modules. After completing
+development of multiple modules, integration testing will be developed
+to verify that different modules work well together. Checks will be
+added in the software to catch user input errors when conducting
+run-time testing. Regression testing and platform compatibility testing
+will be executed before pre-releasing FIMS. Beta-testing will be used to
+gather feedback from users (i.e., members of FIMS implementation team
+and other users) during the pre-release stage. After releasing the first
+version of FIMS, the development team will go back to the beginning of
+the testing cycle and write unit tests when a new feature needs to be
+implemented. One-off testing will be used for testing new features and
+fixing user-reported bugs when maintaining FIMS. More details of each
+type of test can be found in the Glossary section.</p>
+<p>FIMS will use GoogleTest to build a C++ unit testing framework and R
+testthat to build an R testing framework. FIMS will use Google Benchmark
+to measure the real time and CPU time used for running the produced
+binaries.</p>
 </div>
 <div id="c-unit-testing-and-benchmarking" class="section level2 hasAnchor">
 <h2><span class="header-section-number">10.2</span> C++ unit testing and benchmarking<a href="testing.html#c-unit-testing-and-benchmarking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -323,256 +342,326 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To use GoogleTest, you will need:</p>
 <ul>
 <li><p>A compatible operating system (e.g. Windows, masOS, or Linux).</p></li>
-<li><p>A C++ compiler that supports at least C++ 11 standard or newer (e.g. gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+ provides clang 5.0. For R users, <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">rtools4</a> includes gcc.</p></li>
-<li><p>A build system for building the testing project. <a href="https://cmake.org/"><span class="ul">CMake</span></a> and a compatible build tool such as <a href="https://ninja-build.org/"><span class="ul">Ninja</span></a> are approved by NMFS HQ.</p></li>
+<li><p>A C++ compiler that supports at least C++ 11 standard or newer (e.g.
+gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+
+provides clang 5.0. For R users,
+<a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">rtools4</a>
+includes gcc.</p></li>
+<li><p>A build system for building the testing project.
+<a href="https://cmake.org/"><span class="ul">CMake</span></a> and a compatible build tool such as
+<a href="https://ninja-build.org/"><span class="ul">Ninja</span></a> are approved by NMFS HQ.</p></li>
 </ul>
 </div>
 <div id="setup-for-windows-users" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.2</span> Setup for Windows users<a href="testing.html#setup-for-windows-users" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li><p>Download <a href="https://github.com/Kitware/CMake/releases"><span class="ul">CMake 3.22.1 (cmake-3.22.1-windows-x86_64.zip)</span></a> and put the file folder to <code>Documents\Apps</code> or other preferred folder.</p></li>
-<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2 (ninja-win.zip)</span></a> and put the application to <code>Documents\Apps</code> or other preferred folder.</p></li>
-<li><p>Open your Command Prompt and type <code>cmake</code>. If you see details of usage, cmake is already in your PATH. If not, follow the the instructions below to add cmake to your PATH.</p></li>
-<li><p>In the same command prompt, type <code>ninja</code>. If you see a message that starts with <code>ninja:</code>, even if it is an error about not finding build.ninja, this means that ninja is already in your PATH. If ninja is not found, follow the instructions below to add ninja to your path.</p></li>
+<li><p>Download <a href="https://github.com/Kitware/CMake/releases"><span class="ul">CMake 3.22.1
+(cmake-3.22.1-windows-x86_64.zip)</span></a>
+and put the file folder to <code>Documents\Apps</code> or other preferred folder.</p></li>
+<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2
+(ninja-win.zip)</span></a>
+and put the application to <code>Documents\Apps</code> or other preferred folder.</p></li>
+<li><p>Open your Command Prompt and type <code>cmake</code>. If you see details of
+usage, cmake is already in your PATH. If not, follow the the
+instructions below to add cmake to your PATH.</p></li>
+<li><p>In the same command prompt, type <code>ninja</code>. If you see a message that
+starts with <code>ninja:</code>, even if it is an error about not finding
+build.ninja, this means that ninja is already in your PATH. If ninja is
+not found, follow the instructions below to add ninja to your path.</p></li>
 </ol>
 </div>
 <div id="adding-cmake-and-ninja-to-your-path-on-windows" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.3</span> Adding cmake and ninja to your PATH on Windows<a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><p>In the Windows search bar next to the start menu, search for <code>Edit environment variables for your account</code> and open the <code>Environment Variables</code> window.</p></li>
-<li><p>Click <code>Edit...</code> under the <code>User variables for firstname.lastname</code> section.</p></li>
-<li><p>Click <code>New</code>, add path to cmake, if needed (e.g., <code>cmake-3.22.1-windows-x86_64\bin</code> or <code>C:\Program Files\CMake\bin</code> are common paths), and click <code>OK</code>. Click <code>New</code>, add path to the location of the Ninja executable, if needed (e.g., <code>Documents\Apps</code>), and click <code>OK</code>.</p></li>
-<li><p>You may need to restart your computer to update the envirionmental variables.</p></li>
-<li><p>Note that in certain Fisheries centers, NOAA employees do not have administrative privileges enabled to edit the local environmental path. In this situation it is necessary to create a ticket with IT to add cmake and ninja to your PATH on Windows.</p></li>
+<li><p>Click <code>Edit...</code> under the <code>User variables for firstname.lastname</code>
+section.</p></li>
+<li><p>Click <code>New</code>, add path to cmake, if needed (e.g.,
+<code>cmake-3.22.1-windows-x86_64\bin</code> or <code>C:\Program Files\CMake\bin</code> are
+common paths), and click <code>OK</code>. Click <code>New</code>, add path to the location of
+the Ninja executable, if needed (e.g., <code>Documents\Apps</code>), and click
+<code>OK</code>.</p></li>
+<li><p>You may need to restart your computer to update the envirionmental
+variables.</p></li>
+<li><p>Note that in certain Fisheries centers, NOAA employees do not have
+administrative privileges enabled to edit the local environmental path.
+In this situation it is necessary to create a ticket with IT to add
+cmake and ninja to your PATH on Windows.</p></li>
 </ol>
 </div>
 <div id="setup-for-linux-and-mac-users" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.4</span> Setup for Linux and Mac users<a href="testing.html#setup-for-linux-and-mac-users" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li><p>See <a href="https://cmake.org/install"><span class="ul">CMake installation instructions</span></a> for installing CMake on other platforms. Add cmake to your PATH.</p></li>
-<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2 (ninja-win.zip)</span></a> and put the binary in your preferred location. Add Ninja to your PATH.</p></li>
-<li><p>Open a command window and type <code>cmake</code>. If you see usage, cmake is found. If not, cmake may still need to be added to your PATH.</p></li>
-<li><p>Open a command window and type <code>ninja</code>. If you see a message starting with <code>ninja:</code>, ninja is found. Otherwise, try changing the permissions or adding to your path.</p></li>
+<li><p>See <a href="https://cmake.org/install"><span class="ul">CMake installation
+instructions</span></a> for installing CMake on
+other platforms. Add cmake to your PATH.</p></li>
+<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2
+(ninja-win.zip)</span></a>
+and put the binary in your preferred location. Add Ninja to your PATH.</p></li>
+<li><p>Open a command window and type <code>cmake</code>. If you see usage, cmake is
+found. If not, cmake may still need to be added to your PATH.</p></li>
+<li><p>Open a command window and type <code>ninja</code>. If you see a message starting
+with <code>ninja:</code>, ninja is found. Otherwise, try changing the permissions
+or adding to your path.</p></li>
 </ol>
 </div>
 <div id="how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.5</span> How to edit your PATH and change file permissions for Linux and Mac<a href="testing.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To check if the binary is in your path, assuming the binary is named ninja:
-open a Terminal window and type <code>which ninja</code> and hit enter.
-If you get nothing returned, then ninja is not in your path.
-The easiest way to fix this is to move the ninja binary
-to a folder that’s already in your path.
-To find existing path folders type <code>echo $PATH</code>
-in the terminal and hit enter.
-Now move the ninja binary to one of these folders.
-For example, in a Terminal window type:</p>
+<p>To check if the binary is in your path, assuming the binary is named
+ninja: open a Terminal window and type <code>which ninja</code> and hit enter. If
+you get nothing returned, then ninja is not in your path. The easiest
+way to fix this is to move the ninja binary to a folder that’s already
+in your path. To find existing path folders type <code>echo $PATH</code> in the
+terminal and hit enter. Now move the ninja binary to one of these
+folders. For example, in a Terminal window type:</p>
 <pre><code>sudo cp ~/Downloads/ninja /usr/bin/</code></pre>
-<p>To move ninja from the downloads folder to /usr/bin. You will need to use <code>sudo</code> and enter your password after to have permission to move a file to a folder like <code>/usr/bin/</code>.</p>
-<p>Also note that you may need to add executable permissions to the ninja binary after downloading it.
-You can do that by switching to the folder where you placed the binary
-(<code>cd /usr/bin/</code> if you followed the instructions above),
-and running the command:</p>
+<p>To move ninja from the downloads folder to /usr/bin. You will need to
+use <code>sudo</code> and enter your password after to have permission to move a
+file to a folder like <code>/usr/bin/</code>.</p>
+<p>Also note that you may need to add executable permissions to the ninja
+binary after downloading it. You can do that by switching to the folder
+where you placed the binary (<code>cd /usr/bin/</code> if you followed the
+instructions above), and running the command:</p>
 <pre><code>sudo chmod +x ninja</code></pre>
 <p>Check that ninja is now executable and in your path:</p>
 <pre><code>which ninja</code></pre>
-<p>If you followed the instructions above, you will see the following line returned:</p>
+<p>If you followed the instructions above, you will see the following line
+returned:</p>
 <pre><code>/usr/bin/ninja</code></pre>
 </div>
 <div id="set-up-fims-testing-project" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.6</span> Set up FIMS testing project<a href="testing.html#set-up-fims-testing-project" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Clone the <a href="https://github.com/NOAA-FIMS/FIMS">FIMS repository</a> on the command line using:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="testing.html#cb26-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span>
-<span id="cb26-2"><a href="testing.html#cb26-2"></a><span class="bu">cd</span> FIMS</span></code></pre></div>
-<p>There is a file called CMakeLists.txt in the top level of the directory. This file instructs Cmake on how to create the build files, including setting up Google Test.</p>
-<p>The Google Test testing code is in the tests/gtest subdirectory. Within this subdirectory is a file called CMakeLists.txt. This file contains additional specifications for CMake, in particular instructions on how to register the individual tests.</p>
+<p>Clone the <a href="https://github.com/NOAA-FIMS/FIMS">FIMS repository</a> on the
+command line using:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="testing.html#cb24-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span>
+<span id="cb24-2"><a href="testing.html#cb24-2"></a><span class="bu">cd</span> FIMS</span></code></pre></div>
+<p>There is a file called CMakeLists.txt in the top level of the directory.
+This file instructs Cmake on how to create the build files, including
+setting up Google Test.</p>
+<p>The Google Test testing code is in the tests/gtest subdirectory. Within
+this subdirectory is a file called CMakeLists.txt. This file contains
+additional specifications for CMake, in particular instructions on how
+to register the individual tests.</p>
 </div>
 <div id="build-and-run-the-tests" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.7</span> Build and run the tests<a href="testing.html#build-and-run-the-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Three commands on the command line are needed to build the tests:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="testing.html#cb27-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
-<p>This generates the build system using Ninja as the generator. Note there is now a subfolder called build.</p>
-<p>Next, in the same command window, use cmake to build in the build subfolder:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="testing.html#cb28-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="testing.html#cb25-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
+<p>This generates the build system using Ninja as the generator. Note there
+is now a subfolder called build.</p>
+<p>Next, in the same command window, use cmake to build in the build
+subfolder:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="testing.html#cb26-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
 <p>Finally, run the C++ tests:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="testing.html#cb29-1"></a><span class="ex">ctest</span> --test-dir build</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="testing.html#cb27-1"></a><span class="ex">ctest</span> --test-dir build</span></code></pre></div>
 <p>The output from running the tests should look something like:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="testing.html#cb30-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
-<span id="cb30-2"><a href="testing.html#cb30-2"></a><span class="ex">Test</span> project C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
-<span id="cb30-3"><a href="testing.html#cb30-3"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
-<span id="cb30-4"><a href="testing.html#cb30-4"></a><span class="ex">1/5</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
-<span id="cb30-5"><a href="testing.html#cb30-5"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
-<span id="cb30-6"><a href="testing.html#cb30-6"></a><span class="ex">2/5</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
-<span id="cb30-7"><a href="testing.html#cb30-7"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
-<span id="cb30-8"><a href="testing.html#cb30-8"></a><span class="ex">3/5</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
-<span id="cb30-9"><a href="testing.html#cb30-9"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
-<span id="cb30-10"><a href="testing.html#cb30-10"></a><span class="ex">4/5</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
-<span id="cb30-11"><a href="testing.html#cb30-11"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
-<span id="cb30-12"><a href="testing.html#cb30-12"></a><span class="ex">5/5</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
-<span id="cb30-13"><a href="testing.html#cb30-13"></a></span>
-<span id="cb30-14"><a href="testing.html#cb30-14"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 5</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="testing.html#cb28-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
+<span id="cb28-2"><a href="testing.html#cb28-2"></a><span class="ex">Test</span> project C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
+<span id="cb28-3"><a href="testing.html#cb28-3"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
+<span id="cb28-4"><a href="testing.html#cb28-4"></a><span class="ex">1/5</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
+<span id="cb28-5"><a href="testing.html#cb28-5"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
+<span id="cb28-6"><a href="testing.html#cb28-6"></a><span class="ex">2/5</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
+<span id="cb28-7"><a href="testing.html#cb28-7"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
+<span id="cb28-8"><a href="testing.html#cb28-8"></a><span class="ex">3/5</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
+<span id="cb28-9"><a href="testing.html#cb28-9"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
+<span id="cb28-10"><a href="testing.html#cb28-10"></a><span class="ex">4/5</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
+<span id="cb28-11"><a href="testing.html#cb28-11"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
+<span id="cb28-12"><a href="testing.html#cb28-12"></a><span class="ex">5/5</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
+<span id="cb28-13"><a href="testing.html#cb28-13"></a></span>
+<span id="cb28-14"><a href="testing.html#cb28-14"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 5</span></code></pre></div>
 </div>
 <div id="adding-a-c-test" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.8</span> Adding a C++ test<a href="testing.html#adding-a-c-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Create a file dlognorm.hpp within the src subfolder that contains a simple function:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb31-1"><a href="testing.html#cb31-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
-<span id="cb31-2"><a href="testing.html#cb31-2"></a></span>
-<span id="cb31-3"><a href="testing.html#cb31-3"></a>template&lt;class Type&gt;</span>
-<span id="cb31-4"><a href="testing.html#cb31-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
-<span id="cb31-5"><a href="testing.html#cb31-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
-<span id="cb31-6"><a href="testing.html#cb31-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
-<span id="cb31-7"><a href="testing.html#cb31-7"></a>  <span class="cf">return</span> logres; </span>
-<span id="cb31-8"><a href="testing.html#cb31-8"></a>}</span></code></pre></div>
-<p>Then, create a test file dlognorm-unit.cpp in the tests/gtest subfolder that has a test suite for the dlognorm function:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb32-1"><a href="testing.html#cb32-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb32-2"><a href="testing.html#cb32-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
-<span id="cb32-3"><a href="testing.html#cb32-3"></a></span>
-<span id="cb32-4"><a href="testing.html#cb32-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb32-5"><a href="testing.html#cb32-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
-<span id="cb32-6"><a href="testing.html#cb32-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
-<span id="cb32-7"><a href="testing.html#cb32-7"></a></span>
-<span id="cb32-8"><a href="testing.html#cb32-8"></a>namespace {</span>
-<span id="cb32-9"><a href="testing.html#cb32-9"></a></span>
-<span id="cb32-10"><a href="testing.html#cb32-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
-<span id="cb32-11"><a href="testing.html#cb32-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
-<span id="cb32-12"><a href="testing.html#cb32-12"></a>  </span>
-<span id="cb32-13"><a href="testing.html#cb32-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
-<span id="cb32-14"><a href="testing.html#cb32-14"></a>    </span>
-<span id="cb32-15"><a href="testing.html#cb32-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> ); </span>
-<span id="cb32-16"><a href="testing.html#cb32-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> ); </span>
-<span id="cb32-17"><a href="testing.html#cb32-17"></a>    </span>
-<span id="cb32-18"><a href="testing.html#cb32-18"></a>  }</span>
-<span id="cb32-19"><a href="testing.html#cb32-19"></a>  </span>
-<span id="cb32-20"><a href="testing.html#cb32-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
-<span id="cb32-21"><a href="testing.html#cb32-21"></a>  </span>
-<span id="cb32-22"><a href="testing.html#cb32-22"></a>  TEST(dlognormTest, IntInput) {</span>
-<span id="cb32-23"><a href="testing.html#cb32-23"></a>    </span>
-<span id="cb32-24"><a href="testing.html#cb32-24"></a>    EXPECT_NEAR( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> );</span>
-<span id="cb32-25"><a href="testing.html#cb32-25"></a>    </span>
-<span id="cb32-26"><a href="testing.html#cb32-26"></a>  }</span>
-<span id="cb32-27"><a href="testing.html#cb32-27"></a>  </span>
-<span id="cb32-28"><a href="testing.html#cb32-28"></a>}</span></code></pre></div>
-<p><code>EXPECT_NEAR(val1, val2, absolute_error)</code> verifies that the difference between <code>val1</code> and <code>val2</code> does not exceed the absolute error bound <code>absolute_error</code>. <code>EXPECT_NE(val1, val2)</code> verifies that <code>val1</code> is not equal to <code>val2</code>. Please see GoogleTest <a href="https://google.github.io/googletest/reference/assertions.html">assertions reference</a> for more <code>EXPECT_</code> macros.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb29-1"><a href="testing.html#cb29-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
+<span id="cb29-2"><a href="testing.html#cb29-2"></a></span>
+<span id="cb29-3"><a href="testing.html#cb29-3"></a>template&lt;class Type&gt;</span>
+<span id="cb29-4"><a href="testing.html#cb29-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
+<span id="cb29-5"><a href="testing.html#cb29-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
+<span id="cb29-6"><a href="testing.html#cb29-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
+<span id="cb29-7"><a href="testing.html#cb29-7"></a>  <span class="cf">return</span> logres;</span>
+<span id="cb29-8"><a href="testing.html#cb29-8"></a>}</span></code></pre></div>
+<p>Then, create a test file dlognorm-unit.cpp in the tests/gtest subfolder
+that has a test suite for the dlognorm function:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="testing.html#cb30-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb30-2"><a href="testing.html#cb30-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
+<span id="cb30-3"><a href="testing.html#cb30-3"></a></span>
+<span id="cb30-4"><a href="testing.html#cb30-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb30-5"><a href="testing.html#cb30-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
+<span id="cb30-6"><a href="testing.html#cb30-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
+<span id="cb30-7"><a href="testing.html#cb30-7"></a></span>
+<span id="cb30-8"><a href="testing.html#cb30-8"></a>namespace {</span>
+<span id="cb30-9"><a href="testing.html#cb30-9"></a></span>
+<span id="cb30-10"><a href="testing.html#cb30-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
+<span id="cb30-11"><a href="testing.html#cb30-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
+<span id="cb30-12"><a href="testing.html#cb30-12"></a></span>
+<span id="cb30-13"><a href="testing.html#cb30-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
+<span id="cb30-14"><a href="testing.html#cb30-14"></a></span>
+<span id="cb30-15"><a href="testing.html#cb30-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> );</span>
+<span id="cb30-16"><a href="testing.html#cb30-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> );</span>
+<span id="cb30-17"><a href="testing.html#cb30-17"></a></span>
+<span id="cb30-18"><a href="testing.html#cb30-18"></a>  }</span>
+<span id="cb30-19"><a href="testing.html#cb30-19"></a></span>
+<span id="cb30-20"><a href="testing.html#cb30-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
+<span id="cb30-21"><a href="testing.html#cb30-21"></a></span>
+<span id="cb30-22"><a href="testing.html#cb30-22"></a>  TEST(dlognormTest, IntInput) {</span>
+<span id="cb30-23"><a href="testing.html#cb30-23"></a></span>
+<span id="cb30-24"><a href="testing.html#cb30-24"></a>    EXPECT_NEAR( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> );</span>
+<span id="cb30-25"><a href="testing.html#cb30-25"></a></span>
+<span id="cb30-26"><a href="testing.html#cb30-26"></a>  }</span>
+<span id="cb30-27"><a href="testing.html#cb30-27"></a></span>
+<span id="cb30-28"><a href="testing.html#cb30-28"></a>}</span></code></pre></div>
+<p><code>EXPECT_NEAR(val1, val2, absolute_error)</code> verifies that the difference
+between <code>val1</code> and <code>val2</code> does not exceed the absolute error bound
+<code>absolute_error</code>. <code>EXPECT_NE(val1, val2)</code> verifies that <code>val1</code> is not
+equal to <code>val2</code>. Please see GoogleTest <a href="https://google.github.io/googletest/reference/assertions.html">assertions
+reference</a>
+for more <code>EXPECT_</code> macros.</p>
 </div>
 <div id="add-tests-to-testsgtestcmakelists.txt-and-run-a-binary" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.9</span> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary<a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To build the code, add the following contents to the end of the <code>tests/gtest/CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb33-1"><a href="testing.html#cb33-1"></a></span>
-<span id="cb33-2"><a href="testing.html#cb33-2"></a><span class="kw">add_executable</span>(dlognorm_test</span>
-<span id="cb33-3"><a href="testing.html#cb33-3"></a>  dlognorm-unit.cpp</span>
-<span id="cb33-4"><a href="testing.html#cb33-4"></a>)</span>
-<span id="cb33-5"><a href="testing.html#cb33-5"></a></span>
-<span id="cb33-6"><a href="testing.html#cb33-6"></a><span class="kw">target_include_directories</span>(dlognorm_test </span>
-<span id="cb33-7"><a href="testing.html#cb33-7"></a>  <span class="ot">PUBLIC</span></span>
-<span id="cb33-8"><a href="testing.html#cb33-8"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb33-9"><a href="testing.html#cb33-9"></a>)</span>
-<span id="cb33-10"><a href="testing.html#cb33-10"></a></span>
-<span id="cb33-11"><a href="testing.html#cb33-11"></a><span class="kw">target_link_libraries</span>(dlognorm_test</span>
-<span id="cb33-12"><a href="testing.html#cb33-12"></a>  gtest_main</span>
-<span id="cb33-13"><a href="testing.html#cb33-13"></a>)</span>
-<span id="cb33-14"><a href="testing.html#cb33-14"></a></span>
-<span id="cb33-15"><a href="testing.html#cb33-15"></a><span class="kw">include</span>(GoogleTest)</span>
-<span id="cb33-16"><a href="testing.html#cb33-16"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
-<p>The above configuration enables testing in CMake, declares the C++ test binary you want to build (dlognorm_test), and links it to GoogleTest (gtest_main). Now you can build and run your test. Open a command window in the FIMS repo (if not already opened) and type:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="testing.html#cb34-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb31-1"><a href="testing.html#cb31-1"></a></span>
+<span id="cb31-2"><a href="testing.html#cb31-2"></a><span class="kw">add_executable</span>(dlognorm_test</span>
+<span id="cb31-3"><a href="testing.html#cb31-3"></a>  dlognorm-unit.cpp</span>
+<span id="cb31-4"><a href="testing.html#cb31-4"></a>)</span>
+<span id="cb31-5"><a href="testing.html#cb31-5"></a></span>
+<span id="cb31-6"><a href="testing.html#cb31-6"></a><span class="kw">target_include_directories</span>(dlognorm_test</span>
+<span id="cb31-7"><a href="testing.html#cb31-7"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb31-8"><a href="testing.html#cb31-8"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb31-9"><a href="testing.html#cb31-9"></a>)</span>
+<span id="cb31-10"><a href="testing.html#cb31-10"></a></span>
+<span id="cb31-11"><a href="testing.html#cb31-11"></a><span class="kw">target_link_libraries</span>(dlognorm_test</span>
+<span id="cb31-12"><a href="testing.html#cb31-12"></a>  gtest_main</span>
+<span id="cb31-13"><a href="testing.html#cb31-13"></a>)</span>
+<span id="cb31-14"><a href="testing.html#cb31-14"></a></span>
+<span id="cb31-15"><a href="testing.html#cb31-15"></a><span class="kw">include</span>(GoogleTest)</span>
+<span id="cb31-16"><a href="testing.html#cb31-16"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
+<p>The above configuration enables testing in CMake, declares the C++ test
+binary you want to build (dlognorm_test), and links it to GoogleTest
+(gtest_main). Now you can build and run your test. Open a command window
+in the FIMS repo (if not already opened) and type:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="testing.html#cb32-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
 <p>This generates the build system using Ninja as the generator.</p>
 <p>Next, in the same command window, use cmake to build:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="testing.html#cb35-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="testing.html#cb33-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
 <p>Finally, run the tests in the same command window:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="testing.html#cb36-1"></a><span class="ex">ctest</span> --test-dir build</span></code></pre></div>
-<p>The output when running <code>ctest</code> might look like this. Note there is a failing test:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="testing.html#cb37-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
-<span id="cb37-2"><a href="testing.html#cb37-2"></a><span class="ex">Test</span> project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
-<span id="cb37-3"><a href="testing.html#cb37-3"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
-<span id="cb37-4"><a href="testing.html#cb37-4"></a><span class="ex">1/7</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
-<span id="cb37-5"><a href="testing.html#cb37-5"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
-<span id="cb37-6"><a href="testing.html#cb37-6"></a><span class="ex">2/7</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
-<span id="cb37-7"><a href="testing.html#cb37-7"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
-<span id="cb37-8"><a href="testing.html#cb37-8"></a><span class="ex">3/7</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
-<span id="cb37-9"><a href="testing.html#cb37-9"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
-<span id="cb37-10"><a href="testing.html#cb37-10"></a><span class="ex">4/7</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
-<span id="cb37-11"><a href="testing.html#cb37-11"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
-<span id="cb37-12"><a href="testing.html#cb37-12"></a><span class="ex">5/7</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
-<span id="cb37-13"><a href="testing.html#cb37-13"></a>    <span class="ex">Start</span> 6: dlognormTest.DoubleInput</span>
-<span id="cb37-14"><a href="testing.html#cb37-14"></a><span class="ex">6/7</span> Test <span class="co">#6: dlognormTest.DoubleInput .........   Passed    0.04 sec</span></span>
-<span id="cb37-15"><a href="testing.html#cb37-15"></a>    <span class="ex">Start</span> 7: dlognormTest.IntInput</span>
-<span id="cb37-16"><a href="testing.html#cb37-16"></a><span class="ex">7/7</span> Test <span class="co">#7: dlognormTest.IntInput ............***Failed    0.04 sec</span></span>
-<span id="cb37-17"><a href="testing.html#cb37-17"></a></span>
-<span id="cb37-18"><a href="testing.html#cb37-18"></a><span class="ex">86%</span> tests passed, 1 tests failed out of 7</span>
-<span id="cb37-19"><a href="testing.html#cb37-19"></a></span>
-<span id="cb37-20"><a href="testing.html#cb37-20"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.28</span> sec</span>
-<span id="cb37-21"><a href="testing.html#cb37-21"></a></span>
-<span id="cb37-22"><a href="testing.html#cb37-22"></a><span class="ex">The</span> following tests FAILED:</span>
-<span id="cb37-23"><a href="testing.html#cb37-23"></a>          <span class="ex">7</span> - dlognormTest.IntInput (Failed)</span>
-<span id="cb37-24"><a href="testing.html#cb37-24"></a><span class="ex">Errors</span> while running CTest</span>
-<span id="cb37-25"><a href="testing.html#cb37-25"></a><span class="ex">Output</span> from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log</span>
-<span id="cb37-26"><a href="testing.html#cb37-26"></a><span class="ex">Use</span> <span class="st">&quot;--rerun-failed --output-on-failure&quot;</span> to re-run the failed cases verbosely.</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="testing.html#cb34-1"></a><span class="ex">ctest</span> --test-dir build</span></code></pre></div>
+<p>The output when running <code>ctest</code> might look like this. Note there is a
+failing test:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="testing.html#cb35-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
+<span id="cb35-2"><a href="testing.html#cb35-2"></a><span class="ex">Test</span> project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
+<span id="cb35-3"><a href="testing.html#cb35-3"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
+<span id="cb35-4"><a href="testing.html#cb35-4"></a><span class="ex">1/7</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
+<span id="cb35-5"><a href="testing.html#cb35-5"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
+<span id="cb35-6"><a href="testing.html#cb35-6"></a><span class="ex">2/7</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
+<span id="cb35-7"><a href="testing.html#cb35-7"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
+<span id="cb35-8"><a href="testing.html#cb35-8"></a><span class="ex">3/7</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
+<span id="cb35-9"><a href="testing.html#cb35-9"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
+<span id="cb35-10"><a href="testing.html#cb35-10"></a><span class="ex">4/7</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
+<span id="cb35-11"><a href="testing.html#cb35-11"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
+<span id="cb35-12"><a href="testing.html#cb35-12"></a><span class="ex">5/7</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
+<span id="cb35-13"><a href="testing.html#cb35-13"></a>    <span class="ex">Start</span> 6: dlognormTest.DoubleInput</span>
+<span id="cb35-14"><a href="testing.html#cb35-14"></a><span class="ex">6/7</span> Test <span class="co">#6: dlognormTest.DoubleInput .........   Passed    0.04 sec</span></span>
+<span id="cb35-15"><a href="testing.html#cb35-15"></a>    <span class="ex">Start</span> 7: dlognormTest.IntInput</span>
+<span id="cb35-16"><a href="testing.html#cb35-16"></a><span class="ex">7/7</span> Test <span class="co">#7: dlognormTest.IntInput ............***Failed    0.04 sec</span></span>
+<span id="cb35-17"><a href="testing.html#cb35-17"></a></span>
+<span id="cb35-18"><a href="testing.html#cb35-18"></a><span class="ex">86%</span> tests passed, 1 tests failed out of 7</span>
+<span id="cb35-19"><a href="testing.html#cb35-19"></a></span>
+<span id="cb35-20"><a href="testing.html#cb35-20"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.28</span> sec</span>
+<span id="cb35-21"><a href="testing.html#cb35-21"></a></span>
+<span id="cb35-22"><a href="testing.html#cb35-22"></a><span class="ex">The</span> following tests FAILED:</span>
+<span id="cb35-23"><a href="testing.html#cb35-23"></a>          <span class="ex">7</span> - dlognormTest.IntInput (Failed)</span>
+<span id="cb35-24"><a href="testing.html#cb35-24"></a><span class="ex">Errors</span> while running CTest</span>
+<span id="cb35-25"><a href="testing.html#cb35-25"></a><span class="ex">Output</span> from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log</span>
+<span id="cb35-26"><a href="testing.html#cb35-26"></a><span class="ex">Use</span> <span class="st">&quot;--rerun-failed --output-on-failure&quot;</span> to re-run the failed cases verbosely.</span></code></pre></div>
 </div>
 <div id="benchmark-example" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.10</span> Benchmark example<a href="testing.html#benchmark-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Google Benchmark measures the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create a benchmark file dlognorm_benchmark.cpp and put it in the tests/gtest subfolder:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb38-1"><a href="testing.html#cb38-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb38-2"><a href="testing.html#cb38-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
-<span id="cb38-3"><a href="testing.html#cb38-3"></a></span>
-<span id="cb38-4"><a href="testing.html#cb38-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
-<span id="cb38-5"><a href="testing.html#cb38-5"></a>{</span>
-<span id="cb38-6"><a href="testing.html#cb38-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb38-7"><a href="testing.html#cb38-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
-<span id="cb38-8"><a href="testing.html#cb38-8"></a>}</span>
-<span id="cb38-9"><a href="testing.html#cb38-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
-<p>This file runs the dlognorm function and uses BENCHMARK to see how long it takes.</p>
-<p>A more comprehensive feature overview of benchmarking is available in the <a href="https://github.com/google/benchmark">Google Benchmark GitHub repository</a>.</p>
+<p>Google Benchmark measures the real time and CPU time used for running
+the produced binary. We will continue using the dlognorm.hpp example.
+Create a benchmark file dlognorm_benchmark.cpp and put it in the
+tests/gtest subfolder:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb36-1"><a href="testing.html#cb36-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb36-2"><a href="testing.html#cb36-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
+<span id="cb36-3"><a href="testing.html#cb36-3"></a></span>
+<span id="cb36-4"><a href="testing.html#cb36-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
+<span id="cb36-5"><a href="testing.html#cb36-5"></a>{</span>
+<span id="cb36-6"><a href="testing.html#cb36-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb36-7"><a href="testing.html#cb36-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
+<span id="cb36-8"><a href="testing.html#cb36-8"></a>}</span>
+<span id="cb36-9"><a href="testing.html#cb36-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
+<p>This file runs the dlognorm function and uses BENCHMARK to see how long
+it takes.</p>
+<p>A more comprehensive feature overview of benchmarking is available in
+the <a href="https://github.com/google/benchmark">Google Benchmark GitHub repository</a>.</p>
 </div>
 <div id="add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.11</span> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark<a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To build the code, add the following contents to the end of your <code>tests/gtest/CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb39-1"><a href="testing.html#cb39-1"></a></span>
-<span id="cb39-2"><a href="testing.html#cb39-2"></a><span class="fu">FetchContent_Declare</span>(</span>
-<span id="cb39-3"><a href="testing.html#cb39-3"></a>  googlebenchmark</span>
-<span id="cb39-4"><a href="testing.html#cb39-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
-<span id="cb39-5"><a href="testing.html#cb39-5"></a>)</span>
-<span id="cb39-6"><a href="testing.html#cb39-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
-<span id="cb39-7"><a href="testing.html#cb39-7"></a></span>
-<span id="cb39-8"><a href="testing.html#cb39-8"></a><span class="kw">add_executable</span>(dlognorm_benchmark</span>
-<span id="cb39-9"><a href="testing.html#cb39-9"></a>  dlognorm_benchmark.cpp</span>
-<span id="cb39-10"><a href="testing.html#cb39-10"></a>)</span>
-<span id="cb39-11"><a href="testing.html#cb39-11"></a></span>
-<span id="cb39-12"><a href="testing.html#cb39-12"></a><span class="kw">target_include_directories</span>(dlognorm_benchmark </span>
-<span id="cb39-13"><a href="testing.html#cb39-13"></a>  <span class="ot">PUBLIC</span></span>
-<span id="cb39-14"><a href="testing.html#cb39-14"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb39-15"><a href="testing.html#cb39-15"></a>)</span>
-<span id="cb39-16"><a href="testing.html#cb39-16"></a></span>
-<span id="cb39-17"><a href="testing.html#cb39-17"></a><span class="kw">target_link_libraries</span>(dlognorm_benchmark</span>
-<span id="cb39-18"><a href="testing.html#cb39-18"></a>  benchmark_main</span>
-<span id="cb39-19"><a href="testing.html#cb39-19"></a>)</span></code></pre></div>
-<p>To run the benchmark, open the command line open in the FIMS repo (if not already open) and run cmake, sending output to the build subfolder:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="testing.html#cb40-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
+<p>To build the code, add the following contents to the end of your
+<code>tests/gtest/CMakeLists.txt</code> file:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb37-1"><a href="testing.html#cb37-1"></a></span>
+<span id="cb37-2"><a href="testing.html#cb37-2"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb37-3"><a href="testing.html#cb37-3"></a>  googlebenchmark</span>
+<span id="cb37-4"><a href="testing.html#cb37-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
+<span id="cb37-5"><a href="testing.html#cb37-5"></a>)</span>
+<span id="cb37-6"><a href="testing.html#cb37-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
+<span id="cb37-7"><a href="testing.html#cb37-7"></a></span>
+<span id="cb37-8"><a href="testing.html#cb37-8"></a><span class="kw">add_executable</span>(dlognorm_benchmark</span>
+<span id="cb37-9"><a href="testing.html#cb37-9"></a>  dlognorm_benchmark.cpp</span>
+<span id="cb37-10"><a href="testing.html#cb37-10"></a>)</span>
+<span id="cb37-11"><a href="testing.html#cb37-11"></a></span>
+<span id="cb37-12"><a href="testing.html#cb37-12"></a><span class="kw">target_include_directories</span>(dlognorm_benchmark</span>
+<span id="cb37-13"><a href="testing.html#cb37-13"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb37-14"><a href="testing.html#cb37-14"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb37-15"><a href="testing.html#cb37-15"></a>)</span>
+<span id="cb37-16"><a href="testing.html#cb37-16"></a></span>
+<span id="cb37-17"><a href="testing.html#cb37-17"></a><span class="kw">target_link_libraries</span>(dlognorm_benchmark</span>
+<span id="cb37-18"><a href="testing.html#cb37-18"></a>  benchmark_main</span>
+<span id="cb37-19"><a href="testing.html#cb37-19"></a>)</span></code></pre></div>
+<p>To run the benchmark, open the command line open in the FIMS repo (if
+not already open) and run cmake, sending output to the build subfolder:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="testing.html#cb38-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
 <p>Then run the dlognorm_benchmark executable created:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="testing.html#cb41-1"></a><span class="ex">build/tests/gtest/dlognorm_benchmark.exe</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="testing.html#cb39-1"></a><span class="ex">build/tests/gtest/dlognorm_benchmark.exe</span></span></code></pre></div>
 <p>The output from <code>dlognorm_benchmark.exe</code> might look like this:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="testing.html#cb42-1"></a><span class="ex">Run</span> on (8 X 2112 MHz CPU s)</span>
-<span id="cb42-2"><a href="testing.html#cb42-2"></a><span class="ex">CPU</span> Caches:</span>
-<span id="cb42-3"><a href="testing.html#cb42-3"></a>  <span class="ex">L1</span> Data 32 KiB (x4)</span>
-<span id="cb42-4"><a href="testing.html#cb42-4"></a><span class="ex">L1</span> Instruction 32 KiB (x4)</span>
-<span id="cb42-5"><a href="testing.html#cb42-5"></a><span class="ex">L2</span> Unified 256 KiB (x4)</span>
-<span id="cb42-6"><a href="testing.html#cb42-6"></a><span class="ex">L3</span> Unified 8192 KiB (x1)</span>
-<span id="cb42-7"><a href="testing.html#cb42-7"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
-<span id="cb42-8"><a href="testing.html#cb42-8"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb42-9"><a href="testing.html#cb42-9"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
-<span id="cb42-10"><a href="testing.html#cb42-10"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb42-11"><a href="testing.html#cb42-11"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="testing.html#cb40-1"></a><span class="ex">Run</span> on (8 X 2112 MHz CPU s)</span>
+<span id="cb40-2"><a href="testing.html#cb40-2"></a><span class="ex">CPU</span> Caches:</span>
+<span id="cb40-3"><a href="testing.html#cb40-3"></a>  <span class="ex">L1</span> Data 32 KiB (x4)</span>
+<span id="cb40-4"><a href="testing.html#cb40-4"></a><span class="ex">L1</span> Instruction 32 KiB (x4)</span>
+<span id="cb40-5"><a href="testing.html#cb40-5"></a><span class="ex">L2</span> Unified 256 KiB (x4)</span>
+<span id="cb40-6"><a href="testing.html#cb40-6"></a><span class="ex">L3</span> Unified 8192 KiB (x1)</span>
+<span id="cb40-7"><a href="testing.html#cb40-7"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
+<span id="cb40-8"><a href="testing.html#cb40-8"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb40-9"><a href="testing.html#cb40-9"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
+<span id="cb40-10"><a href="testing.html#cb40-10"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb40-11"><a href="testing.html#cb40-11"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
 <div id="remove-files-produced-by-this-example" class="section level4 hasAnchor">
 <h4><span class="header-section-number">10.2.11.1</span> Remove files produced by this example<a href="testing.html#remove-files-produced-by-this-example" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>If you don’t want to keep any of the files produced by this example and want to completely clear any uncommitted changes and files from the git repo, use</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="testing.html#cb43-1"></a><span class="fu">git</span> restore .</span></code></pre></div>
-<p>to get rid of un committed changes in git tracked files. To get rid of all untracked files in the repo, use:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="testing.html#cb44-1"></a><span class="fu">git</span> clean -fd</span></code></pre></div>
+<p>If you don’t want to keep any of the files produced by this example and
+want to completely clear any uncommitted changes and files from the git
+repo, use</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="testing.html#cb41-1"></a><span class="fu">git</span> restore .</span></code></pre></div>
+<p>to get rid of un committed changes in git tracked files. To get rid of
+all untracked files in the repo, use:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="testing.html#cb42-1"></a><span class="fu">git</span> clean -fd</span></code></pre></div>
 </div>
 </div>
 <div id="clean-up-after-running-c-tests" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.12</span> Clean up after running C++ tests<a href="testing.html#clean-up-after-running-c-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="clean-up-cmake-generated-files-and-re-run-tests" class="section level4 hasAnchor">
 <h4><span class="header-section-number">10.2.12.1</span> Clean up CMake-generated files and re-run tests<a href="testing.html#clean-up-cmake-generated-files-and-re-run-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in the <code>build</code> subfolder. The example above demonstrates an “out-of-source” build which puts generated files in a completely separate directory, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need to delete files that differ between builds. If you still would like to delete CMake-generated files, just delete the <code>build</code> folder, and then build and run tests by repeating the commands below. The files from the <code>build</code> folder are included in the FIMS repository’s .gitignore file, so should <em>not</em> be pushed to the FIMS repository.</p>
+<p>After running the examples above, the build generates files (i.e., the
+source code, libraries, and executables) and saves the files in the
+<code>build</code> subfolder. The example above demonstrates an “out-of-source”
+build which puts generated files in a completely separate directory, so
+that the source tree is unchanged after running tests. Using a separate
+source and build tree reduces the need to delete files that differ
+between builds. If you still would like to delete CMake-generated files,
+just delete the <code>build</code> folder, and then build and run tests by
+repeating the commands below. The files from the <code>build</code> folder are
+included in the FIMS repository’s .gitignore file, so should <em>not</em> be
+pushed to the FIMS repository.</p>
 <!-- KD: I didn't think this was necessary, but left just in case others disagreed. -->
 <!-- #### Example of rebuilding without deleting the build subfolder -->
 <!-- To build and run tests without navigating to the `build` folder, you can use the commands below: -->
@@ -584,112 +673,140 @@ and running the command:</p>
 </div>
 <div id="clean-up-individual-tests" class="section level4 hasAnchor">
 <h4><span class="header-section-number">10.2.12.2</span> Clean up individual tests<a href="testing.html#clean-up-individual-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For simple C++ functions like the examples above, we do not need to clean up the tests. Clean up is only necessary in a few situations.</p>
+<p>For simple C++ functions like the examples above, we do not need to
+clean up the tests. Clean up is only necessary in a few situations.</p>
 <ul>
-<li>If memory for an object was allocated during testing and not deallocated - The object needs to be deleted (e.g., <code>delete object</code>).</li>
-<li>If you used a test fixture from GoogleTest to use the same data configuration for multiple tests, <code>TearDown()</code> can be used to clean up the test and then the test fixture will be deleted. Please see more details from <a href="https://google.github.io/googletest/primer.html#same-data-multiple-tests">GoogleTest user’s guide</a>.</li>
+<li>If memory for an object was allocated during testing and not
+deallocated - The object needs to be deleted (e.g., <code>delete object</code>).</li>
+<li>If you used a test fixture from GoogleTest to use the same data
+configuration for multiple tests, <code>TearDown()</code> can be used to clean up
+the test and then the test fixture will be deleted. Please see more
+details from <a href="https://google.github.io/googletest/primer.html#same-data-multiple-tests">GoogleTest user’s
+guide</a>.</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="templates-for-googletest-testing" class="section level2 hasAnchor">
 <h2><span class="header-section-number">10.3</span> Templates for GoogleTest testing<a href="testing.html#templates-for-googletest-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section includes templates for creating unit tests and benchmarks. This is
-the code that would go into the .cpp files in tests/gtest.</p>
+<p>This section includes templates for creating unit tests and benchmarks.
+This is the code that would go into the .cpp files in tests/gtest.</p>
 <div id="unit-test-template" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.3.1</span> Unit test template<a href="testing.html#unit-test-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb45"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb45-1"><a href="testing.html#cb45-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb45-2"><a href="testing.html#cb45-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
-<span id="cb45-3"><a href="testing.html#cb45-3"></a></span>
-<span id="cb45-4"><a href="testing.html#cb45-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb45-5"><a href="testing.html#cb45-5"></a></span>
-<span id="cb45-6"><a href="testing.html#cb45-6"></a>namespace {</span>
-<span id="cb45-7"><a href="testing.html#cb45-7"></a></span>
-<span id="cb45-8"><a href="testing.html#cb45-8"></a>  <span class="co">// Description of Test 1 </span></span>
-<span id="cb45-9"><a href="testing.html#cb45-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
-<span id="cb45-10"><a href="testing.html#cb45-10"></a>    </span>
-<span id="cb45-11"><a href="testing.html#cb45-11"></a>    ... test body ... </span>
-<span id="cb45-12"><a href="testing.html#cb45-12"></a>    </span>
-<span id="cb45-13"><a href="testing.html#cb45-13"></a>  }</span>
-<span id="cb45-14"><a href="testing.html#cb45-14"></a>  </span>
-<span id="cb45-15"><a href="testing.html#cb45-15"></a>  <span class="co">// Description of Test 2</span></span>
-<span id="cb45-16"><a href="testing.html#cb45-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
-<span id="cb45-17"><a href="testing.html#cb45-17"></a>    </span>
-<span id="cb45-18"><a href="testing.html#cb45-18"></a>    ... test body ...</span>
-<span id="cb45-19"><a href="testing.html#cb45-19"></a>    </span>
-<span id="cb45-20"><a href="testing.html#cb45-20"></a>  }</span>
-<span id="cb45-21"><a href="testing.html#cb45-21"></a>  </span>
-<span id="cb45-22"><a href="testing.html#cb45-22"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb43-1"><a href="testing.html#cb43-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb43-2"><a href="testing.html#cb43-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
+<span id="cb43-3"><a href="testing.html#cb43-3"></a></span>
+<span id="cb43-4"><a href="testing.html#cb43-4"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb43-5"><a href="testing.html#cb43-5"></a></span>
+<span id="cb43-6"><a href="testing.html#cb43-6"></a>namespace {</span>
+<span id="cb43-7"><a href="testing.html#cb43-7"></a></span>
+<span id="cb43-8"><a href="testing.html#cb43-8"></a>  <span class="co">// Description of Test 1</span></span>
+<span id="cb43-9"><a href="testing.html#cb43-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
+<span id="cb43-10"><a href="testing.html#cb43-10"></a></span>
+<span id="cb43-11"><a href="testing.html#cb43-11"></a>    ... test body ...</span>
+<span id="cb43-12"><a href="testing.html#cb43-12"></a></span>
+<span id="cb43-13"><a href="testing.html#cb43-13"></a>  }</span>
+<span id="cb43-14"><a href="testing.html#cb43-14"></a></span>
+<span id="cb43-15"><a href="testing.html#cb43-15"></a>  <span class="co">// Description of Test 2</span></span>
+<span id="cb43-16"><a href="testing.html#cb43-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
+<span id="cb43-17"><a href="testing.html#cb43-17"></a></span>
+<span id="cb43-18"><a href="testing.html#cb43-18"></a>    ... test body ...</span>
+<span id="cb43-19"><a href="testing.html#cb43-19"></a></span>
+<span id="cb43-20"><a href="testing.html#cb43-20"></a>  }</span>
+<span id="cb43-21"><a href="testing.html#cb43-21"></a></span>
+<span id="cb43-22"><a href="testing.html#cb43-22"></a>}</span></code></pre></div>
 </div>
 <div id="benchmark-template" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.3.2</span> Benchmark template<a href="testing.html#benchmark-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb46-1"><a href="testing.html#cb46-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb46-2"><a href="testing.html#cb46-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
-<span id="cb46-3"><a href="testing.html#cb46-3"></a></span>
-<span id="cb46-4"><a href="testing.html#cb46-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
-<span id="cb46-5"><a href="testing.html#cb46-5"></a>{</span>
-<span id="cb46-6"><a href="testing.html#cb46-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb46-7"><a href="testing.html#cb46-7"></a>    <span class="co">// This code gets timed</span></span>
-<span id="cb46-8"><a href="testing.html#cb46-8"></a>    Function()</span>
-<span id="cb46-9"><a href="testing.html#cb46-9"></a>}</span>
-<span id="cb46-10"><a href="testing.html#cb46-10"></a></span>
-<span id="cb46-11"><a href="testing.html#cb46-11"></a><span class="co">// Register the function as a benchmark</span></span>
-<span id="cb46-12"><a href="testing.html#cb46-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb44-1"><a href="testing.html#cb44-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb44-2"><a href="testing.html#cb44-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
+<span id="cb44-3"><a href="testing.html#cb44-3"></a></span>
+<span id="cb44-4"><a href="testing.html#cb44-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
+<span id="cb44-5"><a href="testing.html#cb44-5"></a>{</span>
+<span id="cb44-6"><a href="testing.html#cb44-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
+<span id="cb44-7"><a href="testing.html#cb44-7"></a>    <span class="co">// This code gets timed</span></span>
+<span id="cb44-8"><a href="testing.html#cb44-8"></a>    Function()</span>
+<span id="cb44-9"><a href="testing.html#cb44-9"></a>}</span>
+<span id="cb44-10"><a href="testing.html#cb44-10"></a></span>
+<span id="cb44-11"><a href="testing.html#cb44-11"></a><span class="co">// Register the function as a benchmark</span></span>
+<span id="cb44-12"><a href="testing.html#cb44-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
 </div>
 <div id="testsgtestcmakelists.txt-template" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.3.3</span> tests/gtest/CMakeLists.txt template<a href="testing.html#testsgtestcmakelists.txt-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>These lines are added each time a new test suite (all tests in a file) is added:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb47-1"><a href="testing.html#cb47-1"></a><span class="co">// Add test suite 1</span></span>
-<span id="cb47-2"><a href="testing.html#cb47-2"></a>add_executable(TestSuiteName1</span>
-<span id="cb47-3"><a href="testing.html#cb47-3"></a>  test1.cpp</span>
-<span id="cb47-4"><a href="testing.html#cb47-4"></a>)</span>
-<span id="cb47-5"><a href="testing.html#cb47-5"></a></span>
-<span id="cb47-6"><a href="testing.html#cb47-6"></a>target_link_libraries(TestSuiteName1</span>
-<span id="cb47-7"><a href="testing.html#cb47-7"></a>  gtest_main</span>
-<span id="cb47-8"><a href="testing.html#cb47-8"></a>)</span>
-<span id="cb47-9"><a href="testing.html#cb47-9"></a></span>
-<span id="cb47-10"><a href="testing.html#cb47-10"></a>gtest_discover_tests(TestSuiteName1)</span></code></pre></div>
+<p>These lines are added each time a new test suite (all tests in a file)
+is added:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb45-1"><a href="testing.html#cb45-1"></a><span class="co">// Add test suite 1</span></span>
+<span id="cb45-2"><a href="testing.html#cb45-2"></a>add_executable(TestSuiteName1</span>
+<span id="cb45-3"><a href="testing.html#cb45-3"></a>  test1.cpp</span>
+<span id="cb45-4"><a href="testing.html#cb45-4"></a>)</span>
+<span id="cb45-5"><a href="testing.html#cb45-5"></a></span>
+<span id="cb45-6"><a href="testing.html#cb45-6"></a>target_link_libraries(TestSuiteName1</span>
+<span id="cb45-7"><a href="testing.html#cb45-7"></a>  gtest_main</span>
+<span id="cb45-8"><a href="testing.html#cb45-8"></a>)</span>
+<span id="cb45-9"><a href="testing.html#cb45-9"></a></span>
+<span id="cb45-10"><a href="testing.html#cb45-10"></a>gtest_discover_tests(TestSuiteName1)</span></code></pre></div>
 <p>These lines are added each time a new benchmark file is added:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb48-1"><a href="testing.html#cb48-1"></a><span class="co">// Add benchmark 1</span></span>
-<span id="cb48-2"><a href="testing.html#cb48-2"></a>add_executable(benchmark1</span>
-<span id="cb48-3"><a href="testing.html#cb48-3"></a>  benchmark1.cpp</span>
-<span id="cb48-4"><a href="testing.html#cb48-4"></a>)</span>
-<span id="cb48-5"><a href="testing.html#cb48-5"></a></span>
-<span id="cb48-6"><a href="testing.html#cb48-6"></a>target_link_libraries(benchmark1</span>
-<span id="cb48-7"><a href="testing.html#cb48-7"></a>  benchmark_main</span>
-<span id="cb48-8"><a href="testing.html#cb48-8"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb46-1"><a href="testing.html#cb46-1"></a><span class="co">// Add benchmark 1</span></span>
+<span id="cb46-2"><a href="testing.html#cb46-2"></a>add_executable(benchmark1</span>
+<span id="cb46-3"><a href="testing.html#cb46-3"></a>  benchmark1.cpp</span>
+<span id="cb46-4"><a href="testing.html#cb46-4"></a>)</span>
+<span id="cb46-5"><a href="testing.html#cb46-5"></a></span>
+<span id="cb46-6"><a href="testing.html#cb46-6"></a>target_link_libraries(benchmark1</span>
+<span id="cb46-7"><a href="testing.html#cb46-7"></a>  benchmark_main</span>
+<span id="cb46-8"><a href="testing.html#cb46-8"></a>)</span></code></pre></div>
 </div>
 </div>
 <div id="r-testing" class="section level2 hasAnchor">
 <h2><span class="header-section-number">10.4</span> R testing<a href="testing.html#r-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>FIMS uses {testthat} for writing R tests. You can install the packages following the instructions on <a href="https://testthat.r-lib.org/">testthat website</a>. If you are not familiar with testthat, the <a href="https://r-pkgs.org/tests.html">testing chapter</a> in R packages gives a good overview of testing workflow, along with structure explanation and concrete examples.</p>
+<p>FIMS uses {testthat} for writing R tests. You can install the packages
+following the instructions on <a href="https://testthat.r-lib.org/">testthat website</a>.
+If you are not familiar with testthat, the
+<a href="https://r-pkgs.org/tests.html">testing chapter</a> in R
+packages gives a good overview of testing workflow, along with structure
+explanation and concrete examples.</p>
 <div id="r-testthat-template" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.4.1</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The format for an individual testthat test is is:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="testing.html#cb49-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
-<span id="cb49-2"><a href="testing.html#cb49-2"></a>  </span>
-<span id="cb49-3"><a href="testing.html#cb49-3"></a>  ...test body...</span>
-<span id="cb49-4"><a href="testing.html#cb49-4"></a>  </span>
-<span id="cb49-5"><a href="testing.html#cb49-5"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="testing.html#cb47-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb47-2"><a href="testing.html#cb47-2"></a></span>
+<span id="cb47-3"><a href="testing.html#cb47-3"></a>  ...test body...</span>
+<span id="cb47-4"><a href="testing.html#cb47-4"></a></span>
+<span id="cb47-5"><a href="testing.html#cb47-5"></a>})</span></code></pre></div>
 <p>Multiple testthat tests can be put in the same file.</p>
 </div>
 </div>
 <div id="test-case-documentation-template-and-examples" class="section level2 hasAnchor">
 <h2><span class="header-section-number">10.5</span> Test case documentation template and examples<a href="testing.html#test-case-documentation-template-and-examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A testing plan must be developed while designing (i.e., before coding) new FIMS features. This testing plan is documented using the test case documentation template below.</p>
+<p>A testing plan must be developed while designing (i.e., before coding)
+new FIMS features. This testing plan is documented using the test case
+documentation template below.</p>
 <div id="test-case-documentation-template" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.5.1</span> Test case documentation template<a href="testing.html#test-case-documentation-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Individual functional or integration test cases will be designed following the template below.</p>
+<p>Individual functional or integration test cases will be designed
+following the template below.</p>
 <ul>
 <li><p><em>Test ID</em>. Create a meaningful name for the test case.</p></li>
-<li><p><em>Features to be tested</em>. Provide a brief statement of test objectives and description of the features to be tested. (Identify the test items following the <a href="https://docs.google.com/document/d/1iSEhJqcpSD269QdABeDE4aBZGqGcBrIrLnS7eMkSYv0/edit?usp=sharing"><span class="ul">FIMS software design specification document</span></a> and identify all features that will not be tested and the rationale for exclusion)</p></li>
-<li><p><em>Approach</em>. Specify the approach that will ensure that the features are adequately tested and specify which type of test is used in this case.</p></li>
-<li><p><em>Evaluation criteria</em>. Provide a list of expected results and acceptance criteria.</p>
+<li><p><em>Features to be tested</em>. Provide a brief statement of test
+objectives and description of the features to be tested. (Identify the
+test items following the <a href="https://docs.google.com/document/d/1iSEhJqcpSD269QdABeDE4aBZGqGcBrIrLnS7eMkSYv0/edit?usp=sharing"><span class="ul">FIMS software design specification
+document</span></a>
+and identify all features that will not be tested and the rationale for
+exclusion)</p></li>
+<li><p><em>Approach</em>. Specify the approach that will ensure that the features
+are adequately tested and specify which type of test is used in this
+case.</p></li>
+<li><p><em>Evaluation criteria</em>. Provide a list of expected results and
+acceptance criteria.</p>
 <ul>
-<li><p>Pass/fail criteria. Specify the criteria used to determine whether each feature has passed or failed testing.</p></li>
-<li><p>In addition to setting pass/fail criteria with specific tolerance values, a documentation that just views the outputs of some tests may be useful if the tests require additional computations, simulations, and comparisons</p></li>
+<li><p>Pass/fail criteria. Specify the criteria used to determine
+whether each feature has passed or failed testing.</p></li>
+<li><p>In addition to setting pass/fail criteria with specific
+tolerance values, a documentation that just views the outputs of
+some tests may be useful if the tests require additional
+computations, simulations, and comparisons</p></li>
 </ul></li>
-<li><p><em>Test deliverables</em>. Identify all information that is to be delivered by the test activity.</p>
+<li><p><em>Test deliverables</em>. Identify all information that is to be
+delivered by the test activity.</p>
 <ul>
 <li>Test logs and automated status reports</li>
 </ul></li>
@@ -699,7 +816,10 @@ the code that would go into the .cpp files in tests/gtest.</p>
 <h3><span class="header-section-number">10.5.2</span> Test case documentation examples<a href="testing.html#test-case-documentation-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="general-test-case-documentation" class="section level4 hasAnchor">
 <h4><span class="header-section-number">10.5.2.1</span> General test case documentation<a href="testing.html#general-test-case-documentation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The test case documentation below is a general case to apply to many functions/modules. For individual functions/modules, please make detailed test cases for specific options, noting “same as the general test case” where appropriate.</p>
+<p>The test case documentation below is a general case to apply to many
+functions/modules. For individual functions/modules, please make
+detailed test cases for specific options, noting “same as the general
+test case” where appropriate.</p>
 <table>
 <colgroup>
 <col width="13%" />
@@ -843,14 +963,36 @@ the code that would go into the .cpp files in tests/gtest.</p>
 </div>
 <div id="simulation-testing-challenges-and-solutions" class="section level4 hasAnchor">
 <h4><span class="header-section-number">10.5.2.4</span> simulation testing: challenges and solutions<a href="testing.html#simulation-testing-challenges-and-solutions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>One thing that might be challenging for comparing simulation results is that changes to the order of calls to simulate will change the simulated values. Tests may fail even though it is just because different random numbers are used or the order of the simulation changes through model development. Several solutions could be used to address the simulation testing issue. Please see <a href="https://github.com/NOAA-FIMS/FIMS-planning/issues/25">discussions</a> on the FIMS-planning issue page for details.</p>
+<p>One thing that might be challenging for comparing simulation results is
+that changes to the order of calls to simulate will change the simulated
+values. Tests may fail even though it is just because different random
+numbers are used or the order of the simulation changes through model
+development. Several solutions could be used to address the simulation
+testing issue. Please see
+<a href="https://github.com/NOAA-FIMS/FIMS-planning/issues/25">discussions</a> on
+the FIMS-planning issue page for details.</p>
 <ul>
-<li>Once we start developing simulation modules,we can use these two ways to compare simulated data from FIMS and a test:
+<li>Once we start developing simulation modules,we can use these two ways
+to compare simulated data from FIMS and a test:
 <ul>
-<li>Add a TRUE/FALSE parameter in each FIMS simulation module for setting up testing seed. When testing the module, set the paramter to TRUE to fix the seed number in R and conduct tests.</li>
-<li>If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error.</li>
+<li>Add a TRUE/FALSE parameter in each FIMS simulation module for
+setting up testing seed. When testing the module, set the paramter to
+TRUE to fix the seed number in R and conduct tests.</li>
+<li>If adding a TRUE/FALSE parameter does not work as expected, then
+carefully check simulated data from each component and make sure it is
+not a model coding error.</li>
 </ul></li>
-<li>FIMS will use <code>set.seed()</code> from R to set the seed. The {rstream} package will be investigated if one of the requirements of FIMS simulation module is to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. {rstream} was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. Please see <a href="https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf">rstream paper</a> and <a href="http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/">RngStreams</a> for more details.</li>
+<li>FIMS will use <code>set.seed()</code> from R to set the seed. The {rstream}
+package will be investigated if one of the requirements of FIMS
+simulation module is to generate multiple streams of random numbers to
+associate distinct streams of random numbers with different sources of
+randomness. {rstream} was specifically designed to address the issue of
+needing very long streams of pseudo-random numbers for parallel
+computations. Please see <a href="https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf">rstream
+paper</a>
+and
+<a href="http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/">RngStreams</a>
+for more details.</li>
 </ul>
 
 </div>

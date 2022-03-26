@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-23" />
+<meta name="date" content="2022-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement<span></span></a></li>
 <li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle<span></span></a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software<span></span></a><ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle<span></span></a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation<span></span></a></li>
 </ul></li>
@@ -310,95 +310,194 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="glossary" class="section level1 unnumbered hasAnchor">
 <h1>Glossary<a href="glossary.html#glossary" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this section we will define terms that come up throughout this handbook.</p>
+<p>In this section we will define terms that come up throughout this
+handbook.</p>
 <div id="testing-glossary" class="section level2 unnumbered hasAnchor">
 <h2>Testing Glossary<a href="glossary.html#testing-glossary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="unit-testing" class="section level3 unnumbered hasAnchor">
 <h3>Unit testing<a href="glossary.html#unit-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: It tests individual methods and functions of the classes, components or modules used by the software independently. It executes only small portions of the test cases during the development process.</p></li>
+<li><p>Description: It tests individual methods and functions of the
+classes, components or modules used by the software independently. It
+executes only small portions of the test cases during the development
+process.</p></li>
 <li><p>Writer: Developer</p></li>
-<li><p>Advantages: It finds problems early and helps trace the bugs in the development cycle; cheap to automate when a method has clear input parameters and output; can be run quickly.</p></li>
-<li><p>Limitations: Tedious to create; it won’t catch integration errors if a method or a function has interactions with something external to the software.</p></li>
-<li><p>Examples: A recruitment module may consist of a few stock-recruit functions. We could use a set of unit test cases that ensure each stock-recruit function is correct and meets its design as intended while developing the function.</p></li>
-<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Unit_testing"><span class="ul">Wikipedia description</span></a></p></li>
+<li><p>Advantages: It finds problems early and helps trace the bugs in the
+development cycle; cheap to automate when a method has clear input
+parameters and output; can be run quickly.</p></li>
+<li><p>Limitations: Tedious to create; it won’t catch integration errors if
+a method or a function has interactions with something external to the
+software.</p></li>
+<li><p>Examples: A recruitment module may consist of a few stock-recruit
+functions. We could use a set of unit test cases that ensure each
+stock-recruit function is correct and meets its design as intended while
+developing the function.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Unit_testing"><span class="ul">Wikipedia
+description</span></a></p></li>
 </ul>
 </div>
 <div id="functional-testing" class="section level3 unnumbered hasAnchor">
 <h3>Functional testing<a href="glossary.html#functional-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: It checks software’s performance with respect to its specified requirements. Testers do not need to examine the internal structure of the piece of software tested but just test a slice of functionality of the whole system after it has been developed.</p></li>
+<li><p>Description: It checks software’s performance with respect to its
+specified requirements. Testers do not need to examine the internal
+structure of the piece of software tested but just test a slice of
+functionality of the whole system after it has been developed.</p></li>
 <li><p>Writer: Tester</p></li>
-<li><p>Advantages: It verifies that the functionalities of the software are working as defined; lead to reduced developer bias since the tester has not been involved in the software’s development.</p></li>
-<li><p>Limitations: Need to create input data and determine output based on each function’s specifications; need to know how to compare actual and expected outputs and how to check whether the software works as the requirements specified.</p></li>
-<li><p>Examples: The software requires development of catch-based projection. We could use a set of functional test cases that help verify if the model produces correct output given specified catch input after catch-based projection has been implemented in the system.</p></li>
-<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Functional_testing"><span class="ul">Wikipedia description</span></a>; <a href="https://github.com/timjmiller/wham/tree/master/tests/testthat"><span class="ul">WHAM testthat examples</span></a></p></li>
+<li><p>Advantages: It verifies that the functionalities of the software are
+working as defined; lead to reduced developer bias since the tester has
+not been involved in the software’s development.</p></li>
+<li><p>Limitations: Need to create input data and determine output based on
+each function’s specifications; need to know how to compare actual and
+expected outputs and how to check whether the software works as the
+requirements specified.</p></li>
+<li><p>Examples: The software requires development of catch-based
+projection. We could use a set of functional test cases that help verify
+if the model produces correct output given specified catch input after
+catch-based projection has been implemented in the system.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Functional_testing"><span class="ul">Wikipedia
+description</span></a>;
+<a href="https://github.com/timjmiller/wham/tree/master/tests/testthat"><span class="ul">WHAM testthat
+examples</span></a></p></li>
 </ul>
 </div>
 <div id="integration-testing" class="section level3 unnumbered hasAnchor">
 <h3>Integration testing<a href="glossary.html#integration-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: A group of software modules are coupled together and tested. Integrate software modules all together and verify the interfaces between modules against the software design. It is tested until the software works as a system.</p></li>
+<li><p>Description: A group of software modules are coupled together and
+tested. Integrate software modules all together and verify the
+interfaces between modules against the software design. It is tested
+until the software works as a system.</p></li>
 <li><p>Writer: Tester</p></li>
-<li><p>Advantages: It builds a working version of the system by putting the modules together. It assembles a software system and helps detect errors associated with interfacing.</p></li>
-<li><p>Limitations: The tests only can be executed after all the modules are developed. It may be difficult to locate errors because all components are integrated together.</p></li>
-<li><p>Examples: After developing all the modules, we could set up a few stock assessment test models and check if the software can read the input file, run the stock assessment models, and provide desired output.</p></li>
-<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Integration_testing"><span class="ul">Wikipedia description</span></a></p></li>
+<li><p>Advantages: It builds a working version of the system by putting the
+modules together. It assembles a software system and helps detect errors
+associated with interfacing.</p></li>
+<li><p>Limitations: The tests only can be executed after all the modules
+are developed. It may be difficult to locate errors because all
+components are integrated together.</p></li>
+<li><p>Examples: After developing all the modules, we could set up a few
+stock assessment test models and check if the software can read the
+input file, run the stock assessment models, and provide desired output.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Integration_testing"><span class="ul">Wikipedia
+description</span></a></p></li>
 </ul>
 </div>
 <div id="run-time-testing" class="section level3 unnumbered hasAnchor">
 <h3>Run-time testing<a href="glossary.html#run-time-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: Checks added in the software that catch user input errors. The developer will add in checks to the software; the user will trigger these checks if there are input errors</p></li>
+<li><p>Description: Checks added in the software that catch user input
+errors. The developer will add in checks to the software; the user will
+trigger these checks if there are input errors</p></li>
 <li><p>Writer: developer</p></li>
 <li><p>Advantages: Provides guidance to the user while using the software</p></li>
-<li><p>Limitations: Adding many checks can cause the software to run more slowly, the messages need to be helpful so the user can fix the input error.</p></li>
-<li><p>Examples: A user inputs a vector of values when they only need to input a single integer value. When running the software, they get an error message telling them that they should use a single integer value instead.</p></li>
-<li><p>Reference: <a href="http://www.crcpress.com/9781498763653"><span class="ul">Testing R code book</span></a></p></li>
+<li><p>Limitations: Adding many checks can cause the software to run more
+slowly, the messages need to be helpful so the user can fix the input
+error.</p></li>
+<li><p>Examples: A user inputs a vector of values when they only need to
+input a single integer value. When running the software, they get an
+error message telling them that they should use a single integer value
+instead.</p></li>
+<li><p>Reference: <a href="http://www.crcpress.com/9781498763653"><span class="ul">Testing R code
+book</span></a></p></li>
 </ul>
 </div>
 <div id="regression-testing" class="section level3 unnumbered hasAnchor">
 <h3>Regression testing<a href="glossary.html#regression-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: Re-running tests to ensure that previously developed and tested software still performs after a change. Testers can execute regression testing after adding a new feature to the software or whenever a previously discovered issue has been fixed. Testers can run all tests or a part of the test suite to check the correctness or quality of the software.</p></li>
+<li><p>Description: Re-running tests to ensure that previously developed
+and tested software still performs after a change. Testers can execute
+regression testing after adding a new feature to the software or
+whenever a previously discovered issue has been fixed. Testers can run
+all tests or a part of the test suite to check the correctness or
+quality of the software.</p></li>
 <li><p>Writer: Tester</p></li>
-<li><p>Advantages: It ensures that the changes made to the software have not affected the existing functionalities or correctness of the software.</p></li>
-<li><p>Limitations: If the team makes changes to the software often, it may be difficult to run all tests from the test suite frequently. In that case, it’s a good idea to have a regression testing schedule. For example, run a part of the test suite that is higher in priority after every change and run the full test suite weekly or monthly, etc.</p></li>
-<li><p>Examples: Set up a test suite like the <a href="https://github.com/nmfs-stock-synthesis/test-models"><span class="ul">the Stock Synethesis test-models</span></a> repository. The test cases can be based on real stock assessment models, but may not be the final model version or may have been altered for testing purposes. Test the final software by running this set of models and seeing if the same results for key model quantities remain the same relative to a “reference run” (e.g., the last release of the software).</p></li>
-<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Regression_testing"><span class="ul">Wikipedia description</span></a></p></li>
+<li><p>Advantages: It ensures that the changes made to the software have
+not affected the existing functionalities or correctness of the
+software.</p></li>
+<li><p>Limitations: If the team makes changes to the software often, it may
+be difficult to run all tests from the test suite frequently. In that
+case, it’s a good idea to have a regression testing schedule. For
+example, run a part of the test suite that is higher in priority after
+every change and run the full test suite weekly or monthly, etc.</p></li>
+<li><p>Examples: Set up a test suite like the <a href="https://github.com/nmfs-stock-synthesis/test-models"><span class="ul">the Stock Synethesis
+test-models</span></a>
+repository. The test cases can be based on real stock assessment models,
+but may not be the final model version or may have been altered for
+testing purposes. Test the final software by running this set of models
+and seeing if the same results for key model quantities remain the same
+relative to a “reference run” (e.g., the last release of the software).</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Regression_testing"><span class="ul">Wikipedia
+description</span></a></p></li>
 </ul>
 </div>
 <div id="platform-compatibility-testing" class="section level3 unnumbered hasAnchor">
 <h3>Platform compatibility testing<a href="glossary.html#platform-compatibility-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: It checks whether the software is capable of running on different operating systems and versions of other softwares. Testers need to define a set of environments or platforms the application is expected to work on. Testers can test the software on different operating systems or platforms and report the bugs.</p></li>
+<li><p>Description: It checks whether the software is capable of running on
+different operating systems and versions of other softwares. Testers
+need to define a set of environments or platforms the application is
+expected to work on. Testers can test the software on different
+operating systems or platforms and report the bugs.</p></li>
 <li><p>Writer: Tester</p></li>
-<li><p>Advantages: It ensures that the developed software works under different configurations and is compatible with the client’s environment.</p></li>
-<li><p>Limitations: Testers need to have knowledge of the testing environment and platforms to understand the expected software behavior under different configurations. It may be difficult to figure out why the software produces different results when using different operating systems.</p></li>
-<li><p>Examples: Set up an automated workflow and see if the software can be compatible with different operating systems, such as Windows, macOS, and Linux. Also, testers can check if the software is compatible with different versions of R (e.g., release version and version 3.6, etc).</p></li>
-<li><p>Reference: <a href="https://glossary.istqb.org/en/search/compatibility"><span class="ul">International Software Testing Qualification Board</span></a></p></li>
+<li><p>Advantages: It ensures that the developed software works under
+different configurations and is compatible with the client’s
+environment.</p></li>
+<li><p>Limitations: Testers need to have knowledge of the testing
+environment and platforms to understand the expected software behavior
+under different configurations. It may be difficult to figure out why
+the software produces different results when using different operating
+systems.</p></li>
+<li><p>Examples: Set up an automated workflow and see if the software can
+be compatible with different operating systems, such as Windows, macOS,
+and Linux. Also, testers can check if the software is compatible with
+different versions of R (e.g., release version and version 3.6, etc).</p></li>
+<li><p>Reference: <a href="https://glossary.istqb.org/en/search/compatibility"><span class="ul">International Software Testing Qualification
+Board</span></a></p></li>
 </ul>
 </div>
 <div id="beta-testing" class="section level3 unnumbered hasAnchor">
 <h3>Beta testing<a href="glossary.html#beta-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: It is a form of external user acceptance testing and the feedback from users can ensure the software has fewer bugs. The software is released to a limited end-users outside of the implementation team and the end-users (beta testers) can report issues of beta software to the implementation team after further testing.</p></li>
+<li><p>Description: It is a form of external user acceptance testing and
+the feedback from users can ensure the software has fewer bugs. The
+software is released to a limited end-users outside of the
+implementation team and the end-users (beta testers) can report issues
+of beta software to the implementation team after further testing.</p></li>
 <li><p>Writer: Members of implementation team and other users</p></li>
-<li><p>Advantages: It helps in uncovering unexpected errors that happen in the client’s environment. The implementation team can receive direct feedback from users before shipping the software to users.</p></li>
-<li><p>Limitations: The testing environment is not under the control of the implementation team and it may be hard to reproduce the bugs.</p></li>
-<li><p>Examples: Prepare a document that describes the new features of the software and share it with selected end-users. Send a pre-release of the software to selected users for further testing and gather feedback from users.</p></li>
-<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Software_testing"><span class="ul">Wikipedia description</span></a>; <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/tag/v3.30.18-prerel"><span class="ul">SS prerelease example</span></a></p></li>
+<li><p>Advantages: It helps in uncovering unexpected errors that happen in
+the client’s environment. The implementation team can receive direct
+feedback from users before shipping the software to users.</p></li>
+<li><p>Limitations: The testing environment is not under the control of the
+implementation team and it may be hard to reproduce the bugs.</p></li>
+<li><p>Examples: Prepare a document that describes the new features of the
+software and share it with selected end-users. Send a pre-release of the
+software to selected users for further testing and gather feedback from
+users.</p></li>
+<li><p>Reference: <a href="https://en.wikipedia.org/wiki/Software_testing"><span class="ul">Wikipedia
+description</span></a>; <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/tag/v3.30.18-prerel"><span class="ul">SS
+prerelease
+example</span></a></p></li>
 </ul>
 </div>
 <div id="one-off-testing" class="section level3 unnumbered hasAnchor">
 <h3>One-off testing<a href="glossary.html#one-off-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Description: It is for replicating and fixing user-reported bugs. It is a special testing that needs to be completed outside of the ordinary routine. Testers write a test that replicates the bug and run the test to check if the test is failing as expected. After fixing the bug, the testers can run the test again and check if the test is passing.</p></li>
+<li><p>Description: It is for replicating and fixing user-reported bugs. It
+is a special testing that needs to be completed outside of the ordinary
+routine. Testers write a test that replicates the bug and run the test
+to check if the test is failing as expected. After fixing the bug, the
+testers can run the test again and check if the test is passing.</p></li>
 <li><p>Writer: Developer and tester</p></li>
 <li><p>Advantages: The test is simple, fast, and efficient for fixing bugs.</p></li>
-<li><p>Limitations: The tests are specific to bugs and may require manual testing.</p></li>
-<li><p>Examples: A bug is found in the code and the software does not work properly. Tester can create a test to replicate the bug and the test would fail as expected. After the developer fixes the bug, the tester can run the test and see if the issue is resolved.</p></li>
-<li><p>Reference: <a href="https://glossary.istqb.org/en/search/confirmation"><span class="ul">International Software Testing Qualification Board</span></a>; <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/issues/148"><span class="ul">SS bug fix example</span></a></p></li>
+<li><p>Limitations: The tests are specific to bugs and may require manual
+testing.</p></li>
+<li><p>Examples: A bug is found in the code and the software does not work
+properly. Tester can create a test to replicate the bug and the test
+would fail as expected. After the developer fixes the bug, the tester
+can run the test and see if the issue is resolved.</p></li>
+<li><p>Reference: <a href="https://glossary.istqb.org/en/search/confirmation"><span class="ul">International Software Testing Qualification
+Board</span></a>;
+<a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/issues/148"><span class="ul">SS bug fix example</span></a></p></li>
 </ul>
 
 </div>

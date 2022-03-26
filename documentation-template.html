@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-23" />
+<meta name="date" content="2022-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement<span></span></a></li>
 <li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle<span></span></a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software<span></span></a><ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle<span></span></a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation<span></span></a></li>
 </ul></li>
@@ -310,49 +310,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="documentation-template" class="section level1 hasAnchor">
 <h1><span class="header-section-number">Chapter 9</span> Documentation Template<a href="documentation-template.html#documentation-template" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this section we will describe how to document your code. For more information about code documentation in general, please see the
-toolbox blog post <a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/code-documentation/">here</a>. This post describes the differences between the types of documentation,
-while below we give specific, brief instructions on developer responsibilities for FIMS.</p>
+<p>In this section we will describe how to document your code. For more
+information about code documentation in general, please see the
+toolbox blog post
+<a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/code-documentation/">here</a>.
+This post describes the differences between the types of documentation,
+while below we give specific, brief instructions on developer
+responsibilities for FIMS.</p>
 <div id="writing-function-reference" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.1</span> Writing function reference<a href="documentation-template.html#writing-function-reference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Function reference can be written inline in comments above the function in either C++ or R. The tools
-you can use to generate reference from comments are called Doxygen and Roxygen in C++ and R respectively.
-Both can include LaTeX syntax to denote equations, and both use <code>@</code> tags to name components of the function reference</p>
+<p>Function reference can be written inline in comments above the function
+in either C++ or R. The tools you can use to generate reference from
+comments are called Doxygen and Roxygen in C++ and R respectively. Both
+can include LaTeX syntax to denote equations, and both use <code>@</code> tags to
+name components of the function reference</p>
 <pre><code>        /**
         * @brief This function calculates the von Bertalanffy growth curve.
          * \f$
-         * 
+         *
          * length\_at\_age = lmin + (lmax - lmin)*\frac{(1.0 -
                     c^ {(age - a\_min)}))}{(1.0  - c^{(a\_max - a\_min)})}
-         * 
+         *
          * \f$
-         * 
+         *
          * @param age
          * @param sex
-         * @return length\_at\_age 
+         * @return length\_at\_age
          */</code></pre>
-<p>The only difference between syntax for <code>R</code> and <code>C++</code> code is how comments are denoted in the language.</p>
+<p>The only difference between syntax for <code>R</code> and <code>C++</code> code is how
+comments are denoted in the language.</p>
 <pre><code>#&#39; This function calculates the von Bertalanffy growth curve.
 #&#39;
 #&#39; @param age
 #&#39; @param sex
 #&#39; @return length_at_age</code></pre>
-<p>You should, at minimum, include the tags <code>@param</code>, <code>@return</code>, and <code>@examples</code> in your function reference if it is an exported function.
-Functions that are only called internally do not require an <code>@examples</code> tag. Other useful tags include <code>@seealso</code> and <code>@export</code> for Roxygen chunks.</p>
+<p>You should, at minimum, include the tags <code>@param</code>, <code>@return</code>, and
+<code>@examples</code> in your function reference if it is an exported function.
+Functions that are only called internally do not require an <code>@examples</code>
+tag. Other useful tags include <code>@seealso</code> and <code>@export</code> for Roxygen
+chunks.</p>
 </div>
 <div id="writing-a-vignette" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.2</span> Writing a vignette<a href="documentation-template.html#writing-a-vignette" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If this is an exported function, a vignette can be a helpful tool to users to know how to use your function. For now, a rough approximation of the “get started” vignette is written in the <a href="#software-user-guide">software user guide</a> page of this book.
-If you include a vignette for your function, you can link to it in the Roxygen documentation with the following code.</p>
+<p>If this is an exported function, a vignette can be a helpful tool to
+users to know how to use your function. For now, a rough approximation
+of the “get started” vignette is written in the <a href="#software-user-guide">software user
+guide</a> page of this book. If you include a
+vignette for your function, you can link to it in the Roxygen
+documentation with the following code.</p>
 <pre><code>#&#39; \code{vignette(&quot;help&quot;, package = &quot;mypkg&quot;)}</code></pre>
 </div>
 <div id="step-by-step-documentation-update-process" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.3</span> Step by step documentation update process<a href="documentation-template.html#step-by-step-documentation-update-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Write the function reference in either R or C++ as described above.</p></li>
-<li><p>Check the <a href="#software-user-guide">software user guide</a> and check that any changes you have made to the code are reflected in the code snippets on that page.</p></li>
+<li><p>Check the <a href="#software-user-guide">software user guide</a> and check that
+any changes you have made to the code are reflected in the code snippets
+on that page.</p></li>
 <li><p>Push to the feature branch.</p></li>
-<li><p>Ensure that the documentation created by the automated workflow is correct and that any test cases execute successfully before merging into main.</p></li>
+<li><p>Ensure that the documentation created by the automated workflow is
+correct and that any test cases execute successfully before merging into
+main.</p></li>
 </ol>
 
 </div>

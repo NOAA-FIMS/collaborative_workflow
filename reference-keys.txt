@@ -1,5 +1,3 @@
-fig:devcycle
-fig:flowchart
 about
 usage
 edit-and-preview-book-changes
@@ -20,7 +18,7 @@ lead-of-test-development
 lead-of-research-development
 code-of-conduct-enforcement
 external-collaborators
-fims-development-cycle
+fims-development-cycle-fims-is-structured-as-an-agile-software
 issue-lifecycle
 feature-validation
 github-collaborative-environment

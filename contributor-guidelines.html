@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-23" />
+<meta name="date" content="2022-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement<span></span></a></li>
 <li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle<span></span></a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software<span></span></a><ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle<span></span></a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation<span></span></a></li>
 </ul></li>
@@ -377,7 +377,7 @@ that class type.</p>
 <div id="github-forking-and-cloning" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.5</span> GitHub forking and cloning<a href="contributor-guidelines.html#github-forking-and-cloning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="contributor-guidelines.html#cb10-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="contributor-guidelines.html#cb8-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span></code></pre></div>
 <p>For contributors without write access to the FIMS repo, the repository must be forked to contribute. To fork and then clone a repository instead, follow the <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository">Github Documentation for forking a repo</a>. Once cloned, changes can be made on a feature branch. When ready to submit changes follow the <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">Github Documentation on creating a pull request from a fork</a></p>
 </div>
 <div id="issue-tracking" class="section level2 hasAnchor">
@@ -439,53 +439,64 @@ Use these references and existing templates stored in .github/ISSUE_TEMPLATE for
 <ol style="list-style-type: decimal">
 <li>Use the following commands to create a branch:</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="contributor-guidelines.html#cb11-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span>main           <span class="co">#creates a local branch</span></span>
-<span id="cb11-2"><a href="contributor-guidelines.html#cb11-2"></a><span class="op">$</span><span class="st"> </span>git push origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">                </span><span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="contributor-guidelines.html#cb9-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span>main           <span class="co">#creates a local branch</span></span>
+<span id="cb9-2"><a href="contributor-guidelines.html#cb9-2"></a><span class="op">$</span><span class="st"> </span>git push origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">                </span><span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Periodically merge changes from main into branch</li>
 </ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="contributor-guidelines.html#cb12-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="contributor-guidelines.html#cb10-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>While editing code, commit regularly following <a href="contributor-guidelines.html#commit-messages">commit messages</a> guidelines</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                          </span><span class="co">#stages file for commit</span></span>
-<span id="cb13-2"><a href="contributor-guidelines.html#cb13-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="contributor-guidelines.html#cb11-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                          </span><span class="co">#stages file for commit</span></span>
+<span id="cb11-2"><a href="contributor-guidelines.html#cb11-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>To push changes to gitHub, first set the upstream location:</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="contributor-guidelines.html#cb14-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span><span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="contributor-guidelines.html#cb12-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span><span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <p>After which, changes can be pushed as:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="contributor-guidelines.html#cb15-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>When finished, create a pull request to the main branch following <a href="#pull-request">pull request</a> guidelines</li>
+<li>When finished, create a pull request to the main branch following
+<a href="#pull-request">pull request</a> guidelines</li>
 </ol>
 </div>
 </div>
 <div id="code-development" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.8</span> Code Development<a href="contributor-guidelines.html#code-development" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Code is written following the <a href="contributor-guidelines.html#style-guide">Style Guide</a>, <a href="#naming%20conventions">FIMS Naming Conventions</a>, and <a href="contributor-guidelines.html#coding-good-practices">Coding Good Practices</a></p>
+<p>Code is written following the <a href="contributor-guidelines.html#style-guide">Style Guide</a>,
+<a href="#naming%20conventions">FIMS Naming Conventions</a>, and
+<a href="contributor-guidelines.html#coding-good-practices">Coding Good Practices</a></p>
 <div id="c-contributor" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.8.1</span> C++ contributor<a href="contributor-guidelines.html#c-contributor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In addition to writing a C++ module, contributors are responsible for the following:</p>
+<p>In addition to writing a C++ module, contributors are responsible for
+the following:</p>
 <ul>
-<li>Creating documentation for the module and building the <a href="#documentation">documentation</a> in <code>doxygen</code> to ensure it is error-free.</li>
-<li>Implementing the suite of required test cases in <a href="testing.html#testing">Google Test</a> for the module.</li>
+<li>Creating documentation for the module and building the
+<a href="#documentation">documentation</a> in <code>doxygen</code> to ensure it is error-free.</li>
+<li>Implementing the suite of required test cases in
+<a href="testing.html#testing">Google Test</a> for the module.</li>
 <li>Ensuring the module runs through the FIMS Github actions.</li>
 </ul>
 </div>
 <div id="r-contributor" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.8.2</span> R Contributor<a href="contributor-guidelines.html#r-contributor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In addition to writing an R script or function, contributors are responsible for the following:</p>
+<p>In addition to writing an R script or function, contributors are
+responsible for the following:</p>
 <ul>
 <li>Writing Roxygen documentation for any R functions</li>
 <li>Writing <code>testthat()</code> test cases for any R functionality</li>
-<li>Ensuring the code passes the <code>R CMD CHECK</code>, <code>styler</code>, and any other automated checks.</li>
+<li>Ensuring the code passes the <code>R CMD CHECK</code>, <code>styler</code>, and any other
+automated checks.</li>
 </ul>
 </div>
 </div>
 <div id="commit-messages" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.9</span> Commit Messages<a href="contributor-guidelines.html#commit-messages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>FIMS Project contributors should provide clear, descriptive commit messages to communicate to collaborators details about changes that have occurred and improve team efficiency. Good commit messages follow the following practices:</p>
+<p>FIMS Project contributors should provide clear, descriptive commit
+messages to communicate to collaborators details about changes that have
+occurred and improve team efficiency. Good commit messages follow the
+following practices:</p>
 <ul>
 <li><p>Include a short summary of the change for the subject/title (&lt;50 characters)</p></li>
 <li><p>Include a blank line in between the ‘subject’ and ‘body’</p></li>
@@ -531,30 +542,66 @@ Use these references and existing templates stored in .github/ISSUE_TEMPLATE for
 </div>
 <div id="pull-requests" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.11</span> Pull Requests<a href="contributor-guidelines.html#pull-requests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once development of a module is complete, the contributor must initiate a pull request. Github will automatically start an independent <a href="contributor-guidelines.html#code-review">review</a> process before the branch can be merged back into the main development branch. Pull requests are used to identify changes pushed to development branches. Open pull requests allow the FIMS Development Team to discuss and review the changes, as well as add follow-up commits before merging to the main branch. As noted in the <a href="#branching-strategy">branching stratgegy</a> section, branches, commits, and pull requests should be kept small to enable rapid review and reduce the chance of merge conflicts. Any pull requests for the FIMS Project must be fully tested and reviewed before being merged into the main branch.
-Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md">pull request template</a> to create pull requests. Pull requests without this template attached will not be approved.</p>
+<p>Once development of a module is complete, the contributor must initiate
+a pull request. Github will automatically start an independent
+<a href="contributor-guidelines.html#code-review">review</a> process before the branch can be merged back into
+the main development branch. Pull requests are used to identify changes
+pushed to development branches. Open pull requests allow the FIMS
+Development Team to discuss and review the changes, as well as add
+follow-up commits before merging to the main branch. As noted in the
+<a href="#branching-strategy">branching stratgegy</a> section, branches, commits,
+and pull requests should be kept small to enable rapid review and reduce
+the chance of merge conflicts. Any pull requests for the FIMS Project
+must be fully tested and reviewed before being merged into the main
+branch.
+Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md">pull request template</a>
+to create pull requests. Pull requests without this template attached
+will not be approved.</p>
 </div>
 <div id="code-review" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.12</span> Code Review<a href="contributor-guidelines.html#code-review" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Code review ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase and ensure there is a diverse team of knolwedgable collaborators to support the continued development and maintenance of FIMS. CI/CD requires rapid review of all new/modified code, so processes must be in place to support this pace. FIMS code review will utilize tools available via <a href="https://github.com/features/code-review">GitHub</a>, which allows reviewers to analyze code changes, provide inline comments, and view change histories.</p>
+<p>Code review ensures health and continuous improvement of the FIMS
+codebase, while simultaneously helping FIMS developers become familiar
+with the codebase and ensure there is a diverse team of knolwedgable
+collaborators to support the continued development and maintenance of
+FIMS. CI/CD requires rapid review of all new/modified code, so processes
+must be in place to support this pace. FIMS code review will utilize
+tools available via <a href="https://github.com/features/code-review">GitHub</a>,
+which allows reviewers to analyze code changes, provide inline comments,
+and view change histories.</p>
 <p><a href="https://google.github.io/eng-practices/review/">The Google code review developer guide</a> provides a useful set of guidelines for both reviewers and code authors.</p>
 <div id="assigning-reviewers" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.12.1</span> Assigning Reviewers<a href="contributor-guidelines.html#assigning-reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Reviewers for the FIMS Project may be assigned in two different ways:</p>
 <ol style="list-style-type: decimal">
-<li>A specific member of the FIMS Development Team is requested to review a pull request, based on their specific expertise.</li>
-<li>Code review assignments are automatically assigned using the <a href="https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team">GitHub load balance routing algorithm</a>; this approach tries to ensure that each team member reviews an equal number of pull request in any 30 day period.</li>
+<li>A specific member of the FIMS Development Team is requested to review
+a pull request, based on their specific expertise. 2. Code review
+assignments are automatically assigned using the
+<a href="https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team">GitHub load balance routing algorithm</a>;
+this approach tries to ensure that each team member reviews an equal
+number of pull request in any 30 day period.</li>
 </ol>
-<p>Team members should keep their status in Github current (see <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status">“Setting a status”</a> for more information). Reviews will not be auto-assigned to “Busy” team members.</p>
-<p>If a review has been assigned to you and you don’t feel like you have the expertise to address it properly, please respond directly to the code owner immediately so a different reviewer can be found promptly.</p>
+<p>Team members should keep their status in Github current
+(see <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status">“Setting a
+status”</a>
+for more information). Reviews will not be auto-assigned to “Busy” team
+members.</p>
+<p>If a review has been assigned to you and you don’t feel like you have
+the expertise to address it properly, please respond directly to the
+code owner immediately so a different reviewer can be found promptly.</p>
 </div>
 <div id="automated-testing" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.12.2</span> Automated Testing<a href="contributor-guidelines.html#automated-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Automated testing provides an initial layer of quality assurance and lets reviewers know that the code meets certain standards. For more on FIMS testing, see <a href="testing.html#testing">Testing</a>.</p>
+<p>Automated testing provides an initial layer of quality assurance and
+lets reviewers know that the code meets certain standards. For more on
+FIMS testing, see <a href="testing.html#testing">Testing</a>.</p>
 </div>
 <div id="review-checklist" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.12.3</span> Review Checklist<a href="contributor-guidelines.html#review-checklist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>While automated testing can assure the code structure and logic pass quality checks, human reviewers are required to evaluate things like functionality, readability, etc. Reviewers should evaluate the code critically and provide comment/feedback on the following items:</p>
+<p>While automated testing can assure the code structure and logic pass
+quality checks, human reviewers are required to evaluate things like
+functionality, readability, etc. Reviewers should evaluate the code
+critically and provide comment/feedback on the following items:</p>
 <p><strong>Readability</strong></p>
 <ul>
 <li>Is the code easy to understand?</li>
@@ -575,14 +622,16 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 <ul>
 <li>Are files organized intuitively?</li>
 <li>Are components divided up in a sensible way?</li>
-<li>Does the review include too many changes? Would the code change better be broken into more focused parts?</li>
+<li>Does the review include too many changes? Would the code change better
+be broken into more focused parts?</li>
 <li>Will the change be easy to maintain?</li>
 <li>Does the code follow object-oriented design principles?</li>
 <li>Is the code in the proper location?</li>
 </ul>
 <p><strong>Security</strong></p>
 <ul>
-<li>Does using this code open the software to possible security violations or vulnerabilities?</li>
+<li>Does using this code open the software to possible security violations
+or vulnerabilities?</li>
 <li>Is the correct encryption used?</li>
 </ul>
 <p><strong>Performance</strong></p>
@@ -592,12 +641,14 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 <li>Could any of the code be replaced with built-in functions?</li>
 <li>Will this change have any impacts on system performance?</li>
 <li>Is there any debugging code that could be removed?</li>
-<li>Are there any optimizations that could be removed and still maintain system performance?</li>
+<li>Are there any optimizations that could be removed and still maintain
+system performance?</li>
 </ul>
 <p><strong>Documentation</strong></p>
 <ul>
 <li>Are there comments available to explain the code?</li>
-<li>Is the README file complete and current? Does it adequately describe the project/changes?</li>
+<li>Is the README file complete and current? Does it adequately describe
+the project/changes?</li>
 </ul>
 <p><strong>Testing</strong></p>
 <ul>
@@ -612,24 +663,32 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 <h3><span class="header-section-number">7.12.4</span> Review Good Practices<a href="contributor-guidelines.html#review-good-practices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Good reviews require good review habits. Try to follow these suggestions:</p>
 <ul>
-<li>Review in short sessions (&lt; 60 minutes) to maintain focus and attention to detail</li>
+<li>Review in short sessions (&lt; 60 minutes) to maintain focus and
+attention to detail</li>
 <li>Don’t try to review more than 400 lines of code in a single session</li>
 <li>Provide constructive and supportive feedback</li>
 <li>Ask open-ended questions and offer alternatives or possible workarounds</li>
 <li>Avoid strong/opinionated statements</li>
 <li>Applaud good solutions</li>
 <li>Don’t say “you”</li>
-<li>Be clear about which questions/comments are non-blocking or unimportant; likewise, be explicit when approving a change or requesting follow-up</li>
-<li>Aim to minimize the number of nitpicks (if there are a lot, suggest a team-level resolution)</li>
-<li>Use the <a href="https://noaa-fims.github.io/collaborative_workflow/style-guide.html">FIMS Style Guide</a> to settle any style arguments</li>
+<li>Be clear about which questions/comments are non-blocking or
+unimportant; likewise, be explicit when approving a change or requesting
+follow-up</li>
+<li>Aim to minimize the number of nitpicks (if there are a lot, suggest a
+team-level resolution)</li>
+<li>Use the <a href="https://noaa-fims.github.io/collaborative_workflow/style-guide.html">FIMS Style Guide</a>
+to settle any style arguments</li>
 </ul>
 </div>
 </div>
 <div id="clean-up-local-branches" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.13</span> Clean up local branches<a href="contributor-guidelines.html#clean-up-local-branches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If a code reviewer approves the pull request, FIMS workflow managers will merge the feature/bug branch back into the main repository and delete the branch. At this stage, the contributor should also delete the branch from the local repository using the following commands:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="contributor-guidelines.html#cb17-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
-<span id="cb17-2"><a href="contributor-guidelines.html#cb17-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
+<p>If a code reviewer approves the pull request, FIMS workflow managers
+will merge the feature/bug branch back into the main repository and
+delete the branch. At this stage, the contributor should also delete the
+branch from the local repository using the following commands:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="contributor-guidelines.html#cb15-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
+<span id="cb15-2"><a href="contributor-guidelines.html#cb15-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
 
 </div>
 </div>
