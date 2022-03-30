@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-26" />
+<meta name="date" content="2022-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -575,8 +575,8 @@ and view change histories.</p>
 <p>Reviewers for the FIMS Project may be assigned in two different ways:</p>
 <ol style="list-style-type: decimal">
 <li>A specific member of the FIMS Development Team is requested to review
-a pull request, based on their specific expertise. 2. Code review
-assignments are automatically assigned using the
+a pull request, based on their specific expertise.</li>
+<li>Code review assignments are automatically assigned using the
 <a href="https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team">GitHub load balance routing algorithm</a>;
 this approach tries to ensure that each team member reviews an equal
 number of pull request in any 30 day period.</li>
@@ -600,63 +600,41 @@ FIMS testing, see <a href="testing.html#testing">Testing</a>.</p>
 <h3><span class="header-section-number">7.12.3</span> Review Checklist<a href="contributor-guidelines.html#review-checklist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While automated testing can assure the code structure and logic pass
 quality checks, human reviewers are required to evaluate things like
-functionality, readability, etc. Reviewers should evaluate the code
-critically and provide comment/feedback on the following items:</p>
-<p><strong>Readability</strong></p>
+functionality, readability, etc. Every pull request is accompanied by an
+automatically generated checklist of major considerations for code reviews;
+additional guidance is provided below for reviewers to evaluate when
+providing feedback on code:</p>
 <ul>
-<li>Is the code easy to understand?</li>
-<li>Are there any parts of the code that are confusing?</li>
-<li>Is the data flow easy to understand?</li>
-<li>Is there any code commented out?</li>
-<li>Does the code include any unclear names</li>
-<li>Does the code include any errors, repeats, or incomplete sections?</li>
-</ul>
-<p><strong>Functionality</strong></p>
-<ul>
-<li>Does the code function as it is expected to?</li>
-<li>How will the change impact other parts of the system?</li>
-<li>Are there any unhandled edge cases?</li>
-<li>Are there other code improvements possible?</li>
-</ul>
-<p><strong>Design</strong></p>
-<ul>
-<li>Are files organized intuitively?</li>
-<li>Are components divided up in a sensible way?</li>
-<li>Does the review include too many changes? Would the code change better
-be broken into more focused parts?</li>
-<li>Will the change be easy to maintain?</li>
-<li>Does the code follow object-oriented design principles?</li>
-<li>Is the code in the proper location?</li>
-</ul>
-<p><strong>Security</strong></p>
-<ul>
-<li>Does using this code open the software to possible security violations
-or vulnerabilities?</li>
-<li>Is the correct encryption used?</li>
-</ul>
-<p><strong>Performance</strong></p>
-<ul>
-<li>Are there ways to improve on the code’s performance?</li>
-<li>Is there any complex logic that could be simplified?</li>
-<li>Could any of the code be replaced with built-in functions?</li>
-<li>Will this change have any impacts on system performance?</li>
-<li>Is there any debugging code that could be removed?</li>
-<li>Are there any optimizations that could be removed and still maintain
-system performance?</li>
-</ul>
-<p><strong>Documentation</strong></p>
-<ul>
-<li>Are there comments available to explain the code?</li>
-<li>Is the README file complete and current? Does it adequately describe
-the project/changes?</li>
-</ul>
-<p><strong>Testing</strong></p>
-<ul>
-<li>Is the code testable?</li>
-<li>Is the automated testing adequate?</li>
-<li>Have dependencies been appropriately tested?</li>
-<li>Does automated testing cover the code exchange adequately?</li>
-<li>Could the test structure be improved?</li>
+<li><p><strong>Design</strong> (Is the code in the proper location? Are files organized
+intuitively? Are components divided up in a sensible way? Does the pull
+request include an appropriate number of changes, or would the code
+changes be better broken into more focused parts? Is the code focused on
+only requirements within the current scope? Does the code follow object-
+oriented design principles? Will changes be easy to maintain? Is the code
+more complex than it needs to be?)</p></li>
+<li><p><strong>Functionality</strong> (Does the code function as it is expected to? Are
+changes, including to the user interface (if applicable), good for users?
+Does parallel computing remain functional? How will the change impact
+other parts of the system? Are there any unhandled edge cases? Are there
+other code improvements possible?)</p></li>
+<li><p><strong>Testing</strong> (Does the code have appropriate <a href="testing.html#testing">unit tests</a>? Are tests well-
+designed? Have dependencies been appropriately tested? Does automated
+testing cover the code exchange adequately? Could the test structure be improved?)</p></li>
+<li><p><strong>Readability</strong> (Is the code and data flow easy to understand? Are there
+any parts of the code that are confusing or commented out? Are names clear?
+Does the code include any errors, repeats, or incomplete sections? Does the code
+adhere to the <a href="#contributor-guide">FIMS Style Guide</a>?)</p></li>
+<li><p><strong>Documentation</strong> (Are there clearl and useful comments available to why
+the code has been implemented as it has been? Is the code appropriately documented
+(doxygen and roxygen)? Is the README file complete, current, and adequately
+describe project/changes?)</p></li>
+<li><p><strong>Security</strong> (Does using this code open the software to possible security
+violations or vulnerabilities?)</p></li>
+<li><p><strong>Performance</strong> (Are there ways to improve on the code’s performance?
+Is there any complex logic that could be simplified? Could any of the code be
+replaced with built-in functions? Will this change have any impacts on system
+performance? Is there any debugging code that could be removed? Are there any
+optimizations that could be removed and still maintain system performance?)</p></li>
 </ul>
 </div>
 <div id="review-good-practices" class="section level3 hasAnchor">
