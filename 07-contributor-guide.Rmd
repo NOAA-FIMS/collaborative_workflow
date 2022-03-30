@@ -270,8 +270,8 @@ and view change histories.
 Reviewers for the FIMS Project may be assigned in two different ways:
 
 1. A specific member of the FIMS Development Team is requested to review
-a pull request, based on their specific expertise. 2. Code review
-assignments are automatically assigned using the
+a pull request, based on their specific expertise. 
+2. Code review assignments are automatically assigned using the
 [GitHub load balance routing algorithm](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team);
 this approach tries to ensure that each team member reviews an equal
 number of pull request in any 30 day period.
@@ -296,64 +296,47 @@ FIMS testing, see [Testing](#testing).
 
 While automated testing can assure the code structure and logic pass
 quality checks, human reviewers are required to evaluate things like
-functionality, readability, etc. Reviewers should evaluate the code
-critically and provide comment/feedback on the following items:
+functionality, readability, etc. Every pull request is accompanied by an 
+automatically generated checklist of major considerations for code reviews;
+additional guidance is provided below for reviewers to evaluate when 
+providing feedback on code:
 
-**Readability**
+* **Design** (Is the code in the proper location? Are files organized
+intuitively? Are components divided up in a sensible way? Does the pull 
+request include an appropriate number of changes, or would the code 
+changes be better broken into more focused parts? Is the code focused on
+only requirements within the current scope? Does the code follow object-
+oriented design principles? Will changes be easy to maintain? Is the code 
+more complex than it needs to be?)
 
-* Is the code easy to understand?
-* Are there any parts of the code that are confusing?
-* Is the data flow easy to understand?
-* Is there any code commented out?
-* Does the code include any unclear names
-* Does the code include any errors, repeats, or incomplete sections?
+* **Functionality** (Does the code function as it is expected to? Are
+changes, including to the user interface (if applicable), good for users?
+Does parallel computing remain functional? How will the change impact 
+other parts of the system? Are there any unhandled edge cases? Are there 
+other code improvements possible?)
 
-**Functionality**
+* **Testing** (Does the code have appropriate [unit tests](#testing)? Are tests well-
+designed? Have dependencies been appropriately tested? Does automated 
+testing cover the code exchange adequately? Could the test structure be improved?)
 
-* Does the code function as it is expected to?
-* How will the change impact other parts of the system?
-* Are there any unhandled edge cases?
-* Are there other code improvements possible?
+* **Readability** (Is the code and data flow easy to understand? Are there 
+any parts of the code that are confusing or commented out? Are names clear? 
+Does the code include any errors, repeats, or incomplete sections? Does the code 
+adhere to the [FIMS Style Guide](#contributor-guide)?)
 
-**Design**
+* **Documentation** (Are there clearl and useful comments available to why
+the code has been implemented as it has been? Is the code appropriately documented
+(doxygen and roxygen)? Is the README file complete, current, and adequately 
+describe project/changes?)
 
-* Are files organized intuitively?
-* Are components divided up in a sensible way?
-* Does the review include too many changes? Would the code change better
-be broken into more focused parts?
-* Will the change be easy to maintain?
-* Does the code follow object-oriented design principles?
-* Is the code in the proper location?
+* **Security** (Does using this code open the software to possible security 
+violations or vulnerabilities?)
 
-**Security**
-
-* Does using this code open the software to possible security violations
-or vulnerabilities?
-* Is the correct encryption used?
-
-**Performance**
-
-* Are there ways to improve on the code's performance?
-* Is there any complex logic that could be simplified?
-* Could any of the code be replaced with built-in functions?
-* Will this change have any impacts on system performance?
-* Is there any debugging code that could be removed?
-* Are there any optimizations that could be removed and still maintain
-system performance?
-
-**Documentation**
-
-* Are there comments available to explain the code?
-* Is the README file complete and current? Does it adequately describe
-the project/changes?
-
-**Testing**
-
-* Is the code testable?
-* Is the automated testing adequate?
-* Have dependencies been appropriately tested?
-* Does automated testing cover the code exchange adequately?
-* Could the test structure be improved?
+* **Performance** (Are there ways to improve on the code's performance?
+Is there any complex logic that could be simplified? Could any of the code be 
+replaced with built-in functions? Will this change have any impacts on system 
+performance? Is there any debugging code that could be removed? Are there any 
+optimizations that could be removed and still maintain system performance?)
 
 ### Review Good Practices
 
