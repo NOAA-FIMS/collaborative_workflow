@@ -171,13 +171,13 @@ the following:
 * Creating documentation for the module and building the
 [documentation](#documentation) in `doxygen` to ensure it is error-free. 
 Run `cmake --build build` and review generated doxygen HTMLS locally 
-to ensure they is error-free.
+to ensure they are error-free.
 * Implementing the suite of required test cases in
 [Google Test](#testing) for the module.
 Run [`cmake --build build` and `ctest --test-dir build` locally](https://noaa-fims.github.io/collaborative_workflow/testing.html#c-unit-testing-and-benchmarking) 
 and make sure the C++ tests pass before pushing tests to remote feature branch.
  If there are failing tests, run `ctest --test-dir --rerun-failed --output-on-failure` to re-run the failed tests verbosely.
-* Ensuring the module runs through the FIMS Github actions on multiple operating systems.
+* Ensuring the module runs through the FIMS GitHub actions on multiple operating systems.
 
 ### R Contributor
 
