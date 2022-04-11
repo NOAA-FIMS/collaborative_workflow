@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-30" />
+<meta name="date" content="2022-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -473,10 +473,15 @@ Use these references and existing templates stored in .github/ISSUE_TEMPLATE for
 the following:</p>
 <ul>
 <li>Creating documentation for the module and building the
-<a href="#documentation">documentation</a> in <code>doxygen</code> to ensure it is error-free.</li>
+<a href="#documentation">documentation</a> in <code>doxygen</code> to ensure it is error-free.
+Run <code>cmake --build build</code> and review generated doxygen HTMLS locally
+to ensure they are error-free.</li>
 <li>Implementing the suite of required test cases in
-<a href="testing.html#testing">Google Test</a> for the module.</li>
-<li>Ensuring the module runs through the FIMS Github actions.</li>
+<a href="testing.html#testing">Google Test</a> for the module.
+Run <a href="https://noaa-fims.github.io/collaborative_workflow/testing.html#c-unit-testing-and-benchmarking"><code>cmake --build build</code> and <code>ctest --test-dir build</code> locally</a>
+and make sure the C++ tests pass before pushing tests to remote feature branch.
+If there are failing tests, run <code>ctest --test-dir --rerun-failed --output-on-failure</code> to re-run the failed tests verbosely.</li>
+<li>Ensuring the module runs through the FIMS GitHub actions on multiple operating systems.</li>
 </ul>
 </div>
 <div id="r-contributor" class="section level3 hasAnchor">
@@ -484,8 +489,13 @@ the following:</p>
 <p>In addition to writing an R script or function, contributors are
 responsible for the following:</p>
 <ul>
-<li>Writing Roxygen documentation for any R functions</li>
-<li>Writing <code>testthat()</code> test cases for any R functionality</li>
+<li>Writing Roxygen documentation for any R functions. Run <code>devtools::document()</code>
+locally and before pushing changes to the remote branch.</li>
+<li>Writing <code>testthat()</code> test cases for any R functionality.
+Run <code>devtoos::test()</code> locally before pushing tests to the remote feature branch.</li>
+<li>Running <code>styler::style_pkg()</code> to style R code locally and then push changes to
+remote feature branch. If there are many changes, please do this in a separate commit.</li>
+<li>Running <code>devtools::check()</code> locally and make sure the package can be compiled and R tests pass. If there are failing tests, run <code>devtools::test(filter = "file_name")</code> (where “test-file_name.R” is the testthat file containing failing tests) and edit code/tests to troubleshoot tests.</li>
 <li>Ensuring the code passes the <code>R CMD CHECK</code>, <code>styler</code>, and any other
 automated checks.</li>
 </ul>
