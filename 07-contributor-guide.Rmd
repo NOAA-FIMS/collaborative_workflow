@@ -169,18 +169,28 @@ In addition to writing a C++ module, contributors are responsible for
 the following:
 
 * Creating documentation for the module and building the
-[documentation](#documentation) in `doxygen` to ensure it is error-free.
+[documentation](#documentation) in `doxygen` to ensure it is error-free. 
+Run `cmake --build build` and review generated doxygen HTMLS locally 
+to ensure they are error-free.
 * Implementing the suite of required test cases in
 [Google Test](#testing) for the module.
-* Ensuring the module runs through the FIMS Github actions.
+Run [`cmake --build build` and `ctest --test-dir build` locally](https://noaa-fims.github.io/collaborative_workflow/testing.html#c-unit-testing-and-benchmarking) 
+and make sure the C++ tests pass before pushing tests to remote feature branch.
+ If there are failing tests, run `ctest --test-dir --rerun-failed --output-on-failure` to re-run the failed tests verbosely.
+* Ensuring the module runs through the FIMS GitHub actions on multiple operating systems.
 
 ### R Contributor
 
 In addition to writing an R script or function, contributors are
 responsible for the following:
 
-* Writing Roxygen documentation for any R functions
-* Writing `testthat()` test cases for any R functionality
+* Writing Roxygen documentation for any R functions. Run `devtools::document()` 
+locally and before pushing changes to the remote branch.
+* Writing `testthat()` test cases for any R functionality.
+Run `devtoos::test()` locally before pushing tests to the remote feature branch. 
+* Running `styler::style_pkg()` to style R code locally and then push changes to 
+remote feature branch. If there are many changes, please do this in a separate commit.
+* Running `devtools::check()` locally and make sure the package can be compiled and R tests pass. If there are failing tests, run `devtools::test(filter = "file_name")` (where "test-file_name.R" is the testthat file containing failing tests) and edit code/tests to troubleshoot tests.
 * Ensuring the code passes the `R CMD CHECK`, `styler`, and any other
 automated checks.
 
