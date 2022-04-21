@@ -76,7 +76,7 @@ section.
 3. Click `New`, add path to cmake, if needed (e.g.,
 `cmake-3.22.1-windows-x86_64\bin` or `C:\Program Files\CMake\bin` are
 common paths), and click `OK`. Click `New`, add path to the location of
-the Ninja executable, if needed (e.g., `Documents\Apps`), and click
+the Ninja executable, if needed (e.g., `Documents\Apps\ninja-win`), and click
 `OK`.
 
 4. You may need to restart your computer to update the envirionmental
