@@ -76,11 +76,11 @@ section.
 3. Click `New`, add path to cmake, if needed (e.g.,
 `cmake-3.22.1-windows-x86_64\bin` or `C:\Program Files\CMake\bin` are
 common paths), and click `OK`. Click `New`, add path to the location of
-the Ninja executable, if needed (e.g., `Documents\Apps`), and click
-`OK`.
+the Ninja executable, if needed (e.g., `Documents\Apps\ninja-win` or `C:\Program Files\ninja-win`), and click
+`OK`. 
 
 4. You may need to restart your computer to update the envirionmental
-variables.
+variables. You can check that the path is working by running `where cmake` or `where ninja` in a command terminal.
 
 5. Note that in certain Fisheries centers, NOAA employees do not have
 administrative privileges enabled to edit the local environmental path.
@@ -91,18 +91,18 @@ cmake and ninja to your PATH on Windows.
 
 1. See [[CMake installation
 instructions]{.ul}](https://cmake.org/install) for installing CMake on
-other platforms. Add cmake to your PATH.
+other platforms. Add cmake to your PATH. You can check that the path is working by running `which cmake` in a command window.
 
 2. Download [[ninja v1.10.2
 (ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases)
-and put the binary in your preferred location. Add Ninja to your PATH.
+and put the binary in your preferred location. Add Ninja to your PATH. You can check that the path is working by running `which ninja` in a command window. 
 
 3. Open a command window and type `cmake`. If you see usage, cmake is
-found. If not, cmake may still need to be added to your PATH.
+found. If not, cmake may still need to be added to your PATH. 
 
 4. Open a command window and type `ninja`. If you see a message starting
 with `ninja:`, ninja is found. Otherwise, try changing the permissions
-or adding to your path.
+or adding to your path. 
 
 ### How to edit your PATH and change file permissions for Linux and Mac
 
