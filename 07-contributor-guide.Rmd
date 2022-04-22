@@ -177,7 +177,7 @@ to ensure they are error-free.
 Run [`cmake --build build` and `ctest --test-dir build` locally](https://noaa-fims.github.io/collaborative_workflow/testing.html#c-unit-testing-and-benchmarking) 
 and make sure the C++ tests pass before pushing tests to remote feature branch.
  If there are failing tests, run `ctest --test-dir --rerun-failed --output-on-failure` to re-run the failed tests verbosely.
-* Ensuring the module runs through the FIMS GitHub actions on multiple operating systems.
+* Ensuring the run-clang-tidy and run-googletest [Github Actions workflows](#github-actions) pass on the remote feature branch
 
 ### R Contributor
 
@@ -191,8 +191,7 @@ Run `devtoos::test()` locally before pushing tests to the remote feature branch.
 * Running `styler::style_pkg()` to style R code locally and then push changes to 
 remote feature branch. If there are many changes, please do this in a separate commit.
 * Running `devtools::check()` locally and make sure the package can be compiled and R tests pass. If there are failing tests, run `devtools::test(filter = "file_name")` (where "test-file_name.R" is the testthat file containing failing tests) and edit code/tests to troubleshoot tests.
-* Ensuring the code passes the `R CMD CHECK`, `styler`, and any other
-automated checks.
+* Ensuring the code passes the call-r-cmd-check [GitHub Action workflow](#github-actions) on the remote feature branch.
 
 ## Commit Messages
 
@@ -300,7 +299,7 @@ code owner immediately so a different reviewer can be found promptly.
 
 Automated testing provides an initial layer of quality assurance and
 lets reviewers know that the code meets certain standards. For more on
-FIMS testing, see [Testing](#testing).
+FIMS testing, see [Testing](#testing) and [GitHub Actions](#github-actions).
 
 ### Review Checklist
 
@@ -378,3 +377,88 @@ branch from the local repository using the following commands:
 $ git checkout main           //switches back to main branch
 $ git branch -d <branchname>  //deletes branch from local repository
 ```
+## GitHub Actions
+
+FIMS uses [GitHub Actions](https://docs.GitHub.com/en/actions) to automate
+routine tasks. These tasks include:
+
+1. Backup checks for developers
+2. Routine GitHub workflow tasks (not important for developers to monitor)
+
+Currently, the GitHub Actions in the FIMS repository include:
+
+| GitHub Action Name  | Description | Type | Runs a Check on PRs? | Runs on: |
+| ------------------- | ------------------------------ | ------------ | ------ | ----------|
+| call-r-cmd-check    | Runs R CMD Check               | Backup Check | Yes | Push to any branch |
+| run-clang-tidy      | Checks for C++ code            | Backup Check | Yes | Push to any branch |
+| run-googletest      | Runs the google C++ unit tests | Backup Check | Yes | Push to any branch |
+| run-doxygen         | Builds the C++ documentation   | Routine Workflow Task | No | Push to main branch |
+| call-doc-and-style-r| documents and styles R code | Routine workflow task | No  | Push to main branch |
+| pr-checklist | Generates a checklist as a comment for reviewers on PRs | Routine workflow task | No | Opening a PR |
+
+[YAML files in a subdirectory of the FIMS repository](https://github.com/NOAA-FIMS/FIMS/tree/main/.github/workflows) specify the setup for the GitHub Actions. Some of
+the actions depend on [reusable
+workflows](https://docs.GitHub.com/en/actions/using-workflows/reusing-workflows)
+available in [{ghactions4r}](https://nmfs-fish-tools.github.io/ghactions4r/).
+
+Runs of the GitHub Actions can be viewed by navigating to the [Actions tab of
+the FIMS repository](https://github.com/NOAA-FIMS/FIMS/actions). The status of 
+GitHub Action runs can also be viewed on pull requests or next to commits
+throughout the FIMS repository.
+
+### Details on Backup Checks
+
+Developers must make sure that the checks on their pull requests pass, as
+typically changes will not be merged into the main branch until all GitHub
+Actions are passing (the exception is if there are known reasons for the GitHub
+Actions to fail that are not related to the pull request). Other
+responsibilities of developers are listed in [the Code Development
+section](#code-development).
+
+Additional details about the backup check GitHub Actions:
+
+- **call-r-cmd-check** runs R CMD Check on the FIMS package using the current
+version of R. Three runs occur simultaneously, on three operating systems:
+Windows, Linux (Ubuntu), and OSX. R CMD Check ensures that the FIMS package can
+be downloaded without error. An error means that the package cannot be
+downloaded successfully on the operating system for the run that failed.
+Developers should investigate the failing runs and make fixes. To replicate the
+GitHub Actions workflow locally, use `devtools::check()`
+- **run-clang-tidy** runs checks while compiling the C++ code. If this run
+  fails, fixes need to be made to the C++ code to address the issue identified.
+- **run-googletest** Runs the GoogleTest C++ unit tests and benchmarking. If
+ this run fails, then fixes need to be made to the C++ code and/or the
+ GoogleTest C++ unit tests. To replicate this GitHub Actions workflow locally,
+ follow instructions in the [testing section](#testing).
+
+### Debugging Broken Runs
+
+GitHub Actions can fail for many reasons, so debugging is necessary to find the
+cause of the failing run. Some steps that can help with debugging are:
+
+- Ask for help as needed! Some members of the FIMS team who have experience
+debugging GitHub Actions are Bai, Kathryn, and Ian.
+- Investigate why the run failed by [looking in the
+log](https://docs.GitHub.com/en/actions/quickstart#viewing-your-workflow-results).
+- Try to replicate the problem locally. For example, if the call-r-cmd-check run
+  fails during the testthat tests, try running the testthat tests locally (e.g.,
+using `devtools::test()`).
+- If the problem can be replicated, try to fix locally by fixing one test or
+issue at a time. Then push the changes up to GitHub and monitor the new Github
+Action run.
+- If the problem cannot be replicated locally, it could be a operating specific
+issue; for example, if using Windows locally, it may be an issue specific to Mac
+or Linux. 
+- Sometimes, runs may fail because a particular dependency wasn’t available at
+the exact point in time need for the run (e.g., maybe R didn’t install because
+the R executable couldn’t be downloaded); if that is the case, wait a few hours
+to a day and try to rerun. If it continues to fail for more than a day, a change
+in the GitHub Action YAML file may be needed.
+
+### How do I request a new Github Action workflow?
+
+Routine actions and checks should be captured in a GitHub Action workflow in
+order to improve efficiency of the development process and/or improve automated
+checks on the FIMS codebase. New GitHub Action workflows can be requested by
+opening an [issue in the FIMS
+repository](https://github.com/NOAA-FIMS/FIMS/issues).

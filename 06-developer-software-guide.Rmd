@@ -10,9 +10,9 @@ first.
 
 You will need git installed locally, and you may prefer to use an
 additional git [GUI client](https://git-scm.com/downloads/guis) such as
-GitKraken or Github Desktop. If your preferred git client is the RStudio
+GitKraken or GitHub Desktop. If your preferred git client is the RStudio
 IDE, you can configure Git and RStudio integration following these
-[instructions](https://happygitwithr.com/rstudio-git-github.html).
+[instructions](https://happygitwithr.com/rstudio-git-GitHub.html).
 
 To install git, please follow the instructions on [this
 page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for
@@ -54,9 +54,10 @@ Restart R, and verify that make can be found, which should show the path
 to your Rtools installation.
 
 ```{r eval=FALSE} Sys.which("make") ##
-"C:\\rtools40\\usr\\bin\\make.exe" ```
+"C:\\rtools40\\usr\\bin\\make.exe" 
+```
 
-### Google test
+### GoogleTest
 
 You will need to install `CMake` and `ninja` and validate you have the
 correct setup by following the steps outlined in the [test case
