@@ -392,7 +392,8 @@ Currently, the GitHub Actions in the FIMS repository include:
 | call-r-cmd-check    | Runs R CMD Check               | Backup Check | Yes | Push to any branch |
 | run-clang-tidy      | Checks for C++ code            | Backup Check | Yes | Push to any branch |
 | run-googletest      | Runs the google C++ unit tests | Backup Check | Yes | Push to any branch |
-| run-doxygen         | Builds the C++ documentation   | Routine Workflow Task | No | Push to main branch |
+| run-doxygen         | Builds the C++ documentation   | Backup Check | No | Push to main branch |
+| run-clang-format    | Styles C++ code             | Routine workflow task | No | Push to main branch |
 | call-doc-and-style-r| documents and styles R code | Routine workflow task | No  | Push to main branch |
 | pr-checklist | Generates a checklist as a comment for reviewers on PRs | Routine workflow task | No | Opening a PR |
 
