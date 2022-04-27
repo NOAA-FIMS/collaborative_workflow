@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-04-22" />
+<meta name="date" content="2022-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
 <li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler</a></li>
-<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#google-test"><i class="fa fa-check"></i><b>6.0.4</b> Google test</a></li>
+<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.4</b> GoogleTest</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
@@ -240,6 +240,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.12.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.12.4</b> Review Good Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="7.13" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.13</b> Clean up local branches</a></li>
+<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.14</b> GitHub Actions</a><ul>
+<li class="chapter" data-level="7.14.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#details-on-backup-checks"><i class="fa fa-check"></i><b>7.14.1</b> Details on Backup Checks</a></li>
+<li class="chapter" data-level="7.14.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#debugging-broken-runs"><i class="fa fa-check"></i><b>7.14.2</b> Debugging Broken Runs</a></li>
+<li class="chapter" data-level="7.14.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow"><i class="fa fa-check"></i><b>7.14.3</b> How do I request a new Github Action workflow?</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
 <li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a><ul>
@@ -481,7 +486,7 @@ to ensure they are error-free.</li>
 Run <a href="https://noaa-fims.github.io/collaborative_workflow/testing.html#c-unit-testing-and-benchmarking"><code>cmake --build build</code> and <code>ctest --test-dir build</code> locally</a>
 and make sure the C++ tests pass before pushing tests to remote feature branch.
 If there are failing tests, run <code>ctest --test-dir --rerun-failed --output-on-failure</code> to re-run the failed tests verbosely.</li>
-<li>Ensuring the module runs through the FIMS GitHub actions on multiple operating systems.</li>
+<li>Ensuring the run-clang-tidy and run-googletest <a href="contributor-guidelines.html#github-actions">Github Actions workflows</a> pass on the remote feature branch</li>
 </ul>
 </div>
 <div id="r-contributor" class="section level3 hasAnchor">
@@ -496,8 +501,7 @@ Run <code>devtoos::test()</code> locally before pushing tests to the remote feat
 <li>Running <code>styler::style_pkg()</code> to style R code locally and then push changes to
 remote feature branch. If there are many changes, please do this in a separate commit.</li>
 <li>Running <code>devtools::check()</code> locally and make sure the package can be compiled and R tests pass. If there are failing tests, run <code>devtools::test(filter = "file_name")</code> (where “test-file_name.R” is the testthat file containing failing tests) and edit code/tests to troubleshoot tests.</li>
-<li>Ensuring the code passes the <code>R CMD CHECK</code>, <code>styler</code>, and any other
-automated checks.</li>
+<li>Ensuring the code passes the call-r-cmd-check <a href="contributor-guidelines.html#github-actions">GitHub Action workflow</a> on the remote feature branch.</li>
 </ul>
 </div>
 </div>
@@ -604,7 +608,7 @@ code owner immediately so a different reviewer can be found promptly.</p>
 <h3><span class="header-section-number">7.12.2</span> Automated Testing<a href="contributor-guidelines.html#automated-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Automated testing provides an initial layer of quality assurance and
 lets reviewers know that the code meets certain standards. For more on
-FIMS testing, see <a href="testing.html#testing">Testing</a>.</p>
+FIMS testing, see <a href="testing.html#testing">Testing</a> and <a href="contributor-guidelines.html#github-actions">GitHub Actions</a>.</p>
 </div>
 <div id="review-checklist" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.12.3</span> Review Checklist<a href="contributor-guidelines.html#review-checklist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -677,7 +681,152 @@ delete the branch. At this stage, the contributor should also delete the
 branch from the local repository using the following commands:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="contributor-guidelines.html#cb15-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
 <span id="cb15-2"><a href="contributor-guidelines.html#cb15-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
+</div>
+<div id="github-actions" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.14</span> GitHub Actions<a href="contributor-guidelines.html#github-actions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>FIMS uses <a href="https://docs.GitHub.com/en/actions">GitHub Actions</a> to automate
+routine tasks. These tasks include:</p>
+<ol style="list-style-type: decimal">
+<li>Backup checks for developers</li>
+<li>Routine GitHub workflow tasks (not important for developers to monitor)</li>
+</ol>
+<p>Currently, the GitHub Actions in the FIMS repository include:</p>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="38%" />
+<col width="15%" />
+<col width="7%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GitHub Action Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Runs a Check on PRs?</th>
+<th>Runs on:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>call-r-cmd-check</td>
+<td>Runs R CMD Check</td>
+<td>Backup Check</td>
+<td>Yes</td>
+<td>Push to any branch</td>
+</tr>
+<tr class="even">
+<td>run-clang-tidy</td>
+<td>Checks for C++ code</td>
+<td>Backup Check</td>
+<td>Yes</td>
+<td>Push to any branch</td>
+</tr>
+<tr class="odd">
+<td>run-googletest</td>
+<td>Runs the google C++ unit tests</td>
+<td>Backup Check</td>
+<td>Yes</td>
+<td>Push to any branch</td>
+</tr>
+<tr class="even">
+<td>run-doxygen</td>
+<td>Builds the C++ documentation</td>
+<td>Backup Check</td>
+<td>No</td>
+<td>Push to main branch</td>
+</tr>
+<tr class="odd">
+<td>run-clang-format</td>
+<td>Styles C++ code</td>
+<td>Routine workflow task</td>
+<td>No</td>
+<td>Push to main branch</td>
+</tr>
+<tr class="even">
+<td>call-doc-and-style-r</td>
+<td>documents and styles R code</td>
+<td>Routine workflow task</td>
+<td>No</td>
+<td>Push to main branch</td>
+</tr>
+<tr class="odd">
+<td>pr-checklist</td>
+<td>Generates a checklist as a comment for reviewers on PRs</td>
+<td>Routine workflow task</td>
+<td>No</td>
+<td>Opening a PR</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/NOAA-FIMS/FIMS/tree/main/.github/workflows">YAML files in a subdirectory of the FIMS repository</a> specify the setup for the GitHub Actions. Some of
+the actions depend on <a href="https://docs.GitHub.com/en/actions/using-workflows/reusing-workflows">reusable
+workflows</a>
+available in <a href="https://nmfs-fish-tools.github.io/ghactions4r/">{ghactions4r}</a>.</p>
+<p>Runs of the GitHub Actions can be viewed by navigating to the <a href="https://github.com/NOAA-FIMS/FIMS/actions">Actions tab of
+the FIMS repository</a>. The status of
+GitHub Action runs can also be viewed on pull requests or next to commits
+throughout the FIMS repository.</p>
+<div id="details-on-backup-checks" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.14.1</span> Details on Backup Checks<a href="contributor-guidelines.html#details-on-backup-checks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Developers must make sure that the checks on their pull requests pass, as
+typically changes will not be merged into the main branch until all GitHub
+Actions are passing (the exception is if there are known reasons for the GitHub
+Actions to fail that are not related to the pull request). Other
+responsibilities of developers are listed in <a href="contributor-guidelines.html#code-development">the Code Development
+section</a>.</p>
+<p>Additional details about the backup check GitHub Actions:</p>
+<ul>
+<li><strong>call-r-cmd-check</strong> runs R CMD Check on the FIMS package using the current
+version of R. Three runs occur simultaneously, on three operating systems:
+Windows, Linux (Ubuntu), and OSX. R CMD Check ensures that the FIMS package can
+be downloaded without error. An error means that the package cannot be
+downloaded successfully on the operating system for the run that failed.
+Developers should investigate the failing runs and make fixes. To replicate the
+GitHub Actions workflow locally, use <code>devtools::check()</code></li>
+<li><strong>run-clang-tidy</strong> runs checks while compiling the C++ code. If this run
+fails, fixes need to be made to the C++ code to address the issue identified.</li>
+<li><strong>run-googletest</strong> Runs the GoogleTest C++ unit tests and benchmarking. If
+this run fails, then fixes need to be made to the C++ code and/or the
+GoogleTest C++ unit tests. To replicate this GitHub Actions workflow locally,
+follow instructions in the <a href="testing.html#testing">testing section</a>.</li>
+</ul>
+</div>
+<div id="debugging-broken-runs" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.14.2</span> Debugging Broken Runs<a href="contributor-guidelines.html#debugging-broken-runs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>GitHub Actions can fail for many reasons, so debugging is necessary to find the
+cause of the failing run. Some steps that can help with debugging are:</p>
+<ul>
+<li>Ask for help as needed! Some members of the FIMS team who have experience
+debugging GitHub Actions are Bai, Kathryn, and Ian.</li>
+<li>Investigate why the run failed by <a href="https://docs.GitHub.com/en/actions/quickstart#viewing-your-workflow-results">looking in the
+log</a>.</li>
+<li>Try to replicate the problem locally. For example, if the call-r-cmd-check run
+fails during the testthat tests, try running the testthat tests locally (e.g.,
+using <code>devtools::test()</code>).</li>
+<li>If the problem can be replicated, try to fix locally by fixing one test or
+issue at a time. Then push the changes up to GitHub and monitor the new Github
+Action run.</li>
+<li>If the problem cannot be replicated locally, it could be a operating specific
+issue; for example, if using Windows locally, it may be an issue specific to Mac
+or Linux.</li>
+<li>Sometimes, runs may fail because a particular dependency wasn’t available at
+the exact point in time need for the run (e.g., maybe R didn’t install because
+the R executable couldn’t be downloaded); if that is the case, wait a few hours
+to a day and try to rerun. If it continues to fail for more than a day, a change
+in the GitHub Action YAML file may be needed.</li>
+</ul>
+</div>
+<div id="how-do-i-request-a-new-github-action-workflow" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.14.3</span> How do I request a new Github Action workflow?<a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Routine actions and checks should be captured in a GitHub Action workflow in
+order to improve efficiency of the development process and/or improve automated
+checks on the FIMS codebase. New GitHub Action workflows can be requested by
+opening an <a href="https://github.com/NOAA-FIMS/FIMS/issues">issue in the FIMS
+repository</a>.</p>
 
+</div>
 </div>
 </div>
             </section>

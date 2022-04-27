@@ -55,7 +55,7 @@ developer-software-guide
 git
 development-environment
 c-compiler
-google-test
+googletest
 contributor-guidelines
 style-guide
 naming-conventions-1
@@ -90,6 +90,10 @@ automated-testing
 review-checklist
 review-good-practices
 clean-up-local-branches
+github-actions
+details-on-backup-checks
+debugging-broken-runs
+how-do-i-request-a-new-github-action-workflow
 hpp-template-for-c-modules
 documentation-template
 writing-function-reference

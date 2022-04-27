@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-04-22" />
+<meta name="date" content="2022-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
 <li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler</a></li>
-<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#google-test"><i class="fa fa-check"></i><b>6.0.4</b> Google test</a></li>
+<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.4</b> GoogleTest</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
@@ -240,6 +240,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.12.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.12.4</b> Review Good Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="7.13" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.13</b> Clean up local branches</a></li>
+<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.14</b> GitHub Actions</a><ul>
+<li class="chapter" data-level="7.14.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#details-on-backup-checks"><i class="fa fa-check"></i><b>7.14.1</b> Details on Backup Checks</a></li>
+<li class="chapter" data-level="7.14.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#debugging-broken-runs"><i class="fa fa-check"></i><b>7.14.2</b> Debugging Broken Runs</a></li>
+<li class="chapter" data-level="7.14.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow"><i class="fa fa-check"></i><b>7.14.3</b> How do I request a new Github Action workflow?</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
 <li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a><ul>
@@ -319,9 +324,9 @@ first.</p>
 <h3><span class="header-section-number">6.0.1</span> git<a href="developer-software-guide.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will need git installed locally, and you may prefer to use an
 additional git <a href="https://git-scm.com/downloads/guis">GUI client</a> such as
-GitKraken or Github Desktop. If your preferred git client is the RStudio
+GitKraken or GitHub Desktop. If your preferred git client is the RStudio
 IDE, you can configure Git and RStudio integration following these
-<a href="https://happygitwithr.com/rstudio-git-github.html">instructions</a>.</p>
+<a href="https://happygitwithr.com/rstudio-git-GitHub.html">instructions</a>.</p>
 <p>To install git, please follow the instructions on <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">this
 page</a> for
 your operating system. You can find the downloads for your operating
@@ -354,8 +359,8 @@ Documents folder which contains the following line:</p>
 to your Rtools installation.</p>
 <p><code>{r eval=FALSE} Sys.which("make") ## "C:\\rtools40\\usr\\bin\\make.exe"</code></p>
 </div>
-<div id="google-test" class="section level3 hasAnchor">
-<h3><span class="header-section-number">6.0.4</span> Google test<a href="developer-software-guide.html#google-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="googletest" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.0.4</span> GoogleTest<a href="developer-software-guide.html#googletest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will need to install <code>CMake</code> and <code>ninja</code> and validate you have the
 correct setup by following the steps outlined in the <a href="testing.html#testing">test case
 template</a>.</p>
