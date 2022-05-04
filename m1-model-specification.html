@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-04-27" />
+<meta name="date" content="2022-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -401,14 +401,13 @@ realized recruitment.</p>
 </div>
 <div id="logistic-function-with-extensions" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.4</span> Logistic function with extensions<a href="m1-model-specification.html#logistic-function-with-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><span class="math display">\[x_i=\frac{1}{1+\mathrm{exp}(-ln(19)(i-\nu_1)/\nu_2)}\]</span></p>
+<p><span class="math display">\[x_i=\frac{1}{1+\mathrm{exp}(-s *(i-\nu))}\]</span></p>
 <p>Where <span class="math inline">\(x_i\)</span> is the quantity of interest (proportion mature, selected,
 etc.), <span class="math inline">\(i\)</span> is the index (can be age or size or any other quantity),
-<span class="math inline">\(\nu_1\)</span> is the index of 50% mature and <span class="math inline">\(\nu_2\)</span> is the difference in the
-index at 50% and the index at 95% (<span class="math inline">\(\nu_2 = \mathrm{ln}(19)/s\)</span> where
-<span class="math inline">\(s\)</span> is the slope parameter from an alternative parameterization).
-Logistic functions for maturity and selectivity should inherit and
-extend upon the base logistic function implementation.</p>
+<span class="math inline">\(\nu\)</span> is the index of 50% mature and where <span class="math inline">\(s\)</span> is the slope parameter
+from an alternative parameterization. Logistic functions for maturity
+and selectivity should inherit and extend upon the base logistic
+function implementation.</p>
 </div>
 <div id="catch-and-fishing-mortality" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.5</span> Catch and fishing mortality<a href="m1-model-specification.html#catch-and-fishing-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
