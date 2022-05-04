@@ -79,15 +79,14 @@ $h$, $ln(R_0)$, and R parameters and $\phi_0$ and return mean and
 realized recruitment.
 
 ## Logistic function with extensions
-$$x_i=\frac{1}{1+\mathrm{exp}(-ln(19)(i-\nu_1)/\nu_2)}$$
+$$x_i=\frac{1}{1+\mathrm{exp}(-s *(i-\nu))}$$
 
 Where $x_i$ is the quantity of interest (proportion mature, selected,
 etc.), $i$ is the index (can be age or size or any other quantity),
-$\nu_1$ is the index of 50% mature and $\nu_2$ is the difference in the
- index at 50% and the index at 95% ($\nu_2 = \mathrm{ln}(19)/s$ where
- $s$ is the slope parameter from an alternative parameterization).
- Logistic functions for maturity and selectivity should inherit and
- extend upon the base logistic function implementation.
+$\nu$ is the index of 50% mature and where $s$ is the slope parameter 
+from an alternative parameterization. Logistic functions for maturity 
+and selectivity should inherit and extend upon the base logistic
+function implementation.
 
 ## Catch and fishing mortality
 
