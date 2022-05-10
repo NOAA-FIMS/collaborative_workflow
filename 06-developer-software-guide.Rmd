@@ -28,6 +28,22 @@ files, outputs, and build and debug environments. The most popular IDEs
  to use another IDE or a text-editor based workflow if you strongly 
  prefer that. 
 
+ #### vscode setup
+ Please follow the instructions [here](https://code.visualstudio.com/docs/languages/r) 
+ to set up vscode for use with `R`.
+
+ In addition to those instructions, you may need to install the `vscDebugger` package
+ [here](https://github.com/ManuelHentschel/vscDebugger) using the command:
+ ```{r}
+ remotes::install_github("ManuelHentschel/vscDebugger")
+ ```
+
+ To set up C++ with vscode, instructions are 
+ [here](https://code.visualstudio.com/docs/languages/cpp).
+
+ Other helpful extensions are Github Copilot and Live Share which you
+  can find by searching in the marketplace.
+
 ### C++ compiler
 Windows users who installed Rtools should have a C++ compiler (`gcc`) 
 as part of the bundle. To ensure the C++ compiler is on your path, open
