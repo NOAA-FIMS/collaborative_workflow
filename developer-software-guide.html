@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-05-04" />
+<meta name="date" content="2022-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -340,6 +340,29 @@ on the development team are <a href="https://www.rstudio.com/">RStudio</a> and
 <a href="https://code.visualstudio.com/">Visual Studio Code</a>. You are welcome
 to use another IDE or a text-editor based workflow if you strongly
 prefer that.</p>
+<p>#### vscode setup
+Please follow the instructions <a href="https://code.visualstudio.com/docs/languages/r">here</a>
+to set up vscode for use with <code>R</code>.</p>
+<p>In addition to those instructions, you may need to install the <code>vscDebugger</code> package
+<a href="https://github.com/ManuelHentschel/vscDebugger">here</a> using the command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="developer-software-guide.html#cb6-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ManuelHentschel/vscDebugger&quot;</span>)</span></code></pre></div>
+<pre><code>## Using github PAT from envvar GITHUB_PAT</code></pre>
+<pre><code>## Downloading GitHub repo ManuelHentschel/vscDebugger@HEAD</code></pre>
+<pre><code>## Running `R CMD build`...</code></pre>
+<pre><code>## * checking for file ‘/tmp/RtmpFC9872/remotes257f193aa0e1/ManuelHentschel-vscDebugger-31ec9fb/DESCRIPTION’ ... OK
+## * preparing ‘vscDebugger’:
+## * checking DESCRIPTION meta-information ... OK
+## * cleaning src
+## * checking for LF line-endings in source and make files and shell scripts
+## * checking for empty or unneeded directories
+## Omitted ‘LazyData’ from DESCRIPTION
+## * building ‘vscDebugger_0.4.7.tar.gz’</code></pre>
+<pre><code>## Installing package into &#39;/home/runner/work/_temp/Library&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<p>To set up C++ with vscode, instructions are
+<a href="https://code.visualstudio.com/docs/languages/cpp">here</a>.</p>
+<p>Other helpful extensions are Github Copilot and Live Share which you
+can find by searching in the marketplace.</p>
 </div>
 <div id="c-compiler" class="section level3 hasAnchor">
 <h3><span class="header-section-number">6.0.3</span> C++ compiler<a href="developer-software-guide.html#c-compiler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -354,7 +377,7 @@ Documents folder which contains the following line:</p>
 <pre><code>PATH=&quot;${RTOOLS40_HOME}\usr\bin;${PATH}&quot;</code></pre>
 <p>You can do this with a text editor, or from <code>R</code> like so (note that in
 <code>R</code> code you need to escape backslashes):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="developer-software-guide.html#cb7-1"></a><span class="kw">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="dt">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="developer-software-guide.html#cb13-1"></a><span class="kw">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="dt">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Restart R, and verify that make can be found, which should show the path
 to your Rtools installation.</p>
 <p><code>{r eval=FALSE} Sys.which("make") ## "C:\\rtools40\\usr\\bin\\make.exe"</code></p>
