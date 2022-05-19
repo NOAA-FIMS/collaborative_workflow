@@ -190,7 +190,7 @@ locally and before pushing changes to the remote branch.
 Run `devtoos::test()` locally before pushing tests to the remote feature branch. 
 * Running `styler::style_pkg()` to style R code locally and then push changes to 
 remote feature branch. If there are many changes, please do this in a separate commit.
-* Running `devtools::check()` locally and make sure the package can be compiled and R tests pass. If there are failing tests, run `devtools::test(filter = "file_name")` (where "test-file_name.R" is the testthat file containing failing tests) and edit code/tests to troubleshoot tests.
+* Running `devtools::check()` locally and make sure the package can be compiled and R tests pass. If there are failing tests, run `devtools::test(filter = "file_name")` (where "test-file_name.R" is the testthat file containing failing tests) and edit code/tests to troubleshoot tests. During development, run `devtools::build()` locally to build the package more frequently and faster.
 * Ensuring the code passes the call-r-cmd-check [GitHub Action workflow](#github-actions) on the remote feature branch.
 
 ## Commit Messages
