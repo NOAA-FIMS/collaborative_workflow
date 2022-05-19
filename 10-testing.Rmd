@@ -575,8 +575,9 @@ Multiple testthat tests can be put in the same file.
 ## Test case documentation template and examples
 
 A testing plan must be developed while designing (i.e., before coding)
-new FIMS features. This testing plan is documented using the test case
-documentation template below.
+new FIMS features or Rcpp modules. Please update the test cases in the [FIMS/tests/milestoneX_test_cases.md file](https://github.com/NOAA-FIMS/FIMS/tree/main/tests) (e.g., FIMS/tests/miletone1_test_cases.md). 
+This testing plan is documented using the test case documentation 
+template below. 
 
 ### Test case documentation template
 
