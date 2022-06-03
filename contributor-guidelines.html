@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-05-10" />
+<meta name="date" content="2022-06-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -500,7 +500,7 @@ locally and before pushing changes to the remote branch.</li>
 Run <code>devtoos::test()</code> locally before pushing tests to the remote feature branch.</li>
 <li>Running <code>styler::style_pkg()</code> to style R code locally and then push changes to
 remote feature branch. If there are many changes, please do this in a separate commit.</li>
-<li>Running <code>devtools::check()</code> locally and make sure the package can be compiled and R tests pass. If there are failing tests, run <code>devtools::test(filter = "file_name")</code> (where “test-file_name.R” is the testthat file containing failing tests) and edit code/tests to troubleshoot tests.</li>
+<li>Running <code>devtools::check()</code> locally and make sure the package can be compiled and R tests pass. If there are failing tests, run <code>devtools::test(filter = "file_name")</code> (where “test-file_name.R” is the testthat file containing failing tests) and edit code/tests to troubleshoot tests. During development, run <code>devtools::build()</code> locally to build the package more frequently and faster.</li>
 <li>Ensuring the code passes the call-r-cmd-check <a href="contributor-guidelines.html#github-actions">GitHub Action workflow</a> on the remote feature branch.</li>
 </ul>
 </div>
