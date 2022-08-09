@@ -39,11 +39,82 @@ files, outputs, and build and debug environments. The most popular IDEs
  remotes::install_github("ManuelHentschel/vscDebugger")
  ```
 
+ To improve the plot viewer when creating plots in `R`, install the `httpgd` package:
+
+ ```{r eval=FALSE}
+ install.packages("httpgd")
+ ``` 
+
+A number of optional settings that could be added to the user settings (settings.json) file in vscode to improve the usability of R in VS code.
+
+For example, the [settings for interacting with R terminals](https://github.com/REditorSupport/vscode-R/wiki/Interacting-with-R-terminals#sending-code-to-r-terminals) can be adjusted.
+
+Here are some that you may want to use with FIMS:
+
+```json
+{
+    // Associate .RMD files with markdown:
+    "files.associations": {
+        "*.Rmd": "markdown",
+    },
+    // A cmake setting
+    "cmake.configureOnOpen": true, 
+    // Set where the rulers are, needed for Rewrap
+    "editor.rulers": [
+        80
+    ],
+    // Should the editor suggest inline edits?
+    "editor.inlineSuggest.enabled": true,
+    // Settings for github copilot and which languages to use it with or not.
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false,
+        "latex": false,
+        "r": false
+    }, 
+    // Setting for sending R code from the editor to the terminal
+    "r.alwaysUseActiveTerminal": true,
+    // Needed to send large chunks of code to the r terminal when using radian
+    "r.bracketedPaste": true,
+    // Needed to use httpgd for plotting in vscode
+    "r.plot.useHttpgd": true,
+    // path to the r terminal (in this case, radian). Necessary to get the terminal to use radian.
+    "r.rterm.windows": "C://Users//my.name//AppData//Local//Programs//Python//Python310//Scripts//radian.exe", //Use this only for Windows 
+    // options for the r terminal
+    "r.rterm.option": [
+        "--no-save",
+        "--no-restore",
+        "max.print=500"
+    ],
+    // Setting for whether to allow linting of documents or not
+    "r.lsp.diagnostics": true,
+    // When looking at diffs under the version control tab, should whitspace be ignored?
+    "diffEditor.ignoreTrimWhitespace": false,
+    // What is the max number of lines that are printed as output to the terminal?
+    "terminal.integrated.scrollback": 10000
+}
+```
+
+ Some [suggested R shortcuts](https://github.com/REditorSupport/vscode-R/wiki/Keyboard-shortcuts)
+ could be helpful.
+
+
  To set up C++ with vscode, instructions are 
  [here](https://code.visualstudio.com/docs/languages/cpp).
 
- Other helpful extensions are Github Copilot and Live Share which you
-  can find by searching in the marketplace.
+ Other helpful extensions that can be found in the VScode marketplace are:
+ - Github Copilot: An AI tool that helps with line completion
+ - Live Share: Collaborate on the same file remotely with other developers
+ - Rewrap: Helps rewrapping comments and text lines at a specified character count. Note 
+   that to get it working it will be necessary to add 
+   [rulers](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_vertical-rulers)
+ - There are a number of keymap packages that import key mappings from commonly used text 
+  editors (e.g., Sublime, Notepad++, atom, etc.). Searching "keymap" in the marketplace should help find these.
+
+  Note that the keybindings.json and settings.json could be copied from one computer to another to make it easier to 
+  set up VS code with the settings needed.
 
 ### C++ compiler
 
