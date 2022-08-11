@@ -274,7 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.3" data-path="testing.html"><a href="testing.html#testsgtestcmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> tests/gtest/CMakeLists.txt template</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a><ul>
-<li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.1</b> R testthat template</a></li>
+<li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
+<li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.2</b> R testthat template</a></li>
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a><ul>
 <li class="chapter" data-level="10.5.1" data-path="testing.html"><a href="testing.html#test-case-documentation-template"><i class="fa fa-check"></i><b>10.5.1</b> Test case documentation template</a></li>
@@ -769,8 +770,12 @@ If you are not familiar with testthat, the
 <a href="https://r-pkgs.org/tests.html">testing chapter</a> in R
 packages gives a good overview of testing workflow, along with structure
 explanation and concrete examples.</p>
+<div id="testing-fims-locally" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.4.1</span> Testing FIMS locally<a href="testing.html#testing-fims-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To test FIMS R functions interactively and locally, use <code>devtools::install()</code> rather than <code>devtools::load_all()</code>. This is because using <code>load_all()</code> will turn on the debugger, bloating the .o file, and may lead to a compilation error (e.e., <code>Fatal error: can't write 326 bytes to section .text of FIMS.o: 'file too big'    as: FIMS.o: too many sections (35851)</code>). Note that useful interactive tests should should be converted into {testthat} or googletest tests.</p>
+</div>
 <div id="r-testthat-template" class="section level3 hasAnchor">
-<h3><span class="header-section-number">10.4.1</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">10.4.2</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The format for an individual testthat test is is:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="testing.html#cb52-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
 <span id="cb52-2"><a href="testing.html#cb52-2"></a></span>

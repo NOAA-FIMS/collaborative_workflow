@@ -122,6 +122,7 @@ unit-test-template
 benchmark-template
 testsgtestcmakelists.txt-template
 r-testing
+testing-fims-locally
 r-testthat-template
 test-case-documentation-template-and-examples
 test-case-documentation-template
