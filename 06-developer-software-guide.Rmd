@@ -30,20 +30,123 @@ files, outputs, and build and debug environments. The most popular IDEs
 
  ### vscode setup
 
- Please follow the instructions [here](https://code.visualstudio.com/docs/languages/r) 
- to set up vscode for use with `R`.
+ Please follow the instructions
+ [here](https://code.visualstudio.com/docs/languages/r) to set up vscode for use
+ with `R`.
 
- In addition to those instructions, you may need to install the `vscDebugger` package
- [here](https://github.com/ManuelHentschel/vscDebugger) using the command:
+ For those migrating from R studio to VS code, [this post on migrating to VS
+ code](https://statnmap.com/2021-10-09-how-not-to-be-lost-with-vscode-when-coming-from-rstudio/)
+ may be helpful.
+
+ In addition to those instructions, you may need to install the `vscDebugger`
+ package [here](https://github.com/ManuelHentschel/vscDebugger) using the
+ command:
+
  ```{r eval=FALSE}
  remotes::install_github("ManuelHentschel/vscDebugger")
  ```
 
- To set up C++ with vscode, instructions are 
- [here](https://code.visualstudio.com/docs/languages/cpp).
+ To improve the plot viewer when creating plots in `R`, install the `httpgd`
+ package:
 
- Other helpful extensions are Github Copilot and Live Share which you
-  can find by searching in the marketplace.
+ ```{r eval=FALSE}
+ install.packages("httpgd")
+ ``` 
+
+To add syntax highlighting and other features to the R terminal,
+[radian](https://github.com/randy3k/radian) can be installed. Note needs to be
+installed first in order to download radian.
+
+A number of optional settings that could be added to the user settings
+(settings.json) file in vscode to improve the usability of R in VS code.
+
+For example, the [settings for interacting with R
+terminals](https://github.com/REditorSupport/vscode-R/wiki/Interacting-with-R-terminals#sending-code-to-r-terminals)
+can be adjusted.
+
+Here are some that you may want to use with FIMS:
+
+```json
+{
+    // Associate .RMD files with markdown:
+    "files.associations": {
+        "*.Rmd": "markdown",
+    },
+    // A cmake setting
+    "cmake.configureOnOpen": true, 
+    // Set where the rulers are, needed for Rewrap. 72 is the default we have
+    // decided on for FIMS repositories.z
+    "editor.rulers": [
+        72
+    ],
+    // Should the editor suggest inline edits?
+    "editor.inlineSuggest.enabled": true,
+    // Settings for github copilot and which languages to use it with or not.
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false,
+        "latex": false,
+        "r": false
+    }, 
+    // Setting for sending R code from the editor to the terminal
+    "r.alwaysUseActiveTerminal": true,
+    // Needed to send large chunks of code to the r terminal when using radian
+    "r.bracketedPaste": true,
+    // Needed to use httpgd for plotting in vscode
+    "r.plot.useHttpgd": true,
+    // path to the r terminal (in this case, radian). Necessary to get the terminal to use radian.
+    "r.rterm.windows": "C://Users//my.name//AppData//Local//Programs//Python//Python310//Scripts//radian.exe", //Use this only for Windows 
+    // options for the r terminal
+    "r.rterm.option": [
+        "--no-save",
+        "--no-restore",
+        "max.print=500"
+    ],
+    // Setting for whether to allow linting of documents or not
+    "r.lsp.diagnostics": true,
+    // When looking at diffs under the version control tab, should whitspace be ignored?
+    "diffEditor.ignoreTrimWhitespace": false,
+    // What is the max number of lines that are printed as output to the terminal?
+    "terminal.integrated.scrollback": 10000
+}
+```
+
+Some [suggested R
+shortcuts](https://github.com/REditorSupport/vscode-R/wiki/Keyboard-shortcuts)
+could be helpful.
+
+
+To set up C++ with vscode, instructions are 
+[here](https://code.visualstudio.com/docs/languages/cpp).
+
+Other helpful extensions that can be found in the VScode marketplace are:
+ - Github Copilot: An AI tool that helps with line completion
+ - Live Share: Collaborate on the same file remotely with other developers
+ - Rewrap: Helps rewrapping comments and text lines at a specified character
+   count. Note that to get it working it will be necessary to add
+   [rulers](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_vertical-rulers)
+ - There are a number of keymap packages that import key mappings from commonly
+  used text editors (e.g., Sublime, Notepad++, atom, etc.). Searching "keymap"
+  in the marketplace should help find these.
+  - GitLens (or GitLess): Adds more Git functionality. Note that some of the
+    GitLens functionality is not free, and GitLess is a fork before the addition
+    of these premium features.
+
+Note that the keybindings.json and settings.json could be copied from one
+computer to another to make it easier to set up VS code with the settings
+needed. Note that the [settings.json location differs](https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations) depending on the operating system.
+
+Typically, it is good practice to not restore old sessions after shutting down
+the IDE. To avoid restoring old sessions in the VS Code terminals (including R
+terminal), in the Setting User Interface within VS Code (get to this by opening
+the command palette and searching for Preferences: Open Settings (UI)), under
+Features > Terminal, uncheck the option "Enable Persistent Sessions."
+
+Rstudio addins can be accessed by searching for Rstudio addin in the command
+palette. Clicking on "R: Launch Rstudio Addin" should provide a list of addin
+options.
 
 ### C++ compiler
 
