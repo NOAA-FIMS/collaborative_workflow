@@ -66,9 +66,10 @@ Here are some that you may want to use with FIMS:
     },
     // A cmake setting
     "cmake.configureOnOpen": true, 
-    // Set where the rulers are, needed for Rewrap
+    // Set where the rulers are, needed for Rewrap. 72 is the default we have
+    // decided on for FIMS repositories.z
     "editor.rulers": [
-        80
+        72
     ],
     // Should the editor suggest inline edits?
     "editor.inlineSuggest.enabled": true,
@@ -124,7 +125,7 @@ Other helpful extensions that can be found in the VScode marketplace are:
 
 Note that the keybindings.json and settings.json could be copied from one
 computer to another to make it easier to set up VS code with the settings
-needed.
+needed. Note that the [settings.json location differs](https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations) depending on the operating system.
 
 
 
