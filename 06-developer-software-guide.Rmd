@@ -28,30 +28,30 @@ files, outputs, and build and debug environments. The most popular IDEs
  to use another IDE or a text-editor based workflow if you strongly 
  prefer that. 
 
- ### vscode setup
+### vscode setup
 
- Please follow the instructions
- [here](https://code.visualstudio.com/docs/languages/r) to set up vscode for use
- with `R`.
+Please follow the instructions
+[here](https://code.visualstudio.com/docs/languages/r) to set up vscode for use
+with `R`.
 
- For those migrating from R studio to VS code, [this post on migrating to VS
- code](https://statnmap.com/2021-10-09-how-not-to-be-lost-with-vscode-when-coming-from-rstudio/)
- may be helpful.
+For those migrating from R studio to VS code, [this post on migrating to VS
+code](https://statnmap.com/2021-10-09-how-not-to-be-lost-with-vscode-when-coming-from-rstudio/)
+may be helpful.
 
- In addition to those instructions, you may need to install the `vscDebugger`
- package [here](https://github.com/ManuelHentschel/vscDebugger) using the
- command:
+In addition to those instructions, you may need to install the `vscDebugger`
+package [here](https://github.com/ManuelHentschel/vscDebugger) using the
+command:
 
- ```{r eval=FALSE}
- remotes::install_github("ManuelHentschel/vscDebugger")
- ```
+```{r eval=FALSE}
+remotes::install_github("ManuelHentschel/vscDebugger")
+```
 
- To improve the plot viewer when creating plots in `R`, install the `httpgd`
- package:
+To improve the plot viewer when creating plots in `R`, install the `httpgd`
+package:
 
- ```{r eval=FALSE}
- install.packages("httpgd")
- ``` 
+```{r eval=FALSE}
+install.packages("httpgd")
+``` 
 
 To add syntax highlighting and other features to the R terminal,
 [radian](https://github.com/randy3k/radian) can be installed. Note needs to be

@@ -135,9 +135,9 @@ again. FIMS is currently in the implementation phase of Milestone 1. See
 [M1 model specification](#m1-model-specification) for a description of
 the model.
 
-```{r devcycle, echo = FALSE, out.width='75%', fig.cap="FIMS Development
-Cycle. Current development stage is the implementation phase of
-Milestone 1"} knitr::include_graphics("dev cycle.png") ```
+```{r devcycle, echo = FALSE, out.width='75%', fig.cap="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1"} 
+knitr::include_graphics("dev cycle.png")
+```
 
 ### Issue Lifecycle
 
@@ -170,10 +170,9 @@ Closure—The event that marks the closure of an Issue. This even happens
 once in the lifetime of an issue. The issue can enter the Closed state
 from either the "In Review" or "Response" state.
 
-```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that
-describes above process visually, e.g. how an issue moves from creation,
-to activation, to response or resolution, and is finally closed."}
-knitr::include_graphics("New Flowchart.png") ```
+```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
+knitr::include_graphics("New Flowchart.png")
+```
 
 ### Feature Validation
 
