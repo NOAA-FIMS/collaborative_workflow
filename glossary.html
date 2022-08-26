@@ -294,6 +294,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="glossary.html"><a href="glossary.html#singleton"><i class="fa fa-check"></i><b>10.6.1</b> singleton</a></li>
+<li class="chapter" data-level="10.6.2" data-path="glossary.html"><a href="glossary.html#class"><i class="fa fa-check"></i><b>10.6.2</b> class</a></li>
+<li class="chapter" data-level="10.6.3" data-path="glossary.html"><a href="glossary.html#functor"><i class="fa fa-check"></i><b>10.6.3</b> functor</a></li>
+<li class="chapter" data-level="10.6.4" data-path="glossary.html"><a href="glossary.html#destructor"><i class="fa fa-check"></i><b>10.6.4</b> destructor</a></li>
+<li class="chapter" data-level="10.6.5" data-path="glossary.html"><a href="glossary.html#header-guards"><i class="fa fa-check"></i><b>10.6.5</b> header guards</a></li>
+<li class="chapter" data-level="10.6.6" data-path="glossary.html"><a href="glossary.html#preprocessing-macroderectives"><i class="fa fa-check"></i><b>10.6.6</b> preprocessing macro/derectives</a></li>
+<li class="chapter" data-level="10.6.7" data-path="glossary.html"><a href="glossary.html#struct"><i class="fa fa-check"></i><b>10.6.7</b> struct</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://noaa-fims.github.io/collaborative_workflow" target="blank">Published with bookdown</a></li>
@@ -506,6 +515,52 @@ can run the test and see if the issue is resolved.</p></li>
 Board</span></a>;
 <a href="https://github.com/nmfs-stock-synthesis/stock-synthesis/issues/148"><span class="ul">SS bug fix example</span></a></p></li>
 </ul>
+</div>
+</div>
+<div id="c-glossary" class="section level2 hasAnchor">
+<h2><span class="header-section-number">10.6</span> C++ Glossary<a href="glossary.html#c-glossary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some C++ vocabulary that is used within FIMS that will be helpful for novice C++ programmers
+to understand.</p>
+<div id="singleton" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.6.1</span> singleton<a href="glossary.html#singleton" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Defines a class that is only used to create an object one time. This is a design pattern.</p>
+<p>See more <a href="https://www.positioniseverything.net/cpp-singleton">information</a></p>
+</div>
+<div id="class" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.6.2</span> class<a href="glossary.html#class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Provides the “recipe” for the structure of an object, including the data members and functions.
+Like data structures (structs), but also includes functions.</p>
+<p>See more <a href="https://cplusplus.com/doc/tutorial/classes/">information</a>.</p>
+</div>
+<div id="functor" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.6.3</span> functor<a href="glossary.html#functor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A functor is a a function object. It can contain state and is a type.</p>
+<p>See more <a href="https://docs.microsoft.com/en-us/cpp/standard-library/function-objects-in-the-stl?view=msvc-170">details about functors</a>.
+### constructor</p>
+<p>A special method that is called when a new object is created and
+usually initializes data members of the object.</p>
+<p>See the <a href="https://www.geeksforgeeks.org/constructors-c/">definition of constructor</a>.</p>
+</div>
+<div id="destructor" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.6.4</span> destructor<a href="glossary.html#destructor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The last method of an object called automatically before an object is destroyed.</p>
+<p>See the <a href="https://www.geeksforgeeks.org/destructors-c/">definition of destructor</a>.</p>
+</div>
+<div id="header-guards" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.6.5</span> header guards<a href="glossary.html#header-guards" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Makes sure that there are not multiple copies of a header in a file.</p>
+<p>Details are <a href="https://www.learncpp.com/cpp-tutorial/header-guards/">available</a>.</p>
+</div>
+<div id="preprocessing-macroderectives" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.6.6</span> preprocessing macro/derectives<a href="glossary.html#preprocessing-macroderectives" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Begin with a <code>#</code> in the code, these tell the preproccessor (not the compiler) what to do.
+These directives are complete before compiling.</p>
+<p>See more info on <a href="https://cplusplus.com/doc/tutorial/preprocessor/">preprocessing</a></p>
+</div>
+<div id="struct" class="section level3 hasAnchor">
+<h3><span class="header-section-number">10.6.7</span> struct<a href="glossary.html#struct" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Similar to a class, but only contains data members and not functions. Comes from C.</p>
+<p>See <a href="https://www.w3schools.com/cpp/cpp_structs.asp.">details on struct</a></p>
 
 </div>
 </div>
