@@ -236,7 +236,7 @@ See more [information](https://cplusplus.com/doc/tutorial/classes/).
 
 ### functor
 
-A functor is a a function object. It can contain state and is a type.
+A functor is a class that acts like a function.
 
 See more [details about functors](https://docs.microsoft.com/en-us/cpp/standard-library/function-objects-in-the-stl?view=msvc-170). 
 ### constructor
@@ -267,6 +267,6 @@ See more info on [preprocessing](https://cplusplus.com/doc/tutorial/preprocessor
 
 ### struct
 
-Similar to a class, but only contains data members and not functions. Comes from C.
+Similar to a class, but only contains data members and not functions. All members are public. Comes from C.
 
 See [details on struct](https://www.w3schools.com/cpp/cpp_structs.asp.)
