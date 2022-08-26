@@ -216,3 +216,57 @@ Board]{.ul}](https://glossary.istqb.org/en/search/confirmation);
 [[SS bug fix example]{.ul}](https://github.com/nmfs-stock-synthesis/stock-synthesis/issues/148)
 
 
+## C++ Glossary
+
+Some C++ vocabulary that is used within FIMS that will be helpful for novice C++ programmers
+to understand.
+
+### singleton
+
+Defines a class that is only used to create an object one time. This is a design pattern.
+
+See more [information](https://www.positioniseverything.net/cpp-singleton)
+
+### class
+
+Provides the "recipe" for the structure of an object, including the data members and functions. 
+Like data structures (structs), but also includes functions.
+
+See more [information](https://cplusplus.com/doc/tutorial/classes/).
+
+### functor
+
+A functor is a a function object. It can contain state and is a type.
+
+See more [details about functors](https://docs.microsoft.com/en-us/cpp/standard-library/function-objects-in-the-stl?view=msvc-170). 
+### constructor
+
+A special method that is called when a new object is created and 
+usually initializes data members of the object.
+
+See the [definition of constructor](https://www.geeksforgeeks.org/constructors-c/).
+
+### destructor
+
+The last method of an object called automatically before an object is destroyed.
+
+See the [definition of destructor](https://www.geeksforgeeks.org/destructors-c/).
+
+### header guards
+
+Makes sure that there are not multiple copies of a header in a file.
+
+Details are [available](https://www.learncpp.com/cpp-tutorial/header-guards/).
+
+### preprocessing macro/derectives
+
+Begin with a `#` in the code, these tell the preproccessor (not the compiler) what to do.
+These directives are complete before compiling.
+
+See more info on [preprocessing](https://cplusplus.com/doc/tutorial/preprocessor/)
+
+### struct
+
+Similar to a class, but only contains data members and not functions. Comes from C.
+
+See [details on struct](https://www.w3schools.com/cpp/cpp_structs.asp.)
