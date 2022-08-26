@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-08-11" />
+<meta name="date" content="2022-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -201,8 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a><ul>
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
-<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler</a></li>
-<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.4</b> GoogleTest</a></li>
+<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
+<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.4</b> C++ compiler</a></li>
+<li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
@@ -341,7 +342,9 @@ on the development team are <a href="https://www.rstudio.com/">RStudio</a> and
 <a href="https://code.visualstudio.com/">Visual Studio Code</a>. You are welcome
 to use another IDE or a text-editor based workflow if you strongly
 prefer that.</p>
-<p>### vscode setup</p>
+</div>
+<div id="vscode-setup" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.0.3</span> vscode setup<a href="developer-software-guide.html#vscode-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Please follow the instructions
 <a href="https://code.visualstudio.com/docs/languages/r">here</a> to set up vscode for use
 with <code>R</code>.</p>
@@ -438,7 +441,7 @@ palette. Clicking on “R: Launch Rstudio Addin” should provide a list of addi
 options.</p>
 </div>
 <div id="c-compiler" class="section level3 hasAnchor">
-<h3><span class="header-section-number">6.0.3</span> C++ compiler<a href="developer-software-guide.html#c-compiler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.0.4</span> C++ compiler<a href="developer-software-guide.html#c-compiler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Windows users who installed Rtools should have a C++ compiler (<code>gcc</code>)
 as part of the bundle. To ensure the C++ compiler is on your path, open
 a command prompt and type <code>gcc</code>. If you get the below message, you are
@@ -458,7 +461,7 @@ to your Rtools installation.</p>
 <span id="cb12-2"><a href="developer-software-guide.html#cb12-2"></a><span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">rtools40</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin</span><span class="ch">\\</span><span class="st">make.exe&quot;</span> </span></code></pre></div>
 </div>
 <div id="googletest" class="section level3 hasAnchor">
-<h3><span class="header-section-number">6.0.4</span> GoogleTest<a href="developer-software-guide.html#googletest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.0.5</span> GoogleTest<a href="developer-software-guide.html#googletest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will need to install <code>CMake</code> and <code>ninja</code> and validate you have the
 correct setup by following the steps outlined in the <a href="testing.html#testing">test case
 template</a>.</p>

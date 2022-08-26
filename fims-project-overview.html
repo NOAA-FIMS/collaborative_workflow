@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-08-11" />
+<meta name="date" content="2022-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -201,8 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a><ul>
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
-<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler</a></li>
-<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.4</b> GoogleTest</a></li>
+<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
+<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.4</b> C++ compiler</a></li>
+<li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
@@ -450,7 +451,12 @@ the objectives of the established Milestone. This is followed by testing
 again. FIMS is currently in the implementation phase of Milestone 1. See
 <a href="m1-model-specification.html#m1-model-specification">M1 model specification</a> for a description of
 the model.</p>
-<p><code>{r devcycle, echo = FALSE, out.width='75%', fig.cap="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1"} knitr::include_graphics("dev cycle.png")</code></p>
+<div class="figure"><span style="display:block;" id="fig:devcycle"></span>
+<img src="dev%20cycle.png" alt="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1" width="75%" />
+<p class="caption">
+Figure 3.1: FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1
+</p>
+</div>
 <div id="issue-lifecycle" class="section level3 hasAnchor">
 <h3><span class="header-section-number">3.2.1</span> Issue Lifecycle<a href="fims-project-overview.html#issue-lifecycle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>FIMS development will adhere to a lifecycle for issues that makes it
@@ -482,7 +488,12 @@ Closure—The event that marks the closure of an Issue. This even happens
 once in the lifetime of an issue. The issue can enter the Closed state
 from either the “In Review” or “Response” state.</li>
 </ul>
-<p><code>{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."} knitr::include_graphics("New Flowchart.png")</code></p>
+<div class="figure"><span style="display:block;" id="fig:flowchart"></span>
+<img src="New%20Flowchart.png" alt="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed." width="75%" />
+<p class="caption">
+Figure 3.2: Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed.
+</p>
+</div>
 </div>
 <div id="feature-validation" class="section level3 hasAnchor">
 <h3><span class="header-section-number">3.2.2</span> Feature Validation<a href="fims-project-overview.html#feature-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>

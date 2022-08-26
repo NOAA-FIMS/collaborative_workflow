@@ -1,3 +1,5 @@
+fig:devcycle
+fig:flowchart
 about
 usage
 edit-and-preview-book-changes
@@ -54,6 +56,7 @@ extracting-model-output
 developer-software-guide
 git
 development-environment
+vscode-setup
 c-compiler
 googletest
 contributor-guidelines
