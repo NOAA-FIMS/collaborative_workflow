@@ -73,7 +73,7 @@ recruitment deviations $\hat{r_{dev,t}}$ the following equation is
 applied to calculate mean unbiased recruitment $R*_t$ using a bias
 adjustment factor $b_y=\frac{E[SD(ry)]^2}{\sigma_R^2}$ (Methot and
 Taylor, 2011).
-$$R^*_t=R_t\mathrm{exp}(\hat{r_{dev,t}}-b_y\frac{\sigma_R^2}{2})$$
+$$R^*_t=R_t\mathrm{exp}(\hat{r_{dev,t}}-b_t\frac{\sigma_R^2}{2})$$
 The recruitment function should take as input the $R$ , $S$ values, the
 $h$, $ln(R_0)$, and R parameters and $\phi_0$ and return mean and
 realized recruitment.
