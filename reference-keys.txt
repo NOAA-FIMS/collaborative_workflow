@@ -33,7 +33,7 @@ atomic-functions
 statistical-distributions
 normal-distribution
 multinomial-distribution
-beverton-holt-expected-recruitment-function
+beverton-holt-recruitment-function
 logistic-function-with-extensions
 catch-and-fishing-mortality
 modeling-loops
