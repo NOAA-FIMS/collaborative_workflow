@@ -81,14 +81,19 @@ $h$, $R_0$, $\phi_0$, $\sigma_R$, and $\hat{r}_{t}$, and return mean-unbiased ($
 realized ($R^*_t$) recruitment.
 
 ## Logistic function with extensions
-$$x_i=\frac{1}{1+\mathrm{exp}(-s *(i-\nu))}$$
+$$y_i=\frac{1}{1+\mathrm{exp}(-s *(x_i-\nu))}$$
 
-Where $x_i$ is the quantity of interest (proportion mature, selected,
-etc.), $i$ is the index (can be age or size or any other quantity),
-$\nu$ is the index of 50% mature and where $s$ is the slope parameter 
+Where $y_i$ is the quantity of interest (proportion mature, selected,
+etc.), $x_i$ is the index (can be age or size or any other quantity),
+$\nu$ is the median (inflection point), and $s$ is the slope parameter 
 from an alternative parameterization. Logistic functions for maturity 
 and selectivity should inherit and extend upon the base logistic
 function implementation.
+
+The parameterization for the double logistic curve is specified as 
+
+$$y_i=\frac{1.0}{ 1.0 + exp(-1.0 * s_1(x_i - \nu_1))} \left(1-\frac{1.0}{ 1.0 + exp(-1.0 * s_2 (x_i - \nu_2))}  \right)$$
+Where $s_1$ and and $\nu_1$ are the slope and median (50%) parameters for the ascending limb of the curve, and $s_2$ and and $\nu_2$ are the slope and median parameters for the descending limb of the curve. This is currently only implemented for the selectivity module.
 
 ## Catch and fishing mortality
 
