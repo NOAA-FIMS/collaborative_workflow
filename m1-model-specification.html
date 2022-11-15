@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-11-14" />
+<meta name="date" content="2022-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -213,6 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
 <li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.4</b> C++ compiler</a></li>
 <li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
+<li class="chapter" data-level="6.0.6" data-path="developer-software-guide.html"><a href="developer-software-guide.html#gdb-debugger"><i class="fa fa-check"></i><b>6.0.6</b> GDB debugger</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
@@ -423,13 +424,16 @@ realized (<span class="math inline">\(R^*_t\)</span>) recruitment.</p>
 </div>
 <div id="logistic-function-with-extensions" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.4</span> Logistic function with extensions<a href="m1-model-specification.html#logistic-function-with-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><span class="math display">\[x_i=\frac{1}{1+\mathrm{exp}(-s *(i-\nu))}\]</span></p>
-<p>Where <span class="math inline">\(x_i\)</span> is the quantity of interest (proportion mature, selected,
-etc.), <span class="math inline">\(i\)</span> is the index (can be age or size or any other quantity),
-<span class="math inline">\(\nu\)</span> is the index of 50% mature and where <span class="math inline">\(s\)</span> is the slope parameter
+<p><span class="math display">\[y_i=\frac{1}{1+\mathrm{exp}(-s *(x_i-\nu))}\]</span></p>
+<p>Where <span class="math inline">\(y_i\)</span> is the quantity of interest (proportion mature, selected,
+etc.), <span class="math inline">\(x_i\)</span> is the index (can be age or size or any other quantity),
+<span class="math inline">\(\nu\)</span> is the median (inflection point), and <span class="math inline">\(s\)</span> is the slope parameter
 from an alternative parameterization. Logistic functions for maturity
 and selectivity should inherit and extend upon the base logistic
 function implementation.</p>
+<p>The parameterization for the double logistic curve is specified as</p>
+<p><span class="math display">\[y_i=\frac{1.0}{ 1.0 + exp(-1.0 * s_1(x_i - \nu_1))} \left(1-\frac{1.0}{ 1.0 + exp(-1.0 * s_2 (x_i - \nu_2))}  \right)\]</span>
+Where <span class="math inline">\(s_1\)</span> and and <span class="math inline">\(\nu_1\)</span> are the slope and median (50%) parameters for the ascending limb of the curve, and <span class="math inline">\(s_2\)</span> and and <span class="math inline">\(\nu_2\)</span> are the slope and median parameters for the descending limb of the curve. This is currently only implemented for the selectivity module.</p>
 </div>
 <div id="catch-and-fishing-mortality" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.5</span> Catch and fishing mortality<a href="m1-model-specification.html#catch-and-fishing-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h2>

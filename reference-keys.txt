@@ -68,6 +68,7 @@ development-environment
 vscode-setup
 c-compiler
 googletest
+gdb-debugger
 contributor-guidelines
 style-guide
 naming-conventions-1
