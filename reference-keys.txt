@@ -82,6 +82,12 @@ files-that-go-in-src
 fims.cpp
 github-forking-and-cloning
 issue-tracking
+reporting-bugs
+before-submitting-a-bug-report
+how-do-i-submit-a-good-bug-report
+suggesting-features
+before-submitting-a-feature-suggestion
+how-do-i-submit-a-good-feature-suggestion
 issue-labels
 issue-templates
 branch-workflow
