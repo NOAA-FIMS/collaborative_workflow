@@ -81,6 +81,49 @@ be assigned to the current version number augmented for a hot fix and developmen
 assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch
 for version 3.3. This will minimize stale code and large merge conflicts.
 
+## Reporting Bugs
+
+This section guides you through submitting a bug report for any toolbox tool. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
+
+#### Before Submitting A Bug Report
+
+* **Check if it is related to version.** We recommend using `sessionInfo()` within your `R` console and submitting the results in your bug report. Also, please check your R version against the required R version in the DESCRIPTION file and update if needed to see if that fixes the issue.
+* **Perform a cursory search of issues** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. If it has **and the issue is closed**, open a new issue and include a link to the original issue in the body of your new one.
+
+#### How Do I Submit A (Good) Bug Report?
+
+Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on the toolbox Github repository and provide the following information by following the steps outlined in the [reprex package](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html). Explain the problem and include additional details to help maintainers reproduce the problem using the Bug Report issue [template](https://github.com/NOAA-FIMS/FIMS/issues/new/choose).
+
+Provide more context by answering these questions:
+
+* **Did the problem start happening recently** (e.g. after updating to a new version of R) or was this always a problem?
+* If the problem started happening recently, **can you reproduce the problem in an older version of R?** What's the most recent version in which the problem doesn't happen? 
+* **Can you reliably reproduce the issue?** If not, provide details about how often the problem happens and under which conditions it normally happens.
+* If the problem is related to working with files (e.g. reading in data files), **does the problem happen for all files and projects or only some?** Does the problem happen only when working with local or remote files (e.g. on network drives), with files of a specific type (e.g. only JavaScript or Python files), with large files or files with very long lines, or with files in a specific encoding? Is there anything else special about the files you are using?
+
+Include details about your configuration and environment:
+
+* **Which version of the tool are you using?** 
+* **What's the name and version of the OS you're using?**
+* **Which packages do you have installed?** You can get that list by running `sessionInfo()`.
+
+
+## Suggesting Features
+
+This section guides you through submitting an feature suggestion for toolbox packages, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.
+
+Before creating enhancement suggestions, please check the issues list as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include an "enhancement" tag in the issues.
+
+#### Before Submitting A Feature Suggestion
+
+* **Check you have the latest version of the package.**
+* **Check if the development branch has that enhancement in the works.**
+* **Perform a cursory search of the issues and enhancement tags** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+
+#### How Do I Submit A (Good) Feature Suggestion?
+
+Feature suggestions are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on the repository and use the Feature Request issue [template](https://github.com/NOAA-FIMS/FIMS/issues/new/choose).
+
 ### Issue Labels
 
 Utilize labels on issues:
