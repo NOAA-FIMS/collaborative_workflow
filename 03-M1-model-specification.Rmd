@@ -176,6 +176,18 @@ weight-at-age $a$ in kilograms.
 $$N_t=\sum_{a=0}^AN_{a,t}$$
 where $N_t$ is the total number of fish in time $t$.
 
+Annual unfished numbers at age and unfished spawning biomass are tracked 
+in the model assuming annual recruitment at rzero and only natural mortality. 
+This provides a dynamic reference point that accounts for time varying rzero 
+and M. This does not currently include recruitment deviations. 
+$$UnfishedNAA_{t,0} = R0_{t}$$
+$$UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}M_{t-1}$$
+for all t>0 and numbers at age at the start of the first year are model parameter
+inputs.
+
+$$ UnfishedSSB_t=\sum_{a=0}^AUnfishedNAA_{a,t}w_aFracFemale_aFracMature_a$$
+All spawning stock biomass values are current calculated at January 1 each year. 
+This will be updated in future milestones.
 
 ## Initial values
 
@@ -184,6 +196,13 @@ The initial equilibrium recruitment ($R_{eq}$) is calculated as follows:
 $$R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} $$
 where $\phi_{F}$ is the initial spawning biomass per recruitment given
 the initial fishing mortality $F$.
+
+The initial population structure at the start of the first model year is 
+input as an estimated parameter vector of numbers at age. This allows maximum 
+flexibility for the model to estimate non-equilibrium starting conditions. 
+Future milestones could add an option to input a single F value used to 
+calculate an equilibrium starting structure. 
+
 
 ## Likelihood calculations
 

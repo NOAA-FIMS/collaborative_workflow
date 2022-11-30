@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 M1 Model specification | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 M1 Model specification | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
@@ -24,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-03-02" />
+<meta name="date" content="2022-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="fims-project-overview.html"/>
 <link rel="next" href="user-guide.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,74 +49,11 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -138,20 +73,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like <span>https://bookdown.org/yihui/bookdown</span></a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
-<li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.2</b> Supporting Good Conduct</a>
+<li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-pledge"><i class="fa fa-check"></i><b>2.2</b> Our Pledge</a></li>
+<li class="chapter" data-level="2.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>2.3</b> Our Standards</a></li>
+<li class="chapter" data-level="2.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-responsibilities"><i class="fa fa-check"></i><b>2.4</b> Enforcement Responsibilities</a></li>
+<li class="chapter" data-level="2.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>2.5</b> Scope</a></li>
+<li class="chapter" data-level="2.6" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>2.6</b> Enforcement</a></li>
+<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#reporting-unacceptable-behavior"><i class="fa fa-check"></i><b>2.2.1</b> Reporting Unacceptable Behavior</a></li>
-<li class="chapter" data-level="2.2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#consequences-of-violating-conduct"><i class="fa fa-check"></i><b>2.2.2</b> Consequences of Violating Conduct</a></li>
+<li class="chapter" data-level="2.7.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#correction"><i class="fa fa-check"></i><b>2.7.1</b> 1. Correction</a></li>
+<li class="chapter" data-level="2.7.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#warning"><i class="fa fa-check"></i><b>2.7.2</b> 2. Warning</a></li>
+<li class="chapter" data-level="2.7.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#temporary-ban"><i class="fa fa-check"></i><b>2.7.3</b> 3. Temporary Ban</a></li>
+<li class="chapter" data-level="2.7.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#permanent-ban"><i class="fa fa-check"></i><b>2.7.4</b> 4. Permanent Ban</a></li>
 </ul></li>
+<li class="chapter" data-level="2.8" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.8</b> Supporting Good Conduct</a></li>
+<li class="chapter" data-level="2.9" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>2.9</b> Attribution</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a>
 <ul>
@@ -168,7 +111,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement</a></li>
 <li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle</a>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle</a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation</a></li>
@@ -187,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions</a></li>
 <li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="m1-model-specification.html"><a href="m1-model-specification.html#beverton-holt-expected-recruitment-function"><i class="fa fa-check"></i><b>4.3</b> Beverton-Holt expected recruitment function</a></li>
+<li class="chapter" data-level="4.3" data-path="m1-model-specification.html"><a href="m1-model-specification.html#beverton-holt-recruitment-function"><i class="fa fa-check"></i><b>4.3</b> Beverton-Holt recruitment function</a></li>
 <li class="chapter" data-level="4.4" data-path="m1-model-specification.html"><a href="m1-model-specification.html#logistic-function-with-extensions"><i class="fa fa-check"></i><b>4.4</b> Logistic function with extensions</a></li>
 <li class="chapter" data-level="4.5" data-path="m1-model-specification.html"><a href="m1-model-specification.html#catch-and-fishing-mortality"><i class="fa fa-check"></i><b>4.5</b> Catch and fishing mortality</a></li>
 <li class="chapter" data-level="4.6" data-path="m1-model-specification.html"><a href="m1-model-specification.html#modeling-loops"><i class="fa fa-check"></i><b>4.6</b> Modeling loops</a></li>
@@ -198,63 +141,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a>
+<li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a></li>
+<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.1.1</b> Installing the package from Github</a></li>
-<li class="chapter" data-level="5.1.2" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.1.2</b> Installing from <code>R</code></a></li>
+<li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#windows-users"><i class="fa fa-check"></i><b>5.2.1</b> Windows users</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.2</b> Running the model</a>
+<li class="chapter" data-level="5.3" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.3</b> Installing from <code>R</code></a></li>
+<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.2.1</b> Specifying the model</a></li>
-<li class="chapter" data-level="5.2.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.2.2</b> How to run the model</a></li>
-<li class="chapter" data-level="5.2.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.2.3</b> Extracting model output</a></li>
+<li class="chapter" data-level="5.4.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.4.1</b> Specifying the model</a></li>
+<li class="chapter" data-level="5.4.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.4.2</b> How to run the model</a></li>
+<li class="chapter" data-level="5.4.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.4.3</b> Extracting model output</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a>
 <ul>
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
-<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.3</b> C++ compiler</a></li>
-<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#google-test"><i class="fa fa-check"></i><b>6.0.4</b> Google test</a></li>
+<li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
+<li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.4</b> C++ compiler</a></li>
+<li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
+<li class="chapter" data-level="6.0.6" data-path="developer-software-guide.html"><a href="developer-software-guide.html#gdb-debugger"><i class="fa fa-check"></i><b>6.0.6</b> GDB debugger</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
 <li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions</a></li>
 <li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices</a></li>
-<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.4</b> GitHub forking and cloning</a></li>
-<li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.5</b> Issue Tracking</a>
+<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.5.1</b> Issue Labels</a></li>
-<li class="chapter" data-level="7.5.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.5.2</b> Issue Templates</a></li>
+<li class="chapter" data-level="7.4.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-instinclude"><i class="fa fa-check"></i><b>7.4.1</b> Files that go in <code>inst/include</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-src"><i class="fa fa-check"></i><b>7.4.2</b> Files that go in <code>src/</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.6</b> Branch Workflow</a>
+<li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.5</b> GitHub forking and cloning</a></li>
+<li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.6</b> Issue Tracking</a></li>
+<li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#reporting-bugs"><i class="fa fa-check"></i><b>7.7</b> Reporting Bugs</a></li>
+<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a>
 <ul>
-<li class="chapter" data-level="7.6.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.6.1</b> Branching Good Practices</a></li>
-<li class="chapter" data-level="7.6.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.6.2</b> Branch Naming Conventions</a></li>
-<li class="chapter" data-level="7.6.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.6.3</b> git workflow</a></li>
+<li class="chapter" data-level="7.8.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.8.1</b> Issue Labels</a></li>
+<li class="chapter" data-level="7.8.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.8.2</b> Issue Templates</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.7</b> Code Development</a>
+<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a>
 <ul>
-<li class="chapter" data-level="7.7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.7.1</b> C++ contributor</a></li>
-<li class="chapter" data-level="7.7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.7.2</b> R Contributor</a></li>
+<li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.9.1</b> Branching Good Practices</a></li>
+<li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.9.2</b> Branch Naming Conventions</a></li>
+<li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.9.3</b> git workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.8</b> Commit Messages</a></li>
-<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.9</b> Merge Conflicts</a>
+<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a>
 <ul>
-<li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.9.1</b> What is a merge conflict?</a></li>
-<li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.9.2</b> How to prevent merge conflicts</a></li>
-<li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.9.3</b> How to resolve merge conflicts</a></li>
+<li class="chapter" data-level="7.10.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.10.1</b> C++ contributor</a></li>
+<li class="chapter" data-level="7.10.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.10.2</b> R Contributor</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.10</b> Pull Requests</a></li>
-<li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.11</b> Code Review</a>
+<li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.11</b> Commit Messages</a></li>
+<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a>
 <ul>
-<li class="chapter" data-level="7.11.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.11.1</b> Assigning Reviewers</a></li>
-<li class="chapter" data-level="7.11.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.11.2</b> Automated Testing</a></li>
-<li class="chapter" data-level="7.11.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.11.3</b> Review Checklist</a></li>
-<li class="chapter" data-level="7.11.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.11.4</b> Review Good Practices</a></li>
+<li class="chapter" data-level="7.12.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.12.1</b> What is a merge conflict?</a></li>
+<li class="chapter" data-level="7.12.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.12.2</b> How to prevent merge conflicts</a></li>
+<li class="chapter" data-level="7.12.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.12.3</b> How to resolve merge conflicts</a></li>
 </ul></li>
-<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.12</b> Clean up local branches</a></li>
+<li class="chapter" data-level="7.13" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.13</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a>
+<ul>
+<li class="chapter" data-level="7.14.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.14.1</b> Assigning Reviewers</a></li>
+<li class="chapter" data-level="7.14.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.14.2</b> Automated Testing</a></li>
+<li class="chapter" data-level="7.14.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.14.3</b> Review Checklist</a></li>
+<li class="chapter" data-level="7.14.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.14.4</b> Review Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="7.15" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.15</b> Clean up local branches</a></li>
+<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a>
+<ul>
+<li class="chapter" data-level="7.16.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#details-on-backup-checks"><i class="fa fa-check"></i><b>7.16.1</b> Details on Backup Checks</a></li>
+<li class="chapter" data-level="7.16.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#debugging-broken-runs"><i class="fa fa-check"></i><b>7.16.2</b> Debugging Broken Runs</a></li>
+<li class="chapter" data-level="7.16.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow"><i class="fa fa-check"></i><b>7.16.3</b> How do I request a new Github Action workflow?</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
 <li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a>
@@ -263,37 +222,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette</a></li>
 <li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="test-case-template.html"><a href="test-case-template.html"><i class="fa fa-check"></i><b>10</b> Test case template</a>
+<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="test-case-template.html"><a href="test-case-template.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="test-case-template.html"><a href="test-case-template.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a>
+<li class="chapter" data-level="10.1" data-path="testing.html"><a href="testing.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="test-case-template.html"><a href="test-case-template.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
-<li class="chapter" data-level="10.2.2" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
-<li class="chapter" data-level="10.2.3" data-path="test-case-template.html"><a href="test-case-template.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
-<li class="chapter" data-level="10.2.4" data-path="test-case-template.html"><a href="test-case-template.html#setup-for-linux-and-mac-users"><i class="fa fa-check"></i><b>10.2.4</b> Setup for Linux and Mac users</a></li>
-<li class="chapter" data-level="10.2.5" data-path="test-case-template.html"><a href="test-case-template.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac"><i class="fa fa-check"></i><b>10.2.5</b> How to edit your PATH and change file permissions for Linux and Mac</a></li>
-<li class="chapter" data-level="10.2.6" data-path="test-case-template.html"><a href="test-case-template.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>10.2.6</b> Set up FIMS testing project</a></li>
-<li class="chapter" data-level="10.2.7" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-example"><i class="fa fa-check"></i><b>10.2.7</b> Unit test example</a></li>
-<li class="chapter" data-level="10.2.8" data-path="test-case-template.html"><a href="test-case-template.html#add-tests-to-cmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.8</b> Add tests to <code>CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="10.2.9" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.9</b> Benchmark example</a></li>
-<li class="chapter" data-level="10.2.10" data-path="test-case-template.html"><a href="test-case-template.html#add-benchmarks-to-cmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.10</b> Add benchmarks to <code>CMakeLists.txt</code> and run the benchmark</a></li>
-<li class="chapter" data-level="10.2.11" data-path="test-case-template.html"><a href="test-case-template.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.11</b> Clean up after running C++ tests</a></li>
+<li class="chapter" data-level="10.2.1" data-path="testing.html"><a href="testing.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
+<li class="chapter" data-level="10.2.2" data-path="testing.html"><a href="testing.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
+<li class="chapter" data-level="10.2.3" data-path="testing.html"><a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
+<li class="chapter" data-level="10.2.4" data-path="testing.html"><a href="testing.html#setup-for-linux-and-mac-users"><i class="fa fa-check"></i><b>10.2.4</b> Setup for Linux and Mac users</a></li>
+<li class="chapter" data-level="10.2.5" data-path="testing.html"><a href="testing.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac"><i class="fa fa-check"></i><b>10.2.5</b> How to edit your PATH and change file permissions for Linux and Mac</a></li>
+<li class="chapter" data-level="10.2.6" data-path="testing.html"><a href="testing.html#set-up-fims-testing-project"><i class="fa fa-check"></i><b>10.2.6</b> Set up FIMS testing project</a></li>
+<li class="chapter" data-level="10.2.7" data-path="testing.html"><a href="testing.html#build-and-run-the-tests"><i class="fa fa-check"></i><b>10.2.7</b> Build and run the tests</a></li>
+<li class="chapter" data-level="10.2.8" data-path="testing.html"><a href="testing.html#adding-a-c-test"><i class="fa fa-check"></i><b>10.2.8</b> Adding a C++ test</a></li>
+<li class="chapter" data-level="10.2.9" data-path="testing.html"><a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.9</b> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary</a></li>
+<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.10</b> Benchmark example</a></li>
+<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.11</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.12</b> Clean up after running C++ tests</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="test-case-template.html"><a href="test-case-template.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a>
+<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="test-case-template.html"><a href="test-case-template.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
-<li class="chapter" data-level="10.3.2" data-path="test-case-template.html"><a href="test-case-template.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
-<li class="chapter" data-level="10.3.3" data-path="test-case-template.html"><a href="test-case-template.html#cmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> CMakeLists.txt template</a></li>
+<li class="chapter" data-level="10.3.1" data-path="testing.html"><a href="testing.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
+<li class="chapter" data-level="10.3.2" data-path="testing.html"><a href="testing.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
+<li class="chapter" data-level="10.3.3" data-path="testing.html"><a href="testing.html#testsgtestcmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> tests/gtest/CMakeLists.txt template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="test-case-template.html"><a href="test-case-template.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
+<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="test-case-template.html"><a href="test-case-template.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.1</b> R testthat template</a></li>
+<li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
+<li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.2</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case template and examples</a>
+<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="test-case-template.html"><a href="test-case-template.html#test-case-template-1"><i class="fa fa-check"></i><b>10.5.1</b> Test case template</a></li>
-<li class="chapter" data-level="10.5.2" data-path="test-case-template.html"><a href="test-case-template.html#test-case-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case examples</a></li>
+<li class="chapter" data-level="10.5.1" data-path="testing.html"><a href="testing.html#test-case-documentation-template"><i class="fa fa-check"></i><b>10.5.1</b> Test case documentation template</a></li>
+<li class="chapter" data-level="10.5.2" data-path="testing.html"><a href="testing.html#test-case-documentation-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case documentation examples</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a>
@@ -308,6 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#platform-compatibility-testing"><i class="fa fa-check"></i>Platform compatibility testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="glossary.html"><a href="glossary.html#singleton"><i class="fa fa-check"></i><b>10.6.1</b> singleton</a></li>
+<li class="chapter" data-level="10.6.2" data-path="glossary.html"><a href="glossary.html#class"><i class="fa fa-check"></i><b>10.6.2</b> class</a></li>
+<li class="chapter" data-level="10.6.3" data-path="glossary.html"><a href="glossary.html#functor"><i class="fa fa-check"></i><b>10.6.3</b> functor</a></li>
+<li class="chapter" data-level="10.6.4" data-path="glossary.html"><a href="glossary.html#constructor"><i class="fa fa-check"></i><b>10.6.4</b> constructor</a></li>
+<li class="chapter" data-level="10.6.5" data-path="glossary.html"><a href="glossary.html#destructor"><i class="fa fa-check"></i><b>10.6.5</b> destructor</a></li>
+<li class="chapter" data-level="10.6.6" data-path="glossary.html"><a href="glossary.html#header-guards"><i class="fa fa-check"></i><b>10.6.6</b> header guards</a></li>
+<li class="chapter" data-level="10.6.7" data-path="glossary.html"><a href="glossary.html#preprocessing-macroderectives"><i class="fa fa-check"></i><b>10.6.7</b> preprocessing macro/derectives</a></li>
+<li class="chapter" data-level="10.6.8" data-path="glossary.html"><a href="glossary.html#struct"><i class="fa fa-check"></i><b>10.6.8</b> struct</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -330,23 +302,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="m1-model-specification" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> M1 Model specification</h1>
-<p>This section describes the implementation of the modules in FIMS in milestone 1. For the first milestone, we must implement enough complexity to adequately test a very standard population model. For this reason, we implement the minimum structure that can run the model described in <a href="">Li et al. 2020</a>. The product will be an age-structured integrated assessment model with two fleets (one survey, one fishery) and two sexes.</p>
-<div id="model-variables-and-bounds" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Model variables and bounds</h2>
+<div id="m1-model-specification" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> M1 Model specification<a href="m1-model-specification.html#m1-model-specification" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This section describes the implementation of the modules in FIMS in
+milestone 1. For the first milestone, we must implement enough
+complexity to adequately test a very standard population model. For this
+reason, we implement the minimum structure that can run the model
+described in <a href="">Li et al. 2020</a>. The product will be an age-structured
+integrated assessment model with two fleets (one survey, one fishery)
+and two sexes.</p>
+<div id="model-variables-and-bounds" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Model variables and bounds<a href="m1-model-specification.html#model-variables-and-bounds" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="inherited-functors-from-tmb" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Inherited functors from <code>TMB</code></h2>
-<div id="atomic-functions" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Atomic functions</h3>
-<p>Wherever possible, <code>FIMS</code> should not reinvent atomic functions with extant definitions in <code>TMB</code>. If there is a need for a new atomic function the development team can add it to <code>TMB</code> using the <code>TMB_ATOMIC_VECTOR_FUNCTION()</code> macro following the instructions <a href="https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives">here</a>.</p>
+<div id="inherited-functors-from-tmb" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Inherited functors from <code>TMB</code><a href="m1-model-specification.html#inherited-functors-from-tmb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="atomic-functions" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Atomic functions<a href="m1-model-specification.html#atomic-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Wherever possible, <code>FIMS</code> should not reinvent atomic functions with
+extant definitions in <code>TMB</code>. If there is a need for a new atomic
+function the development team can add it to <code>TMB</code> using the
+<code>TMB_ATOMIC_VECTOR_FUNCTION()</code> macro following the instructions
+<a href="https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives">here</a>.</p>
 </div>
-<div id="statistical-distributions" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Statistical distributions</h3>
-<p>All of the statistical distributions needed for the first milestone of <code>FIMS</code> are implemented in <code>TMB</code> and need not be replicated.
+<div id="statistical-distributions" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Statistical distributions<a href="m1-model-specification.html#statistical-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All of the statistical distributions needed for the first milestone of
+<code>FIMS</code> are implemented in <code>TMB</code> and need not be replicated.
 Code can be found <a href="http://kaskr.github.io/adcomp/group__R__style__distribution.html">here</a>.</p>
 <table>
+<colgroup>
+<col width="57%" />
+<col width="42%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Distribution</th>
@@ -364,13 +351,13 @@ Code can be found <a href="http://kaskr.github.io/adcomp/group__R__style__distri
 </tr>
 </tbody>
 </table>
-<div id="normal-distribution" class="section level4" number="4.2.2.1">
-<h4><span class="header-section-number">4.2.2.1</span> Normal Distribution</h4>
+<div id="normal-distribution" class="section level4 hasAnchor" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Normal Distribution<a href="m1-model-specification.html#normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><span class="math display">\[f(y) = \frac{1}{\sigma\sqrt{2\pi}}exp\Bigg(-\frac{(x-\mu)^2}{2\sigma^2} \Bigg),\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma^2\)</span> is the variance.</p>
 </div>
-<div id="multinomial-distribution" class="section level4" number="4.2.2.2">
-<h4><span class="header-section-number">4.2.2.2</span> Multinomial Distribution</h4>
+<div id="multinomial-distribution" class="section level4 hasAnchor" number="4.2.2.2">
+<h4><span class="header-section-number">4.2.2.2</span> Multinomial Distribution<a href="m1-model-specification.html#multinomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For <span class="math inline">\(k\)</span> categories and sample size, <span class="math inline">\(n\)</span>,</p>
 <p><span class="math display">\[f(y) = \frac{n!}{y_{1}!... y_{k}!}p^{y_{1}}_{1}...p^{y_{k}}_{k},\]</span></p>
 <p>where <span class="math inline">\(\sum^{k}_{i=1}y_{i} = n\)</span>, <span class="math inline">\(p_{i} &gt; 0\)</span>, and <span class="math inline">\(\sum^{k}_{i=1}p_{i} = 1\)</span>.</p>
@@ -380,69 +367,148 @@ Code can be found <a href="http://kaskr.github.io/adcomp/group__R__style__distri
 </div>
 </div>
 </div>
-<div id="beverton-holt-expected-recruitment-function" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Beverton-Holt expected recruitment function</h2>
-<p>For parity with existing stock assessment models, the first recruitment option in FIMS is a Beverton-Holt [cite] parameterized with R0 and h.</p>
+<div id="beverton-holt-recruitment-function" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Beverton-Holt recruitment function<a href="m1-model-specification.html#beverton-holt-recruitment-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For parity with existing stock assessment models, the first recruitment
+option in FIMS is the steepness parameterization of the Beverton-Holt model (Beverton and Holt, 1957),</p>
 <p><span class="math display">\[R_t  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}\]</span>
-Where <span class="math inline">\(R_t\)</span> and <span class="math inline">\(S_t\)</span> are mean recruitment and spawning biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(h\)</span> is Mace-Doonan steepness, and <span class="math inline">\(\phi_0\)</span> are the unfished spawning biomass per recruit. The initial FIMS model will implement a static spawning biomass-per-recruit function, with the ability to overload the method in the future to allow for time-variation in mortality, maturity, and weight-at-age over time to account for changes in spawning biomass per recruit. Deviations are assumed to be lognormally distributed such that realized recruitment is the product of mean recruitment and the exponentiated recruitment deviation.
-<span class="math display">\[R_t = R_t\mathrm{exp}(r_{dev,t}-R^2/2),   r_{dev,t} \sim N(0,R^2)\]</span></p>
-<p>However, true <span class="math inline">\(r_{dev,t}\)</span> values are not known, so when using estimated recruitment deviations <span class="math inline">\(\hat{r_{dev,t}}\)</span> the following equation is applied to calculate mean unbiased recruitment <span class="math inline">\(R*_t\)</span> using a bias adjustment factor <span class="math inline">\(b_y=\frac{E[SD(ry)]^2}{\sigma_R^2}\)</span> (Methot and Taylor, 2011).
-<span class="math display">\[R^*_t=R_t\mathrm{exp}(\hat{r_{dev,t}}-b_y\frac{\sigma_R^2}{2})\]</span>
-The recruitment function should take as input the <span class="math inline">\(R\)</span> , <span class="math inline">\(S\)</span> values, the <span class="math inline">\(h\)</span>, <span class="math inline">\(ln(R_0)\)</span>, and R parameters and <span class="math inline">\(\phi_0\)</span> and return mean and realized recruitment.</p>
+where <span class="math inline">\(R_t\)</span> and <span class="math inline">\(S_t\)</span> are mean recruitment and spawning biomass at time
+<span class="math inline">\(t\)</span>, <span class="math inline">\(h\)</span> is steepness, and <span class="math inline">\(\phi_0\)</span> is the unfished
+spawning biomass per recruit. The initial FIMS model implements a
+static spawning biomass-per-recruit function, with the ability to
+overload the method in the future to allow for time-variation in
+spawning biomass per recruit that results from variation in life-history
+characteristics (e.g., natural mortality, maturity, or weight-at-age).
+Recruitment deviations (<span class="math inline">\(r_t\)</span>) are assumed to be
+normally distributed in log space with standard deviation <span class="math inline">\(\sigma_R\)</span>,
+<span class="math display">\[r_t \sim N(0,\sigma_R^2)\]</span></p>
+<p>Because <span class="math inline">\(r_t\)</span> are applied as multiplicative, lognormal deviations,
+predictions of realized recruitment include a term for bias correction (<span class="math inline">\(\sigma^2_R/2\)</span>). However,
+true <span class="math inline">\(r_t\)</span> values are not known, but rather estimated (<span class="math inline">\(\hat{r}_t\)</span>),
+and thus the bias correction applies an
+adjustment factor, <span class="math inline">\(b_t=\frac{E[SD(\hat{r}_{t})]^2}{\sigma_R^2}\)</span> (Methot and
+Taylor, 2011). The adjusted bias correction, mean recruitment, and recruitment deviations are
+then used to compute realized recruitment (<span class="math inline">\(R^*_t\)</span>),
+<span class="math display">\[R^*_t=R_t\mathrm{exp}(\hat{r}_{t}-b_t\frac{\sigma_R^2}{2})\]</span>
+The recruitment function should take as input the values of <span class="math inline">\(S_t\)</span>,
+<span class="math inline">\(h\)</span>, <span class="math inline">\(R_0\)</span>, <span class="math inline">\(\phi_0\)</span>, <span class="math inline">\(\sigma_R\)</span>, and <span class="math inline">\(\hat{r}_{t}\)</span>, and return mean-unbiased (<span class="math inline">\(R_t\)</span>) and
+realized (<span class="math inline">\(R^*_t\)</span>) recruitment.</p>
 </div>
-<div id="logistic-function-with-extensions" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Logistic function with extensions</h2>
-<p><span class="math display">\[x_i=\frac{1}{1+\mathrm{exp}(-ln(19)(i-\nu_1)/\nu_2)}\]</span></p>
-<p>Where <span class="math inline">\(x_i\)</span> is the quantity of interest (proportion mature, selected, etc.), <span class="math inline">\(i\)</span> is the index (can be age or size or any other quantity),
-<span class="math inline">\(\nu_1\)</span> is the index of 50% mature and <span class="math inline">\(\nu_2\)</span> is the difference in the index at 50% and the index at 95% (<span class="math inline">\(\nu_2 = \mathrm{ln}(19)/s\)</span> where
-<span class="math inline">\(s\)</span> is the slope parameter from an alternative parameterization). Logistic functions for maturity and selectivity should inherit and extend
-upon the base logistic function implementation.</p>
+<div id="logistic-function-with-extensions" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Logistic function with extensions<a href="m1-model-specification.html#logistic-function-with-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[y_i=\frac{1}{1+\mathrm{exp}(-s *(x_i-\nu))}\]</span></p>
+<p>Where <span class="math inline">\(y_i\)</span> is the quantity of interest (proportion mature, selected,
+etc.), <span class="math inline">\(x_i\)</span> is the index (can be age or size or any other quantity),
+<span class="math inline">\(\nu\)</span> is the median (inflection point), and <span class="math inline">\(s\)</span> is the slope parameter
+from an alternative parameterization. Logistic functions for maturity
+and selectivity should inherit and extend upon the base logistic
+function implementation.</p>
+<p>The parameterization for the double logistic curve is specified as</p>
+<p><span class="math display">\[y_i=\frac{1.0}{ 1.0 + exp(-1.0 * s_1(x_i - \nu_1))} \left(1-\frac{1.0}{ 1.0 + exp(-1.0 * s_2 (x_i - \nu_2))}  \right)\]</span>
+Where <span class="math inline">\(s_1\)</span> and and <span class="math inline">\(\nu_1\)</span> are the slope and median (50%) parameters for the ascending limb of the curve, and <span class="math inline">\(s_2\)</span> and and <span class="math inline">\(\nu_2\)</span> are the slope and median parameters for the descending limb of the curve. This is currently only implemented for the selectivity module.</p>
 </div>
-<div id="catch-and-fishing-mortality" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Catch and fishing mortality</h2>
-<p>The Baranov catch equation relates catch to instantaneous fishing and natural mortality.</p>
+<div id="catch-and-fishing-mortality" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Catch and fishing mortality<a href="m1-model-specification.html#catch-and-fishing-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Baranov catch equation relates catch to instantaneous fishing and
+natural mortality.</p>
 <p><span class="math display">\[ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}(1-\mathrm{exp}(-(F_{f,a,t}+M)))N_{a,t}\]</span></p>
-<p>Where <span class="math inline">\(C_{f,a,t}\)</span> is the catch at age <span class="math inline">\(a\)</span> at time <span class="math inline">\(t\)</span> for fleet <span class="math inline">\(f\)</span>, <span class="math inline">\(F\)</span> is instantaneous fishing mortality,
-<span class="math inline">\(M\)</span> is assumed constant over ages and time in the minimum viable assessment model, <span class="math inline">\(N_a,t\)</span> is the number of
-age <span class="math inline">\(a\)</span> fish at time <span class="math inline">\(t\)</span>.</p>
+<p>Where <span class="math inline">\(C_{f,a,t}\)</span> is the catch at age <span class="math inline">\(a\)</span> at time <span class="math inline">\(t\)</span> for fleet <span class="math inline">\(f\)</span>, <span class="math inline">\(F\)</span>
+is instantaneous fishing mortality, <span class="math inline">\(M\)</span> is assumed constant over ages
+and time in the minimum viable assessment model, <span class="math inline">\(N_a,t\)</span> is the number
+of age <span class="math inline">\(a\)</span> fish at time <span class="math inline">\(t\)</span>.</p>
 <p><span class="math display">\[F_{a,t}=\sum_{a=0}^A s_{a,f,t}F\]</span></p>
-<p><span class="math inline">\(s_a,f\)</span> is selectivity at age <span class="math inline">\(a\)</span> for fleet <span class="math inline">\(f\)</span>. Selectivity-at-age is constant over time.</p>
-<p>Catch is in metric tons and survey is in number, so calculating catch weight (<span class="math inline">\(CW_t\)</span>) is done as follows:
+<p><span class="math inline">\(s_a,f\)</span> is selectivity at age <span class="math inline">\(a\)</span> for fleet <span class="math inline">\(f\)</span>. Selectivity-at-age is
+constant over time.</p>
+<p>Catch is in metric tons and survey is in number, so calculating catch
+weight (<span class="math inline">\(CW_t\)</span>) is done as follows:
 <span class="math display">\[ CW_t=\sum_{a=0}^A C_{a,t}w_a \]</span></p>
 <p>Survey numbers are calculated as follows</p>
 <p><span class="math display">\[I_t=q\sum_{a=0}^AN_{a,t}\]</span>
-Where <span class="math inline">\(I_t\)</span> is the survey index and <span class="math inline">\(q_t\)</span> is survey catchability at time <span class="math inline">\(t\)</span>.</p>
+Where <span class="math inline">\(I_t\)</span> is the survey index and <span class="math inline">\(q_t\)</span> is survey catchability at time
+<span class="math inline">\(t\)</span>.</p>
 </div>
-<div id="modeling-loops" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Modeling loops</h2>
-<p>This tier associates the expected values for each population section associated with a data source to that data source using a likelihood function. These likelihood functions are then combined into an objective function that is passed to TMB.</p>
-<p>The population loop will be initialized at a user-specified age, time increment, and seasonal structure, rather than assuming ages, years, or seasons follow any pre-defined structure. Population categories will be described flexibly, such that subpopulations such as unique sexes, stocks, species, or areas can be handled identically to reduce duplication. Each subpopulation will have a unique set of attributes assigned to it, such that each subpopulation can share or have a different functional process (e.g. recruitment function, size-at-age) than a different category.</p>
-<p>Spawning time and recruitment time are user-specified and can occur more than once per year. For the purposes of replicating model comparison project outputs, in milestone 1, all processes including spawning and recruitment occur January 1, but these should be specified via the <code>spawn_time</code> and <code>recruit_time</code> inputs into FIMS to allow for future flexibility. Spawning and recruitment timing can be input as a scalar or vector to account for multiple options.</p>
-<p>Within the population loop, matrices denoting population properties at different partitions (age, season, sex) are translated into a single, dimension-folded index. A lookup table is computed at model start so that the dimension-folded index can be mapped to its corresponding population partition or time partition (e.g. population(sex, area, age, species, time, …)) so the programmer can understand what is happening. The model steps through each specified timestep to match the data to expected values, and population processes occur in the closest specified timestep to the user-input process timing (e.g. recruitment) across a small timestep that is a predefined constant.</p>
+<div id="modeling-loops" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Modeling loops<a href="m1-model-specification.html#modeling-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This tier associates the expected values for each population section
+associated with a data source to that data source using a likelihood
+function. These likelihood functions are then combined into an objective
+function that is passed to TMB.</p>
+<p>The population loop will be initialized at a user-specified age, time
+increment, and seasonal structure, rather than assuming ages, years, or
+seasons follow any pre-defined structure. Population categories will be
+described flexibly, such that subpopulations such as unique sexes,
+stocks, species, or areas can be handled identically to reduce
+duplication. Each subpopulation will have a unique set of attributes
+assigned to it, such that each subpopulation can share or have a
+different functional process (e.g. recruitment function, size-at-age)
+than a different category.</p>
+<p>Spawning time and recruitment time are user-specified and can occur more
+than once per year. For the purposes of replicating model comparison
+project outputs, in milestone 1, all processes including spawning and
+recruitment occur January 1, but these should be specified via the
+<code>spawn_time</code> and <code>recruit_time</code> inputs into FIMS to allow for future
+flexibility. Spawning and recruitment timing can be input as a scalar or
+vector to account for multiple options.</p>
+<p>Within the population loop, matrices denoting population properties at
+different partitions (age, season, sex) are translated into a single,
+dimension-folded index. A lookup table is computed at model start so
+that the dimension-folded index can be mapped to its corresponding
+population partition or time partition (e.g. population(sex, area, age,
+species, time, …)) so the programmer can understand what is happening.
+The model steps through each specified timestep to match the data to
+expected values, and population processes occur in the closest specified
+timestep to the user-input process timing (e.g. recruitment) across a
+small timestep that is a predefined constant.</p>
 </div>
-<div id="expected-numbers-and-quantities" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Expected numbers and quantities</h2>
-<p>The expected values are calculated as follows in the population.hpp file:
+<div id="expected-numbers-and-quantities" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Expected numbers and quantities<a href="m1-model-specification.html#expected-numbers-and-quantities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The expected values are calculated as follows in the population.hpp
+file:
 <span class="math display">\[ B_t=\sum_{a=0}^AN_{a,t}w_a\]</span>
-where <span class="math inline">\(B_t\)</span> is total biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(N\)</span> is total numbers, <span class="math inline">\(w_a\)</span> is weight-at-age <span class="math inline">\(a\)</span> in kilograms.</p>
+where <span class="math inline">\(B_t\)</span> is total biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(N\)</span> is total numbers, <span class="math inline">\(w_a\)</span> is
+weight-at-age <span class="math inline">\(a\)</span> in kilograms.</p>
 <p><span class="math display">\[N_t=\sum_{a=0}^AN_{a,t}\]</span>
 where <span class="math inline">\(N_t\)</span> is the total number of fish in time <span class="math inline">\(t\)</span>.</p>
+<p>Annual unfished numbers at age and unfished spawning biomass are tracked
+in the model assuming annual recruitment at rzero and only natural mortality.
+This provides a dynamic reference point that accounts for time varying rzero
+and M. This does not currently include recruitment deviations.
+<span class="math display">\[UnfishedNAA_{t,0} = R0_{t}\]</span>
+<span class="math display">\[UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}M_{t-1}\]</span>
+for all t&gt;0 and numbers at age at the start of the first year are model parameter
+inputs.</p>
+<p><span class="math display">\[ UnfishedSSB_t=\sum_{a=0}^AUnfishedNAA_{a,t}w_aFracFemale_aFracMature_a\]</span>
+All spawning stock biomass values are current calculated at January 1 each year.
+This will be updated in future milestones.</p>
 </div>
-<div id="initial-values" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Initial values</h2>
+<div id="initial-values" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Initial values<a href="m1-model-specification.html#initial-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The initial equilibrium recruitment (<span class="math inline">\(R_{eq}\)</span>) is calculated as follows:</p>
 <p><span class="math display">\[R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} \]</span>
-where <span class="math inline">\(\phi_{F}\)</span> is the initial spawning biomass per recruitment given fishing mortality.</p>
+where <span class="math inline">\(\phi_{F}\)</span> is the initial spawning biomass per recruitment given
+fishing mortality.</p>
+<p>The initial population structure at the start of the first model year is
+input as an estimated parameter vector of numbers at age. This allows maximum
+flexibility for the model to estimate non-equilibrium starting conditions.
+Future milestones could add an option to input a single F value used to
+calculate an equilibrium starting structure.</p>
 </div>
-<div id="likelihood-calculations" class="section level2" number="4.9">
-<h2><span class="header-section-number">4.9</span> Likelihood calculations</h2>
-<p>Age composition likelihood links proportions at age from data to model using a multinomial likelihood function. The multinomial and lognormal distributions, including atomic functions are provided within <code>TMB</code>.</p>
-<p>Survey index likelihood links estimated CPUE to input data CPUE in biomass using a lognormal distribution. (model.hpp)</p>
-<p>Catch index likelihood links estimated catch to input data catch in biomass using a lognormal distribution. (model.hpp)</p>
-<p>Age composition likelihoods link catch-at-age to expected catch-at-age using a multinomial distribution.</p>
+<div id="likelihood-calculations" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Likelihood calculations<a href="m1-model-specification.html#likelihood-calculations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Age composition likelihood links proportions at age from data to model
+using a multinomial likelihood function. The multinomial and lognormal
+distributions, including atomic functions are provided within <code>TMB</code>.</p>
+<p>Survey index likelihood links estimated CPUE to input data CPUE in
+biomass using a lognormal distribution. (model.hpp)</p>
+<p>Catch index likelihood links estimated catch to input data catch in
+biomass using a lognormal distribution. (model.hpp)</p>
+<p>Age composition likelihoods link catch-at-age to expected catch-at-age
+using a multinomial distribution.</p>
+<p>Recruitment deviations control the difference between expected and realized recruitment,
+and they follow a lognormal distribution. (recruitment_base.hpp)</p>
 </div>
-<div id="statistical-inference" class="section level2" number="4.10">
-<h2><span class="header-section-number">4.10</span> Statistical Inference:</h2>
+<div id="statistical-inference" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Statistical Inference:<a href="m1-model-specification.html#statistical-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>TODO: Add description detailing the statistical inference used in M1</p>
 
 </div>
@@ -503,7 +569,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
