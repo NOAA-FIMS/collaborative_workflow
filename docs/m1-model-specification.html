@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-11-30" />
+<meta name="date" content="2022-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -468,13 +468,14 @@ file:
 where <span class="math inline">\(B_t\)</span> is total biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(N\)</span> is total numbers, <span class="math inline">\(w_a\)</span> is
 weight-at-age <span class="math inline">\(a\)</span> in kilograms.</p>
 <p><span class="math display">\[N_t=\sum_{a=0}^AN_{a,t}\]</span>
-where <span class="math inline">\(N_t\)</span> is the total number of fish in time <span class="math inline">\(t\)</span>.</p>
+where <span class="math inline">\(N_at\)</span> is the total number of fish at age <span class="math inline">\(a\)</span> in time <span class="math inline">\(t\)</span>.</p>
+<p><span class="math display">\[UnfishedNAA_{t,0} = R0_{t}\]</span></p>
 <p>Annual unfished numbers at age and unfished spawning biomass are tracked
 in the model assuming annual recruitment at rzero and only natural mortality.
 This provides a dynamic reference point that accounts for time varying rzero
 and M. This does not currently include recruitment deviations.
 <span class="math display">\[UnfishedNAA_{t,0} = R0_{t}\]</span>
-<span class="math display">\[UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}M_{t-1}\]</span>
+<span class="math display">\[UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}exp(-M_{t-1,a-1})\]</span>
 for all t&gt;0 and numbers at age at the start of the first year are model parameter
 inputs.</p>
 <p><span class="math display">\[ UnfishedSSB_t=\sum_{a=0}^AUnfishedNAA_{a,t}w_aFracFemale_aFracMature_a\]</span>
