@@ -174,14 +174,16 @@ where $B_t$ is total biomass in time $t$, $N$ is total numbers, $w_a$ is
 weight-at-age $a$ in kilograms.
 
 $$N_t=\sum_{a=0}^AN_{a,t}$$
-where $N_t$ is the total number of fish in time $t$.
+where $N_at$ is the total number of fish at age $a$ in time $t$.
+
+$$UnfishedNAA_{t,0} = R0_{t}$$
 
 Annual unfished numbers at age and unfished spawning biomass are tracked 
 in the model assuming annual recruitment at rzero and only natural mortality. 
 This provides a dynamic reference point that accounts for time varying rzero 
 and M. This does not currently include recruitment deviations. 
 $$UnfishedNAA_{t,0} = R0_{t}$$
-$$UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}M_{t-1}$$
+$$UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}exp(-M_{t-1,a-1})$$
 for all t>0 and numbers at age at the start of the first year are model parameter
 inputs.
 
