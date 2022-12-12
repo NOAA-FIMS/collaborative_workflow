@@ -331,6 +331,51 @@ Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
 
 ```
 
+### Debugging a C++ test
+
+There are two ways to debug a C++ test, interactively using `gdb` or via print statements. To use `gdb`, make sure it is installed and on your path. 
+
+
+Debug C++ code (e.g., segmentation error/memory corruption) using gdb:
+```bash
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
+cmake --build build --parallel 16
+ctest --test-dir build --parallel 16
+gdb ./build/tests/gtest/population_dynamics_population.exe
+c // to continue without paging
+run // to see which line of code is broken
+print this->log_naa // for example, print this->log_naa to see the value of log_naa; 
+print i // for example, print i from the broken for loop
+bt // backtrace
+q // to quit
+```
+
+Debug C++ code without using gdb:
+Update code in a .hpp file by calling `std::ofstream out(“file_name.txt”)`
+Then use `out << variable;` to print out values of the variable
+```c
+nfleets = fleets.size();
+std::ofstream out("debug.txt");
+out <<nfleets;
+```
+
+More complex examples with text identifying the quantities
+```c
+out <<" fleet_index: "<<fleet_index<<" index_yaf: "<<index_yaf<<" index_yf: "<<index_yf<<"\n";
+out <<" population.Fmort[index_yf]: "<<population.Fmort[index_yf]<<"\n";
+```
+
+Git Bash
+```bash
+cmake -S . -B build -G Ninja 
+cmake --build build --parallel 16
+ctest --test-dir build --parallel 16
+```
+
+The output of the print statements will be in this test file: `FIMS/build/tests/gtest/debug.txt`
+
+
+
 ### Benchmark example
 
 Google Benchmark measures the real time and CPU time used for running
