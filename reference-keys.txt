@@ -22,6 +22,7 @@ fims-governance
 developers
 c-developers
 r-developers
+all-developers
 reviewers
 regional-representatives
 project-lead
