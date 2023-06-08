@@ -80,6 +80,9 @@ population-dynamics
 files-that-go-in-src
 fims.cpp
 github-forking-and-cloning
+github-collaborative-environment
+fims-branching-strategy
+branch-protection
 issue-tracking
 reporting-bugs
 before-submitting-a-bug-report
@@ -94,8 +97,6 @@ branching-good-practices
 branch-naming-conventions
 git-workflow
 code-development
-c-contributor
-r-contributor
 commit-messages
 merge-conflicts
 what-is-a-merge-conflict
