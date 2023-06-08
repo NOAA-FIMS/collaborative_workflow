@@ -1,24 +1,24 @@
-# M1 Model specification
+# M1 model specification
 
 This section describes the implementation of the modules in FIMS in
-milestone 1. For the first milestone, we must implement enough
+milestone 1. For the first milestone, we  implemented enough
 complexity to adequately test a very standard population model. For this
-reason, we implement the minimum structure that can run the model
-described in [Li et al. 2020](). The product will be an age-structured
+reason, we implemented the minimum structure that can run the model
+described in [Li et al. 2021](https://spo.nmfs.noaa.gov/content/fishery-bulletin/comparison-4-primary-age-structured-stock-assessment-models-used-united). 
+The FIMS at the end of milestone 1 is an age-structured
 integrated assessment model with two fleets (one survey, one fishery)
 and two sexes.
-
-## Model variables and bounds
 
 ## Inherited functors from `TMB`
 
 ### Atomic functions
 
-Wherever possible, `FIMS` should not reinvent atomic functions with
+Wherever possible, `FIMS` avoids reinginvent atomic functions with
 extant definitions in `TMB`. If there is a need for a new atomic
 function the development team can add it to `TMB` using the
 `TMB_ATOMIC_VECTOR_FUNCTION()` macro following the instructions
-[here](https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives).
+[here](https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives). 
+Prototype atomic functions under development for future FIMS milestones are stored in the [fims_math.hpp](https://github.com/NOAA-FIMS/m1-prototypes/blob/main/fims_math.hpp) file in the [m1-prototypes](https://github.com/NOAA-FIMS/m1-prototypes) repository.
 
 ### Statistical distributions
 
@@ -26,10 +26,11 @@ All of the statistical distributions needed for the first milestone of
 `FIMS` are implemented in `TMB` and need not be replicated.
 Code can be found [here](http://kaskr.github.io/adcomp/group__R__style__distribution.html).
 
-|Distribution | Name|
-| ------------|---------|
-|Normal       |  [dnorm](http://kaskr.github.io/adcomp/dnorm_8hpp.html)|
-|Multinomial  |  [dmultinom](http://kaskr.github.io/adcomp/group__R__style__distribution.html#gafd0ae6b53840267138bb9250115fbe8b)
+|Distribution | Name| FIMS wrapper |
+| ------------|---------|----------|
+|Normal       |  [dnorm](http://kaskr.github.io/adcomp/dnorm_8hpp.html)| [FIMS code](https://github.com/NOAA-FIMS/FIMS/blob/80eed3821f501226052a7b01f278b19332d9dc69/inst/include/distributions/functors/tmb_distributions.hpp#L22)|
+|Multinomial  |  [dmultinom](http://kaskr.github.io/adcomp/group__R__style__distribution.html#gafd0ae6b53840267138bb9250115fbe8b) | [FIMS code](https://github.com/NOAA-FIMS/FIMS/blob/80eed3821f501226052a7b01f278b19332d9dc69/inst/include/distributions/functors/tmb_distributions.hpp#LL47C22-L48C1)|
+|Lognormal    |  [uses dnorm](http://kaskr.github.io/adcomp/dnorm_8hpp.html)| [FIMS code](https://github.com/NOAA-FIMS/FIMS/blob/80eed3821f501226052a7b01f278b19332d9dc69/inst/include/distributions/functors/tmb_distributions.hpp#L76)|
 
 #### Normal Distribution
 
@@ -50,6 +51,12 @@ The mean and variance of $y_{i}$ are respectively:
 $\mu_{i} = np_{i}$,
 
 $\sigma^{2}_{i} = np_{i}(1-p_{i})$
+
+#### Lognormal Distribution
+
+$$ \frac{1.0}{ x\sigma\sqrt{2\pi} }exp(-\frac{(ln(x) - mu)^{2}}{2\sigma^{2}}),$$
+
+where $\mu$ is the mean of the distribution of $log(x)$ and $\sigma^2$ is the variance of $log(x)$.
 
 ## Beverton-Holt recruitment function
 
@@ -122,8 +129,6 @@ $$I_t=q\sum_{a=0}^AN_{a,t}$$
 Where $I_t$ is the survey index and $q_t$ is survey catchability at time
 $t$.
 
-
-
 ## Modeling loops
 
 This tier associates the expected values for each population section
@@ -131,7 +136,7 @@ associated with a data source to that data source using a likelihood
 function. These likelihood functions are then combined into an objective
 function that is passed to TMB.
 
-The population loop will be initialized at a user-specified age, time
+The population loop is initialized at a user-specified age, time
 increment, and seasonal structure, rather than assuming ages, years, or
 seasons follow any pre-defined structure. Population categories will be
 described flexibly, such that subpopulations such as unique sexes,
