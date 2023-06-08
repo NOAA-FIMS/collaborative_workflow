@@ -166,7 +166,7 @@ from either the "In Review" or "Response" state.
 knitr::include_graphics("New Flowchart.png")
 ```
 
-### Feature Validation
+### Feature validation
 
 FIMS uses a standardized set of criteria to prioritize and determine
 which features will be incorporated into the next development milestone.
