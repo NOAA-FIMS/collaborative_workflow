@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Contributor Guidelines | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Contributor Guidelines | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-11-15" />
+<meta name="date" content="2023-06-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,25 +49,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -138,18 +141,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
 <li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-pledge"><i class="fa fa-check"></i><b>2.2</b> Our Pledge</a></li>
 <li class="chapter" data-level="2.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>2.3</b> Our Standards</a></li>
 <li class="chapter" data-level="2.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-responsibilities"><i class="fa fa-check"></i><b>2.4</b> Enforcement Responsibilities</a></li>
 <li class="chapter" data-level="2.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>2.5</b> Scope</a></li>
 <li class="chapter" data-level="2.6" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>2.6</b> Enforcement</a></li>
-<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a><ul>
+<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#correction"><i class="fa fa-check"></i><b>2.7.1</b> 1. Correction</a></li>
 <li class="chapter" data-level="2.7.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#warning"><i class="fa fa-check"></i><b>2.7.2</b> 2. Warning</a></li>
 <li class="chapter" data-level="2.7.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#temporary-ban"><i class="fa fa-check"></i><b>2.7.3</b> 3. Temporary Ban</a></li>
@@ -158,31 +164,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.8</b> Supporting Good Conduct</a></li>
 <li class="chapter" data-level="2.9" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>2.9</b> Attribution</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a><ul>
-<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a><ul>
+<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#developers"><i class="fa fa-check"></i><b>3.1.1</b> Developers</a></li>
 <li class="chapter" data-level="3.1.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#c-developers"><i class="fa fa-check"></i><b>3.1.2</b> C++ developers</a></li>
 <li class="chapter" data-level="3.1.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#r-developers"><i class="fa fa-check"></i><b>3.1.3</b> R developers</a></li>
 <li class="chapter" data-level="3.1.4" data-path="fims-project-overview.html"><a href="fims-project-overview.html#reviewers"><i class="fa fa-check"></i><b>3.1.4</b> Reviewers</a></li>
-<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.5</b> Project Lead</a></li>
-<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.6</b> Director Of Software Development</a></li>
-<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-test-development"><i class="fa fa-check"></i><b>3.1.7</b> Lead of Test Development</a></li>
-<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.8</b> Lead of Research &amp; Development</a></li>
-<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement</a></li>
-<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators</a></li>
+<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#regional-representatives"><i class="fa fa-check"></i><b>3.1.5</b> Regional representatives</a></li>
+<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.6</b> Project Lead</a></li>
+<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.7</b> Director of Software Development</a></li>
+<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-test-engineer"><i class="fa fa-check"></i><b>3.1.8</b> Lead Test Engineer</a></li>
+<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.9</b> Lead of Research &amp; Development</a></li>
+<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-workflows-accessibility-and-integration"><i class="fa fa-check"></i><b>3.1.10</b> Lead of Workflows, Accessibility, and Integration</a></li>
+<li class="chapter" data-level="3.1.11" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.11</b> Code of Conduct Enforcement</a></li>
+<li class="chapter" data-level="3.1.12" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.12</b> External Collaborators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software</a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle</a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a><ul>
+<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-branching-strategy"><i class="fa fa-check"></i><b>3.3.1</b> FIMS Branching Strategy</a></li>
 <li class="chapter" data-level="3.3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#branch-protection"><i class="fa fa-check"></i><b>3.3.2</b> Branch Protection</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a><ul>
+<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>4.1</b> Model variables and bounds</a></li>
-<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a><ul>
+<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions</a></li>
 <li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions</a></li>
 </ul></li>
@@ -195,19 +209,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="m1-model-specification.html"><a href="m1-model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>4.9</b> Likelihood calculations</a></li>
 <li class="chapter" data-level="4.10" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>4.10</b> Statistical Inference:</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a><ul>
+<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a></li>
-<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a><ul>
+<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#windows-users"><i class="fa fa-check"></i><b>5.2.1</b> Windows users</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.3</b> Installing from <code>R</code></a></li>
-<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a><ul>
+<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.4.1</b> Specifying the model</a></li>
 <li class="chapter" data-level="5.4.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.4.2</b> How to run the model</a></li>
 <li class="chapter" data-level="5.4.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.4.3</b> Extracting model output</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a><ul>
+<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a>
+<ul>
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
 <li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
@@ -215,59 +233,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
 <li class="chapter" data-level="6.0.6" data-path="developer-software-guide.html"><a href="developer-software-guide.html#gdb-debugger"><i class="fa fa-check"></i><b>6.0.6</b> GDB debugger</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
+<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
 <li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions</a></li>
 <li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices</a></li>
-<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a><ul>
+<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-instinclude"><i class="fa fa-check"></i><b>7.4.1</b> Files that go in <code>inst/include</code></a></li>
 <li class="chapter" data-level="7.4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-src"><i class="fa fa-check"></i><b>7.4.2</b> Files that go in <code>src/</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.5</b> GitHub forking and cloning</a></li>
 <li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.6</b> Issue Tracking</a></li>
 <li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#reporting-bugs"><i class="fa fa-check"></i><b>7.7</b> Reporting Bugs</a></li>
-<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a><ul>
+<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.8.1</b> Issue Labels</a></li>
 <li class="chapter" data-level="7.8.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.8.2</b> Issue Templates</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a><ul>
+<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.9.1</b> Branching Good Practices</a></li>
 <li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.9.2</b> Branch Naming Conventions</a></li>
 <li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.9.3</b> git workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a><ul>
+<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a>
+<ul>
 <li class="chapter" data-level="7.10.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.10.1</b> C++ contributor</a></li>
 <li class="chapter" data-level="7.10.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.10.2</b> R Contributor</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.11</b> Commit Messages</a></li>
-<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a><ul>
+<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a>
+<ul>
 <li class="chapter" data-level="7.12.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.12.1</b> What is a merge conflict?</a></li>
 <li class="chapter" data-level="7.12.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.12.2</b> How to prevent merge conflicts</a></li>
 <li class="chapter" data-level="7.12.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.12.3</b> How to resolve merge conflicts</a></li>
 </ul></li>
 <li class="chapter" data-level="7.13" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.13</b> Pull Requests</a></li>
-<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a><ul>
+<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a>
+<ul>
 <li class="chapter" data-level="7.14.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.14.1</b> Assigning Reviewers</a></li>
 <li class="chapter" data-level="7.14.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.14.2</b> Automated Testing</a></li>
 <li class="chapter" data-level="7.14.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.14.3</b> Review Checklist</a></li>
 <li class="chapter" data-level="7.14.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.14.4</b> Review Good Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="7.15" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.15</b> Clean up local branches</a></li>
-<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a><ul>
+<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a>
+<ul>
 <li class="chapter" data-level="7.16.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#details-on-backup-checks"><i class="fa fa-check"></i><b>7.16.1</b> Details on Backup Checks</a></li>
 <li class="chapter" data-level="7.16.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#debugging-broken-runs"><i class="fa fa-check"></i><b>7.16.2</b> Debugging Broken Runs</a></li>
 <li class="chapter" data-level="7.16.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow"><i class="fa fa-check"></i><b>7.16.3</b> How do I request a new Github Action workflow?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
-<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a><ul>
+<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>9.1</b> Writing function reference</a></li>
 <li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette</a></li>
 <li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a><ul>
+<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="testing.html"><a href="testing.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a><ul>
+<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="testing.html"><a href="testing.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
 <li class="chapter" data-level="10.2.2" data-path="testing.html"><a href="testing.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
 <li class="chapter" data-level="10.2.3" data-path="testing.html"><a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
@@ -277,26 +306,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.7" data-path="testing.html"><a href="testing.html#build-and-run-the-tests"><i class="fa fa-check"></i><b>10.2.7</b> Build and run the tests</a></li>
 <li class="chapter" data-level="10.2.8" data-path="testing.html"><a href="testing.html#adding-a-c-test"><i class="fa fa-check"></i><b>10.2.8</b> Adding a C++ test</a></li>
 <li class="chapter" data-level="10.2.9" data-path="testing.html"><a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.9</b> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.10</b> Benchmark example</a></li>
-<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.11</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
-<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.12</b> Clean up after running C++ tests</a></li>
+<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#debugging-a-c-test"><i class="fa fa-check"></i><b>10.2.10</b> Debugging a C++ test</a></li>
+<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.11</b> Benchmark example</a></li>
+<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.12</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="10.2.13" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.13</b> Clean up after running C++ tests</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a><ul>
+<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="testing.html"><a href="testing.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
 <li class="chapter" data-level="10.3.2" data-path="testing.html"><a href="testing.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
 <li class="chapter" data-level="10.3.3" data-path="testing.html"><a href="testing.html#testsgtestcmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> tests/gtest/CMakeLists.txt template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a><ul>
+<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
 <li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.2</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a><ul>
+<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="testing.html"><a href="testing.html#test-case-documentation-template"><i class="fa fa-check"></i><b>10.5.1</b> Test case documentation template</a></li>
 <li class="chapter" data-level="10.5.2" data-path="testing.html"><a href="testing.html#test-case-documentation-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case documentation examples</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a><ul>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a><ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a>
+<ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a>
+<ul>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#unit-testing"><i class="fa fa-check"></i>Unit testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#functional-testing"><i class="fa fa-check"></i>Functional testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#integration-testing"><i class="fa fa-check"></i>Integration testing</a></li>
@@ -306,7 +341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a><ul>
+<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="glossary.html"><a href="glossary.html#singleton"><i class="fa fa-check"></i><b>10.6.1</b> singleton</a></li>
 <li class="chapter" data-level="10.6.2" data-path="glossary.html"><a href="glossary.html#class"><i class="fa fa-check"></i><b>10.6.2</b> class</a></li>
 <li class="chapter" data-level="10.6.3" data-path="glossary.html"><a href="glossary.html#functor"><i class="fa fa-check"></i><b>10.6.3</b> functor</a></li>
@@ -336,18 +372,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="contributor-guidelines" class="section level1 hasAnchor">
+<div id="contributor-guidelines" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Contributor Guidelines<a href="contributor-guidelines.html#contributor-guidelines" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides guidelines and workflows for FIMS developers and collaborators on how to contribute to the project.</p>
-<div id="style-guide" class="section level2 hasAnchor">
+<div id="style-guide" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Style Guide<a href="contributor-guidelines.html#style-guide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a> and <a href="https://google.github.io/styleguide/Rguide.html">Google’s R Style Guide</a>. Google’s R Style Guide is based off of the <a href="https://style.tidyverse.org/">tidyverse style guide</a>, with a few minor modifications to improve readability and portability.</p>
 </div>
-<div id="naming-conventions-1" class="section level2 hasAnchor">
+<div id="naming-conventions-1" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Naming Conventions<a href="contributor-guidelines.html#naming-conventions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The FIMS implementation team has chosen to use <code>typename</code> instead of <code>class</code> when defining templates for consistency with the <code>TMB</code> package. While types may be defined in many ways, for consistency developers are asked to use <code>Type</code> instead of <code>T</code> to define <code>Type</code>s within FIMS.</p>
 </div>
-<div id="coding-good-practices" class="section level2 hasAnchor">
+<div id="coding-good-practices" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Coding Good Practices<a href="contributor-guidelines.html#coding-good-practices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:</p>
 <ul>
@@ -368,19 +404,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Lint your code</li>
 </ul>
 </div>
-<div id="roadmap-to-fims-file-structure-and-organization" class="section level2 hasAnchor">
+<div id="roadmap-to-fims-file-structure-and-organization" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Roadmap to FIMS File Structure and Organization<a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="files-that-go-in-instinclude" class="section level3 hasAnchor">
+<div id="files-that-go-in-instinclude" class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Files that go in <code>inst/include</code><a href="contributor-guidelines.html#files-that-go-in-instinclude" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="common" class="section level4 hasAnchor">
+<div id="common" class="section level4 hasAnchor" number="7.4.1.1">
 <h4><span class="header-section-number">7.4.1.1</span> common<a href="contributor-guidelines.html#common" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This folder includes files that are shared between the interface, the <code>TMB</code> objective function, and the mathematics and population dynamics components of the package.</p>
 </div>
-<div id="interface" class="section level4 hasAnchor">
+<div id="interface" class="section level4 hasAnchor" number="7.4.1.2">
 <h4><span class="header-section-number">7.4.1.2</span> interface<a href="contributor-guidelines.html#interface" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This includes the R interface files.</p>
 </div>
-<div id="population-dynamics" class="section level4 hasAnchor">
+<div id="population-dynamics" class="section level4 hasAnchor" number="7.4.1.3">
 <h4><span class="header-section-number">7.4.1.3</span> population dynamics<a href="contributor-guidelines.html#population-dynamics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There are subfolders underneath this folder that correspond to the
 different components of the population dynamics model. Each of the
@@ -394,21 +430,21 @@ functions available under the subfolders but reused for all objects of
 that class type.</p>
 </div>
 </div>
-<div id="files-that-go-in-src" class="section level3 hasAnchor">
+<div id="files-that-go-in-src" class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> Files that go in <code>src/</code><a href="contributor-guidelines.html#files-that-go-in-src" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="fims.cpp" class="section level4 hasAnchor">
+<div id="fims.cpp" class="section level4 hasAnchor" number="7.4.2.1">
 <h4><span class="header-section-number">7.4.2.1</span> FIMS.cpp<a href="contributor-guidelines.html#fims.cpp" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is the <code>TMB</code> objective function.</p>
 </div>
 </div>
 </div>
-<div id="github-forking-and-cloning" class="section level2 hasAnchor">
+<div id="github-forking-and-cloning" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> GitHub forking and cloning<a href="contributor-guidelines.html#github-forking-and-cloning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="contributor-guidelines.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span></code></pre></div>
 <p>For contributors without write access to the FIMS repo, the repository must be forked to contribute. To fork and then clone a repository instead, follow the <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository">Github Documentation for forking a repo</a>. Once cloned, changes can be made on a feature branch. When ready to submit changes follow the <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">Github Documentation on creating a pull request from a fork</a></p>
 </div>
-<div id="issue-tracking" class="section level2 hasAnchor">
+<div id="issue-tracking" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Issue Tracking<a href="contributor-guidelines.html#issue-tracking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development,
 etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change
@@ -417,17 +453,17 @@ be assigned to the current version number augmented for a hot fix and developmen
 assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch
 for version 3.3. This will minimize stale code and large merge conflicts.</p>
 </div>
-<div id="reporting-bugs" class="section level2 hasAnchor">
+<div id="reporting-bugs" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> Reporting Bugs<a href="contributor-guidelines.html#reporting-bugs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section guides you through submitting a bug report for any toolbox tool. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.</p>
-<div id="before-submitting-a-bug-report" class="section level4 hasAnchor">
+<div id="before-submitting-a-bug-report" class="section level4 hasAnchor" number="7.7.0.1">
 <h4><span class="header-section-number">7.7.0.1</span> Before Submitting A Bug Report<a href="contributor-guidelines.html#before-submitting-a-bug-report" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>Check if it is related to version.</strong> We recommend using <code>sessionInfo()</code> within your <code>R</code> console and submitting the results in your bug report. Also, please check your R version against the required R version in the DESCRIPTION file and update if needed to see if that fixes the issue.</li>
 <li><strong>Perform a cursory search of issues</strong> to see if the problem has already been reported. If it has <strong>and the issue is still open</strong>, add a comment to the existing issue instead of opening a new one. If it has <strong>and the issue is closed</strong>, open a new issue and include a link to the original issue in the body of your new one.</li>
 </ul>
 </div>
-<div id="how-do-i-submit-a-good-bug-report" class="section level4 hasAnchor">
+<div id="how-do-i-submit-a-good-bug-report" class="section level4 hasAnchor" number="7.7.0.2">
 <h4><span class="header-section-number">7.7.0.2</span> How Do I Submit A (Good) Bug Report?<a href="contributor-guidelines.html#how-do-i-submit-a-good-bug-report" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Bugs are tracked as <a href="https://guides.github.com/features/issues/">GitHub issues</a>. Create an issue on the toolbox Github repository and provide the following information by following the steps outlined in the <a href="https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html">reprex package</a>. Explain the problem and include additional details to help maintainers reproduce the problem using the Bug Report issue <a href="https://github.com/NOAA-FIMS/FIMS/issues/new/choose">template</a>.</p>
 <p>Provide more context by answering these questions:</p>
@@ -445,11 +481,11 @@ for version 3.3. This will minimize stale code and large merge conflicts.</p>
 </ul>
 </div>
 </div>
-<div id="suggesting-features" class="section level2 hasAnchor">
+<div id="suggesting-features" class="section level2 hasAnchor" number="7.8">
 <h2><span class="header-section-number">7.8</span> Suggesting Features<a href="contributor-guidelines.html#suggesting-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section guides you through submitting an feature suggestion for toolbox packages, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.</p>
 <p>Before creating enhancement suggestions, please check the issues list as you might find out that you don’t need to create one. When you are creating an enhancement suggestion, please include an “enhancement” tag in the issues.</p>
-<div id="before-submitting-a-feature-suggestion" class="section level4 hasAnchor">
+<div id="before-submitting-a-feature-suggestion" class="section level4 hasAnchor" number="7.8.0.1">
 <h4><span class="header-section-number">7.8.0.1</span> Before Submitting A Feature Suggestion<a href="contributor-guidelines.html#before-submitting-a-feature-suggestion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>Check you have the latest version of the package.</strong></li>
@@ -457,11 +493,11 @@ for version 3.3. This will minimize stale code and large merge conflicts.</p>
 <li><strong>Perform a cursory search of the issues and enhancement tags</strong> to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.</li>
 </ul>
 </div>
-<div id="how-do-i-submit-a-good-feature-suggestion" class="section level4 hasAnchor">
+<div id="how-do-i-submit-a-good-feature-suggestion" class="section level4 hasAnchor" number="7.8.0.2">
 <h4><span class="header-section-number">7.8.0.2</span> How Do I Submit A (Good) Feature Suggestion?<a href="contributor-guidelines.html#how-do-i-submit-a-good-feature-suggestion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Feature suggestions are tracked as <a href="https://guides.github.com/features/issues/">GitHub issues</a>. Create an issue on the repository and use the Feature Request issue <a href="https://github.com/NOAA-FIMS/FIMS/issues/new/choose">template</a>.</p>
 </div>
-<div id="issue-labels" class="section level3 hasAnchor">
+<div id="issue-labels" class="section level3 hasAnchor" number="7.8.1">
 <h3><span class="header-section-number">7.8.1</span> Issue Labels<a href="contributor-guidelines.html#issue-labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Utilize labels on issues:</p>
 <ul>
@@ -469,7 +505,7 @@ for version 3.3. This will minimize stale code and large merge conflicts.</p>
 <li>To indicate the state of the issue: urgent, current, next, eventually, won’t fix, duplicate</li>
 </ul>
 </div>
-<div id="issue-templates" class="section level3 hasAnchor">
+<div id="issue-templates" class="section level3 hasAnchor" number="7.8.2">
 <h3><span class="header-section-number">7.8.2</span> Issue Templates<a href="contributor-guidelines.html#issue-templates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Templates are available and stored within each repository to guide users through the process of submitting a new issue.
 Example templates for issues can be found on
@@ -477,10 +513,10 @@ Example templates for issues can be found on
 Use these references and existing templates stored in .github/ISSUE_TEMPLATE for reference when creating a new template.</p>
 </div>
 </div>
-<div id="branch-workflow" class="section level2 hasAnchor">
+<div id="branch-workflow" class="section level2 hasAnchor" number="7.9">
 <h2><span class="header-section-number">7.9</span> Branch Workflow<a href="contributor-guidelines.html#branch-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section details the workflow to create a branch in order to contribute to FIMS.</p>
-<div id="branching-good-practices" class="section level3 hasAnchor">
+<div id="branching-good-practices" class="section level3 hasAnchor" number="7.9.1">
 <h3><span class="header-section-number">7.9.1</span> Branching Good Practices<a href="contributor-guidelines.html#branching-good-practices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following suggestions will help ensure optimal performance of the trunk-based branching strategy:</p>
 <ol style="list-style-type: decimal">
@@ -491,7 +527,7 @@ Use these references and existing templates stored in .github/ISSUE_TEMPLATE for
 <li>Use caching layers where appropriate to optimize build and test execution times.</li>
 </ol>
 </div>
-<div id="branch-naming-conventions" class="section level3 hasAnchor">
+<div id="branch-naming-conventions" class="section level3 hasAnchor" number="7.9.2">
 <h3><span class="header-section-number">7.9.2</span> Branch Naming Conventions<a href="contributor-guidelines.html#branch-naming-conventions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Example: <strong>feat-issue-3-R-package-skeleton</strong></p>
 <ol style="list-style-type: decimal">
@@ -507,40 +543,40 @@ Use these references and existing templates stored in .github/ISSUE_TEMPLATE for
 <li><p>Use a hyphen as separators</p></li>
 </ol>
 </div>
-<div id="git-workflow" class="section level3 hasAnchor">
+<div id="git-workflow" class="section level3 hasAnchor" number="7.9.3">
 <h3><span class="header-section-number">7.9.3</span> git workflow<a href="contributor-guidelines.html#git-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Use the following commands to create a branch:</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="contributor-guidelines.html#cb14-1"></a><span class="op">$</span><span class="st"> </span>git checkout <span class="op">-</span>b <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span>main           <span class="co">#creates a local branch</span></span>
-<span id="cb14-2"><a href="contributor-guidelines.html#cb14-2"></a><span class="op">$</span><span class="st"> </span>git push origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">                </span><span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="contributor-guidelines.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout <span class="sc">-</span>b <span class="sc">&lt;</span>branchname<span class="sc">&gt;</span> main           <span class="co">#creates a local branch</span></span>
+<span id="cb14-2"><a href="contributor-guidelines.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push origin <span class="sc">&lt;</span>branchname<span class="sc">&gt;</span>                <span class="co">#pushes branch back to gitHub</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Periodically merge changes from main into branch</li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="contributor-guidelines.html#cb15-1"></a><span class="op">$</span><span class="st"> </span>git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="contributor-guidelines.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git merge main                              <span class="co">#merges changes from main into branch</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>While editing code, commit regularly following <a href="contributor-guidelines.html#commit-messages">commit messages</a> guidelines</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="contributor-guidelines.html#cb16-1"></a><span class="op">$</span><span class="st"> </span>git add <span class="op">&lt;</span>filename<span class="op">&gt;</span><span class="st">                          </span><span class="co">#stages file for commit</span></span>
-<span id="cb16-2"><a href="contributor-guidelines.html#cb16-2"></a><span class="er">$</span><span class="st"> </span>git commit <span class="op">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="contributor-guidelines.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git add <span class="sc">&lt;</span>filename<span class="sc">&gt;</span>                          <span class="co">#stages file for commit</span></span>
+<span id="cb16-2"><a href="contributor-guidelines.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> git commit <span class="sc">-</span>m<span class="st">&quot;Commit Message&quot;</span>               <span class="co">#commits changes</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>To push changes to gitHub, first set the upstream location:</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="contributor-guidelines.html#cb17-1"></a><span class="op">$</span><span class="st"> </span>git push <span class="op">--</span>set<span class="op">-</span>upstream origin <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st"> </span><span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="contributor-guidelines.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push <span class="sc">--</span>set<span class="sc">-</span>upstream origin <span class="sc">&lt;</span>branchname<span class="sc">&gt;</span> <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <p>After which, changes can be pushed as:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="contributor-guidelines.html#cb18-1"></a><span class="op">$</span><span class="st"> </span>git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="contributor-guidelines.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push                 <span class="co">#pushes change to feature branch on gitHub</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>When finished, create a pull request to the main branch following
 <a href="#pull-request">pull request</a> guidelines</li>
 </ol>
 </div>
 </div>
-<div id="code-development" class="section level2 hasAnchor">
+<div id="code-development" class="section level2 hasAnchor" number="7.10">
 <h2><span class="header-section-number">7.10</span> Code Development<a href="contributor-guidelines.html#code-development" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Code is written following the <a href="contributor-guidelines.html#style-guide">Style Guide</a>,
 <a href="#naming%20conventions">FIMS Naming Conventions</a>, and
 <a href="contributor-guidelines.html#coding-good-practices">Coding Good Practices</a></p>
-<div id="c-contributor" class="section level3 hasAnchor">
+<div id="c-contributor" class="section level3 hasAnchor" number="7.10.1">
 <h3><span class="header-section-number">7.10.1</span> C++ contributor<a href="contributor-guidelines.html#c-contributor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In addition to writing a C++ module, contributors are responsible for
 the following:</p>
@@ -557,7 +593,7 @@ If there are failing tests, run <code>ctest --test-dir --rerun-failed --output-o
 <li>Ensuring the run-clang-tidy and run-googletest <a href="contributor-guidelines.html#github-actions">Github Actions workflows</a> pass on the remote feature branch</li>
 </ul>
 </div>
-<div id="r-contributor" class="section level3 hasAnchor">
+<div id="r-contributor" class="section level3 hasAnchor" number="7.10.2">
 <h3><span class="header-section-number">7.10.2</span> R Contributor<a href="contributor-guidelines.html#r-contributor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In addition to writing an R script or function, contributors are
 responsible for the following:</p>
@@ -573,7 +609,7 @@ remote feature branch. If there are many changes, please do this in a separate c
 </ul>
 </div>
 </div>
-<div id="commit-messages" class="section level2 hasAnchor">
+<div id="commit-messages" class="section level2 hasAnchor" number="7.11">
 <h2><span class="header-section-number">7.11</span> Commit Messages<a href="contributor-guidelines.html#commit-messages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>FIMS Project contributors should provide clear, descriptive commit
 messages to communicate to collaborators details about changes that have
@@ -602,13 +638,13 @@ following practices:</p>
 <li><p>If the commit closes an issue, include a footer to note that (i.e. “Closes #19”)</p></li>
 </ul>
 </div>
-<div id="merge-conflicts" class="section level2 hasAnchor">
+<div id="merge-conflicts" class="section level2 hasAnchor" number="7.12">
 <h2><span class="header-section-number">7.12</span> Merge Conflicts<a href="contributor-guidelines.html#merge-conflicts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="what-is-a-merge-conflict" class="section level3 hasAnchor">
+<div id="what-is-a-merge-conflict" class="section level3 hasAnchor" number="7.12.1">
 <h3><span class="header-section-number">7.12.1</span> What is a merge conflict?<a href="contributor-guidelines.html#what-is-a-merge-conflict" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A merge conflict happens when changes have occured to the same piece of code on the two branches being merged. This means Git cannot automatically determine which version of the change should be kept. Most merge conflicts are small and easy to figure out. See the <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts">Github Documentation on merge conflicts</a> for more information.</p>
 </div>
-<div id="how-to-prevent-merge-conflicts" class="section level3 hasAnchor">
+<div id="how-to-prevent-merge-conflicts" class="section level3 hasAnchor" number="7.12.2">
 <h3><span class="header-section-number">7.12.2</span> How to prevent merge conflicts<a href="contributor-guidelines.html#how-to-prevent-merge-conflicts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Merge in small changes often rather than making many changes on a branch that is kept separate from the main branch for a long time.</li>
@@ -616,13 +652,13 @@ following practices:</p>
 <li>Avoid working in the same files on separate branches.</li>
 </ul>
 </div>
-<div id="how-to-resolve-merge-conflicts" class="section level3 hasAnchor">
+<div id="how-to-resolve-merge-conflicts" class="section level3 hasAnchor" number="7.12.3">
 <h3><span class="header-section-number">7.12.3</span> How to resolve merge conflicts<a href="contributor-guidelines.html#how-to-resolve-merge-conflicts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Merge conflicts can be resolved <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-lineithub.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts">on Github</a> or <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line">locally using Git</a>.</p>
 <p>An additional helpful resource is <a href="https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md">this guide to merge conflicts</a>.</p>
 </div>
 </div>
-<div id="pull-requests" class="section level2 hasAnchor">
+<div id="pull-requests" class="section level2 hasAnchor" number="7.13">
 <h2><span class="header-section-number">7.13</span> Pull Requests<a href="contributor-guidelines.html#pull-requests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once development of a module is complete, the contributor must initiate
 a pull request. Github will automatically start an independent
@@ -640,7 +676,7 @@ Use the <a href="https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUES
 to create pull requests. Pull requests without this template attached
 will not be approved.</p>
 </div>
-<div id="code-review" class="section level2 hasAnchor">
+<div id="code-review" class="section level2 hasAnchor" number="7.14">
 <h2><span class="header-section-number">7.14</span> Code Review<a href="contributor-guidelines.html#code-review" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Code review ensures health and continuous improvement of the FIMS
 codebase, while simultaneously helping FIMS developers become familiar
@@ -652,7 +688,7 @@ tools available via <a href="https://github.com/features/code-review">GitHub</a>
 which allows reviewers to analyze code changes, provide inline comments,
 and view change histories.</p>
 <p><a href="https://google.github.io/eng-practices/review/">The Google code review developer guide</a> provides a useful set of guidelines for both reviewers and code authors.</p>
-<div id="assigning-reviewers" class="section level3 hasAnchor">
+<div id="assigning-reviewers" class="section level3 hasAnchor" number="7.14.1">
 <h3><span class="header-section-number">7.14.1</span> Assigning Reviewers<a href="contributor-guidelines.html#assigning-reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Reviewers for the FIMS Project may be assigned in two different ways:</p>
 <ol style="list-style-type: decimal">
@@ -672,13 +708,13 @@ members.</p>
 the expertise to address it properly, please respond directly to the
 code owner immediately so a different reviewer can be found promptly.</p>
 </div>
-<div id="automated-testing" class="section level3 hasAnchor">
+<div id="automated-testing" class="section level3 hasAnchor" number="7.14.2">
 <h3><span class="header-section-number">7.14.2</span> Automated Testing<a href="contributor-guidelines.html#automated-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Automated testing provides an initial layer of quality assurance and
 lets reviewers know that the code meets certain standards. For more on
 FIMS testing, see <a href="testing.html#testing">Testing</a> and <a href="contributor-guidelines.html#github-actions">GitHub Actions</a>.</p>
 </div>
-<div id="review-checklist" class="section level3 hasAnchor">
+<div id="review-checklist" class="section level3 hasAnchor" number="7.14.3">
 <h3><span class="header-section-number">7.14.3</span> Review Checklist<a href="contributor-guidelines.html#review-checklist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While automated testing can assure the code structure and logic pass
 quality checks, human reviewers are required to evaluate things like
@@ -719,7 +755,7 @@ performance? Is there any debugging code that could be removed? Are there any
 optimizations that could be removed and still maintain system performance?)</p></li>
 </ul>
 </div>
-<div id="review-good-practices" class="section level3 hasAnchor">
+<div id="review-good-practices" class="section level3 hasAnchor" number="7.14.4">
 <h3><span class="header-section-number">7.14.4</span> Review Good Practices<a href="contributor-guidelines.html#review-good-practices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Good reviews require good review habits. Try to follow these suggestions:</p>
 <ul>
@@ -741,16 +777,16 @@ to settle any style arguments</li>
 </ul>
 </div>
 </div>
-<div id="clean-up-local-branches" class="section level2 hasAnchor">
+<div id="clean-up-local-branches" class="section level2 hasAnchor" number="7.15">
 <h2><span class="header-section-number">7.15</span> Clean up local branches<a href="contributor-guidelines.html#clean-up-local-branches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If a code reviewer approves the pull request, FIMS workflow managers
 will merge the feature/bug branch back into the main repository and
 delete the branch. At this stage, the contributor should also delete the
 branch from the local repository using the following commands:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="contributor-guidelines.html#cb20-1"></a><span class="op">$</span><span class="st"> </span>git checkout main           <span class="op">/</span><span class="er">/</span>switches back to main branch</span>
-<span id="cb20-2"><a href="contributor-guidelines.html#cb20-2"></a><span class="op">$</span><span class="st"> </span>git branch <span class="op">-</span>d <span class="op">&lt;</span>branchname<span class="op">&gt;</span><span class="st">  </span><span class="er">//</span>deletes branch from local repository</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="contributor-guidelines.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout main           <span class="sc">/</span><span class="er">/</span>switches back to main branch</span>
+<span id="cb20-2"><a href="contributor-guidelines.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git branch <span class="sc">-</span>d <span class="sc">&lt;</span>branchname<span class="sc">&gt;</span>  <span class="er">//</span>deletes branch from local repository</span></code></pre></div>
 </div>
-<div id="github-actions" class="section level2 hasAnchor">
+<div id="github-actions" class="section level2 hasAnchor" number="7.16">
 <h2><span class="header-section-number">7.16</span> GitHub Actions<a href="contributor-guidelines.html#github-actions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>FIMS uses <a href="https://docs.GitHub.com/en/actions">GitHub Actions</a> to automate
 routine tasks. These tasks include:</p>
@@ -836,7 +872,7 @@ available in <a href="https://nmfs-fish-tools.github.io/ghactions4r/">{ghactions
 the FIMS repository</a>. The status of
 GitHub Action runs can also be viewed on pull requests or next to commits
 throughout the FIMS repository.</p>
-<div id="details-on-backup-checks" class="section level3 hasAnchor">
+<div id="details-on-backup-checks" class="section level3 hasAnchor" number="7.16.1">
 <h3><span class="header-section-number">7.16.1</span> Details on Backup Checks<a href="contributor-guidelines.html#details-on-backup-checks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Developers must make sure that the checks on their pull requests pass, as
 typically changes will not be merged into the main branch until all GitHub
@@ -861,7 +897,7 @@ GoogleTest C++ unit tests. To replicate this GitHub Actions workflow locally,
 follow instructions in the <a href="testing.html#testing">testing section</a>.</li>
 </ul>
 </div>
-<div id="debugging-broken-runs" class="section level3 hasAnchor">
+<div id="debugging-broken-runs" class="section level3 hasAnchor" number="7.16.2">
 <h3><span class="header-section-number">7.16.2</span> Debugging Broken Runs<a href="contributor-guidelines.html#debugging-broken-runs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>GitHub Actions can fail for many reasons, so debugging is necessary to find the
 cause of the failing run. Some steps that can help with debugging are:</p>
@@ -886,7 +922,7 @@ to a day and try to rerun. If it continues to fail for more than a day, a change
 in the GitHub Action YAML file may be needed.</li>
 </ul>
 </div>
-<div id="how-do-i-request-a-new-github-action-workflow" class="section level3 hasAnchor">
+<div id="how-do-i-request-a-new-github-action-workflow" class="section level3 hasAnchor" number="7.16.3">
 <h3><span class="header-section-number">7.16.3</span> How do I request a new Github Action workflow?<a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Routine actions and checks should be captured in a GitHub Action workflow in
 order to improve efficiency of the development process and/or improve automated

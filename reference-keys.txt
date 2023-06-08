@@ -23,13 +23,15 @@ developers
 c-developers
 r-developers
 reviewers
+regional-representatives
 project-lead
 director-of-software-development
-lead-of-test-development
+lead-test-engineer
 lead-of-research-development
+lead-of-workflows-accessibility-and-integration
 code-of-conduct-enforcement
 external-collaborators
-fims-development-cycle-fims-is-structured-as-an-agile-software
+fims-development-cycle
 issue-lifecycle
 feature-validation
 github-collaborative-environment
@@ -130,6 +132,7 @@ set-up-fims-testing-project
 build-and-run-the-tests
 adding-a-c-test
 add-tests-to-testsgtestcmakelists.txt-and-run-a-binary
+debugging-a-c-test
 benchmark-example
 add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark
 remove-files-produced-by-this-example

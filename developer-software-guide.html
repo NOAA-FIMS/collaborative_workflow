@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Developer Software Guide | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Developer Software Guide | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-11-15" />
+<meta name="date" content="2023-06-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,25 +49,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -138,18 +141,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
 <li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-pledge"><i class="fa fa-check"></i><b>2.2</b> Our Pledge</a></li>
 <li class="chapter" data-level="2.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>2.3</b> Our Standards</a></li>
 <li class="chapter" data-level="2.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-responsibilities"><i class="fa fa-check"></i><b>2.4</b> Enforcement Responsibilities</a></li>
 <li class="chapter" data-level="2.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>2.5</b> Scope</a></li>
 <li class="chapter" data-level="2.6" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>2.6</b> Enforcement</a></li>
-<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a><ul>
+<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#correction"><i class="fa fa-check"></i><b>2.7.1</b> 1. Correction</a></li>
 <li class="chapter" data-level="2.7.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#warning"><i class="fa fa-check"></i><b>2.7.2</b> 2. Warning</a></li>
 <li class="chapter" data-level="2.7.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#temporary-ban"><i class="fa fa-check"></i><b>2.7.3</b> 3. Temporary Ban</a></li>
@@ -158,31 +164,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.8</b> Supporting Good Conduct</a></li>
 <li class="chapter" data-level="2.9" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>2.9</b> Attribution</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a><ul>
-<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a><ul>
+<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#developers"><i class="fa fa-check"></i><b>3.1.1</b> Developers</a></li>
 <li class="chapter" data-level="3.1.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#c-developers"><i class="fa fa-check"></i><b>3.1.2</b> C++ developers</a></li>
 <li class="chapter" data-level="3.1.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#r-developers"><i class="fa fa-check"></i><b>3.1.3</b> R developers</a></li>
 <li class="chapter" data-level="3.1.4" data-path="fims-project-overview.html"><a href="fims-project-overview.html#reviewers"><i class="fa fa-check"></i><b>3.1.4</b> Reviewers</a></li>
-<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.5</b> Project Lead</a></li>
-<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.6</b> Director Of Software Development</a></li>
-<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-test-development"><i class="fa fa-check"></i><b>3.1.7</b> Lead of Test Development</a></li>
-<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.8</b> Lead of Research &amp; Development</a></li>
-<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement</a></li>
-<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators</a></li>
+<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#regional-representatives"><i class="fa fa-check"></i><b>3.1.5</b> Regional representatives</a></li>
+<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.6</b> Project Lead</a></li>
+<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.7</b> Director of Software Development</a></li>
+<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-test-engineer"><i class="fa fa-check"></i><b>3.1.8</b> Lead Test Engineer</a></li>
+<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.9</b> Lead of Research &amp; Development</a></li>
+<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-workflows-accessibility-and-integration"><i class="fa fa-check"></i><b>3.1.10</b> Lead of Workflows, Accessibility, and Integration</a></li>
+<li class="chapter" data-level="3.1.11" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.11</b> Code of Conduct Enforcement</a></li>
+<li class="chapter" data-level="3.1.12" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.12</b> External Collaborators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software</a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle</a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a><ul>
+<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-branching-strategy"><i class="fa fa-check"></i><b>3.3.1</b> FIMS Branching Strategy</a></li>
 <li class="chapter" data-level="3.3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#branch-protection"><i class="fa fa-check"></i><b>3.3.2</b> Branch Protection</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a><ul>
+<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>4.1</b> Model variables and bounds</a></li>
-<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a><ul>
+<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions</a></li>
 <li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions</a></li>
 </ul></li>
@@ -195,19 +209,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="m1-model-specification.html"><a href="m1-model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>4.9</b> Likelihood calculations</a></li>
 <li class="chapter" data-level="4.10" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>4.10</b> Statistical Inference:</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a><ul>
+<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a></li>
-<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a><ul>
+<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#windows-users"><i class="fa fa-check"></i><b>5.2.1</b> Windows users</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.3</b> Installing from <code>R</code></a></li>
-<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a><ul>
+<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.4.1</b> Specifying the model</a></li>
 <li class="chapter" data-level="5.4.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.4.2</b> How to run the model</a></li>
 <li class="chapter" data-level="5.4.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.4.3</b> Extracting model output</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a><ul>
+<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a>
+<ul>
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
 <li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
@@ -215,59 +233,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
 <li class="chapter" data-level="6.0.6" data-path="developer-software-guide.html"><a href="developer-software-guide.html#gdb-debugger"><i class="fa fa-check"></i><b>6.0.6</b> GDB debugger</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
+<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
 <li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions</a></li>
 <li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices</a></li>
-<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a><ul>
+<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-instinclude"><i class="fa fa-check"></i><b>7.4.1</b> Files that go in <code>inst/include</code></a></li>
 <li class="chapter" data-level="7.4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-src"><i class="fa fa-check"></i><b>7.4.2</b> Files that go in <code>src/</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.5</b> GitHub forking and cloning</a></li>
 <li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.6</b> Issue Tracking</a></li>
 <li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#reporting-bugs"><i class="fa fa-check"></i><b>7.7</b> Reporting Bugs</a></li>
-<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a><ul>
+<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.8.1</b> Issue Labels</a></li>
 <li class="chapter" data-level="7.8.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.8.2</b> Issue Templates</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a><ul>
+<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.9.1</b> Branching Good Practices</a></li>
 <li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.9.2</b> Branch Naming Conventions</a></li>
 <li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.9.3</b> git workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a><ul>
+<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a>
+<ul>
 <li class="chapter" data-level="7.10.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.10.1</b> C++ contributor</a></li>
 <li class="chapter" data-level="7.10.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.10.2</b> R Contributor</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.11</b> Commit Messages</a></li>
-<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a><ul>
+<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a>
+<ul>
 <li class="chapter" data-level="7.12.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.12.1</b> What is a merge conflict?</a></li>
 <li class="chapter" data-level="7.12.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.12.2</b> How to prevent merge conflicts</a></li>
 <li class="chapter" data-level="7.12.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.12.3</b> How to resolve merge conflicts</a></li>
 </ul></li>
 <li class="chapter" data-level="7.13" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.13</b> Pull Requests</a></li>
-<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a><ul>
+<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a>
+<ul>
 <li class="chapter" data-level="7.14.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.14.1</b> Assigning Reviewers</a></li>
 <li class="chapter" data-level="7.14.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.14.2</b> Automated Testing</a></li>
 <li class="chapter" data-level="7.14.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.14.3</b> Review Checklist</a></li>
 <li class="chapter" data-level="7.14.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.14.4</b> Review Good Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="7.15" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.15</b> Clean up local branches</a></li>
-<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a><ul>
+<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a>
+<ul>
 <li class="chapter" data-level="7.16.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#details-on-backup-checks"><i class="fa fa-check"></i><b>7.16.1</b> Details on Backup Checks</a></li>
 <li class="chapter" data-level="7.16.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#debugging-broken-runs"><i class="fa fa-check"></i><b>7.16.2</b> Debugging Broken Runs</a></li>
 <li class="chapter" data-level="7.16.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow"><i class="fa fa-check"></i><b>7.16.3</b> How do I request a new Github Action workflow?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
-<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a><ul>
+<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>9.1</b> Writing function reference</a></li>
 <li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette</a></li>
 <li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a><ul>
+<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="testing.html"><a href="testing.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a><ul>
+<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="testing.html"><a href="testing.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
 <li class="chapter" data-level="10.2.2" data-path="testing.html"><a href="testing.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
 <li class="chapter" data-level="10.2.3" data-path="testing.html"><a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
@@ -277,26 +306,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.7" data-path="testing.html"><a href="testing.html#build-and-run-the-tests"><i class="fa fa-check"></i><b>10.2.7</b> Build and run the tests</a></li>
 <li class="chapter" data-level="10.2.8" data-path="testing.html"><a href="testing.html#adding-a-c-test"><i class="fa fa-check"></i><b>10.2.8</b> Adding a C++ test</a></li>
 <li class="chapter" data-level="10.2.9" data-path="testing.html"><a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.9</b> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.10</b> Benchmark example</a></li>
-<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.11</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
-<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.12</b> Clean up after running C++ tests</a></li>
+<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#debugging-a-c-test"><i class="fa fa-check"></i><b>10.2.10</b> Debugging a C++ test</a></li>
+<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.11</b> Benchmark example</a></li>
+<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.12</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="10.2.13" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.13</b> Clean up after running C++ tests</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a><ul>
+<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="testing.html"><a href="testing.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
 <li class="chapter" data-level="10.3.2" data-path="testing.html"><a href="testing.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
 <li class="chapter" data-level="10.3.3" data-path="testing.html"><a href="testing.html#testsgtestcmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> tests/gtest/CMakeLists.txt template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a><ul>
+<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
 <li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.2</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a><ul>
+<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="testing.html"><a href="testing.html#test-case-documentation-template"><i class="fa fa-check"></i><b>10.5.1</b> Test case documentation template</a></li>
 <li class="chapter" data-level="10.5.2" data-path="testing.html"><a href="testing.html#test-case-documentation-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case documentation examples</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a><ul>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a><ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a>
+<ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a>
+<ul>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#unit-testing"><i class="fa fa-check"></i>Unit testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#functional-testing"><i class="fa fa-check"></i>Functional testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#integration-testing"><i class="fa fa-check"></i>Integration testing</a></li>
@@ -306,7 +341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a><ul>
+<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="glossary.html"><a href="glossary.html#singleton"><i class="fa fa-check"></i><b>10.6.1</b> singleton</a></li>
 <li class="chapter" data-level="10.6.2" data-path="glossary.html"><a href="glossary.html#class"><i class="fa fa-check"></i><b>10.6.2</b> class</a></li>
 <li class="chapter" data-level="10.6.3" data-path="glossary.html"><a href="glossary.html#functor"><i class="fa fa-check"></i><b>10.6.3</b> functor</a></li>
@@ -336,14 +372,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="developer-software-guide" class="section level1 hasAnchor">
+<div id="developer-software-guide" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Developer Software Guide<a href="developer-software-guide.html#developer-software-guide" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This section describes the software you will
 need to contribute to this project. This is in addition to the software
 dependencies described in the <a href="user-guide.html#user-installation-guide">user installation
 guide</a> which you should ensure are installed
 first.</p>
-<div id="git" class="section level3 hasAnchor">
+<div id="git" class="section level3 hasAnchor" number="6.0.1">
 <h3><span class="header-section-number">6.0.1</span> git<a href="developer-software-guide.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will need git installed locally, and you may prefer to use an
 additional git <a href="https://git-scm.com/downloads/guis">GUI client</a> such as
@@ -355,7 +391,7 @@ page</a> for
 your operating system. You can find the downloads for your operating
 system on the left-hand navigation bar on that page.</p>
 </div>
-<div id="development-environment" class="section level3 hasAnchor">
+<div id="development-environment" class="section level3 hasAnchor" number="6.0.2">
 <h3><span class="header-section-number">6.0.2</span> Development environment<a href="developer-software-guide.html#development-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>An integrated development environment is recommended to organize code
 files, outputs, and build and debug environments. The most popular IDEs
@@ -364,7 +400,7 @@ on the development team are <a href="https://www.rstudio.com/">RStudio</a> and
 to use another IDE or a text-editor based workflow if you strongly
 prefer that.</p>
 </div>
-<div id="vscode-setup" class="section level3 hasAnchor">
+<div id="vscode-setup" class="section level3 hasAnchor" number="6.0.3">
 <h3><span class="header-section-number">6.0.3</span> vscode setup<a href="developer-software-guide.html#vscode-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Please follow the instructions
 <a href="https://code.visualstudio.com/docs/languages/r">here</a> to set up vscode for use
@@ -375,10 +411,10 @@ may be helpful.</p>
 <p>In addition to those instructions, you may need to install the <code>vscDebugger</code>
 package <a href="https://github.com/ManuelHentschel/vscDebugger">here</a> using the
 command:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="developer-software-guide.html#cb6-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ManuelHentschel/vscDebugger&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="developer-software-guide.html#cb6-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ManuelHentschel/vscDebugger&quot;</span>)</span></code></pre></div>
 <p>To improve the plot viewer when creating plots in <code>R</code>, install the <code>httpgd</code>
 package:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="developer-software-guide.html#cb7-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;httpgd&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="developer-software-guide.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;httpgd&quot;</span>)</span></code></pre></div>
 <p>To add syntax highlighting and other features to the R terminal,
 <a href="https://github.com/randy3k/radian">radian</a> can be installed. Note needs to be
 installed first in order to download radian.</p>
@@ -388,50 +424,50 @@ installed first in order to download radian.</p>
 terminals</a>
 can be adjusted.</p>
 <p>Here are some that you may want to use with FIMS:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb8-1"><a href="developer-software-guide.html#cb8-1"></a><span class="fu">{</span></span>
-<span id="cb8-2"><a href="developer-software-guide.html#cb8-2"></a>    <span class="er">//</span> <span class="er">Associate</span> <span class="er">.RMD</span> <span class="er">files</span> <span class="er">with</span> <span class="er">markdown</span><span class="fu">:</span></span>
-<span id="cb8-3"><a href="developer-software-guide.html#cb8-3"></a>    <span class="st">&quot;files.associations&quot;</span><span class="er">:</span> <span class="fu">{</span></span>
-<span id="cb8-4"><a href="developer-software-guide.html#cb8-4"></a>        <span class="dt">&quot;*.Rmd&quot;</span><span class="fu">:</span> <span class="st">&quot;markdown&quot;</span><span class="fu">,</span></span>
-<span id="cb8-5"><a href="developer-software-guide.html#cb8-5"></a>    <span class="fu">},</span></span>
-<span id="cb8-6"><a href="developer-software-guide.html#cb8-6"></a>    <span class="er">//</span> <span class="er">A</span> <span class="er">cmake</span> <span class="er">setting</span></span>
-<span id="cb8-7"><a href="developer-software-guide.html#cb8-7"></a>    <span class="dt">&quot;cmake.configureOnOpen&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span> </span>
-<span id="cb8-8"><a href="developer-software-guide.html#cb8-8"></a>    <span class="er">//</span> <span class="er">Set</span> <span class="er">where</span> <span class="er">the</span> <span class="er">rulers</span> <span class="er">are</span><span class="fu">,</span> <span class="er">needed</span> <span class="er">for</span> <span class="er">Rewrap.</span> <span class="er">72</span> <span class="er">is</span> <span class="er">the</span> <span class="er">default</span> <span class="er">we</span> <span class="er">have</span></span>
-<span id="cb8-9"><a href="developer-software-guide.html#cb8-9"></a>    <span class="er">//</span> <span class="er">decided</span> <span class="er">on</span> <span class="er">for</span> <span class="er">FIMS</span> <span class="er">repositories.z</span></span>
-<span id="cb8-10"><a href="developer-software-guide.html#cb8-10"></a>    <span class="dt">&quot;editor.rulers&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb8-11"><a href="developer-software-guide.html#cb8-11"></a>        <span class="dv">72</span></span>
-<span id="cb8-12"><a href="developer-software-guide.html#cb8-12"></a>    <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb8-13"><a href="developer-software-guide.html#cb8-13"></a>    <span class="er">//</span> <span class="er">Should</span> <span class="er">the</span> <span class="er">editor</span> <span class="er">suggest</span> <span class="er">inline</span> <span class="er">edits?</span></span>
-<span id="cb8-14"><a href="developer-software-guide.html#cb8-14"></a>    <span class="dt">&quot;editor.inlineSuggest.enabled&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb8-15"><a href="developer-software-guide.html#cb8-15"></a>    <span class="er">//</span> <span class="er">Settings</span> <span class="er">for</span> <span class="er">github</span> <span class="er">copilot</span> <span class="er">and</span> <span class="er">which</span> <span class="er">languages</span> <span class="er">to</span> <span class="er">use</span> <span class="er">it</span> <span class="er">with</span> <span class="er">or</span> <span class="er">not.</span></span>
-<span id="cb8-16"><a href="developer-software-guide.html#cb8-16"></a>    <span class="dt">&quot;github.copilot.enable&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb8-17"><a href="developer-software-guide.html#cb8-17"></a>        <span class="dt">&quot;*&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb8-18"><a href="developer-software-guide.html#cb8-18"></a>        <span class="dt">&quot;yaml&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb8-19"><a href="developer-software-guide.html#cb8-19"></a>        <span class="dt">&quot;plaintext&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb8-20"><a href="developer-software-guide.html#cb8-20"></a>        <span class="dt">&quot;markdown&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb8-21"><a href="developer-software-guide.html#cb8-21"></a>        <span class="dt">&quot;latex&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb8-22"><a href="developer-software-guide.html#cb8-22"></a>        <span class="dt">&quot;r&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb8-23"><a href="developer-software-guide.html#cb8-23"></a>    <span class="fu">},</span> </span>
-<span id="cb8-24"><a href="developer-software-guide.html#cb8-24"></a>    <span class="er">//</span> <span class="er">Setting</span> <span class="er">for</span> <span class="er">sending</span> <span class="er">R</span> <span class="er">code</span> <span class="er">from</span> <span class="er">the</span> <span class="er">editor</span> <span class="er">to</span> <span class="er">the</span> <span class="er">terminal</span></span>
-<span id="cb8-25"><a href="developer-software-guide.html#cb8-25"></a>    <span class="dt">&quot;r.alwaysUseActiveTerminal&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb8-26"><a href="developer-software-guide.html#cb8-26"></a>    <span class="er">//</span> <span class="er">Needed</span> <span class="er">to</span> <span class="er">send</span> <span class="er">large</span> <span class="er">chunks</span> <span class="er">of</span> <span class="er">code</span> <span class="er">to</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span> <span class="er">when</span> <span class="er">using</span> <span class="er">radian</span></span>
-<span id="cb8-27"><a href="developer-software-guide.html#cb8-27"></a>    <span class="dt">&quot;r.bracketedPaste&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb8-28"><a href="developer-software-guide.html#cb8-28"></a>    <span class="er">//</span> <span class="er">Needed</span> <span class="er">to</span> <span class="er">use</span> <span class="er">httpgd</span> <span class="er">for</span> <span class="er">plotting</span> <span class="er">in</span> <span class="er">vscode</span></span>
-<span id="cb8-29"><a href="developer-software-guide.html#cb8-29"></a>    <span class="dt">&quot;r.plot.useHttpgd&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb8-30"><a href="developer-software-guide.html#cb8-30"></a>    <span class="er">//</span> <span class="er">path</span> <span class="er">to</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span> <span class="er">(in</span> <span class="er">this</span> <span class="er">case</span><span class="fu">,</span> <span class="er">radian).</span> <span class="er">Necessary</span> <span class="er">to</span> <span class="er">get</span> <span class="er">the</span> <span class="er">terminal</span> <span class="er">to</span> <span class="er">use</span> <span class="er">radian.</span></span>
-<span id="cb8-31"><a href="developer-software-guide.html#cb8-31"></a>    <span class="dt">&quot;r.rterm.windows&quot;</span><span class="fu">:</span> <span class="st">&quot;C://Users//my.name//AppData//Local//Programs//Python//Python310//Scripts//radian.exe&quot;</span><span class="fu">,</span> <span class="er">//Use</span> <span class="er">this</span> <span class="er">only</span> <span class="er">for</span> <span class="er">Windows</span> </span>
-<span id="cb8-32"><a href="developer-software-guide.html#cb8-32"></a>    <span class="er">//</span> <span class="er">options</span> <span class="er">for</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span></span>
-<span id="cb8-33"><a href="developer-software-guide.html#cb8-33"></a>    <span class="dt">&quot;r.rterm.option&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb8-34"><a href="developer-software-guide.html#cb8-34"></a>        <span class="st">&quot;--no-save&quot;</span><span class="ot">,</span></span>
-<span id="cb8-35"><a href="developer-software-guide.html#cb8-35"></a>        <span class="st">&quot;--no-restore&quot;</span><span class="ot">,</span></span>
-<span id="cb8-36"><a href="developer-software-guide.html#cb8-36"></a>        <span class="st">&quot;max.print=500&quot;</span></span>
-<span id="cb8-37"><a href="developer-software-guide.html#cb8-37"></a>    <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb8-38"><a href="developer-software-guide.html#cb8-38"></a>    <span class="er">//</span> <span class="er">Setting</span> <span class="er">for</span> <span class="er">whether</span> <span class="er">to</span> <span class="er">allow</span> <span class="er">linting</span> <span class="er">of</span> <span class="er">documents</span> <span class="er">or</span> <span class="er">not</span></span>
-<span id="cb8-39"><a href="developer-software-guide.html#cb8-39"></a>    <span class="dt">&quot;r.lsp.diagnostics&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb8-40"><a href="developer-software-guide.html#cb8-40"></a>    <span class="er">//</span> <span class="er">When</span> <span class="er">looking</span> <span class="er">at</span> <span class="er">diffs</span> <span class="er">under</span> <span class="er">the</span> <span class="er">version</span> <span class="er">control</span> <span class="er">tab</span><span class="fu">,</span> <span class="er">should</span> <span class="er">whitspace</span> <span class="er">be</span> <span class="er">ignored?</span></span>
-<span id="cb8-41"><a href="developer-software-guide.html#cb8-41"></a>    <span class="dt">&quot;diffEditor.ignoreTrimWhitespace&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb8-42"><a href="developer-software-guide.html#cb8-42"></a>    <span class="er">//</span> <span class="er">What</span> <span class="er">is</span> <span class="er">the</span> <span class="er">max</span> <span class="er">number</span> <span class="er">of</span> <span class="er">lines</span> <span class="er">that</span> <span class="er">are</span> <span class="er">printed</span> <span class="er">as</span> <span class="er">output</span> <span class="er">to</span> <span class="er">the</span> <span class="er">terminal?</span></span>
-<span id="cb8-43"><a href="developer-software-guide.html#cb8-43"></a>    <span class="dt">&quot;terminal.integrated.scrollback&quot;</span><span class="fu">:</span> <span class="dv">10000</span></span>
-<span id="cb8-44"><a href="developer-software-guide.html#cb8-44"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb8-1"><a href="developer-software-guide.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a href="developer-software-guide.html#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Associate</span> <span class="er">.RMD</span> <span class="er">files</span> <span class="er">with</span> <span class="er">markdown</span><span class="fu">:</span></span>
+<span id="cb8-3"><a href="developer-software-guide.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;files.associations&quot;</span><span class="er">:</span> <span class="fu">{</span></span>
+<span id="cb8-4"><a href="developer-software-guide.html#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;*.Rmd&quot;</span><span class="fu">:</span> <span class="st">&quot;markdown&quot;</span><span class="fu">,</span></span>
+<span id="cb8-5"><a href="developer-software-guide.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb8-6"><a href="developer-software-guide.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">A</span> <span class="er">cmake</span> <span class="er">setting</span></span>
+<span id="cb8-7"><a href="developer-software-guide.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;cmake.configureOnOpen&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span> </span>
+<span id="cb8-8"><a href="developer-software-guide.html#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Set</span> <span class="er">where</span> <span class="er">the</span> <span class="er">rulers</span> <span class="er">are</span><span class="fu">,</span> <span class="er">needed</span> <span class="er">for</span> <span class="er">Rewrap.</span> <span class="er">72</span> <span class="er">is</span> <span class="er">the</span> <span class="er">default</span> <span class="er">we</span> <span class="er">have</span></span>
+<span id="cb8-9"><a href="developer-software-guide.html#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">decided</span> <span class="er">on</span> <span class="er">for</span> <span class="er">FIMS</span> <span class="er">repositories.z</span></span>
+<span id="cb8-10"><a href="developer-software-guide.html#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;editor.rulers&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb8-11"><a href="developer-software-guide.html#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="dv">72</span></span>
+<span id="cb8-12"><a href="developer-software-guide.html#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb8-13"><a href="developer-software-guide.html#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Should</span> <span class="er">the</span> <span class="er">editor</span> <span class="er">suggest</span> <span class="er">inline</span> <span class="er">edits?</span></span>
+<span id="cb8-14"><a href="developer-software-guide.html#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;editor.inlineSuggest.enabled&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb8-15"><a href="developer-software-guide.html#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Settings</span> <span class="er">for</span> <span class="er">github</span> <span class="er">copilot</span> <span class="er">and</span> <span class="er">which</span> <span class="er">languages</span> <span class="er">to</span> <span class="er">use</span> <span class="er">it</span> <span class="er">with</span> <span class="er">or</span> <span class="er">not.</span></span>
+<span id="cb8-16"><a href="developer-software-guide.html#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;github.copilot.enable&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-17"><a href="developer-software-guide.html#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;*&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb8-18"><a href="developer-software-guide.html#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;yaml&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-19"><a href="developer-software-guide.html#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;plaintext&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-20"><a href="developer-software-guide.html#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;markdown&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-21"><a href="developer-software-guide.html#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;latex&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-22"><a href="developer-software-guide.html#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;r&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb8-23"><a href="developer-software-guide.html#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span> </span>
+<span id="cb8-24"><a href="developer-software-guide.html#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Setting</span> <span class="er">for</span> <span class="er">sending</span> <span class="er">R</span> <span class="er">code</span> <span class="er">from</span> <span class="er">the</span> <span class="er">editor</span> <span class="er">to</span> <span class="er">the</span> <span class="er">terminal</span></span>
+<span id="cb8-25"><a href="developer-software-guide.html#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;r.alwaysUseActiveTerminal&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb8-26"><a href="developer-software-guide.html#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Needed</span> <span class="er">to</span> <span class="er">send</span> <span class="er">large</span> <span class="er">chunks</span> <span class="er">of</span> <span class="er">code</span> <span class="er">to</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span> <span class="er">when</span> <span class="er">using</span> <span class="er">radian</span></span>
+<span id="cb8-27"><a href="developer-software-guide.html#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;r.bracketedPaste&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb8-28"><a href="developer-software-guide.html#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Needed</span> <span class="er">to</span> <span class="er">use</span> <span class="er">httpgd</span> <span class="er">for</span> <span class="er">plotting</span> <span class="er">in</span> <span class="er">vscode</span></span>
+<span id="cb8-29"><a href="developer-software-guide.html#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;r.plot.useHttpgd&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb8-30"><a href="developer-software-guide.html#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">path</span> <span class="er">to</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span> <span class="er">(in</span> <span class="er">this</span> <span class="er">case</span><span class="fu">,</span> <span class="er">radian).</span> <span class="er">Necessary</span> <span class="er">to</span> <span class="er">get</span> <span class="er">the</span> <span class="er">terminal</span> <span class="er">to</span> <span class="er">use</span> <span class="er">radian.</span></span>
+<span id="cb8-31"><a href="developer-software-guide.html#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;r.rterm.windows&quot;</span><span class="fu">:</span> <span class="st">&quot;C://Users//my.name//AppData//Local//Programs//Python//Python310//Scripts//radian.exe&quot;</span><span class="fu">,</span> <span class="er">//Use</span> <span class="er">this</span> <span class="er">only</span> <span class="er">for</span> <span class="er">Windows</span> </span>
+<span id="cb8-32"><a href="developer-software-guide.html#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">options</span> <span class="er">for</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span></span>
+<span id="cb8-33"><a href="developer-software-guide.html#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;r.rterm.option&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb8-34"><a href="developer-software-guide.html#cb8-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;--no-save&quot;</span><span class="ot">,</span></span>
+<span id="cb8-35"><a href="developer-software-guide.html#cb8-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;--no-restore&quot;</span><span class="ot">,</span></span>
+<span id="cb8-36"><a href="developer-software-guide.html#cb8-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;max.print=500&quot;</span></span>
+<span id="cb8-37"><a href="developer-software-guide.html#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb8-38"><a href="developer-software-guide.html#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Setting</span> <span class="er">for</span> <span class="er">whether</span> <span class="er">to</span> <span class="er">allow</span> <span class="er">linting</span> <span class="er">of</span> <span class="er">documents</span> <span class="er">or</span> <span class="er">not</span></span>
+<span id="cb8-39"><a href="developer-software-guide.html#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;r.lsp.diagnostics&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb8-40"><a href="developer-software-guide.html#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">When</span> <span class="er">looking</span> <span class="er">at</span> <span class="er">diffs</span> <span class="er">under</span> <span class="er">the</span> <span class="er">version</span> <span class="er">control</span> <span class="er">tab</span><span class="fu">,</span> <span class="er">should</span> <span class="er">whitspace</span> <span class="er">be</span> <span class="er">ignored?</span></span>
+<span id="cb8-41"><a href="developer-software-guide.html#cb8-41" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;diffEditor.ignoreTrimWhitespace&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-42"><a href="developer-software-guide.html#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">What</span> <span class="er">is</span> <span class="er">the</span> <span class="er">max</span> <span class="er">number</span> <span class="er">of</span> <span class="er">lines</span> <span class="er">that</span> <span class="er">are</span> <span class="er">printed</span> <span class="er">as</span> <span class="er">output</span> <span class="er">to</span> <span class="er">the</span> <span class="er">terminal?</span></span>
+<span id="cb8-43"><a href="developer-software-guide.html#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;terminal.integrated.scrollback&quot;</span><span class="fu">:</span> <span class="dv">10000</span></span>
+<span id="cb8-44"><a href="developer-software-guide.html#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <p>Some <a href="https://github.com/REditorSupport/vscode-R/wiki/Keyboard-shortcuts">suggested R
 shortcuts</a>
 could be helpful.</p>
@@ -461,33 +497,33 @@ Features &gt; Terminal, uncheck the option “Enable Persistent Sessions.”</p>
 palette. Clicking on “R: Launch Rstudio Addin” should provide a list of addin
 options.</p>
 </div>
-<div id="c-compiler" class="section level3 hasAnchor">
+<div id="c-compiler" class="section level3 hasAnchor" number="6.0.4">
 <h3><span class="header-section-number">6.0.4</span> C++ compiler<a href="developer-software-guide.html#c-compiler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Windows users who installed Rtools should have a C++ compiler (<code>gcc</code>)
 as part of the bundle. To ensure the C++ compiler is on your path, open
 a command prompt and type <code>gcc</code>. If you get the below message, you are
 all set:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="developer-software-guide.html#cb9-1"></a>gcc<span class="op">:</span><span class="st"> </span>fatal error<span class="op">:</span><span class="st"> </span>no input files compilation</span>
-<span id="cb9-2"><a href="developer-software-guide.html#cb9-2"></a>terminated.</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="developer-software-guide.html#cb9-1" aria-hidden="true" tabindex="-1"></a>gcc<span class="sc">:</span> fatal error<span class="sc">:</span> no input files compilation</span>
+<span id="cb9-2"><a href="developer-software-guide.html#cb9-2" aria-hidden="true" tabindex="-1"></a>terminated.</span></code></pre></div>
 <p>If not, you will need to check that the compiler is on the path. The
 easiest way to do so is by creating a text file .Renviron in your
 Documents folder which contains the following line:</p>
 <pre><code>PATH=&quot;${RTOOLS40_HOME}\usr\bin;${PATH}&quot;</code></pre>
 <p>You can do this with a text editor, or from <code>R</code> like so (note that in
 <code>R</code> code you need to escape backslashes):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="developer-software-guide.html#cb11-1"></a><span class="kw">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="dt">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="developer-software-guide.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="at">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Restart R, and verify that make can be found, which should show the path
 to your Rtools installation.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="developer-software-guide.html#cb12-1"></a><span class="kw">Sys.which</span>(<span class="st">&quot;make&quot;</span>) <span class="co">##</span></span>
-<span id="cb12-2"><a href="developer-software-guide.html#cb12-2"></a><span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">rtools40</span><span class="ch">\\</span><span class="st">usr</span><span class="ch">\\</span><span class="st">bin</span><span class="ch">\\</span><span class="st">make.exe&quot;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="developer-software-guide.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.which</span>(<span class="st">&quot;make&quot;</span>) <span class="do">##</span></span>
+<span id="cb12-2"><a href="developer-software-guide.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">rtools40</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin</span><span class="sc">\\</span><span class="st">make.exe&quot;</span> </span></code></pre></div>
 </div>
-<div id="googletest" class="section level3 hasAnchor">
+<div id="googletest" class="section level3 hasAnchor" number="6.0.5">
 <h3><span class="header-section-number">6.0.5</span> GoogleTest<a href="developer-software-guide.html#googletest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will need to install <code>CMake</code> and <code>ninja</code> and validate you have the
 correct setup by following the steps outlined in the <a href="testing.html#testing">test case
 template</a>.</p>
 </div>
-<div id="gdb-debugger" class="section level3 hasAnchor">
+<div id="gdb-debugger" class="section level3 hasAnchor" number="6.0.6">
 <h3><span class="header-section-number">6.0.6</span> GDB debugger<a href="developer-software-guide.html#gdb-debugger" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Windows users who use GoogleTest may need GDB debugger to see what is
 going on inside of the program while it executes, or what the program is

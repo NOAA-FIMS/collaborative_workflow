@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Testing | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Testing | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-11-15" />
+<meta name="date" content="2023-06-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,25 +49,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -138,18 +141,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
 <li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-pledge"><i class="fa fa-check"></i><b>2.2</b> Our Pledge</a></li>
 <li class="chapter" data-level="2.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>2.3</b> Our Standards</a></li>
 <li class="chapter" data-level="2.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-responsibilities"><i class="fa fa-check"></i><b>2.4</b> Enforcement Responsibilities</a></li>
 <li class="chapter" data-level="2.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>2.5</b> Scope</a></li>
 <li class="chapter" data-level="2.6" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>2.6</b> Enforcement</a></li>
-<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a><ul>
+<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#correction"><i class="fa fa-check"></i><b>2.7.1</b> 1. Correction</a></li>
 <li class="chapter" data-level="2.7.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#warning"><i class="fa fa-check"></i><b>2.7.2</b> 2. Warning</a></li>
 <li class="chapter" data-level="2.7.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#temporary-ban"><i class="fa fa-check"></i><b>2.7.3</b> 3. Temporary Ban</a></li>
@@ -158,31 +164,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.8</b> Supporting Good Conduct</a></li>
 <li class="chapter" data-level="2.9" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>2.9</b> Attribution</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a><ul>
-<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a><ul>
+<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#developers"><i class="fa fa-check"></i><b>3.1.1</b> Developers</a></li>
 <li class="chapter" data-level="3.1.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#c-developers"><i class="fa fa-check"></i><b>3.1.2</b> C++ developers</a></li>
 <li class="chapter" data-level="3.1.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#r-developers"><i class="fa fa-check"></i><b>3.1.3</b> R developers</a></li>
 <li class="chapter" data-level="3.1.4" data-path="fims-project-overview.html"><a href="fims-project-overview.html#reviewers"><i class="fa fa-check"></i><b>3.1.4</b> Reviewers</a></li>
-<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.5</b> Project Lead</a></li>
-<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.6</b> Director Of Software Development</a></li>
-<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-test-development"><i class="fa fa-check"></i><b>3.1.7</b> Lead of Test Development</a></li>
-<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.8</b> Lead of Research &amp; Development</a></li>
-<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement</a></li>
-<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators</a></li>
+<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#regional-representatives"><i class="fa fa-check"></i><b>3.1.5</b> Regional representatives</a></li>
+<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.6</b> Project Lead</a></li>
+<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.7</b> Director of Software Development</a></li>
+<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-test-engineer"><i class="fa fa-check"></i><b>3.1.8</b> Lead Test Engineer</a></li>
+<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.9</b> Lead of Research &amp; Development</a></li>
+<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-workflows-accessibility-and-integration"><i class="fa fa-check"></i><b>3.1.10</b> Lead of Workflows, Accessibility, and Integration</a></li>
+<li class="chapter" data-level="3.1.11" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.11</b> Code of Conduct Enforcement</a></li>
+<li class="chapter" data-level="3.1.12" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.12</b> External Collaborators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software</a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle</a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a><ul>
+<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-branching-strategy"><i class="fa fa-check"></i><b>3.3.1</b> FIMS Branching Strategy</a></li>
 <li class="chapter" data-level="3.3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#branch-protection"><i class="fa fa-check"></i><b>3.3.2</b> Branch Protection</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a><ul>
+<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>4.1</b> Model variables and bounds</a></li>
-<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a><ul>
+<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions</a></li>
 <li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions</a></li>
 </ul></li>
@@ -195,19 +209,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="m1-model-specification.html"><a href="m1-model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>4.9</b> Likelihood calculations</a></li>
 <li class="chapter" data-level="4.10" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>4.10</b> Statistical Inference:</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a><ul>
+<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a></li>
-<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a><ul>
+<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#windows-users"><i class="fa fa-check"></i><b>5.2.1</b> Windows users</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.3</b> Installing from <code>R</code></a></li>
-<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a><ul>
+<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.4.1</b> Specifying the model</a></li>
 <li class="chapter" data-level="5.4.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.4.2</b> How to run the model</a></li>
 <li class="chapter" data-level="5.4.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.4.3</b> Extracting model output</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a><ul>
+<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a>
+<ul>
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
 <li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
@@ -215,59 +233,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
 <li class="chapter" data-level="6.0.6" data-path="developer-software-guide.html"><a href="developer-software-guide.html#gdb-debugger"><i class="fa fa-check"></i><b>6.0.6</b> GDB debugger</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
+<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
 <li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions</a></li>
 <li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices</a></li>
-<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a><ul>
+<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-instinclude"><i class="fa fa-check"></i><b>7.4.1</b> Files that go in <code>inst/include</code></a></li>
 <li class="chapter" data-level="7.4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-src"><i class="fa fa-check"></i><b>7.4.2</b> Files that go in <code>src/</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.5</b> GitHub forking and cloning</a></li>
 <li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.6</b> Issue Tracking</a></li>
 <li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#reporting-bugs"><i class="fa fa-check"></i><b>7.7</b> Reporting Bugs</a></li>
-<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a><ul>
+<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.8.1</b> Issue Labels</a></li>
 <li class="chapter" data-level="7.8.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.8.2</b> Issue Templates</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a><ul>
+<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.9.1</b> Branching Good Practices</a></li>
 <li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.9.2</b> Branch Naming Conventions</a></li>
 <li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.9.3</b> git workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a><ul>
+<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a>
+<ul>
 <li class="chapter" data-level="7.10.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.10.1</b> C++ contributor</a></li>
 <li class="chapter" data-level="7.10.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.10.2</b> R Contributor</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.11</b> Commit Messages</a></li>
-<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a><ul>
+<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a>
+<ul>
 <li class="chapter" data-level="7.12.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.12.1</b> What is a merge conflict?</a></li>
 <li class="chapter" data-level="7.12.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.12.2</b> How to prevent merge conflicts</a></li>
 <li class="chapter" data-level="7.12.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.12.3</b> How to resolve merge conflicts</a></li>
 </ul></li>
 <li class="chapter" data-level="7.13" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.13</b> Pull Requests</a></li>
-<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a><ul>
+<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a>
+<ul>
 <li class="chapter" data-level="7.14.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.14.1</b> Assigning Reviewers</a></li>
 <li class="chapter" data-level="7.14.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.14.2</b> Automated Testing</a></li>
 <li class="chapter" data-level="7.14.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.14.3</b> Review Checklist</a></li>
 <li class="chapter" data-level="7.14.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.14.4</b> Review Good Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="7.15" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.15</b> Clean up local branches</a></li>
-<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a><ul>
+<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a>
+<ul>
 <li class="chapter" data-level="7.16.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#details-on-backup-checks"><i class="fa fa-check"></i><b>7.16.1</b> Details on Backup Checks</a></li>
 <li class="chapter" data-level="7.16.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#debugging-broken-runs"><i class="fa fa-check"></i><b>7.16.2</b> Debugging Broken Runs</a></li>
 <li class="chapter" data-level="7.16.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow"><i class="fa fa-check"></i><b>7.16.3</b> How do I request a new Github Action workflow?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
-<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a><ul>
+<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>9.1</b> Writing function reference</a></li>
 <li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette</a></li>
 <li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a><ul>
+<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="testing.html"><a href="testing.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a><ul>
+<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="testing.html"><a href="testing.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
 <li class="chapter" data-level="10.2.2" data-path="testing.html"><a href="testing.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
 <li class="chapter" data-level="10.2.3" data-path="testing.html"><a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
@@ -277,26 +306,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.7" data-path="testing.html"><a href="testing.html#build-and-run-the-tests"><i class="fa fa-check"></i><b>10.2.7</b> Build and run the tests</a></li>
 <li class="chapter" data-level="10.2.8" data-path="testing.html"><a href="testing.html#adding-a-c-test"><i class="fa fa-check"></i><b>10.2.8</b> Adding a C++ test</a></li>
 <li class="chapter" data-level="10.2.9" data-path="testing.html"><a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.9</b> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.10</b> Benchmark example</a></li>
-<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.11</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
-<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.12</b> Clean up after running C++ tests</a></li>
+<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#debugging-a-c-test"><i class="fa fa-check"></i><b>10.2.10</b> Debugging a C++ test</a></li>
+<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.11</b> Benchmark example</a></li>
+<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.12</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="10.2.13" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.13</b> Clean up after running C++ tests</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a><ul>
+<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="testing.html"><a href="testing.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
 <li class="chapter" data-level="10.3.2" data-path="testing.html"><a href="testing.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
 <li class="chapter" data-level="10.3.3" data-path="testing.html"><a href="testing.html#testsgtestcmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> tests/gtest/CMakeLists.txt template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a><ul>
+<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
 <li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.2</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a><ul>
+<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="testing.html"><a href="testing.html#test-case-documentation-template"><i class="fa fa-check"></i><b>10.5.1</b> Test case documentation template</a></li>
 <li class="chapter" data-level="10.5.2" data-path="testing.html"><a href="testing.html#test-case-documentation-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case documentation examples</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a><ul>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a><ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a>
+<ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a>
+<ul>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#unit-testing"><i class="fa fa-check"></i>Unit testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#functional-testing"><i class="fa fa-check"></i>Functional testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#integration-testing"><i class="fa fa-check"></i>Integration testing</a></li>
@@ -306,7 +341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a><ul>
+<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="glossary.html"><a href="glossary.html#singleton"><i class="fa fa-check"></i><b>10.6.1</b> singleton</a></li>
 <li class="chapter" data-level="10.6.2" data-path="glossary.html"><a href="glossary.html#class"><i class="fa fa-check"></i><b>10.6.2</b> class</a></li>
 <li class="chapter" data-level="10.6.3" data-path="glossary.html"><a href="glossary.html#functor"><i class="fa fa-check"></i><b>10.6.3</b> functor</a></li>
@@ -336,11 +372,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="testing" class="section level1 hasAnchor">
+<div id="testing" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">Chapter 10</span> Testing<a href="testing.html#testing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This section describes testing for FIMS. FIMS uses Google Test for C++
 unit testing and testthat for R unit testing.</p>
-<div id="introduction" class="section level2 hasAnchor">
+<div id="introduction" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">10.1</span> Introduction<a href="testing.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>FIMS testing framework will include different types of testing to make
 sure that changes to FIMS code are working as expected. The unit and
@@ -363,9 +399,9 @@ testthat to build an R testing framework. FIMS will use Google Benchmark
 to measure the real time and CPU time used for running the produced
 binaries.</p>
 </div>
-<div id="c-unit-testing-and-benchmarking" class="section level2 hasAnchor">
+<div id="c-unit-testing-and-benchmarking" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> C++ unit testing and benchmarking<a href="testing.html#c-unit-testing-and-benchmarking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="requirements" class="section level3 hasAnchor">
+<div id="requirements" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Requirements<a href="testing.html#requirements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To use GoogleTest, you will need:</p>
 <ul>
@@ -376,18 +412,18 @@ provides clang 5.0. For R users,
 <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">rtools4</a>
 includes gcc.</p></li>
 <li><p>A build system for building the testing project.
-<a href="https://cmake.org/"><span class="ul">CMake</span></a> and a compatible build tool such as
-<a href="https://ninja-build.org/"><span class="ul">Ninja</span></a> are approved by NMFS HQ.</p></li>
+<a href="https://cmake.org/"><u>CMake</u></a> and a compatible build tool such as
+<a href="https://ninja-build.org/"><u>Ninja</u></a> are approved by NMFS HQ.</p></li>
 </ul>
 </div>
-<div id="setup-for-windows-users" class="section level3 hasAnchor">
+<div id="setup-for-windows-users" class="section level3 hasAnchor" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Setup for Windows users<a href="testing.html#setup-for-windows-users" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li><p>Download <a href="https://github.com/Kitware/CMake/releases"><span class="ul">CMake 3.22.1
-(cmake-3.22.1-windows-x86_64.zip)</span></a>
+<li><p>Download <a href="https://github.com/Kitware/CMake/releases"><u>CMake 3.22.1
+(cmake-3.22.1-windows-x86_64.zip)</u></a>
 and put the file folder to <code>Documents\Apps</code> or other preferred folder.</p></li>
-<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2
-(ninja-win.zip)</span></a>
+<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><u>ninja v1.10.2
+(ninja-win.zip)</u></a>
 and put the application to <code>Documents\Apps</code> or other preferred folder.</p></li>
 <li><p>Open your Command Prompt and type <code>cmake</code>. If you see details of
 usage, cmake is already in your PATH. If not, follow the the
@@ -398,7 +434,7 @@ build.ninja, this means that ninja is already in your PATH. If ninja is
 not found, follow the instructions below to add ninja to your path.</p></li>
 </ol>
 </div>
-<div id="adding-cmake-and-ninja-to-your-path-on-windows" class="section level3 hasAnchor">
+<div id="adding-cmake-and-ninja-to-your-path-on-windows" class="section level3 hasAnchor" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Adding cmake and ninja to your PATH on Windows<a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><p>In the Windows search bar next to the start menu, search for <code>Edit environment variables for your account</code> and open the <code>Environment Variables</code> window.</p></li>
@@ -417,14 +453,14 @@ In this situation it is necessary to create a ticket with IT to add
 cmake and ninja to your PATH on Windows.</p></li>
 </ol>
 </div>
-<div id="setup-for-linux-and-mac-users" class="section level3 hasAnchor">
+<div id="setup-for-linux-and-mac-users" class="section level3 hasAnchor" number="10.2.4">
 <h3><span class="header-section-number">10.2.4</span> Setup for Linux and Mac users<a href="testing.html#setup-for-linux-and-mac-users" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li><p>See <a href="https://cmake.org/install"><span class="ul">CMake installation
-instructions</span></a> for installing CMake on
+<li><p>See <a href="https://cmake.org/install"><u>CMake installation
+instructions</u></a> for installing CMake on
 other platforms. Add cmake to your PATH. You can check that the path is working by running <code>which cmake</code> in a command window.</p></li>
-<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><span class="ul">ninja v1.10.2
-(ninja-win.zip)</span></a>
+<li><p>Download <a href="https://github.com/ninja-build/ninja/releases"><u>ninja v1.10.2
+(ninja-win.zip)</u></a>
 and put the binary in your preferred location. Add Ninja to your PATH. You can check that the path is working by running <code>which ninja</code> in a command window.</p></li>
 <li><p>Open a command window and type <code>cmake</code>. If you see usage, cmake is
 found. If not, cmake may still need to be added to your PATH.</p></li>
@@ -433,7 +469,7 @@ with <code>ninja:</code>, ninja is found. Otherwise, try changing the permission
 or adding to your path.</p></li>
 </ol>
 </div>
-<div id="how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac" class="section level3 hasAnchor">
+<div id="how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac" class="section level3 hasAnchor" number="10.2.5">
 <h3><span class="header-section-number">10.2.5</span> How to edit your PATH and change file permissions for Linux and Mac<a href="testing.html#how-to-edit-your-path-and-change-file-permissions-for-linux-and-mac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To check if the binary is in your path, assuming the binary is named
 ninja: open a Terminal window and type <code>which ninja</code> and hit enter. If
@@ -457,12 +493,12 @@ instructions above), and running the command:</p>
 returned:</p>
 <pre><code>/usr/bin/ninja</code></pre>
 </div>
-<div id="set-up-fims-testing-project" class="section level3 hasAnchor">
+<div id="set-up-fims-testing-project" class="section level3 hasAnchor" number="10.2.6">
 <h3><span class="header-section-number">10.2.6</span> Set up FIMS testing project<a href="testing.html#set-up-fims-testing-project" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Clone the <a href="https://github.com/NOAA-FIMS/FIMS">FIMS repository</a> on the
 command line using:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="testing.html#cb29-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span>
-<span id="cb29-2"><a href="testing.html#cb29-2"></a><span class="bu">cd</span> FIMS</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="testing.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/NOAA-FIMS/FIMS.git</span>
+<span id="cb29-2"><a href="testing.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> FIMS</span></code></pre></div>
 <p>There is a file called CMakeLists.txt in the top level of the directory.
 This file instructs Cmake on how to create the build files, including
 setting up Google Test.</p>
@@ -471,74 +507,74 @@ this subdirectory is a file called CMakeLists.txt. This file contains
 additional specifications for CMake, in particular instructions on how
 to register the individual tests.</p>
 </div>
-<div id="build-and-run-the-tests" class="section level3 hasAnchor">
+<div id="build-and-run-the-tests" class="section level3 hasAnchor" number="10.2.7">
 <h3><span class="header-section-number">10.2.7</span> Build and run the tests<a href="testing.html#build-and-run-the-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Three commands on the command line are needed to build the tests:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="testing.html#cb30-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="testing.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja</span></code></pre></div>
 <p>This generates the build system using Ninja as the generator. Note there
 is now a subfolder called build.</p>
 <p>Next, in the same command window, use cmake to build in the build
 subfolder:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="testing.html#cb31-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="testing.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div>
 <p>Finally, run the C++ tests:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="testing.html#cb32-1"></a><span class="ex">ctest</span> --test-dir build</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="testing.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build</span></code></pre></div>
 <p>The output from running the tests should look something like:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="testing.html#cb33-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
-<span id="cb33-2"><a href="testing.html#cb33-2"></a><span class="ex">Test</span> project C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
-<span id="cb33-3"><a href="testing.html#cb33-3"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
-<span id="cb33-4"><a href="testing.html#cb33-4"></a><span class="ex">1/5</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
-<span id="cb33-5"><a href="testing.html#cb33-5"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
-<span id="cb33-6"><a href="testing.html#cb33-6"></a><span class="ex">2/5</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
-<span id="cb33-7"><a href="testing.html#cb33-7"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
-<span id="cb33-8"><a href="testing.html#cb33-8"></a><span class="ex">3/5</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
-<span id="cb33-9"><a href="testing.html#cb33-9"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
-<span id="cb33-10"><a href="testing.html#cb33-10"></a><span class="ex">4/5</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
-<span id="cb33-11"><a href="testing.html#cb33-11"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
-<span id="cb33-12"><a href="testing.html#cb33-12"></a><span class="ex">5/5</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
-<span id="cb33-13"><a href="testing.html#cb33-13"></a></span>
-<span id="cb33-14"><a href="testing.html#cb33-14"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 5</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="testing.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
+<span id="cb33-2"><a href="testing.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Test</span> project C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
+<span id="cb33-3"><a href="testing.html#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
+<span id="cb33-4"><a href="testing.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="ex">1/5</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
+<span id="cb33-5"><a href="testing.html#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
+<span id="cb33-6"><a href="testing.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2/5</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
+<span id="cb33-7"><a href="testing.html#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
+<span id="cb33-8"><a href="testing.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="ex">3/5</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
+<span id="cb33-9"><a href="testing.html#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
+<span id="cb33-10"><a href="testing.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="ex">4/5</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
+<span id="cb33-11"><a href="testing.html#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
+<span id="cb33-12"><a href="testing.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="ex">5/5</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
+<span id="cb33-13"><a href="testing.html#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="testing.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 5</span></code></pre></div>
 </div>
-<div id="adding-a-c-test" class="section level3 hasAnchor">
+<div id="adding-a-c-test" class="section level3 hasAnchor" number="10.2.8">
 <h3><span class="header-section-number">10.2.8</span> Adding a C++ test<a href="testing.html#adding-a-c-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Create a file dlognorm.hpp within the src subfolder that contains a simple function:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb34-1"><a href="testing.html#cb34-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
-<span id="cb34-2"><a href="testing.html#cb34-2"></a></span>
-<span id="cb34-3"><a href="testing.html#cb34-3"></a>template&lt;class Type&gt;</span>
-<span id="cb34-4"><a href="testing.html#cb34-4"></a>Type dlognorm(Type x, Type meanlog, Type sdlog){</span>
-<span id="cb34-5"><a href="testing.html#cb34-5"></a>  Type resid = (log(x)-meanlog)/sdlog;</span>
-<span id="cb34-6"><a href="testing.html#cb34-6"></a>  Type logres = -log(sqrt(<span class="dv">2</span>*M_PI)) - log(sdlog) - Type(<span class="fl">0.5</span>)*resid*resid - log(x);</span>
-<span id="cb34-7"><a href="testing.html#cb34-7"></a>  <span class="cf">return</span> logres;</span>
-<span id="cb34-8"><a href="testing.html#cb34-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb34-1"><a href="testing.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
+<span id="cb34-2"><a href="testing.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="testing.html#cb34-3" aria-hidden="true" tabindex="-1"></a>template<span class="op">&lt;</span>class Type<span class="op">&gt;</span></span>
+<span id="cb34-4"><a href="testing.html#cb34-4" aria-hidden="true" tabindex="-1"></a>Type dlognorm<span class="op">(</span>Type x<span class="op">,</span> Type meanlog<span class="op">,</span> Type sdlog<span class="op">){</span></span>
+<span id="cb34-5"><a href="testing.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  Type resid <span class="op">=</span> <span class="op">(</span>log<span class="op">(</span>x<span class="op">)-</span>meanlog<span class="op">)/</span>sdlog<span class="op">;</span></span>
+<span id="cb34-6"><a href="testing.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  Type logres <span class="op">=</span> <span class="op">-</span>log<span class="op">(</span>sqrt<span class="op">(</span><span class="dv">2</span><span class="op">*</span>M_PI<span class="op">))</span> <span class="op">-</span> log<span class="op">(</span>sdlog<span class="op">)</span> <span class="op">-</span> Type<span class="op">(</span><span class="fl">0.5</span><span class="op">)*</span>resid<span class="op">*</span>resid <span class="op">-</span> log<span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb34-7"><a href="testing.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> logres<span class="op">;</span></span>
+<span id="cb34-8"><a href="testing.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Then, create a test file dlognorm-unit.cpp in the tests/gtest subfolder
 that has a test suite for the dlognorm function:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb35-1"><a href="testing.html#cb35-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb35-2"><a href="testing.html#cb35-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
-<span id="cb35-3"><a href="testing.html#cb35-3"></a></span>
-<span id="cb35-4"><a href="testing.html#cb35-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb35-5"><a href="testing.html#cb35-5"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
-<span id="cb35-6"><a href="testing.html#cb35-6"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
-<span id="cb35-7"><a href="testing.html#cb35-7"></a></span>
-<span id="cb35-8"><a href="testing.html#cb35-8"></a>namespace {</span>
-<span id="cb35-9"><a href="testing.html#cb35-9"></a></span>
-<span id="cb35-10"><a href="testing.html#cb35-10"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
-<span id="cb35-11"><a href="testing.html#cb35-11"></a>  <span class="co">// Test dlognorm with double input values</span></span>
-<span id="cb35-12"><a href="testing.html#cb35-12"></a></span>
-<span id="cb35-13"><a href="testing.html#cb35-13"></a>  TEST(dlognormTest, DoubleInput) {</span>
-<span id="cb35-14"><a href="testing.html#cb35-14"></a></span>
-<span id="cb35-15"><a href="testing.html#cb35-15"></a>    EXPECT_NEAR( dlognorm(<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> );</span>
-<span id="cb35-16"><a href="testing.html#cb35-16"></a>    EXPECT_NEAR( dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>) , -<span class="fl">9.07679</span> , <span class="fl">0.0001</span> );</span>
-<span id="cb35-17"><a href="testing.html#cb35-17"></a></span>
-<span id="cb35-18"><a href="testing.html#cb35-18"></a>  }</span>
-<span id="cb35-19"><a href="testing.html#cb35-19"></a></span>
-<span id="cb35-20"><a href="testing.html#cb35-20"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
-<span id="cb35-21"><a href="testing.html#cb35-21"></a></span>
-<span id="cb35-22"><a href="testing.html#cb35-22"></a>  TEST(dlognormTest, IntInput) {</span>
-<span id="cb35-23"><a href="testing.html#cb35-23"></a></span>
-<span id="cb35-24"><a href="testing.html#cb35-24"></a>    EXPECT_NEAR( dlognorm(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) , -<span class="fl">0.9189385</span> , <span class="fl">0.0001</span> );</span>
-<span id="cb35-25"><a href="testing.html#cb35-25"></a></span>
-<span id="cb35-26"><a href="testing.html#cb35-26"></a>  }</span>
-<span id="cb35-27"><a href="testing.html#cb35-27"></a></span>
-<span id="cb35-28"><a href="testing.html#cb35-28"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb35-1"><a href="testing.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb35-2"><a href="testing.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
+<span id="cb35-3"><a href="testing.html#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="testing.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb35-5"><a href="testing.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
+<span id="cb35-6"><a href="testing.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
+<span id="cb35-7"><a href="testing.html#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="testing.html#cb35-8" aria-hidden="true" tabindex="-1"></a>namespace <span class="op">{</span></span>
+<span id="cb35-9"><a href="testing.html#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="testing.html#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
+<span id="cb35-11"><a href="testing.html#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Test dlognorm with double input values</span></span>
+<span id="cb35-12"><a href="testing.html#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="testing.html#cb35-13" aria-hidden="true" tabindex="-1"></a>  TEST<span class="op">(</span>dlognormTest<span class="op">,</span> DoubleInput<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb35-14"><a href="testing.html#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="testing.html#cb35-15" aria-hidden="true" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">0.9189385</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
+<span id="cb35-16"><a href="testing.html#cb35-16" aria-hidden="true" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="fl">5.0</span><span class="op">,</span> <span class="fl">10.0</span><span class="op">,</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">9.07679</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
+<span id="cb35-17"><a href="testing.html#cb35-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-18"><a href="testing.html#cb35-18" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb35-19"><a href="testing.html#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="testing.html#cb35-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
+<span id="cb35-21"><a href="testing.html#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-22"><a href="testing.html#cb35-22" aria-hidden="true" tabindex="-1"></a>  TEST<span class="op">(</span>dlognormTest<span class="op">,</span> IntInput<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb35-23"><a href="testing.html#cb35-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-24"><a href="testing.html#cb35-24" aria-hidden="true" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">0.9189385</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
+<span id="cb35-25"><a href="testing.html#cb35-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-26"><a href="testing.html#cb35-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb35-27"><a href="testing.html#cb35-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="testing.html#cb35-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><code>EXPECT_NEAR(val1, val2, absolute_error)</code> verifies that the difference
 between <code>val1</code> and <code>val2</code> does not exceed the absolute error bound
 <code>absolute_error</code>. <code>EXPECT_NE(val1, val2)</code> verifies that <code>val1</code> is not
@@ -546,139 +582,168 @@ equal to <code>val2</code>. Please see GoogleTest <a href="https://google.github
 reference</a>
 for more <code>EXPECT_</code> macros.</p>
 </div>
-<div id="add-tests-to-testsgtestcmakelists.txt-and-run-a-binary" class="section level3 hasAnchor">
+<div id="add-tests-to-testsgtestcmakelists.txt-and-run-a-binary" class="section level3 hasAnchor" number="10.2.9">
 <h3><span class="header-section-number">10.2.9</span> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary<a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To build the code, add the following contents to the end of the <code>tests/gtest/CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb36-1"><a href="testing.html#cb36-1"></a></span>
-<span id="cb36-2"><a href="testing.html#cb36-2"></a><span class="kw">add_executable</span>(dlognorm_test</span>
-<span id="cb36-3"><a href="testing.html#cb36-3"></a>  dlognorm-unit.cpp</span>
-<span id="cb36-4"><a href="testing.html#cb36-4"></a>)</span>
-<span id="cb36-5"><a href="testing.html#cb36-5"></a></span>
-<span id="cb36-6"><a href="testing.html#cb36-6"></a><span class="kw">target_include_directories</span>(dlognorm_test</span>
-<span id="cb36-7"><a href="testing.html#cb36-7"></a>  <span class="ot">PUBLIC</span></span>
-<span id="cb36-8"><a href="testing.html#cb36-8"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb36-9"><a href="testing.html#cb36-9"></a>)</span>
-<span id="cb36-10"><a href="testing.html#cb36-10"></a></span>
-<span id="cb36-11"><a href="testing.html#cb36-11"></a><span class="kw">target_link_libraries</span>(dlognorm_test</span>
-<span id="cb36-12"><a href="testing.html#cb36-12"></a>  gtest_main</span>
-<span id="cb36-13"><a href="testing.html#cb36-13"></a>)</span>
-<span id="cb36-14"><a href="testing.html#cb36-14"></a></span>
-<span id="cb36-15"><a href="testing.html#cb36-15"></a><span class="kw">include</span>(GoogleTest)</span>
-<span id="cb36-16"><a href="testing.html#cb36-16"></a><span class="fu">gtest_discover_tests</span>(dlognorm_test)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb36-1"><a href="testing.html#cb36-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-2"><a href="testing.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">dlognorm_test</span></span>
+<span id="cb36-3"><a href="testing.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  dlognorm-unit.cpp</span>
+<span id="cb36-4"><a href="testing.html#cb36-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-5"><a href="testing.html#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="testing.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="kw">target_include_directories</span>(<span class="bn">dlognorm_test</span></span>
+<span id="cb36-7"><a href="testing.html#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb36-8"><a href="testing.html#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb36-9"><a href="testing.html#cb36-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-10"><a href="testing.html#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="testing.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">dlognorm_test</span></span>
+<span id="cb36-12"><a href="testing.html#cb36-12" aria-hidden="true" tabindex="-1"></a>  gtest_main</span>
+<span id="cb36-13"><a href="testing.html#cb36-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-14"><a href="testing.html#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="testing.html#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="kw">include</span>(<span class="im">GoogleTest</span>)</span>
+<span id="cb36-16"><a href="testing.html#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="fu">gtest_discover_tests</span>(<span class="bn">dlognorm_test</span>)</span></code></pre></div>
 <p>The above configuration enables testing in CMake, declares the C++ test
 binary you want to build (dlognorm_test), and links it to GoogleTest
 (gtest_main). Now you can build and run your test. Open a command window
 in the FIMS repo (if not already opened) and type:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="testing.html#cb37-1"></a><span class="fu">cmake</span> -S . -B build -G Ninja</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="testing.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja</span></code></pre></div>
 <p>This generates the build system using Ninja as the generator.</p>
 <p>Next, in the same command window, use cmake to build:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="testing.html#cb38-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="testing.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div>
 <p>Finally, run the tests in the same command window:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="testing.html#cb39-1"></a><span class="ex">ctest</span> --test-dir build</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="testing.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build</span></code></pre></div>
 <p>The output when running <code>ctest</code> might look like this. Note there is a
 failing test:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="testing.html#cb40-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
-<span id="cb40-2"><a href="testing.html#cb40-2"></a><span class="ex">Test</span> project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
-<span id="cb40-3"><a href="testing.html#cb40-3"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
-<span id="cb40-4"><a href="testing.html#cb40-4"></a><span class="ex">1/7</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
-<span id="cb40-5"><a href="testing.html#cb40-5"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
-<span id="cb40-6"><a href="testing.html#cb40-6"></a><span class="ex">2/7</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
-<span id="cb40-7"><a href="testing.html#cb40-7"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
-<span id="cb40-8"><a href="testing.html#cb40-8"></a><span class="ex">3/7</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
-<span id="cb40-9"><a href="testing.html#cb40-9"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
-<span id="cb40-10"><a href="testing.html#cb40-10"></a><span class="ex">4/7</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
-<span id="cb40-11"><a href="testing.html#cb40-11"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
-<span id="cb40-12"><a href="testing.html#cb40-12"></a><span class="ex">5/7</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
-<span id="cb40-13"><a href="testing.html#cb40-13"></a>    <span class="ex">Start</span> 6: dlognormTest.DoubleInput</span>
-<span id="cb40-14"><a href="testing.html#cb40-14"></a><span class="ex">6/7</span> Test <span class="co">#6: dlognormTest.DoubleInput .........   Passed    0.04 sec</span></span>
-<span id="cb40-15"><a href="testing.html#cb40-15"></a>    <span class="ex">Start</span> 7: dlognormTest.IntInput</span>
-<span id="cb40-16"><a href="testing.html#cb40-16"></a><span class="ex">7/7</span> Test <span class="co">#7: dlognormTest.IntInput ............***Failed    0.04 sec</span></span>
-<span id="cb40-17"><a href="testing.html#cb40-17"></a></span>
-<span id="cb40-18"><a href="testing.html#cb40-18"></a><span class="ex">86%</span> tests passed, 1 tests failed out of 7</span>
-<span id="cb40-19"><a href="testing.html#cb40-19"></a></span>
-<span id="cb40-20"><a href="testing.html#cb40-20"></a><span class="ex">Total</span> Test time (real) =   <span class="ex">0.28</span> sec</span>
-<span id="cb40-21"><a href="testing.html#cb40-21"></a></span>
-<span id="cb40-22"><a href="testing.html#cb40-22"></a><span class="ex">The</span> following tests FAILED:</span>
-<span id="cb40-23"><a href="testing.html#cb40-23"></a>          <span class="ex">7</span> - dlognormTest.IntInput (Failed)</span>
-<span id="cb40-24"><a href="testing.html#cb40-24"></a><span class="ex">Errors</span> while running CTest</span>
-<span id="cb40-25"><a href="testing.html#cb40-25"></a><span class="ex">Output</span> from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log</span>
-<span id="cb40-26"><a href="testing.html#cb40-26"></a><span class="ex">Use</span> <span class="st">&quot;--rerun-failed --output-on-failure&quot;</span> to re-run the failed cases verbosely.</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="testing.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
+<span id="cb40-2"><a href="testing.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Test</span> project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
+<span id="cb40-3"><a href="testing.html#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
+<span id="cb40-4"><a href="testing.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="ex">1/7</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
+<span id="cb40-5"><a href="testing.html#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
+<span id="cb40-6"><a href="testing.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2/7</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
+<span id="cb40-7"><a href="testing.html#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
+<span id="cb40-8"><a href="testing.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="ex">3/7</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
+<span id="cb40-9"><a href="testing.html#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
+<span id="cb40-10"><a href="testing.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="ex">4/7</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
+<span id="cb40-11"><a href="testing.html#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
+<span id="cb40-12"><a href="testing.html#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="ex">5/7</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
+<span id="cb40-13"><a href="testing.html#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 6: dlognormTest.DoubleInput</span>
+<span id="cb40-14"><a href="testing.html#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="ex">6/7</span> Test <span class="co">#6: dlognormTest.DoubleInput .........   Passed    0.04 sec</span></span>
+<span id="cb40-15"><a href="testing.html#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Start</span> 7: dlognormTest.IntInput</span>
+<span id="cb40-16"><a href="testing.html#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="ex">7/7</span> Test <span class="co">#7: dlognormTest.IntInput ............***Failed    0.04 sec</span></span>
+<span id="cb40-17"><a href="testing.html#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="testing.html#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="ex">86%</span> tests passed, 1 tests failed out of 7</span>
+<span id="cb40-19"><a href="testing.html#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-20"><a href="testing.html#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="ex">Total</span> Test time <span class="er">(</span><span class="ex">real</span><span class="kw">)</span> <span class="ex">=</span>   0.28 sec</span>
+<span id="cb40-21"><a href="testing.html#cb40-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-22"><a href="testing.html#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following tests FAILED:</span>
+<span id="cb40-23"><a href="testing.html#cb40-23" aria-hidden="true" tabindex="-1"></a>          <span class="ex">7</span> <span class="at">-</span> dlognormTest.IntInput <span class="er">(</span><span class="ex">Failed</span><span class="kw">)</span></span>
+<span id="cb40-24"><a href="testing.html#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="ex">Errors</span> while running CTest</span>
+<span id="cb40-25"><a href="testing.html#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log</span>
+<span id="cb40-26"><a href="testing.html#cb40-26" aria-hidden="true" tabindex="-1"></a><span class="ex">Use</span> <span class="st">&quot;--rerun-failed --output-on-failure&quot;</span> to re-run the failed cases verbosely.</span></code></pre></div>
 </div>
-<div id="benchmark-example" class="section level3 hasAnchor">
-<h3><span class="header-section-number">10.2.10</span> Benchmark example<a href="testing.html#benchmark-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="debugging-a-c-test" class="section level3 hasAnchor" number="10.2.10">
+<h3><span class="header-section-number">10.2.10</span> Debugging a C++ test<a href="testing.html#debugging-a-c-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two ways to debug a C++ test, interactively using <code>gdb</code> or via print statements. To use <code>gdb</code>, make sure it is installed and on your path.</p>
+<p>Debug C++ code (e.g., segmentation error/memory corruption) using gdb:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="testing.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Debug</span>
+<span id="cb41-2"><a href="testing.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--parallel</span> 16</span>
+<span id="cb41-3"><a href="testing.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build <span class="at">--parallel</span> 16</span>
+<span id="cb41-4"><a href="testing.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gdb</span> ./build/tests/gtest/population_dynamics_population.exe</span>
+<span id="cb41-5"><a href="testing.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="ex">c</span> // to continue without paging</span>
+<span id="cb41-6"><a href="testing.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="ex">run</span> // to see which line of code is broken</span>
+<span id="cb41-7"><a href="testing.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span> this-<span class="op">&gt;</span>log_naa // for example, print this-<span class="op">&gt;</span>log_naa to see the value of log_naa<span class="kw">;</span> </span>
+<span id="cb41-8"><a href="testing.html#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span> i // for example, print i from the broken for loop</span>
+<span id="cb41-9"><a href="testing.html#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="ex">bt</span> // backtrace</span>
+<span id="cb41-10"><a href="testing.html#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="ex">q</span> // to quit</span></code></pre></div>
+<p>Debug C++ code without using gdb:
+Update code in a .hpp file by calling <code>std::ofstream out(“file_name.txt”)</code>
+Then use <code>out &lt;&lt; variable;</code> to print out values of the variable</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb42-1"><a href="testing.html#cb42-1" aria-hidden="true" tabindex="-1"></a>nfleets <span class="op">=</span> fleets<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb42-2"><a href="testing.html#cb42-2" aria-hidden="true" tabindex="-1"></a>std<span class="op">::</span>ofstream out<span class="op">(</span><span class="st">&quot;debug.txt&quot;</span><span class="op">);</span></span>
+<span id="cb42-3"><a href="testing.html#cb42-3" aria-hidden="true" tabindex="-1"></a>out <span class="op">&lt;&lt;</span>nfleets<span class="op">;</span></span></code></pre></div>
+<p>More complex examples with text identifying the quantities</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb43-1"><a href="testing.html#cb43-1" aria-hidden="true" tabindex="-1"></a>out <span class="op">&lt;&lt;</span><span class="st">&quot; fleet_index: &quot;</span><span class="op">&lt;&lt;</span>fleet_index<span class="op">&lt;&lt;</span><span class="st">&quot; index_yaf: &quot;</span><span class="op">&lt;&lt;</span>index_yaf<span class="op">&lt;&lt;</span><span class="st">&quot; index_yf: &quot;</span><span class="op">&lt;&lt;</span>index_yf<span class="op">&lt;&lt;</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb43-2"><a href="testing.html#cb43-2" aria-hidden="true" tabindex="-1"></a>out <span class="op">&lt;&lt;</span><span class="st">&quot; population.Fmort[index_yf]: &quot;</span><span class="op">&lt;&lt;</span>population<span class="op">.</span>Fmort<span class="op">[</span>index_yf<span class="op">]&lt;&lt;</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span></code></pre></div>
+<p>Git Bash</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="testing.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja </span>
+<span id="cb44-2"><a href="testing.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--parallel</span> 16</span>
+<span id="cb44-3"><a href="testing.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build <span class="at">--parallel</span> 16</span></code></pre></div>
+<p>The output of the print statements will be in this test file: <code>FIMS/build/tests/gtest/debug.txt</code></p>
+</div>
+<div id="benchmark-example" class="section level3 hasAnchor" number="10.2.11">
+<h3><span class="header-section-number">10.2.11</span> Benchmark example<a href="testing.html#benchmark-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Google Benchmark measures the real time and CPU time used for running
 the produced binary. We will continue using the dlognorm.hpp example.
 Create a benchmark file dlognorm_benchmark.cpp and put it in the
 tests/gtest subfolder:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb41-1"><a href="testing.html#cb41-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb41-2"><a href="testing.html#cb41-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
-<span id="cb41-3"><a href="testing.html#cb41-3"></a></span>
-<span id="cb41-4"><a href="testing.html#cb41-4"></a><span class="dt">void</span> BM_dlgnorm(benchmark::State&amp; state)</span>
-<span id="cb41-5"><a href="testing.html#cb41-5"></a>{</span>
-<span id="cb41-6"><a href="testing.html#cb41-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb41-7"><a href="testing.html#cb41-7"></a>    dlognorm(<span class="fl">5.0</span>, <span class="fl">10.0</span>, <span class="fl">2.5</span>);</span>
-<span id="cb41-8"><a href="testing.html#cb41-8"></a>}</span>
-<span id="cb41-9"><a href="testing.html#cb41-9"></a>BENCHMARK(BM_dlgnorm);</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb45-1"><a href="testing.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb45-2"><a href="testing.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
+<span id="cb45-3"><a href="testing.html#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="testing.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> BM_dlgnorm<span class="op">(</span>benchmark<span class="op">::</span>State<span class="op">&amp;</span> state<span class="op">)</span></span>
+<span id="cb45-5"><a href="testing.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb45-6"><a href="testing.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">auto</span> _ <span class="op">:</span> state<span class="op">)</span></span>
+<span id="cb45-7"><a href="testing.html#cb45-7" aria-hidden="true" tabindex="-1"></a>    dlognorm<span class="op">(</span><span class="fl">5.0</span><span class="op">,</span> <span class="fl">10.0</span><span class="op">,</span> <span class="fl">2.5</span><span class="op">);</span></span>
+<span id="cb45-8"><a href="testing.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb45-9"><a href="testing.html#cb45-9" aria-hidden="true" tabindex="-1"></a>BENCHMARK<span class="op">(</span>BM_dlgnorm<span class="op">);</span></span></code></pre></div>
 <p>This file runs the dlognorm function and uses BENCHMARK to see how long
 it takes.</p>
 <p>A more comprehensive feature overview of benchmarking is available in
 the <a href="https://github.com/google/benchmark">Google Benchmark GitHub repository</a>.</p>
 </div>
-<div id="add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark" class="section level3 hasAnchor">
-<h3><span class="header-section-number">10.2.11</span> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark<a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark" class="section level3 hasAnchor" number="10.2.12">
+<h3><span class="header-section-number">10.2.12</span> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark<a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To build the code, add the following contents to the end of your
 <code>tests/gtest/CMakeLists.txt</code> file:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb42-1"><a href="testing.html#cb42-1"></a></span>
-<span id="cb42-2"><a href="testing.html#cb42-2"></a><span class="fu">FetchContent_Declare</span>(</span>
-<span id="cb42-3"><a href="testing.html#cb42-3"></a>  googlebenchmark</span>
-<span id="cb42-4"><a href="testing.html#cb42-4"></a>  URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip</span>
-<span id="cb42-5"><a href="testing.html#cb42-5"></a>)</span>
-<span id="cb42-6"><a href="testing.html#cb42-6"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
-<span id="cb42-7"><a href="testing.html#cb42-7"></a></span>
-<span id="cb42-8"><a href="testing.html#cb42-8"></a><span class="kw">add_executable</span>(dlognorm_benchmark</span>
-<span id="cb42-9"><a href="testing.html#cb42-9"></a>  dlognorm_benchmark.cpp</span>
-<span id="cb42-10"><a href="testing.html#cb42-10"></a>)</span>
-<span id="cb42-11"><a href="testing.html#cb42-11"></a></span>
-<span id="cb42-12"><a href="testing.html#cb42-12"></a><span class="kw">target_include_directories</span>(dlognorm_benchmark</span>
-<span id="cb42-13"><a href="testing.html#cb42-13"></a>  <span class="ot">PUBLIC</span></span>
-<span id="cb42-14"><a href="testing.html#cb42-14"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb42-15"><a href="testing.html#cb42-15"></a>)</span>
-<span id="cb42-16"><a href="testing.html#cb42-16"></a></span>
-<span id="cb42-17"><a href="testing.html#cb42-17"></a><span class="kw">target_link_libraries</span>(dlognorm_benchmark</span>
-<span id="cb42-18"><a href="testing.html#cb42-18"></a>  benchmark_main</span>
-<span id="cb42-19"><a href="testing.html#cb42-19"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb46-1"><a href="testing.html#cb46-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-2"><a href="testing.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb46-3"><a href="testing.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  googlebenchmark</span>
+<span id="cb46-4"><a href="testing.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="ot">URL</span> https://github.com/google/benchmark/archive/refs/tags/v1.<span class="dt">6.0</span>.zip</span>
+<span id="cb46-5"><a href="testing.html#cb46-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-6"><a href="testing.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
+<span id="cb46-7"><a href="testing.html#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="testing.html#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">dlognorm_benchmark</span></span>
+<span id="cb46-9"><a href="testing.html#cb46-9" aria-hidden="true" tabindex="-1"></a>  dlognorm_benchmark.cpp</span>
+<span id="cb46-10"><a href="testing.html#cb46-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-11"><a href="testing.html#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-12"><a href="testing.html#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="kw">target_include_directories</span>(<span class="bn">dlognorm_benchmark</span></span>
+<span id="cb46-13"><a href="testing.html#cb46-13" aria-hidden="true" tabindex="-1"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb46-14"><a href="testing.html#cb46-14" aria-hidden="true" tabindex="-1"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb46-15"><a href="testing.html#cb46-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-16"><a href="testing.html#cb46-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-17"><a href="testing.html#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">dlognorm_benchmark</span></span>
+<span id="cb46-18"><a href="testing.html#cb46-18" aria-hidden="true" tabindex="-1"></a>  benchmark_main</span>
+<span id="cb46-19"><a href="testing.html#cb46-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>To run the benchmark, open the command line open in the FIMS repo (if
 not already open) and run cmake, sending output to the build subfolder:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="testing.html#cb43-1"></a><span class="fu">cmake</span> --build build</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="testing.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div>
 <p>Then run the dlognorm_benchmark executable created:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="testing.html#cb44-1"></a><span class="ex">build/tests/gtest/dlognorm_benchmark.exe</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="testing.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">build/tests/gtest/dlognorm_benchmark.exe</span></span></code></pre></div>
 <p>The output from <code>dlognorm_benchmark.exe</code> might look like this:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="testing.html#cb45-1"></a><span class="ex">Run</span> on (8 X 2112 MHz CPU s)</span>
-<span id="cb45-2"><a href="testing.html#cb45-2"></a><span class="ex">CPU</span> Caches:</span>
-<span id="cb45-3"><a href="testing.html#cb45-3"></a>  <span class="ex">L1</span> Data 32 KiB (x4)</span>
-<span id="cb45-4"><a href="testing.html#cb45-4"></a><span class="ex">L1</span> Instruction 32 KiB (x4)</span>
-<span id="cb45-5"><a href="testing.html#cb45-5"></a><span class="ex">L2</span> Unified 256 KiB (x4)</span>
-<span id="cb45-6"><a href="testing.html#cb45-6"></a><span class="ex">L3</span> Unified 8192 KiB (x1)</span>
-<span id="cb45-7"><a href="testing.html#cb45-7"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
-<span id="cb45-8"><a href="testing.html#cb45-8"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb45-9"><a href="testing.html#cb45-9"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
-<span id="cb45-10"><a href="testing.html#cb45-10"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb45-11"><a href="testing.html#cb45-11"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
-<div id="remove-files-produced-by-this-example" class="section level4 hasAnchor">
-<h4><span class="header-section-number">10.2.11.1</span> Remove files produced by this example<a href="testing.html#remove-files-produced-by-this-example" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="testing.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Run</span> on <span class="er">(</span><span class="ex">8</span> X 2112 MHz CPU s<span class="kw">)</span></span>
+<span id="cb49-2"><a href="testing.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CPU</span> Caches:</span>
+<span id="cb49-3"><a href="testing.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">L1</span> Data 32 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
+<span id="cb49-4"><a href="testing.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="ex">L1</span> Instruction 32 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
+<span id="cb49-5"><a href="testing.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="ex">L2</span> Unified 256 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
+<span id="cb49-6"><a href="testing.html#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="ex">L3</span> Unified 8192 KiB <span class="er">(</span><span class="ex">x1</span><span class="kw">)</span></span>
+<span id="cb49-7"><a href="testing.html#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
+<span id="cb49-8"><a href="testing.html#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb49-9"><a href="testing.html#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
+<span id="cb49-10"><a href="testing.html#cb49-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb49-11"><a href="testing.html#cb49-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
+<div id="remove-files-produced-by-this-example" class="section level4 hasAnchor" number="10.2.12.1">
+<h4><span class="header-section-number">10.2.12.1</span> Remove files produced by this example<a href="testing.html#remove-files-produced-by-this-example" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If you don’t want to keep any of the files produced by this example and
 want to completely clear any uncommitted changes and files from the git
 repo, use</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="testing.html#cb46-1"></a><span class="fu">git</span> restore .</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="testing.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .</span></code></pre></div>
 <p>to get rid of un committed changes in git tracked files. To get rid of
 all untracked files in the repo, use:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="testing.html#cb47-1"></a><span class="fu">git</span> clean -fd</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="testing.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clean <span class="at">-fd</span></span></code></pre></div>
 </div>
 </div>
-<div id="clean-up-after-running-c-tests" class="section level3 hasAnchor">
-<h3><span class="header-section-number">10.2.12</span> Clean up after running C++ tests<a href="testing.html#clean-up-after-running-c-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="clean-up-cmake-generated-files-and-re-run-tests" class="section level4 hasAnchor">
-<h4><span class="header-section-number">10.2.12.1</span> Clean up CMake-generated files and re-run tests<a href="testing.html#clean-up-cmake-generated-files-and-re-run-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="clean-up-after-running-c-tests" class="section level3 hasAnchor" number="10.2.13">
+<h3><span class="header-section-number">10.2.13</span> Clean up after running C++ tests<a href="testing.html#clean-up-after-running-c-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="clean-up-cmake-generated-files-and-re-run-tests" class="section level4 hasAnchor" number="10.2.13.1">
+<h4><span class="header-section-number">10.2.13.1</span> Clean up CMake-generated files and re-run tests<a href="testing.html#clean-up-cmake-generated-files-and-re-run-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>After running the examples above, the build generates files (i.e., the
 source code, libraries, and executables) and saves the files in the
 <code>build</code> subfolder. The example above demonstrates an “out-of-source”
@@ -699,8 +764,8 @@ pushed to the FIMS repository.</p>
 <!-- ctest --test-dir build -->
 <!-- ``` -->
 </div>
-<div id="clean-up-individual-tests" class="section level4 hasAnchor">
-<h4><span class="header-section-number">10.2.12.2</span> Clean up individual tests<a href="testing.html#clean-up-individual-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="clean-up-individual-tests" class="section level4 hasAnchor" number="10.2.13.2">
+<h4><span class="header-section-number">10.2.13.2</span> Clean up individual tests<a href="testing.html#clean-up-individual-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For simple C++ functions like the examples above, we do not need to
 clean up the tests. Clean up is only necessary in a few situations.</p>
 <ul>
@@ -715,76 +780,76 @@ guide</a>.</li>
 </div>
 </div>
 </div>
-<div id="templates-for-googletest-testing" class="section level2 hasAnchor">
+<div id="templates-for-googletest-testing" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Templates for GoogleTest testing<a href="testing.html#templates-for-googletest-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section includes templates for creating unit tests and benchmarks.
 This is the code that would go into the .cpp files in tests/gtest.</p>
-<div id="unit-test-template" class="section level3 hasAnchor">
+<div id="unit-test-template" class="section level3 hasAnchor" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Unit test template<a href="testing.html#unit-test-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb48-1"><a href="testing.html#cb48-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb48-2"><a href="testing.html#cb48-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
-<span id="cb48-3"><a href="testing.html#cb48-3"></a></span>
-<span id="cb48-4"><a href="testing.html#cb48-4"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb48-5"><a href="testing.html#cb48-5"></a></span>
-<span id="cb48-6"><a href="testing.html#cb48-6"></a>namespace {</span>
-<span id="cb48-7"><a href="testing.html#cb48-7"></a></span>
-<span id="cb48-8"><a href="testing.html#cb48-8"></a>  <span class="co">// Description of Test 1</span></span>
-<span id="cb48-9"><a href="testing.html#cb48-9"></a>  TEST(TestSuiteName, Test1Name) {</span>
-<span id="cb48-10"><a href="testing.html#cb48-10"></a></span>
-<span id="cb48-11"><a href="testing.html#cb48-11"></a>    ... test body ...</span>
-<span id="cb48-12"><a href="testing.html#cb48-12"></a></span>
-<span id="cb48-13"><a href="testing.html#cb48-13"></a>  }</span>
-<span id="cb48-14"><a href="testing.html#cb48-14"></a></span>
-<span id="cb48-15"><a href="testing.html#cb48-15"></a>  <span class="co">// Description of Test 2</span></span>
-<span id="cb48-16"><a href="testing.html#cb48-16"></a>  TEST(TestSuiteName, Test2Name) {</span>
-<span id="cb48-17"><a href="testing.html#cb48-17"></a></span>
-<span id="cb48-18"><a href="testing.html#cb48-18"></a>    ... test body ...</span>
-<span id="cb48-19"><a href="testing.html#cb48-19"></a></span>
-<span id="cb48-20"><a href="testing.html#cb48-20"></a>  }</span>
-<span id="cb48-21"><a href="testing.html#cb48-21"></a></span>
-<span id="cb48-22"><a href="testing.html#cb48-22"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb52-1"><a href="testing.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb52-2"><a href="testing.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
+<span id="cb52-3"><a href="testing.html#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="testing.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb52-5"><a href="testing.html#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="testing.html#cb52-6" aria-hidden="true" tabindex="-1"></a>namespace <span class="op">{</span></span>
+<span id="cb52-7"><a href="testing.html#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="testing.html#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Description of Test 1</span></span>
+<span id="cb52-9"><a href="testing.html#cb52-9" aria-hidden="true" tabindex="-1"></a>  TEST<span class="op">(</span>TestSuiteName<span class="op">,</span> Test1Name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb52-10"><a href="testing.html#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-11"><a href="testing.html#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span> test body <span class="op">...</span></span>
+<span id="cb52-12"><a href="testing.html#cb52-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-13"><a href="testing.html#cb52-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb52-14"><a href="testing.html#cb52-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-15"><a href="testing.html#cb52-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Description of Test 2</span></span>
+<span id="cb52-16"><a href="testing.html#cb52-16" aria-hidden="true" tabindex="-1"></a>  TEST<span class="op">(</span>TestSuiteName<span class="op">,</span> Test2Name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb52-17"><a href="testing.html#cb52-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-18"><a href="testing.html#cb52-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span> test body <span class="op">...</span></span>
+<span id="cb52-19"><a href="testing.html#cb52-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-20"><a href="testing.html#cb52-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb52-21"><a href="testing.html#cb52-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-22"><a href="testing.html#cb52-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
-<div id="benchmark-template" class="section level3 hasAnchor">
+<div id="benchmark-template" class="section level3 hasAnchor" number="10.3.2">
 <h3><span class="header-section-number">10.3.2</span> Benchmark template<a href="testing.html#benchmark-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb49"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb49-1"><a href="testing.html#cb49-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb49-2"><a href="testing.html#cb49-2"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
-<span id="cb49-3"><a href="testing.html#cb49-3"></a></span>
-<span id="cb49-4"><a href="testing.html#cb49-4"></a><span class="dt">void</span> BM_FunctionName(benchmark::State&amp; state)</span>
-<span id="cb49-5"><a href="testing.html#cb49-5"></a>{</span>
-<span id="cb49-6"><a href="testing.html#cb49-6"></a>  <span class="cf">for</span> (<span class="dt">auto</span> _ : state)</span>
-<span id="cb49-7"><a href="testing.html#cb49-7"></a>    <span class="co">// This code gets timed</span></span>
-<span id="cb49-8"><a href="testing.html#cb49-8"></a>    Function()</span>
-<span id="cb49-9"><a href="testing.html#cb49-9"></a>}</span>
-<span id="cb49-10"><a href="testing.html#cb49-10"></a></span>
-<span id="cb49-11"><a href="testing.html#cb49-11"></a><span class="co">// Register the function as a benchmark</span></span>
-<span id="cb49-12"><a href="testing.html#cb49-12"></a>BENCHMARK(BM_FunctionName);</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb53-1"><a href="testing.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb53-2"><a href="testing.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
+<span id="cb53-3"><a href="testing.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="testing.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> BM_FunctionName<span class="op">(</span>benchmark<span class="op">::</span>State<span class="op">&amp;</span> state<span class="op">)</span></span>
+<span id="cb53-5"><a href="testing.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb53-6"><a href="testing.html#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">auto</span> _ <span class="op">:</span> state<span class="op">)</span></span>
+<span id="cb53-7"><a href="testing.html#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// This code gets timed</span></span>
+<span id="cb53-8"><a href="testing.html#cb53-8" aria-hidden="true" tabindex="-1"></a>    Function<span class="op">()</span></span>
+<span id="cb53-9"><a href="testing.html#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb53-10"><a href="testing.html#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-11"><a href="testing.html#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Register the function as a benchmark</span></span>
+<span id="cb53-12"><a href="testing.html#cb53-12" aria-hidden="true" tabindex="-1"></a>BENCHMARK<span class="op">(</span>BM_FunctionName<span class="op">);</span></span></code></pre></div>
 </div>
-<div id="testsgtestcmakelists.txt-template" class="section level3 hasAnchor">
+<div id="testsgtestcmakelists.txt-template" class="section level3 hasAnchor" number="10.3.3">
 <h3><span class="header-section-number">10.3.3</span> tests/gtest/CMakeLists.txt template<a href="testing.html#testsgtestcmakelists.txt-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>These lines are added each time a new test suite (all tests in a file)
 is added:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb50-1"><a href="testing.html#cb50-1"></a><span class="co">// Add test suite 1</span></span>
-<span id="cb50-2"><a href="testing.html#cb50-2"></a>add_executable(TestSuiteName1</span>
-<span id="cb50-3"><a href="testing.html#cb50-3"></a>  test1.cpp</span>
-<span id="cb50-4"><a href="testing.html#cb50-4"></a>)</span>
-<span id="cb50-5"><a href="testing.html#cb50-5"></a></span>
-<span id="cb50-6"><a href="testing.html#cb50-6"></a>target_link_libraries(TestSuiteName1</span>
-<span id="cb50-7"><a href="testing.html#cb50-7"></a>  gtest_main</span>
-<span id="cb50-8"><a href="testing.html#cb50-8"></a>)</span>
-<span id="cb50-9"><a href="testing.html#cb50-9"></a></span>
-<span id="cb50-10"><a href="testing.html#cb50-10"></a>gtest_discover_tests(TestSuiteName1)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb54-1"><a href="testing.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Add test suite 1</span></span>
+<span id="cb54-2"><a href="testing.html#cb54-2" aria-hidden="true" tabindex="-1"></a>add_executable<span class="op">(</span>TestSuiteName1</span>
+<span id="cb54-3"><a href="testing.html#cb54-3" aria-hidden="true" tabindex="-1"></a>  test1<span class="op">.</span>cpp</span>
+<span id="cb54-4"><a href="testing.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb54-5"><a href="testing.html#cb54-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-6"><a href="testing.html#cb54-6" aria-hidden="true" tabindex="-1"></a>target_link_libraries<span class="op">(</span>TestSuiteName1</span>
+<span id="cb54-7"><a href="testing.html#cb54-7" aria-hidden="true" tabindex="-1"></a>  gtest_main</span>
+<span id="cb54-8"><a href="testing.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb54-9"><a href="testing.html#cb54-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-10"><a href="testing.html#cb54-10" aria-hidden="true" tabindex="-1"></a>gtest_discover_tests<span class="op">(</span>TestSuiteName1<span class="op">)</span></span></code></pre></div>
 <p>These lines are added each time a new benchmark file is added:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb51-1"><a href="testing.html#cb51-1"></a><span class="co">// Add benchmark 1</span></span>
-<span id="cb51-2"><a href="testing.html#cb51-2"></a>add_executable(benchmark1</span>
-<span id="cb51-3"><a href="testing.html#cb51-3"></a>  benchmark1.cpp</span>
-<span id="cb51-4"><a href="testing.html#cb51-4"></a>)</span>
-<span id="cb51-5"><a href="testing.html#cb51-5"></a></span>
-<span id="cb51-6"><a href="testing.html#cb51-6"></a>target_link_libraries(benchmark1</span>
-<span id="cb51-7"><a href="testing.html#cb51-7"></a>  benchmark_main</span>
-<span id="cb51-8"><a href="testing.html#cb51-8"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb55-1"><a href="testing.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Add benchmark 1</span></span>
+<span id="cb55-2"><a href="testing.html#cb55-2" aria-hidden="true" tabindex="-1"></a>add_executable<span class="op">(</span>benchmark1</span>
+<span id="cb55-3"><a href="testing.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  benchmark1<span class="op">.</span>cpp</span>
+<span id="cb55-4"><a href="testing.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb55-5"><a href="testing.html#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="testing.html#cb55-6" aria-hidden="true" tabindex="-1"></a>target_link_libraries<span class="op">(</span>benchmark1</span>
+<span id="cb55-7"><a href="testing.html#cb55-7" aria-hidden="true" tabindex="-1"></a>  benchmark_main</span>
+<span id="cb55-8"><a href="testing.html#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div id="r-testing" class="section level2 hasAnchor">
+<div id="r-testing" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">10.4</span> R testing<a href="testing.html#r-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>FIMS uses {testthat} for writing R tests. You can install the packages
 following the instructions on <a href="https://testthat.r-lib.org/">testthat website</a>.
@@ -792,28 +857,28 @@ If you are not familiar with testthat, the
 <a href="https://r-pkgs.org/tests.html">testing chapter</a> in R
 packages gives a good overview of testing workflow, along with structure
 explanation and concrete examples.</p>
-<div id="testing-fims-locally" class="section level3 hasAnchor">
+<div id="testing-fims-locally" class="section level3 hasAnchor" number="10.4.1">
 <h3><span class="header-section-number">10.4.1</span> Testing FIMS locally<a href="testing.html#testing-fims-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To test FIMS R functions interactively and locally, use <code>devtools::install()</code> rather than <code>devtools::load_all()</code>. This is because using <code>load_all()</code> will turn on the debugger, bloating the .o file, and may lead to a compilation error (e.e., <code>Fatal error: can't write 326 bytes to section .text of FIMS.o: 'file too big'    as: FIMS.o: too many sections (35851)</code>). Note that useful interactive tests should should be converted into {testthat} or googletest tests.</p>
 </div>
-<div id="r-testthat-template" class="section level3 hasAnchor">
+<div id="r-testthat-template" class="section level3 hasAnchor" number="10.4.2">
 <h3><span class="header-section-number">10.4.2</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The format for an individual testthat test is is:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="testing.html#cb52-1"></a><span class="kw">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
-<span id="cb52-2"><a href="testing.html#cb52-2"></a></span>
-<span id="cb52-3"><a href="testing.html#cb52-3"></a>  ...test body...</span>
-<span id="cb52-4"><a href="testing.html#cb52-4"></a></span>
-<span id="cb52-5"><a href="testing.html#cb52-5"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="testing.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb56-2"><a href="testing.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="testing.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  ...test body...</span>
+<span id="cb56-4"><a href="testing.html#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="testing.html#cb56-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>Multiple testthat tests can be put in the same file.</p>
 </div>
 </div>
-<div id="test-case-documentation-template-and-examples" class="section level2 hasAnchor">
+<div id="test-case-documentation-template-and-examples" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> Test case documentation template and examples<a href="testing.html#test-case-documentation-template-and-examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A testing plan must be developed while designing (i.e., before coding)
 new FIMS features or Rcpp modules. Please update the test cases in the <a href="https://github.com/NOAA-FIMS/FIMS/tree/main/tests">FIMS/tests/milestoneX_test_cases.md file</a> (e.g., FIMS/tests/miletone1_test_cases.md).
 This testing plan is documented using the test case documentation
 template below.</p>
-<div id="test-case-documentation-template" class="section level3 hasAnchor">
+<div id="test-case-documentation-template" class="section level3 hasAnchor" number="10.5.1">
 <h3><span class="header-section-number">10.5.1</span> Test case documentation template<a href="testing.html#test-case-documentation-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Individual functional or integration test cases will be designed
 following the template below.</p>
@@ -821,8 +886,8 @@ following the template below.</p>
 <li><p><em>Test ID</em>. Create a meaningful name for the test case.</p></li>
 <li><p><em>Features to be tested</em>. Provide a brief statement of test
 objectives and description of the features to be tested. (Identify the
-test items following the <a href="https://docs.google.com/document/d/1iSEhJqcpSD269QdABeDE4aBZGqGcBrIrLnS7eMkSYv0/edit?usp=sharing"><span class="ul">FIMS software design specification
-document</span></a>
+test items following the <a href="https://docs.google.com/document/d/1iSEhJqcpSD269QdABeDE4aBZGqGcBrIrLnS7eMkSYv0/edit?usp=sharing"><u>FIMS software design specification
+document</u></a>
 and identify all features that will not be tested and the rationale for
 exclusion)</p></li>
 <li><p><em>Approach</em>. Specify the approach that will ensure that the features
@@ -845,35 +910,36 @@ delivered by the test activity.</p>
 </ul></li>
 </ul>
 </div>
-<div id="test-case-documentation-examples" class="section level3 hasAnchor">
+<div id="test-case-documentation-examples" class="section level3 hasAnchor" number="10.5.2">
 <h3><span class="header-section-number">10.5.2</span> Test case documentation examples<a href="testing.html#test-case-documentation-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="general-test-case-documentation" class="section level4 hasAnchor">
+<div id="general-test-case-documentation" class="section level4 hasAnchor" number="10.5.2.1">
 <h4><span class="header-section-number">10.5.2.1</span> General test case documentation<a href="testing.html#general-test-case-documentation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The test case documentation below is a general case to apply to many
 functions/modules. For individual functions/modules, please make
 detailed test cases for specific options, noting “same as the general
 test case” where appropriate.</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col width="13%" />
-<col width="86%" />
+<col width="10%" />
+<col width="65%" />
+<col width="23%" />
 </colgroup>
-<thead>
-<tr class="header">
-<th>Test ID</th>
-<th>General test case</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Features to be tested</td>
-<td><ul>
+<td rowspan="2"><h1 id="test-id" class="hasAnchor">Test ID<a href="testing.html#test-id" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Features to be tested</p></td>
+<td rowspan="2"><h1 id="general-test-case" class="hasAnchor">General test case<a href="testing.html#general-test-case" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ul>
 <li><p>The function/module returns correct output values given different input values</p></li>
 <li><p>The function/module returns error messages when users give wrong types of inputs</p></li>
 <li><p>The function/module notifies an error if the input value is outside the bound of the input parameter</p></li>
 </ul></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
 <td>Approach</td>
 <td><ul>
 <li><p>Prepare expected true values using R</p></li>
@@ -882,25 +948,27 @@ test case” where appropriate.</p>
 <li><p>Run tests in different OS environments (windows latest, macOS latest, and ubuntu latest) using GitHub Actions</p></li>
 <li><p>Submit pull request for code review</p></li>
 </ul></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Evaluation Criteria</td>
 <td><ul>
 <li><p>The tests pass if the output values equal to the expected true values</p></li>
 <li><p>The tests pass if the function/module returns error messages when users give wrong types of inputs</p></li>
 <li><p>The tests pass if the function/module returns error messages when user provides an input value that is outside the bound of the input parameter</p></li>
 </ul></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Test deliverables</td>
-<td><ul>
+<td colspan="2"><ul>
 <li>Test logs on GitHub Actions. Document results of logs in the feature pull request.</li>
 </ul></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="functional-test-example-tmb-probability-mass-function-of-the-multinomial-distribution" class="section level4 hasAnchor">
+<div id="functional-test-example-tmb-probability-mass-function-of-the-multinomial-distribution" class="section level4 hasAnchor" number="10.5.2.2">
 <h4><span class="header-section-number">10.5.2.2</span> Functional test example: TMB probability mass function of the multinomial distribution<a href="testing.html#functional-test-example-tmb-probability-mass-function-of-the-multinomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <colgroup>
@@ -942,8 +1010,8 @@ test case” where appropriate.</p>
 </tbody>
 </table>
 </div>
-<div id="integration-test-example-li-et-al.-2021-age-structured-stock-assessment-model-comparison" class="section level4 hasAnchor">
-<h4><span class="header-section-number">10.5.2.3</span> Integration test example: <a href="https://doi.org/10.7755/FB.119.2-3.5"><span class="ul">Li et al. 2021 age-structured stock assessment model comparison</span></a><a href="testing.html#integration-test-example-li-et-al.-2021-age-structured-stock-assessment-model-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="integration-test-example-li-et-al.-2021-age-structured-stock-assessment-model-comparison" class="section level4 hasAnchor" number="10.5.2.3">
+<h4><span class="header-section-number">10.5.2.3</span> Integration test example: <a href="https://doi.org/10.7755/FB.119.2-3.5"><u>Li et al. 2021 age-structured stock assessment model comparison</u></a><a href="testing.html#integration-test-example-li-et-al.-2021-age-structured-stock-assessment-model-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <colgroup>
 <col width="9%" />
@@ -952,14 +1020,14 @@ test case” where appropriate.</p>
 <thead>
 <tr class="header">
 <th>Test ID</th>
-<th>Age-structured stock assessment comparison (<a href="https://doi.org/10.7755/FB.119.2-3.5"><span class="ul">Li et al. 2021</span></a>)</th>
+<th>Age-structured stock assessment comparison (<a href="https://doi.org/10.7755/FB.119.2-3.5"><u>Li et al. 2021</u></a>)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Features to be tested</td>
 <td><ul>
-<li><p>Null case (update standard deviation of the log of recruitment from 0.2 to 0.5 based on <a href="http://dx.doi.org/10.1139/cjfas-2015-0398"><span class="ul">Siegfried et al. 2016</span></a> snapper-grouper complex)</p></li>
+<li><p>Null case (update standard deviation of the log of recruitment from 0.2 to 0.5 based on <a href="http://dx.doi.org/10.1139/cjfas-2015-0398"><u>Siegfried et al. 2016</u></a> snapper-grouper complex)</p></li>
 <li><p>Recruitment variability</p></li>
 <li><p>Stochastic Fishing mortality (F)</p></li>
 <li><p>F patterns (e.g., roller coaster: up then down and down then up; constant F<sub>low</sub>, F<sub>MSY</sub>, and F<sub>high</sub>)</p></li>
@@ -974,7 +1042,7 @@ test case” where appropriate.</p>
 <td>Approach</td>
 <td><p>Integration test</p>
 <ul>
-<li>Prepare expected true values from an operating model using R functions from <a href="https://github.com/Bai-Li-NOAA/Age_Structured_Stock_Assessment_Model_Comparison"><span class="ul">Age_Structured_Stock_Assessment_Model_Comparison</span></a> GitHub repository</li>
+<li>Prepare expected true values from an operating model using R functions from <a href="https://github.com/Bai-Li-NOAA/Age_Structured_Stock_Assessment_Model_Comparison"><u>Age_Structured_Stock_Assessment_Model_Comparison</u></a> GitHub repository</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -994,7 +1062,7 @@ test case” where appropriate.</p>
 </tbody>
 </table>
 </div>
-<div id="simulation-testing-challenges-and-solutions" class="section level4 hasAnchor">
+<div id="simulation-testing-challenges-and-solutions" class="section level4 hasAnchor" number="10.5.2.4">
 <h4><span class="header-section-number">10.5.2.4</span> simulation testing: challenges and solutions<a href="testing.html#simulation-testing-challenges-and-solutions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>One thing that might be challenging for comparing simulation results is
 that changes to the order of calls to simulate will change the simulated

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 .hpp template for C++ modules | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 .hpp template for C++ modules | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2022-11-15" />
+<meta name="date" content="2023-06-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,25 +49,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -138,18 +141,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of Conduct</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS Contributor Conduct</a></li>
 <li class="chapter" data-level="2.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-pledge"><i class="fa fa-check"></i><b>2.2</b> Our Pledge</a></li>
 <li class="chapter" data-level="2.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>2.3</b> Our Standards</a></li>
 <li class="chapter" data-level="2.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-responsibilities"><i class="fa fa-check"></i><b>2.4</b> Enforcement Responsibilities</a></li>
 <li class="chapter" data-level="2.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>2.5</b> Scope</a></li>
 <li class="chapter" data-level="2.6" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>2.6</b> Enforcement</a></li>
-<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a><ul>
+<li class="chapter" data-level="2.7" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement-guidelines"><i class="fa fa-check"></i><b>2.7</b> Enforcement Guidelines</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#correction"><i class="fa fa-check"></i><b>2.7.1</b> 1. Correction</a></li>
 <li class="chapter" data-level="2.7.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#warning"><i class="fa fa-check"></i><b>2.7.2</b> 2. Warning</a></li>
 <li class="chapter" data-level="2.7.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#temporary-ban"><i class="fa fa-check"></i><b>2.7.3</b> 3. Temporary Ban</a></li>
@@ -158,31 +164,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="code-of-conduct.html"><a href="code-of-conduct.html#supporting-good-conduct"><i class="fa fa-check"></i><b>2.8</b> Supporting Good Conduct</a></li>
 <li class="chapter" data-level="2.9" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>2.9</b> Attribution</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a><ul>
-<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a><ul>
+<li class="chapter" data-level="3" data-path="fims-project-overview.html"><a href="fims-project-overview.html"><i class="fa fa-check"></i><b>3</b> FIMS Project Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-governance"><i class="fa fa-check"></i><b>3.1</b> FIMS Governance</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#developers"><i class="fa fa-check"></i><b>3.1.1</b> Developers</a></li>
 <li class="chapter" data-level="3.1.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#c-developers"><i class="fa fa-check"></i><b>3.1.2</b> C++ developers</a></li>
 <li class="chapter" data-level="3.1.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#r-developers"><i class="fa fa-check"></i><b>3.1.3</b> R developers</a></li>
 <li class="chapter" data-level="3.1.4" data-path="fims-project-overview.html"><a href="fims-project-overview.html#reviewers"><i class="fa fa-check"></i><b>3.1.4</b> Reviewers</a></li>
-<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.5</b> Project Lead</a></li>
-<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.6</b> Director Of Software Development</a></li>
-<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-test-development"><i class="fa fa-check"></i><b>3.1.7</b> Lead of Test Development</a></li>
-<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.8</b> Lead of Research &amp; Development</a></li>
-<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.9</b> Code of Conduct Enforcement</a></li>
-<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.10</b> External Collaborators</a></li>
+<li class="chapter" data-level="3.1.5" data-path="fims-project-overview.html"><a href="fims-project-overview.html#regional-representatives"><i class="fa fa-check"></i><b>3.1.5</b> Regional representatives</a></li>
+<li class="chapter" data-level="3.1.6" data-path="fims-project-overview.html"><a href="fims-project-overview.html#project-lead"><i class="fa fa-check"></i><b>3.1.6</b> Project Lead</a></li>
+<li class="chapter" data-level="3.1.7" data-path="fims-project-overview.html"><a href="fims-project-overview.html#director-of-software-development"><i class="fa fa-check"></i><b>3.1.7</b> Director of Software Development</a></li>
+<li class="chapter" data-level="3.1.8" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-test-engineer"><i class="fa fa-check"></i><b>3.1.8</b> Lead Test Engineer</a></li>
+<li class="chapter" data-level="3.1.9" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-research-development"><i class="fa fa-check"></i><b>3.1.9</b> Lead of Research &amp; Development</a></li>
+<li class="chapter" data-level="3.1.10" data-path="fims-project-overview.html"><a href="fims-project-overview.html#lead-of-workflows-accessibility-and-integration"><i class="fa fa-check"></i><b>3.1.10</b> Lead of Workflows, Accessibility, and Integration</a></li>
+<li class="chapter" data-level="3.1.11" data-path="fims-project-overview.html"><a href="fims-project-overview.html#code-of-conduct-enforcement"><i class="fa fa-check"></i><b>3.1.11</b> Code of Conduct Enforcement</a></li>
+<li class="chapter" data-level="3.1.12" data-path="fims-project-overview.html"><a href="fims-project-overview.html#external-collaborators"><i class="fa fa-check"></i><b>3.1.12</b> External Collaborators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle-fims-is-structured-as-an-agile-software"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle FIMS is structured as an agile software</a><ul>
+<li class="chapter" data-level="3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS Development Cycle</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue Lifecycle</a></li>
 <li class="chapter" data-level="3.2.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a><ul>
+<li class="chapter" data-level="3.3" data-path="fims-project-overview.html"><a href="fims-project-overview.html#github-collaborative-environment"><i class="fa fa-check"></i><b>3.3</b> GitHub Collaborative Environment</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="fims-project-overview.html"><a href="fims-project-overview.html#fims-branching-strategy"><i class="fa fa-check"></i><b>3.3.1</b> FIMS Branching Strategy</a></li>
 <li class="chapter" data-level="3.3.2" data-path="fims-project-overview.html"><a href="fims-project-overview.html#branch-protection"><i class="fa fa-check"></i><b>3.3.2</b> Branch Protection</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a><ul>
+<li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 Model specification</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#model-variables-and-bounds"><i class="fa fa-check"></i><b>4.1</b> Model variables and bounds</a></li>
-<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a><ul>
+<li class="chapter" data-level="4.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#inherited-functors-from-tmb"><i class="fa fa-check"></i><b>4.2</b> Inherited functors from <code>TMB</code></a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="m1-model-specification.html"><a href="m1-model-specification.html#atomic-functions"><i class="fa fa-check"></i><b>4.2.1</b> Atomic functions</a></li>
 <li class="chapter" data-level="4.2.2" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-distributions"><i class="fa fa-check"></i><b>4.2.2</b> Statistical distributions</a></li>
 </ul></li>
@@ -195,19 +209,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="m1-model-specification.html"><a href="m1-model-specification.html#likelihood-calculations"><i class="fa fa-check"></i><b>4.9</b> Likelihood calculations</a></li>
 <li class="chapter" data-level="4.10" data-path="m1-model-specification.html"><a href="m1-model-specification.html#statistical-inference"><i class="fa fa-check"></i><b>4.10</b> Statistical Inference:</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a><ul>
+<li class="chapter" data-level="5" data-path="user-guide.html"><a href="user-guide.html"><i class="fa fa-check"></i><b>5</b> User guide</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="user-guide.html"><a href="user-guide.html#user-installation-guide"><i class="fa fa-check"></i><b>5.1</b> User Installation Guide</a></li>
-<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a><ul>
+<li class="chapter" data-level="5.2" data-path="user-guide.html"><a href="user-guide.html#installing-the-package-from-github"><i class="fa fa-check"></i><b>5.2</b> Installing the package from Github</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="user-guide.html"><a href="user-guide.html#windows-users"><i class="fa fa-check"></i><b>5.2.1</b> Windows users</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="user-guide.html"><a href="user-guide.html#installing-from-r"><i class="fa fa-check"></i><b>5.3</b> Installing from <code>R</code></a></li>
-<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a><ul>
+<li class="chapter" data-level="5.4" data-path="user-guide.html"><a href="user-guide.html#running-the-model"><i class="fa fa-check"></i><b>5.4</b> Running the model</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="user-guide.html"><a href="user-guide.html#specifying-the-model"><i class="fa fa-check"></i><b>5.4.1</b> Specifying the model</a></li>
 <li class="chapter" data-level="5.4.2" data-path="user-guide.html"><a href="user-guide.html#how-to-run-the-model"><i class="fa fa-check"></i><b>5.4.2</b> How to run the model</a></li>
 <li class="chapter" data-level="5.4.3" data-path="user-guide.html"><a href="user-guide.html#extracting-model-output"><i class="fa fa-check"></i><b>5.4.3</b> Extracting model output</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a><ul>
+<li class="chapter" data-level="6" data-path="developer-software-guide.html"><a href="developer-software-guide.html"><i class="fa fa-check"></i><b>6</b> Developer Software Guide</a>
+<ul>
 <li class="chapter" data-level="6.0.1" data-path="developer-software-guide.html"><a href="developer-software-guide.html#git"><i class="fa fa-check"></i><b>6.0.1</b> git</a></li>
 <li class="chapter" data-level="6.0.2" data-path="developer-software-guide.html"><a href="developer-software-guide.html#development-environment"><i class="fa fa-check"></i><b>6.0.2</b> Development environment</a></li>
 <li class="chapter" data-level="6.0.3" data-path="developer-software-guide.html"><a href="developer-software-guide.html#vscode-setup"><i class="fa fa-check"></i><b>6.0.3</b> vscode setup</a></li>
@@ -215,59 +233,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
 <li class="chapter" data-level="6.0.6" data-path="developer-software-guide.html"><a href="developer-software-guide.html#gdb-debugger"><i class="fa fa-check"></i><b>6.0.6</b> GDB debugger</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a><ul>
+<li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#style-guide"><i class="fa fa-check"></i><b>7.1</b> Style Guide</a></li>
 <li class="chapter" data-level="7.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#naming-conventions-1"><i class="fa fa-check"></i><b>7.2</b> Naming Conventions</a></li>
 <li class="chapter" data-level="7.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#coding-good-practices"><i class="fa fa-check"></i><b>7.3</b> Coding Good Practices</a></li>
-<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a><ul>
+<li class="chapter" data-level="7.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#roadmap-to-fims-file-structure-and-organization"><i class="fa fa-check"></i><b>7.4</b> Roadmap to FIMS File Structure and Organization</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-instinclude"><i class="fa fa-check"></i><b>7.4.1</b> Files that go in <code>inst/include</code></a></li>
 <li class="chapter" data-level="7.4.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#files-that-go-in-src"><i class="fa fa-check"></i><b>7.4.2</b> Files that go in <code>src/</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-forking-and-cloning"><i class="fa fa-check"></i><b>7.5</b> GitHub forking and cloning</a></li>
 <li class="chapter" data-level="7.6" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-tracking"><i class="fa fa-check"></i><b>7.6</b> Issue Tracking</a></li>
 <li class="chapter" data-level="7.7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#reporting-bugs"><i class="fa fa-check"></i><b>7.7</b> Reporting Bugs</a></li>
-<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a><ul>
+<li class="chapter" data-level="7.8" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#suggesting-features"><i class="fa fa-check"></i><b>7.8</b> Suggesting Features</a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-labels"><i class="fa fa-check"></i><b>7.8.1</b> Issue Labels</a></li>
 <li class="chapter" data-level="7.8.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#issue-templates"><i class="fa fa-check"></i><b>7.8.2</b> Issue Templates</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a><ul>
+<li class="chapter" data-level="7.9" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-workflow"><i class="fa fa-check"></i><b>7.9</b> Branch Workflow</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branching-good-practices"><i class="fa fa-check"></i><b>7.9.1</b> Branching Good Practices</a></li>
 <li class="chapter" data-level="7.9.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#branch-naming-conventions"><i class="fa fa-check"></i><b>7.9.2</b> Branch Naming Conventions</a></li>
 <li class="chapter" data-level="7.9.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#git-workflow"><i class="fa fa-check"></i><b>7.9.3</b> git workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a><ul>
+<li class="chapter" data-level="7.10" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-development"><i class="fa fa-check"></i><b>7.10</b> Code Development</a>
+<ul>
 <li class="chapter" data-level="7.10.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#c-contributor"><i class="fa fa-check"></i><b>7.10.1</b> C++ contributor</a></li>
 <li class="chapter" data-level="7.10.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#r-contributor"><i class="fa fa-check"></i><b>7.10.2</b> R Contributor</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#commit-messages"><i class="fa fa-check"></i><b>7.11</b> Commit Messages</a></li>
-<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a><ul>
+<li class="chapter" data-level="7.12" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#merge-conflicts"><i class="fa fa-check"></i><b>7.12</b> Merge Conflicts</a>
+<ul>
 <li class="chapter" data-level="7.12.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#what-is-a-merge-conflict"><i class="fa fa-check"></i><b>7.12.1</b> What is a merge conflict?</a></li>
 <li class="chapter" data-level="7.12.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-prevent-merge-conflicts"><i class="fa fa-check"></i><b>7.12.2</b> How to prevent merge conflicts</a></li>
 <li class="chapter" data-level="7.12.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-to-resolve-merge-conflicts"><i class="fa fa-check"></i><b>7.12.3</b> How to resolve merge conflicts</a></li>
 </ul></li>
 <li class="chapter" data-level="7.13" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#pull-requests"><i class="fa fa-check"></i><b>7.13</b> Pull Requests</a></li>
-<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a><ul>
+<li class="chapter" data-level="7.14" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#code-review"><i class="fa fa-check"></i><b>7.14</b> Code Review</a>
+<ul>
 <li class="chapter" data-level="7.14.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#assigning-reviewers"><i class="fa fa-check"></i><b>7.14.1</b> Assigning Reviewers</a></li>
 <li class="chapter" data-level="7.14.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#automated-testing"><i class="fa fa-check"></i><b>7.14.2</b> Automated Testing</a></li>
 <li class="chapter" data-level="7.14.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-checklist"><i class="fa fa-check"></i><b>7.14.3</b> Review Checklist</a></li>
 <li class="chapter" data-level="7.14.4" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#review-good-practices"><i class="fa fa-check"></i><b>7.14.4</b> Review Good Practices</a></li>
 </ul></li>
 <li class="chapter" data-level="7.15" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#clean-up-local-branches"><i class="fa fa-check"></i><b>7.15</b> Clean up local branches</a></li>
-<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a><ul>
+<li class="chapter" data-level="7.16" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#github-actions"><i class="fa fa-check"></i><b>7.16</b> GitHub Actions</a>
+<ul>
 <li class="chapter" data-level="7.16.1" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#details-on-backup-checks"><i class="fa fa-check"></i><b>7.16.1</b> Details on Backup Checks</a></li>
 <li class="chapter" data-level="7.16.2" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#debugging-broken-runs"><i class="fa fa-check"></i><b>7.16.2</b> Debugging Broken Runs</a></li>
 <li class="chapter" data-level="7.16.3" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html#how-do-i-request-a-new-github-action-workflow"><i class="fa fa-check"></i><b>7.16.3</b> How do I request a new Github Action workflow?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="hpp-template-for-c-modules.html"><a href="hpp-template-for-c-modules.html"><i class="fa fa-check"></i><b>8</b> .hpp template for C++ modules</a></li>
-<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a><ul>
+<li class="chapter" data-level="9" data-path="documentation-template.html"><a href="documentation-template.html"><i class="fa fa-check"></i><b>9</b> Documentation Template</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="documentation-template.html"><a href="documentation-template.html#writing-function-reference"><i class="fa fa-check"></i><b>9.1</b> Writing function reference</a></li>
 <li class="chapter" data-level="9.2" data-path="documentation-template.html"><a href="documentation-template.html#writing-a-vignette"><i class="fa fa-check"></i><b>9.2</b> Writing a vignette</a></li>
 <li class="chapter" data-level="9.3" data-path="documentation-template.html"><a href="documentation-template.html#step-by-step-documentation-update-process"><i class="fa fa-check"></i><b>9.3</b> Step by step documentation update process</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a><ul>
+<li class="chapter" data-level="10" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>10</b> Testing</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="testing.html"><a href="testing.html#introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a><ul>
+<li class="chapter" data-level="10.2" data-path="testing.html"><a href="testing.html#c-unit-testing-and-benchmarking"><i class="fa fa-check"></i><b>10.2</b> C++ unit testing and benchmarking</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="testing.html"><a href="testing.html#requirements"><i class="fa fa-check"></i><b>10.2.1</b> Requirements</a></li>
 <li class="chapter" data-level="10.2.2" data-path="testing.html"><a href="testing.html#setup-for-windows-users"><i class="fa fa-check"></i><b>10.2.2</b> Setup for Windows users</a></li>
 <li class="chapter" data-level="10.2.3" data-path="testing.html"><a href="testing.html#adding-cmake-and-ninja-to-your-path-on-windows"><i class="fa fa-check"></i><b>10.2.3</b> Adding cmake and ninja to your PATH on Windows</a></li>
@@ -277,26 +306,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.7" data-path="testing.html"><a href="testing.html#build-and-run-the-tests"><i class="fa fa-check"></i><b>10.2.7</b> Build and run the tests</a></li>
 <li class="chapter" data-level="10.2.8" data-path="testing.html"><a href="testing.html#adding-a-c-test"><i class="fa fa-check"></i><b>10.2.8</b> Adding a C++ test</a></li>
 <li class="chapter" data-level="10.2.9" data-path="testing.html"><a href="testing.html#add-tests-to-testsgtestcmakelists.txt-and-run-a-binary"><i class="fa fa-check"></i><b>10.2.9</b> Add tests to <code>tests/gtest/CMakeLists.txt</code> and run a binary</a></li>
-<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.10</b> Benchmark example</a></li>
-<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.11</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
-<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.12</b> Clean up after running C++ tests</a></li>
+<li class="chapter" data-level="10.2.10" data-path="testing.html"><a href="testing.html#debugging-a-c-test"><i class="fa fa-check"></i><b>10.2.10</b> Debugging a C++ test</a></li>
+<li class="chapter" data-level="10.2.11" data-path="testing.html"><a href="testing.html#benchmark-example"><i class="fa fa-check"></i><b>10.2.11</b> Benchmark example</a></li>
+<li class="chapter" data-level="10.2.12" data-path="testing.html"><a href="testing.html#add-benchmarks-to-testsgtestcmakelists.txt-and-run-the-benchmark"><i class="fa fa-check"></i><b>10.2.12</b> Add benchmarks to <code>tests/gtest/CMakeLists.txt</code> and run the benchmark</a></li>
+<li class="chapter" data-level="10.2.13" data-path="testing.html"><a href="testing.html#clean-up-after-running-c-tests"><i class="fa fa-check"></i><b>10.2.13</b> Clean up after running C++ tests</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a><ul>
+<li class="chapter" data-level="10.3" data-path="testing.html"><a href="testing.html#templates-for-googletest-testing"><i class="fa fa-check"></i><b>10.3</b> Templates for GoogleTest testing</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="testing.html"><a href="testing.html#unit-test-template"><i class="fa fa-check"></i><b>10.3.1</b> Unit test template</a></li>
 <li class="chapter" data-level="10.3.2" data-path="testing.html"><a href="testing.html#benchmark-template"><i class="fa fa-check"></i><b>10.3.2</b> Benchmark template</a></li>
 <li class="chapter" data-level="10.3.3" data-path="testing.html"><a href="testing.html#testsgtestcmakelists.txt-template"><i class="fa fa-check"></i><b>10.3.3</b> tests/gtest/CMakeLists.txt template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a><ul>
+<li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
 <li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.2</b> R testthat template</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a><ul>
+<li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="testing.html"><a href="testing.html#test-case-documentation-template"><i class="fa fa-check"></i><b>10.5.1</b> Test case documentation template</a></li>
 <li class="chapter" data-level="10.5.2" data-path="testing.html"><a href="testing.html#test-case-documentation-examples"><i class="fa fa-check"></i><b>10.5.2</b> Test case documentation examples</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a><ul>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a><ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a>
+<ul>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#testing-glossary"><i class="fa fa-check"></i>Testing Glossary</a>
+<ul>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#unit-testing"><i class="fa fa-check"></i>Unit testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#functional-testing"><i class="fa fa-check"></i>Functional testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#integration-testing"><i class="fa fa-check"></i>Integration testing</a></li>
@@ -306,7 +341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#beta-testing"><i class="fa fa-check"></i>Beta testing</a></li>
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html#one-off-testing"><i class="fa fa-check"></i>One-off testing</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a><ul>
+<li class="chapter" data-level="10.6" data-path="glossary.html"><a href="glossary.html#c-glossary"><i class="fa fa-check"></i><b>10.6</b> C++ Glossary</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="glossary.html"><a href="glossary.html#singleton"><i class="fa fa-check"></i><b>10.6.1</b> singleton</a></li>
 <li class="chapter" data-level="10.6.2" data-path="glossary.html"><a href="glossary.html#class"><i class="fa fa-check"></i><b>10.6.2</b> class</a></li>
 <li class="chapter" data-level="10.6.3" data-path="glossary.html"><a href="glossary.html#functor"><i class="fa fa-check"></i><b>10.6.3</b> functor</a></li>
@@ -336,160 +372,160 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hpp-template-for-c-modules" class="section level1 hasAnchor">
+<div id="hpp-template-for-c-modules" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> .hpp template for C++ modules<a href="hpp-template-for-c-modules.html#hpp-template-for-c-modules" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In this section we will describe how to structure a new .hpp file in FIMS.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="hpp-template-for-c-modules.html#cb21-1"></a><span class="co">//  tmplate.hpp</span></span>
-<span id="cb21-2"><a href="hpp-template-for-c-modules.html#cb21-2"></a><span class="co">//  Fisheries Integrated Modeling System (FIMS)</span></span>
-<span id="cb21-3"><a href="hpp-template-for-c-modules.html#cb21-3"></a></span>
-<span id="cb21-4"><a href="hpp-template-for-c-modules.html#cb21-4"></a><span class="co">//define the header gaurd</span></span>
-<span id="cb21-5"><a href="hpp-template-for-c-modules.html#cb21-5"></a><span class="pp">#ifndef template_hpp </span></span>
-<span id="cb21-6"><a href="hpp-template-for-c-modules.html#cb21-6"></a><span class="pp">#define template_hpp</span></span>
-<span id="cb21-7"><a href="hpp-template-for-c-modules.html#cb21-7"></a></span>
-<span id="cb21-8"><a href="hpp-template-for-c-modules.html#cb21-8"></a><span class="co">//inherit from model_base</span></span>
-<span id="cb21-9"><a href="hpp-template-for-c-modules.html#cb21-9"></a><span class="pp">#include </span><span class="im">&quot;../common.hpp&quot;</span><span class="pp"> </span></span>
-<span id="cb21-10"><a href="hpp-template-for-c-modules.html#cb21-10"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb21-11"><a href="hpp-template-for-c-modules.html#cb21-11"></a></span>
-<span id="cb21-12"><a href="hpp-template-for-c-modules.html#cb21-12"></a><span class="co">/**</span></span>
-<span id="cb21-13"><a href="hpp-template-for-c-modules.html#cb21-13"></a><span class="co"> * In this example, we utilize the concept of inheritence and </span></span>
-<span id="cb21-14"><a href="hpp-template-for-c-modules.html#cb21-14"></a><span class="co"> * polymorphism (https://www.geeksforgeeks.org/polymorphism-in-c/). All</span></span>
-<span id="cb21-15"><a href="hpp-template-for-c-modules.html#cb21-15"></a><span class="co"> * classes inherit from model_base. Name1 and Name2 inherit from NameBase.</span></span>
-<span id="cb21-16"><a href="hpp-template-for-c-modules.html#cb21-16"></a><span class="co"> * Classes Name1 and Name2 must implement they&#39;re own version of </span></span>
-<span id="cb21-17"><a href="hpp-template-for-c-modules.html#cb21-17"></a><span class="co"> * &quot;virtual T evaluate(const T&amp; t)&quot;, which will have unique logic. </span></span>
-<span id="cb21-18"><a href="hpp-template-for-c-modules.html#cb21-18"></a><span class="co"> */</span></span>
-<span id="cb21-19"><a href="hpp-template-for-c-modules.html#cb21-19"></a></span>
-<span id="cb21-20"><a href="hpp-template-for-c-modules.html#cb21-20"></a></span>
-<span id="cb21-21"><a href="hpp-template-for-c-modules.html#cb21-21"></a><span class="co">/*</span></span>
-<span id="cb21-22"><a href="hpp-template-for-c-modules.html#cb21-22"></a><span class="co"> * fims namespace</span></span>
-<span id="cb21-23"><a href="hpp-template-for-c-modules.html#cb21-23"></a><span class="co"> */</span></span>
-<span id="cb21-24"><a href="hpp-template-for-c-modules.html#cb21-24"></a>namespace fims{</span>
-<span id="cb21-25"><a href="hpp-template-for-c-modules.html#cb21-25"></a></span>
-<span id="cb21-26"><a href="hpp-template-for-c-modules.html#cb21-26"></a><span class="co">/**</span></span>
-<span id="cb21-27"><a href="hpp-template-for-c-modules.html#cb21-27"></a><span class="co"> * NameBase class. Inherits from model_base.</span></span>
-<span id="cb21-28"><a href="hpp-template-for-c-modules.html#cb21-28"></a><span class="co"> */</span></span>
-<span id="cb21-29"><a href="hpp-template-for-c-modules.html#cb21-29"></a>template &lt;class T&gt;</span>
-<span id="cb21-30"><a href="hpp-template-for-c-modules.html#cb21-30"></a>class NameBase: public model_base&lt;T&gt;{ <span class="co">//note that model_base gets template parameter T.</span></span>
-<span id="cb21-31"><a href="hpp-template-for-c-modules.html#cb21-31"></a>protected:</span>
-<span id="cb21-32"><a href="hpp-template-for-c-modules.html#cb21-32"></a></span>
-<span id="cb21-33"><a href="hpp-template-for-c-modules.html#cb21-33"></a>public:</span>
-<span id="cb21-34"><a href="hpp-template-for-c-modules.html#cb21-34"></a>  virtual T Evaluate(<span class="dt">const</span> T&amp; t)=<span class="dv">0</span>; <span class="co">//&quot;= 0;&quot; means this must be implemented in child.</span></span>
-<span id="cb21-35"><a href="hpp-template-for-c-modules.html#cb21-35"></a>};</span>
-<span id="cb21-36"><a href="hpp-template-for-c-modules.html#cb21-36"></a>  </span>
-<span id="cb21-37"><a href="hpp-template-for-c-modules.html#cb21-37"></a><span class="co">/* </span></span>
-<span id="cb21-38"><a href="hpp-template-for-c-modules.html#cb21-38"></a><span class="co">* Template class inherits from  NameBase</span></span>
-<span id="cb21-39"><a href="hpp-template-for-c-modules.html#cb21-39"></a><span class="co">*/</span></span>
-<span id="cb21-40"><a href="hpp-template-for-c-modules.html#cb21-40"></a>template &lt;class T&gt;</span>
-<span id="cb21-41"><a href="hpp-template-for-c-modules.html#cb21-41"></a>class Name1: public NameBase&lt;T&gt;{</span>
-<span id="cb21-42"><a href="hpp-template-for-c-modules.html#cb21-42"></a></span>
-<span id="cb21-43"><a href="hpp-template-for-c-modules.html#cb21-43"></a>public:</span>
-<span id="cb21-44"><a href="hpp-template-for-c-modules.html#cb21-44"></a> </span>
-<span id="cb21-45"><a href="hpp-template-for-c-modules.html#cb21-45"></a>    </span>
-<span id="cb21-46"><a href="hpp-template-for-c-modules.html#cb21-46"></a>  <span class="co">/*</span></span>
-<span id="cb21-47"><a href="hpp-template-for-c-modules.html#cb21-47"></a><span class="co">   *Default constructor</span></span>
-<span id="cb21-48"><a href="hpp-template-for-c-modules.html#cb21-48"></a><span class="co">   *Initialize any memory here.</span></span>
-<span id="cb21-49"><a href="hpp-template-for-c-modules.html#cb21-49"></a><span class="co">   */</span></span>
-<span id="cb21-50"><a href="hpp-template-for-c-modules.html#cb21-50"></a>  Name1(){</span>
-<span id="cb21-51"><a href="hpp-template-for-c-modules.html#cb21-51"></a>  }</span>
-<span id="cb21-52"><a href="hpp-template-for-c-modules.html#cb21-52"></a>  </span>
-<span id="cb21-53"><a href="hpp-template-for-c-modules.html#cb21-53"></a> </span>
-<span id="cb21-54"><a href="hpp-template-for-c-modules.html#cb21-54"></a>  <span class="co">/**</span></span>
-<span id="cb21-55"><a href="hpp-template-for-c-modules.html#cb21-55"></a><span class="co">   * Destructor; this method destructs Name1 object.</span></span>
-<span id="cb21-56"><a href="hpp-template-for-c-modules.html#cb21-56"></a><span class="co">   * Delete any allocated memory here.</span></span>
-<span id="cb21-57"><a href="hpp-template-for-c-modules.html#cb21-57"></a><span class="co">   */</span></span>
-<span id="cb21-58"><a href="hpp-template-for-c-modules.html#cb21-58"></a>  ~ Name1(){</span>
-<span id="cb21-59"><a href="hpp-template-for-c-modules.html#cb21-59"></a>    std::cout &lt;&lt;<span class="st">&quot;I just deleted Name1 object&quot;</span> &lt;&lt; std::endl;</span>
-<span id="cb21-60"><a href="hpp-template-for-c-modules.html#cb21-60"></a>  }</span>
-<span id="cb21-61"><a href="hpp-template-for-c-modules.html#cb21-61"></a>  </span>
-<span id="cb21-62"><a href="hpp-template-for-c-modules.html#cb21-62"></a>   <span class="co">/**</span></span>
-<span id="cb21-63"><a href="hpp-template-for-c-modules.html#cb21-63"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
-<span id="cb21-64"><a href="hpp-template-for-c-modules.html#cb21-64"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
-<span id="cb21-65"><a href="hpp-template-for-c-modules.html#cb21-65"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
-<span id="cb21-66"><a href="hpp-template-for-c-modules.html#cb21-66"></a><span class="co">    * </span></span>
-<span id="cb21-67"><a href="hpp-template-for-c-modules.html#cb21-67"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
-<span id="cb21-68"><a href="hpp-template-for-c-modules.html#cb21-68"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t+1</span></span>
-<span id="cb21-69"><a href="hpp-template-for-c-modules.html#cb21-69"></a><span class="co">    */</span></span>
-<span id="cb21-70"><a href="hpp-template-for-c-modules.html#cb21-70"></a>   virtual T Evaluate(<span class="dt">const</span> T&amp; t) {</span>
-<span id="cb21-71"><a href="hpp-template-for-c-modules.html#cb21-71"></a>     std::cout&lt;&lt;<span class="st">&quot;evaluate in Name1 received &quot;</span>&lt;&lt;t&lt;&lt;</span>
-<span id="cb21-72"><a href="hpp-template-for-c-modules.html#cb21-72"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span>&lt;&lt;(t+<span class="dv">1</span>)&lt;&lt;std::endl;</span>
-<span id="cb21-73"><a href="hpp-template-for-c-modules.html#cb21-73"></a>     <span class="cf">return</span> t+<span class="dv">1</span>; <span class="co">//unique logic for Name1 class</span></span>
-<span id="cb21-74"><a href="hpp-template-for-c-modules.html#cb21-74"></a>   }</span>
-<span id="cb21-75"><a href="hpp-template-for-c-modules.html#cb21-75"></a></span>
-<span id="cb21-76"><a href="hpp-template-for-c-modules.html#cb21-76"></a>};</span>
-<span id="cb21-77"><a href="hpp-template-for-c-modules.html#cb21-77"></a></span>
-<span id="cb21-78"><a href="hpp-template-for-c-modules.html#cb21-78"></a>  <span class="co">/* </span></span>
-<span id="cb21-79"><a href="hpp-template-for-c-modules.html#cb21-79"></a><span class="co">* Template class inherits from  NameBase</span></span>
-<span id="cb21-80"><a href="hpp-template-for-c-modules.html#cb21-80"></a><span class="co">*/</span></span>
-<span id="cb21-81"><a href="hpp-template-for-c-modules.html#cb21-81"></a>template &lt;class T&gt;</span>
-<span id="cb21-82"><a href="hpp-template-for-c-modules.html#cb21-82"></a>class Name2: public NameBase&lt;T&gt;{</span>
-<span id="cb21-83"><a href="hpp-template-for-c-modules.html#cb21-83"></a></span>
-<span id="cb21-84"><a href="hpp-template-for-c-modules.html#cb21-84"></a>public:</span>
-<span id="cb21-85"><a href="hpp-template-for-c-modules.html#cb21-85"></a> </span>
-<span id="cb21-86"><a href="hpp-template-for-c-modules.html#cb21-86"></a>    </span>
-<span id="cb21-87"><a href="hpp-template-for-c-modules.html#cb21-87"></a>  <span class="co">/*</span></span>
-<span id="cb21-88"><a href="hpp-template-for-c-modules.html#cb21-88"></a><span class="co">   *Default constructor.</span></span>
-<span id="cb21-89"><a href="hpp-template-for-c-modules.html#cb21-89"></a><span class="co">   *Initialize any memory here.</span></span>
-<span id="cb21-90"><a href="hpp-template-for-c-modules.html#cb21-90"></a><span class="co">   */</span></span>
-<span id="cb21-91"><a href="hpp-template-for-c-modules.html#cb21-91"></a>  Name2(){</span>
-<span id="cb21-92"><a href="hpp-template-for-c-modules.html#cb21-92"></a>  }</span>
-<span id="cb21-93"><a href="hpp-template-for-c-modules.html#cb21-93"></a>  </span>
-<span id="cb21-94"><a href="hpp-template-for-c-modules.html#cb21-94"></a> </span>
-<span id="cb21-95"><a href="hpp-template-for-c-modules.html#cb21-95"></a>  <span class="co">/**</span></span>
-<span id="cb21-96"><a href="hpp-template-for-c-modules.html#cb21-96"></a><span class="co">   * Destructor; this method destructs the Name2 object.</span></span>
-<span id="cb21-97"><a href="hpp-template-for-c-modules.html#cb21-97"></a><span class="co">   * Delete any allocated memory here.</span></span>
-<span id="cb21-98"><a href="hpp-template-for-c-modules.html#cb21-98"></a><span class="co">   */</span></span>
-<span id="cb21-99"><a href="hpp-template-for-c-modules.html#cb21-99"></a>  ~ Name2(){</span>
-<span id="cb21-100"><a href="hpp-template-for-c-modules.html#cb21-100"></a>    std::cout &lt;&lt;<span class="st">&quot;I just deleted Name2 object&quot;</span> &lt;&lt; std::endl;</span>
-<span id="cb21-101"><a href="hpp-template-for-c-modules.html#cb21-101"></a>  }</span>
-<span id="cb21-102"><a href="hpp-template-for-c-modules.html#cb21-102"></a>  </span>
-<span id="cb21-103"><a href="hpp-template-for-c-modules.html#cb21-103"></a>   <span class="co">/**</span></span>
-<span id="cb21-104"><a href="hpp-template-for-c-modules.html#cb21-104"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
-<span id="cb21-105"><a href="hpp-template-for-c-modules.html#cb21-105"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
-<span id="cb21-106"><a href="hpp-template-for-c-modules.html#cb21-106"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
-<span id="cb21-107"><a href="hpp-template-for-c-modules.html#cb21-107"></a><span class="co">    * </span></span>
-<span id="cb21-108"><a href="hpp-template-for-c-modules.html#cb21-108"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
-<span id="cb21-109"><a href="hpp-template-for-c-modules.html#cb21-109"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t^2</span></span>
-<span id="cb21-110"><a href="hpp-template-for-c-modules.html#cb21-110"></a><span class="co">    */</span></span>
-<span id="cb21-111"><a href="hpp-template-for-c-modules.html#cb21-111"></a>   virtual T Evaluate(<span class="dt">const</span> T&amp; t) {</span>
-<span id="cb21-112"><a href="hpp-template-for-c-modules.html#cb21-112"></a>     std::cout&lt;&lt;<span class="st">&quot;evaluate in Name2 received &quot;</span>&lt;&lt;t&lt;&lt;</span>
-<span id="cb21-113"><a href="hpp-template-for-c-modules.html#cb21-113"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span>&lt;&lt;(t*t)&lt;&lt;std::endl;</span>
-<span id="cb21-114"><a href="hpp-template-for-c-modules.html#cb21-114"></a>     <span class="cf">return</span> t*t; <span class="co">//unique logic for Name2 class</span></span>
-<span id="cb21-115"><a href="hpp-template-for-c-modules.html#cb21-115"></a>   }</span>
-<span id="cb21-116"><a href="hpp-template-for-c-modules.html#cb21-116"></a></span>
-<span id="cb21-117"><a href="hpp-template-for-c-modules.html#cb21-117"></a>};</span>
-<span id="cb21-118"><a href="hpp-template-for-c-modules.html#cb21-118"></a>  </span>
-<span id="cb21-119"><a href="hpp-template-for-c-modules.html#cb21-119"></a><span class="co">/**</span></span>
-<span id="cb21-120"><a href="hpp-template-for-c-modules.html#cb21-120"></a><span class="co"> * Add additional implementations below.</span></span>
-<span id="cb21-121"><a href="hpp-template-for-c-modules.html#cb21-121"></a><span class="co"> */</span></span>
-<span id="cb21-122"><a href="hpp-template-for-c-modules.html#cb21-122"></a>  </span>
-<span id="cb21-123"><a href="hpp-template-for-c-modules.html#cb21-123"></a></span>
-<span id="cb21-124"><a href="hpp-template-for-c-modules.html#cb21-124"></a></span>
-<span id="cb21-125"><a href="hpp-template-for-c-modules.html#cb21-125"></a></span>
-<span id="cb21-126"><a href="hpp-template-for-c-modules.html#cb21-126"></a>} <span class="co">//end namespace</span></span>
-<span id="cb21-127"><a href="hpp-template-for-c-modules.html#cb21-127"></a></span>
-<span id="cb21-128"><a href="hpp-template-for-c-modules.html#cb21-128"></a><span class="co">/**</span></span>
-<span id="cb21-129"><a href="hpp-template-for-c-modules.html#cb21-129"></a><span class="co"> *Example usage:</span></span>
-<span id="cb21-130"><a href="hpp-template-for-c-modules.html#cb21-130"></a><span class="co"> *</span></span>
-<span id="cb21-131"><a href="hpp-template-for-c-modules.html#cb21-131"></a><span class="co"> * void main(int argc, char** argv){</span></span>
-<span id="cb21-132"><a href="hpp-template-for-c-modules.html#cb21-132"></a><span class="co"> *    NameBase</span><span class="kw">&lt;double&gt;</span><span class="co">* name = NULL; //pointer to a NameBase object</span></span>
-<span id="cb21-133"><a href="hpp-template-for-c-modules.html#cb21-133"></a><span class="co"> *    Name1</span><span class="kw">&lt;double&gt;</span><span class="co"> n1; //inherits from NameBase</span></span>
-<span id="cb21-134"><a href="hpp-template-for-c-modules.html#cb21-134"></a><span class="co"> *    Name2</span><span class="kw">&lt;double&gt;</span><span class="co"> n2; //inherits from NameBase</span></span>
-<span id="cb21-135"><a href="hpp-template-for-c-modules.html#cb21-135"></a><span class="co"> *</span></span>
-<span id="cb21-136"><a href="hpp-template-for-c-modules.html#cb21-136"></a><span class="co"> *    name = &amp;n1; //name now points to n1</span></span>
-<span id="cb21-137"><a href="hpp-template-for-c-modules.html#cb21-137"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n1</span></span>
-<span id="cb21-138"><a href="hpp-template-for-c-modules.html#cb21-138"></a><span class="co"> *</span></span>
-<span id="cb21-139"><a href="hpp-template-for-c-modules.html#cb21-139"></a><span class="co"> *    name = &amp;n2; //name now points to n2</span></span>
-<span id="cb21-140"><a href="hpp-template-for-c-modules.html#cb21-140"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n2</span></span>
-<span id="cb21-141"><a href="hpp-template-for-c-modules.html#cb21-141"></a><span class="co"> * }</span></span>
-<span id="cb21-142"><a href="hpp-template-for-c-modules.html#cb21-142"></a><span class="co"> *</span></span>
-<span id="cb21-143"><a href="hpp-template-for-c-modules.html#cb21-143"></a><span class="co"> * Output:</span></span>
-<span id="cb21-144"><a href="hpp-template-for-c-modules.html#cb21-144"></a><span class="co"> * evaluate in Name1 received 2 as a method parameter, returning 3</span></span>
-<span id="cb21-145"><a href="hpp-template-for-c-modules.html#cb21-145"></a><span class="co"> * evaluate in Name2 received 2 as a method parameter, returning 4</span></span>
-<span id="cb21-146"><a href="hpp-template-for-c-modules.html#cb21-146"></a><span class="co"> *</span></span>
-<span id="cb21-147"><a href="hpp-template-for-c-modules.html#cb21-147"></a><span class="co"> */</span></span>
-<span id="cb21-148"><a href="hpp-template-for-c-modules.html#cb21-148"></a></span>
-<span id="cb21-149"><a href="hpp-template-for-c-modules.html#cb21-149"></a></span>
-<span id="cb21-150"><a href="hpp-template-for-c-modules.html#cb21-150"></a></span>
-<span id="cb21-151"><a href="hpp-template-for-c-modules.html#cb21-151"></a><span class="pp">#endif </span><span class="co">/*template_hpp */</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="hpp-template-for-c-modules.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">//  tmplate.hpp</span></span>
+<span id="cb21-2"><a href="hpp-template-for-c-modules.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">//  Fisheries Integrated Modeling System (FIMS)</span></span>
+<span id="cb21-3"><a href="hpp-template-for-c-modules.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="hpp-template-for-c-modules.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">//define the header gaurd</span></span>
+<span id="cb21-5"><a href="hpp-template-for-c-modules.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef template_hpp </span></span>
+<span id="cb21-6"><a href="hpp-template-for-c-modules.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#define template_hpp</span></span>
+<span id="cb21-7"><a href="hpp-template-for-c-modules.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="hpp-template-for-c-modules.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">//inherit from model_base</span></span>
+<span id="cb21-9"><a href="hpp-template-for-c-modules.html#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../common.hpp&quot;</span><span class="pp"> </span></span>
+<span id="cb21-10"><a href="hpp-template-for-c-modules.html#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb21-11"><a href="hpp-template-for-c-modules.html#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="hpp-template-for-c-modules.html#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb21-13"><a href="hpp-template-for-c-modules.html#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"> * In this example, we utilize the concept of inheritence and </span></span>
+<span id="cb21-14"><a href="hpp-template-for-c-modules.html#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co"> * polymorphism (https://www.geeksforgeeks.org/polymorphism-in-c/). All</span></span>
+<span id="cb21-15"><a href="hpp-template-for-c-modules.html#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co"> * classes inherit from model_base. Name1 and Name2 inherit from NameBase.</span></span>
+<span id="cb21-16"><a href="hpp-template-for-c-modules.html#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co"> * Classes Name1 and Name2 must implement they&#39;re own version of </span></span>
+<span id="cb21-17"><a href="hpp-template-for-c-modules.html#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co"> * &quot;virtual T evaluate(const T&amp; t)&quot;, which will have unique logic. </span></span>
+<span id="cb21-18"><a href="hpp-template-for-c-modules.html#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb21-19"><a href="hpp-template-for-c-modules.html#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-20"><a href="hpp-template-for-c-modules.html#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="hpp-template-for-c-modules.html#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb21-22"><a href="hpp-template-for-c-modules.html#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co"> * fims namespace</span></span>
+<span id="cb21-23"><a href="hpp-template-for-c-modules.html#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb21-24"><a href="hpp-template-for-c-modules.html#cb21-24" aria-hidden="true" tabindex="-1"></a>namespace fims<span class="op">{</span></span>
+<span id="cb21-25"><a href="hpp-template-for-c-modules.html#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-26"><a href="hpp-template-for-c-modules.html#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb21-27"><a href="hpp-template-for-c-modules.html#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="co"> * NameBase class. Inherits from model_base.</span></span>
+<span id="cb21-28"><a href="hpp-template-for-c-modules.html#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb21-29"><a href="hpp-template-for-c-modules.html#cb21-29" aria-hidden="true" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
+<span id="cb21-30"><a href="hpp-template-for-c-modules.html#cb21-30" aria-hidden="true" tabindex="-1"></a>class NameBase<span class="op">:</span> public model_base<span class="op">&lt;</span>T<span class="op">&gt;{</span> <span class="co">//note that model_base gets template parameter T.</span></span>
+<span id="cb21-31"><a href="hpp-template-for-c-modules.html#cb21-31" aria-hidden="true" tabindex="-1"></a>protected<span class="op">:</span></span>
+<span id="cb21-32"><a href="hpp-template-for-c-modules.html#cb21-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-33"><a href="hpp-template-for-c-modules.html#cb21-33" aria-hidden="true" tabindex="-1"></a>public<span class="op">:</span></span>
+<span id="cb21-34"><a href="hpp-template-for-c-modules.html#cb21-34" aria-hidden="true" tabindex="-1"></a>  virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)=</span><span class="dv">0</span><span class="op">;</span> <span class="co">//&quot;= 0;&quot; means this must be implemented in child.</span></span>
+<span id="cb21-35"><a href="hpp-template-for-c-modules.html#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb21-36"><a href="hpp-template-for-c-modules.html#cb21-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-37"><a href="hpp-template-for-c-modules.html#cb21-37" aria-hidden="true" tabindex="-1"></a><span class="co">/* </span></span>
+<span id="cb21-38"><a href="hpp-template-for-c-modules.html#cb21-38" aria-hidden="true" tabindex="-1"></a><span class="co">* Template class inherits from  NameBase</span></span>
+<span id="cb21-39"><a href="hpp-template-for-c-modules.html#cb21-39" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb21-40"><a href="hpp-template-for-c-modules.html#cb21-40" aria-hidden="true" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
+<span id="cb21-41"><a href="hpp-template-for-c-modules.html#cb21-41" aria-hidden="true" tabindex="-1"></a>class Name1<span class="op">:</span> public NameBase<span class="op">&lt;</span>T<span class="op">&gt;{</span></span>
+<span id="cb21-42"><a href="hpp-template-for-c-modules.html#cb21-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-43"><a href="hpp-template-for-c-modules.html#cb21-43" aria-hidden="true" tabindex="-1"></a>public<span class="op">:</span></span>
+<span id="cb21-44"><a href="hpp-template-for-c-modules.html#cb21-44" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-45"><a href="hpp-template-for-c-modules.html#cb21-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-46"><a href="hpp-template-for-c-modules.html#cb21-46" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb21-47"><a href="hpp-template-for-c-modules.html#cb21-47" aria-hidden="true" tabindex="-1"></a><span class="co">   *Default constructor</span></span>
+<span id="cb21-48"><a href="hpp-template-for-c-modules.html#cb21-48" aria-hidden="true" tabindex="-1"></a><span class="co">   *Initialize any memory here.</span></span>
+<span id="cb21-49"><a href="hpp-template-for-c-modules.html#cb21-49" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb21-50"><a href="hpp-template-for-c-modules.html#cb21-50" aria-hidden="true" tabindex="-1"></a>  Name1<span class="op">(){</span></span>
+<span id="cb21-51"><a href="hpp-template-for-c-modules.html#cb21-51" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb21-52"><a href="hpp-template-for-c-modules.html#cb21-52" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-53"><a href="hpp-template-for-c-modules.html#cb21-53" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-54"><a href="hpp-template-for-c-modules.html#cb21-54" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb21-55"><a href="hpp-template-for-c-modules.html#cb21-55" aria-hidden="true" tabindex="-1"></a><span class="co">   * Destructor; this method destructs Name1 object.</span></span>
+<span id="cb21-56"><a href="hpp-template-for-c-modules.html#cb21-56" aria-hidden="true" tabindex="-1"></a><span class="co">   * Delete any allocated memory here.</span></span>
+<span id="cb21-57"><a href="hpp-template-for-c-modules.html#cb21-57" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb21-58"><a href="hpp-template-for-c-modules.html#cb21-58" aria-hidden="true" tabindex="-1"></a>  <span class="op">~</span> Name1<span class="op">(){</span></span>
+<span id="cb21-59"><a href="hpp-template-for-c-modules.html#cb21-59" aria-hidden="true" tabindex="-1"></a>    std<span class="op">::</span>cout <span class="op">&lt;&lt;</span><span class="st">&quot;I just deleted Name1 object&quot;</span> <span class="op">&lt;&lt;</span> std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb21-60"><a href="hpp-template-for-c-modules.html#cb21-60" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb21-61"><a href="hpp-template-for-c-modules.html#cb21-61" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-62"><a href="hpp-template-for-c-modules.html#cb21-62" aria-hidden="true" tabindex="-1"></a>   <span class="co">/**</span></span>
+<span id="cb21-63"><a href="hpp-template-for-c-modules.html#cb21-63" aria-hidden="true" tabindex="-1"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
+<span id="cb21-64"><a href="hpp-template-for-c-modules.html#cb21-64" aria-hidden="true" tabindex="-1"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
+<span id="cb21-65"><a href="hpp-template-for-c-modules.html#cb21-65" aria-hidden="true" tabindex="-1"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
+<span id="cb21-66"><a href="hpp-template-for-c-modules.html#cb21-66" aria-hidden="true" tabindex="-1"></a><span class="co">    * </span></span>
+<span id="cb21-67"><a href="hpp-template-for-c-modules.html#cb21-67" aria-hidden="true" tabindex="-1"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
+<span id="cb21-68"><a href="hpp-template-for-c-modules.html#cb21-68" aria-hidden="true" tabindex="-1"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t+1</span></span>
+<span id="cb21-69"><a href="hpp-template-for-c-modules.html#cb21-69" aria-hidden="true" tabindex="-1"></a><span class="co">    */</span></span>
+<span id="cb21-70"><a href="hpp-template-for-c-modules.html#cb21-70" aria-hidden="true" tabindex="-1"></a>   virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-71"><a href="hpp-template-for-c-modules.html#cb21-71" aria-hidden="true" tabindex="-1"></a>     std<span class="op">::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;evaluate in Name1 received &quot;</span><span class="op">&lt;&lt;</span>t<span class="op">&lt;&lt;</span></span>
+<span id="cb21-72"><a href="hpp-template-for-c-modules.html#cb21-72" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span><span class="op">&lt;&lt;(</span>t<span class="op">+</span><span class="dv">1</span><span class="op">)&lt;&lt;</span>std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb21-73"><a href="hpp-template-for-c-modules.html#cb21-73" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> t<span class="op">+</span><span class="dv">1</span><span class="op">;</span> <span class="co">//unique logic for Name1 class</span></span>
+<span id="cb21-74"><a href="hpp-template-for-c-modules.html#cb21-74" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb21-75"><a href="hpp-template-for-c-modules.html#cb21-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-76"><a href="hpp-template-for-c-modules.html#cb21-76" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb21-77"><a href="hpp-template-for-c-modules.html#cb21-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-78"><a href="hpp-template-for-c-modules.html#cb21-78" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* </span></span>
+<span id="cb21-79"><a href="hpp-template-for-c-modules.html#cb21-79" aria-hidden="true" tabindex="-1"></a><span class="co">* Template class inherits from  NameBase</span></span>
+<span id="cb21-80"><a href="hpp-template-for-c-modules.html#cb21-80" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb21-81"><a href="hpp-template-for-c-modules.html#cb21-81" aria-hidden="true" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
+<span id="cb21-82"><a href="hpp-template-for-c-modules.html#cb21-82" aria-hidden="true" tabindex="-1"></a>class Name2<span class="op">:</span> public NameBase<span class="op">&lt;</span>T<span class="op">&gt;{</span></span>
+<span id="cb21-83"><a href="hpp-template-for-c-modules.html#cb21-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-84"><a href="hpp-template-for-c-modules.html#cb21-84" aria-hidden="true" tabindex="-1"></a>public<span class="op">:</span></span>
+<span id="cb21-85"><a href="hpp-template-for-c-modules.html#cb21-85" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-86"><a href="hpp-template-for-c-modules.html#cb21-86" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-87"><a href="hpp-template-for-c-modules.html#cb21-87" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb21-88"><a href="hpp-template-for-c-modules.html#cb21-88" aria-hidden="true" tabindex="-1"></a><span class="co">   *Default constructor.</span></span>
+<span id="cb21-89"><a href="hpp-template-for-c-modules.html#cb21-89" aria-hidden="true" tabindex="-1"></a><span class="co">   *Initialize any memory here.</span></span>
+<span id="cb21-90"><a href="hpp-template-for-c-modules.html#cb21-90" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb21-91"><a href="hpp-template-for-c-modules.html#cb21-91" aria-hidden="true" tabindex="-1"></a>  Name2<span class="op">(){</span></span>
+<span id="cb21-92"><a href="hpp-template-for-c-modules.html#cb21-92" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb21-93"><a href="hpp-template-for-c-modules.html#cb21-93" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-94"><a href="hpp-template-for-c-modules.html#cb21-94" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-95"><a href="hpp-template-for-c-modules.html#cb21-95" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb21-96"><a href="hpp-template-for-c-modules.html#cb21-96" aria-hidden="true" tabindex="-1"></a><span class="co">   * Destructor; this method destructs the Name2 object.</span></span>
+<span id="cb21-97"><a href="hpp-template-for-c-modules.html#cb21-97" aria-hidden="true" tabindex="-1"></a><span class="co">   * Delete any allocated memory here.</span></span>
+<span id="cb21-98"><a href="hpp-template-for-c-modules.html#cb21-98" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb21-99"><a href="hpp-template-for-c-modules.html#cb21-99" aria-hidden="true" tabindex="-1"></a>  <span class="op">~</span> Name2<span class="op">(){</span></span>
+<span id="cb21-100"><a href="hpp-template-for-c-modules.html#cb21-100" aria-hidden="true" tabindex="-1"></a>    std<span class="op">::</span>cout <span class="op">&lt;&lt;</span><span class="st">&quot;I just deleted Name2 object&quot;</span> <span class="op">&lt;&lt;</span> std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb21-101"><a href="hpp-template-for-c-modules.html#cb21-101" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb21-102"><a href="hpp-template-for-c-modules.html#cb21-102" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-103"><a href="hpp-template-for-c-modules.html#cb21-103" aria-hidden="true" tabindex="-1"></a>   <span class="co">/**</span></span>
+<span id="cb21-104"><a href="hpp-template-for-c-modules.html#cb21-104" aria-hidden="true" tabindex="-1"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
+<span id="cb21-105"><a href="hpp-template-for-c-modules.html#cb21-105" aria-hidden="true" tabindex="-1"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
+<span id="cb21-106"><a href="hpp-template-for-c-modules.html#cb21-106" aria-hidden="true" tabindex="-1"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
+<span id="cb21-107"><a href="hpp-template-for-c-modules.html#cb21-107" aria-hidden="true" tabindex="-1"></a><span class="co">    * </span></span>
+<span id="cb21-108"><a href="hpp-template-for-c-modules.html#cb21-108" aria-hidden="true" tabindex="-1"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
+<span id="cb21-109"><a href="hpp-template-for-c-modules.html#cb21-109" aria-hidden="true" tabindex="-1"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t^2</span></span>
+<span id="cb21-110"><a href="hpp-template-for-c-modules.html#cb21-110" aria-hidden="true" tabindex="-1"></a><span class="co">    */</span></span>
+<span id="cb21-111"><a href="hpp-template-for-c-modules.html#cb21-111" aria-hidden="true" tabindex="-1"></a>   virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-112"><a href="hpp-template-for-c-modules.html#cb21-112" aria-hidden="true" tabindex="-1"></a>     std<span class="op">::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;evaluate in Name2 received &quot;</span><span class="op">&lt;&lt;</span>t<span class="op">&lt;&lt;</span></span>
+<span id="cb21-113"><a href="hpp-template-for-c-modules.html#cb21-113" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span><span class="op">&lt;&lt;(</span>t<span class="op">*</span>t<span class="op">)&lt;&lt;</span>std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb21-114"><a href="hpp-template-for-c-modules.html#cb21-114" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> t<span class="op">*</span>t<span class="op">;</span> <span class="co">//unique logic for Name2 class</span></span>
+<span id="cb21-115"><a href="hpp-template-for-c-modules.html#cb21-115" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb21-116"><a href="hpp-template-for-c-modules.html#cb21-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-117"><a href="hpp-template-for-c-modules.html#cb21-117" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb21-118"><a href="hpp-template-for-c-modules.html#cb21-118" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-119"><a href="hpp-template-for-c-modules.html#cb21-119" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb21-120"><a href="hpp-template-for-c-modules.html#cb21-120" aria-hidden="true" tabindex="-1"></a><span class="co"> * Add additional implementations below.</span></span>
+<span id="cb21-121"><a href="hpp-template-for-c-modules.html#cb21-121" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb21-122"><a href="hpp-template-for-c-modules.html#cb21-122" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-123"><a href="hpp-template-for-c-modules.html#cb21-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-124"><a href="hpp-template-for-c-modules.html#cb21-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-125"><a href="hpp-template-for-c-modules.html#cb21-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-126"><a href="hpp-template-for-c-modules.html#cb21-126" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">//end namespace</span></span>
+<span id="cb21-127"><a href="hpp-template-for-c-modules.html#cb21-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-128"><a href="hpp-template-for-c-modules.html#cb21-128" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb21-129"><a href="hpp-template-for-c-modules.html#cb21-129" aria-hidden="true" tabindex="-1"></a><span class="co"> *Example usage:</span></span>
+<span id="cb21-130"><a href="hpp-template-for-c-modules.html#cb21-130" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb21-131"><a href="hpp-template-for-c-modules.html#cb21-131" aria-hidden="true" tabindex="-1"></a><span class="co"> * void main(int argc, char** argv){</span></span>
+<span id="cb21-132"><a href="hpp-template-for-c-modules.html#cb21-132" aria-hidden="true" tabindex="-1"></a><span class="co"> *    NameBase</span><span class="kw">&lt;double&gt;</span><span class="co">* name = NULL; //pointer to a NameBase object</span></span>
+<span id="cb21-133"><a href="hpp-template-for-c-modules.html#cb21-133" aria-hidden="true" tabindex="-1"></a><span class="co"> *    Name1</span><span class="kw">&lt;double&gt;</span><span class="co"> n1; //inherits from NameBase</span></span>
+<span id="cb21-134"><a href="hpp-template-for-c-modules.html#cb21-134" aria-hidden="true" tabindex="-1"></a><span class="co"> *    Name2</span><span class="kw">&lt;double&gt;</span><span class="co"> n2; //inherits from NameBase</span></span>
+<span id="cb21-135"><a href="hpp-template-for-c-modules.html#cb21-135" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb21-136"><a href="hpp-template-for-c-modules.html#cb21-136" aria-hidden="true" tabindex="-1"></a><span class="co"> *    name = &amp;n1; //name now points to n1</span></span>
+<span id="cb21-137"><a href="hpp-template-for-c-modules.html#cb21-137" aria-hidden="true" tabindex="-1"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n1</span></span>
+<span id="cb21-138"><a href="hpp-template-for-c-modules.html#cb21-138" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb21-139"><a href="hpp-template-for-c-modules.html#cb21-139" aria-hidden="true" tabindex="-1"></a><span class="co"> *    name = &amp;n2; //name now points to n2</span></span>
+<span id="cb21-140"><a href="hpp-template-for-c-modules.html#cb21-140" aria-hidden="true" tabindex="-1"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n2</span></span>
+<span id="cb21-141"><a href="hpp-template-for-c-modules.html#cb21-141" aria-hidden="true" tabindex="-1"></a><span class="co"> * }</span></span>
+<span id="cb21-142"><a href="hpp-template-for-c-modules.html#cb21-142" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb21-143"><a href="hpp-template-for-c-modules.html#cb21-143" aria-hidden="true" tabindex="-1"></a><span class="co"> * Output:</span></span>
+<span id="cb21-144"><a href="hpp-template-for-c-modules.html#cb21-144" aria-hidden="true" tabindex="-1"></a><span class="co"> * evaluate in Name1 received 2 as a method parameter, returning 3</span></span>
+<span id="cb21-145"><a href="hpp-template-for-c-modules.html#cb21-145" aria-hidden="true" tabindex="-1"></a><span class="co"> * evaluate in Name2 received 2 as a method parameter, returning 4</span></span>
+<span id="cb21-146"><a href="hpp-template-for-c-modules.html#cb21-146" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb21-147"><a href="hpp-template-for-c-modules.html#cb21-147" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb21-148"><a href="hpp-template-for-c-modules.html#cb21-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-149"><a href="hpp-template-for-c-modules.html#cb21-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-150"><a href="hpp-template-for-c-modules.html#cb21-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-151"><a href="hpp-template-for-c-modules.html#cb21-151" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif </span><span class="co">/*template_hpp */</span></span></code></pre></div>
 
 </div>
             </section>
