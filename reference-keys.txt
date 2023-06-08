@@ -36,12 +36,12 @@ fims-development-cycle
 issue-lifecycle
 feature-validation
 m1-model-specification
-model-variables-and-bounds
 inherited-functors-from-tmb
 atomic-functions
 statistical-distributions
 normal-distribution
 multinomial-distribution
+lognormal-distribution
 beverton-holt-recruitment-function
 logistic-function-with-extensions
 catch-and-fishing-mortality
