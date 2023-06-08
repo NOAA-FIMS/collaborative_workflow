@@ -64,6 +64,54 @@ This is the `TMB` objective function.
 
 ## GitHub forking and cloning
 
+## GitHub Collaborative Environment
+
+Communication is managed via the [NOAA-FIMS
+Github](https://github.com/NOAA-FIMS) organization.
+
+* New features requests and bugs should be submitted as issues to the
+[FIMS development repo](https://github.com/NOAA-FIMS/FIMS/issues). For
+guidelines on submitting issues, see [Issue Tracking](#issue-tracking).
+* [GitProjects](https://github.com/orgs/NOAA-FIMS/projects/1) TODO: add
+description * [GitHub Teams](https://github.com/orgs/NOAA-FIMS/teams)
+TODO: add description * All contributers, both internal and external,
+are required to abide by the [Code of Conduct](#code-of-conduct)
+
+### FIMS Branching Strategy
+
+There are several [branching
+strategies](https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/)
+available that will work within the Git environment and other version
+control systems. However, it is important to find a strategy that works
+well for both current and future contributors. Branching strategies
+provide guidance for how, when, and why branches are created and named,
+which also ties into necessary guidance surrounding issue tracking.
+
+The FIMS Project uses a [Scaled Trunk Based
+Development](https://trunkbaseddevelopment.com/) branching strategy to
+make tasks easier without compromising quality.
+
+![Scaled Trunk Based Development; image credit:
+https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/](https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg)
+
+This  strategy is required for continuous integration and facilitates
+knowledge of steps that must be taken prior to, during, and after making
+changes to the code, while still allowing anyone interested in the code
+to read it at any time. Additionally, trunk-based development captures
+the following needs without being overly complicated:
+
+* Short-lived branches to minimize stale code and merge conflicts * Fast
+release times, especially for bug fixes * Ability to release bug fixes
+without new features
+
+### Branch Protection
+
+Branch protection allows for searching branch names with `grep`
+functionality to apply merging rules (i.e., protection). This will be
+helpful to protect the main/trunk branch such that pull requests cannot
+be merged in prior to passing various checks or by individuals without
+the authority to do so.
+
 For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:
 
 ```bash
@@ -205,36 +253,6 @@ $ git push                 #pushes change to feature branch on gitHub
 Code is written following the [Style Guide](#style-guide),
 [FIMS Naming Conventions](#naming conventions), and
 [Coding Good Practices](#coding-good-practices)
-
-### C++ contributor
-
-In addition to writing a C++ module, contributors are responsible for
-the following:
-
-* Creating documentation for the module and building the
-[documentation](#documentation) in `doxygen` to ensure it is error-free. 
-Run `cmake --build build` and review generated doxygen HTMLS locally 
-to ensure they are error-free.
-* Implementing the suite of required test cases in
-[Google Test](#testing) for the module.
-Run [`cmake --build build` and `ctest --test-dir build` locally](https://noaa-fims.github.io/collaborative_workflow/testing.html#c-unit-testing-and-benchmarking) 
-and make sure the C++ tests pass before pushing tests to remote feature branch.
- If there are failing tests, run `ctest --test-dir --rerun-failed --output-on-failure` to re-run the failed tests verbosely.
-* Ensuring the run-clang-tidy and run-googletest [Github Actions workflows](#github-actions) pass on the remote feature branch
-
-### R Contributor
-
-In addition to writing an R script or function, contributors are
-responsible for the following:
-
-* Writing Roxygen documentation for any R functions. Run `devtools::document()` 
-locally and before pushing changes to the remote branch.
-* Writing `testthat()` test cases for any R functionality.
-Run `devtoos::test()` locally before pushing tests to the remote feature branch. 
-* Running `styler::style_pkg()` to style R code locally and then push changes to 
-remote feature branch. If there are many changes, please do this in a separate commit.
-* Running `devtools::check()` locally and make sure the package can be compiled and R tests pass. If there are failing tests, run `devtools::test(filter = "file_name")` (where "test-file_name.R" is the testthat file containing failing tests) and edit code/tests to troubleshoot tests. During development, run `devtools::build()` locally to build the package more frequently and faster.
-* Ensuring the code passes the call-r-cmd-check [GitHub Action workflow](#github-actions) on the remote feature branch.
 
 ## Commit Messages
 
