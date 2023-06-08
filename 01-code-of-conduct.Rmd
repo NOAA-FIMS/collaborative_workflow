@@ -1,8 +1,8 @@
-# Code of Conduct
+# Code of conduct
 
-## FIMS Contributor Conduct
+## FIMS contributor conduct
 
-## Our Pledge
+## Our pledge
 
 We as members, contributors, and leaders pledge to make participation in our
 community a harassment-free experience for everyone, regardless of age, body
@@ -14,7 +14,7 @@ identity and orientation.
 We pledge to act and interact in ways that contribute to an open, welcoming,
 diverse, inclusive, and healthy community.
 
-## Our Standards
+## Our standards
 
 Examples of behavior that contributes to a positive environment for our
 community include:
@@ -38,7 +38,7 @@ Examples of unacceptable behavior include:
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
-## Enforcement Responsibilities
+## Enforcement responsibilities
 
 Community leaders are responsible for clarifying and enforcing our standards of
 acceptable behavior and will take appropriate and fair corrective action in
@@ -66,7 +66,7 @@ fims.conduct@noaa.gov or reported anonymously [https://forms.gle/2DnPXuCKKCN3qp7
 
 Reports will be
 reviewed by a member of the NOAA Fisheries Office of Science and
-Technology who is not participating in the FIMS Project [Jim Berkson],
+Technology who is not participating in the FIMS Project [Patrick Lynch],
 but has the full support of FIMS Community Leaders. All reports will be
 reviewed promptly and fairly.
 
@@ -75,7 +75,7 @@ reporter of any incident whenever possible; however, please note behaviors that
 meet the official [criteria](https://media.fisheries.noaa.gov/2021-12/Fisheries-Anti-Harassment-Policy-Statement-2021_Final.pdf) for harrassment must be reported by supervisors under
 NOAA policy.
 
-## Enforcement Guidelines
+## Enforcement guidelines
 
 Community leaders will follow these Community Impact Guidelines in determining
 the consequences for any action they deem in violation of this Code of Conduct:
@@ -101,7 +101,7 @@ includes avoiding interactions in community spaces as well as external channels
 like social media. Violating these terms may lead to a temporary or permanent
 ban.
 
-### 3. Temporary Ban
+### 3. Temporary ban
 
 **Community Impact**: A serious violation of community standards, including
 sustained inappropriate behavior.
@@ -112,7 +112,7 @@ private interaction with the people involved, including unsolicited interaction
 with those enforcing the Code of Conduct, is allowed during this period.
 Violating these terms may lead to a permanent ban.
 
-### 4. Permanent Ban
+### 4. Permanent ban
 
 **Community Impact**: Demonstrating a pattern of violation of community
 standards, including sustained inappropriate behavior, harassment of an
@@ -122,7 +122,7 @@ individual, or aggression toward or disparagement of classes of individuals.
 community.
 
 
-## Supporting Good Conduct
+## Supporting good conduct
 
 FIMS Community leaders will create default community health files (e.g.
 CONTRIBUTING, CODE_OF_CONDUCT) to be used in all repositories owned by
