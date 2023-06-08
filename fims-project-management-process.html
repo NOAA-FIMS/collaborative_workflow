@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 User guide | FIMS Developer Handbook</title>
+  <title>Chapter 3 FIMS project management process | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 User guide | FIMS Developer Handbook" />
+  <meta property="og:title" content="Chapter 3 FIMS project management process | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 User guide | FIMS Developer Handbook" />
+  <meta name="twitter:title" content="Chapter 3 FIMS project management process | FIMS Developer Handbook" />
   
   <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="m1-model-specification.html"/>
-<link rel="next" href="developer-software-guide.html"/>
+<link rel="prev" href="code-of-conduct.html"/>
+<link rel="next" href="m1-model-specification.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -367,65 +367,181 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="user-guide" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> User guide<a href="user-guide.html#user-guide" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This section details installation guides for
-<a href="user-guide.html#user-installation-guide">users</a>. See the <a href="#developer-installation-guide">developer installation
-guide</a>.</p>
-<div id="user-installation-guide" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> User Installation Guide<a href="user-guide.html#user-installation-guide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section describes how to install the FIMS R package and dependencies.</p>
+<div id="fims-project-management-process" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> FIMS project management process<a href="fims-project-management-process.html#fims-project-management-process" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="fims-governance" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> FIMS governance<a href="fims-project-management-process.html#fims-governance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <a href="https://drive.google.com/file/d/1gMDQbAhjM2E3nct4Hc6u-DT1Ta8bizLd/view?usp=sharing">FIMS Terms of Reference</a>
+describes the high level organization of the FIMS Project. Additional
+details on roles and responsibilities are provided here.</p>
+<div id="developers" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Developers<a href="fims-project-management-process.html#developers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Developers are expected to adhere to the principles and guidelines
+outlined within this handbook, including the <a href="code-of-conduct.html#code-of-conduct">Code of
+Conduct</a>, <a href="contributor-guidelines.html#contributor-guidelines">Contributer
+Guidelines</a>, <a href="contributor-guidelines.html#style-guide">Style Guide</a>,
+<a href="contributor-guidelines.html#issue-tracking">Issue Tracking</a>, and <a href="testing.html#testing">Testing</a>.</p>
 </div>
-<div id="installing-the-package-from-github" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Installing the package from Github<a href="user-guide.html#installing-the-package-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The following software is required:
-- R version 4.0.0 or newer (or RStudio version 1.2.5042 or newer)
-- the <code>remotes</code> R package
-- <code>TMB</code> (install instructions at are
-<a href="https://github.com/kaskr/adcomp/wiki/Download">here</a>.)</p>
-<div id="windows-users" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Windows users<a href="user-guide.html#windows-users" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="c-developers" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> C++ developers<a href="fims-project-management-process.html#c-developers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The C++ developer responsibilities include:</p>
 <ul>
-<li>Rtools4 (available from <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">here</a>)
-<ul>
-<li>this likely requires IT support to install it on NOAA computers
-(or any without administrative accounts)</li>
-</ul></li>
+<li>Writing the module code.</li>
+<li>Creating documentation for the module and building the
+<a href="#documentation">documentation</a> in <code>doxygen</code> to ensure it is error-free.</li>
+<li>Implementing the suite of required test cases in <a href="testing.html#testing">Google
+Test</a> for the module.</li>
+<li>Ensuring the module runs through the FIMS Github actions.</li>
 </ul>
+<p>Once development of a bug fix or a new component of FIMS is complete,
+the developer should create a <a href="contributor-guidelines.html#pull-requests">pull request</a> according
+to the correct template and assign the issue tracking the completion of
+the bug fix and/or feature to the assigned review team. The developer
+must resolve any issues arising from the review and get confirmation
+from the review team before the pull request is merged into the upstream
+branch.</p>
+</div>
+<div id="r-developers" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> R developers<a href="fims-project-management-process.html#r-developers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The R developers responsibilities include:</p>
+<ul>
+<li>Writing the <code>Rcpp</code> interface to the C++ code.</li>
+<li>Writing Roxygen documentation for any R functions</li>
+<li>Writing <code>testthat()</code> test cases for any R functionality</li>
+<li>Ensuring the code passes the <code>R CMD CHECK</code>, <code>styler</code>, and any other
+automated checks.</li>
+</ul>
+<p>Once these are complete, the developer should create a <a href="contributor-guidelines.html#pull-requests">pull
+request</a> according to the correct template and assign
+the issue tracking the completion of the bug fix and/or feature to the
+assigned review team. The developer must resolve any issues arising from
+the review and get confirmation from the review team before the pull
+request is merged into the upstream branch.</p>
+</div>
+<div id="reviewers" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Reviewers<a href="fims-project-management-process.html#reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The reviewers are responsible for adhering to documented guidelines in
+the <a href="contributor-guidelines.html#code-review">Code Review</a> section. Reviewers should confirm that
+the new code is able to build and run within their own development
+environment as well as via the Github actions on the repository.
+Reviewers should clearly document which components of the code need to
+be improved to be accurate, comply with project guidelines and style, or
+do not work, in the pull request thread so that the developer knows what
+they need to fix.</p>
+</div>
+<div id="regional-representatives" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Regional representatives<a href="fims-project-management-process.html#regional-representatives" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Regional representatives are expected to communicate FIMS progress and design to their respective regions and teammates. Representatives serve as power users who provide basic training and outreach within their centers on transitioning to FIMS. These representatives are also responsible for relaying feedback, questions, and training requests that they cannot complete back to the NSAP development team and project lead. Regional representatives are expected to introduce their partner fishery management organizations to FIMS to assist transition of FIMS from research to operations.</p>
+</div>
+<div id="project-lead" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Project lead<a href="fims-project-management-process.html#project-lead" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Project lead is responsible for driving decisions on FIMS features, user interfaces, and project guidelines and standards based on discussions with the OST development team and regional product representatives. The project lead ensures the FIMS product satisfies user and business requirements, incorporates feedback and iterates on the design and development as needed. The project lead will triage issues and pull requests weekly and ensure development and code review occur in a timely manner and according to project guidelines, priorities, and standards. The Project Lead is also responsible for communicating project status via maintenance of the <a href="https://noaa-fims.github.io/status/">status dashboard</a>.</p>
+</div>
+<div id="director-of-software-development" class="section level3 hasAnchor" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> Director of software development<a href="fims-project-management-process.html#director-of-software-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The director of software development is responsible for designing the FIMS product architecture to maximize portability and extensibility, managing technical risks and opportunities, mentoring development and implementation team members, advising the project lead on software design and implementation decisions, managing change requests, and guaranteeing quality of deliveries via code review. The Director of Software Development also educates the team on technical best practices, creates documentation to assist in enhancing team and user understanding of the FIMS, and coordinates maintenance of the software platform.</p>
+</div>
+<div id="lead-of-test-development" class="section level3 hasAnchor" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> Lead of test development<a href="fims-project-management-process.html#lead-of-test-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The lead of test development is responsible for designing and driving test objectives, test strategies and test plans of the FIMS product at subsequent milestones. The lead of test development will identify the tools for test reporting, management and automation, guide and monitor the design, implementation, and execution of test cases and test procedures.The lead of test development will train and mentor implementation team members on how to effectively write and debug tests.</p>
+</div>
+<div id="lead-of-research-and-development" class="section level3 hasAnchor" number="3.1.9">
+<h3><span class="header-section-number">3.1.9</span> Lead of research and development<a href="fims-project-management-process.html#lead-of-research-and-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Lead of research and development oversees the investigations into stock assessment modeling best practices that spans the scope of computer science, statistical inference, and population and community modeling. The lead of research and development provides methods and guidelines for prioritizing research needed to determine good practices and making recommendations on alternative good practice options for FIMS implementation. The lead of research and development advises the Project Lead on priority of features to be incorporated into subsequent milestones.</p>
+</div>
+<div id="lead-of-workflows-accessibility-and-integration" class="section level3 hasAnchor" number="3.1.10">
+<h3><span class="header-section-number">3.1.10</span> Lead of workflows, accessibility, and integration<a href="fims-project-management-process.html#lead-of-workflows-accessibility-and-integration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The lead of workflows, accessibility, and integration is responsible for designing and driving workflows and automation to support the reliability and robustness of the FIMS. The workflows, accessibility, and integration lead ensures the FIMS aligns with expected standards for accessibility and quality control in accordance with guidelines set by the <a href="https://noaa-fisheries-integrated-toolbox.github.io/">Fisheries Integrated Toolbox</a>. This lead coordinates with the lead test engineer to ensure test cases are automated and successfully run by Github Actions and coordinates with the lead of research and development to identify opportunities to expand FIMS across related disciplines.</p>
+</div>
+<div id="code-of-conduct-enforcement" class="section level3 hasAnchor" number="3.1.11">
+<h3><span class="header-section-number">3.1.11</span> Code of conduct enforcement<a href="fims-project-management-process.html#code-of-conduct-enforcement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The code of conduct enforcer is responsible for responding to
+allegations of <a href="code-of-conduct.html#code-of-conduct">code of conduct</a> violations in an
+appropriate manner. This could include a conversation with the violator,
+his or her manager, up to and including expulsion from the FIMS
+development team. If the violator is an external collaborator, they can
+be banned from contributing to the FIMS Github resources in the future.</p>
+</div>
+<div id="external-collaborators" class="section level3 hasAnchor" number="3.1.12">
+<h3><span class="header-section-number">3.1.12</span> External collaborators<a href="fims-project-management-process.html#external-collaborators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>External collaborators interested in contributing to FIMS development
+are required to clone or fork the FIMS repository, make changes, and
+submit a pull request. However, collaborators are strongly encouraged to
+submit an issue via the main FIMS repository for discussion prior to
+development. In general, forks are discouraged for development that is
+intended for integration into FIMS as it becomes difficult to keep track
+of multiple forks. If collaborators wish to use FIMS as a starting-point
+for a brand new project that they do not intend to merge back into the
+main branch, they can start a fork. However, if they intend to create a
+pull request, they should clone the repository and use a branch.</p>
+<p>Pull requests from forks will be reviewed the same as a pull request
+submitted from a branch. Users will need to conform to the same
+standards and all contributions must pass the standard tests as well as
+provide tests that check the new feature.</p>
 </div>
 </div>
-<div id="installing-from-r" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Installing from <code>R</code><a href="user-guide.html#installing-from-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="user-guide.html#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;NOAA-FIMS/FIMS&quot;</span>)</span>
-<span id="cb1-2"><a href="user-guide.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FIMS)</span></code></pre></div>
+<div id="fims-development-cycle" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> FIMS development cycle<a href="fims-project-management-process.html#fims-development-cycle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>FIMS is structured as an agile software
+development process with live development on the web and Github. The
+development process cycles through a planning, analysis, and design
+phase leading to the establishment of a developmental Milestone. The
+implementation phase is made up of several development sprints that meet
+the objectives of the established Milestone. This is followed by testing
+&amp; integration and a maintenance phase before the cycle starts over
+again. FIMS is currently in the implementation phase of Milestone 1. See
+<a href="m1-model-specification.html#m1-model-specification">M1 model specification</a> for a description of
+the model.</p>
+<div class="figure"><span style="display:block;" id="fig:devcycle"></span>
+<img src="dev%20cycle.png" alt="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1" width="75%" />
+<p class="caption">
+Figure 3.1: FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1
+</p>
 </div>
-<div id="running-the-model" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Running the model<a href="user-guide.html#running-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section describes how to set-up and run the model.</p>
-<div id="specifying-the-model" class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Specifying the model<a href="user-guide.html#specifying-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="naming-conventions" class="section level4 hasAnchor" number="5.4.1.1">
-<h4><span class="header-section-number">5.4.1.1</span> Naming conventions<a href="user-guide.html#naming-conventions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>TODO: add description and link to naming conventions</p>
+<div id="issue-lifecycle" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Issue lifecycle<a href="fims-project-management-process.html#issue-lifecycle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>FIMS development will adhere to a lifecycle for issues that makes it
+clear which issues can be resolved when.</p>
+<ul>
+<li>Creation — The event that marks the creation of an issue. An issue is
+not Active when it is Created. Issues that are opened are assigned to
+the FIMS Project Lead with the label: <code>needs-triage</code>. A issue is not
+considered Active until this label is removed. * Activation — When the
+<code>needs-triage</code> label is removed and the issue is assigned to a
+developer, the issue becomes Active. This event happens once in the
+lifecycle of an issue. Activation usually is not undone but it can be
+undone if an issue needs additional discussion; in this case, the
+<code>needs-triage</code> label is applied again. An issue is Active from the time
+it is Activated until reaches Resolution. * Response — This event only
+happens if the triage team deems an issue to a wont-fix or delayed. This
+requires communication with the party who opened the issue as to why
+this will not be addressed or will be moved to a later milestone. <em>
+Resolution — The event that marks the resolution of an issue. This event
+happens once in the lifetime of an issue. This event can be undone if an
+issue transitions from a resolved status to an unresolved status, in
+which case the system considers the issue as never had been resolved. A
+resolution involves a code check-in and pull request, at which point
+someone must review and approve the pull request before the issue can
+transition states. </em> In Review - The issue is “in review” after a code
+solution has been proposed and is being considered via a pull request.
+If this is approved, the issue can move into the “Closed” state. *
+Closure—The event that marks the closure of an Issue. This even happens
+once in the lifetime of an issue. The issue can enter the Closed state
+from either the “In Review” or “Response” state.</li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:flowchart"></span>
+<img src="New%20Flowchart.png" alt="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed." width="75%" />
+<p class="caption">
+Figure 3.2: Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed.
+</p>
 </div>
-<div id="structuing-data-input" class="section level4 hasAnchor" number="5.4.1.2">
-<h4><span class="header-section-number">5.4.1.2</span> Structuing data input<a href="user-guide.html#structuing-data-input" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>You can add components to the model using S4 classes.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="user-guide.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TODO: add script to demonstrate how to structure data input</span></span></code></pre></div>
 </div>
-<div id="defining-model-specifications" class="section level4 hasAnchor" number="5.4.1.3">
-<h4><span class="header-section-number">5.4.1.3</span> Defining model specifications<a href="user-guide.html#defining-model-specifications" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="user-guide.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TODO: add scripts detailing how to set up different components of the model</span></span></code></pre></div>
-</div>
-</div>
-<div id="how-to-run-the-model" class="section level3 hasAnchor" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> How to run the model<a href="user-guide.html#how-to-run-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="user-guide.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TODO: add script with examples on how to run the model</span></span></code></pre></div>
-</div>
-<div id="extracting-model-output" class="section level3 hasAnchor" number="5.4.3">
-<h3><span class="header-section-number">5.4.3</span> Extracting model output<a href="user-guide.html#extracting-model-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Here is how you get the model output.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="user-guide.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Todo add code for how to extract model output</span></span></code></pre></div>
+<div id="feature-validation" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Feature Validation<a href="fims-project-management-process.html#feature-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>FIMS uses a standardized set of criteria to prioritize and determine
+which features will be incorporated into the next development milestone.</p>
+<p>TODO: add criteria (to be defined) used to prioritize features for
+future milestones</p>
 
 </div>
 </div>
@@ -435,8 +551,8 @@ guide</a>.</p>
           </div>
         </div>
       </div>
-<a href="m1-model-specification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="developer-software-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="code-of-conduct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="m1-model-specification.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -457,7 +573,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/04-user-guide.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/02-FIMS-Project-Overview.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -465,7 +581,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/04-user-guide.Rmd",
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/02-FIMS-Project-Overview.Rmd",
 "text": null
 },
 "download": null,
