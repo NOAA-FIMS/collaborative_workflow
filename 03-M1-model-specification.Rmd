@@ -34,7 +34,7 @@ Code can be found [here](http://kaskr.github.io/adcomp/group__R__style__distribu
 
 #### Normal Distribution
 
-$$f(y) = \frac{1}{\sigma\sqrt{2\pi}}exp\Bigg(-\frac{(x-\mu)^2}{2\sigma^2} \Bigg),$$
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\mathrm{exp}\Bigg(-\frac{(x-\mu)^2}{2\sigma^2} \Bigg),$$
 
 where $\mu$ is the mean of the distribution and $\sigma^2$ is the variance.
 
@@ -42,7 +42,7 @@ where $\mu$ is the mean of the distribution and $\sigma^2$ is the variance.
 
 For $k$ categories and sample size, $n$,
 
-$$f(y) = \frac{n!}{y_{1}!... y_{k}!}p^{y_{1}}_{1}...p^{y_{k}}_{k},$$
+$$f(\underline{y}) = \frac{n!}{y_{1}!... y_{k}!}p^{y_{1}}_{1}...p^{y_{k}}_{k},$$
 
 where $\sum^{k}_{i=1}y_{i} = n$, $p_{i} > 0$, and $\sum^{k}_{i=1}p_{i} = 1$.
 
@@ -54,16 +54,16 @@ $\sigma^{2}_{i} = np_{i}(1-p_{i})$
 
 #### Lognormal Distribution
 
-$$ \frac{1.0}{ x\sigma\sqrt{2\pi} }exp(-\frac{(ln(x) - mu)^{2}}{2\sigma^{2}}),$$
+$$f(x) = \frac{1.0}{ x\sigma\sqrt{2\pi} }\mathrm{exp}\Bigg(-\frac{(\mathrm{ln}(x) - \mu)^{2}}{2\sigma^{2}}\Bigg),$$
 
-where $\mu$ is the mean of the distribution of $log(x)$ and $\sigma^2$ is the variance of $log(x)$.
+where $\mu$ is the mean of the distribution of $\mathrm{ln(x)}$ and $\sigma^2$ is the variance of $\mathrm{ln}(x)$.
 
 ## Beverton-Holt recruitment function
 
 For parity with existing stock assessment models, the first recruitment
 option in FIMS is the steepness parameterization of the Beverton-Holt model (Beverton and Holt, 1957),
 
-$$R_t  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}$$
+$$R_t(S_{t-1})  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}$$
 where $R_t$ and $S_t$ are mean recruitment and spawning biomass at time
 $t$, $h$ is steepness, and $\phi_0$ is the unfished
 spawning biomass per recruit. The initial FIMS model implements a
@@ -82,13 +82,13 @@ and thus the bias correction applies an
 adjustment factor, $b_t=\frac{E[SD(\hat{r}_{t})]^2}{\sigma_R^2}$ (Methot and
 Taylor, 2011). The adjusted bias correction, mean recruitment, and recruitment deviations are 
 then used to compute realized recruitment ($R^*_t$),
-$$R^*_t=R_t\mathrm{exp}(\hat{r}_{t}-b_t\frac{\sigma_R^2}{2})$$
+$$R^*_t=R_t\cdot\mathrm{exp}\Bigg(\hat{r}_{t}-b_t\frac{\sigma_R^2}{2}\Bigg)$$
 The recruitment function should take as input the values of $S_t$,
 $h$, $R_0$, $\phi_0$, $\sigma_R$, and $\hat{r}_{t}$, and return mean-unbiased ($R_t$) and
 realized ($R^*_t$) recruitment.
 
 ## Logistic function with extensions
-$$y_i=\frac{1}{1+\mathrm{exp}(-s *(x_i-\nu))}$$
+$$y_i=\frac{1}{1+\mathrm{exp}(-s \cdot(x_i-\nu))}$$
 
 Where $y_i$ is the quantity of interest (proportion mature, selected,
 etc.), $x_i$ is the index (can be age or size or any other quantity),
@@ -99,7 +99,7 @@ function implementation.
 
 The parameterization for the double logistic curve is specified as 
 
-$$y_i=\frac{1.0}{ 1.0 + exp(-1.0 * s_1(x_i - \nu_1))} \left(1-\frac{1.0}{ 1.0 + exp(-1.0 * s_2 (x_i - \nu_2))}  \right)$$
+$$y_i=\frac{1.0}{ 1.0 + \mathrm{exp}(-1.0 \cdot s_1(x_i - \nu_1))} \left(1-\frac{1.0}{ 1.0 + \mathrm{exp}(-1.0 \cdot s_2 (x_i - \nu_2))}  \right)$$
 Where $s_1$ and and $\nu_1$ are the slope and median (50%) parameters for the ascending limb of the curve, and $s_2$ and and $\nu_2$ are the slope and median parameters for the descending limb of the curve. This is currently only implemented for the selectivity module.
 
 ## Catch and fishing mortality
@@ -107,16 +107,16 @@ Where $s_1$ and and $\nu_1$ are the slope and median (50%) parameters for the as
 The Baranov catch equation relates catch to instantaneous fishing and
 natural mortality.
 
-$$ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}(1-\mathrm{exp}(-(F_{f,a,t}+M)))N_{a,t}$$
+$$ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}\Bigg[1-\mathrm{exp}(-F_{f,a,t}-M)\Bigg]N_{a,t}$$
 
-Where $C_{f,a,t}$ is the catch at age $a$ at time $t$ for fleet $f$, $F$
+Where $C_{f,a,t}$ is the catch at age $a$ at time $t$ for fleet $f$, $F_t$
 is instantaneous fishing mortality, $M$ is assumed constant over ages
-and time in the minimum viable assessment model, $N_a,t$ is the number
+and time in the minimum viable assessment model, $N_{a,t}$ is the number
 of age $a$ fish at time $t$.
 
-$$F_{a,t}=\sum_{a=0}^A s_{a,f,t}F$$
+$$F_{f,a,t}=\sum_{a=0}^A s_{f,a}F_t$$
 
-$s_a,f$ is selectivity at age $a$ for fleet $f$. Selectivity-at-age is
+$s_{f,a}$ is selectivity at age $a$ for fleet $f$. Selectivity-at-age is
 constant over time.
 
 Catch is in metric tons and survey is in number, so calculating catch
@@ -125,7 +125,7 @@ $$ CW_t=\sum_{a=0}^A C_{a,t}w_a $$
 
 Survey numbers are calculated as follows
 
-$$I_t=q\sum_{a=0}^AN_{a,t}$$
+$$I_t=q_t\sum_{a=0}^AN_{a,t}$$
 Where $I_t$ is the survey index and $q_t$ is survey catchability at time
 $t$.
 
@@ -183,7 +183,7 @@ The initial equilibrium recruitment ($R_{eq}$) is calculated as follows:
 
 $$R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} $$
 where $\phi_{F}$ is the initial spawning biomass per recruitment given
-fishing mortality.
+the initial fishing mortality $F$.
 
 ## Likelihood calculations
 
