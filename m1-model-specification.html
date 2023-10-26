@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 M1 model specification | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 M1 model specification | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2023-06-08" />
+<meta name="date" content="2023-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -427,13 +427,13 @@ Code can be found <a href="http://kaskr.github.io/adcomp/group__R__style__distri
 </table>
 <div id="normal-distribution" class="section level4 hasAnchor" number="4.1.2.1">
 <h4><span class="header-section-number">4.1.2.1</span> Normal Distribution<a href="m1-model-specification.html#normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[f(y) = \frac{1}{\sigma\sqrt{2\pi}}exp\Bigg(-\frac{(x-\mu)^2}{2\sigma^2} \Bigg),\]</span></p>
+<p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}}\mathrm{exp}\Bigg(-\frac{(x-\mu)^2}{2\sigma^2} \Bigg),\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma^2\)</span> is the variance.</p>
 </div>
 <div id="multinomial-distribution" class="section level4 hasAnchor" number="4.1.2.2">
 <h4><span class="header-section-number">4.1.2.2</span> Multinomial Distribution<a href="m1-model-specification.html#multinomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For <span class="math inline">\(k\)</span> categories and sample size, <span class="math inline">\(n\)</span>,</p>
-<p><span class="math display">\[f(y) = \frac{n!}{y_{1}!... y_{k}!}p^{y_{1}}_{1}...p^{y_{k}}_{k},\]</span></p>
+<p><span class="math display">\[f(\underline{y}) = \frac{n!}{y_{1}!... y_{k}!}p^{y_{1}}_{1}...p^{y_{k}}_{k},\]</span></p>
 <p>where <span class="math inline">\(\sum^{k}_{i=1}y_{i} = n\)</span>, <span class="math inline">\(p_{i} &gt; 0\)</span>, and <span class="math inline">\(\sum^{k}_{i=1}p_{i} = 1\)</span>.</p>
 <p>The mean and variance of <span class="math inline">\(y_{i}\)</span> are respectively:</p>
 <p><span class="math inline">\(\mu_{i} = np_{i}\)</span>,</p>
@@ -441,8 +441,8 @@ Code can be found <a href="http://kaskr.github.io/adcomp/group__R__style__distri
 </div>
 <div id="lognormal-distribution" class="section level4 hasAnchor" number="4.1.2.3">
 <h4><span class="header-section-number">4.1.2.3</span> Lognormal Distribution<a href="m1-model-specification.html#lognormal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[ \frac{1.0}{ x\sigma\sqrt{2\pi} }exp(-\frac{(ln(x) - mu)^{2}}{2\sigma^{2}}),\]</span></p>
-<p>where <span class="math inline">\(\mu\)</span> is the mean of the distribution of <span class="math inline">\(log(x)\)</span> and <span class="math inline">\(\sigma^2\)</span> is the variance of <span class="math inline">\(log(x)\)</span>.</p>
+<p><span class="math display">\[f(x) = \frac{1.0}{ x\sigma\sqrt{2\pi} }\mathrm{exp}\Bigg(-\frac{(\mathrm{ln}(x) - \mu)^{2}}{2\sigma^{2}}\Bigg),\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the mean of the distribution of <span class="math inline">\(\mathrm{ln(x)}\)</span> and <span class="math inline">\(\sigma^2\)</span> is the variance of <span class="math inline">\(\mathrm{ln}(x)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -450,7 +450,7 @@ Code can be found <a href="http://kaskr.github.io/adcomp/group__R__style__distri
 <h2><span class="header-section-number">4.2</span> Beverton-Holt recruitment function<a href="m1-model-specification.html#beverton-holt-recruitment-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For parity with existing stock assessment models, the first recruitment
 option in FIMS is the steepness parameterization of the Beverton-Holt model (Beverton and Holt, 1957),</p>
-<p><span class="math display">\[R_t  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}\]</span>
+<p><span class="math display">\[R_t(S_{t-1})  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}\]</span>
 where <span class="math inline">\(R_t\)</span> and <span class="math inline">\(S_t\)</span> are mean recruitment and spawning biomass at time
 <span class="math inline">\(t\)</span>, <span class="math inline">\(h\)</span> is steepness, and <span class="math inline">\(\phi_0\)</span> is the unfished
 spawning biomass per recruit. The initial FIMS model implements a
@@ -468,14 +468,14 @@ and thus the bias correction applies an
 adjustment factor, <span class="math inline">\(b_t=\frac{E[SD(\hat{r}_{t})]^2}{\sigma_R^2}\)</span> (Methot and
 Taylor, 2011). The adjusted bias correction, mean recruitment, and recruitment deviations are
 then used to compute realized recruitment (<span class="math inline">\(R^*_t\)</span>),
-<span class="math display">\[R^*_t=R_t\mathrm{exp}(\hat{r}_{t}-b_t\frac{\sigma_R^2}{2})\]</span>
+<span class="math display">\[R^*_t=R_t\cdot\mathrm{exp}\Bigg(\hat{r}_{t}-b_t\frac{\sigma_R^2}{2}\Bigg)\]</span>
 The recruitment function should take as input the values of <span class="math inline">\(S_t\)</span>,
 <span class="math inline">\(h\)</span>, <span class="math inline">\(R_0\)</span>, <span class="math inline">\(\phi_0\)</span>, <span class="math inline">\(\sigma_R\)</span>, and <span class="math inline">\(\hat{r}_{t}\)</span>, and return mean-unbiased (<span class="math inline">\(R_t\)</span>) and
 realized (<span class="math inline">\(R^*_t\)</span>) recruitment.</p>
 </div>
 <div id="logistic-function-with-extensions" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Logistic function with extensions<a href="m1-model-specification.html#logistic-function-with-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><span class="math display">\[y_i=\frac{1}{1+\mathrm{exp}(-s *(x_i-\nu))}\]</span></p>
+<p><span class="math display">\[y_i=\frac{1}{1+\mathrm{exp}(-s \cdot(x_i-\nu))}\]</span></p>
 <p>Where <span class="math inline">\(y_i\)</span> is the quantity of interest (proportion mature, selected,
 etc.), <span class="math inline">\(x_i\)</span> is the index (can be age or size or any other quantity),
 <span class="math inline">\(\nu\)</span> is the median (inflection point), and <span class="math inline">\(s\)</span> is the slope parameter
@@ -483,26 +483,26 @@ from an alternative parameterization. Logistic functions for maturity
 and selectivity should inherit and extend upon the base logistic
 function implementation.</p>
 <p>The parameterization for the double logistic curve is specified as</p>
-<p><span class="math display">\[y_i=\frac{1.0}{ 1.0 + exp(-1.0 * s_1(x_i - \nu_1))} \left(1-\frac{1.0}{ 1.0 + exp(-1.0 * s_2 (x_i - \nu_2))}  \right)\]</span>
+<p><span class="math display">\[y_i=\frac{1.0}{ 1.0 + \mathrm{exp}(-1.0 \cdot s_1(x_i - \nu_1))} \left(1-\frac{1.0}{ 1.0 + \mathrm{exp}(-1.0 \cdot s_2 (x_i - \nu_2))}  \right)\]</span>
 Where <span class="math inline">\(s_1\)</span> and and <span class="math inline">\(\nu_1\)</span> are the slope and median (50%) parameters for the ascending limb of the curve, and <span class="math inline">\(s_2\)</span> and and <span class="math inline">\(\nu_2\)</span> are the slope and median parameters for the descending limb of the curve. This is currently only implemented for the selectivity module.</p>
 </div>
 <div id="catch-and-fishing-mortality" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Catch and fishing mortality<a href="m1-model-specification.html#catch-and-fishing-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Baranov catch equation relates catch to instantaneous fishing and
 natural mortality.</p>
-<p><span class="math display">\[ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}(1-\mathrm{exp}(-(F_{f,a,t}+M)))N_{a,t}\]</span></p>
-<p>Where <span class="math inline">\(C_{f,a,t}\)</span> is the catch at age <span class="math inline">\(a\)</span> at time <span class="math inline">\(t\)</span> for fleet <span class="math inline">\(f\)</span>, <span class="math inline">\(F\)</span>
+<p><span class="math display">\[ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}\Bigg[1-\mathrm{exp}(-F_{f,a,t}-M)\Bigg]N_{a,t}\]</span></p>
+<p>Where <span class="math inline">\(C_{f,a,t}\)</span> is the catch at age <span class="math inline">\(a\)</span> at time <span class="math inline">\(t\)</span> for fleet <span class="math inline">\(f\)</span>, <span class="math inline">\(F_t\)</span>
 is instantaneous fishing mortality, <span class="math inline">\(M\)</span> is assumed constant over ages
-and time in the minimum viable assessment model, <span class="math inline">\(N_a,t\)</span> is the number
+and time in the minimum viable assessment model, <span class="math inline">\(N_{a,t}\)</span> is the number
 of age <span class="math inline">\(a\)</span> fish at time <span class="math inline">\(t\)</span>.</p>
-<p><span class="math display">\[F_{a,t}=\sum_{a=0}^A s_{a,f,t}F\]</span></p>
-<p><span class="math inline">\(s_a,f\)</span> is selectivity at age <span class="math inline">\(a\)</span> for fleet <span class="math inline">\(f\)</span>. Selectivity-at-age is
+<p><span class="math display">\[F_{f,a,t}=\sum_{a=0}^A s_{f,a}F_t\]</span></p>
+<p><span class="math inline">\(s_{f,a}\)</span> is selectivity at age <span class="math inline">\(a\)</span> for fleet <span class="math inline">\(f\)</span>. Selectivity-at-age is
 constant over time.</p>
 <p>Catch is in metric tons and survey is in number, so calculating catch
 weight (<span class="math inline">\(CW_t\)</span>) is done as follows:
 <span class="math display">\[ CW_t=\sum_{a=0}^A C_{a,t}w_a \]</span></p>
 <p>Survey numbers are calculated as follows</p>
-<p><span class="math display">\[I_t=q\sum_{a=0}^AN_{a,t}\]</span>
+<p><span class="math display">\[I_t=q_t\sum_{a=0}^AN_{a,t}\]</span>
 Where <span class="math inline">\(I_t\)</span> is the survey index and <span class="math inline">\(q_t\)</span> is survey catchability at time
 <span class="math inline">\(t\)</span>.</p>
 </div>
@@ -554,7 +554,7 @@ where <span class="math inline">\(N_t\)</span> is the total number of fish in ti
 <p>The initial equilibrium recruitment (<span class="math inline">\(R_{eq}\)</span>) is calculated as follows:</p>
 <p><span class="math display">\[R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} \]</span>
 where <span class="math inline">\(\phi_{F}\)</span> is the initial spawning biomass per recruitment given
-fishing mortality.</p>
+the initial fishing mortality <span class="math inline">\(F\)</span>.</p>
 </div>
 <div id="likelihood-calculations" class="section level2 hasAnchor" number="4.8">
 <h2><span class="header-section-number">4.8</span> Likelihood calculations<a href="m1-model-specification.html#likelihood-calculations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
