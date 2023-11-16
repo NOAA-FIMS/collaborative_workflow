@@ -608,6 +608,15 @@ explanation and concrete examples.
 To test FIMS R functions interactively and locally, use `devtools::install()` rather than `devtools::load_all()`. This is because using `load_all()` will turn on the debugger, bloating the .o file, and may lead to a compilation error (e.e., `Fatal error: can't write 326 bytes to section .text of FIMS.o: 'file too big'
    as: FIMS.o: too many sections (35851)`). Note that useful interactive tests should should be converted into {testthat} or googletest tests.
 
+### Testing using `gdbsource`
+
+You can interactively debug C++ code using `TMB::gdbsource()` in RStudio. Just add these two lines to the top of the test-fims-estimation.R file
+
+```r
+require(testthat)
+devtools::load_all("C:\\Users\\chris\\noaa-git\\FIMS")
+```
+
 ### R testthat template
 The format for an individual testthat test is is:
 
