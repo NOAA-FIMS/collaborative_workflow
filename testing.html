@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2023-10-26" />
+<meta name="date" content="2023-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -316,7 +316,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.4" data-path="testing.html"><a href="testing.html#r-testing"><i class="fa fa-check"></i><b>10.4</b> R testing</a>
 <ul>
 <li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
-<li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.2</b> R testthat template</a></li>
+<li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#testing-using-gdbsource"><i class="fa fa-check"></i><b>10.4.2</b> Testing using <code>gdbsource</code></a></li>
+<li class="chapter" data-level="10.4.3" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.3</b> R testthat template</a></li>
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a>
 <ul>
@@ -857,14 +858,20 @@ explanation and concrete examples.</p>
 <h3><span class="header-section-number">10.4.1</span> Testing FIMS locally<a href="testing.html#testing-fims-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To test FIMS R functions interactively and locally, use <code>devtools::install()</code> rather than <code>devtools::load_all()</code>. This is because using <code>load_all()</code> will turn on the debugger, bloating the .o file, and may lead to a compilation error (e.e., <code>Fatal error: can't write 326 bytes to section .text of FIMS.o: 'file too big'    as: FIMS.o: too many sections (35851)</code>). Note that useful interactive tests should should be converted into {testthat} or googletest tests.</p>
 </div>
-<div id="r-testthat-template" class="section level3 hasAnchor" number="10.4.2">
-<h3><span class="header-section-number">10.4.2</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="testing-using-gdbsource" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Testing using <code>gdbsource</code><a href="testing.html#testing-using-gdbsource" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can interactively debug C++ code using <code>TMB::gdbsource()</code> in RStudio. Just add these two lines to the top of the test-fims-estimation.R file</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="testing.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(testthat)</span>
+<span id="cb56-2"><a href="testing.html#cb56-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">chris</span><span class="sc">\\</span><span class="st">noaa-git</span><span class="sc">\\</span><span class="st">FIMS&quot;</span>)</span></code></pre></div>
+</div>
+<div id="r-testthat-template" class="section level3 hasAnchor" number="10.4.3">
+<h3><span class="header-section-number">10.4.3</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The format for an individual testthat test is is:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="testing.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
-<span id="cb56-2"><a href="testing.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="testing.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  ...test body...</span>
-<span id="cb56-4"><a href="testing.html#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="testing.html#cb56-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="testing.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb57-2"><a href="testing.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="testing.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  ...test body...</span>
+<span id="cb57-4"><a href="testing.html#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="testing.html#cb57-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>Multiple testthat tests can be put in the same file.</p>
 </div>
 </div>
