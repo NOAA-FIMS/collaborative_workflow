@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2023-11-16" />
+<meta name="date" content="2023-11-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -548,7 +548,19 @@ file:
 where <span class="math inline">\(B_t\)</span> is total biomass in time <span class="math inline">\(t\)</span>, <span class="math inline">\(N\)</span> is total numbers, <span class="math inline">\(w_a\)</span> is
 weight-at-age <span class="math inline">\(a\)</span> in kilograms.</p>
 <p><span class="math display">\[N_t=\sum_{a=0}^AN_{a,t}\]</span>
-where <span class="math inline">\(N_t\)</span> is the total number of fish in time <span class="math inline">\(t\)</span>.</p>
+where <span class="math inline">\(N_at\)</span> is the total number of fish at age <span class="math inline">\(a\)</span> in time <span class="math inline">\(t\)</span>.</p>
+<p><span class="math display">\[UnfishedNAA_{t,0} = R0_{t}\]</span></p>
+<p>Annual unfished numbers at age and unfished spawning biomass are tracked
+in the model assuming annual recruitment at rzero and only natural mortality.
+This provides a dynamic reference point that accounts for time varying rzero
+and M. This does not currently include recruitment deviations.
+<span class="math display">\[UnfishedNAA_{t,0} = R0_{t}\]</span>
+<span class="math display">\[UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}exp(-M_{t-1,a-1})\]</span>
+for all t&gt;0 and numbers at age at the start of the first year are model parameter
+inputs.</p>
+<p><span class="math display">\[ UnfishedSSB_t=\sum_{a=0}^AUnfishedNAA_{a,t}w_aFracFemale_aFracMature_a\]</span>
+All spawning stock biomass values are current calculated at January 1 each year.
+This will be updated in future milestones.</p>
 </div>
 <div id="initial-values" class="section level2 hasAnchor" number="4.7">
 <h2><span class="header-section-number">4.7</span> Initial values<a href="m1-model-specification.html#initial-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -556,6 +568,11 @@ where <span class="math inline">\(N_t\)</span> is the total number of fish in ti
 <p><span class="math display">\[R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} \]</span>
 where <span class="math inline">\(\phi_{F}\)</span> is the initial spawning biomass per recruitment given
 the initial fishing mortality <span class="math inline">\(F\)</span>.</p>
+<p>The initial population structure at the start of the first model year is
+input as an estimated parameter vector of numbers at age. This allows maximum
+flexibility for the model to estimate non-equilibrium starting conditions.
+Future milestones could add an option to input a single F value used to
+calculate an equilibrium starting structure.</p>
 </div>
 <div id="likelihood-calculations" class="section level2 hasAnchor" number="4.8">
 <h2><span class="header-section-number">4.8</span> Likelihood calculations<a href="m1-model-specification.html#likelihood-calculations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
