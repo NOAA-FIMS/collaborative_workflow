@@ -62,8 +62,6 @@ that class type.
 
 This is the `TMB` objective function.
 
-## GitHub forking and cloning
-
 ## GitHub Collaborative Environment
 
 Communication is managed via the [NOAA-FIMS
@@ -112,13 +110,21 @@ helpful to protect the main/trunk branch such that pull requests cannot
 be merged in prior to passing various checks or by individuals without
 the authority to do so.
 
+### GitHub cloning and branching
+
 For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:
 
 ```bash
 git clone https://github.com/NOAA-FIMS/FIMS.git
 ```
 
-For contributors without write access to the FIMS repo, the repository must be forked to contribute. To fork and then clone a repository instead, follow the [Github Documentation for forking a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository). Once cloned, changes can be made on a feature branch. When ready to submit changes follow the [Github Documentation on creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+### Outside collaborators and forks
+
+Outside collaborators without write access to the FIMS repos will be required to fork the repository, make changes, and submit a pull request. Forks are discouraged for every-day development because it becomes difficult to keep track of all of the forks. Thus, it will be important for those working on forks to be active in the issue tracker in the main repository prior to working on their fork — just like any member of the organization would do if they were working within the organization. Knowledge of future projects, ideas, concerns, etc. should always be documented in an issue before the code is altered.
+
+Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as have tests that check the new feature.
+
+To fork and then clone a repository, follow the [Github Documentation for forking a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository). Once cloned, changes can be made on a feature branch. When ready to submit changes follow the [Github Documentation on creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 ## Issue Tracking
 
