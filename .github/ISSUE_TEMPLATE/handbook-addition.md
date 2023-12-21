@@ -3,7 +3,6 @@ name: Handbook addition
 about: Suggest new content for this handbook
 title: "[NEW SECTION]"
 labels: ''
-assignees: kristanblackhart-NOAA
 
 ---
 
