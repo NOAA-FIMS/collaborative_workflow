@@ -80,10 +80,11 @@ interface
 population-dynamics
 files-that-go-in-src
 fims.cpp
-github-forking-and-cloning
 github-collaborative-environment
 fims-branching-strategy
 branch-protection
+github-cloning-and-branching
+outside-collaborators-and-forks
 issue-tracking
 reporting-bugs
 before-submitting-a-bug-report
