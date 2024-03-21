@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 User guide | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 User guide | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-01-03" />
+<meta name="date" content="2024-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -399,8 +399,8 @@ guide</a>.</p>
 </div>
 <div id="installing-from-r" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Installing from <code>R</code><a href="user-guide.html#installing-from-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="user-guide.html#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;NOAA-FIMS/FIMS&quot;</span>)</span>
-<span id="cb1-2"><a href="user-guide.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FIMS)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="user-guide.html#cb1-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;NOAA-FIMS/FIMS&quot;</span>)</span>
+<span id="cb1-2"><a href="user-guide.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(FIMS)</span></code></pre></div>
 </div>
 <div id="running-the-model" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Running the model<a href="user-guide.html#running-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -414,21 +414,21 @@ guide</a>.</p>
 <div id="structuing-data-input" class="section level4 hasAnchor" number="5.4.1.2">
 <h4><span class="header-section-number">5.4.1.2</span> Structuing data input<a href="user-guide.html#structuing-data-input" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You can add components to the model using S4 classes.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="user-guide.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TODO: add script to demonstrate how to structure data input</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="user-guide.html#cb2-1" tabindex="-1"></a><span class="co">#TODO: add script to demonstrate how to structure data input</span></span></code></pre></div>
 </div>
 <div id="defining-model-specifications" class="section level4 hasAnchor" number="5.4.1.3">
 <h4><span class="header-section-number">5.4.1.3</span> Defining model specifications<a href="user-guide.html#defining-model-specifications" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="user-guide.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TODO: add scripts detailing how to set up different components of the model</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="user-guide.html#cb3-1" tabindex="-1"></a><span class="co">#TODO: add scripts detailing how to set up different components of the model</span></span></code></pre></div>
 </div>
 </div>
 <div id="how-to-run-the-model" class="section level3 hasAnchor" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> How to run the model<a href="user-guide.html#how-to-run-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="user-guide.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TODO: add script with examples on how to run the model</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="user-guide.html#cb4-1" tabindex="-1"></a><span class="co">#TODO: add script with examples on how to run the model</span></span></code></pre></div>
 </div>
 <div id="extracting-model-output" class="section level3 hasAnchor" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Extracting model output<a href="user-guide.html#extracting-model-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is how you get the model output.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="user-guide.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Todo add code for how to extract model output</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="user-guide.html#cb5-1" tabindex="-1"></a><span class="co">#Todo add code for how to extract model output</span></span></code></pre></div>
 
 </div>
 </div>
