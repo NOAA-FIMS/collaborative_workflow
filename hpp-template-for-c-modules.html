@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-03-21" />
+<meta name="date" content="2024-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -185,7 +185,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="fims-project-management-process.html"><a href="fims-project-management-process.html#fims-development-cycle"><i class="fa fa-check"></i><b>3.2</b> FIMS development cycle</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="fims-project-management-process.html"><a href="fims-project-management-process.html#issue-lifecycle"><i class="fa fa-check"></i><b>3.2.1</b> Issue lifecycle</a></li>
-<li class="chapter" data-level="3.2.2" data-path="fims-project-management-process.html"><a href="fims-project-management-process.html#feature-validation"><i class="fa fa-check"></i><b>3.2.2</b> Feature validation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="fims-project-management-process.html"><a href="fims-project-management-process.html#m2-development-workflow"><i class="fa fa-check"></i><b>3.2.2</b> M2 development workflow</a></li>
+<li class="chapter" data-level="3.2.3" data-path="fims-project-management-process.html"><a href="fims-project-management-process.html#feature-validation"><i class="fa fa-check"></i><b>3.2.3</b> Feature validation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="m1-model-specification.html"><a href="m1-model-specification.html"><i class="fa fa-check"></i><b>4</b> M1 model specification</a>
@@ -373,157 +374,157 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="hpp-template-for-c-modules" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> .hpp template for C++ modules<a href="hpp-template-for-c-modules.html#hpp-template-for-c-modules" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In this section we will describe how to structure a new .hpp file in FIMS.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="hpp-template-for-c-modules.html#cb21-1" tabindex="-1"></a><span class="co">//  tmplate.hpp</span></span>
-<span id="cb21-2"><a href="hpp-template-for-c-modules.html#cb21-2" tabindex="-1"></a><span class="co">//  Fisheries Integrated Modeling System (FIMS)</span></span>
-<span id="cb21-3"><a href="hpp-template-for-c-modules.html#cb21-3" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="hpp-template-for-c-modules.html#cb21-4" tabindex="-1"></a><span class="co">//define the header gaurd</span></span>
-<span id="cb21-5"><a href="hpp-template-for-c-modules.html#cb21-5" tabindex="-1"></a><span class="pp">#ifndef template_hpp </span></span>
-<span id="cb21-6"><a href="hpp-template-for-c-modules.html#cb21-6" tabindex="-1"></a><span class="pp">#define template_hpp</span></span>
-<span id="cb21-7"><a href="hpp-template-for-c-modules.html#cb21-7" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="hpp-template-for-c-modules.html#cb21-8" tabindex="-1"></a><span class="co">//inherit from model_base</span></span>
-<span id="cb21-9"><a href="hpp-template-for-c-modules.html#cb21-9" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../common.hpp&quot;</span><span class="pp"> </span></span>
-<span id="cb21-10"><a href="hpp-template-for-c-modules.html#cb21-10" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb21-11"><a href="hpp-template-for-c-modules.html#cb21-11" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="hpp-template-for-c-modules.html#cb21-12" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb21-13"><a href="hpp-template-for-c-modules.html#cb21-13" tabindex="-1"></a><span class="co"> * In this example, we utilize the concept of inheritence and </span></span>
-<span id="cb21-14"><a href="hpp-template-for-c-modules.html#cb21-14" tabindex="-1"></a><span class="co"> * polymorphism (https://www.geeksforgeeks.org/polymorphism-in-c/). All</span></span>
-<span id="cb21-15"><a href="hpp-template-for-c-modules.html#cb21-15" tabindex="-1"></a><span class="co"> * classes inherit from model_base. Name1 and Name2 inherit from NameBase.</span></span>
-<span id="cb21-16"><a href="hpp-template-for-c-modules.html#cb21-16" tabindex="-1"></a><span class="co"> * Classes Name1 and Name2 must implement they&#39;re own version of </span></span>
-<span id="cb21-17"><a href="hpp-template-for-c-modules.html#cb21-17" tabindex="-1"></a><span class="co"> * &quot;virtual T evaluate(const T&amp; t)&quot;, which will have unique logic. </span></span>
-<span id="cb21-18"><a href="hpp-template-for-c-modules.html#cb21-18" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb21-19"><a href="hpp-template-for-c-modules.html#cb21-19" tabindex="-1"></a></span>
-<span id="cb21-20"><a href="hpp-template-for-c-modules.html#cb21-20" tabindex="-1"></a></span>
-<span id="cb21-21"><a href="hpp-template-for-c-modules.html#cb21-21" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb21-22"><a href="hpp-template-for-c-modules.html#cb21-22" tabindex="-1"></a><span class="co"> * fims namespace</span></span>
-<span id="cb21-23"><a href="hpp-template-for-c-modules.html#cb21-23" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb21-24"><a href="hpp-template-for-c-modules.html#cb21-24" tabindex="-1"></a>namespace fims<span class="op">{</span></span>
-<span id="cb21-25"><a href="hpp-template-for-c-modules.html#cb21-25" tabindex="-1"></a></span>
-<span id="cb21-26"><a href="hpp-template-for-c-modules.html#cb21-26" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb21-27"><a href="hpp-template-for-c-modules.html#cb21-27" tabindex="-1"></a><span class="co"> * NameBase class. Inherits from model_base.</span></span>
-<span id="cb21-28"><a href="hpp-template-for-c-modules.html#cb21-28" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb21-29"><a href="hpp-template-for-c-modules.html#cb21-29" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
-<span id="cb21-30"><a href="hpp-template-for-c-modules.html#cb21-30" tabindex="-1"></a>class NameBase<span class="op">:</span> public model_base<span class="op">&lt;</span>T<span class="op">&gt;{</span> <span class="co">//note that model_base gets template parameter T.</span></span>
-<span id="cb21-31"><a href="hpp-template-for-c-modules.html#cb21-31" tabindex="-1"></a>protected<span class="op">:</span></span>
-<span id="cb21-32"><a href="hpp-template-for-c-modules.html#cb21-32" tabindex="-1"></a></span>
-<span id="cb21-33"><a href="hpp-template-for-c-modules.html#cb21-33" tabindex="-1"></a>public<span class="op">:</span></span>
-<span id="cb21-34"><a href="hpp-template-for-c-modules.html#cb21-34" tabindex="-1"></a>  virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)=</span><span class="dv">0</span><span class="op">;</span> <span class="co">//&quot;= 0;&quot; means this must be implemented in child.</span></span>
-<span id="cb21-35"><a href="hpp-template-for-c-modules.html#cb21-35" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb21-36"><a href="hpp-template-for-c-modules.html#cb21-36" tabindex="-1"></a>  </span>
-<span id="cb21-37"><a href="hpp-template-for-c-modules.html#cb21-37" tabindex="-1"></a><span class="co">/* </span></span>
-<span id="cb21-38"><a href="hpp-template-for-c-modules.html#cb21-38" tabindex="-1"></a><span class="co">* Template class inherits from  NameBase</span></span>
-<span id="cb21-39"><a href="hpp-template-for-c-modules.html#cb21-39" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb21-40"><a href="hpp-template-for-c-modules.html#cb21-40" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
-<span id="cb21-41"><a href="hpp-template-for-c-modules.html#cb21-41" tabindex="-1"></a>class Name1<span class="op">:</span> public NameBase<span class="op">&lt;</span>T<span class="op">&gt;{</span></span>
-<span id="cb21-42"><a href="hpp-template-for-c-modules.html#cb21-42" tabindex="-1"></a></span>
-<span id="cb21-43"><a href="hpp-template-for-c-modules.html#cb21-43" tabindex="-1"></a>public<span class="op">:</span></span>
-<span id="cb21-44"><a href="hpp-template-for-c-modules.html#cb21-44" tabindex="-1"></a> </span>
-<span id="cb21-45"><a href="hpp-template-for-c-modules.html#cb21-45" tabindex="-1"></a>    </span>
-<span id="cb21-46"><a href="hpp-template-for-c-modules.html#cb21-46" tabindex="-1"></a>  <span class="co">/*</span></span>
-<span id="cb21-47"><a href="hpp-template-for-c-modules.html#cb21-47" tabindex="-1"></a><span class="co">   *Default constructor</span></span>
-<span id="cb21-48"><a href="hpp-template-for-c-modules.html#cb21-48" tabindex="-1"></a><span class="co">   *Initialize any memory here.</span></span>
-<span id="cb21-49"><a href="hpp-template-for-c-modules.html#cb21-49" tabindex="-1"></a><span class="co">   */</span></span>
-<span id="cb21-50"><a href="hpp-template-for-c-modules.html#cb21-50" tabindex="-1"></a>  Name1<span class="op">(){</span></span>
-<span id="cb21-51"><a href="hpp-template-for-c-modules.html#cb21-51" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb21-52"><a href="hpp-template-for-c-modules.html#cb21-52" tabindex="-1"></a>  </span>
-<span id="cb21-53"><a href="hpp-template-for-c-modules.html#cb21-53" tabindex="-1"></a> </span>
-<span id="cb21-54"><a href="hpp-template-for-c-modules.html#cb21-54" tabindex="-1"></a>  <span class="co">/**</span></span>
-<span id="cb21-55"><a href="hpp-template-for-c-modules.html#cb21-55" tabindex="-1"></a><span class="co">   * Destructor; this method destructs Name1 object.</span></span>
-<span id="cb21-56"><a href="hpp-template-for-c-modules.html#cb21-56" tabindex="-1"></a><span class="co">   * Delete any allocated memory here.</span></span>
-<span id="cb21-57"><a href="hpp-template-for-c-modules.html#cb21-57" tabindex="-1"></a><span class="co">   */</span></span>
-<span id="cb21-58"><a href="hpp-template-for-c-modules.html#cb21-58" tabindex="-1"></a>  <span class="op">~</span> Name1<span class="op">(){</span></span>
-<span id="cb21-59"><a href="hpp-template-for-c-modules.html#cb21-59" tabindex="-1"></a>    std<span class="op">::</span>cout <span class="op">&lt;&lt;</span><span class="st">&quot;I just deleted Name1 object&quot;</span> <span class="op">&lt;&lt;</span> std<span class="op">::</span>endl<span class="op">;</span></span>
-<span id="cb21-60"><a href="hpp-template-for-c-modules.html#cb21-60" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb21-61"><a href="hpp-template-for-c-modules.html#cb21-61" tabindex="-1"></a>  </span>
-<span id="cb21-62"><a href="hpp-template-for-c-modules.html#cb21-62" tabindex="-1"></a>   <span class="co">/**</span></span>
-<span id="cb21-63"><a href="hpp-template-for-c-modules.html#cb21-63" tabindex="-1"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
-<span id="cb21-64"><a href="hpp-template-for-c-modules.html#cb21-64" tabindex="-1"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
-<span id="cb21-65"><a href="hpp-template-for-c-modules.html#cb21-65" tabindex="-1"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
-<span id="cb21-66"><a href="hpp-template-for-c-modules.html#cb21-66" tabindex="-1"></a><span class="co">    * </span></span>
-<span id="cb21-67"><a href="hpp-template-for-c-modules.html#cb21-67" tabindex="-1"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
-<span id="cb21-68"><a href="hpp-template-for-c-modules.html#cb21-68" tabindex="-1"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t+1</span></span>
-<span id="cb21-69"><a href="hpp-template-for-c-modules.html#cb21-69" tabindex="-1"></a><span class="co">    */</span></span>
-<span id="cb21-70"><a href="hpp-template-for-c-modules.html#cb21-70" tabindex="-1"></a>   virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb21-71"><a href="hpp-template-for-c-modules.html#cb21-71" tabindex="-1"></a>     std<span class="op">::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;evaluate in Name1 received &quot;</span><span class="op">&lt;&lt;</span>t<span class="op">&lt;&lt;</span></span>
-<span id="cb21-72"><a href="hpp-template-for-c-modules.html#cb21-72" tabindex="-1"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span><span class="op">&lt;&lt;(</span>t<span class="op">+</span><span class="dv">1</span><span class="op">)&lt;&lt;</span>std<span class="op">::</span>endl<span class="op">;</span></span>
-<span id="cb21-73"><a href="hpp-template-for-c-modules.html#cb21-73" tabindex="-1"></a>     <span class="cf">return</span> t<span class="op">+</span><span class="dv">1</span><span class="op">;</span> <span class="co">//unique logic for Name1 class</span></span>
-<span id="cb21-74"><a href="hpp-template-for-c-modules.html#cb21-74" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb21-75"><a href="hpp-template-for-c-modules.html#cb21-75" tabindex="-1"></a></span>
-<span id="cb21-76"><a href="hpp-template-for-c-modules.html#cb21-76" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb21-77"><a href="hpp-template-for-c-modules.html#cb21-77" tabindex="-1"></a></span>
-<span id="cb21-78"><a href="hpp-template-for-c-modules.html#cb21-78" tabindex="-1"></a>  <span class="co">/* </span></span>
-<span id="cb21-79"><a href="hpp-template-for-c-modules.html#cb21-79" tabindex="-1"></a><span class="co">* Template class inherits from  NameBase</span></span>
-<span id="cb21-80"><a href="hpp-template-for-c-modules.html#cb21-80" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb21-81"><a href="hpp-template-for-c-modules.html#cb21-81" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
-<span id="cb21-82"><a href="hpp-template-for-c-modules.html#cb21-82" tabindex="-1"></a>class Name2<span class="op">:</span> public NameBase<span class="op">&lt;</span>T<span class="op">&gt;{</span></span>
-<span id="cb21-83"><a href="hpp-template-for-c-modules.html#cb21-83" tabindex="-1"></a></span>
-<span id="cb21-84"><a href="hpp-template-for-c-modules.html#cb21-84" tabindex="-1"></a>public<span class="op">:</span></span>
-<span id="cb21-85"><a href="hpp-template-for-c-modules.html#cb21-85" tabindex="-1"></a> </span>
-<span id="cb21-86"><a href="hpp-template-for-c-modules.html#cb21-86" tabindex="-1"></a>    </span>
-<span id="cb21-87"><a href="hpp-template-for-c-modules.html#cb21-87" tabindex="-1"></a>  <span class="co">/*</span></span>
-<span id="cb21-88"><a href="hpp-template-for-c-modules.html#cb21-88" tabindex="-1"></a><span class="co">   *Default constructor.</span></span>
-<span id="cb21-89"><a href="hpp-template-for-c-modules.html#cb21-89" tabindex="-1"></a><span class="co">   *Initialize any memory here.</span></span>
-<span id="cb21-90"><a href="hpp-template-for-c-modules.html#cb21-90" tabindex="-1"></a><span class="co">   */</span></span>
-<span id="cb21-91"><a href="hpp-template-for-c-modules.html#cb21-91" tabindex="-1"></a>  Name2<span class="op">(){</span></span>
-<span id="cb21-92"><a href="hpp-template-for-c-modules.html#cb21-92" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb21-93"><a href="hpp-template-for-c-modules.html#cb21-93" tabindex="-1"></a>  </span>
-<span id="cb21-94"><a href="hpp-template-for-c-modules.html#cb21-94" tabindex="-1"></a> </span>
-<span id="cb21-95"><a href="hpp-template-for-c-modules.html#cb21-95" tabindex="-1"></a>  <span class="co">/**</span></span>
-<span id="cb21-96"><a href="hpp-template-for-c-modules.html#cb21-96" tabindex="-1"></a><span class="co">   * Destructor; this method destructs the Name2 object.</span></span>
-<span id="cb21-97"><a href="hpp-template-for-c-modules.html#cb21-97" tabindex="-1"></a><span class="co">   * Delete any allocated memory here.</span></span>
-<span id="cb21-98"><a href="hpp-template-for-c-modules.html#cb21-98" tabindex="-1"></a><span class="co">   */</span></span>
-<span id="cb21-99"><a href="hpp-template-for-c-modules.html#cb21-99" tabindex="-1"></a>  <span class="op">~</span> Name2<span class="op">(){</span></span>
-<span id="cb21-100"><a href="hpp-template-for-c-modules.html#cb21-100" tabindex="-1"></a>    std<span class="op">::</span>cout <span class="op">&lt;&lt;</span><span class="st">&quot;I just deleted Name2 object&quot;</span> <span class="op">&lt;&lt;</span> std<span class="op">::</span>endl<span class="op">;</span></span>
-<span id="cb21-101"><a href="hpp-template-for-c-modules.html#cb21-101" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb21-102"><a href="hpp-template-for-c-modules.html#cb21-102" tabindex="-1"></a>  </span>
-<span id="cb21-103"><a href="hpp-template-for-c-modules.html#cb21-103" tabindex="-1"></a>   <span class="co">/**</span></span>
-<span id="cb21-104"><a href="hpp-template-for-c-modules.html#cb21-104" tabindex="-1"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
-<span id="cb21-105"><a href="hpp-template-for-c-modules.html#cb21-105" tabindex="-1"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
-<span id="cb21-106"><a href="hpp-template-for-c-modules.html#cb21-106" tabindex="-1"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
-<span id="cb21-107"><a href="hpp-template-for-c-modules.html#cb21-107" tabindex="-1"></a><span class="co">    * </span></span>
-<span id="cb21-108"><a href="hpp-template-for-c-modules.html#cb21-108" tabindex="-1"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
-<span id="cb21-109"><a href="hpp-template-for-c-modules.html#cb21-109" tabindex="-1"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t^2</span></span>
-<span id="cb21-110"><a href="hpp-template-for-c-modules.html#cb21-110" tabindex="-1"></a><span class="co">    */</span></span>
-<span id="cb21-111"><a href="hpp-template-for-c-modules.html#cb21-111" tabindex="-1"></a>   virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb21-112"><a href="hpp-template-for-c-modules.html#cb21-112" tabindex="-1"></a>     std<span class="op">::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;evaluate in Name2 received &quot;</span><span class="op">&lt;&lt;</span>t<span class="op">&lt;&lt;</span></span>
-<span id="cb21-113"><a href="hpp-template-for-c-modules.html#cb21-113" tabindex="-1"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span><span class="op">&lt;&lt;(</span>t<span class="op">*</span>t<span class="op">)&lt;&lt;</span>std<span class="op">::</span>endl<span class="op">;</span></span>
-<span id="cb21-114"><a href="hpp-template-for-c-modules.html#cb21-114" tabindex="-1"></a>     <span class="cf">return</span> t<span class="op">*</span>t<span class="op">;</span> <span class="co">//unique logic for Name2 class</span></span>
-<span id="cb21-115"><a href="hpp-template-for-c-modules.html#cb21-115" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb21-116"><a href="hpp-template-for-c-modules.html#cb21-116" tabindex="-1"></a></span>
-<span id="cb21-117"><a href="hpp-template-for-c-modules.html#cb21-117" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb21-118"><a href="hpp-template-for-c-modules.html#cb21-118" tabindex="-1"></a>  </span>
-<span id="cb21-119"><a href="hpp-template-for-c-modules.html#cb21-119" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb21-120"><a href="hpp-template-for-c-modules.html#cb21-120" tabindex="-1"></a><span class="co"> * Add additional implementations below.</span></span>
-<span id="cb21-121"><a href="hpp-template-for-c-modules.html#cb21-121" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb21-122"><a href="hpp-template-for-c-modules.html#cb21-122" tabindex="-1"></a>  </span>
-<span id="cb21-123"><a href="hpp-template-for-c-modules.html#cb21-123" tabindex="-1"></a></span>
-<span id="cb21-124"><a href="hpp-template-for-c-modules.html#cb21-124" tabindex="-1"></a></span>
-<span id="cb21-125"><a href="hpp-template-for-c-modules.html#cb21-125" tabindex="-1"></a></span>
-<span id="cb21-126"><a href="hpp-template-for-c-modules.html#cb21-126" tabindex="-1"></a><span class="op">}</span> <span class="co">//end namespace</span></span>
-<span id="cb21-127"><a href="hpp-template-for-c-modules.html#cb21-127" tabindex="-1"></a></span>
-<span id="cb21-128"><a href="hpp-template-for-c-modules.html#cb21-128" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb21-129"><a href="hpp-template-for-c-modules.html#cb21-129" tabindex="-1"></a><span class="co"> *Example usage:</span></span>
-<span id="cb21-130"><a href="hpp-template-for-c-modules.html#cb21-130" tabindex="-1"></a><span class="co"> *</span></span>
-<span id="cb21-131"><a href="hpp-template-for-c-modules.html#cb21-131" tabindex="-1"></a><span class="co"> * void main(int argc, char** argv){</span></span>
-<span id="cb21-132"><a href="hpp-template-for-c-modules.html#cb21-132" tabindex="-1"></a><span class="co"> *    NameBase</span><span class="kw">&lt;double&gt;</span><span class="co">* name = NULL; //pointer to a NameBase object</span></span>
-<span id="cb21-133"><a href="hpp-template-for-c-modules.html#cb21-133" tabindex="-1"></a><span class="co"> *    Name1</span><span class="kw">&lt;double&gt;</span><span class="co"> n1; //inherits from NameBase</span></span>
-<span id="cb21-134"><a href="hpp-template-for-c-modules.html#cb21-134" tabindex="-1"></a><span class="co"> *    Name2</span><span class="kw">&lt;double&gt;</span><span class="co"> n2; //inherits from NameBase</span></span>
-<span id="cb21-135"><a href="hpp-template-for-c-modules.html#cb21-135" tabindex="-1"></a><span class="co"> *</span></span>
-<span id="cb21-136"><a href="hpp-template-for-c-modules.html#cb21-136" tabindex="-1"></a><span class="co"> *    name = &amp;n1; //name now points to n1</span></span>
-<span id="cb21-137"><a href="hpp-template-for-c-modules.html#cb21-137" tabindex="-1"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n1</span></span>
-<span id="cb21-138"><a href="hpp-template-for-c-modules.html#cb21-138" tabindex="-1"></a><span class="co"> *</span></span>
-<span id="cb21-139"><a href="hpp-template-for-c-modules.html#cb21-139" tabindex="-1"></a><span class="co"> *    name = &amp;n2; //name now points to n2</span></span>
-<span id="cb21-140"><a href="hpp-template-for-c-modules.html#cb21-140" tabindex="-1"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n2</span></span>
-<span id="cb21-141"><a href="hpp-template-for-c-modules.html#cb21-141" tabindex="-1"></a><span class="co"> * }</span></span>
-<span id="cb21-142"><a href="hpp-template-for-c-modules.html#cb21-142" tabindex="-1"></a><span class="co"> *</span></span>
-<span id="cb21-143"><a href="hpp-template-for-c-modules.html#cb21-143" tabindex="-1"></a><span class="co"> * Output:</span></span>
-<span id="cb21-144"><a href="hpp-template-for-c-modules.html#cb21-144" tabindex="-1"></a><span class="co"> * evaluate in Name1 received 2 as a method parameter, returning 3</span></span>
-<span id="cb21-145"><a href="hpp-template-for-c-modules.html#cb21-145" tabindex="-1"></a><span class="co"> * evaluate in Name2 received 2 as a method parameter, returning 4</span></span>
-<span id="cb21-146"><a href="hpp-template-for-c-modules.html#cb21-146" tabindex="-1"></a><span class="co"> *</span></span>
-<span id="cb21-147"><a href="hpp-template-for-c-modules.html#cb21-147" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb21-148"><a href="hpp-template-for-c-modules.html#cb21-148" tabindex="-1"></a></span>
-<span id="cb21-149"><a href="hpp-template-for-c-modules.html#cb21-149" tabindex="-1"></a></span>
-<span id="cb21-150"><a href="hpp-template-for-c-modules.html#cb21-150" tabindex="-1"></a></span>
-<span id="cb21-151"><a href="hpp-template-for-c-modules.html#cb21-151" tabindex="-1"></a><span class="pp">#endif </span><span class="co">/*template_hpp */</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="hpp-template-for-c-modules.html#cb22-1" tabindex="-1"></a><span class="co">//  tmplate.hpp</span></span>
+<span id="cb22-2"><a href="hpp-template-for-c-modules.html#cb22-2" tabindex="-1"></a><span class="co">//  Fisheries Integrated Modeling System (FIMS)</span></span>
+<span id="cb22-3"><a href="hpp-template-for-c-modules.html#cb22-3" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="hpp-template-for-c-modules.html#cb22-4" tabindex="-1"></a><span class="co">//define the header gaurd</span></span>
+<span id="cb22-5"><a href="hpp-template-for-c-modules.html#cb22-5" tabindex="-1"></a><span class="pp">#ifndef template_hpp </span></span>
+<span id="cb22-6"><a href="hpp-template-for-c-modules.html#cb22-6" tabindex="-1"></a><span class="pp">#define template_hpp</span></span>
+<span id="cb22-7"><a href="hpp-template-for-c-modules.html#cb22-7" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="hpp-template-for-c-modules.html#cb22-8" tabindex="-1"></a><span class="co">//inherit from model_base</span></span>
+<span id="cb22-9"><a href="hpp-template-for-c-modules.html#cb22-9" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../common.hpp&quot;</span><span class="pp"> </span></span>
+<span id="cb22-10"><a href="hpp-template-for-c-modules.html#cb22-10" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb22-11"><a href="hpp-template-for-c-modules.html#cb22-11" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="hpp-template-for-c-modules.html#cb22-12" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb22-13"><a href="hpp-template-for-c-modules.html#cb22-13" tabindex="-1"></a><span class="co"> * In this example, we utilize the concept of inheritence and </span></span>
+<span id="cb22-14"><a href="hpp-template-for-c-modules.html#cb22-14" tabindex="-1"></a><span class="co"> * polymorphism (https://www.geeksforgeeks.org/polymorphism-in-c/). All</span></span>
+<span id="cb22-15"><a href="hpp-template-for-c-modules.html#cb22-15" tabindex="-1"></a><span class="co"> * classes inherit from model_base. Name1 and Name2 inherit from NameBase.</span></span>
+<span id="cb22-16"><a href="hpp-template-for-c-modules.html#cb22-16" tabindex="-1"></a><span class="co"> * Classes Name1 and Name2 must implement they&#39;re own version of </span></span>
+<span id="cb22-17"><a href="hpp-template-for-c-modules.html#cb22-17" tabindex="-1"></a><span class="co"> * &quot;virtual T evaluate(const T&amp; t)&quot;, which will have unique logic. </span></span>
+<span id="cb22-18"><a href="hpp-template-for-c-modules.html#cb22-18" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb22-19"><a href="hpp-template-for-c-modules.html#cb22-19" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="hpp-template-for-c-modules.html#cb22-20" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="hpp-template-for-c-modules.html#cb22-21" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb22-22"><a href="hpp-template-for-c-modules.html#cb22-22" tabindex="-1"></a><span class="co"> * fims namespace</span></span>
+<span id="cb22-23"><a href="hpp-template-for-c-modules.html#cb22-23" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb22-24"><a href="hpp-template-for-c-modules.html#cb22-24" tabindex="-1"></a>namespace fims<span class="op">{</span></span>
+<span id="cb22-25"><a href="hpp-template-for-c-modules.html#cb22-25" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="hpp-template-for-c-modules.html#cb22-26" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb22-27"><a href="hpp-template-for-c-modules.html#cb22-27" tabindex="-1"></a><span class="co"> * NameBase class. Inherits from model_base.</span></span>
+<span id="cb22-28"><a href="hpp-template-for-c-modules.html#cb22-28" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb22-29"><a href="hpp-template-for-c-modules.html#cb22-29" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
+<span id="cb22-30"><a href="hpp-template-for-c-modules.html#cb22-30" tabindex="-1"></a>class NameBase<span class="op">:</span> public model_base<span class="op">&lt;</span>T<span class="op">&gt;{</span> <span class="co">//note that model_base gets template parameter T.</span></span>
+<span id="cb22-31"><a href="hpp-template-for-c-modules.html#cb22-31" tabindex="-1"></a>protected<span class="op">:</span></span>
+<span id="cb22-32"><a href="hpp-template-for-c-modules.html#cb22-32" tabindex="-1"></a></span>
+<span id="cb22-33"><a href="hpp-template-for-c-modules.html#cb22-33" tabindex="-1"></a>public<span class="op">:</span></span>
+<span id="cb22-34"><a href="hpp-template-for-c-modules.html#cb22-34" tabindex="-1"></a>  virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)=</span><span class="dv">0</span><span class="op">;</span> <span class="co">//&quot;= 0;&quot; means this must be implemented in child.</span></span>
+<span id="cb22-35"><a href="hpp-template-for-c-modules.html#cb22-35" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb22-36"><a href="hpp-template-for-c-modules.html#cb22-36" tabindex="-1"></a>  </span>
+<span id="cb22-37"><a href="hpp-template-for-c-modules.html#cb22-37" tabindex="-1"></a><span class="co">/* </span></span>
+<span id="cb22-38"><a href="hpp-template-for-c-modules.html#cb22-38" tabindex="-1"></a><span class="co">* Template class inherits from  NameBase</span></span>
+<span id="cb22-39"><a href="hpp-template-for-c-modules.html#cb22-39" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb22-40"><a href="hpp-template-for-c-modules.html#cb22-40" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
+<span id="cb22-41"><a href="hpp-template-for-c-modules.html#cb22-41" tabindex="-1"></a>class Name1<span class="op">:</span> public NameBase<span class="op">&lt;</span>T<span class="op">&gt;{</span></span>
+<span id="cb22-42"><a href="hpp-template-for-c-modules.html#cb22-42" tabindex="-1"></a></span>
+<span id="cb22-43"><a href="hpp-template-for-c-modules.html#cb22-43" tabindex="-1"></a>public<span class="op">:</span></span>
+<span id="cb22-44"><a href="hpp-template-for-c-modules.html#cb22-44" tabindex="-1"></a> </span>
+<span id="cb22-45"><a href="hpp-template-for-c-modules.html#cb22-45" tabindex="-1"></a>    </span>
+<span id="cb22-46"><a href="hpp-template-for-c-modules.html#cb22-46" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb22-47"><a href="hpp-template-for-c-modules.html#cb22-47" tabindex="-1"></a><span class="co">   *Default constructor</span></span>
+<span id="cb22-48"><a href="hpp-template-for-c-modules.html#cb22-48" tabindex="-1"></a><span class="co">   *Initialize any memory here.</span></span>
+<span id="cb22-49"><a href="hpp-template-for-c-modules.html#cb22-49" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb22-50"><a href="hpp-template-for-c-modules.html#cb22-50" tabindex="-1"></a>  Name1<span class="op">(){</span></span>
+<span id="cb22-51"><a href="hpp-template-for-c-modules.html#cb22-51" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-52"><a href="hpp-template-for-c-modules.html#cb22-52" tabindex="-1"></a>  </span>
+<span id="cb22-53"><a href="hpp-template-for-c-modules.html#cb22-53" tabindex="-1"></a> </span>
+<span id="cb22-54"><a href="hpp-template-for-c-modules.html#cb22-54" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb22-55"><a href="hpp-template-for-c-modules.html#cb22-55" tabindex="-1"></a><span class="co">   * Destructor; this method destructs Name1 object.</span></span>
+<span id="cb22-56"><a href="hpp-template-for-c-modules.html#cb22-56" tabindex="-1"></a><span class="co">   * Delete any allocated memory here.</span></span>
+<span id="cb22-57"><a href="hpp-template-for-c-modules.html#cb22-57" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb22-58"><a href="hpp-template-for-c-modules.html#cb22-58" tabindex="-1"></a>  <span class="op">~</span> Name1<span class="op">(){</span></span>
+<span id="cb22-59"><a href="hpp-template-for-c-modules.html#cb22-59" tabindex="-1"></a>    std<span class="op">::</span>cout <span class="op">&lt;&lt;</span><span class="st">&quot;I just deleted Name1 object&quot;</span> <span class="op">&lt;&lt;</span> std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb22-60"><a href="hpp-template-for-c-modules.html#cb22-60" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-61"><a href="hpp-template-for-c-modules.html#cb22-61" tabindex="-1"></a>  </span>
+<span id="cb22-62"><a href="hpp-template-for-c-modules.html#cb22-62" tabindex="-1"></a>   <span class="co">/**</span></span>
+<span id="cb22-63"><a href="hpp-template-for-c-modules.html#cb22-63" tabindex="-1"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
+<span id="cb22-64"><a href="hpp-template-for-c-modules.html#cb22-64" tabindex="-1"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
+<span id="cb22-65"><a href="hpp-template-for-c-modules.html#cb22-65" tabindex="-1"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
+<span id="cb22-66"><a href="hpp-template-for-c-modules.html#cb22-66" tabindex="-1"></a><span class="co">    * </span></span>
+<span id="cb22-67"><a href="hpp-template-for-c-modules.html#cb22-67" tabindex="-1"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
+<span id="cb22-68"><a href="hpp-template-for-c-modules.html#cb22-68" tabindex="-1"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t+1</span></span>
+<span id="cb22-69"><a href="hpp-template-for-c-modules.html#cb22-69" tabindex="-1"></a><span class="co">    */</span></span>
+<span id="cb22-70"><a href="hpp-template-for-c-modules.html#cb22-70" tabindex="-1"></a>   virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-71"><a href="hpp-template-for-c-modules.html#cb22-71" tabindex="-1"></a>     std<span class="op">::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;evaluate in Name1 received &quot;</span><span class="op">&lt;&lt;</span>t<span class="op">&lt;&lt;</span></span>
+<span id="cb22-72"><a href="hpp-template-for-c-modules.html#cb22-72" tabindex="-1"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span><span class="op">&lt;&lt;(</span>t<span class="op">+</span><span class="dv">1</span><span class="op">)&lt;&lt;</span>std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb22-73"><a href="hpp-template-for-c-modules.html#cb22-73" tabindex="-1"></a>     <span class="cf">return</span> t<span class="op">+</span><span class="dv">1</span><span class="op">;</span> <span class="co">//unique logic for Name1 class</span></span>
+<span id="cb22-74"><a href="hpp-template-for-c-modules.html#cb22-74" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb22-75"><a href="hpp-template-for-c-modules.html#cb22-75" tabindex="-1"></a></span>
+<span id="cb22-76"><a href="hpp-template-for-c-modules.html#cb22-76" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb22-77"><a href="hpp-template-for-c-modules.html#cb22-77" tabindex="-1"></a></span>
+<span id="cb22-78"><a href="hpp-template-for-c-modules.html#cb22-78" tabindex="-1"></a>  <span class="co">/* </span></span>
+<span id="cb22-79"><a href="hpp-template-for-c-modules.html#cb22-79" tabindex="-1"></a><span class="co">* Template class inherits from  NameBase</span></span>
+<span id="cb22-80"><a href="hpp-template-for-c-modules.html#cb22-80" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb22-81"><a href="hpp-template-for-c-modules.html#cb22-81" tabindex="-1"></a>template <span class="op">&lt;</span>class T<span class="op">&gt;</span></span>
+<span id="cb22-82"><a href="hpp-template-for-c-modules.html#cb22-82" tabindex="-1"></a>class Name2<span class="op">:</span> public NameBase<span class="op">&lt;</span>T<span class="op">&gt;{</span></span>
+<span id="cb22-83"><a href="hpp-template-for-c-modules.html#cb22-83" tabindex="-1"></a></span>
+<span id="cb22-84"><a href="hpp-template-for-c-modules.html#cb22-84" tabindex="-1"></a>public<span class="op">:</span></span>
+<span id="cb22-85"><a href="hpp-template-for-c-modules.html#cb22-85" tabindex="-1"></a> </span>
+<span id="cb22-86"><a href="hpp-template-for-c-modules.html#cb22-86" tabindex="-1"></a>    </span>
+<span id="cb22-87"><a href="hpp-template-for-c-modules.html#cb22-87" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb22-88"><a href="hpp-template-for-c-modules.html#cb22-88" tabindex="-1"></a><span class="co">   *Default constructor.</span></span>
+<span id="cb22-89"><a href="hpp-template-for-c-modules.html#cb22-89" tabindex="-1"></a><span class="co">   *Initialize any memory here.</span></span>
+<span id="cb22-90"><a href="hpp-template-for-c-modules.html#cb22-90" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb22-91"><a href="hpp-template-for-c-modules.html#cb22-91" tabindex="-1"></a>  Name2<span class="op">(){</span></span>
+<span id="cb22-92"><a href="hpp-template-for-c-modules.html#cb22-92" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-93"><a href="hpp-template-for-c-modules.html#cb22-93" tabindex="-1"></a>  </span>
+<span id="cb22-94"><a href="hpp-template-for-c-modules.html#cb22-94" tabindex="-1"></a> </span>
+<span id="cb22-95"><a href="hpp-template-for-c-modules.html#cb22-95" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb22-96"><a href="hpp-template-for-c-modules.html#cb22-96" tabindex="-1"></a><span class="co">   * Destructor; this method destructs the Name2 object.</span></span>
+<span id="cb22-97"><a href="hpp-template-for-c-modules.html#cb22-97" tabindex="-1"></a><span class="co">   * Delete any allocated memory here.</span></span>
+<span id="cb22-98"><a href="hpp-template-for-c-modules.html#cb22-98" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb22-99"><a href="hpp-template-for-c-modules.html#cb22-99" tabindex="-1"></a>  <span class="op">~</span> Name2<span class="op">(){</span></span>
+<span id="cb22-100"><a href="hpp-template-for-c-modules.html#cb22-100" tabindex="-1"></a>    std<span class="op">::</span>cout <span class="op">&lt;&lt;</span><span class="st">&quot;I just deleted Name2 object&quot;</span> <span class="op">&lt;&lt;</span> std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb22-101"><a href="hpp-template-for-c-modules.html#cb22-101" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-102"><a href="hpp-template-for-c-modules.html#cb22-102" tabindex="-1"></a>  </span>
+<span id="cb22-103"><a href="hpp-template-for-c-modules.html#cb22-103" tabindex="-1"></a>   <span class="co">/**</span></span>
+<span id="cb22-104"><a href="hpp-template-for-c-modules.html#cb22-104" tabindex="-1"></a><span class="co">    * Note: this function must have the same signature as evaluate in NameBase.</span></span>
+<span id="cb22-105"><a href="hpp-template-for-c-modules.html#cb22-105" tabindex="-1"></a><span class="co">    * Overloaded virtual function. This is polymorphism, meaning the </span></span>
+<span id="cb22-106"><a href="hpp-template-for-c-modules.html#cb22-106" tabindex="-1"></a><span class="co">    * signature has the same appearance, but the function itself has unique logic.</span></span>
+<span id="cb22-107"><a href="hpp-template-for-c-modules.html#cb22-107" tabindex="-1"></a><span class="co">    * </span></span>
+<span id="cb22-108"><a href="hpp-template-for-c-modules.html#cb22-108" tabindex="-1"></a><span class="co">    * </span><span class="an">@param</span><span class="co"> </span><span class="cv">t</span></span>
+<span id="cb22-109"><a href="hpp-template-for-c-modules.html#cb22-109" tabindex="-1"></a><span class="co">    * </span><span class="an">@return</span><span class="co"> t^2</span></span>
+<span id="cb22-110"><a href="hpp-template-for-c-modules.html#cb22-110" tabindex="-1"></a><span class="co">    */</span></span>
+<span id="cb22-111"><a href="hpp-template-for-c-modules.html#cb22-111" tabindex="-1"></a>   virtual T Evaluate<span class="op">(</span><span class="dt">const</span> T<span class="op">&amp;</span> t<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-112"><a href="hpp-template-for-c-modules.html#cb22-112" tabindex="-1"></a>     std<span class="op">::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;evaluate in Name2 received &quot;</span><span class="op">&lt;&lt;</span>t<span class="op">&lt;&lt;</span></span>
+<span id="cb22-113"><a href="hpp-template-for-c-modules.html#cb22-113" tabindex="-1"></a>     <span class="st">&quot;as a method parameter, returning &quot;</span><span class="op">&lt;&lt;(</span>t<span class="op">*</span>t<span class="op">)&lt;&lt;</span>std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb22-114"><a href="hpp-template-for-c-modules.html#cb22-114" tabindex="-1"></a>     <span class="cf">return</span> t<span class="op">*</span>t<span class="op">;</span> <span class="co">//unique logic for Name2 class</span></span>
+<span id="cb22-115"><a href="hpp-template-for-c-modules.html#cb22-115" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb22-116"><a href="hpp-template-for-c-modules.html#cb22-116" tabindex="-1"></a></span>
+<span id="cb22-117"><a href="hpp-template-for-c-modules.html#cb22-117" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb22-118"><a href="hpp-template-for-c-modules.html#cb22-118" tabindex="-1"></a>  </span>
+<span id="cb22-119"><a href="hpp-template-for-c-modules.html#cb22-119" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb22-120"><a href="hpp-template-for-c-modules.html#cb22-120" tabindex="-1"></a><span class="co"> * Add additional implementations below.</span></span>
+<span id="cb22-121"><a href="hpp-template-for-c-modules.html#cb22-121" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb22-122"><a href="hpp-template-for-c-modules.html#cb22-122" tabindex="-1"></a>  </span>
+<span id="cb22-123"><a href="hpp-template-for-c-modules.html#cb22-123" tabindex="-1"></a></span>
+<span id="cb22-124"><a href="hpp-template-for-c-modules.html#cb22-124" tabindex="-1"></a></span>
+<span id="cb22-125"><a href="hpp-template-for-c-modules.html#cb22-125" tabindex="-1"></a></span>
+<span id="cb22-126"><a href="hpp-template-for-c-modules.html#cb22-126" tabindex="-1"></a><span class="op">}</span> <span class="co">//end namespace</span></span>
+<span id="cb22-127"><a href="hpp-template-for-c-modules.html#cb22-127" tabindex="-1"></a></span>
+<span id="cb22-128"><a href="hpp-template-for-c-modules.html#cb22-128" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb22-129"><a href="hpp-template-for-c-modules.html#cb22-129" tabindex="-1"></a><span class="co"> *Example usage:</span></span>
+<span id="cb22-130"><a href="hpp-template-for-c-modules.html#cb22-130" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb22-131"><a href="hpp-template-for-c-modules.html#cb22-131" tabindex="-1"></a><span class="co"> * void main(int argc, char** argv){</span></span>
+<span id="cb22-132"><a href="hpp-template-for-c-modules.html#cb22-132" tabindex="-1"></a><span class="co"> *    NameBase</span><span class="kw">&lt;double&gt;</span><span class="co">* name = NULL; //pointer to a NameBase object</span></span>
+<span id="cb22-133"><a href="hpp-template-for-c-modules.html#cb22-133" tabindex="-1"></a><span class="co"> *    Name1</span><span class="kw">&lt;double&gt;</span><span class="co"> n1; //inherits from NameBase</span></span>
+<span id="cb22-134"><a href="hpp-template-for-c-modules.html#cb22-134" tabindex="-1"></a><span class="co"> *    Name2</span><span class="kw">&lt;double&gt;</span><span class="co"> n2; //inherits from NameBase</span></span>
+<span id="cb22-135"><a href="hpp-template-for-c-modules.html#cb22-135" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb22-136"><a href="hpp-template-for-c-modules.html#cb22-136" tabindex="-1"></a><span class="co"> *    name = &amp;n1; //name now points to n1</span></span>
+<span id="cb22-137"><a href="hpp-template-for-c-modules.html#cb22-137" tabindex="-1"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n1</span></span>
+<span id="cb22-138"><a href="hpp-template-for-c-modules.html#cb22-138" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb22-139"><a href="hpp-template-for-c-modules.html#cb22-139" tabindex="-1"></a><span class="co"> *    name = &amp;n2; //name now points to n2</span></span>
+<span id="cb22-140"><a href="hpp-template-for-c-modules.html#cb22-140" tabindex="-1"></a><span class="co"> *    name-&gt;Evalute(2.0); //unique logic for n2</span></span>
+<span id="cb22-141"><a href="hpp-template-for-c-modules.html#cb22-141" tabindex="-1"></a><span class="co"> * }</span></span>
+<span id="cb22-142"><a href="hpp-template-for-c-modules.html#cb22-142" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb22-143"><a href="hpp-template-for-c-modules.html#cb22-143" tabindex="-1"></a><span class="co"> * Output:</span></span>
+<span id="cb22-144"><a href="hpp-template-for-c-modules.html#cb22-144" tabindex="-1"></a><span class="co"> * evaluate in Name1 received 2 as a method parameter, returning 3</span></span>
+<span id="cb22-145"><a href="hpp-template-for-c-modules.html#cb22-145" tabindex="-1"></a><span class="co"> * evaluate in Name2 received 2 as a method parameter, returning 4</span></span>
+<span id="cb22-146"><a href="hpp-template-for-c-modules.html#cb22-146" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb22-147"><a href="hpp-template-for-c-modules.html#cb22-147" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb22-148"><a href="hpp-template-for-c-modules.html#cb22-148" tabindex="-1"></a></span>
+<span id="cb22-149"><a href="hpp-template-for-c-modules.html#cb22-149" tabindex="-1"></a></span>
+<span id="cb22-150"><a href="hpp-template-for-c-modules.html#cb22-150" tabindex="-1"></a></span>
+<span id="cb22-151"><a href="hpp-template-for-c-modules.html#cb22-151" tabindex="-1"></a><span class="pp">#endif </span><span class="co">/*template_hpp */</span></span></code></pre></div>
 
 </div>
             </section>

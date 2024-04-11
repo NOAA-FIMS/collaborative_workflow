@@ -34,6 +34,7 @@ code-of-conduct-enforcement
 external-collaborators
 fims-development-cycle
 issue-lifecycle
+m2-development-workflow
 feature-validation
 m1-model-specification
 inherited-functors-from-tmb
