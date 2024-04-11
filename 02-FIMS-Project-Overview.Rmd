@@ -165,6 +165,19 @@ from either the "In Review" or "Response" state.
 ```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
 knitr::include_graphics("New Flowchart.png")
 ```
+### M2 development workflow
+
+```mermaid
+flowchart TD
+    A[main] -->B[development];
+    A -- R interface group --> C[short-lived feature branch];
+    A -- Documentation group --> C[short-lived feature branch];
+    A -- NLL group --> E[development branch];
+    A -- More features group --> F[development branch];
+    F ---> G[short-lived feature branch];
+    C ----> H[Merge into main];
+    G --> H;
+```
 
 ### Feature validation
 
