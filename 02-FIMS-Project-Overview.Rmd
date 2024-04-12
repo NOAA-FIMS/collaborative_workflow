@@ -175,8 +175,9 @@ graph TD
     A -- More features group --> E[development branch];
     E --> F[short-lived feature branch];
     C --> G[Merge into main];
-    D-->G;
-    F --> G;
+    D --> G;
+    F --> E;
+    E --> G;
 ```
 
 ### Feature validation
