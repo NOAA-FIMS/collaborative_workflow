@@ -168,15 +168,15 @@ knitr::include_graphics("New Flowchart.png")
 ### M2 development workflow
 
 ```mermaid
-flowchart TD
-    A[main] -->B[development];
+graph TD
     A -- R interface group --> C[short-lived feature branch];
-    A -- Documentation group --> C[short-lived feature branch];
+    A -- Documentation group --> D[short-lived feature branch];
     A -- NLL group --> E[development branch];
-    A -- More features group --> F[development branch];
-    F ---> G[short-lived feature branch];
-    C ----> H[Merge into main];
-    G --> H;
+    A -- More features group --> E[development branch];
+    E --> F[short-lived feature branch];
+    C --> G[Merge into main];
+    D-->G;
+    F --> G;
 ```
 
 ### Feature validation
