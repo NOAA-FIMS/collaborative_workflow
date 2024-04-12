@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-04-11" />
+<meta name="date" content="2024-04-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -545,15 +545,15 @@ Figure 3.2: Flow chart that describes above process visually, e.g. how an issue
 </div>
 <div id="m2-development-workflow" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> M2 development workflow<a href="fims-project-management-process.html#m2-development-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre class="mermaid"><code>flowchart TD
-    A[main] --&gt;B[development];
+<pre class="mermaid"><code>graph TD
     A -- R interface group --&gt; C[short-lived feature branch];
-    A -- Documentation group --&gt; C[short-lived feature branch];
+    A -- Documentation group --&gt; D[short-lived feature branch];
     A -- NLL group --&gt; E[development branch];
-    A -- More features group --&gt; F[development branch];
-    F ---&gt; G[short-lived feature branch];
-    C ----&gt; H[Merge into main];
-    G --&gt; H;</code></pre>
+    A -- More features group --&gt; E[development branch];
+    E --&gt; F[short-lived feature branch];
+    C --&gt; G[Merge into main];
+    D--&gt;G;
+    F --&gt; G;</code></pre>
 </div>
 <div id="feature-validation" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Feature validation<a href="fims-project-management-process.html#feature-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
