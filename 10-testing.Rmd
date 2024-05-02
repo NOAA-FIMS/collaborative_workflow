@@ -616,6 +616,11 @@ You can interactively debug C++ code using `TMB::gdbsource()` in RStudio. Just a
 require(testthat)
 devtools::load_all("C:\\Users\\chris\\noaa-git\\FIMS")
 ```
+### R testthat naming conventions and file organization
+- We try to group functions and their helpers together (the "main function plus helpers" approach)
+- Always name the test file the same as the R file, but with test- prepended (ex, `test-myfunction.R` contains testthat tests for the R code in `R/myfunction.R`)
+- testthat tests that are a test of rcpp should be called `test-rcpp-[something]`
+- Integration tests which do not have a corresponding .R file should use the convention `test-integration-[description].R`.
 
 ### R testthat template
 The format for an individual testthat test is is:
@@ -629,7 +634,7 @@ test_that("TestName", {
 
 ```
 
-Multiple testthat tests can be put in the same file.
+Multiple testthat tests can be put in the same file if they are related to the same .R file (see naming conventions above).
 
 ## Test case documentation template and examples
 
