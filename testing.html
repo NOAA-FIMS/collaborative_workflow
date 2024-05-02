@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Testing | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Testing | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-04-12" />
+<meta name="date" content="2024-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -319,7 +319,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="10.4.1" data-path="testing.html"><a href="testing.html#testing-fims-locally"><i class="fa fa-check"></i><b>10.4.1</b> Testing FIMS locally</a></li>
 <li class="chapter" data-level="10.4.2" data-path="testing.html"><a href="testing.html#testing-using-gdbsource"><i class="fa fa-check"></i><b>10.4.2</b> Testing using <code>gdbsource</code></a></li>
-<li class="chapter" data-level="10.4.3" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.3</b> R testthat template</a></li>
+<li class="chapter" data-level="10.4.3" data-path="testing.html"><a href="testing.html#r-testthat-naming-conventions-and-file-organization"><i class="fa fa-check"></i><b>10.4.3</b> R testthat naming conventions and file organization</a></li>
+<li class="chapter" data-level="10.4.4" data-path="testing.html"><a href="testing.html#r-testthat-template"><i class="fa fa-check"></i><b>10.4.4</b> R testthat template</a></li>
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="testing.html"><a href="testing.html#test-case-documentation-template-and-examples"><i class="fa fa-check"></i><b>10.5</b> Test case documentation template and examples</a>
 <ul>
@@ -866,15 +867,24 @@ explanation and concrete examples.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="testing.html#cb57-1" tabindex="-1"></a><span class="fu">require</span>(testthat)</span>
 <span id="cb57-2"><a href="testing.html#cb57-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">chris</span><span class="sc">\\</span><span class="st">noaa-git</span><span class="sc">\\</span><span class="st">FIMS&quot;</span>)</span></code></pre></div>
 </div>
-<div id="r-testthat-template" class="section level3 hasAnchor" number="10.4.3">
-<h3><span class="header-section-number">10.4.3</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-testthat-naming-conventions-and-file-organization" class="section level3 hasAnchor" number="10.4.3">
+<h3><span class="header-section-number">10.4.3</span> R testthat naming conventions and file organization<a href="testing.html#r-testthat-naming-conventions-and-file-organization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>We try to group functions and their helpers together (the “main function plus helpers” approach)</li>
+<li>Always name the test file the same as the R file, but with test- prepended (ex, <code>test-myfunction.R</code> contains testthat tests for the R code in <code>R/myfunction.R</code>). This is the convention in the <a href="https://style.tidyverse.org/tests.html">tidyverse style guide</a>.</li>
+<li>testthat tests that are a test of rcpp should be called <code>test-rcpp-[description].R</code></li>
+<li>Integration tests which do not have a corresponding .R file should use the convention <code>test-integration-[description].R</code>.</li>
+</ul>
+</div>
+<div id="r-testthat-template" class="section level3 hasAnchor" number="10.4.4">
+<h3><span class="header-section-number">10.4.4</span> R testthat template<a href="testing.html#r-testthat-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The format for an individual testthat test is is:</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="testing.html#cb58-1" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
 <span id="cb58-2"><a href="testing.html#cb58-2" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="testing.html#cb58-3" tabindex="-1"></a>  ...test body...</span>
 <span id="cb58-4"><a href="testing.html#cb58-4" tabindex="-1"></a></span>
 <span id="cb58-5"><a href="testing.html#cb58-5" tabindex="-1"></a>})</span></code></pre></div>
-<p>Multiple testthat tests can be put in the same file.</p>
+<p>Multiple testthat tests can be put in the same file if they are related to the same .R file (see naming conventions above).</p>
 </div>
 </div>
 <div id="test-case-documentation-template-and-examples" class="section level2 hasAnchor" number="10.5">

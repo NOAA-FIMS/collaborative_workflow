@@ -147,6 +147,7 @@ testsgtestcmakelists.txt-template
 r-testing
 testing-fims-locally
 testing-using-gdbsource
+r-testthat-naming-conventions-and-file-organization
 r-testthat-template
 test-case-documentation-template-and-examples
 test-case-documentation-template
