@@ -618,8 +618,8 @@ devtools::load_all("C:\\Users\\chris\\noaa-git\\FIMS")
 ```
 ### R testthat naming conventions and file organization
 - We try to group functions and their helpers together (the "main function plus helpers" approach)
-- Always name the test file the same as the R file, but with test- prepended (ex, `test-myfunction.R` contains testthat tests for the R code in `R/myfunction.R`)
-- testthat tests that are a test of rcpp should be called `test-rcpp-[something]`
+- Always name the test file the same as the R file, but with test- prepended (ex, `test-myfunction.R` contains testthat tests for the R code in `R/myfunction.R`). This is the convention in the [tidyverse style guide](https://style.tidyverse.org/tests.html).
+- testthat tests that are a test of rcpp should be called `test-rcpp-[description].R`
 - Integration tests which do not have a corresponding .R file should use the convention `test-integration-[description].R`.
 
 ### R testthat template
