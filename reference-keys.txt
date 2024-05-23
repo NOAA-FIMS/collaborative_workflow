@@ -24,12 +24,13 @@ c-developers
 r-developers
 all-developers
 reviewers
-regional-representatives
 project-lead
-director-of-software-development
-lead-of-test-development
-lead-of-research-and-development
+lead-software-architect
+lead-test-engineer
+lead-statistical-computing-engineer
+outreach-and-transition-coordinator
 lead-of-workflows-accessibility-and-integration
+regional-representatives
 code-of-conduct-enforcement
 external-collaborators
 fims-development-cycle
