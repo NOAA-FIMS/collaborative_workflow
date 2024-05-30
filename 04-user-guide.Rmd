@@ -17,7 +17,7 @@ The following software is required:
 
 ### Windows users
 
-- Rtools4 (available from [here](https://cran.r-project.org/bin/windows/Rtools/rtools40.html))
+- Rtools4.4 (available from [here](https://cran.r-project.org/bin/windows/Rtools/))
   - this likely requires IT support to install it on NOAA computers
   (or any without administrative accounts)
 
