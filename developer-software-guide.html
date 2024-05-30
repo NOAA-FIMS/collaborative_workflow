@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-05-24" />
+<meta name="date" content="2024-05-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -229,6 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.4" data-path="developer-software-guide.html"><a href="developer-software-guide.html#c-compiler"><i class="fa fa-check"></i><b>6.0.4</b> C++ compiler</a></li>
 <li class="chapter" data-level="6.0.5" data-path="developer-software-guide.html"><a href="developer-software-guide.html#googletest"><i class="fa fa-check"></i><b>6.0.5</b> GoogleTest</a></li>
 <li class="chapter" data-level="6.0.6" data-path="developer-software-guide.html"><a href="developer-software-guide.html#gdb-debugger"><i class="fa fa-check"></i><b>6.0.6</b> GDB debugger</a></li>
+<li class="chapter" data-level="6.0.7" data-path="developer-software-guide.html"><a href="developer-software-guide.html#doxygen"><i class="fa fa-check"></i><b>6.0.7</b> Doxygen</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="contributor-guidelines.html"><a href="contributor-guidelines.html"><i class="fa fa-check"></i><b>7</b> Contributor Guidelines</a>
 <ul>
@@ -509,14 +510,14 @@ all set:</p>
 <p>If not, you will need to check that the compiler is on the path. The
 easiest way to do so is by creating a text file .Renviron in your
 Documents folder which contains the following line:</p>
-<pre><code>PATH=&quot;${RTOOLS40_HOME}\usr\bin;${PATH}&quot;</code></pre>
+<pre><code>PATH=&quot;${RTOOLS44_HOME}\usr\bin;${PATH}&quot;</code></pre>
 <p>You can do this with a text editor, or from <code>R</code> like so (note that in
 <code>R</code> code you need to escape backslashes):</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="developer-software-guide.html#cb12-1" tabindex="-1"></a><span class="fu">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS40_HOME}</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="at">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="developer-software-guide.html#cb12-1" tabindex="-1"></a><span class="fu">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS44_HOME}</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="at">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Restart R, and verify that make can be found, which should show the path
 to your Rtools installation.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="developer-software-guide.html#cb13-1" tabindex="-1"></a><span class="fu">Sys.which</span>(<span class="st">&quot;make&quot;</span>) <span class="do">##</span></span>
-<span id="cb13-2"><a href="developer-software-guide.html#cb13-2" tabindex="-1"></a><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">rtools40</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin</span><span class="sc">\\</span><span class="st">make.exe&quot;</span> </span></code></pre></div>
+<span id="cb13-2"><a href="developer-software-guide.html#cb13-2" tabindex="-1"></a><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">rtools44</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin</span><span class="sc">\\</span><span class="st">make.exe&quot;</span> </span></code></pre></div>
 </div>
 <div id="googletest" class="section level3 hasAnchor" number="6.0.5">
 <h3><span class="header-section-number">6.0.5</span> GoogleTest<a href="developer-software-guide.html#googletest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -528,21 +529,41 @@ template</a>.</p>
 <h3><span class="header-section-number">6.0.6</span> GDB debugger<a href="developer-software-guide.html#gdb-debugger" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Windows users who use GoogleTest may need GDB debugger to see what is
 going on inside of the program while it executes, or what the program is
-doing at the moment it crashed. rtools40 includes the GDB debugger. The
+doing at the moment it crashed. rtools44 includes the GDB debugger. The
 steps below help install 64-bit version gdb.exe.</p>
 <ul>
 <li>Open Command Prompt and type <code>gdb</code>. If you see details of usage, GDB
 debugger is already in your PATH. If not, follow the instructions below
 to install GDB debugger and add it to your PATH.</li>
 <li>Install Rtools following the instructions <a href="https://noaa-fims.github.io/collaborative_workflow/user-guide.html#windows-users">here</a></li>
-<li>Open ~/rtools40/mingw64.exe to run commands in the mingw64 shell. Run
+<li>Open ~/rtools44/mingw64.exe to run commands in the mingw64 shell. Run
 command <code>pacman -Sy mingw-w64-x86_64-gdb</code> to install 64-bit version
 (more information can be found in <a href="https://github.com/r-windows/docs/blob/master/faq.md#does-rtools40-include-a-debugger">R on Windows FAQ</a>)</li>
 <li>Type <code>Y</code> in the mingw64 shell to proceed with installation</li>
-<li>Check whether ~/rtools40/mingw64/bin/gdb.exe exists or not</li>
-<li>Add rtools40 to the PATH and you can check that the path is working
+<li>Check whether ~/rtools44/mingw64/bin/gdb.exe exists or not</li>
+<li>Add rtools44 to the PATH and you can check that the path is working
 by running <code>which gdb</code> in a command window</li>
 </ul>
+</div>
+<div id="doxygen" class="section level3 hasAnchor" number="6.0.7">
+<h3><span class="header-section-number">6.0.7</span> Doxygen<a href="developer-software-guide.html#doxygen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To build C++ documentation website for FIMS, a documentation
+generator Doxygen needs to be installed. Doxygen automates the generation of
+documentation from source code comments. To install Doxygen, please follow the
+instructions <a href="https://www.doxygen.nl/manual/install.html">here</a> to install
+Doxygen on various operating systems. Below are steps to install 64-bit version of
+Doxygen 1.11.0 on Windows.</p>
+<ul>
+<li><p>Download <a href="https://www.doxygen.nl/files/doxygen-1.11.0.windows.x64.bin.zip">doxygen-1.11.0.windows.x64.bin.zip</a>
+and extract the applications to <code>Documents\Apps\Doxygen</code> or other preferred folder.</p></li>
+<li><p>Add Doxygen to the PATH by following similar instructions <a href="https://noaa-fims.github.io/collaborative_workflow/testing.html#adding-cmake-and-ninja-to-your-path-on-windows">here</a>.</p></li>
+<li><p>Open a command window and run <code>where doxygen</code> to check if Doxygen is
+added to the PATH.</p></li>
+<li><p>Two commands on the command line are needed to generate C++ documentation
+for FIMS locally:</p></li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="developer-software-guide.html#cb14-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-G</span> Ninja</span>
+<span id="cb14-2"><a href="developer-software-guide.html#cb14-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--</span> build build</span></code></pre></div>
 
 </div>
 </div>

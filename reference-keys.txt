@@ -71,6 +71,7 @@ vscode-setup
 c-compiler
 googletest
 gdb-debugger
+doxygen
 contributor-guidelines
 style-guide
 naming-conventions-1
