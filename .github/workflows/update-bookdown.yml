@@ -24,6 +24,10 @@ jobs:
       - name: install remotes
         run: Rscript -e 'install.packages(c("remotes"))'
 
+      # Install DiagrammeR for making a code review flowchart
+      - name: install DiagrammeR
+        run: Rscript -e 'install.packages(c("DiagrammeR"))'
+
       - name: Install system dependencies
         if: runner.os == 'Linux'
         run: |
