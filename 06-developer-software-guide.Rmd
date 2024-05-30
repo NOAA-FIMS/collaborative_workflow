@@ -205,3 +205,32 @@ command `pacman -Sy mingw-w64-x86_64-gdb` to install 64-bit version
 - Check whether ~/rtools40/mingw64/bin/gdb.exe exists or not
 - Add rtools40 to the PATH and you can check that the path is working 
 by running `which gdb` in a command window
+
+
+### Doxygen
+
+To build C++ documentation website for FIMS, a documentation 
+generator Doxygen needs to be installed. Doxygen automates the generation of 
+documentation from source code comments. To install Doxygen, please follow the 
+instructions [here](https://www.doxygen.nl/manual/install.html) to install 
+Doxygen on various operating systems. Below are steps to install 64-bit version of
+Doxygen 1.11.0 on Windows. 
+
+- Download [doxygen-1.11.0.windows.x64.bin.zip](https://www.doxygen.nl/files/doxygen-1.11.0.windows.x64.bin.zip) 
+and extract the applications to `Documents\Apps\Doxygen` or other preferred folder.
+
+- Add Doxygen to the PATH by following similar instructions [here](https://noaa-fims.github.io/collaborative_workflow/testing.html#adding-cmake-and-ninja-to-your-path-on-windows).
+
+- Open a command window and run `where doxygen` to check if Doxygen is
+added to the PATH.
+
+- Two commands on the command line are needed to generate C++ documentation 
+for FIMS locally:
+
+```bash
+cmake -S. -B build -G Ninja
+cmake -- build build
+```
+
+
+
