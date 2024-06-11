@@ -208,19 +208,11 @@ The following suggestions will help ensure optimal performance of the trunk-base
 
 ### Branch Naming Conventions
 
-Example: **feat-issue-3-R-package-skeleton**
+Example: **R-pkg-skeleton**
 
-1. When creating a branch, start the branch name with a group word:
+1. Keep it brief
 
-  - **bug**: bug fix
-
-  - **feat**: new feature
-
-2. Use issue tracker ID in branch name
-
-3. Include brief description
-
-3. Use a hyphen as separators
+1. Use a hyphen as separators
 
 ### git workflow
 
