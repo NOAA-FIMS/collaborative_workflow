@@ -52,6 +52,14 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -705,25 +713,26 @@ tools available via <a href="https://github.com/features/code-review">GitHub</a>
 which allows reviewers to analyze code changes, provide inline comments,
 and view change histories.</p>
 <p><a href="https://google.github.io/eng-practices/review/">The Google code review developer guide</a> provides a useful set of guidelines for both reviewers and code authors.</p>
+<p>Below is a flowchart for the FIMS code review process. The author starts by submitting
+a pull request (PR), ensuring documentation, tests, and CI checks are complete,
+then propose a reviewer. The reviewer receives the review request and either
+executes the review independently or pairs with another team representative
+if assistance is needed. Based on the review, changes may be requested, which
+the author must address before approval. Once the PR is approved, the author
+merges it into the main branch.</p>
+<div id="htmlwidget-735c2f0abfb288ba612f" style="width:672px;height:1000px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-735c2f0abfb288ba612f">{"x":{"diagram":"\n        graph TB\n        A[Author: Submit a pull request PR<br/><br/>- Documentation included<br/>- Tests implemented<br/>- CI checks passed]\n        B[Author: Propose a reviewer<br/><br/>- Default assignee: an OST rep for a quick review]\n        \n        A-->B\n        B-->C[Reviewer: Receive code review request]\n        C --> |No assistance needed| E[Reviewer: Execute code review]\n        C --> |Help wanted| D[Reviewer: Add an additional reviewer to the PR] \n        D --> E\n        E --> |Changes needed| F[Reviewer: Request changes] \n        F --> G[Author: Make changes]\n        G --> H[Reviewer: Approve PR]\n        E --> |No changes needed| H\n        H --> I[Author: Rebase and merge PR]\n \n        style A text-align:left, fill:#FFF\n        style B fill:#FFF\n        style G fill:#FFF\n        style I fill:#FFF\n"},"evals":[],"jsHooks":[]}</script>
 <div id="assigning-reviewers" class="section level3 hasAnchor" number="7.14.1">
 <h3><span class="header-section-number">7.14.1</span> Assigning Reviewers<a href="contributor-guidelines.html#assigning-reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Reviewers for the FIMS Project may be assigned in two different ways:</p>
-<ol style="list-style-type: decimal">
-<li>A specific member of the FIMS Development Team is requested to review
-a pull request, based on their specific expertise.</li>
-<li>Code review assignments are automatically assigned using the
-<a href="https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team">GitHub load balance routing algorithm</a>;
-this approach tries to ensure that each team member reviews an equal
-number of pull request in any 30 day period.</li>
-</ol>
-<p>Team members should keep their status in Github current
-(see <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status">“Setting a
-status”</a>
-for more information). Reviews will not be auto-assigned to “Busy” team
-members.</p>
+<p>Reviewers of PRs for changes to the codebase in FIMS should be
+suggested by the author of the PR. For those FIMS Implementation
+Team Members that keep their status in Github current (see <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status">“Setting
+a status”</a>
+for more information), authors can use the status information to
+prevent assigning a reviewer who is known to be “Busy”.</p>
 <p>If a review has been assigned to you and you don’t feel like you have
 the expertise to address it properly, please respond directly to the
-code owner immediately so a different reviewer can be found promptly.</p>
+PR so a different reviewer can be found promptly.</p>
 </div>
 <div id="automated-testing" class="section level3 hasAnchor" number="7.14.2">
 <h3><span class="header-section-number">7.14.2</span> Automated Testing<a href="contributor-guidelines.html#automated-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
