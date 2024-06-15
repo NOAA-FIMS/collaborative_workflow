@@ -52,6 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
@@ -533,7 +534,7 @@ described flexibly, such that subpopulations such as unique sexes,
 stocks, species, or areas can be handled identically to reduce
 duplication. Each subpopulation will have a unique set of attributes
 assigned to it, such that each subpopulation can share or have a
-different functional process (e.g. recruitment function, size-at-age)
+different functional process (e.g., recruitment function, size-at-age)
 than a different category.</p>
 <p>Spawning time and recruitment time are user-specified and can occur more
 than once per year. For the purposes of replicating model comparison
@@ -546,11 +547,11 @@ vector to account for multiple options.</p>
 different partitions (age, season, sex) are translated into a single,
 dimension-folded index. A lookup table is computed at model start so
 that the dimension-folded index can be mapped to its corresponding
-population partition or time partition (e.g. population(sex, area, age,
+population partition or time partition (e.g., population(sex, area, age,
 species, time, …)) so the programmer can understand what is happening.
 The model steps through each specified timestep to match the data to
 expected values, and population processes occur in the closest specified
-timestep to the user-input process timing (e.g. recruitment) across a
+timestep to the user-input process timing (e.g., recruitment) across a
 small timestep that is a predefined constant.</p>
 </div>
 <div id="expected-numbers-and-quantities" class="section level2 hasAnchor" number="4.6">

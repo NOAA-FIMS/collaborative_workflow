@@ -52,6 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
@@ -552,24 +553,16 @@ once in the lifetime of an issue. The issue can enter the Closed state
 from either the “In Review” or “Response” state.</li>
 </ul>
 <div class="figure"><span style="display:block;" id="fig:flowchart"></span>
-<img src="New%20Flowchart.png" alt="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed." width="75%" />
+<img src="New%20Flowchart.png" alt="Flow chart that describes above process visually, e.g., how an issue moves from creation, to activation, to response or resolution, and is finally closed." width="75%" />
 <p class="caption">
-Figure 3.2: Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed.
+Figure 3.2: Flow chart that describes above process visually, e.g., how an issue moves from creation, to activation, to response or resolution, and is finally closed.
 </p>
 </div>
 </div>
 <div id="m2-development-workflow" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> M2 development workflow<a href="fims-project-management-process.html#m2-development-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre class="mermaid"><code>graph TD
-    A -- R interface group --&gt; C[short-lived feature branch];
-    A -- Documentation group --&gt; D[short-lived feature branch];
-    A -- NLL group --&gt; E[development branch];
-    A -- More features group --&gt; E[development branch];
-    E --&gt; F[short-lived feature branch];
-    C --&gt; G[Merge into main];
-    D --&gt; G;
-    F --&gt; E;
-    E --&gt; G;</code></pre>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-47a9bd16a632ab3aaa52" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-47a9bd16a632ab3aaa52">{"x":{"diagram":"\ngraph TD\n    A -- R interface group --> C[short-lived feature branch];\n    A -- Documentation group --> D[short-lived feature branch];\n    A -- NLL group --> E[development branch];\n    A -- More features group --> E[development branch];\n    E --> F[short-lived feature branch];\n    C --> G[Merge into main];\n    D --> G;\n    F --> E;\n    E --> G;"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="feature-validation" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Feature validation<a href="fims-project-management-process.html#feature-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
