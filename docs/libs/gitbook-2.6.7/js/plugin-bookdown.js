@@ -233,7 +233,7 @@ gitbook.require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
   };
   $(document).on('servr:reload', saveScrollPos);
 
-  // check if the page is loaded in an iframe (e.g. the RStudio preview window)
+  // check if the page is loaded in an iframe (e.g., the RStudio preview window)
   var inIFrame = function() {
     var inIframe = true;
     try { inIframe = window.self !== window.top; } catch (e) {}

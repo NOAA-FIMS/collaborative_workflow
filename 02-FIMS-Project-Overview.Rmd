@@ -63,27 +63,32 @@ do not work, in the pull request thread so that the developer knows what
 they need to fix.
 
 ### Project Lead
+
 The Project Lead is responsible for driving decisions on FIMS features, user interfaces, and project guidelines and standards based on the vision and objectives of FIMS and discussions with the OST development team and regional product representatives. The project lead ensures the FIMS product satisfies user and business requirements, incorporates feedback, and iterates on the design and development as needed. The Project Lead will triage issues and pull requests weekly and ensure development and code review occur in a timely manner and according to project guidelines, priorities, and standards. The Project Lead is also responsible for communicating project status via maintenance of the [Github projects](https://github.com/orgs/NOAA-FIMS/projects) and scheduling tasks and managing change requests. 
 
 ### Lead Software Architect
+
 The Lead Software Architect is responsible for advising the design of designing the FIMS product architecture to maximize portability and extensibility, managing technical risks and opportunities, mentoring development and implementation team members, advising the project lead on software design, refactor, and implementation decisions, scheduling of tasks, managing change requests, and guaranteeing quality of deliveries via code review. The Lead Software Architect also educates the team on technical best practices.
 
-### Lead Test Engineer 
+### Lead Test Engineer
+
 The Lead Test Engineer is responsible for designing and driving test objectives, test strategies, and test plans of the FIMS product at subsequent milestones. The Lead Test Engineer will identify the tools for test reporting, management and automation, guide and monitor the design, implementation, and execution of test cases and test procedures. The Lead Test Engineer will train and mentor implementation team members on how to effectively write and debug tests.
 
 ### Lead Statistical Computing Engineer
+
 The Lead Statistical Computing Engineer is responsible for designing the FIMS statistical architecture that maximizes statistical accuracy and ensures the implementation of statistical good practices. The Lead Statistical Computing Engineer will advise the Project Lead on design and implementation decisions and will work closely with the Lead Software Architect to ensure a balance between computation and statistical efficiency, and with the Lead Test Engineer to develop tests that check the statistical accuracy of model design. 
 
 ### Outreach and Transition Coordinator
+
 The Outreach and Transition Coordinator communicates with policy-makers, NOAA leadership, and regional offices on transition plans from existing assessment models and processes to FIMS. This coordinator works with academic partners to develop and coordinate training on using FIMS.
 
 ### Lead of Workflows, Accessibility, and Integration
+
 The Lead of Workflows, Accessibility, and Integration is responsible for designing and driving workflows and automation to support the reliability and robustness of the FIMS. The Lead of Workflows, Accessibility, and Integration ensures FIMS aligns with expected standards for accessibility and quality control in accordance with guidelines set by the Fisheries Integrated Toolbox. This lead coordinates with the Lead Test Engineer to ensure test cases are automated and successfully run by GitHub Actions and coordinates with the Lead Statistical Computing Engineer to identify opportunities to expand FIMS across related disciplines. 
 
-
 ### Regional representatives
-Regional representatives are expected to assist in FIMS implementation through design, development, and testing of FIMS. They also communicate FIMS progress and design to their respective regions and teammates. Representatives serve as power users who provide basic training and outreach within their centers on transitioning to FIMS. These representatives are also responsible for relaying feedback, questions, and training requests that they cannot complete back to the NSAP development team and Project Lead. Regional representatives are expected to introduce their partner fishery management organizations to FIMS to assist transition of FIMS from research to operations.
 
+Regional representatives are expected to assist in FIMS implementation through design, development, and testing of FIMS. They also communicate FIMS progress and design to their respective regions and teammates. Representatives serve as power users who provide basic training and outreach within their centers on transitioning to FIMS. These representatives are also responsible for relaying feedback, questions, and training requests that they cannot complete back to the NSAP development team and Project Lead. Regional representatives are expected to introduce their partner fishery management organizations to FIMS to assist transition of FIMS from research to operations.
 
 ### Code of conduct enforcement
 
@@ -160,12 +165,13 @@ Closure—The event that marks the closure of an Issue. This even happens
 once in the lifetime of an issue. The issue can enter the Closed state
 from either the "In Review" or "Response" state.
 
-```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g. how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
+```{r flowchart, echo = FALSE, out.width='75%', fig.cap="Flow chart that describes above process visually, e.g., how an issue moves from creation, to activation, to response or resolution, and is finally closed."}
 knitr::include_graphics("New Flowchart.png")
 ```
 ### M2 development workflow
 
-```mermaid
+```{r, echo=FALSE}
+DiagrammeR::mermaid("
 graph TD
     A -- R interface group --> C[short-lived feature branch];
     A -- Documentation group --> D[short-lived feature branch];
@@ -175,7 +181,8 @@ graph TD
     C --> G[Merge into main];
     D --> G;
     F --> E;
-    E --> G;
+    E --> G;"
+)
 ```
 
 ### Feature validation

@@ -26,7 +26,7 @@ gitbook.require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
         // Gitbook prebuilds the index data instead: https://github.com/GitbookIO/plugin-search
         // We can certainly do that via R packages V8 and jsonlite, but let's
         // see how slow it really is before improving it. On the other hand,
-        // lunr cannot handle non-English text very well, e.g. the default
+        // lunr cannot handle non-English text very well, e.g., the default
         // tokenizer cannot deal with Chinese text, so we may want to replace
         // lunr with a dumb simple text matching approach.
         if (_search.engine === 'lunr') {

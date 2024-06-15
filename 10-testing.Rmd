@@ -33,7 +33,7 @@ binaries.
 
 To use GoogleTest, you will need:
 
--   A compatible operating system (e.g. Windows, masOS, or Linux).
+-   A compatible operating system (e.g., Windows, masOS, or Linux).
 
 -   A C++ compiler that supports at least C++ 11 standard or newer (e.g.
 gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+

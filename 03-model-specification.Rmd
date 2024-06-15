@@ -143,7 +143,7 @@ described flexibly, such that subpopulations such as unique sexes,
 stocks, species, or areas can be handled identically to reduce
 duplication. Each subpopulation will have a unique set of attributes
 assigned to it, such that each subpopulation can share or have a
-different functional process (e.g. recruitment function, size-at-age)
+different functional process (e.g., recruitment function, size-at-age)
 than a different category.
 
 Spawning time and recruitment time are user-specified and can occur more
@@ -158,11 +158,11 @@ Within the population loop, matrices denoting population properties at
 different partitions (age, season, sex) are translated into a single,
 dimension-folded index. A lookup table is computed at model start so
 that the dimension-folded index can be mapped to its corresponding
-population partition or time partition (e.g. population(sex, area, age,
+population partition or time partition (e.g., population(sex, area, age,
 species, time, ...)) so the programmer can understand what is happening.
 The model steps through each specified timestep to match the data to
 expected values, and population processes occur in the closest specified
-timestep to the user-input process timing (e.g. recruitment) across a
+timestep to the user-input process timing (e.g., recruitment) across a
 small timestep that is a predefined constant.
 
 ## Expected numbers and quantities
