@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-06-12" />
+<meta name="date" content="2024-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -511,12 +511,15 @@ the authority to do so.</p>
 </div>
 <div id="issue-tracking" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Issue Tracking<a href="contributor-guidelines.html#issue-tracking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Use of the GitHub issue tracker is key to keeping everyone informed and prioritizing key tasks. All future projects, ideas, concerns, development,
-etc. must be documented in an issue before the code is altered. Issues should be filed and tagged prior to any code changes whether the change
-pertains to a bug or the development of a feature. At a minimum, all issues will be labeled with a future version number. Bugs with immediate fixes will
-be assigned to the current version number augmented for a hot fix and development will be based on code in the trunk. All other issues will be
-assigned to a future version and development will be based on version branches. That is, changes to the code for version 3.3 cannot start until there is a branch
-for version 3.3. This will minimize stale code and large merge conflicts.</p>
+<p>Use of the GitHub issue tracker is key to keeping everyone informed and
+prioritizing key tasks. All future projects, ideas, concerns, development,
+etc. must be documented in an issue before the code is altered. Issues should
+be filed and tagged prior to any code changes whether the change pertains to a
+bug or the development of a feature. Issues are automatically tagged with the
+<code>status: triage_needed</code> tag and placed on the <a href="https://github.com/orgs/NOAA-FIMS/projects/21">Issue Triage
+Board</a>. Issues will subsequently
+be labeled and given an assignee and milestone by whoever is in charge of the
+Triage Board.</p>
 </div>
 <div id="reporting-bugs" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> Reporting Bugs<a href="contributor-guidelines.html#reporting-bugs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -720,8 +723,8 @@ executes the review independently or pairs with another team representative
 if assistance is needed. Based on the review, changes may be requested, which
 the author must address before approval. Once the PR is approved, the author
 merges it into the main branch.</p>
-<div id="htmlwidget-735c2f0abfb288ba612f" style="width:672px;height:1000px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-735c2f0abfb288ba612f">{"x":{"diagram":"\n        graph TB\n        A[Author: Submit a pull request PR<br/><br/>- Documentation included<br/>- Tests implemented<br/>- CI checks passed]\n        B[Author: Propose a reviewer<br/><br/>- Default assignee: an OST rep for a quick review]\n        \n        A-->B\n        B-->C[Reviewer: Receive code review request]\n        C --> |No assistance needed| E[Reviewer: Execute code review]\n        C --> |Help wanted| D[Reviewer: Add an additional reviewer to the PR] \n        D --> E\n        E --> |Changes needed| F[Reviewer: Request changes] \n        F --> G[Author: Make changes]\n        G --> H[Reviewer: Approve PR]\n        E --> |No changes needed| H\n        H --> I[Author: Rebase and merge PR]\n \n        style A text-align:left, fill:#FFF\n        style B fill:#FFF\n        style G fill:#FFF\n        style I fill:#FFF\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fd85d8fb1fcaa82e4b9d" style="width:672px;height:1000px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fd85d8fb1fcaa82e4b9d">{"x":{"diagram":"\n        graph TB\n        A[Author: Submit a pull request PR<br/><br/>- Documentation included<br/>- Tests implemented<br/>- CI checks passed]\n        B[Author: Propose a reviewer<br/><br/>- Default assignee: an OST rep for a quick review]\n        \n        A-->B\n        B-->C[Reviewer: Receive code review request]\n        C --> |No assistance needed| E[Reviewer: Execute code review]\n        C --> |Help wanted| D[Reviewer: Add an additional reviewer to the PR] \n        D --> E\n        E --> |Changes needed| F[Reviewer: Request changes] \n        F --> G[Author: Make changes]\n        G --> H[Reviewer: Approve PR]\n        E --> |No changes needed| H\n        H --> I[Author: Rebase and merge PR]\n \n        style A text-align:left, fill:#FFF\n        style B fill:#FFF\n        style G fill:#FFF\n        style I fill:#FFF\n"},"evals":[],"jsHooks":[]}</script>
 <div id="assigning-reviewers" class="section level3 hasAnchor" number="7.14.1">
 <h3><span class="header-section-number">7.14.1</span> Assigning Reviewers<a href="contributor-guidelines.html#assigning-reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Reviewers of PRs for changes to the codebase in FIMS should be
