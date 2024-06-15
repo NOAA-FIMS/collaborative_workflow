@@ -4,18 +4,18 @@ External contributions and feedback are important to the development and future 
 
 ## Style Guide
 
-The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g. read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and the [tidyverse style guide](https://style.tidyverse.org/) for R code.
+The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g., read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and the [tidyverse style guide](https://style.tidyverse.org/) for R code.
 
 ## Naming Conventions
 
-The FIMS implementation team has chosen to use `typename` instead of `class` when defining templates for consistency with the `TMB` package. While types may be defined in many ways, for consistency developers are asked to use `Type` instead of `T` to define `Type`s within FIMS.
+The FIMS implementation team has chosen to use `typename` instead of `class` when defining templates for consistency with the `TMB` package. While types may be defined in many ways, for consistency developers are asked to use `Type` instead of T` to define Types within FIMS.
 
 ## Coding Good Practices
 
 Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:
 
 * Adhere to the [FIMS Project style guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html)
-* Avoid rework - take the time to check for existing options (e.g. in-house, open source, etc.) before writing code
+* Avoid rework - take the time to check for existing options (e.g., in-house, open source, etc.) before writing code
 * Keep code as simple as possible
 * Use meaningful variable names that are easy to understand and clearly represent the data they store
 * Use descriptive titles and consistent conventions for class and function names
@@ -52,7 +52,7 @@ modules will need a <module_name>.hpp file that only consists of
 In the subfolder, there will need to be one file called 
 <module_name>_base.hpp that defines the base class for the module type.
 The base class should only need a constructor method and a number of
-methods (e.g. `evaluate()`) that are not specific to the type of 
+methods (e.g., `evaluate()`) that are not specific to the type of 
 functions available under the subfolders but reused for all objects of 
 that class type.
 
@@ -153,10 +153,10 @@ Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/).
 
 Provide more context by answering these questions:
 
-* **Did the problem start happening recently** (e.g. after updating to a new version of R) or was this always a problem?
+* **Did the problem start happening recently** (e.g., after updating to a new version of R) or was this always a problem?
 * If the problem started happening recently, **can you reproduce the problem in an older version of R?** What's the most recent version in which the problem doesn't happen? 
 * **Can you reliably reproduce the issue?** If not, provide details about how often the problem happens and under which conditions it normally happens.
-* If the problem is related to working with files (e.g. reading in data files), **does the problem happen for all files and projects or only some?** Does the problem happen only when working with local or remote files (e.g. on network drives), with files of a specific type (e.g. only JavaScript or Python files), with large files or files with very long lines, or with files in a specific encoding? Is there anything else special about the files you are using?
+* If the problem is related to working with files (e.g., reading in data files), **does the problem happen for all files and projects or only some?** Does the problem happen only when working with local or remote files (e.g., on network drives), with files of a specific type (e.g., only JavaScript or Python files), with large files or files with very long lines, or with files in a specific encoding? Is there anything else special about the files you are using?
 
 Include details about your configuration and environment:
 
@@ -203,10 +203,10 @@ This section details the workflow to create a branch in order to contribute to F
 
 The following suggestions will help ensure optimal performance of the trunk-based branching strategy:
 
-1. Branches and commits should be kept small (e.g. a couple commits, a few lines of code) to allow for rapid merges and deployments.
+1. Branches and commits should be kept small (e.g., a couple commits, a few lines of code) to allow for rapid merges and deployments.
 2. Use [feature flags](https://martinfowler.com/articles/feature-toggles.html) to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).
 3. Delete branches after it is merged to the trunk; avoid repositories with a large number of "active" branches.
-4. Merge branches to the trunk frequently (e.g. **at least** every few days; tag as a release commit) to avoid merge conflicts.
+4. Merge branches to the trunk frequently (e.g., **at least** every few days; tag as a release commit) to avoid merge conflicts.
 5. Use caching layers where appropriate to optimize build and test execution times.
 
 ### Branch Naming Conventions
@@ -270,7 +270,7 @@ following practices:
           * feat: new feature
           * test: testing
           * docs: documentation
-          * chore: regular code maintenance (e.g. updating dependencies)
+          * chore: regular code maintenance (e.g., updating dependencies)
           * refactor: refactoring codebase
           * style: changes that do not affect the meaning of the code; instead address code styling/formmatting
           * perf: performance improvements
@@ -280,10 +280,10 @@ following practices:
 * If the commit addresses an issue, indicate the issue# in the title
 * Provide a brief explanatory description of the change, addressing what and why was changed
 * Wrap to ~72 characters
-* Write in the imperative (e.g. "Fix bug", not "Fixed bug")
+* Write in the imperative (e.g., "Fix bug", not "Fixed bug")
 * If necessary, separate paragraphs by blank lines
 * Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed.
-* If the commit closes an issue, include a footer to note that (i.e. "Closes #19")
+* If the commit closes an issue, include a footer to note that (i.e., "Closes #19")
 
 
 ## Merge Conflicts

@@ -61,18 +61,19 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement anonymously using this [form] (https://forms.gle/2DnPXuCKKCN3qp7ZA).
+reported to the community leaders responsible for enforcement anonymously using
+this [form](https://forms.gle/2DnPXuCKKCN3qp7ZA).
 
-Reports will be
-reviewed by a member of the NOAA Fisheries Office of Science and
-Technology who is not participating in the FIMS Project [Patrick Lynch],
+Reports will be reviewed by a member of the NOAA Fisheries Office of Science
+and Technology who is not participating in the FIMS Project [Patrick Lynch]
 but has the full support of FIMS Community Leaders. All reports will be
 reviewed promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident whenever possible; however, please note behaviors that
-meet the official [criteria](https://media.fisheries.noaa.gov/2021-12/Fisheries-Anti-Harassment-Policy-Statement-2021_Final.pdf) for harrassment must be reported by supervisors under
-NOAA policy.
+meet the official
+[criteria](https://media.fisheries.noaa.gov/2021-12/Fisheries-Anti-Harassment-Policy-Statement-2021_Final.pdf)
+for harrassment must be reported by supervisors under NOAA policy.
 
 ## Enforcement guidelines
 
@@ -119,7 +120,6 @@ individual, or aggression toward or disparagement of classes of individuals.
 
 **Consequence**: A permanent ban from any sort of public interaction within the
 community.
-
 
 ## Supporting good conduct
 
