@@ -1,10 +1,17 @@
-# Developer Software Guide
+# Developer Software and Installation Guide
 
 This section describes the software you will
-need to contribute to this project. This is in addition to the software
-dependencies described in the [user installation
-guide](#user-installation-guide) which you should ensure are installed
-first.
+need to contribute to this project as well as ways FIMS can be installed.
+
+## Codespaces as an alternative to installing software
+
+An alternative to setting up this software locally is using [GitHub Codespaces](https://docs.github.com/en/codespaces).
+
+The FIMS repository already has a file to set up all of the needed software, so there is no need to install anything locally.
+
+To start a codespace on the FIMS repository, follow the [GitHub documentation for creating a Codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository).
+
+## Software to Install
 
 ### git
 
@@ -197,15 +204,13 @@ steps below help install 64-bit version gdb.exe.
 - Open Command Prompt and type `gdb`. If you see details of usage, GDB
 debugger is already in your PATH. If not, follow the instructions below
 to install GDB debugger and add it to your PATH. 
-- Install Rtools following the instructions [here](https://noaa-fims.github.io/collaborative_workflow/user-guide.html#windows-users) 
-- Open ~/rtools44/mingw64.exe to run commands in the mingw64 shell. Run 
+- Install Rtools run commands in the mingw64 shell. Run 
 command `pacman -Sy mingw-w64-x86_64-gdb` to install 64-bit version 
 (more information can be found in [R on Windows FAQ](https://github.com/r-windows/docs/blob/master/faq.md#does-rtools40-include-a-debugger))
 - Type `Y` in the mingw64 shell to proceed with installation
 - Check whether ~/rtools44/mingw64/bin/gdb.exe exists or not
 - Add rtools44 to the PATH and you can check that the path is working 
 by running `which gdb` in a command window
-
 
 ### Doxygen
 
@@ -232,5 +237,46 @@ cmake -S. -B build -G Ninja
 cmake -- build build
 ```
 
+### R Installation Requirements
+
+The following is needed:
+- R version 4.0.0 or newer (or RStudio version 1.2.5042 or newer)
+- the `devtools` R package
+- `TMB` version 1.8.0 or newer ([install instructions](https://github.com/kaskr/adcomp/wiki/Download))
+- For windows users: Rtools4 (available [on the CRAN website](https://cran.r-project.org/bin/windows/Rtools/rtools40.html))
+
+## Installing FIMS
+
+### Install Options for Developers
+
+Use the following options from the R console:
+
+- Clone FIMS and build using `devtools::load_all()` (mimics package building) or `devtools::install()` (actually builds package from local files). These are good options if you intend to modify files in FIMS and want to test them out.
+- Use `install.packages("FIMS", repos = c("https://noaa-fims.r-universe.dev", "https://cloud.r-project.org"))` to download the latest precompiled version from R universe or `devtools::install_github("NOAA-FIMS/FIMS)` to compile yourself. `devtools::install_github()` has options to all you to be more specific about which version of the code is being built (e.g., you can refer to a tag or branch, which is not possible with the R universe install).
+
+### Windows: Fixing Fatal Error
+
+Windows users can expect to see some derivative of the following error message in their R session if they have not yet set some flags using {withr}.
+```
+Fatal error: can't write <xxx> bytes to section .text of FIMS.o: 'file too big
+```
+You can easily fix this by running the following line in your local R session. Note that this call will need to be repeated each time you open a new session.
+```{r eval=FALSE}
+withr::local_options(pkg.build_extra_flags = FALSE)
+```
+This fix does not work when `devtools::test()` is called and FIMS is re-compiled. The call to `devtools::test()` in this case overwrites the local options set by withr. Compile FIMS first using `devtools::load_all()` prior to running `devtools::test()`.
+
+This fix removes the debugger flag `-O0 -g` from being automatically inserted for certain devtools calls (e.g. `devtools::load_all()`). Windows developers wanting to compile FIMS with the debugger turned on will need to run the above script in addition to manually modifying the call to PKG_CXXFLAGS in the [Makevars.win](https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win) file in the src directory to the following:
+
+```
+PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g
+```
+To turn off the debugger flag, remove the `-O1 -g` flag:
+```
+PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS
+```
+
+## Getting Help
+Please report bugs along with a minimal reproducible example on GitHub [Issues](https://github.com/NOAA-FIMS/FIMS/issues)
 
 
