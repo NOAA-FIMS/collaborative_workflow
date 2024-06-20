@@ -1,64 +1,20 @@
 # User guide
 
 This section details installation guides for
-[users](#user-installation-guide). See the [developer installation
-guide](#developer-installation-guide).
+[users](#user-installation-guide). For developers, see the [developer installation
+guide](#developer-software-and-installation-guide).
 
-## User Installation Guide
-This section describes how to install the FIMS R package and dependencies.
-
-## Installing the package from Github
+## Installing the package from R universe
 
 The following software is required:
-- R version 4.0.0 or newer (or RStudio version 1.2.5042 or newer)
-  - the `remotes` R package
-- `TMB` (install instructions at are
-[here](https://github.com/kaskr/adcomp/wiki/Download).)
+- R version 4.0.0 or newer
 
-### Windows users
-
-- Rtools4.4 (available from [here](https://cran.r-project.org/bin/windows/Rtools/))
-  - this likely requires IT support to install it on NOAA computers
-  (or any without administrative accounts)
-
-## Installing from `R`
+Install the latest precompiled version  [FIMS from R universe](https://noaa-fims.r-universe.dev/FIMS) within R:
 
 ```{r eval=FALSE}
-remotes::install_github("NOAA-FIMS/FIMS")
-library(FIMS)
+install.packages("FIMS", repos = c("https://noaa-fims.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
-## Running the model
+## Running FIMS
 
-This section describes how to set-up and run the model.
-
-### Specifying the model
-
-#### Naming conventions
-TODO: add description and link to naming conventions
-
-#### Structuing data input
-You can add components to the model using S4 classes.
-```{r}
-#TODO: add script to demonstrate how to structure data input
-```
-
-#### Defining model specifications
-```{r}
-#TODO: add scripts detailing how to set up different components of the model
-```
-
-### How to run the model
-```{r}
-#TODO: add script with examples on how to run the model
-```
-
-### Extracting model output
-
-Here is how you get the model output.
-
-```{r}
-#Todo add code for how to extract model output
-```
-
-
+See the [Introducing FIMS vignette](https://noaa-fims.github.io/FIMS/articles/fims-demo.html).
