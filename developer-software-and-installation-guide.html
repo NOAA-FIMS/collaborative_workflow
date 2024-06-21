@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | FIMS Developer Handbook</title>
+  <title>Chapter 6 Developer Software and Installation Guide | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | FIMS Developer Handbook" />
+  <meta property="og:title" content="Chapter 6 Developer Software and Installation Guide | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a handbook for FIMS developers and contributors." />
   <meta name="github-repo" content="noaa-fims/collaborative_workflow" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | FIMS Developer Handbook" />
+  <meta name="twitter:title" content="Chapter 6 Developer Software and Installation Guide | FIMS Developer Handbook" />
   
   <meta name="twitter:description" content="This is a handbook for FIMS developers and contributors." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
-
-
+<link rel="prev" href="user-guide.html"/>
+<link rel="next" href="contributor-guidelines.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -384,19 +384,246 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="developer-software-and-installation-guide" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Developer Software and Installation Guide<a href="developer-software-and-installation-guide.html#developer-software-and-installation-guide" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This section describes the software you will
+need to contribute to this project as well as ways FIMS can be installed.</p>
+<div id="codespaces-as-an-alternative-to-installing-software" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Codespaces as an alternative to installing software<a href="developer-software-and-installation-guide.html#codespaces-as-an-alternative-to-installing-software" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An alternative to setting up this software locally is using <a href="https://docs.github.com/en/codespaces">GitHub Codespaces</a>.</p>
+<p>The FIMS repository already has a file to set up all of the needed software, so there is no need to install anything locally.</p>
+<p>To start a codespace on the FIMS repository, follow the <a href="https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository">GitHub documentation for creating a Codespace</a>.</p>
+</div>
+<div id="software-to-install" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Software to Install<a href="developer-software-and-installation-guide.html#software-to-install" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="git" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> git<a href="developer-software-and-installation-guide.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You will need git installed locally, and you may prefer to use an
+additional git <a href="https://git-scm.com/downloads/guis">GUI client</a> such as
+GitKraken or GitHub Desktop. If your preferred git client is the RStudio
+IDE, you can configure Git and RStudio integration following these
+<a href="https://happygitwithr.com/rstudio-git-GitHub.html">instructions</a>.</p>
+<p>To install git, please follow the instructions on <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">this
+page</a> for
+your operating system. You can find the downloads for your operating
+system on the left-hand navigation bar on that page.</p>
+</div>
+<div id="development-environment" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Development environment<a href="developer-software-and-installation-guide.html#development-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An integrated development environment is recommended to organize code
+files, outputs, and build and debug environments. The most popular IDEs
+on the development team are <a href="https://www.rstudio.com/">RStudio</a> and
+<a href="https://code.visualstudio.com/">Visual Studio Code</a>. You are welcome
+to use another IDE or a text-editor based workflow if you strongly
+prefer that.</p>
+</div>
+<div id="vscode-setup" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> vscode setup<a href="developer-software-and-installation-guide.html#vscode-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Please follow the instructions
+<a href="https://code.visualstudio.com/docs/languages/r">here</a> to set up vscode for use
+with <code>R</code>.</p>
+<p>For those migrating from R studio to VS code, <a href="https://statnmap.com/2021-10-09-how-not-to-be-lost-with-vscode-when-coming-from-rstudio/">this post on migrating to VS
+code</a>
+may be helpful.</p>
+<p>In addition to those instructions, you may need to install the <code>vscDebugger</code>
+package <a href="https://github.com/ManuelHentschel/vscDebugger">here</a> using the
+command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="developer-software-and-installation-guide.html#cb2-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ManuelHentschel/vscDebugger&quot;</span>)</span></code></pre></div>
+<p>To improve the plot viewer when creating plots in <code>R</code>, install the <code>httpgd</code>
+package:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="developer-software-and-installation-guide.html#cb3-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;httpgd&quot;</span>)</span></code></pre></div>
+<p>To add syntax highlighting and other features to the R terminal,
+<a href="https://github.com/randy3k/radian">radian</a> can be installed. Note needs to be
+installed first in order to download radian.</p>
+<p>A number of optional settings that could be added to the user settings
+(settings.json) file in vscode to improve the usability of R in VS code.</p>
+<p>For example, the <a href="https://github.com/REditorSupport/vscode-R/wiki/Interacting-with-R-terminals#sending-code-to-r-terminals">settings for interacting with R
+terminals</a>
+can be adjusted.</p>
+<p>Here are some that you may want to use with FIMS:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="developer-software-and-installation-guide.html#cb4-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="developer-software-and-installation-guide.html#cb4-2" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Associate</span> <span class="er">.RMD</span> <span class="er">files</span> <span class="er">with</span> <span class="er">markdown</span><span class="fu">:</span></span>
+<span id="cb4-3"><a href="developer-software-and-installation-guide.html#cb4-3" tabindex="-1"></a>    <span class="st">&quot;files.associations&quot;</span><span class="er">:</span> <span class="fu">{</span></span>
+<span id="cb4-4"><a href="developer-software-and-installation-guide.html#cb4-4" tabindex="-1"></a>        <span class="dt">&quot;*.Rmd&quot;</span><span class="fu">:</span> <span class="st">&quot;markdown&quot;</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="developer-software-and-installation-guide.html#cb4-5" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb4-6"><a href="developer-software-and-installation-guide.html#cb4-6" tabindex="-1"></a>    <span class="er">//</span> <span class="er">A</span> <span class="er">cmake</span> <span class="er">setting</span></span>
+<span id="cb4-7"><a href="developer-software-and-installation-guide.html#cb4-7" tabindex="-1"></a>    <span class="dt">&quot;cmake.configureOnOpen&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span> </span>
+<span id="cb4-8"><a href="developer-software-and-installation-guide.html#cb4-8" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Set</span> <span class="er">where</span> <span class="er">the</span> <span class="er">rulers</span> <span class="er">are</span><span class="fu">,</span> <span class="er">needed</span> <span class="er">for</span> <span class="er">Rewrap.</span> <span class="er">72</span> <span class="er">is</span> <span class="er">the</span> <span class="er">default</span> <span class="er">we</span> <span class="er">have</span></span>
+<span id="cb4-9"><a href="developer-software-and-installation-guide.html#cb4-9" tabindex="-1"></a>    <span class="er">//</span> <span class="er">decided</span> <span class="er">on</span> <span class="er">for</span> <span class="er">FIMS</span> <span class="er">repositories.z</span></span>
+<span id="cb4-10"><a href="developer-software-and-installation-guide.html#cb4-10" tabindex="-1"></a>    <span class="dt">&quot;editor.rulers&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-11"><a href="developer-software-and-installation-guide.html#cb4-11" tabindex="-1"></a>        <span class="dv">72</span></span>
+<span id="cb4-12"><a href="developer-software-and-installation-guide.html#cb4-12" tabindex="-1"></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-13"><a href="developer-software-and-installation-guide.html#cb4-13" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Should</span> <span class="er">the</span> <span class="er">editor</span> <span class="er">suggest</span> <span class="er">inline</span> <span class="er">edits?</span></span>
+<span id="cb4-14"><a href="developer-software-and-installation-guide.html#cb4-14" tabindex="-1"></a>    <span class="dt">&quot;editor.inlineSuggest.enabled&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb4-15"><a href="developer-software-and-installation-guide.html#cb4-15" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Settings</span> <span class="er">for</span> <span class="er">github</span> <span class="er">copilot</span> <span class="er">and</span> <span class="er">which</span> <span class="er">languages</span> <span class="er">to</span> <span class="er">use</span> <span class="er">it</span> <span class="er">with</span> <span class="er">or</span> <span class="er">not.</span></span>
+<span id="cb4-16"><a href="developer-software-and-installation-guide.html#cb4-16" tabindex="-1"></a>    <span class="dt">&quot;github.copilot.enable&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-17"><a href="developer-software-and-installation-guide.html#cb4-17" tabindex="-1"></a>        <span class="dt">&quot;*&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb4-18"><a href="developer-software-and-installation-guide.html#cb4-18" tabindex="-1"></a>        <span class="dt">&quot;yaml&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb4-19"><a href="developer-software-and-installation-guide.html#cb4-19" tabindex="-1"></a>        <span class="dt">&quot;plaintext&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb4-20"><a href="developer-software-and-installation-guide.html#cb4-20" tabindex="-1"></a>        <span class="dt">&quot;markdown&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb4-21"><a href="developer-software-and-installation-guide.html#cb4-21" tabindex="-1"></a>        <span class="dt">&quot;latex&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb4-22"><a href="developer-software-and-installation-guide.html#cb4-22" tabindex="-1"></a>        <span class="dt">&quot;r&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb4-23"><a href="developer-software-and-installation-guide.html#cb4-23" tabindex="-1"></a>    <span class="fu">},</span> </span>
+<span id="cb4-24"><a href="developer-software-and-installation-guide.html#cb4-24" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Setting</span> <span class="er">for</span> <span class="er">sending</span> <span class="er">R</span> <span class="er">code</span> <span class="er">from</span> <span class="er">the</span> <span class="er">editor</span> <span class="er">to</span> <span class="er">the</span> <span class="er">terminal</span></span>
+<span id="cb4-25"><a href="developer-software-and-installation-guide.html#cb4-25" tabindex="-1"></a>    <span class="dt">&quot;r.alwaysUseActiveTerminal&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb4-26"><a href="developer-software-and-installation-guide.html#cb4-26" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Needed</span> <span class="er">to</span> <span class="er">send</span> <span class="er">large</span> <span class="er">chunks</span> <span class="er">of</span> <span class="er">code</span> <span class="er">to</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span> <span class="er">when</span> <span class="er">using</span> <span class="er">radian</span></span>
+<span id="cb4-27"><a href="developer-software-and-installation-guide.html#cb4-27" tabindex="-1"></a>    <span class="dt">&quot;r.bracketedPaste&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb4-28"><a href="developer-software-and-installation-guide.html#cb4-28" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Needed</span> <span class="er">to</span> <span class="er">use</span> <span class="er">httpgd</span> <span class="er">for</span> <span class="er">plotting</span> <span class="er">in</span> <span class="er">vscode</span></span>
+<span id="cb4-29"><a href="developer-software-and-installation-guide.html#cb4-29" tabindex="-1"></a>    <span class="dt">&quot;r.plot.useHttpgd&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb4-30"><a href="developer-software-and-installation-guide.html#cb4-30" tabindex="-1"></a>    <span class="er">//</span> <span class="er">path</span> <span class="er">to</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span> <span class="er">(in</span> <span class="er">this</span> <span class="er">case</span><span class="fu">,</span> <span class="er">radian).</span> <span class="er">Necessary</span> <span class="er">to</span> <span class="er">get</span> <span class="er">the</span> <span class="er">terminal</span> <span class="er">to</span> <span class="er">use</span> <span class="er">radian.</span></span>
+<span id="cb4-31"><a href="developer-software-and-installation-guide.html#cb4-31" tabindex="-1"></a>    <span class="dt">&quot;r.rterm.windows&quot;</span><span class="fu">:</span> <span class="st">&quot;C://Users//my.name//AppData//Local//Programs//Python//Python310//Scripts//radian.exe&quot;</span><span class="fu">,</span> <span class="er">//Use</span> <span class="er">this</span> <span class="er">only</span> <span class="er">for</span> <span class="er">Windows</span> </span>
+<span id="cb4-32"><a href="developer-software-and-installation-guide.html#cb4-32" tabindex="-1"></a>    <span class="er">//</span> <span class="er">options</span> <span class="er">for</span> <span class="er">the</span> <span class="er">r</span> <span class="er">terminal</span></span>
+<span id="cb4-33"><a href="developer-software-and-installation-guide.html#cb4-33" tabindex="-1"></a>    <span class="dt">&quot;r.rterm.option&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-34"><a href="developer-software-and-installation-guide.html#cb4-34" tabindex="-1"></a>        <span class="st">&quot;--no-save&quot;</span><span class="ot">,</span></span>
+<span id="cb4-35"><a href="developer-software-and-installation-guide.html#cb4-35" tabindex="-1"></a>        <span class="st">&quot;--no-restore&quot;</span><span class="ot">,</span></span>
+<span id="cb4-36"><a href="developer-software-and-installation-guide.html#cb4-36" tabindex="-1"></a>        <span class="st">&quot;max.print=500&quot;</span></span>
+<span id="cb4-37"><a href="developer-software-and-installation-guide.html#cb4-37" tabindex="-1"></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-38"><a href="developer-software-and-installation-guide.html#cb4-38" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Setting</span> <span class="er">for</span> <span class="er">whether</span> <span class="er">to</span> <span class="er">allow</span> <span class="er">linting</span> <span class="er">of</span> <span class="er">documents</span> <span class="er">or</span> <span class="er">not</span></span>
+<span id="cb4-39"><a href="developer-software-and-installation-guide.html#cb4-39" tabindex="-1"></a>    <span class="dt">&quot;r.lsp.diagnostics&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb4-40"><a href="developer-software-and-installation-guide.html#cb4-40" tabindex="-1"></a>    <span class="er">//</span> <span class="er">When</span> <span class="er">looking</span> <span class="er">at</span> <span class="er">diffs</span> <span class="er">under</span> <span class="er">the</span> <span class="er">version</span> <span class="er">control</span> <span class="er">tab</span><span class="fu">,</span> <span class="er">should</span> <span class="er">whitspace</span> <span class="er">be</span> <span class="er">ignored?</span></span>
+<span id="cb4-41"><a href="developer-software-and-installation-guide.html#cb4-41" tabindex="-1"></a>    <span class="dt">&quot;diffEditor.ignoreTrimWhitespace&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb4-42"><a href="developer-software-and-installation-guide.html#cb4-42" tabindex="-1"></a>    <span class="er">//</span> <span class="er">What</span> <span class="er">is</span> <span class="er">the</span> <span class="er">max</span> <span class="er">number</span> <span class="er">of</span> <span class="er">lines</span> <span class="er">that</span> <span class="er">are</span> <span class="er">printed</span> <span class="er">as</span> <span class="er">output</span> <span class="er">to</span> <span class="er">the</span> <span class="er">terminal?</span></span>
+<span id="cb4-43"><a href="developer-software-and-installation-guide.html#cb4-43" tabindex="-1"></a>    <span class="dt">&quot;terminal.integrated.scrollback&quot;</span><span class="fu">:</span> <span class="dv">10000</span></span>
+<span id="cb4-44"><a href="developer-software-and-installation-guide.html#cb4-44" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>Some <a href="https://github.com/REditorSupport/vscode-R/wiki/Keyboard-shortcuts">suggested R
+shortcuts</a>
+could be helpful.</p>
+<p>To set up C++ with vscode, instructions are
+<a href="https://code.visualstudio.com/docs/languages/cpp">here</a>.</p>
+<p>Other helpful extensions that can be found in the VScode marketplace are:
+- Github Copilot: An AI tool that helps with line completion
+- Live Share: Collaborate on the same file remotely with other developers
+- Rewrap: Helps rewrapping comments and text lines at a specified character
+count. Note that to get it working it will be necessary to add
+<a href="https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_vertical-rulers">rulers</a>
+- There are a number of keymap packages that import key mappings from commonly
+used text editors (e.g., Sublime, Notepad++, atom, etc.). Searching “keymap”
+in the marketplace should help find these.
+- GitLens (or GitLess): Adds more Git functionality. Note that some of the
+GitLens functionality is not free, and GitLess is a fork before the addition
+of these premium features.</p>
+<p>Note that the keybindings.json and settings.json could be copied from one
+computer to another to make it easier to set up VS code with the settings
+needed. Note that the <a href="https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations">settings.json location differs</a> depending on the operating system.</p>
+<p>Typically, it is good practice to not restore old sessions after shutting down
+the IDE. To avoid restoring old sessions in the VS Code terminals (including R
+terminal), in the Setting User Interface within VS Code (get to this by opening
+the command palette and searching for Preferences: Open Settings (UI)), under
+Features &gt; Terminal, uncheck the option “Enable Persistent Sessions.”</p>
+<p>Rstudio addins can be accessed by searching for Rstudio addin in the command
+palette. Clicking on “R: Launch Rstudio Addin” should provide a list of addin
+options.</p>
+</div>
+<div id="c-compiler" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> C++ compiler<a href="developer-software-and-installation-guide.html#c-compiler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Windows users who installed Rtools should have a C++ compiler (<code>gcc</code>)
+as part of the bundle. To ensure the C++ compiler is on your path, open
+a command prompt and type <code>gcc</code>. If you get the below message, you are
+all set:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="developer-software-and-installation-guide.html#cb5-1" tabindex="-1"></a>gcc<span class="sc">:</span> fatal error<span class="sc">:</span> no input files compilation</span>
+<span id="cb5-2"><a href="developer-software-and-installation-guide.html#cb5-2" tabindex="-1"></a>terminated.</span></code></pre></div>
+<p>If not, you will need to check that the compiler is on the path. The
+easiest way to do so is by creating a text file .Renviron in your
+Documents folder which contains the following line:</p>
+<pre><code>PATH=&quot;${RTOOLS44_HOME}\usr\bin;${PATH}&quot;</code></pre>
+<p>You can do this with a text editor, or from <code>R</code> like so (note that in
+<code>R</code> code you need to escape backslashes):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="developer-software-and-installation-guide.html#cb7-1" tabindex="-1"></a><span class="fu">write</span>(<span class="st">&#39;PATH=&quot;${RTOOLS44_HOME}</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin;${PATH}&quot;&#39;</span>, <span class="at">file =</span> <span class="st">&quot;~/.Renviron&quot;</span>, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Restart R, and verify that make can be found, which should show the path
+to your Rtools installation.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="developer-software-and-installation-guide.html#cb8-1" tabindex="-1"></a><span class="fu">Sys.which</span>(<span class="st">&quot;make&quot;</span>) <span class="do">##</span></span>
+<span id="cb8-2"><a href="developer-software-and-installation-guide.html#cb8-2" tabindex="-1"></a><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">rtools44</span><span class="sc">\\</span><span class="st">usr</span><span class="sc">\\</span><span class="st">bin</span><span class="sc">\\</span><span class="st">make.exe&quot;</span> </span></code></pre></div>
+</div>
+<div id="googletest" class="section level3 hasAnchor" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> GoogleTest<a href="developer-software-and-installation-guide.html#googletest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You will need to install <code>CMake</code> and <code>ninja</code> and validate you have the
+correct setup by following the steps outlined in the <a href="testing.html#testing">test case
+template</a>.</p>
+</div>
+<div id="gdb-debugger" class="section level3 hasAnchor" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> GDB debugger<a href="developer-software-and-installation-guide.html#gdb-debugger" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Windows users who use GoogleTest may need GDB debugger to see what is
+going on inside of the program while it executes, or what the program is
+doing at the moment it crashed. rtools44 includes the GDB debugger. The
+steps below help install 64-bit version gdb.exe.</p>
+<ul>
+<li>Open Command Prompt and type <code>gdb</code>. If you see details of usage, GDB
+debugger is already in your PATH. If not, follow the instructions below
+to install GDB debugger and add it to your PATH.</li>
+<li>Install Rtools run commands in the mingw64 shell. Run
+command <code>pacman -Sy mingw-w64-x86_64-gdb</code> to install 64-bit version
+(more information can be found in <a href="https://github.com/r-windows/docs/blob/master/faq.md#does-rtools40-include-a-debugger">R on Windows FAQ</a>)</li>
+<li>Type <code>Y</code> in the mingw64 shell to proceed with installation</li>
+<li>Check whether ~/rtools44/mingw64/bin/gdb.exe exists or not</li>
+<li>Add rtools44 to the PATH and you can check that the path is working
+by running <code>which gdb</code> in a command window</li>
+</ul>
+</div>
+<div id="doxygen" class="section level3 hasAnchor" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Doxygen<a href="developer-software-and-installation-guide.html#doxygen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To build C++ documentation website for FIMS, a documentation
+generator Doxygen needs to be installed. Doxygen automates the generation of
+documentation from source code comments. To install Doxygen, please follow the
+instructions <a href="https://www.doxygen.nl/manual/install.html">here</a> to install
+Doxygen on various operating systems. Below are steps to install 64-bit version of
+Doxygen 1.11.0 on Windows.</p>
+<ul>
+<li><p>Download <a href="https://www.doxygen.nl/files/doxygen-1.11.0.windows.x64.bin.zip">doxygen-1.11.0.windows.x64.bin.zip</a>
+and extract the applications to <code>Documents\Apps\Doxygen</code> or other preferred folder.</p></li>
+<li><p>Add Doxygen to the PATH by following similar instructions <a href="https://noaa-fims.github.io/collaborative_workflow/testing.html#adding-cmake-and-ninja-to-your-path-on-windows">here</a>.</p></li>
+<li><p>Open a command window and run <code>where doxygen</code> to check if Doxygen is
+added to the PATH.</p></li>
+<li><p>Two commands on the command line are needed to generate C++ documentation
+for FIMS locally:</p></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="developer-software-and-installation-guide.html#cb9-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-G</span> Ninja</span>
+<span id="cb9-2"><a href="developer-software-and-installation-guide.html#cb9-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--</span> build build</span></code></pre></div>
+</div>
+<div id="r-installation-requirements" class="section level3 hasAnchor" number="6.2.8">
+<h3><span class="header-section-number">6.2.8</span> R Installation Requirements<a href="developer-software-and-installation-guide.html#r-installation-requirements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following is needed:
+- R version 4.0.0 or newer (or RStudio version 1.2.5042 or newer)
+- the <code>devtools</code> R package
+- <code>TMB</code> version 1.8.0 or newer (<a href="https://github.com/kaskr/adcomp/wiki/Download">install instructions</a>)
+- For windows users: Rtools4 (available <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">on the CRAN website</a>)</p>
+</div>
+</div>
+<div id="installing-fims" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Installing FIMS<a href="developer-software-and-installation-guide.html#installing-fims" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="install-options-for-developers" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Install Options for Developers<a href="developer-software-and-installation-guide.html#install-options-for-developers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use the following options from the R console:</p>
+<ul>
+<li>Clone FIMS and build using <code>devtools::load_all()</code> (mimics package building) or <code>devtools::install()</code> (actually builds package from local files). These are good options if you intend to modify files in FIMS and want to test them out.</li>
+<li>Use <code>install.packages("FIMS", repos = c("https://noaa-fims.r-universe.dev", "https://cloud.r-project.org"))</code> to download the latest precompiled version from R universe or <code>devtools::install_github("NOAA-FIMS/FIMS)</code> to compile yourself. <code>devtools::install_github()</code> has options to all you to be more specific about which version of the code is being built (e.g., you can refer to a tag or branch, which is not possible with the R universe install).</li>
+</ul>
+</div>
+<div id="windows-fixing-fatal-error" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Windows: Fixing Fatal Error<a href="developer-software-and-installation-guide.html#windows-fixing-fatal-error" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Windows users can expect to see some derivative of the following error message in their R session if they have not yet set some flags using {withr}.</p>
+<pre><code>Fatal error: can&#39;t write &lt;xxx&gt; bytes to section .text of FIMS.o: &#39;file too big</code></pre>
+<p>You can easily fix this by running the following line in your local R session. Note that this call will need to be repeated each time you open a new session.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="developer-software-and-installation-guide.html#cb11-1" tabindex="-1"></a>withr<span class="sc">::</span><span class="fu">local_options</span>(<span class="at">pkg.build_extra_flags =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>This fix does not work when <code>devtools::test()</code> is called and FIMS is re-compiled. The call to <code>devtools::test()</code> in this case overwrites the local options set by withr. Compile FIMS first using <code>devtools::load_all()</code> prior to running <code>devtools::test()</code>.</p>
+<p>This fix removes the debugger flag <code>-O0 -g</code> from being automatically inserted for certain devtools calls (e.g. <code>devtools::load_all()</code>). Windows developers wanting to compile FIMS with the debugger turned on will need to run the above script in addition to manually modifying the call to PKG_CXXFLAGS in the <a href="https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win">Makevars.win</a> file in the src directory to the following:</p>
+<pre><code>PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g</code></pre>
+<p>To turn off the debugger flag, remove the <code>-O1 -g</code> flag:</p>
+<pre><code>PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS</code></pre>
+</div>
+</div>
+<div id="getting-help" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Getting Help<a href="developer-software-and-installation-guide.html#getting-help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Please report bugs along with a minimal reproducible example on GitHub <a href="https://github.com/NOAA-FIMS/FIMS/issues">Issues</a></p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="user-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="contributor-guidelines.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -417,7 +644,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/%s",
+"link": "https://github.com/noaa-fims/collaborative_workflow/edit/main/06-developer-software-guide.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -425,7 +652,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/%s",
+"link": "https://github.com/noaa-fims/collaborative_workflow/blob/main/06-developer-software-guide.Rmd",
 "text": null
 },
 "download": null,
