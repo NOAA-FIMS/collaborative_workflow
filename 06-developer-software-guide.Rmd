@@ -37,36 +37,15 @@ files, outputs, and build and debug environments. The most popular IDEs
 
 ### vscode setup
 
-Please follow the instructions
-[here](https://code.visualstudio.com/docs/languages/r) to set up vscode for use
-with `R`.
+Install [Visual Studio Code](https://code.visualstudio.com/Download) and
+[configure it for using `R`](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Windows).
 
 For those migrating from R studio to VS code, [this post on migrating to VS
 code](https://statnmap.com/2021-10-09-how-not-to-be-lost-with-vscode-when-coming-from-rstudio/)
 may be helpful.
 
-In addition to those instructions, you may need to install the `vscDebugger`
-package [here](https://github.com/ManuelHentschel/vscDebugger) using the
-command:
-
-```{r eval=FALSE}
-remotes::install_github("ManuelHentschel/vscDebugger")
-```
-
-To improve the plot viewer when creating plots in `R`, install the `httpgd`
-package:
-
-```{r eval=FALSE}
-install.packages("httpgd")
-``` 
-
-To add syntax highlighting and other features to the R terminal,
-[radian](https://github.com/randy3k/radian) can be installed. Note needs to be
-installed first in order to download radian.
-
 A number of optional settings that could be added to the user settings
 (settings.json) file in vscode to improve the usability of R in VS code.
-
 For example, the [settings for interacting with R
 terminals](https://github.com/REditorSupport/vscode-R/wiki/Interacting-with-R-terminals#sending-code-to-r-terminals)
 can be adjusted.
