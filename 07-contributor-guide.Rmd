@@ -1,20 +1,29 @@
 # Contributor Guidelines
 
-External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides guidelines and workflows for FIMS developers and collaborators on how to contribute to the project.
+External contributions and feedback are important to the development and future maintenance of FIMS and are welcome. This section provides contributing guidelines and workflows for developers of FIMS and the ecosystem surrounding FIMS. All contributors, both internal and external, are required to abide by the [Code of Conduct](#code-of-conduct).
 
-## Style Guide
+## Code
 
-The FIMS project uses style guides to ensure our code is consistent, easy to use (e.g., read, share, and verify), and ultimately easier to write. We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and the [tidyverse style guide](https://style.tidyverse.org/) for R code.
+### Style Guide
 
-## Naming Conventions
+Style guides are used to ensure the code is consistent, easy to use (e.g., read, share, and verify) and ultimately easier to write.
 
-The FIMS implementation team has chosen to use `typename` instead of `class` when defining templates for consistency with the `TMB` package. While types may be defined in many ways, for consistency developers are asked to use `Type` instead of T` to define Types within FIMS.
+#### C++
 
-## Coding Good Practices
+We use the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) for C++ code.
+
+#### R
+We use the [tidyverse style guide](https://style.tidyverse.org/) for R code.
+
+#### Naming Conventions
+
+We use `typename` instead of `class` when defining templates for consistency with the `TMB` package. While types may be defined in many ways, we use `Type` instead of T` to define Types within FIMS.
+
+### Coding Good Practices
 
 Following good software development and coding practices simplifies collaboration, improves readability, and streamlines testing and review. The following are industry-accepted standards:
 
-* Adhere to the [FIMS Project style guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html)
+* Adhere to the adopted [Style Guides](#style-guide)
 * Avoid rework - take the time to check for existing options (e.g., in-house, open source, etc.) before writing code
 * Keep code as simple as possible
 * Use meaningful variable names that are easy to understand and clearly represent the data they store
@@ -24,11 +33,10 @@ Following good software development and coding practices simplifies collaboratio
 * Use consistent formatting and indentation to improve readability and organization
 * Group code into separate blocks for individual tasks
 * Avoid hard-coded values to ensure portability of code
-* Follow the DRY principle - "Don't Repeat Yourself" (or your code)
+* Follow the "Don't Repeat Yourself" (DRY) principle for coding
 * Avoid deep nesting
-* Limit line length (wrap ~72 characters)
+* Limit line length (wrap ~72 characters) of code but use a single line per paragraph in this markdown document
 * Capitalize SQL queries so they are readily distinguishable from table/column names
-* Lint your code
 
 ## Roadmap to FIMS File Structure and Organization
 
@@ -38,23 +46,23 @@ Following good software development and coding practices simplifies collaboratio
 
 This folder includes files that are shared between the interface, the `TMB` objective function, and the mathematics and population dynamics components of the package.
 
+#### distributions
+
+TODO: document distributions folder.
+
 #### interface
 
 This includes the R interface files.
 
-#### population dynamics
+#### population_dynamics
 
-There are subfolders underneath this folder that correspond to the 
-different components of the population dynamics model. Each of the 
-modules will need a <module_name>.hpp file that only consists of 
-`#include` statements for the files under the subfolders.
+Each folder in population_dynamics corresponds to a component of the population dynamics model. Given the complexity of the component, the structure in these folders within population_dynamics may differ. At a minimum there will be a `.hpp` file with the same name as the subfolder, e.g., fleet/fleet.hpp. This file will include an `ifndef` directive and `#include` statements. If the folder is empty other than this file, then the remainder of the file will define the component. If there are additional subdirectors along side the .hpp file, the file will end after the include statements that point to each of the files in the functions folder that sits next to this .hpp file.
 
-In the subfolder, there will need to be one file called 
-<module_name>_base.hpp that defines the base class for the module type.
-The base class should only need a constructor method and a number of
-methods (e.g., `evaluate()`) that are not specific to the type of 
-functions available under the subfolders but reused for all objects of 
-that class type.
+For the latter scenario, where a functor folder exists, inside the functor folder will be a `.hpp` file with `_base` attached to the component name, e.g., `population_dynamics/maturity/functors/maturity_base.hpp`. This `_base.hpp` file will define the base class for the module type. The base class should only need a constructor method and a number of methods (e.g., `evaluate()`) that are not specific to the type of functions available under the subfolders but reused for all objects of that class type.
+
+#### utilities
+
+TODO: document utilities folder.
 
 ### Files that go in `src/`
 
@@ -62,287 +70,77 @@ that class type.
 
 This is the `TMB` objective function.
 
+#### Makevars
+
+TODO: document makevars and makevars.win files
+
 ## GitHub Collaborative Environment
 
-Communication is managed via the [NOAA-FIMS
-Github](https://github.com/NOAA-FIMS) organization.
+Communication is managed via the [NOAA-FIMS](https://github.com/NOAA-FIMS) GitHub organization.
 
-* New features requests and bugs should be submitted as issues to the
-[FIMS development repo](https://github.com/NOAA-FIMS/FIMS/issues). For
-guidelines on submitting issues, see [Issue Tracking](#issue-tracking).
-* [GitProjects](https://github.com/orgs/NOAA-FIMS/projects/1) TODO: add
-description * [GitHub Teams](https://github.com/orgs/NOAA-FIMS/teams)
-TODO: add description * All contributers, both internal and external,
-are required to abide by the [Code of Conduct](#code-of-conduct)
+### GitHub Issues
 
-### FIMS Branching Strategy
+[GitHub Issues](https://guides.github.com/features/issues/) are key to keeping everyone informed and prioritizing tasks. All bugs, future projects, ideas, concerns, developments, etc. must be documented using an issue the appropriate repository's Issue Tracker within the NOAA-FIMS organization, e.g., [Issue Tracker for NOAA-FIMS/FIMS](https://github.com/NOAA-FIMS/FIMS/issues), before the code is altered. Issues are automatically tagged with the `status: triage_needed` tag and placed on the [Issue Triage Board](https://github.com/orgs/NOAA-FIMS/projects/21) where they will be labeled, given an assignee, and given a milestone by those in charge of the triage process.
 
-There are several [branching
-strategies](https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/)
-available that will work within the Git environment and other version
-control systems. However, it is important to find a strategy that works
-well for both current and future contributors. Branching strategies
-provide guidance for how, when, and why branches are created and named,
-which also ties into necessary guidance surrounding issue tracking.
+There are different types of issues, e.g., bug, enhancement, etc., that might be applicable to your situation. Please read the descriptions for each issue type available and use the form that best suits your situation. The available types are the same or similar on each GitHub Issue page within the NOAA-FIMS organization. Navigate to the [GitHub Issue page for NOAA-FIMS/FIMS](https://github.com/NOAA-FIMS/FIMS/issues/new/choose) to see the available types.
 
-The FIMS Project uses a [Scaled Trunk Based
-Development](https://trunkbaseddevelopment.com/) branching strategy to
-make tasks easier without compromising quality.
+#### GitHub Issue Labels
 
-![Scaled Trunk Based Development; image credit:
-https://reviewpad.com/blog/github-flow-trunk-based-development-and-code-reviews/](https://reviewpad.com/wp-content/uploads/2021/06/Scaled-Trunk-Based-Development.svg)
+[Labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels) help categorize and manage the work ahead of us. Members of the NOAA-FIMS organization can add labels to their issues upon submission of the issue. Additional labels will be applied during the triage process if needed.
 
-This  strategy is required for continuous integration and facilitates
-knowledge of steps that must be taken prior to, during, and after making
-changes to the code, while still allowing anyone interested in the code
-to read it at any time. Additionally, trunk-based development captures
-the following needs without being overly complicated:
+Labels within NOAA-FIMS are categorized, e.g., `status: triage_needed` is a status label. Typically, every issue should have one label per category.
 
-* Short-lived branches to minimize stale code and merge conflicts * Fast
-release times, especially for bug fixes * Ability to release bug fixes
-without new features
+#### GitHub Issue Templates
 
-### Branch Protection
+The templates for issue types are maintained in the [.github/ISSUE_TEMPLATE folder within the NOAA-FIMS/.github repository](https://www.github.com/NOAA-FIMS/.github/tree/main/.github/ISSUE_TEMPLATE), which allows the same forms to be available in each repository without copying and pasting the code to each repositories .github/ISSUE_TEMPLATE folder. Additional examples of Example templates for issues and pull requests can be found on [GitHub Docs](http://www.docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
 
-Branch protection allows for searching branch names with `grep`
-functionality to apply merging rules (i.e., protection). This will be
-helpful to protect the main/trunk branch such that pull requests cannot
-be merged in prior to passing various checks or by individuals without
-the authority to do so.
+#### GitHub Projects
 
-### GitHub cloning and branching
+[GitHub Projects](https://docs/github.com/en/issues/planning-and-tracking-with-projects) are used to keep track and prioritize issues. There are several [GitHub Projects for NOAA-FIMS](https://github.com/orgs/NOAA-FIMS/projects) such as the [Issue Triage Board](https://github.com/orgs/NOAA-FIMS/projects/21).
 
-For contributors with write access to the FIMS repo, changes should be made on a feature branch after cloning the repo. The FIMS repo can be cloned to a local machine by using on the command line:
+### GitHub Cloning
 
-```bash
-git clone https://github.com/NOAA-FIMS/FIMS.git
-```
+Any repository within NOAA-FIMS can be [cloned](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository) to a personal or virtual machine. But, contributors without write access will need to [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) the repository and then clone their fork. 
 
-### Outside collaborators and forks
+### GitHub Branching
 
-Outside collaborators without write access to the FIMS repos will be required to fork the repository, make changes, and submit a pull request. Forks are discouraged for every-day development because it becomes difficult to keep track of all of the forks. Thus, it will be important for those working on forks to be active in the issue tracker in the main repository prior to working on their fork — just like any member of the organization would do if they were working within the organization. Knowledge of future projects, ideas, concerns, etc. should always be documented in an issue before the code is altered.
+After cloning and before any work is done, ideas for potential changes to the code should be proposed in a [GitHub Issue](#github-issues). Next, after the issue is filed and before any work is done, a feature branch should be created where the work will be done.
 
-Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as have tests that check the new feature.
+#### Branch Naming Conventions
 
-To fork and then clone a repository, follow the [Github Documentation for forking a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository). Once cloned, changes can be made on a feature branch. When ready to submit changes follow the [Github Documentation on creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
-
-## Issue Tracking
-
-Use of the GitHub issue tracker is key to keeping everyone informed and
-prioritizing key tasks. All future projects, ideas, concerns, development,
-etc. must be documented in an issue before the code is altered. Issues should
-be filed and tagged prior to any code changes whether the change pertains to a
-bug or the development of a feature. Issues are automatically tagged with the
-`status: triage_needed` tag and placed on the [Issue Triage
-Board](https://github.com/orgs/NOAA-FIMS/projects/21). Issues will subsequently
-be labeled and given an assignee and milestone by whoever is in charge of the
-Triage Board.
-
-## Reporting Bugs
-
-This section guides you through submitting a bug report for any toolbox tool. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
-
-#### Before Submitting A Bug Report
-
-* **Check if it is related to version.** We recommend using `sessionInfo()` within your `R` console and submitting the results in your bug report. Also, please check your R version against the required R version in the DESCRIPTION file and update if needed to see if that fixes the issue.
-* **Perform a cursory search of issues** to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one. If it has **and the issue is closed**, open a new issue and include a link to the original issue in the body of your new one.
-
-#### How Do I Submit A (Good) Bug Report?
-
-Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on the toolbox Github repository and provide the following information by following the steps outlined in the [reprex package](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html). Explain the problem and include additional details to help maintainers reproduce the problem using the Bug Report issue [template](https://github.com/NOAA-FIMS/FIMS/issues/new/choose).
-
-Provide more context by answering these questions:
-
-* **Did the problem start happening recently** (e.g., after updating to a new version of R) or was this always a problem?
-* If the problem started happening recently, **can you reproduce the problem in an older version of R?** What's the most recent version in which the problem doesn't happen? 
-* **Can you reliably reproduce the issue?** If not, provide details about how often the problem happens and under which conditions it normally happens.
-* If the problem is related to working with files (e.g., reading in data files), **does the problem happen for all files and projects or only some?** Does the problem happen only when working with local or remote files (e.g., on network drives), with files of a specific type (e.g., only JavaScript or Python files), with large files or files with very long lines, or with files in a specific encoding? Is there anything else special about the files you are using?
-
-Include details about your configuration and environment:
-
-* **Which version of the tool are you using?** 
-* **What's the name and version of the OS you're using?**
-* **Which packages do you have installed?** You can get that list by running `sessionInfo()`.
-
-
-## Suggesting Features
-
-This section guides you through submitting an feature suggestion for toolbox packages, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.
-
-Before creating enhancement suggestions, please check the issues list as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include an "enhancement" tag in the issues.
-
-#### Before Submitting A Feature Suggestion
-
-* **Check you have the latest version of the package.**
-* **Check if the development branch has that enhancement in the works.**
-* **Perform a cursory search of the issues and enhancement tags** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
-
-#### How Do I Submit A (Good) Feature Suggestion?
-
-Feature suggestions are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on the repository and use the Feature Request issue [template](https://github.com/NOAA-FIMS/FIMS/issues/new/choose).
-
-### Issue Labels
-
-Utilize labels on issues:
-
-* To describe the kind of work to be done: bug, enhancement, task, discussion, question, suitable for beginners
-* To indicate the state of the issue: urgent, current, next, eventually, won't fix, duplicate
-
-### Issue Templates
-
-Templates are available and stored within each repository to guide users through the process of submitting a new issue.
-Example templates for issues can be found on
-[GitHub Docs](http://www.docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
-Use these references and existing templates stored in .github/ISSUE_TEMPLATE for reference when creating a new template.
-
-## Branch Workflow
-
-This section details the workflow to create a branch in order to contribute to FIMS.
-
-### Branching Good Practices
-
-The following suggestions will help ensure optimal performance of the trunk-based branching strategy:
-
-1. Branches and commits should be kept small (e.g., a couple commits, a few lines of code) to allow for rapid merges and deployments.
-2. Use [feature flags](https://martinfowler.com/articles/feature-toggles.html) to wrap new changes in an inactive code path for later activation (rather than creating a separate repository feature branch).
-3. Delete branches after it is merged to the trunk; avoid repositories with a large number of "active" branches.
-4. Merge branches to the trunk frequently (e.g., **at least** every few days; tag as a release commit) to avoid merge conflicts.
-5. Use caching layers where appropriate to optimize build and test execution times.
-
-### Branch Naming Conventions
+1. Keep it brief
+1. Use a hyphen as separators
 
 Example: **R-pkg-skeleton**
 
-1. Keep it brief
+#### Branching Strategy
 
-1. Use a hyphen as separators
+FIMS uses a [Scaled Trunk-Based Development](https://trunkbaseddevelopment.com/) branching strategy to streamline the integration of new code into the trunk. This strategy was mainly chosen for the following two reasons:
 
-### git workflow
+* Encourage small, frequent changes.
+* Enable the release of bug fixes without new features.
 
-1. Use the following commands to create a branch:
+Some branches within NOAA-FIMS repositories have [branch protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule). For example, the branch protection rules for the main branch of NOAA-FIMS/FIMS are described on [GitHub in the branch settings](https://github.com/NOAA-FIMS/FIMS/settings/branches).
 
-```{r eval = FALSE}
-$ git checkout -b <branchname> main           #creates a local branch
-$ git push origin <branchname>                #pushes branch back to gitHub
-```
+### GitHub Pull Requests
 
-2. Periodically merge changes from main into branch
-```{r eval = FALSE}
-$ git merge main                              #merges changes from main into branch
-```
+Once development within a feature branch is complete, a [Pull Request (PR)](https://docs.github.com/en/pull-requests) should be initiated. PRs can be initiated with a draft status or marked as ready for review. The former will allow the code to be tested using tests available in GitHub actions without initiating a formal review. The latter will initiate the [code review](#pull-request-review) process. For repositories/branches with branch protection rules, the PR must be formally reviewed, approved, and pass all tests (see the section on [GitHub Actions](#github-actions)) before the branch can be merged into the chosen branch.
 
-3. While editing code, commit regularly following [commit messages](#commit-messages) guidelines
-```{r eval = FALSE}
-$ git add <filename>                          #stages file for commit
-$ git commit -m"Commit Message"               #commits changes
-```
+Instructions for submitting your PR are available on the PR form on GitHub. PRs from forks are treated the same as PRs from within the repository, see the [GitHub documentation on creating a PR from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) for more information.
 
-4. To push changes to gitHub, first set the upstream location:
-```{r eval = FALSE}
-$ git push --set-upstream origin <branchname> #pushes change to feature branch on gitHub
-```
-After which, changes can be pushed as:
-```{r eval = FALSE}
-$ git push                 #pushes change to feature branch on gitHub
-```
+#### Pull Request Templates
 
-4. When finished, create a pull request to the main branch following
-[pull request](#pull-request) guidelines
+The templates for PRs are maintained in the [.github/folder within the NOAA-FIMS/.github repository](https://www.github.com/NOAA-FIMS/.github/tree/main/.github), same as [NOAA-FIMS Issue templates](#github-issue-templates).
 
+See the [NOAA-FIMS/FIMS PR template here](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md).
 
-## Code Development
-Code is written following the [Style Guide](#style-guide),
-[FIMS Naming Conventions](#naming conventions), and
-[Coding Good Practices](#coding-good-practices)
+#### Pull Request Review
 
-## Commit Messages
+[Code review](https://github.com/features/code-review) ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase. Tools within GitHub allow for reviewers to analyze code changes, provide inline comments, and view change histories with ease.
 
-FIMS Project contributors should provide clear, descriptive commit
-messages to communicate to collaborators details about changes that have
-occurred and improve team efficiency. Good commit messages follow the
-following practices:
+[Google's code review guide](https://google.github.io/eng-practices/review/) provides a useful set of guidelines for both reviewers and code authors.
 
-* Include a short summary of the change for the subject/title (<50 characters)
-* Include a blank line in between the 'subject' and 'body'
-* Specify the type of commit:
-
-          * fix: bug fix
-          * feat: new feature
-          * test: testing
-          * docs: documentation
-          * chore: regular code maintenance (e.g., updating dependencies)
-          * refactor: refactoring codebase
-          * style: changes that do not affect the meaning of the code; instead address code styling/formmatting
-          * perf: performance improvements
-          * revert: reverts a previous commit
-          * build: changes that affect the build system
-
-* If the commit addresses an issue, indicate the issue# in the title
-* Provide a brief explanatory description of the change, addressing what and why was changed
-* Wrap to ~72 characters
-* Write in the imperative (e.g., "Fix bug", not "Fixed bug")
-* If necessary, separate paragraphs by blank lines
-* Utilize `BREAKING CHANGE: <description>` to provide expanation or further context about the issue being addressed.
-* If the commit closes an issue, include a footer to note that (i.e., "Closes #19")
-
-
-## Merge Conflicts
-
-### What is a merge conflict?
-
-A merge conflict happens when changes have occured to the same piece of code on the two branches being merged. This means Git cannot automatically determine which version of the change should be kept. Most merge conflicts are small and easy to figure out. See the [Github Documentation on merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) for more information.
-
-### How to prevent merge conflicts
-
-- Merge in small changes often rather than making many changes on a branch that is kept separate from the main branch for a long time.
-- Avoid refactoring the same piece of code in different ways on separate branches.
-- Avoid working in the same files on separate branches.
-
-### How to resolve merge conflicts
-
-Merge conflicts can be resolved [on Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-lineithub.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) or [locally using Git](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
-
-An additional helpful resource is [this guide to merge conflicts](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md).
-
-## Pull Requests
-
-Once development of a module is complete, the contributor must initiate
-a pull request. Github will automatically start an independent
-[review](#code-review) process before the branch can be merged back into
-the main development branch. Pull requests are used to identify changes
-pushed to development branches. Open pull requests allow the FIMS
-Development Team to discuss and review the changes, as well as add
-follow-up commits before merging to the main branch. As noted in the
-[branching stratgegy](#branching-strategy) section, branches, commits,
-and pull requests should be kept small to enable rapid review and reduce
-the chance of merge conflicts. Any pull requests for the FIMS Project
-must be fully tested and reviewed before being merged into the main
-branch.
-Use the [pull request template](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md)
-to create pull requests. Pull requests without this template attached
-will not be approved.
-
-## Code Review
-
-Code review ensures health and continuous improvement of the FIMS
-codebase, while simultaneously helping FIMS developers become familiar
-with the codebase and ensure there is a diverse team of knolwedgable
-collaborators to support the continued development and maintenance of
-FIMS. CI/CD requires rapid review of all new/modified code, so processes
-must be in place to support this pace. FIMS code review will utilize
-tools available via [GitHub](https://github.com/features/code-review),
-which allows reviewers to analyze code changes, provide inline comments,
-and view change histories.
-
-[The Google code review developer guide](https://google.github.io/eng-practices/review/) provides a useful set of guidelines for both reviewers and code authors.
-
-Below is a flowchart for the FIMS code review process. The author starts by submitting 
-a pull request (PR), ensuring documentation, tests, and CI checks are complete, 
-then propose a reviewer. The reviewer receives the review request and either 
-executes the review independently or pairs with another team representative 
-if assistance is needed. Based on the review, changes may be requested, which
-the author must address before approval. Once the PR is approved, the author 
-merges it into the main branch.
+Below is a flowchart for the FIMS code review process. The author starts by submitting a PR, ensuring documentation, tests, and continuous integration checks are complete. The initiator of the PR must propose a reviewer (see [Assigning Reviewers](#assigning-reviewers)). The reviewer receives the review request and either executes the review independently or pairs with another team representative if assistance is needed. Based on the review, changes may be requested, which the author must address before approval. Once the PR is approved, the author must rebase and merge it into the desired branch.
 
 ```{r, echo=FALSE}
 DiagrammeR::mermaid("
@@ -369,184 +167,112 @@ DiagrammeR::mermaid("
 
 ```
 
-### Assigning Reviewers
+##### Assigning Reviewers
 
-Reviewers of PRs for changes to the codebase in FIMS should be
-suggested by the author of the PR. For those FIMS Implementation
-Team Members that keep their status in Github current (see ["Setting
-a status"](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)
-for more information), authors can use the status information to
-prevent assigning a reviewer who is known to be "Busy".
+Reviewers of PRs for changes to the codebase in FIMS should be suggested by the author of the PR. For those FIMS Implementation Team Members that keep their status in GitHub current (see ["Setting a status"](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status) for more information), authors of PRs can use the status information to prevent assigning a reviewer who is known to be "Busy".
 
-If a review has been assigned to you and you don't feel like you have
-the expertise to address it properly, please respond directly to the
-PR so a different reviewer can be found promptly.
+If a review has been assigned to you and you don't feel like you have the expertise to address it properly, please respond directly to the PR so a different reviewer can be found promptly or suggest someone to help you with the review.
 
-### Automated Testing
+##### Review Checklist
 
-Automated testing provides an initial layer of quality assurance and
-lets reviewers know that the code meets certain standards. For more on
-FIMS testing, see [Testing](#testing) and [GitHub Actions](#github-actions).
+While automated testing can assure the code structure and logic pass quality checks, human reviewers are required to evaluate things like functionality, readability, etc. Every PR is accompanied by an automatically generated [checklist of major considerations for code reviews](https://github.com/NOAA-FIMS/FIMS/blob/main/.github/workflows/pr-checklist.yml). Additional guidance is provided below for reviewers to evaluate when providing feedback on code:
 
-### Review Checklist
+##### Reviewer Good Practices
 
-While automated testing can assure the code structure and logic pass
-quality checks, human reviewers are required to evaluate things like
-functionality, readability, etc. Every pull request is accompanied by an 
-automatically generated checklist of major considerations for code reviews;
-additional guidance is provided below for reviewers to evaluate when 
-providing feedback on code:
+Good reviews require good review habits. Please use the guidance found at [Conventional Comments](https://conventionalcomments.org/) for formatting/structuring your reviewer comments. Navigate to the [Perforce Blog](https://www.perforce.com/blog/qac/9-best-practices-for-code-review) for nine best practices for code review and use the [FIMS Style Guide](#style-guide) to settle any style arguments.
 
-* **Design** (Is the code in the proper location? Are files organized
-intuitively? Are components divided up in a sensible way? Does the pull 
-request include an appropriate number of changes, or would the code 
-changes be better broken into more focused parts? Is the code focused on
-only requirements within the current scope? Does the code follow object-
-oriented design principles? Will changes be easy to maintain? Is the code 
-more complex than it needs to be?)
+#### Merge Conflicts
 
-* **Functionality** (Does the code function as it is expected to? Are
-changes, including to the user interface (if applicable), good for users?
-Does parallel computing remain functional? How will the change impact 
-other parts of the system? Are there any unhandled edge cases? Are there 
-other code improvements possible?)
+[Merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) must be resolved before a PR can be merged into the desired branch because Git cannot automatically determine which version of the code should be kept.
 
-* **Testing** (Does the code have appropriate [unit tests](#testing)? Are tests well-
-designed? Have dependencies been appropriately tested? Does automated 
-testing cover the code exchange adequately? Could the test structure be improved?)
+Merge conflicts can be resolved [on GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-lineithub.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) or [locally using Git](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
-* **Readability** (Is the code and data flow easy to understand? Are there 
-any parts of the code that are confusing or commented out? Are names clear? 
-Does the code include any errors, repeats, or incomplete sections? Does the code 
-adhere to the [FIMS Style Guide](#contributor-guide)?)
+Tools such as [Git Kracken](https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git) or [GitLens within VS Code](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) offer a GUI interface to help resolve merge conflicts. [Tatiana Tylosky's guide to merge conflicts](https://github.com/TatianaTylosky/solving-and-preventing-merge-conflicts/blob/master/guide.md) is also helpful.
 
-* **Documentation** (Are there clearl and useful comments available to why
-the code has been implemented as it has been? Is the code appropriately documented
-(doxygen and roxygen)? Is the README file complete, current, and adequately 
-describe project/changes?)
+### GitHub Actions
 
-* **Security** (Does using this code open the software to possible security 
-violations or vulnerabilities?)
+FIMS uses [GitHub Actions](https://docs.GitHub.com/en/actions) to automate routine tasks such as testing, building and deploying websites, and notifying individuals. Some of the actions are built on [reusable workflows](https://docs.GitHub.com/en/actions/using-workflows/reusing-workflows) available in [{ghactions4r}](https://nmfs-fish-tools.github.io/ghactions4r/), where reusable workflows allow for sharing of code.
 
-* **Performance** (Are there ways to improve on the code's performance?
-Is there any complex logic that could be simplified? Could any of the code be 
-replaced with built-in functions? Will this change have any impacts on system 
-performance? Is there any debugging code that could be removed? Are there any 
-optimizations that could be removed and still maintain system performance?)
+For the repositories in NOAA-FIMS that use GitHub actions, the actions can be found in .yml files that are stored in the .github/workflows directory. For example YAML files in [.github/workflows of the NOAA-FIMS/FIMS repository](https://github.com/NOAA-FIMS/FIMS/tree/main/.github/workflows) specify the setup for the GitHub Actions for the source code of FIMS.
 
-### Review Good Practices
+#### Example Actions
 
-Good reviews require good review habits. Try to follow these suggestions:
+- **call-r-cmd-check** runs R CMD Check on the FIMS R package using the current version of R across three operating systems, Windows, Linux (Ubuntu), and OSX. R CMD Check ensures that the FIMS package can be downloaded without error. To replicate the GitHub Actions workflow locally, use `devtools::check()`.
+- **run-clang-tidy** runs checks while compiling the C++ code. If this run fails, fixes need to be made to the C++ code to address the issue identified.
+- **run-googletest** runs the GoogleTest C++ unit tests and benchmarking. If this run fails, then fixes need to be made to the C++ code and/or the GoogleTest C++ unit tests. To replicate this GitHub Actions workflow locally, follow instructions in the [testing section](#testing).
 
-* Review in short sessions (< 60 minutes) to maintain focus and
-attention to detail
-* Don't try to review more than 400 lines of code in a single session
-* Provide constructive and supportive feedback
-* Ask open-ended questions and offer alternatives or possible workarounds
-* Avoid strong/opinionated statements
-* Applaud good solutions
-* Don't say "you"
-* Be clear about which questions/comments are non-blocking or
-unimportant; likewise, be explicit when approving a change or requesting
-follow-up
-* Aim to minimize the number of nitpicks (if there are a lot, suggest a
-team-level resolution)
-* Use the [FIMS Style Guide](https://noaa-fims.github.io/collaborative_workflow/style-guide.html)
-to settle any style arguments
+#### GitHub Actions Results
 
-## Clean up local branches
-If a code reviewer approves the pull request, FIMS workflow managers
-will merge the feature/bug branch back into the main repository and
-delete the branch. At this stage, the contributor should also delete the
-branch from the local repository using the following commands:
+Completed instances of the GitHub Actions can be viewed by navigating to the Actions tab a repository. For example, the [NOAA-FIMS/FIMS/actions](https://github.com/NOAA-FIMS/FIMS/actions). The status of GitHub Actions applicable to a PR can be viewed on the GitHub PR after the PR is initiated or after any commit is pushed to a PR.
 
-```{r, eval = FALSE}
-$ git checkout main           //switches back to main branch
-$ git branch -d <branchname>  //deletes branch from local repository
-```
-## GitHub Actions
-
-FIMS uses [GitHub Actions](https://docs.GitHub.com/en/actions) to automate
-routine tasks. These tasks include:
-
-1. Backup checks for developers
-2. Routine GitHub workflow tasks (not important for developers to monitor)
-
-Currently, the GitHub Actions in the FIMS repository include:
-
-| GitHub Action Name  | Description | Type | Runs a Check on PRs? | Runs on: |
-| ------------------- | ------------------------------ | ------------ | ------ | ----------|
-| call-r-cmd-check    | Runs R CMD Check               | Backup Check | Yes | Push to any branch |
-| run-clang-tidy      | Checks for C++ code            | Backup Check | Yes | Push to any branch |
-| run-googletest      | Runs the google C++ unit tests | Backup Check | Yes | Push to any branch |
-| run-doxygen         | Builds the C++ documentation   | Backup Check | No | Push to main branch |
-| run-clang-format    | Styles C++ code             | Routine workflow task | No | Push to main branch |
-| call-doc-and-style-r| documents and styles R code | Routine workflow task | No  | Push to main branch |
-| pr-checklist | Generates a checklist as a comment for reviewers on PRs | Routine workflow task | No | Opening a PR |
-
-[YAML files in a subdirectory of the FIMS repository](https://github.com/NOAA-FIMS/FIMS/tree/main/.github/workflows) specify the setup for the GitHub Actions. Some of
-the actions depend on [reusable
-workflows](https://docs.GitHub.com/en/actions/using-workflows/reusing-workflows)
-available in [{ghactions4r}](https://nmfs-fish-tools.github.io/ghactions4r/).
-
-Runs of the GitHub Actions can be viewed by navigating to the [Actions tab of
-the FIMS repository](https://github.com/NOAA-FIMS/FIMS/actions). The status of 
-GitHub Action runs can also be viewed on pull requests or next to commits
-throughout the FIMS repository.
-
-### Details on Backup Checks
-
-Developers must make sure that the checks on their pull requests pass, as
-typically changes will not be merged into the main branch until all GitHub
-Actions are passing (the exception is if there are known reasons for the GitHub
-Actions to fail that are not related to the pull request). Other
-responsibilities of developers are listed in [the Code Development
-section](#code-development).
-
-Additional details about the backup check GitHub Actions:
-
-- **call-r-cmd-check** runs R CMD Check on the FIMS package using the current
-version of R. Three runs occur simultaneously, on three operating systems:
-Windows, Linux (Ubuntu), and OSX. R CMD Check ensures that the FIMS package can
-be downloaded without error. An error means that the package cannot be
-downloaded successfully on the operating system for the run that failed.
-Developers should investigate the failing runs and make fixes. To replicate the
-GitHub Actions workflow locally, use `devtools::check()`
-- **run-clang-tidy** runs checks while compiling the C++ code. If this run
-  fails, fixes need to be made to the C++ code to address the issue identified.
-- **run-googletest** Runs the GoogleTest C++ unit tests and benchmarking. If
- this run fails, then fixes need to be made to the C++ code and/or the
- GoogleTest C++ unit tests. To replicate this GitHub Actions workflow locally,
- follow instructions in the [testing section](#testing).
-
-### Debugging Broken Runs
+#### Debugging Broken GitHub Actions
 
 GitHub Actions can fail for many reasons, so debugging is necessary to find the
-cause of the failing run. Some steps that can help with debugging are:
+cause of the failing run. The tips found below can be helpful for determining why the action failed.
 
-- Ask for help as needed! Some members of the FIMS team who have experience
-debugging GitHub Actions are Bai, Kathryn, and Ian.
-- Investigate why the run failed by [looking in the
-log](https://docs.GitHub.com/en/actions/quickstart#viewing-your-workflow-results).
-- Try to replicate the problem locally. For example, if the call-r-cmd-check run
-  fails during the testthat tests, try running the testthat tests locally (e.g.,
-using `devtools::test()`).
+- Ask for help as needed! Some members of the FIMS team who have experience debugging GitHub Actions are Bai, Kathryn, and Ian.
+- Investigate why the run failed by looking at the log file. GitHub provides some guidance on what is contained in the [log file](https://docs.GitHub.com/en/actions/quickstart#viewing-your-workflow-results).
+- Try to replicate the problem locally. For example, if the call-r-cmd-check run fails during the testthat tests, try running the testthat tests locally (e.g., using `devtools::test()` in an R session).
 - If the problem can be replicated, try to fix locally by fixing one test or
-issue at a time. Then push the changes up to GitHub and monitor the new Github
+issue at a time. Then push the changes up to GitHub and monitor the new GitHub
 Action run.
-- If the problem cannot be replicated locally, it could be a operating specific
-issue; for example, if using Windows locally, it may be an issue specific to Mac
-or Linux. 
-- Sometimes, runs may fail because a particular dependency wasn’t available at
-the exact point in time need for the run (e.g., maybe R didn’t install because
-the R executable couldn’t be downloaded); if that is the case, wait a few hours
+- Check if the problem is present across all investigated operating systems because it might be operating system specific and not reproducible on your machine. For example, if using Windows locally, it may be an issue specific to Mac or Linux. 
+- Sometimes, runs may fail because a particular dependency was not available at
+the exact point in time need for the run (e.g., maybe R did not install because
+the R executable could not be downloaded); if that is the case, wait a few hours
 to a day and try to rerun. If it continues to fail for more than a day, a change
 in the GitHub Action YAML file may be needed.
 
-### How do I request a new Github Action workflow?
+### GitHub Teams
 
-Routine actions and checks should be captured in a GitHub Action workflow in
-order to improve efficiency of the development process and/or improve automated
-checks on the FIMS codebase. New GitHub Action workflows can be requested by
-opening an [issue in the FIMS
-repository](https://github.com/NOAA-FIMS/FIMS/issues).
+[GitHub Teams](https://docs.github.com/en/organizations/organizing-members-into-teams) can help organize members into groups with each group having certain permissions. [Teams for NOAA-FIMS](https://github.com/orgs/NOAA-FIMS/teams) are not currently used.
+
+## git
+
+[git](https://git-scm.com) is a distributed version control system that tracks files. All files within NOAA-FIMS are tracked using git and GitHub (see the section on [GitHub](#github-collaborative-environment)) is used as a central server. The use of git stops the need for saving files with file_1.txt and file_2.txt.
+
+### git Example
+
+1. Use the following commands to (a) move to the local branch that you want your feature branch to be based off of, e.g., main in the example below; and (b) create a new branch, where you will replace <branch-name> with the name of your feature branch (see [Branch Naming Conventions](#branch-naming-conventions)) and check it out.
+
+```{r eval = FALSE}
+$ git checkout main
+$ git checkout -b <branch-name>
+```
+
+2. Periodically rebase your feature branch with the branch you plan on merging into in the future by (a) fetching all the changes stored in GitHub for the branches in your clone and (b) rebasing your feature branch, e.g., here we rebase to origin/main because we eventually want to merge into main. We can rebase to any remote or local branch though. Be careful when rebasing if you have already pushed your feature branch to GitHub because rebasing will rewrite your commit hashes in your feature branch. 
+
+```{r eval = FALSE}
+$ git fetch -a
+$ git rebase origin/main
+```
+
+3. While editing code, commit regularly following [commit messages](#commit-messages) guidelines by (a) adding the changed files to the que and (2) committing them to the feature branch with a thoughtful commit message. If you configure your editor for git you can remove the `-m` argument and use a text file to make a more meaningful commit message with multiple lines.
+
+```{r eval = FALSE}
+$ git add <filename>
+$ git commit -m "feat: 50 character description" "Longer description"
+```
+
+4. Consider interactively rebasing your commits to squash similar commits into a single commit or rearrange the order of your commits. The following example is for the situation where you want to look at the last ten commits.
+```{r eval = FALSE}
+$ git rebase -i head~10
+```
+
+5. Push your committed changes to GitHub.
+```{r eval = FALSE}
+$ git push origin <branch-name>
+```
+
+1. When you are finished making changes to your feature branch, navigate to GitHub and open a [pull request](#github-pull-request) to the desired branch, e.g., main in this example.
+
+2. Once the PR is approved and merged into the desired branch you (a) switch to a different branch and (b) delete the local version of your feature branch. Note that you might have to use `-D` instead of the lower-case version if you want to force the removal of the branch given that we use a rebase strategy and the commit hashes might have changed, thus git to think that the feature branch has not been merged into main because your local version of the feature branch might have different hashes than the remote version.
+
+```{r, eval = FALSE}
+$ git checkout main
+$ git branch -d <branch-name>
+```
+
+### Commit Messages
+
+Commit messages communicate details about changes that have occurred to collaborators and improve team efficiency. The best guidance for how to create an excellent commit message can be found on [Conventional Commits](https://www.conventionalcommits.org), which is our style guide for commit messages.
