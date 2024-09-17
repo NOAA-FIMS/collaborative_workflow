@@ -23,7 +23,6 @@ developers
 c-developers
 r-developers
 all-developers
-reviewers
 project-lead
 lead-software-architect
 lead-test-engineer
