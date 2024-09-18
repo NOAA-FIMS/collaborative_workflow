@@ -11,46 +11,25 @@ The FIMS repository already has a file to set up all of the needed software, so 
 
 To start a codespace on the FIMS repository, follow the [GitHub documentation for creating a Codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository).
 
-## Software to Install
+## Software to install
 
 ### git
 
-You will need git installed locally, and you may prefer to use an
-additional git [GUI client](https://git-scm.com/downloads/guis) such as
-GitKraken or GitHub Desktop. If your preferred git client is the RStudio
-IDE, you can configure Git and RStudio integration following these
-[instructions](https://happygitwithr.com/rstudio-git-GitHub.html).
+To contribute to the code, you will need git installed locally, and you may prefer to use an additional git [GUI client](https://git-scm.com/downloads/guis) such as GitKraken or GitHub Desktop. See the section on [RStudio](#rstudio) for setting up RStudio to work with git.
 
-To install git, please follow the instructions on [this
-page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for
-your operating system. You can find the downloads for your operating
-system on the left-hand navigation bar on that page.
+To install git, please follow the operating-system specific instructions available in the [git documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ### Development environment
 
-An integrated development environment is recommended to organize code 
-files, outputs, and build and debug environments. The most popular IDEs
- on the development team are [RStudio](https://www.rstudio.com/) and 
- [Visual Studio Code](https://code.visualstudio.com/). You are welcome 
- to use another IDE or a text-editor based workflow if you strongly 
- prefer that. 
+An integrated development environment (IDE) is recommended to organize code files, outputs, and build and debug environments. The most popular IDEs used by the development team are [RStudio](https://www.rstudio.com/) and [Visual Studio (VS) Code](https://code.visualstudio.com/). You are welcome to use any IDE or text-editor based workflow. 
 
-### vscode setup
+#### VS Code
 
-Install [Visual Studio Code](https://code.visualstudio.com/Download) and
-[configure it for using `R`](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Windows).
+Install [VS Code](https://code.visualstudio.com/Download) and configure it for using [`R`](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Windows) and [`C++`](https://code.visualstudio.com/docs/languages/cpp). For those migrating from RStudio to VS Code, [this post on migrating to VS code](https://statnmap.com/2021-10-09-how-not-to-be-lost-with-vscode-when-coming-from-rstudio/) may be helpful. You can also search the VS Code marketplace for additional keymap packages that import key mappings from commonly used text editors (e.g., Sublime, Notepad++, atom, etc.).
 
-For those migrating from R studio to VS code, [this post on migrating to VS
-code](https://statnmap.com/2021-10-09-how-not-to-be-lost-with-vscode-when-coming-from-rstudio/)
-may be helpful.
+A number of optional settings can be added to the user settings (settings.json) file in VS Code to improve the usability of R in VS Code. For example, the [settings for interacting with R terminals](https://github.com/REditorSupport/vscode-R/wiki/Interacting-with-R-terminals#sending-code-to-r-terminals) can be adjusted.
 
-A number of optional settings that could be added to the user settings
-(settings.json) file in vscode to improve the usability of R in VS code.
-For example, the [settings for interacting with R
-terminals](https://github.com/REditorSupport/vscode-R/wiki/Interacting-with-R-terminals#sending-code-to-r-terminals)
-can be adjusted.
-
-Here are some that you may want to use with FIMS:
+Additional settings for R are available in the [extension wiki](https://github.com/REditorSupport/vscode-R/wiki/Extension-settings) and [shortcuts wiki](https://github.com/REditorSupport/vscode-R/wiki/Keyboard-shortcuts). The keybindings.json and settings.json can be copied from one computer to another but the [settings.json location differs](https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations) depending on the operating system. Below are some example settings you may want to specify.
 
 ```json
 {
@@ -99,163 +78,109 @@ Here are some that you may want to use with FIMS:
 }
 ```
 
-Some [suggested R
-shortcuts](https://github.com/REditorSupport/vscode-R/wiki/Keyboard-shortcuts)
-could be helpful.
+Other helpful VS Code extensions are available in the VScode marketplace, e.g.,
+  - Github Copilot: An AI tool that helps with line completion.
+  - Live Share: Collaborate on the same file remotely with other developers.
+  - Rewrap: Helps rewrapping comments and text lines at a specified character count. Note that to get it working it will be necessary to add [rulers](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_vertical-rulers).
+  - GitLens (or GitLess): Adds more Git functionality. Some of the GitLens functionality is not free, and GitLess is a fork before the addition of these premium features.
+  - Selecting "R: Launch Rstudio Addin" from the command pallete will provide a list of addin options for RStudio.
 
+#### RStudio
 
-To set up C++ with vscode, instructions are 
-[here](https://code.visualstudio.com/docs/languages/cpp).
-
-Other helpful extensions that can be found in the VScode marketplace are:
- - Github Copilot: An AI tool that helps with line completion
- - Live Share: Collaborate on the same file remotely with other developers
- - Rewrap: Helps rewrapping comments and text lines at a specified character
-   count. Note that to get it working it will be necessary to add
-   [rulers](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_vertical-rulers)
- - There are a number of keymap packages that import key mappings from commonly
-  used text editors (e.g., Sublime, Notepad++, atom, etc.). Searching "keymap"
-  in the marketplace should help find these.
-  - GitLens (or GitLess): Adds more Git functionality. Note that some of the
-    GitLens functionality is not free, and GitLess is a fork before the addition
-    of these premium features.
-
-Note that the keybindings.json and settings.json could be copied from one
-computer to another to make it easier to set up VS code with the settings
-needed. Note that the [settings.json location differs](https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations) depending on the operating system.
-
-Typically, it is good practice to not restore old sessions after shutting down
-the IDE. To avoid restoring old sessions in the VS Code terminals (including R
-terminal), in the Setting User Interface within VS Code (get to this by opening
-the command palette and searching for Preferences: Open Settings (UI)), under
-Features > Terminal, uncheck the option "Enable Persistent Sessions."
-
-Rstudio addins can be accessed by searching for Rstudio addin in the command
-palette. Clicking on "R: Launch Rstudio Addin" should provide a list of addin
-options.
+Install [RStudio](https://posit.co/download/rstudio-desktop/) and configure it for working with git if you would like following these [instructions](https://happygitwithr.com/rstudio-git-GitHub.html).
 
 ### C++ compiler
 
-Windows users who installed Rtools should have a C++ compiler (`gcc`) 
-as part of the bundle. To ensure the C++ compiler is on your path, open
- a command prompt and type `gcc`. If you get the below message, you are
-  all set:
+Install a C++ compiler that supports the version of C++ being used in FIMS (e.g., gcc 5.0+, clang 5.0+, or MSVC 2015+). You can find the current version of C++ needed by searching for CMAKE_CXX_STANDARD in the [`CMakeLists.txt` file in FIMS](https://github.com/NOAA-FIMS/FIMS/blob/f0d4e766ddfc70c6dbb99e92385298c31ccff136/CMakeLists.txt#L10). For macOS users, Xcode 9.3+ provides clang 5.0. For Windows users, [rtools4](https://cran.r-project.org/bin/windows/Rtools/rtools40.html) includes gcc.
 
-```{R eval = FALSE} 
+To ensure the C++ compiler is on your path, open a command prompt and type `gcc`. If you get the following message, you are all set:
+
+```bash
+gcc
 gcc: fatal error: no input files compilation
 terminated.
 ```
 
-If not, you will need to check that the compiler is on the path. The 
-easiest way to do so is by creating a text file .Renviron in your 
-Documents folder which contains the following line:
-```
-PATH="${RTOOLS44_HOME}\usr\bin;${PATH}"
-```
+If not, you will need to add the compiler is in your path by editing the environment variables for your account. In `bash` you can find out where a program in your path is located by running `which <binaryName>` replacing the carrots and everything inside of them with the binary name of interest. On Windows, you can push the Windows key, or the search tool next to the Windows Menu, and type env, which will bring up `Edit environment variables for your account'. Then select `Path' and `New'. Add the path, e.g., `C:\rtools44\x86_64-w64-mingw32.static.posix\bin`. Close out of this and the previous window and then restart the terminal and R. On linux or mac, the easiset way to fix path issues is to move executables to a folder already in your path. To find existing path folders type `echo $PATH` in the terminal and hit enter and then move the binary to this path, e.g.,
 
-You can do this with a text editor, or from `R` like so (note that in 
-`R` code you need to escape backslashes):
-```{r eval=FALSE}
-write('PATH="${RTOOLS44_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
+```bash
+sudo cp ~/Downloads/ninja /usr/bin/
 ```
 
-Restart R, and verify that make can be found, which should show the path
-to your Rtools installation.
+Note that in certain Fisheries centers, NOAA employees do not have administrative privileges enabled to edit the local environmental path. In this situation it is necessary to create a ticket with IT to add cmake and ninja to your PATH on Windows.
 
-```{r eval=FALSE}
-Sys.which("make") ##
-"C:\\rtools44\\usr\\bin\\make.exe" 
+Also note that, for linux and mac users, you may need to add executable permissions to the binary after downloading it. You can do that by switching the terminal to the folder where you placed the binary and running the following command, where the example is for the ninja binary:
+
+```bash
+sudo chmod +x ninja
 ```
 
 ### GoogleTest
 
-You will need to install `CMake` and `ninja` and validate you have the
-correct setup by following the steps outlined in the [test case
-template](#testing).
+You will need to install a build system such as [[CMake]{.ul}](https://cmake.org/) and a compatible build tool such as [[Ninja]{.ul}](https://ninja-build.org/), which are both approved by NMFS HQ.
+
+1. Download the latest version of [[CMake]{.ul}(https://cmake.org/download/). Where, Windows users will want `cmake-*.*.*-windows-x86_64.zip` and users of other platforms can choose the download that best suites their system. Place the unzipped folder in `Documents\Apps` or another preferred folder.
+
+1. Download the latest version of [[ninja]{.ul}](https://github.com/ninja-build/ninja/releases) for your operating system (e.g., `ninja-win.zip`) and unzip the application in `Documents\Apps` or another preferred folder.
+
+1. Open a new Command Prompt and type `cmake`. If you see details of usage, cmake is already in your PATH. Now type `ninja`. If you see a message that starts with `ninja:`, even if it is an error about not finding build.ninja, this means that ninja is already in your PATH. If either of the previous fail, follow the the instructions in [the C++ section](#c++-compiler) on how to add locations to your PATH.
+
+1. For linux and mac users you may also have to edit the permissions of the binary, see the [C++ section for instructions](#c++-compiler).
 
 ### GDB debugger
 
-Windows users who use GoogleTest may need GDB debugger to see what is 
-going on inside of the program while it executes, or what the program is 
-doing at the moment it crashed. rtools44 includes the GDB debugger. The 
-steps below help install 64-bit version gdb.exe. 
-
-- Open Command Prompt and type `gdb`. If you see details of usage, GDB
-debugger is already in your PATH. If not, follow the instructions below
-to install GDB debugger and add it to your PATH. 
-- Install Rtools run commands in the mingw64 shell. Run 
-command `pacman -Sy mingw-w64-x86_64-gdb` to install 64-bit version 
-(more information can be found in [R on Windows FAQ](https://github.com/r-windows/docs/blob/master/faq.md#does-rtools40-include-a-debugger))
-- Type `Y` in the mingw64 shell to proceed with installation
-- Check whether ~/rtools44/mingw64/bin/gdb.exe exists or not
-- Add rtools44 to the PATH and you can check that the path is working 
-by running `which gdb` in a command window
+Windows users who use GoogleTest may need GDB debugger to see what is going on inside of the program while it executes, or what the program is doing at the moment it crashed. rtools44 includes the GDB debugger in `/rtools44/mingw64/bin/gdb.exe`. See [R on Windows FAQ](https://github.com/r-windows/docs/blob/master/faq.md#does-rtools40-include-a-debugger) for how to install it and the [C++ section](#c++-compiler) for how to add it to your path.
 
 ### Doxygen
 
-To build C++ documentation website for FIMS, a documentation 
-generator Doxygen needs to be installed. Doxygen automates the generation of 
-documentation from source code comments. To install Doxygen, please follow the 
-instructions [here](https://www.doxygen.nl/manual/install.html) to install 
-Doxygen on various operating systems. Below are steps to install 64-bit version of
-Doxygen 1.11.0 on Windows. 
+Doxygen is required to build the C++ documentation for FIMS, which automates the generation of documentation from source code comments. To install Doxygen, please follow the instructions [in the Doxygen manual](https://www.doxygen.nl/manual/install.html). Visit the [download page](https://www.doxygen.nl/download.html) for the 64-bit zip for Windows and tar files for other operating systems. Unzip the download into `Documents\Apps\Doxygen` or another preferred folder and ensure the location is in [your path](#c++-compiler).
 
-- Download [doxygen-1.11.0.windows.x64.bin.zip](https://www.doxygen.nl/files/doxygen-1.11.0.windows.x64.bin.zip) 
-and extract the applications to `Documents\Apps\Doxygen` or other preferred folder.
-
-- Add Doxygen to the PATH by following similar instructions [here](https://noaa-fims.github.io/collaborative_workflow/testing.html#adding-cmake-and-ninja-to-your-path-on-windows).
-
-- Open a command window and run `where doxygen` to check if Doxygen is
-added to the PATH.
-
-- Two commands on the command line are needed to generate C++ documentation 
-for FIMS locally:
-
-```bash
-cmake -S. -B build -G Ninja
-cmake --build build
-```
-
-### R Installation Requirements
+### R
 
 The following is needed:
-- R version 4.0.0 or newer (or RStudio version 1.2.5042 or newer)
-- the `devtools` R package
-- `TMB` version 1.8.0 or newer ([install instructions](https://github.com/kaskr/adcomp/wiki/Download))
-- For windows users: Rtools4 (available [on the CRAN website](https://cran.r-project.org/bin/windows/Rtools/rtools40.html))
+- The version of R [specified in the DESCRIPTION file](https://github.com/NOAA-FIMS/FIMS/blob/f0d4e766ddfc70c6dbb99e92385298c31ccff136/DESCRIPTION#L57) or newer (or RStudio version 1.2.5042 or newer)
+- The version of [`TMB`](https://github.com/kaskr/adcomp/wiki/Download) [specified in the DESCRIPTION file](https://github.com/NOAA-FIMS/FIMS/blob/f0d4e766ddfc70c6dbb99e92385298c31ccff136/DESCRIPTION#L65) or newer
+- Windows users will need [Rtools](https://cran.r-project.org/bin/windows/Rtools)
 
 ## Installing FIMS
 
-### Install Options for Developers
+### Clone and build
 
-Use the following options from the R console:
+Cloning FIMS and building it is a good option if you intend to modify files in FIMS and want to test them out.
+  - Clone the [FIMS repository](https://github.com/NOAA-FIMS/FIMS) from the terminal via `git clone https://github.com/NOAA-FIMS/FIMS.git`.
+  - Build FIMS within R using `devtools::load_all()`, which mimics package building, or `devtools::install()`, which actually builds the package from local files.
 
-- Clone FIMS and build using `devtools::load_all()` (mimics package building) or `devtools::install()` (actually builds package from local files). These are good options if you intend to modify files in FIMS and want to test them out.
-- Use `install.packages("FIMS", repos = c("https://noaa-fims.r-universe.dev", "https://cloud.r-project.org"))` to download the latest precompiled version from R universe or `devtools::install_github("NOAA-FIMS/FIMS)` to compile yourself. `devtools::install_github()` has options to all you to be more specific about which version of the code is being built (e.g., you can refer to a tag or branch, which is not possible with the R universe install).
+### Precompiled
 
-### Windows: Fixing Fatal Error
+  - Download from R universe within R using `install.packages("FIMS", repos = c("https://noaa-fims.r-universe.dev", "https://cloud.r-project.org"))`.
+  - Install from GitHub within R using `devtools::install_github("NOAA-FIMS/FIMS)` to compile yourself, which allows you to be more specific about which version of the code is being built (e.g., you can refer to a tag or branch, which is not possible with the R universe install).
+
+### Fixing Fatal Error
 
 Windows users can expect to see some derivative of the following error message in their R session if they have not yet set some flags using {withr}.
 ```
 Fatal error: can't write <xxx> bytes to section .text of FIMS.o: 'file too big
 ```
-You can easily fix this by running the following line in your local R session. Note that this call will need to be repeated each time you open a new session.
+You can easily fix this by running the following line in your local R session. This call will need to be repeated each time you open a new session.
 ```{r eval=FALSE}
 withr::local_options(pkg.build_extra_flags = FALSE)
 ```
-This fix does not work when `devtools::test()` is called and FIMS is re-compiled. The call to `devtools::test()` in this case overwrites the local options set by withr. Compile FIMS first using `devtools::load_all()` prior to running `devtools::test()`.
+This fix does not work when `devtools::test()` is called and FIMS is re-compiled. The call to `devtools::test()` in this case overwrites the local options set by {withr}. Compile FIMS first using `devtools::load_all()` before running `devtools::test()`.
 
-This fix removes the debugger flag `-O0 -g` from being automatically inserted for certain devtools calls (e.g. `devtools::load_all()`). Windows developers wanting to compile FIMS with the debugger turned on will need to run the above script in addition to manually modifying the call to PKG_CXXFLAGS in the [Makevars.win](https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win) file in the src directory to the following:
+This fix removes the debugger flag `-O0 -g` from being automatically inserted for certain devtools calls (e.g. `devtools::load_all()`). Windows developers wanting to compile FIMS with the debugger turned on will need to run the above script in addition to manually modifying the call to PKG_CXXFLAGS in the [Makevars.win](https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win) file in `src` to the following:
 
 ```
 PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g
 ```
+
 To turn off the debugger flag, remove the `-O1 -g` flag:
+
 ```
 PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS
 ```
 
 ## Getting Help
-Please report bugs along with a minimal reproducible example on GitHub [Issues](https://github.com/NOAA-FIMS/FIMS/issues)
+
+Please report bugs along with a minimal reproducible example on GitHub [Issues](https://github.com/NOAA-FIMS/FIMS/issues).
 
 

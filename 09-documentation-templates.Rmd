@@ -1,19 +1,11 @@
 # Documentation Template
 
-In this section we will describe how to document your code. For more
-information about code documentation in general, please see the
-[toolbox blog post on code documentation](https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/code-documentation/).
-This post describes the differences between the types of documentation,
-while below we give specific, brief instructions on developer
-responsibilities for FIMS.
+Below, are specific, brief instructions on developer responsibilities for FIMS regarding documentation. For more information about code documentation in general, please see the [toolbox blog post on code documentation](https://noaa-fisheries-integrated-toolbox.github.io/resources/developer%20resources/code-documentation/).
 
 ## Writing function reference
 
-Function reference can be written inline in comments above the function
-in either C++ or R. The tools you can use to generate reference from
-comments are called Doxygen and Roxygen in C++ and R respectively. Both
-can include LaTeX syntax to denote equations, and both use `@` tags to
-name components of the function reference
+Function reference can be written inline in comments above the function in either C++ or R. Doxygen and Roxygen in C++ and R, respectively, are used to render the documentation. Both can include LaTeX syntax to denote equations and both use `@` tags to name components of the function reference. Below is an example from C++ code.
+
 ```
         /**
         * @brief This function calculates the von Bertalanffy growth curve.
@@ -30,8 +22,15 @@ name components of the function reference
          */
 ```
 
-The only difference between syntax for `R` and `C++` code is how
-comments are denoted in the language.
+which can be be rendered using via the following lines in the Command Prompt:
+
+```bash
+cmake -S. -B build -G Ninja
+cmake --build build
+```
+
+The only difference between the syntax for `R` and `C++` code is how comments are denoted in the language. Below is an example from R code.
+
 ```
 #' This function calculates the von Bertalanffy growth curve.
 #'
@@ -39,33 +38,15 @@ comments are denoted in the language.
 #' @param sex
 #' @return length_at_age
 ```
-You should, at minimum, include the tags `@param`, `@return`, and
-`@examples` in your function reference if it is an exported function.
-Functions that are only called internally do not require an `@examples`
-tag. Other useful tags include `@seealso` and `@export` for Roxygen
-chunks.
+
+which can be rendered in R with `devtools::document()`.
+
+You should, at minimum, include the tags `@param`, `@return`, and `@examples` in your documentation for all exported functions. Functions that are only called internally do not require an `@examples` tag. See the [r-lib](https://roxygen2.r-lib.org/) for all available tags and best practices.
 
 ## Writing a vignette
 
-If this is an exported function, a vignette can be a helpful tool to
-users to know how to use your function. For now, a rough approximation
-of the "get started" vignette is written in the [software user
-guide](#software-user-guide) page of this book. If you include a
-vignette for your function, you can link to it in the Roxygen
-documentation with the following code.
+Vignettes can be a helpful tool to let users to know how to use functions. If you include a vignette for your function, you can link to it in the Roxygen documentation with the following code.
+
 ```
 #' \code{vignette("help", package = "mypkg")}
 ```
-##   Step by step documentation update process
-
-1. Write the function reference in either R or C++ as described above.
-
-2. Check the [software user guide](#software-user-guide) and check that
-any changes you have made to the code are reflected in the code snippets
-on that page.
-
-2. Push to the feature branch.
-
-3. Ensure that the documentation created by the automated workflow is
-correct and that any test cases execute successfully before merging into
-main.
