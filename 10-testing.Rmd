@@ -1,182 +1,30 @@
 # Testing
 
-This section describes testing for FIMS. FIMS uses Google Test for C++
-unit testing and testthat for R unit testing.
-
 ## Introduction
 
-FIMS testing framework will include different types of testing to make
-sure that changes to FIMS code are working as expected. The unit and
-functional tests will be developed during the initial development stage
-when writing individual functions or modules. After completing
-development of multiple modules, integration testing will be developed
-to verify that different modules work well together. Checks will be
-added in the software to catch user input errors when conducting
-run-time testing. Regression testing and platform compatibility testing
-will be executed before pre-releasing FIMS. Beta-testing will be used to
-gather feedback from users (i.e., members of FIMS implementation team
-and other users) during the pre-release stage. After releasing the first
-version of FIMS, the development team will go back to the beginning of
-the testing cycle and write unit tests when a new feature needs to be
-implemented. One-off testing will be used for testing new features and
-fixing user-reported bugs when maintaining FIMS. More details of each
-type of test can be found in the Glossary section.
+Our testing framework includes several types of tests. Unit and functional tests are created for individual functions and modules, respectively, where unit tests test each of the smallest components and functional tests ensure that the application of small components function within the requirements. Integration tests verify that modules work well together. Run-time tests include checks that are integrated into the code to catch errors related to user input. Regression testing and platform compatibility testing are executed before pre-releasing FIMS to ensure that previously tested pieces are still performing after the code has been changed on all platforms of interest. Beta-testing is used to gather feedback from users (i.e., members of FIMS Implementation Team and other users) during the pre-release stage. Finally, one-off testing is used for replicating and fixing user-reported bugs. Some of these one-off tests may eventually be integrated into the permanent testing framework. Or, if while you are coding you find a useful interactive tests that helped you build something, then it should be converted into {testthat} or GoogleTest tests.
 
-FIMS will use GoogleTest to build a C++ unit testing framework and R
-testthat to build an R testing framework. FIMS will use Google Benchmark
-to measure the real time and CPU time used for running the produced
-binaries.
+FIMS uses GoogleTest to build a C++ unit testing framework and {testthat} to build an R testing framework. FIMS uses Google Benchmark to measure the real time and CPU time used for running the produced binaries. All required software for testing can be installed using the instructions in the [Software to install section](#software-to-install).
 
 ## C++ unit testing and benchmarking
 
-### Requirements
-
-To use GoogleTest, you will need:
-
--   A compatible operating system (e.g., Windows, masOS, or Linux).
-
--   A C++ compiler that supports at least C++ 11 standard or newer (e.g.
-gcc 5.0+, clang 5.0+, or MSVC 2015+). For macOS users, Xcode 9.3+
-provides clang 5.0. For R users,
-[rtools4](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
-includes gcc.
-
--   A build system for building the testing project.
-[[CMake]{.ul}](https://cmake.org/) and a compatible build tool such as
-[[Ninja]{.ul}](https://ninja-build.org/) are approved by NMFS HQ.
-
-### Setup for Windows users
-
-1. Download [[CMake 3.22.1
-(cmake-3.22.1-windows-x86_64.zip)]{.ul}](https://github.com/Kitware/CMake/releases)
-and put the file folder to `Documents\Apps` or other preferred folder.
-
-2. Download [[ninja v1.10.2
-(ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases)
-and put the application to `Documents\Apps` or other preferred folder.
-
-3. Open your Command Prompt and type `cmake`. If you see details of
-usage, cmake is already in your PATH. If not, follow the the
-instructions below to add cmake to your PATH.
-
-4. In the same command prompt, type `ninja`. If you see a message that
-starts with `ninja:`, even if it is an error about not finding
-build.ninja, this means that ninja is already in your PATH. If ninja is
-not found, follow the instructions below to add ninja to your path.
-
-### Adding cmake and ninja to your PATH on Windows
-
-1. In the Windows search bar next to the start menu, search for `Edit
-environment variables for your account` and open the `Environment
-Variables` window.
-
-2. Click `Edit...` under the `User variables for firstname.lastname`
-section.
-
-3. Click `New`, add path to cmake, if needed (e.g.,
-`cmake-3.22.1-windows-x86_64\bin` or `C:\Program Files\CMake\bin` are
-common paths), and click `OK`. Click `New`, add path to the location of
-the Ninja executable, if needed (e.g., `Documents\Apps\ninja-win` or `C:\Program Files\ninja-win`), and click
-`OK`. 
-
-4. You may need to restart your computer to update the envirionmental
-variables. You can check that the path is working by running `where cmake` or `where ninja` in a command terminal.
-
-5. Note that in certain Fisheries centers, NOAA employees do not have
-administrative privileges enabled to edit the local environmental path.
-In this situation it is necessary to create a ticket with IT to add
-cmake and ninja to your PATH on Windows.
-
-### Setup for Linux and Mac users
-
-1. See [[CMake installation
-instructions]{.ul}](https://cmake.org/install) for installing CMake on
-other platforms. Add cmake to your PATH. You can check that the path is working by running `which cmake` in a command window.
-
-2. Download [[ninja v1.10.2
-(ninja-win.zip)]{.ul}](https://github.com/ninja-build/ninja/releases)
-and put the binary in your preferred location. Add Ninja to your PATH. You can check that the path is working by running `which ninja` in a command window. 
-
-3. Open a command window and type `cmake`. If you see usage, cmake is
-found. If not, cmake may still need to be added to your PATH. 
-
-4. Open a command window and type `ninja`. If you see a message starting
-with `ninja:`, ninja is found. Otherwise, try changing the permissions
-or adding to your path. 
-
-### How to edit your PATH and change file permissions for Linux and Mac
-
-To check if the binary is in your path, assuming the binary is named
-ninja: open a Terminal window and type `which ninja` and hit enter. If
-you get nothing returned, then ninja is not in your path. The easiest
-way to fix this is to move the ninja binary to a folder that's already
-in your path. To find existing path folders type `echo $PATH` in the
-terminal and hit enter. Now move the ninja binary to one of these
-folders. For example, in a Terminal window type:
-
-    sudo cp ~/Downloads/ninja /usr/bin/
-
-To move ninja from the downloads folder to /usr/bin. You will need to
-use `sudo` and enter your password after to have permission to move a
-file to a folder like `/usr/bin/`.
-
-Also note that you may need to add executable permissions to the ninja
-binary after downloading it. You can do that by switching to the folder
-where you placed the binary (`cd /usr/bin/` if you followed the
-instructions above), and running the command:
-
-    sudo chmod +x ninja
-
-Check that ninja is now executable and in your path:
-
-    which ninja
-
-If you followed the instructions above, you will see the following line
-returned:
-
-    /usr/bin/ninja
-
-### Set up FIMS testing project
-
-Clone the [FIMS repository](https://github.com/NOAA-FIMS/FIMS) on the
-command line using:
-
-```bash
-git clone https://github.com/NOAA-FIMS/FIMS.git
-cd FIMS
-```
-There is a file called CMakeLists.txt in the top level of the directory.
-This file instructs Cmake on how to create the build files, including
-setting up Google Test.
-
-The Google Test testing code is in the tests/gtest subdirectory. Within
-this subdirectory is a file called CMakeLists.txt. This file contains
-additional specifications for CMake, in particular instructions on how
-to register the individual tests.
+Inside of your cloned version of FIMS, the file `CMakeLists.txt`, in the top-level directory, instructs `Cmake` on how to create the build files, including setting up Google Test. The Google Test code is in `tests/gtest`. Within this subdirectory is another `CMakeLists.txt` that contains additional specifications on how to register the individual tests.
 
 ### Build and run the tests
 
-Three commands on the command line are needed to build the tests:
+The following commands on the command line execute the outlined steps and are needed to build the tests:
+
+1. Generate the build system using `Ninja` as the generator, which creates the `build` directory.
+1. Use `Cmake` to build in the `build` directory in parallel using 16 jobs but `--parallel 16` can be deleted.
+1. Run the tests using `ctest` in parallel using 16 jobs but `--parallel 16` can be deleted.
 
 ```bash
-cmake -S . -B build -G Ninja
-```
-This generates the build system using Ninja as the generator. Note there
-is now a subfolder called build.
-
-Next, in the same command window, use cmake to build in the build
-subfolder:
-
-```bash
-cmake --build build
-```
-Finally, run the C++ tests:
-
-```bash
-ctest --test-dir build
+cmake -S . -B build -G Ninja 
+cmake --build build --parallel 16
+ctest --test-dir build --parallel 16
 ```
 
-The output from running the tests should look something like:
+The output from running the tests should look something like the following:
 
 ```bash
 Internal ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build
@@ -198,7 +46,7 @@ Test project C:/github_repos/NOAA-FIMS_org/FIMS/build
 
 ### Adding a C++ test
 
-Create a file dlognorm.hpp within the src subfolder that contains a simple function:
+Create a file dlognorm.hpp within the `src` subfolder that contains a simple function:
 
 ```c
 #include <cmath>
@@ -211,8 +59,7 @@ Type dlognorm(Type x, Type meanlog, Type sdlog){
 }
 ```
 
-Then, create a test file dlognorm-unit.cpp in the tests/gtest subfolder
-that has a test suite for the dlognorm function:
+Then, create `dlognorm-unit.cpp` in `tests/gtest` that has a test suite for the `dlognorm` function:
 
 ```c
 #include "gtest/gtest.h"
@@ -245,16 +92,10 @@ namespace {
 }
 ```
 
-`EXPECT_NEAR(val1, val2, absolute_error)` verifies that the difference
-between `val1` and `val2` does not exceed the absolute error bound
-`absolute_error`. `EXPECT_NE(val1, val2)` verifies that `val1` is not
-equal to `val2`. Please see GoogleTest [assertions
-reference](https://google.github.io/googletest/reference/assertions.html)
-for more `EXPECT_` macros.
+`EXPECT_NEAR(val1, val2, absolute_error)` verifies that the difference between `val1` and `val2` does not exceed the absolute error bound `absolute_error`. `EXPECT_NE(val1, val2)` verifies that `val1` is not equal to `val2`. See GoogleTest [assertions reference](https://google.github.io/googletest/reference/assertions.html) for more `EXPECT_` macros.
 
-### Add tests to `tests/gtest/CMakeLists.txt` and run a binary
-
-To build the code, add the following contents to the end of the `tests/gtest/CMakeLists.txt` file:
+Finally, the test must be added to `tests/gtest/CMakeLists.txt` before running the tests. Add the following contents to the end of `tests/gtest/CMakeLists.txt` to enable testing in CMake, declare the C++ test
+binary you want to build (dlognorm_test), and link it to GoogleTest (gtest_main). :
 
 ```cmake
 
@@ -275,31 +116,7 @@ include(GoogleTest)
 gtest_discover_tests(dlognorm_test)
 ```
 
-The above configuration enables testing in CMake, declares the C++ test
-binary you want to build (dlognorm_test), and links it to GoogleTest
-(gtest_main). Now you can build and run your test. Open a command window
-in the FIMS repo (if not already opened) and type:
-
-```bash
-cmake -S . -B build -G Ninja
-```
-
-This generates the build system using Ninja as the generator.
-
-Next, in the same command window, use cmake to build:
-
-```bash
-cmake --build build
-```
-
-Finally, run the tests in the same command window:
-
-```bash
-ctest --test-dir build
-```
-
-The output when running `ctest` might look like this. Note there is a
-failing test:
+Now you can build and run your test using the [instructions in Build and run the tests](#build-and-run-the-tests). The output when running `ctest` will look something like the following, note that there is a failing test:
 
 ```bash
 Internal ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build
@@ -333,10 +150,9 @@ Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
 
 ### Debugging a C++ test
 
-There are two ways to debug a C++ test, interactively using `gdb` or via print statements. To use `gdb`, make sure it is installed and on your path. 
+There are two ways to debug a C++ test, interactively using `gdb` or via print statements.
 
-
-Debug C++ code (e.g., segmentation error/memory corruption) using gdb:
+To debug C++ code (e.g., segmentation error/memory corruption) using gdb:
 ```bash
 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
 cmake --build build --parallel 16
@@ -350,9 +166,8 @@ bt // backtrace
 q // to quit
 ```
 
-Debug C++ code without using gdb:
-Update code in a .hpp file by calling `std::ofstream out(“file_name.txt”)`
-Then use `out << variable;` to print out values of the variable
+To debug C++ code with print statements you must update the C++ in the desired `.hpp` file by adding `std::ofstream out(“file_name.txt”)` and using `out << variable;` to print out values of the variable. The output of the print statements will be in `FIMS/build/tests/gtest/debug.txt` after you run the `cmake` and `ctest` calls the [instructions in Build and run the tests](#build-and-run-the-tests).
+
 ```c
 nfleets = fleets.size();
 std::ofstream out("debug.txt");
@@ -360,28 +175,15 @@ out <<nfleets;
 ```
 
 More complex examples with text identifying the quantities
+
 ```c
 out <<" fleet_index: "<<fleet_index<<" index_yaf: "<<index_yaf<<" index_yf: "<<index_yf<<"\n";
 out <<" population.Fmort[index_yf]: "<<population.Fmort[index_yf]<<"\n";
 ```
 
-Git Bash
-```bash
-cmake -S . -B build -G Ninja 
-cmake --build build --parallel 16
-ctest --test-dir build --parallel 16
-```
-
-The output of the print statements will be in this test file: `FIMS/build/tests/gtest/debug.txt`
-
-
-
 ### Benchmark example
 
-Google Benchmark measures the real time and CPU time used for running
-the produced binary. We will continue using the dlognorm.hpp example.
-Create a benchmark file dlognorm_benchmark.cpp and put it in the
-tests/gtest subfolder:
+[Google Benchmark](https://github.com/google/benchmark) measures the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create `dlognorm_benchmark.cpp` in `tests/gtest` with the following code to run the `dlognorm` function and use BENCHMARK to see how long it takes.
 
 ```c
 #include "benchmark/benchmark.h"
@@ -395,19 +197,10 @@ void BM_dlgnorm(benchmark::State& state)
 BENCHMARK(BM_dlgnorm);
 
 ```
-This file runs the dlognorm function and uses BENCHMARK to see how long
-it takes.
 
-A more comprehensive feature overview of benchmarking is available in
-the [Google Benchmark GitHub repository](https://github.com/google/benchmark).
-
-### Add benchmarks to `tests/gtest/CMakeLists.txt` and run the benchmark
-
-To build the code, add the following contents to the end of your
-`tests/gtest/CMakeLists.txt` file:
+Next, the following needs to be added to the end of `tests/gtest/CMakeLists.txt`:
 
 ```cmake
-
 FetchContent_Declare(
   googlebenchmark
   URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip
@@ -429,15 +222,10 @@ target_link_libraries(dlognorm_benchmark
 
 ```
 
-To run the benchmark, open the command line open in the FIMS repo (if
-not already open) and run cmake, sending output to the build subfolder:
+To run the benchmark, run cmake sending output to the build subfolder and run the created executable:
 
 ```bash
 cmake --build build
-```
-
-Then run the dlognorm_benchmark executable created:
-```bash
 build/tests/gtest/dlognorm_benchmark.exe
 ```
 The output from `dlognorm_benchmark.exe` might look like this:
@@ -456,69 +244,24 @@ L3 Unified 8192 KiB (x1)
   BM_dlgnorm        153 ns          153 ns      4480000
 ```
 
-#### Remove files produced by this example
-
-If you don't want to keep any of the files produced by this example and
-want to completely clear any uncommitted changes and files from the git
-repo, use
-```bash
-git restore .
-```
-to get rid of un committed changes in git tracked files. To get rid of
-all untracked files in the repo, use:
-
-```bash
-git clean -fd
-```
-
 ### Clean up after running C++ tests
 
-#### Clean up CMake-generated files and re-run tests
+After running the examples above, the build generates files (i.e., the source code, libraries, and executables) and saves the files in the `build` subfolder. The example above demonstrates an "out-of-source" build which puts generated files in a completely separate directory, so that the source tree is unchanged after running tests. Using a separate source and build tree reduces the need to delete files that differ between builds. If you still would like to delete CMake-generated files, just delete the `build` folder, and then build and run tests by repeating the commands below. The files from the `build` folder are included in the FIMS repository's .gitignore file, so should *not* be pushed to the FIMS repository.
 
-After running the examples above, the build generates files (i.e., the
-source code, libraries, and executables) and saves the files in the
-`build` subfolder. The example above demonstrates an "out-of-source"
-build which puts generated files in a completely separate directory, so
-that the source tree is unchanged after running tests. Using a separate
-source and build tree reduces the need to delete files that differ
-between builds. If you still would like to delete CMake-generated files,
-just delete the `build` folder, and then build and run tests by
-repeating the commands below. The files from the `build` folder are
-included in the FIMS repository's .gitignore file, so should *not* be
-pushed to the FIMS repository.
+For simple C++ functions like the examples above, we do not need to clean up the tests. Clean up is only necessary in a few situations.
 
-
-<!-- KD: I didn't think this was necessary, but left just in case others disagreed. -->
-
-<!-- #### Example of rebuilding without deleting the build subfolder -->
-
-<!-- To build and run tests without navigating to the `build` folder, you can use the commands below: -->
-
-<!-- ```bash -->
-<!-- cmake -S . -B build -G Ninja  -->
-<!-- cmake --build build --parallel 16 -->
-<!-- ctest --test-dir build -->
-<!-- ``` -->
-
-#### Clean up individual tests
-
-For simple C++ functions like the examples above, we do not need to
-clean up the tests. Clean up is only necessary in a few situations.
-
-- If memory for an object was allocated during testing and not
-deallocated - The object needs to be deleted (e.g., `delete object`).
-- If you used a test fixture from GoogleTest to use the same data
-configuration for multiple tests, `TearDown()` can be used to clean up
-the test and then the test fixture will be deleted. Please see more
-details from [GoogleTest user's
-guide](https://google.github.io/googletest/primer.html#same-data-multiple-tests).
+- If memory for an object was allocated during testing and not deallocated then the object needs to be deleted (e.g., `delete object`).
+- If you used a test fixture from GoogleTest to use the same data configuration for multiple tests, `TearDown()` can be used to clean up the test and then the test fixture will be deleted. See [GoogleTest user's guide](https://google.github.io/googletest/primer.html#same-data-multiple-tests) for more details.
+- If you do not want to keep any of the files produced by the example and want to completely clear any uncommitted changes and files from the git repo, run `git restore .`, which removes any committed changes in files tracked by git or `git clean -fd` to get remove all untracked files in the repository.
 
 ## Templates for GoogleTest testing
 
 This section includes templates for creating unit tests and benchmarks.
 This is the code that would go into the .cpp files in tests/gtest.
 
-### Unit test template
+### C++ test templates
+
+#### Unit test template
 
 ```c
 #include "gtest/gtest.h"
@@ -546,7 +289,7 @@ namespace {
 
 ```
 
-### Benchmark template
+#### Benchmark template
 
 ```c
 #include "benchmark/benchmark.h"
@@ -564,10 +307,10 @@ BENCHMARK(BM_FunctionName);
 
 ```
 
-### tests/gtest/CMakeLists.txt template
+#### `tests/gtest/CMakeLists.txt` template
 
-These lines are added each time a new test suite (all tests in a file)
-is added:
+These lines are added each time a new test, e.g., `TestSuiteName1`, is added:
+
 ```c
 // Add test suite 1
 add_executable(TestSuiteName1
@@ -581,7 +324,8 @@ target_link_libraries(TestSuiteName1
 gtest_discover_tests(TestSuiteName1)
 ```
 
-These lines are added each time a new benchmark file is added:
+These lines are added each time a new benchmark, e.g., `benchmark1`, is added:
+
 ```c
 // Add benchmark 1
 add_executable(benchmark1
@@ -596,33 +340,26 @@ target_link_libraries(benchmark1
 
 ## R testing
 
-FIMS uses {testthat} for writing R tests. You can install the packages
-following the instructions on [testthat website](https://testthat.r-lib.org/).
-If you are not familiar with testthat, the
-[testing chapter](https://r-pkgs.org/tests.html) in R
-packages gives a good overview of testing workflow, along with structure
-explanation and concrete examples.
+R tests are written using {testthat}, which can be [installed as an R package](https://testthat.r-lib.org/). More details on {testthat} can be found in the [testing chapter of R packages](https://r-pkgs.org/tests.html). 
 
 ### Testing FIMS locally 
 
-To test FIMS R functions interactively and locally, use `devtools::install()` rather than `devtools::load_all()`. This is because using `load_all()` will turn on the debugger, bloating the .o file, and may lead to a compilation error (e.e., `Fatal error: can't write 326 bytes to section .text of FIMS.o: 'file too big'
-   as: FIMS.o: too many sections (35851)`). Note that useful interactive tests should should be converted into {testthat} or googletest tests.
+To test FIMS R functions, interactively and locally, use `devtools::install()` rather than `devtools::load_all()` because using `load_all()` will turn on the debugger, bloating the .o file and may lead to a compilation error (see [Fixing Fatal Error](#fixing-fatal-error) for more information).
 
 ### Testing using `gdbsource`
 
-You can interactively debug C++ code using `TMB::gdbsource()` in RStudio. Just add these two lines to the top of the test-fims-estimation.R file
+You can interactively debug C++ code using `TMB::gdbsource()` in RStudio.
 
-```r
-require(testthat)
-devtools::load_all("C:\\Users\\chris\\noaa-git\\FIMS")
-```
-### R testthat naming conventions and file organization
-- We try to group functions and their helpers together (the "main function plus helpers" approach)
-- Always name the test file the same as the R file, but with test- prepended (ex, `test-myfunction.R` contains testthat tests for the R code in `R/myfunction.R`). This is the convention in the [tidyverse style guide](https://style.tidyverse.org/tests.html).
-- testthat tests that are a test of rcpp should be called `test-rcpp-[description].R`
-- Integration tests which do not have a corresponding .R file should use the convention `test-integration-[description].R`.
+###  and file organization
 
-### R testthat template
+- Group functions and their helpers together, i.e., the "main function plus helpers" approach.
+- {testthat} tests that are a test of Rcpp code should be called `test-rcpp-[description].R`.
+- Integration tests that do not have a corresponding `.R` file should use the follwing convention: `test-integration-[description].R`.
+
+### R template
+
+Naming conventions for {testthat} files follow the [tidyverse test convention](https://style.tidyverse.org/tests.html) as well as the using `test-rcpp-[description].R` for tests of Rcpp code and `test-integration-[description].R` for integration tests without a corresponding R function.
+
 The format for an individual testthat test is is:
 
 ```r
@@ -634,166 +371,11 @@ test_that("TestName", {
 
 ```
 
-Multiple testthat tests can be put in the same file if they are related to the same .R file (see naming conventions above).
+### Random numbers
 
-## Test case documentation template and examples
-
-A testing plan must be developed while designing (i.e., before coding)
-new FIMS features or Rcpp modules. Please update the test cases in the [FIMS/tests/milestoneX_test_cases.md file](https://github.com/NOAA-FIMS/FIMS/tree/main/tests) (e.g., FIMS/tests/miletone1_test_cases.md). 
-This testing plan is documented using the test case documentation 
-template below. 
-
-### Test case documentation template
-
-Individual functional or integration test cases will be designed
-following the template below.
-
--   *Test ID*. Create a meaningful name for the test case.
-
--   *Features to be tested*. Provide a brief statement of test
-objectives and description of the features to be tested. (Identify the
-test items following the [[FIMS software design specification
-document]{.ul}](https://docs.google.com/document/d/1iSEhJqcpSD269QdABeDE4aBZGqGcBrIrLnS7eMkSYv0/edit?usp=sharing)
-and identify all features that will not be tested and the rationale for
-exclusion)
-
--   *Approach*. Specify the approach that will ensure that the features
-are adequately tested and specify which type of test is used in this
-case.
-
--   *Evaluation criteria*. Provide a list of expected results and
-acceptance criteria.
-
-    -   Pass/fail criteria. Specify the criteria used to determine
-    whether each feature has passed or failed testing.
-
-    -   In addition to setting pass/fail criteria with specific
-    tolerance values, a documentation that just views the outputs of
-    some tests may be useful if the tests require additional
-    computations, simulations, and comparisons
-
--   *Test deliverables*. Identify all information that is to be
-delivered by the test activity.
-
-    -   Test logs and automated status reports
-
-### Test case documentation examples
-
-#### General test case documentation
-
-The test case documentation below is a general case to apply to many
-functions/modules. For individual functions/modules, please make
-detailed test cases for specific options, noting "same as the general
-test case" where appropriate.
-
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test ID               | General test case                                                                                                                                   |
-+=======================+=====================================================================================================================================================+
-| Features to be tested | -   The function/module returns correct output values given different input values                                                                  |
-|                       |                                                                                                                                                     |
-|                       | -   The function/module returns error messages when users give wrong types of inputs                                                                |
-|                       |                                                                                                                                                     |
-|                       | -   The function/module notifies an error if the input value is outside the bound of the input parameter                                            |
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Approach              | -   Prepare expected true values using R                                                                                                            |
-|                       |                                                                                                                                                     |
-|                       | -   Run tests in R using testthat and compare output values with expected values                                                                    |
-|                       |                                                                                                                                                     |
-|                       | -   Push tests to the working repository and run tests using GitHub Actions                                                                         |
-|                       |                                                                                                                                                     |
-|                       | -   Run tests in different OS environments (windows latest, macOS latest, and ubuntu latest) using GitHub Actions                                   |
-|                       |                                                                                                                                                     |
-|                       | -   Submit pull request for code review                                                                                                             |
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Evaluation Criteria   | -   The tests pass if the output values equal to the expected true values                                                                           |
-|                       |                                                                                                                                                     |
-|                       | -   The tests pass if the function/module returns error messages when users give wrong types of inputs                                              |
-|                       |                                                                                                                                                     |
-|                       | -   The tests pass if the function/module returns error messages when user provides an input value that is outside the bound of the input parameter |
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test deliverables     | -   Test logs on GitHub Actions. Document results of logs in the feature pull request.                                                                                                                     |
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-
-#### Functional test example: TMB probability mass function of the multinomial distribution
-
-+-----------------------+----------------------------------------------------------------------------------+
-| Test ID               | Probability mass function of the multinomial distribution                        |
-+=======================+==================================================================================+
-| Features to be tested | -   Same as the general test case                                                |
-+-----------------------+----------------------------------------------------------------------------------+
-| Approach              | Functional test                                                                  |
-|                       |                                                                                  |
-|                       | -   Prepare expected true values using R function dmultinom from package 'stats' |
-+-----------------------+----------------------------------------------------------------------------------+
-| Evaluation Criteria   | -   Same as the general test case                                                |
-+-----------------------+----------------------------------------------------------------------------------+
-| Test deliverables     | -   Same as the general test case                                                |
-+-----------------------+----------------------------------------------------------------------------------+
-
-#### Integration test example: [[Li et al. 2021 age-structured stock assessment model comparison]{.ul}](https://doi.org/10.7755/FB.119.2-3.5)
-
-+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test ID               | Age-structured stock assessment comparison ([[Li et al. 2021]{.ul}](https://doi.org/10.7755/FB.119.2-3.5))                                                                                                                                     |
-+=======================+================================================================================================================================================================================================================================================+
-| Features to be tested | -   Null case (update standard deviation of the log of recruitment from 0.2 to 0.5 based on [[Siegfried et al. 2016]{.ul}](http://dx.doi.org/10.1139/cjfas-2015-0398) snapper-grouper complex)                                                 |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   Recruitment variability                                                                                                                                                                                                                    |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   Stochastic Fishing mortality (F)                                                                                                                                                                                                           |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   F patterns (e.g., roller coaster: up then down and down then up; constant F~low~, F~MSY~, and F~high~)                                                                                                                                     |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   Selectivity patterns                                                                                                                                                                                                                       |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   Recruitment bias adjustment                                                                                                                                                                                                                |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   Initial condition                                                                                                                                                                                                                          |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   (unit of catch: number or weight)                                                                                                                                                                                                          |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   Model misspecification (e.g., growth, natural mortality, and steepness, catchability etc)                                                                                                                                                  |
-+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Approach              | Integration test                                                                                                                                                                                                                               |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   Prepare expected true values from an operating model using R functions from [[Age_Structured_Stock_Assessment_Model_Comparison]{.ul}](https://github.com/Bai-Li-NOAA/Age_Structured_Stock_Assessment_Model_Comparison) GitHub repository   |
-+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Evaluation Criteria   | -   Summarize median absolute relative error (MARE) between true values from the operating model and the FIMS estimation model                                                                                                                 |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   If all MAREs from the null case are less than 10% and all MARES are less than 15%, the tests pass. If the MAREs are greater than 15%, a closer examination is needed.                                                                      |
-+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test deliverables     | -   In addition to the test logs on GitHub Actions, a document that includes comparison figures from various cases (e.g., Fig 5 and 6 from Li et al. 2021) will be automatically generated                                                     |
-|                       |                                                                                                                                                                                                                                                |
-|                       | -   A table that shows median absolute relative errors in unfished recruitment, catchability, spawning stock biomass, recruitment, fishing mortality, and reference points (e.g., Table 6 from Li et al. 2021) will be automatically generated |
-+-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-#### simulation testing: challenges and solutions
-
-One thing that might be challenging for comparing simulation results is
-that changes to the order of calls to simulate will change the simulated
-values. Tests may fail even though it is just because different random
-numbers are used or the order of the simulation changes through model
-development. Several solutions could be used to address the simulation
-testing issue. Please see
-[discussions](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) on
-the FIMS-planning issue page for details.
-
-- Once we start developing simulation modules,we can use these two ways
-to compare simulated data from FIMS and a test:
+Simulation results might be dependent on the order of calls, leading to failed tests just because different random numbers are used or the order of the simulation changes through model
+development (see [FIMS-planning discussion 25](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) for details). Below are some potential soluations.
   - Add a TRUE/FALSE parameter in each FIMS simulation module for
-  setting up testing seed. When testing the module, set the paramter to
-  TRUE to fix the seed number in R and conduct tests.
-  - If adding a TRUE/FALSE parameter does not work as expected, then
-  carefully check simulated data from each component and make sure it is
-  not a model coding error.
-
-- FIMS will use `set.seed()` from R to set the seed. The {rstream}
-package will be investigated if one of the requirements of FIMS
-simulation module is to generate multiple streams of random numbers to
-associate distinct streams of random numbers with different sources of
-randomness. {rstream} was specifically designed to address the issue of
-needing very long streams of pseudo-random numbers for parallel
-computations. Please see [rstream
-paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf)
-and
-[RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/)
-for more details.
+  setting up testing seed. When testing the module, set the parameter to
+  TRUE to fix the seed number in R and conduct tests. If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error.
+  - Use `set.seed()` from R to set the seed and investigate using {rstream} to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. {rstream} was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. See [the rstream paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf) and [RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/) for more details.
