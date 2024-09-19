@@ -12,7 +12,7 @@ Inside of your cloned version of FIMS, the file `CMakeLists.txt`, in the top-lev
 
 ### Build and run the tests
 
-The following commands on the command line execute the outlined steps and are needed to build the tests:
+The following commands on the command line (note that Windows users cannot use Git bash and must use a native Windows shell) execute the outlined steps and are needed to build the tests:
 
 1. Generate the build system using `Ninja` as the generator, which creates the `build` directory.
 1. Use `Cmake` to build in the `build` directory in parallel using 16 jobs but `--parallel 16` can be deleted.
