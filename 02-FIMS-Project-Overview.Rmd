@@ -28,6 +28,14 @@ Run [`cmake --build build` and `ctest --test-dir build` locally](https://noaa-fi
 and make sure the C++ tests pass before pushing tests to remote feature branch. If there are failing tests, run `ctest --test-dir --rerun-failed --output-on-failure` to re-run the failed tests verbosely.
 * Ensuring the run-clang-tidy and run-googletest [Github Actions workflows](#github-actions) pass on the remote feature branch
 
+Below is a list of online resources for learning C++:
+* [cplusplus.com](https://cplusplus.com/doc/)
+* [docs.microsoft.com](https://docs.microsoft.com/en-us/cpp/standard-library)
+* [geeksforgeeks.org](https://www.geeksforgeeks.org/c-plus-plus/?ref=outind)
+* [learncpp.com](https://www.learncpp.com/cpp-tutorial)
+* [positioniseverything.net](https://www.positioniseverything.net/category/coding/c/)
+* [w3schools.com/cpp](https://www.w3schools.com/cpp)
+
 ### R developers
 
 The R developers responsibilities include:
