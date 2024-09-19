@@ -376,6 +376,6 @@ test_that("TestName", {
 Simulation results might be dependent on the order of calls, leading to failed tests just because different random numbers are used or the order of the simulation changes through model
 development (see [FIMS-planning discussion 25](https://github.com/NOAA-FIMS/FIMS-planning/issues/25) for details). Below are some potential soluations.
   - Add a TRUE/FALSE parameter in each FIMS simulation module for
-  setting up testing seed. When testing the module, set the paramter to
+  setting up testing seed. When testing the module, set the parameter to
   TRUE to fix the seed number in R and conduct tests. If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error.
   - Use `set.seed()` from R to set the seed and investigate using {rstream} to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. {rstream} was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. See [the rstream paper](https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf) and [RngStreams](http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/) for more details.

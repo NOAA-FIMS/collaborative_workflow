@@ -15,9 +15,9 @@ To start a codespace on the FIMS repository, follow the [GitHub documentation fo
 
 ### git
 
-To contribute to the code, you will need git installed locally, and you may prefer to use an additional git [GUI client](https://git-scm.com/downloads/guis) such as GitKraken or GitHub Desktop. See the section on [RStudio](#rstudio) for setting up RStudio to work with git.
+To contribute to the code, you will need git installed locally, and you may prefer to use an additional git [GUI client](https://git-scm.com/downloads/guis) such as GitHub Desktop. See the section on [RStudio](#rstudio) and [VS Code](#vs-code) for setting up those editors to work with git.
 
-To install git, please follow the operating-system specific instructions available in the [git documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+To install git, please contact your IT department or follow the operating-system specific instructions available in the [git documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ### Development environment
 
@@ -78,12 +78,12 @@ Additional settings for R are available in the [extension wiki](https://github.c
 }
 ```
 
-Other helpful VS Code extensions are available in the VScode marketplace, e.g.,
+Other helpful extensions for VS Code are available in the VScode marketplace, e.g.,
   - Github Copilot: An AI tool that helps with line completion.
   - Live Share: Collaborate on the same file remotely with other developers.
   - Rewrap: Helps rewrapping comments and text lines at a specified character count. Note that to get it working it will be necessary to add [rulers](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_vertical-rulers).
   - GitLens (or GitLess): Adds more Git functionality. Some of the GitLens functionality is not free, and GitLess is a fork before the addition of these premium features.
-  - Selecting "R: Launch Rstudio Addin" from the command pallete will provide a list of addin options for RStudio.
+  - A list of extensions that can help make VS Code operate more like RStudio is available by typing `R: Launch Rstudio Addin' in the command pallete.
 
 #### RStudio
 
