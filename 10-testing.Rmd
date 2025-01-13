@@ -344,7 +344,7 @@ R tests are written using {testthat}, which can be [installed as an R package](h
 
 ### Testing FIMS locally 
 
-To test FIMS R functions, interactively and locally, use `devtools::install()` rather than `devtools::load_all()` because using `load_all()` will turn on the debugger, bloating the .o file and may lead to a compilation error (see [Fixing Fatal Error](#fixing-fatal-error) for more information).
+To test FIMS R functions, interactively and locally, use `devtools::install()` rather than `devtools::load_all()` because using `load_all()` will turn on the debugger, bloating the .o file and may lead to a compilation error, among other problems (see [Installing FIMS](#installing-fims) for more information).
 
 ### Testing using `gdbsource`
 
