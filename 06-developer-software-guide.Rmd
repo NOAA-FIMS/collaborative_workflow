@@ -148,36 +148,13 @@ The following is needed:
 
 Cloning FIMS and building it is a good option if you intend to modify files in FIMS and want to test them out.
   - Clone the [FIMS repository](https://github.com/NOAA-FIMS/FIMS) from the terminal via `git clone https://github.com/NOAA-FIMS/FIMS.git`.
-  - Build FIMS within R using `devtools::load_all()`, which mimics package building, or `devtools::install()`, which actually builds the package from local files.
+  - Build FIMS within R using `devtools::install()` which builds the package from local files and installs it within your R library. Thus, when you use `library(FIMS)` the build of FIMS from your cloned files will be used. Note, that if you update your cloned files you will need to install FIMS again.
+  - Installing FIMS with `devtools::load_all()` is not recommended because the function uses shim files for things like `system.file()` which can cause FIMS to not function as expected. For example, if you try to optimize the same model twice, you will more than likely not get estimates of uncertainty from the second model run. The reason is currently unknown but the behavior does not exist if you build FIMS with `devtools::install()` so that is what we recommend. Additionally, `devtools::load_all()` adds the debugger flag `-O0 -g` which leads to Windows users seeing `Fatal error: can't write <xxx> bytes to section .text of FIMS.o: 'file too big`. Thus, Windows users need to run `withr::local_options(pkg.build_extra_flags = FALSE)` at the beginning of every R session before calling `devtools::load_all()`. If you want to compile FIMS with the debugger turned on you will need to run the {withr} function in addition to manually modifying the call to PKG_CXXFLAGS in the [Makevars.win](https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win) file in `src` to `PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g`.
 
 ### Precompiled
 
   - Download from R universe within R using `install.packages("FIMS", repos = c("https://noaa-fims.r-universe.dev", "https://cloud.r-project.org"))`.
   - Install from GitHub within R using `devtools::install_github("NOAA-FIMS/FIMS)` to compile yourself, which allows you to be more specific about which version of the code is being built (e.g., you can refer to a tag or branch, which is not possible with the R universe install).
-
-### Fixing Fatal Error
-
-Windows users can expect to see some derivative of the following error message in their R session if they have not yet set some flags using {withr}.
-```
-Fatal error: can't write <xxx> bytes to section .text of FIMS.o: 'file too big
-```
-You can easily fix this by running the following line in your local R session. This call will need to be repeated each time you open a new session.
-```{r eval=FALSE}
-withr::local_options(pkg.build_extra_flags = FALSE)
-```
-This fix does not work when `devtools::test()` is called and FIMS is re-compiled. The call to `devtools::test()` in this case overwrites the local options set by {withr}. Compile FIMS first using `devtools::load_all()` before running `devtools::test()`.
-
-This fix removes the debugger flag `-O0 -g` from being automatically inserted for certain devtools calls (e.g. `devtools::load_all()`). Windows developers wanting to compile FIMS with the debugger turned on will need to run the above script in addition to manually modifying the call to PKG_CXXFLAGS in the [Makevars.win](https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win) file in `src` to the following:
-
-```
-PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g
-```
-
-To turn off the debugger flag, remove the `-O1 -g` flag:
-
-```
-PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS
-```
 
 ## Getting Help
 
