@@ -69,7 +69,6 @@ r
 installing-fims
 clone-and-build
 precompiled
-fixing-fatal-error
 getting-help
 contributor-guidelines
 code

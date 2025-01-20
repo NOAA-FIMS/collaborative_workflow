@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 FIMS project management process | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 FIMS project management process | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-09-20" />
+<meta name="date" content="2025-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -236,7 +236,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#clone-and-build"><i class="fa fa-check"></i><b>6.3.1</b> Clone and build</a></li>
 <li class="chapter" data-level="6.3.2" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#precompiled"><i class="fa fa-check"></i><b>6.3.2</b> Precompiled</a></li>
-<li class="chapter" data-level="6.3.3" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#fixing-fatal-error"><i class="fa fa-check"></i><b>6.3.3</b> Fixing Fatal Error</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#getting-help"><i class="fa fa-check"></i><b>6.4</b> Getting Help</a></li>
 </ul></li>
@@ -484,8 +483,8 @@ Figure 3.2: Flow chart that describes above process visually, e.g., how an issue
 </div>
 <div id="m2-development-workflow" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> M2 development workflow<a href="fims-project-management-process.html#m2-development-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-723038485cc515517f5f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-723038485cc515517f5f">{"x":{"diagram":"\ngraph TD\n    A -- R interface group --> C[short-lived feature branch];\n    A -- Documentation group --> D[short-lived feature branch];\n    A -- NLL group --> E[development branch];\n    A -- More features group --> E[development branch];\n    E --> F[short-lived feature branch];\n    C --> G[Merge into main];\n    D --> G;\n    F --> E;\n    E --> G;"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-372353d9877ac6755831" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-372353d9877ac6755831">{"x":{"diagram":"\ngraph TD\n    A -- R interface group --> C[short-lived feature branch];\n    A -- Documentation group --> D[short-lived feature branch];\n    A -- NLL group --> E[development branch];\n    A -- More features group --> E[development branch];\n    E --> F[short-lived feature branch];\n    C --> G[Merge into main];\n    D --> G;\n    F --> E;\n    E --> G;"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="feature-validation" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Feature validation<a href="fims-project-management-process.html#feature-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>

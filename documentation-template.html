@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Documentation Template | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Documentation Template | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-09-20" />
+<meta name="date" content="2025-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -236,7 +236,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#clone-and-build"><i class="fa fa-check"></i><b>6.3.1</b> Clone and build</a></li>
 <li class="chapter" data-level="6.3.2" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#precompiled"><i class="fa fa-check"></i><b>6.3.2</b> Precompiled</a></li>
-<li class="chapter" data-level="6.3.3" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#fixing-fatal-error"><i class="fa fa-check"></i><b>6.3.3</b> Fixing Fatal Error</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#getting-help"><i class="fa fa-check"></i><b>6.4</b> Getting Help</a></li>
 </ul></li>
@@ -330,8 +329,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
          * @return length\_at\_age
          */</code></pre>
 <p>which can be be rendered using via the following lines in the Command Prompt:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="documentation-template.html#cb18-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-G</span> Ninja</span>
-<span id="cb18-2"><a href="documentation-template.html#cb18-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="documentation-template.html#cb14-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-G</span> Ninja</span>
+<span id="cb14-2"><a href="documentation-template.html#cb14-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div>
 <p>The only difference between the syntax for <code>R</code> and <code>C++</code> code is how comments are denoted in the language. Below is an example from R code.</p>
 <pre><code>#&#39; This function calculates the von Bertalanffy growth curve.
 #&#39;

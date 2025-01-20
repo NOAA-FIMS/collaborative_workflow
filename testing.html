@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Testing | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Testing | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-09-20" />
+<meta name="date" content="2025-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -236,7 +236,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#clone-and-build"><i class="fa fa-check"></i><b>6.3.1</b> Clone and build</a></li>
 <li class="chapter" data-level="6.3.2" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#precompiled"><i class="fa fa-check"></i><b>6.3.2</b> Precompiled</a></li>
-<li class="chapter" data-level="6.3.3" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#fixing-fatal-error"><i class="fa fa-check"></i><b>6.3.3</b> Fixing Fatal Error</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#getting-help"><i class="fa fa-check"></i><b>6.4</b> Getting Help</a></li>
 </ul></li>
@@ -328,180 +327,180 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>Cmake</code> to build in the <code>build</code> directory in parallel using 16 jobs but <code>--parallel 16</code> can be deleted.</li>
 <li>Run the tests using <code>ctest</code> in parallel using 16 jobs but <code>--parallel 16</code> can be deleted.</li>
 </ol>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="testing.html#cb21-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja </span>
-<span id="cb21-2"><a href="testing.html#cb21-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--parallel</span> 16</span>
-<span id="cb21-3"><a href="testing.html#cb21-3" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build <span class="at">--parallel</span> 16</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="testing.html#cb17-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja </span>
+<span id="cb17-2"><a href="testing.html#cb17-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--parallel</span> 16</span>
+<span id="cb17-3"><a href="testing.html#cb17-3" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build <span class="at">--parallel</span> 16</span></code></pre></div>
 <p>The output from running the tests should look something like the following:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="testing.html#cb22-1" tabindex="-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
-<span id="cb22-2"><a href="testing.html#cb22-2" tabindex="-1"></a><span class="ex">Test</span> project C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
-<span id="cb22-3"><a href="testing.html#cb22-3" tabindex="-1"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
-<span id="cb22-4"><a href="testing.html#cb22-4" tabindex="-1"></a><span class="ex">1/5</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
-<span id="cb22-5"><a href="testing.html#cb22-5" tabindex="-1"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
-<span id="cb22-6"><a href="testing.html#cb22-6" tabindex="-1"></a><span class="ex">2/5</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
-<span id="cb22-7"><a href="testing.html#cb22-7" tabindex="-1"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
-<span id="cb22-8"><a href="testing.html#cb22-8" tabindex="-1"></a><span class="ex">3/5</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
-<span id="cb22-9"><a href="testing.html#cb22-9" tabindex="-1"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
-<span id="cb22-10"><a href="testing.html#cb22-10" tabindex="-1"></a><span class="ex">4/5</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
-<span id="cb22-11"><a href="testing.html#cb22-11" tabindex="-1"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
-<span id="cb22-12"><a href="testing.html#cb22-12" tabindex="-1"></a><span class="ex">5/5</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
-<span id="cb22-13"><a href="testing.html#cb22-13" tabindex="-1"></a></span>
-<span id="cb22-14"><a href="testing.html#cb22-14" tabindex="-1"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 5</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="testing.html#cb18-1" tabindex="-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
+<span id="cb18-2"><a href="testing.html#cb18-2" tabindex="-1"></a><span class="ex">Test</span> project C:/github_repos/NOAA-FIMS_org/FIMS/build</span>
+<span id="cb18-3"><a href="testing.html#cb18-3" tabindex="-1"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
+<span id="cb18-4"><a href="testing.html#cb18-4" tabindex="-1"></a><span class="ex">1/5</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
+<span id="cb18-5"><a href="testing.html#cb18-5" tabindex="-1"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
+<span id="cb18-6"><a href="testing.html#cb18-6" tabindex="-1"></a><span class="ex">2/5</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
+<span id="cb18-7"><a href="testing.html#cb18-7" tabindex="-1"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
+<span id="cb18-8"><a href="testing.html#cb18-8" tabindex="-1"></a><span class="ex">3/5</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
+<span id="cb18-9"><a href="testing.html#cb18-9" tabindex="-1"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
+<span id="cb18-10"><a href="testing.html#cb18-10" tabindex="-1"></a><span class="ex">4/5</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
+<span id="cb18-11"><a href="testing.html#cb18-11" tabindex="-1"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
+<span id="cb18-12"><a href="testing.html#cb18-12" tabindex="-1"></a><span class="ex">5/5</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
+<span id="cb18-13"><a href="testing.html#cb18-13" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="testing.html#cb18-14" tabindex="-1"></a><span class="ex">100%</span> tests passed, 0 tests failed out of 5</span></code></pre></div>
 </div>
 <div id="adding-a-c-test" class="section level3 hasAnchor" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Adding a C++ test<a href="testing.html#adding-a-c-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Create a file dlognorm.hpp within the <code>src</code> subfolder that contains a simple function:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb23-1"><a href="testing.html#cb23-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
-<span id="cb23-2"><a href="testing.html#cb23-2" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="testing.html#cb23-3" tabindex="-1"></a>template<span class="op">&lt;</span>class Type<span class="op">&gt;</span></span>
-<span id="cb23-4"><a href="testing.html#cb23-4" tabindex="-1"></a>Type dlognorm<span class="op">(</span>Type x<span class="op">,</span> Type meanlog<span class="op">,</span> Type sdlog<span class="op">){</span></span>
-<span id="cb23-5"><a href="testing.html#cb23-5" tabindex="-1"></a>  Type resid <span class="op">=</span> <span class="op">(</span>log<span class="op">(</span>x<span class="op">)-</span>meanlog<span class="op">)/</span>sdlog<span class="op">;</span></span>
-<span id="cb23-6"><a href="testing.html#cb23-6" tabindex="-1"></a>  Type logres <span class="op">=</span> <span class="op">-</span>log<span class="op">(</span>sqrt<span class="op">(</span><span class="dv">2</span><span class="op">*</span>M_PI<span class="op">))</span> <span class="op">-</span> log<span class="op">(</span>sdlog<span class="op">)</span> <span class="op">-</span> Type<span class="op">(</span><span class="fl">0.5</span><span class="op">)*</span>resid<span class="op">*</span>resid <span class="op">-</span> log<span class="op">(</span>x<span class="op">);</span></span>
-<span id="cb23-7"><a href="testing.html#cb23-7" tabindex="-1"></a>  <span class="cf">return</span> logres<span class="op">;</span></span>
-<span id="cb23-8"><a href="testing.html#cb23-8" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="testing.html#cb19-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cmath&gt;</span></span>
+<span id="cb19-2"><a href="testing.html#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="testing.html#cb19-3" tabindex="-1"></a>template<span class="op">&lt;</span>class Type<span class="op">&gt;</span></span>
+<span id="cb19-4"><a href="testing.html#cb19-4" tabindex="-1"></a>Type dlognorm<span class="op">(</span>Type x<span class="op">,</span> Type meanlog<span class="op">,</span> Type sdlog<span class="op">){</span></span>
+<span id="cb19-5"><a href="testing.html#cb19-5" tabindex="-1"></a>  Type resid <span class="op">=</span> <span class="op">(</span>log<span class="op">(</span>x<span class="op">)-</span>meanlog<span class="op">)/</span>sdlog<span class="op">;</span></span>
+<span id="cb19-6"><a href="testing.html#cb19-6" tabindex="-1"></a>  Type logres <span class="op">=</span> <span class="op">-</span>log<span class="op">(</span>sqrt<span class="op">(</span><span class="dv">2</span><span class="op">*</span>M_PI<span class="op">))</span> <span class="op">-</span> log<span class="op">(</span>sdlog<span class="op">)</span> <span class="op">-</span> Type<span class="op">(</span><span class="fl">0.5</span><span class="op">)*</span>resid<span class="op">*</span>resid <span class="op">-</span> log<span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb19-7"><a href="testing.html#cb19-7" tabindex="-1"></a>  <span class="cf">return</span> logres<span class="op">;</span></span>
+<span id="cb19-8"><a href="testing.html#cb19-8" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Then, create <code>dlognorm-unit.cpp</code> in <code>tests/gtest</code> that has a test suite for the <code>dlognorm</code> function:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="testing.html#cb24-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb24-2"><a href="testing.html#cb24-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
-<span id="cb24-3"><a href="testing.html#cb24-3" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="testing.html#cb24-4" tabindex="-1"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb24-5"><a href="testing.html#cb24-5" tabindex="-1"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
-<span id="cb24-6"><a href="testing.html#cb24-6" tabindex="-1"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
-<span id="cb24-7"><a href="testing.html#cb24-7" tabindex="-1"></a></span>
-<span id="cb24-8"><a href="testing.html#cb24-8" tabindex="-1"></a>namespace <span class="op">{</span></span>
-<span id="cb24-9"><a href="testing.html#cb24-9" tabindex="-1"></a></span>
-<span id="cb24-10"><a href="testing.html#cb24-10" tabindex="-1"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
-<span id="cb24-11"><a href="testing.html#cb24-11" tabindex="-1"></a>  <span class="co">// Test dlognorm with double input values</span></span>
-<span id="cb24-12"><a href="testing.html#cb24-12" tabindex="-1"></a></span>
-<span id="cb24-13"><a href="testing.html#cb24-13" tabindex="-1"></a>  TEST<span class="op">(</span>dlognormTest<span class="op">,</span> DoubleInput<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb24-14"><a href="testing.html#cb24-14" tabindex="-1"></a></span>
-<span id="cb24-15"><a href="testing.html#cb24-15" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">0.9189385</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
-<span id="cb24-16"><a href="testing.html#cb24-16" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="fl">5.0</span><span class="op">,</span> <span class="fl">10.0</span><span class="op">,</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">9.07679</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
-<span id="cb24-17"><a href="testing.html#cb24-17" tabindex="-1"></a></span>
-<span id="cb24-18"><a href="testing.html#cb24-18" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb24-19"><a href="testing.html#cb24-19" tabindex="-1"></a></span>
-<span id="cb24-20"><a href="testing.html#cb24-20" tabindex="-1"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
-<span id="cb24-21"><a href="testing.html#cb24-21" tabindex="-1"></a></span>
-<span id="cb24-22"><a href="testing.html#cb24-22" tabindex="-1"></a>  TEST<span class="op">(</span>dlognormTest<span class="op">,</span> IntInput<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb24-23"><a href="testing.html#cb24-23" tabindex="-1"></a></span>
-<span id="cb24-24"><a href="testing.html#cb24-24" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">0.9189385</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
-<span id="cb24-25"><a href="testing.html#cb24-25" tabindex="-1"></a></span>
-<span id="cb24-26"><a href="testing.html#cb24-26" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb24-27"><a href="testing.html#cb24-27" tabindex="-1"></a></span>
-<span id="cb24-28"><a href="testing.html#cb24-28" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="testing.html#cb20-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb20-2"><a href="testing.html#cb20-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
+<span id="cb20-3"><a href="testing.html#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="testing.html#cb20-4" tabindex="-1"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb20-5"><a href="testing.html#cb20-5" tabindex="-1"></a><span class="co">// dlnorm(1.0, 0.0, 1.0, TRUE) = -0.9189385</span></span>
+<span id="cb20-6"><a href="testing.html#cb20-6" tabindex="-1"></a><span class="co">// dlnorm(5.0, 10.0, 2.5, TRUE) = -9.07679</span></span>
+<span id="cb20-7"><a href="testing.html#cb20-7" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="testing.html#cb20-8" tabindex="-1"></a>namespace <span class="op">{</span></span>
+<span id="cb20-9"><a href="testing.html#cb20-9" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="testing.html#cb20-10" tabindex="-1"></a>  <span class="co">// TestSuiteName: dlognormTest; TestName: DoubleInput and IntInput</span></span>
+<span id="cb20-11"><a href="testing.html#cb20-11" tabindex="-1"></a>  <span class="co">// Test dlognorm with double input values</span></span>
+<span id="cb20-12"><a href="testing.html#cb20-12" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="testing.html#cb20-13" tabindex="-1"></a>  TEST<span class="op">(</span>dlognormTest<span class="op">,</span> DoubleInput<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-14"><a href="testing.html#cb20-14" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="testing.html#cb20-15" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">0.9189385</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
+<span id="cb20-16"><a href="testing.html#cb20-16" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="fl">5.0</span><span class="op">,</span> <span class="fl">10.0</span><span class="op">,</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">9.07679</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
+<span id="cb20-17"><a href="testing.html#cb20-17" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="testing.html#cb20-18" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb20-19"><a href="testing.html#cb20-19" tabindex="-1"></a></span>
+<span id="cb20-20"><a href="testing.html#cb20-20" tabindex="-1"></a>  <span class="co">// Test dlognorm with integer input values</span></span>
+<span id="cb20-21"><a href="testing.html#cb20-21" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="testing.html#cb20-22" tabindex="-1"></a>  TEST<span class="op">(</span>dlognormTest<span class="op">,</span> IntInput<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-23"><a href="testing.html#cb20-23" tabindex="-1"></a></span>
+<span id="cb20-24"><a href="testing.html#cb20-24" tabindex="-1"></a>    EXPECT_NEAR<span class="op">(</span> dlognorm<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">)</span> <span class="op">,</span> <span class="op">-</span><span class="fl">0.9189385</span> <span class="op">,</span> <span class="fl">0.0001</span> <span class="op">);</span></span>
+<span id="cb20-25"><a href="testing.html#cb20-25" tabindex="-1"></a></span>
+<span id="cb20-26"><a href="testing.html#cb20-26" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb20-27"><a href="testing.html#cb20-27" tabindex="-1"></a></span>
+<span id="cb20-28"><a href="testing.html#cb20-28" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><code>EXPECT_NEAR(val1, val2, absolute_error)</code> verifies that the difference between <code>val1</code> and <code>val2</code> does not exceed the absolute error bound <code>absolute_error</code>. <code>EXPECT_NE(val1, val2)</code> verifies that <code>val1</code> is not equal to <code>val2</code>. See GoogleTest <a href="https://google.github.io/googletest/reference/assertions.html">assertions reference</a> for more <code>EXPECT_</code> macros.</p>
 <p>Finally, the test must be added to <code>tests/gtest/CMakeLists.txt</code> before running the tests. Add the following contents to the end of <code>tests/gtest/CMakeLists.txt</code> to enable testing in CMake, declare the C++ test
 binary you want to build (dlognorm_test), and link it to GoogleTest (gtest_main). :</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb25-1"><a href="testing.html#cb25-1" tabindex="-1"></a></span>
-<span id="cb25-2"><a href="testing.html#cb25-2" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">dlognorm_test</span></span>
-<span id="cb25-3"><a href="testing.html#cb25-3" tabindex="-1"></a>  dlognorm-unit.cpp</span>
-<span id="cb25-4"><a href="testing.html#cb25-4" tabindex="-1"></a>)</span>
-<span id="cb25-5"><a href="testing.html#cb25-5" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="testing.html#cb25-6" tabindex="-1"></a><span class="kw">target_include_directories</span>(<span class="bn">dlognorm_test</span></span>
-<span id="cb25-7"><a href="testing.html#cb25-7" tabindex="-1"></a>  <span class="ot">PUBLIC</span></span>
-<span id="cb25-8"><a href="testing.html#cb25-8" tabindex="-1"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb25-9"><a href="testing.html#cb25-9" tabindex="-1"></a>)</span>
-<span id="cb25-10"><a href="testing.html#cb25-10" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="testing.html#cb25-11" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">dlognorm_test</span></span>
-<span id="cb25-12"><a href="testing.html#cb25-12" tabindex="-1"></a>  gtest_main</span>
-<span id="cb25-13"><a href="testing.html#cb25-13" tabindex="-1"></a>)</span>
-<span id="cb25-14"><a href="testing.html#cb25-14" tabindex="-1"></a></span>
-<span id="cb25-15"><a href="testing.html#cb25-15" tabindex="-1"></a><span class="kw">include</span>(<span class="im">GoogleTest</span>)</span>
-<span id="cb25-16"><a href="testing.html#cb25-16" tabindex="-1"></a><span class="fu">gtest_discover_tests</span>(<span class="bn">dlognorm_test</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb21-1"><a href="testing.html#cb21-1" tabindex="-1"></a></span>
+<span id="cb21-2"><a href="testing.html#cb21-2" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">dlognorm_test</span></span>
+<span id="cb21-3"><a href="testing.html#cb21-3" tabindex="-1"></a>  dlognorm-unit.cpp</span>
+<span id="cb21-4"><a href="testing.html#cb21-4" tabindex="-1"></a>)</span>
+<span id="cb21-5"><a href="testing.html#cb21-5" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="testing.html#cb21-6" tabindex="-1"></a><span class="kw">target_include_directories</span>(<span class="bn">dlognorm_test</span></span>
+<span id="cb21-7"><a href="testing.html#cb21-7" tabindex="-1"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb21-8"><a href="testing.html#cb21-8" tabindex="-1"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb21-9"><a href="testing.html#cb21-9" tabindex="-1"></a>)</span>
+<span id="cb21-10"><a href="testing.html#cb21-10" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="testing.html#cb21-11" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">dlognorm_test</span></span>
+<span id="cb21-12"><a href="testing.html#cb21-12" tabindex="-1"></a>  gtest_main</span>
+<span id="cb21-13"><a href="testing.html#cb21-13" tabindex="-1"></a>)</span>
+<span id="cb21-14"><a href="testing.html#cb21-14" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="testing.html#cb21-15" tabindex="-1"></a><span class="kw">include</span>(<span class="im">GoogleTest</span>)</span>
+<span id="cb21-16"><a href="testing.html#cb21-16" tabindex="-1"></a><span class="fu">gtest_discover_tests</span>(<span class="bn">dlognorm_test</span>)</span></code></pre></div>
 <p>Now you can build and run your test using the <a href="testing.html#build-and-run-the-tests">instructions in Build and run the tests</a>. The output when running <code>ctest</code> will look something like the following, note that there is a failing test:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="testing.html#cb26-1" tabindex="-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
-<span id="cb26-2"><a href="testing.html#cb26-2" tabindex="-1"></a><span class="ex">Test</span> project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
-<span id="cb26-3"><a href="testing.html#cb26-3" tabindex="-1"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
-<span id="cb26-4"><a href="testing.html#cb26-4" tabindex="-1"></a><span class="ex">1/7</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
-<span id="cb26-5"><a href="testing.html#cb26-5" tabindex="-1"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
-<span id="cb26-6"><a href="testing.html#cb26-6" tabindex="-1"></a><span class="ex">2/7</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
-<span id="cb26-7"><a href="testing.html#cb26-7" tabindex="-1"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
-<span id="cb26-8"><a href="testing.html#cb26-8" tabindex="-1"></a><span class="ex">3/7</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
-<span id="cb26-9"><a href="testing.html#cb26-9" tabindex="-1"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
-<span id="cb26-10"><a href="testing.html#cb26-10" tabindex="-1"></a><span class="ex">4/7</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
-<span id="cb26-11"><a href="testing.html#cb26-11" tabindex="-1"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
-<span id="cb26-12"><a href="testing.html#cb26-12" tabindex="-1"></a><span class="ex">5/7</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
-<span id="cb26-13"><a href="testing.html#cb26-13" tabindex="-1"></a>    <span class="ex">Start</span> 6: dlognormTest.DoubleInput</span>
-<span id="cb26-14"><a href="testing.html#cb26-14" tabindex="-1"></a><span class="ex">6/7</span> Test <span class="co">#6: dlognormTest.DoubleInput .........   Passed    0.04 sec</span></span>
-<span id="cb26-15"><a href="testing.html#cb26-15" tabindex="-1"></a>    <span class="ex">Start</span> 7: dlognormTest.IntInput</span>
-<span id="cb26-16"><a href="testing.html#cb26-16" tabindex="-1"></a><span class="ex">7/7</span> Test <span class="co">#7: dlognormTest.IntInput ............***Failed    0.04 sec</span></span>
-<span id="cb26-17"><a href="testing.html#cb26-17" tabindex="-1"></a></span>
-<span id="cb26-18"><a href="testing.html#cb26-18" tabindex="-1"></a><span class="ex">86%</span> tests passed, 1 tests failed out of 7</span>
-<span id="cb26-19"><a href="testing.html#cb26-19" tabindex="-1"></a></span>
-<span id="cb26-20"><a href="testing.html#cb26-20" tabindex="-1"></a><span class="ex">Total</span> Test time <span class="er">(</span><span class="ex">real</span><span class="kw">)</span> <span class="ex">=</span>   0.28 sec</span>
-<span id="cb26-21"><a href="testing.html#cb26-21" tabindex="-1"></a></span>
-<span id="cb26-22"><a href="testing.html#cb26-22" tabindex="-1"></a><span class="ex">The</span> following tests FAILED:</span>
-<span id="cb26-23"><a href="testing.html#cb26-23" tabindex="-1"></a>          <span class="ex">7</span> <span class="at">-</span> dlognormTest.IntInput <span class="er">(</span><span class="ex">Failed</span><span class="kw">)</span></span>
-<span id="cb26-24"><a href="testing.html#cb26-24" tabindex="-1"></a><span class="ex">Errors</span> while running CTest</span>
-<span id="cb26-25"><a href="testing.html#cb26-25" tabindex="-1"></a><span class="ex">Output</span> from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log</span>
-<span id="cb26-26"><a href="testing.html#cb26-26" tabindex="-1"></a><span class="ex">Use</span> <span class="st">&quot;--rerun-failed --output-on-failure&quot;</span> to re-run the failed cases verbosely.</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="testing.html#cb22-1" tabindex="-1"></a><span class="ex">Internal</span> ctest changing into directory: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
+<span id="cb22-2"><a href="testing.html#cb22-2" tabindex="-1"></a><span class="ex">Test</span> project C:/Users/Kathryn.Doering/Documents/testing/FIMS/build</span>
+<span id="cb22-3"><a href="testing.html#cb22-3" tabindex="-1"></a>    <span class="ex">Start</span> 1: dlognorm.use_double_inputs</span>
+<span id="cb22-4"><a href="testing.html#cb22-4" tabindex="-1"></a><span class="ex">1/7</span> Test <span class="co">#1: dlognorm.use_double_inputs .......   Passed    0.04 sec</span></span>
+<span id="cb22-5"><a href="testing.html#cb22-5" tabindex="-1"></a>    <span class="ex">Start</span> 2: dlognorm.use_int_inputs</span>
+<span id="cb22-6"><a href="testing.html#cb22-6" tabindex="-1"></a><span class="ex">2/7</span> Test <span class="co">#2: dlognorm.use_int_inputs ..........   Passed    0.04 sec</span></span>
+<span id="cb22-7"><a href="testing.html#cb22-7" tabindex="-1"></a>    <span class="ex">Start</span> 3: modelTest.eta</span>
+<span id="cb22-8"><a href="testing.html#cb22-8" tabindex="-1"></a><span class="ex">3/7</span> Test <span class="co">#3: modelTest.eta ....................   Passed    0.04 sec</span></span>
+<span id="cb22-9"><a href="testing.html#cb22-9" tabindex="-1"></a>    <span class="ex">Start</span> 4: modelTest.nll</span>
+<span id="cb22-10"><a href="testing.html#cb22-10" tabindex="-1"></a><span class="ex">4/7</span> Test <span class="co">#4: modelTest.nll ....................   Passed    0.04 sec</span></span>
+<span id="cb22-11"><a href="testing.html#cb22-11" tabindex="-1"></a>    <span class="ex">Start</span> 5: modelTest.evaluate</span>
+<span id="cb22-12"><a href="testing.html#cb22-12" tabindex="-1"></a><span class="ex">5/7</span> Test <span class="co">#5: modelTest.evaluate ...............   Passed    0.04 sec</span></span>
+<span id="cb22-13"><a href="testing.html#cb22-13" tabindex="-1"></a>    <span class="ex">Start</span> 6: dlognormTest.DoubleInput</span>
+<span id="cb22-14"><a href="testing.html#cb22-14" tabindex="-1"></a><span class="ex">6/7</span> Test <span class="co">#6: dlognormTest.DoubleInput .........   Passed    0.04 sec</span></span>
+<span id="cb22-15"><a href="testing.html#cb22-15" tabindex="-1"></a>    <span class="ex">Start</span> 7: dlognormTest.IntInput</span>
+<span id="cb22-16"><a href="testing.html#cb22-16" tabindex="-1"></a><span class="ex">7/7</span> Test <span class="co">#7: dlognormTest.IntInput ............***Failed    0.04 sec</span></span>
+<span id="cb22-17"><a href="testing.html#cb22-17" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="testing.html#cb22-18" tabindex="-1"></a><span class="ex">86%</span> tests passed, 1 tests failed out of 7</span>
+<span id="cb22-19"><a href="testing.html#cb22-19" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="testing.html#cb22-20" tabindex="-1"></a><span class="ex">Total</span> Test time <span class="er">(</span><span class="ex">real</span><span class="kw">)</span> <span class="ex">=</span>   0.28 sec</span>
+<span id="cb22-21"><a href="testing.html#cb22-21" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="testing.html#cb22-22" tabindex="-1"></a><span class="ex">The</span> following tests FAILED:</span>
+<span id="cb22-23"><a href="testing.html#cb22-23" tabindex="-1"></a>          <span class="ex">7</span> <span class="at">-</span> dlognormTest.IntInput <span class="er">(</span><span class="ex">Failed</span><span class="kw">)</span></span>
+<span id="cb22-24"><a href="testing.html#cb22-24" tabindex="-1"></a><span class="ex">Errors</span> while running CTest</span>
+<span id="cb22-25"><a href="testing.html#cb22-25" tabindex="-1"></a><span class="ex">Output</span> from these tests are in: C:/Users/Kathryn.Doering/Documents/testing/FIMS/build/Testing/Temporary/LastTest.log</span>
+<span id="cb22-26"><a href="testing.html#cb22-26" tabindex="-1"></a><span class="ex">Use</span> <span class="st">&quot;--rerun-failed --output-on-failure&quot;</span> to re-run the failed cases verbosely.</span></code></pre></div>
 </div>
 <div id="debugging-a-c-test" class="section level3 hasAnchor" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Debugging a C++ test<a href="testing.html#debugging-a-c-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two ways to debug a C++ test, interactively using <code>gdb</code> or via print statements.</p>
 <p>To debug C++ code (e.g., segmentation error/memory corruption) using gdb:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="testing.html#cb27-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Debug</span>
-<span id="cb27-2"><a href="testing.html#cb27-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--parallel</span> 16</span>
-<span id="cb27-3"><a href="testing.html#cb27-3" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build <span class="at">--parallel</span> 16</span>
-<span id="cb27-4"><a href="testing.html#cb27-4" tabindex="-1"></a><span class="fu">gdb</span> ./build/tests/gtest/population_dynamics_population.exe</span>
-<span id="cb27-5"><a href="testing.html#cb27-5" tabindex="-1"></a><span class="ex">c</span> // to continue without paging</span>
-<span id="cb27-6"><a href="testing.html#cb27-6" tabindex="-1"></a><span class="ex">run</span> // to see which line of code is broken</span>
-<span id="cb27-7"><a href="testing.html#cb27-7" tabindex="-1"></a><span class="ex">print</span> this-<span class="op">&gt;</span>log_naa // for example, print this-<span class="op">&gt;</span>log_naa to see the value of log_naa<span class="kw">;</span> </span>
-<span id="cb27-8"><a href="testing.html#cb27-8" tabindex="-1"></a><span class="ex">print</span> i // for example, print i from the broken for loop</span>
-<span id="cb27-9"><a href="testing.html#cb27-9" tabindex="-1"></a><span class="ex">bt</span> // backtrace</span>
-<span id="cb27-10"><a href="testing.html#cb27-10" tabindex="-1"></a><span class="ex">q</span> // to quit</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="testing.html#cb23-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S</span> . <span class="at">-B</span> build <span class="at">-G</span> Ninja <span class="at">-DCMAKE_BUILD_TYPE</span><span class="op">=</span>Debug</span>
+<span id="cb23-2"><a href="testing.html#cb23-2" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--parallel</span> 16</span>
+<span id="cb23-3"><a href="testing.html#cb23-3" tabindex="-1"></a><span class="ex">ctest</span> <span class="at">--test-dir</span> build <span class="at">--parallel</span> 16</span>
+<span id="cb23-4"><a href="testing.html#cb23-4" tabindex="-1"></a><span class="fu">gdb</span> ./build/tests/gtest/population_dynamics_population.exe</span>
+<span id="cb23-5"><a href="testing.html#cb23-5" tabindex="-1"></a><span class="ex">c</span> // to continue without paging</span>
+<span id="cb23-6"><a href="testing.html#cb23-6" tabindex="-1"></a><span class="ex">run</span> // to see which line of code is broken</span>
+<span id="cb23-7"><a href="testing.html#cb23-7" tabindex="-1"></a><span class="ex">print</span> this-<span class="op">&gt;</span>log_naa // for example, print this-<span class="op">&gt;</span>log_naa to see the value of log_naa<span class="kw">;</span> </span>
+<span id="cb23-8"><a href="testing.html#cb23-8" tabindex="-1"></a><span class="ex">print</span> i // for example, print i from the broken for loop</span>
+<span id="cb23-9"><a href="testing.html#cb23-9" tabindex="-1"></a><span class="ex">bt</span> // backtrace</span>
+<span id="cb23-10"><a href="testing.html#cb23-10" tabindex="-1"></a><span class="ex">q</span> // to quit</span></code></pre></div>
 <p>To debug C++ code with print statements you must update the C++ in the desired <code>.hpp</code> file by adding <code>std::ofstream out(“file_name.txt”)</code> and using <code>out &lt;&lt; variable;</code> to print out values of the variable. The output of the print statements will be in <code>FIMS/build/tests/gtest/debug.txt</code> after you run the <code>cmake</code> and <code>ctest</code> calls the <a href="testing.html#build-and-run-the-tests">instructions in Build and run the tests</a>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb28-1"><a href="testing.html#cb28-1" tabindex="-1"></a>nfleets <span class="op">=</span> fleets<span class="op">.</span>size<span class="op">();</span></span>
-<span id="cb28-2"><a href="testing.html#cb28-2" tabindex="-1"></a>std<span class="op">::</span>ofstream out<span class="op">(</span><span class="st">&quot;debug.txt&quot;</span><span class="op">);</span></span>
-<span id="cb28-3"><a href="testing.html#cb28-3" tabindex="-1"></a>out <span class="op">&lt;&lt;</span>nfleets<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="testing.html#cb24-1" tabindex="-1"></a>nfleets <span class="op">=</span> fleets<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb24-2"><a href="testing.html#cb24-2" tabindex="-1"></a>std<span class="op">::</span>ofstream out<span class="op">(</span><span class="st">&quot;debug.txt&quot;</span><span class="op">);</span></span>
+<span id="cb24-3"><a href="testing.html#cb24-3" tabindex="-1"></a>out <span class="op">&lt;&lt;</span>nfleets<span class="op">;</span></span></code></pre></div>
 <p>More complex examples with text identifying the quantities</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb29-1"><a href="testing.html#cb29-1" tabindex="-1"></a>out <span class="op">&lt;&lt;</span><span class="st">&quot; fleet_index: &quot;</span><span class="op">&lt;&lt;</span>fleet_index<span class="op">&lt;&lt;</span><span class="st">&quot; index_yaf: &quot;</span><span class="op">&lt;&lt;</span>index_yaf<span class="op">&lt;&lt;</span><span class="st">&quot; index_yf: &quot;</span><span class="op">&lt;&lt;</span>index_yf<span class="op">&lt;&lt;</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
-<span id="cb29-2"><a href="testing.html#cb29-2" tabindex="-1"></a>out <span class="op">&lt;&lt;</span><span class="st">&quot; population.Fmort[index_yf]: &quot;</span><span class="op">&lt;&lt;</span>population<span class="op">.</span>Fmort<span class="op">[</span>index_yf<span class="op">]&lt;&lt;</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb25-1"><a href="testing.html#cb25-1" tabindex="-1"></a>out <span class="op">&lt;&lt;</span><span class="st">&quot; fleet_index: &quot;</span><span class="op">&lt;&lt;</span>fleet_index<span class="op">&lt;&lt;</span><span class="st">&quot; index_yaf: &quot;</span><span class="op">&lt;&lt;</span>index_yaf<span class="op">&lt;&lt;</span><span class="st">&quot; index_yf: &quot;</span><span class="op">&lt;&lt;</span>index_yf<span class="op">&lt;&lt;</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="testing.html#cb25-2" tabindex="-1"></a>out <span class="op">&lt;&lt;</span><span class="st">&quot; population.Fmort[index_yf]: &quot;</span><span class="op">&lt;&lt;</span>population<span class="op">.</span>Fmort<span class="op">[</span>index_yf<span class="op">]&lt;&lt;</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span></code></pre></div>
 </div>
 <div id="benchmark-example" class="section level3 hasAnchor" number="10.2.4">
 <h3><span class="header-section-number">10.2.4</span> Benchmark example<a href="testing.html#benchmark-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://github.com/google/benchmark">Google Benchmark</a> measures the real time and CPU time used for running the produced binary. We will continue using the dlognorm.hpp example. Create <code>dlognorm_benchmark.cpp</code> in <code>tests/gtest</code> with the following code to run the <code>dlognorm</code> function and use BENCHMARK to see how long it takes.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="testing.html#cb30-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb30-2"><a href="testing.html#cb30-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
-<span id="cb30-3"><a href="testing.html#cb30-3" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="testing.html#cb30-4" tabindex="-1"></a><span class="dt">void</span> BM_dlgnorm<span class="op">(</span>benchmark<span class="op">::</span>State<span class="op">&amp;</span> state<span class="op">)</span></span>
-<span id="cb30-5"><a href="testing.html#cb30-5" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb30-6"><a href="testing.html#cb30-6" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> _ <span class="op">:</span> state<span class="op">)</span></span>
-<span id="cb30-7"><a href="testing.html#cb30-7" tabindex="-1"></a>    dlognorm<span class="op">(</span><span class="fl">5.0</span><span class="op">,</span> <span class="fl">10.0</span><span class="op">,</span> <span class="fl">2.5</span><span class="op">);</span></span>
-<span id="cb30-8"><a href="testing.html#cb30-8" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb30-9"><a href="testing.html#cb30-9" tabindex="-1"></a>BENCHMARK<span class="op">(</span>BM_dlgnorm<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb26-1"><a href="testing.html#cb26-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb26-2"><a href="testing.html#cb26-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/dlognorm.hpp&quot;</span></span>
+<span id="cb26-3"><a href="testing.html#cb26-3" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="testing.html#cb26-4" tabindex="-1"></a><span class="dt">void</span> BM_dlgnorm<span class="op">(</span>benchmark<span class="op">::</span>State<span class="op">&amp;</span> state<span class="op">)</span></span>
+<span id="cb26-5"><a href="testing.html#cb26-5" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb26-6"><a href="testing.html#cb26-6" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> _ <span class="op">:</span> state<span class="op">)</span></span>
+<span id="cb26-7"><a href="testing.html#cb26-7" tabindex="-1"></a>    dlognorm<span class="op">(</span><span class="fl">5.0</span><span class="op">,</span> <span class="fl">10.0</span><span class="op">,</span> <span class="fl">2.5</span><span class="op">);</span></span>
+<span id="cb26-8"><a href="testing.html#cb26-8" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb26-9"><a href="testing.html#cb26-9" tabindex="-1"></a>BENCHMARK<span class="op">(</span>BM_dlgnorm<span class="op">);</span></span></code></pre></div>
 <p>Next, the following needs to be added to the end of <code>tests/gtest/CMakeLists.txt</code>:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb31-1"><a href="testing.html#cb31-1" tabindex="-1"></a><span class="fu">FetchContent_Declare</span>(</span>
-<span id="cb31-2"><a href="testing.html#cb31-2" tabindex="-1"></a>  googlebenchmark</span>
-<span id="cb31-3"><a href="testing.html#cb31-3" tabindex="-1"></a>  <span class="ot">URL</span> https://github.com/google/benchmark/archive/refs/tags/v1.<span class="dt">6.0</span>.zip</span>
-<span id="cb31-4"><a href="testing.html#cb31-4" tabindex="-1"></a>)</span>
-<span id="cb31-5"><a href="testing.html#cb31-5" tabindex="-1"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
-<span id="cb31-6"><a href="testing.html#cb31-6" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="testing.html#cb31-7" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">dlognorm_benchmark</span></span>
-<span id="cb31-8"><a href="testing.html#cb31-8" tabindex="-1"></a>  dlognorm_benchmark.cpp</span>
-<span id="cb31-9"><a href="testing.html#cb31-9" tabindex="-1"></a>)</span>
-<span id="cb31-10"><a href="testing.html#cb31-10" tabindex="-1"></a></span>
-<span id="cb31-11"><a href="testing.html#cb31-11" tabindex="-1"></a><span class="kw">target_include_directories</span>(<span class="bn">dlognorm_benchmark</span></span>
-<span id="cb31-12"><a href="testing.html#cb31-12" tabindex="-1"></a>  <span class="ot">PUBLIC</span></span>
-<span id="cb31-13"><a href="testing.html#cb31-13" tabindex="-1"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
-<span id="cb31-14"><a href="testing.html#cb31-14" tabindex="-1"></a>)</span>
-<span id="cb31-15"><a href="testing.html#cb31-15" tabindex="-1"></a></span>
-<span id="cb31-16"><a href="testing.html#cb31-16" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">dlognorm_benchmark</span></span>
-<span id="cb31-17"><a href="testing.html#cb31-17" tabindex="-1"></a>  benchmark_main</span>
-<span id="cb31-18"><a href="testing.html#cb31-18" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb27-1"><a href="testing.html#cb27-1" tabindex="-1"></a><span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb27-2"><a href="testing.html#cb27-2" tabindex="-1"></a>  googlebenchmark</span>
+<span id="cb27-3"><a href="testing.html#cb27-3" tabindex="-1"></a>  <span class="ot">URL</span> https://github.com/google/benchmark/archive/refs/tags/v1.<span class="dt">6.0</span>.zip</span>
+<span id="cb27-4"><a href="testing.html#cb27-4" tabindex="-1"></a>)</span>
+<span id="cb27-5"><a href="testing.html#cb27-5" tabindex="-1"></a><span class="fu">FetchContent_MakeAvailable</span>(googlebenchmark)</span>
+<span id="cb27-6"><a href="testing.html#cb27-6" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="testing.html#cb27-7" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">dlognorm_benchmark</span></span>
+<span id="cb27-8"><a href="testing.html#cb27-8" tabindex="-1"></a>  dlognorm_benchmark.cpp</span>
+<span id="cb27-9"><a href="testing.html#cb27-9" tabindex="-1"></a>)</span>
+<span id="cb27-10"><a href="testing.html#cb27-10" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="testing.html#cb27-11" tabindex="-1"></a><span class="kw">target_include_directories</span>(<span class="bn">dlognorm_benchmark</span></span>
+<span id="cb27-12"><a href="testing.html#cb27-12" tabindex="-1"></a>  <span class="ot">PUBLIC</span></span>
+<span id="cb27-13"><a href="testing.html#cb27-13" tabindex="-1"></a>    <span class="dv">${CMAKE_SOURCE_DIR}</span>/../</span>
+<span id="cb27-14"><a href="testing.html#cb27-14" tabindex="-1"></a>)</span>
+<span id="cb27-15"><a href="testing.html#cb27-15" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="testing.html#cb27-16" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">dlognorm_benchmark</span></span>
+<span id="cb27-17"><a href="testing.html#cb27-17" tabindex="-1"></a>  benchmark_main</span>
+<span id="cb27-18"><a href="testing.html#cb27-18" tabindex="-1"></a>)</span></code></pre></div>
 <p>To run the benchmark, run cmake sending output to the build subfolder and run the created executable:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="testing.html#cb32-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
-<span id="cb32-2"><a href="testing.html#cb32-2" tabindex="-1"></a><span class="ex">build/tests/gtest/dlognorm_benchmark.exe</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="testing.html#cb28-1" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
+<span id="cb28-2"><a href="testing.html#cb28-2" tabindex="-1"></a><span class="ex">build/tests/gtest/dlognorm_benchmark.exe</span></span></code></pre></div>
 <p>The output from <code>dlognorm_benchmark.exe</code> might look like this:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="testing.html#cb33-1" tabindex="-1"></a><span class="ex">Run</span> on <span class="er">(</span><span class="ex">8</span> X 2112 MHz CPU s<span class="kw">)</span></span>
-<span id="cb33-2"><a href="testing.html#cb33-2" tabindex="-1"></a><span class="ex">CPU</span> Caches:</span>
-<span id="cb33-3"><a href="testing.html#cb33-3" tabindex="-1"></a>  <span class="ex">L1</span> Data 32 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
-<span id="cb33-4"><a href="testing.html#cb33-4" tabindex="-1"></a><span class="ex">L1</span> Instruction 32 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
-<span id="cb33-5"><a href="testing.html#cb33-5" tabindex="-1"></a><span class="ex">L2</span> Unified 256 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
-<span id="cb33-6"><a href="testing.html#cb33-6" tabindex="-1"></a><span class="ex">L3</span> Unified 8192 KiB <span class="er">(</span><span class="ex">x1</span><span class="kw">)</span></span>
-<span id="cb33-7"><a href="testing.html#cb33-7" tabindex="-1"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
-<span id="cb33-8"><a href="testing.html#cb33-8" tabindex="-1"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb33-9"><a href="testing.html#cb33-9" tabindex="-1"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
-<span id="cb33-10"><a href="testing.html#cb33-10" tabindex="-1"></a><span class="ex">-----------------------------------------------------</span></span>
-<span id="cb33-11"><a href="testing.html#cb33-11" tabindex="-1"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="testing.html#cb29-1" tabindex="-1"></a><span class="ex">Run</span> on <span class="er">(</span><span class="ex">8</span> X 2112 MHz CPU s<span class="kw">)</span></span>
+<span id="cb29-2"><a href="testing.html#cb29-2" tabindex="-1"></a><span class="ex">CPU</span> Caches:</span>
+<span id="cb29-3"><a href="testing.html#cb29-3" tabindex="-1"></a>  <span class="ex">L1</span> Data 32 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
+<span id="cb29-4"><a href="testing.html#cb29-4" tabindex="-1"></a><span class="ex">L1</span> Instruction 32 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
+<span id="cb29-5"><a href="testing.html#cb29-5" tabindex="-1"></a><span class="ex">L2</span> Unified 256 KiB <span class="er">(</span><span class="ex">x4</span><span class="kw">)</span></span>
+<span id="cb29-6"><a href="testing.html#cb29-6" tabindex="-1"></a><span class="ex">L3</span> Unified 8192 KiB <span class="er">(</span><span class="ex">x1</span><span class="kw">)</span></span>
+<span id="cb29-7"><a href="testing.html#cb29-7" tabindex="-1"></a><span class="ex">***WARNING***</span> Library was built as DEBUG. Timings may be affected.</span>
+<span id="cb29-8"><a href="testing.html#cb29-8" tabindex="-1"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb29-9"><a href="testing.html#cb29-9" tabindex="-1"></a>  <span class="ex">Benchmark</span>           Time             CPU   Iterations</span>
+<span id="cb29-10"><a href="testing.html#cb29-10" tabindex="-1"></a><span class="ex">-----------------------------------------------------</span></span>
+<span id="cb29-11"><a href="testing.html#cb29-11" tabindex="-1"></a>  <span class="ex">BM_dlgnorm</span>        153 ns          153 ns      4480000</span></code></pre></div>
 </div>
 <div id="clean-up-after-running-c-tests" class="section level3 hasAnchor" number="10.2.5">
 <h3><span class="header-section-number">10.2.5</span> Clean up after running C++ tests<a href="testing.html#clean-up-after-running-c-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -522,66 +521,66 @@ This is the code that would go into the .cpp files in tests/gtest.</p>
 <h3><span class="header-section-number">10.3.1</span> C++ test templates<a href="testing.html#c-test-templates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="unit-test-template" class="section level4 hasAnchor" number="10.3.1.1">
 <h4><span class="header-section-number">10.3.1.1</span> Unit test template<a href="testing.html#unit-test-template" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb34"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb34-1"><a href="testing.html#cb34-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
-<span id="cb34-2"><a href="testing.html#cb34-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
-<span id="cb34-3"><a href="testing.html#cb34-3" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="testing.html#cb34-4" tabindex="-1"></a><span class="co">// # R code that generates true values for the test</span></span>
-<span id="cb34-5"><a href="testing.html#cb34-5" tabindex="-1"></a></span>
-<span id="cb34-6"><a href="testing.html#cb34-6" tabindex="-1"></a>namespace <span class="op">{</span></span>
-<span id="cb34-7"><a href="testing.html#cb34-7" tabindex="-1"></a></span>
-<span id="cb34-8"><a href="testing.html#cb34-8" tabindex="-1"></a>  <span class="co">// Description of Test 1</span></span>
-<span id="cb34-9"><a href="testing.html#cb34-9" tabindex="-1"></a>  TEST<span class="op">(</span>TestSuiteName<span class="op">,</span> Test1Name<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb34-10"><a href="testing.html#cb34-10" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="testing.html#cb34-11" tabindex="-1"></a>    <span class="op">...</span> test body <span class="op">...</span></span>
-<span id="cb34-12"><a href="testing.html#cb34-12" tabindex="-1"></a></span>
-<span id="cb34-13"><a href="testing.html#cb34-13" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb34-14"><a href="testing.html#cb34-14" tabindex="-1"></a></span>
-<span id="cb34-15"><a href="testing.html#cb34-15" tabindex="-1"></a>  <span class="co">// Description of Test 2</span></span>
-<span id="cb34-16"><a href="testing.html#cb34-16" tabindex="-1"></a>  TEST<span class="op">(</span>TestSuiteName<span class="op">,</span> Test2Name<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb34-17"><a href="testing.html#cb34-17" tabindex="-1"></a></span>
-<span id="cb34-18"><a href="testing.html#cb34-18" tabindex="-1"></a>    <span class="op">...</span> test body <span class="op">...</span></span>
-<span id="cb34-19"><a href="testing.html#cb34-19" tabindex="-1"></a></span>
-<span id="cb34-20"><a href="testing.html#cb34-20" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb34-21"><a href="testing.html#cb34-21" tabindex="-1"></a></span>
-<span id="cb34-22"><a href="testing.html#cb34-22" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="testing.html#cb30-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;gtest/gtest.h&quot;</span></span>
+<span id="cb30-2"><a href="testing.html#cb30-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
+<span id="cb30-3"><a href="testing.html#cb30-3" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="testing.html#cb30-4" tabindex="-1"></a><span class="co">// # R code that generates true values for the test</span></span>
+<span id="cb30-5"><a href="testing.html#cb30-5" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="testing.html#cb30-6" tabindex="-1"></a>namespace <span class="op">{</span></span>
+<span id="cb30-7"><a href="testing.html#cb30-7" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="testing.html#cb30-8" tabindex="-1"></a>  <span class="co">// Description of Test 1</span></span>
+<span id="cb30-9"><a href="testing.html#cb30-9" tabindex="-1"></a>  TEST<span class="op">(</span>TestSuiteName<span class="op">,</span> Test1Name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb30-10"><a href="testing.html#cb30-10" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="testing.html#cb30-11" tabindex="-1"></a>    <span class="op">...</span> test body <span class="op">...</span></span>
+<span id="cb30-12"><a href="testing.html#cb30-12" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="testing.html#cb30-13" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb30-14"><a href="testing.html#cb30-14" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="testing.html#cb30-15" tabindex="-1"></a>  <span class="co">// Description of Test 2</span></span>
+<span id="cb30-16"><a href="testing.html#cb30-16" tabindex="-1"></a>  TEST<span class="op">(</span>TestSuiteName<span class="op">,</span> Test2Name<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb30-17"><a href="testing.html#cb30-17" tabindex="-1"></a></span>
+<span id="cb30-18"><a href="testing.html#cb30-18" tabindex="-1"></a>    <span class="op">...</span> test body <span class="op">...</span></span>
+<span id="cb30-19"><a href="testing.html#cb30-19" tabindex="-1"></a></span>
+<span id="cb30-20"><a href="testing.html#cb30-20" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb30-21"><a href="testing.html#cb30-21" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="testing.html#cb30-22" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="benchmark-template" class="section level4 hasAnchor" number="10.3.1.2">
 <h4><span class="header-section-number">10.3.1.2</span> Benchmark template<a href="testing.html#benchmark-template" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb35"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb35-1"><a href="testing.html#cb35-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
-<span id="cb35-2"><a href="testing.html#cb35-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
-<span id="cb35-3"><a href="testing.html#cb35-3" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="testing.html#cb35-4" tabindex="-1"></a><span class="dt">void</span> BM_FunctionName<span class="op">(</span>benchmark<span class="op">::</span>State<span class="op">&amp;</span> state<span class="op">)</span></span>
-<span id="cb35-5"><a href="testing.html#cb35-5" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb35-6"><a href="testing.html#cb35-6" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> _ <span class="op">:</span> state<span class="op">)</span></span>
-<span id="cb35-7"><a href="testing.html#cb35-7" tabindex="-1"></a>    <span class="co">// This code gets timed</span></span>
-<span id="cb35-8"><a href="testing.html#cb35-8" tabindex="-1"></a>    Function<span class="op">()</span></span>
-<span id="cb35-9"><a href="testing.html#cb35-9" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb35-10"><a href="testing.html#cb35-10" tabindex="-1"></a></span>
-<span id="cb35-11"><a href="testing.html#cb35-11" tabindex="-1"></a><span class="co">// Register the function as a benchmark</span></span>
-<span id="cb35-12"><a href="testing.html#cb35-12" tabindex="-1"></a>BENCHMARK<span class="op">(</span>BM_FunctionName<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb31-1"><a href="testing.html#cb31-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;benchmark/benchmark.h&quot;</span></span>
+<span id="cb31-2"><a href="testing.html#cb31-2" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;../../src/code.hpp&quot;</span></span>
+<span id="cb31-3"><a href="testing.html#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="testing.html#cb31-4" tabindex="-1"></a><span class="dt">void</span> BM_FunctionName<span class="op">(</span>benchmark<span class="op">::</span>State<span class="op">&amp;</span> state<span class="op">)</span></span>
+<span id="cb31-5"><a href="testing.html#cb31-5" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb31-6"><a href="testing.html#cb31-6" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="kw">auto</span> _ <span class="op">:</span> state<span class="op">)</span></span>
+<span id="cb31-7"><a href="testing.html#cb31-7" tabindex="-1"></a>    <span class="co">// This code gets timed</span></span>
+<span id="cb31-8"><a href="testing.html#cb31-8" tabindex="-1"></a>    Function<span class="op">()</span></span>
+<span id="cb31-9"><a href="testing.html#cb31-9" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb31-10"><a href="testing.html#cb31-10" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="testing.html#cb31-11" tabindex="-1"></a><span class="co">// Register the function as a benchmark</span></span>
+<span id="cb31-12"><a href="testing.html#cb31-12" tabindex="-1"></a>BENCHMARK<span class="op">(</span>BM_FunctionName<span class="op">);</span></span></code></pre></div>
 </div>
 <div id="testsgtestcmakelists.txt-template" class="section level4 hasAnchor" number="10.3.1.3">
 <h4><span class="header-section-number">10.3.1.3</span> <code>tests/gtest/CMakeLists.txt</code> template<a href="testing.html#testsgtestcmakelists.txt-template" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>These lines are added each time a new test, e.g., <code>TestSuiteName1</code>, is added:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb36-1"><a href="testing.html#cb36-1" tabindex="-1"></a><span class="co">// Add test suite 1</span></span>
-<span id="cb36-2"><a href="testing.html#cb36-2" tabindex="-1"></a>add_executable<span class="op">(</span>TestSuiteName1</span>
-<span id="cb36-3"><a href="testing.html#cb36-3" tabindex="-1"></a>  test1<span class="op">.</span>cpp</span>
-<span id="cb36-4"><a href="testing.html#cb36-4" tabindex="-1"></a><span class="op">)</span></span>
-<span id="cb36-5"><a href="testing.html#cb36-5" tabindex="-1"></a></span>
-<span id="cb36-6"><a href="testing.html#cb36-6" tabindex="-1"></a>target_link_libraries<span class="op">(</span>TestSuiteName1</span>
-<span id="cb36-7"><a href="testing.html#cb36-7" tabindex="-1"></a>  gtest_main</span>
-<span id="cb36-8"><a href="testing.html#cb36-8" tabindex="-1"></a><span class="op">)</span></span>
-<span id="cb36-9"><a href="testing.html#cb36-9" tabindex="-1"></a></span>
-<span id="cb36-10"><a href="testing.html#cb36-10" tabindex="-1"></a>gtest_discover_tests<span class="op">(</span>TestSuiteName1<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb32-1"><a href="testing.html#cb32-1" tabindex="-1"></a><span class="co">// Add test suite 1</span></span>
+<span id="cb32-2"><a href="testing.html#cb32-2" tabindex="-1"></a>add_executable<span class="op">(</span>TestSuiteName1</span>
+<span id="cb32-3"><a href="testing.html#cb32-3" tabindex="-1"></a>  test1<span class="op">.</span>cpp</span>
+<span id="cb32-4"><a href="testing.html#cb32-4" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb32-5"><a href="testing.html#cb32-5" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="testing.html#cb32-6" tabindex="-1"></a>target_link_libraries<span class="op">(</span>TestSuiteName1</span>
+<span id="cb32-7"><a href="testing.html#cb32-7" tabindex="-1"></a>  gtest_main</span>
+<span id="cb32-8"><a href="testing.html#cb32-8" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb32-9"><a href="testing.html#cb32-9" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="testing.html#cb32-10" tabindex="-1"></a>gtest_discover_tests<span class="op">(</span>TestSuiteName1<span class="op">)</span></span></code></pre></div>
 <p>These lines are added each time a new benchmark, e.g., <code>benchmark1</code>, is added:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb37-1"><a href="testing.html#cb37-1" tabindex="-1"></a><span class="co">// Add benchmark 1</span></span>
-<span id="cb37-2"><a href="testing.html#cb37-2" tabindex="-1"></a>add_executable<span class="op">(</span>benchmark1</span>
-<span id="cb37-3"><a href="testing.html#cb37-3" tabindex="-1"></a>  benchmark1<span class="op">.</span>cpp</span>
-<span id="cb37-4"><a href="testing.html#cb37-4" tabindex="-1"></a><span class="op">)</span></span>
-<span id="cb37-5"><a href="testing.html#cb37-5" tabindex="-1"></a></span>
-<span id="cb37-6"><a href="testing.html#cb37-6" tabindex="-1"></a>target_link_libraries<span class="op">(</span>benchmark1</span>
-<span id="cb37-7"><a href="testing.html#cb37-7" tabindex="-1"></a>  benchmark_main</span>
-<span id="cb37-8"><a href="testing.html#cb37-8" tabindex="-1"></a><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb33-1"><a href="testing.html#cb33-1" tabindex="-1"></a><span class="co">// Add benchmark 1</span></span>
+<span id="cb33-2"><a href="testing.html#cb33-2" tabindex="-1"></a>add_executable<span class="op">(</span>benchmark1</span>
+<span id="cb33-3"><a href="testing.html#cb33-3" tabindex="-1"></a>  benchmark1<span class="op">.</span>cpp</span>
+<span id="cb33-4"><a href="testing.html#cb33-4" tabindex="-1"></a><span class="op">)</span></span>
+<span id="cb33-5"><a href="testing.html#cb33-5" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="testing.html#cb33-6" tabindex="-1"></a>target_link_libraries<span class="op">(</span>benchmark1</span>
+<span id="cb33-7"><a href="testing.html#cb33-7" tabindex="-1"></a>  benchmark_main</span>
+<span id="cb33-8"><a href="testing.html#cb33-8" tabindex="-1"></a><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -590,7 +589,7 @@ This is the code that would go into the .cpp files in tests/gtest.</p>
 <p>R tests are written using {testthat}, which can be <a href="https://testthat.r-lib.org/">installed as an R package</a>. More details on {testthat} can be found in the <a href="https://r-pkgs.org/tests.html">testing chapter of R packages</a>.</p>
 <div id="testing-fims-locally" class="section level3 hasAnchor" number="10.4.1">
 <h3><span class="header-section-number">10.4.1</span> Testing FIMS locally<a href="testing.html#testing-fims-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To test FIMS R functions, interactively and locally, use <code>devtools::install()</code> rather than <code>devtools::load_all()</code> because using <code>load_all()</code> will turn on the debugger, bloating the .o file and may lead to a compilation error (see <a href="developer-software-and-installation-guide.html#fixing-fatal-error">Fixing Fatal Error</a> for more information).</p>
+<p>To test FIMS R functions, interactively and locally, use <code>devtools::install()</code> rather than <code>devtools::load_all()</code> because using <code>load_all()</code> will turn on the debugger, bloating the .o file and may lead to a compilation error, among other problems (see <a href="developer-software-and-installation-guide.html#installing-fims">Installing FIMS</a> for more information).</p>
 </div>
 <div id="testing-using-gdbsource" class="section level3 hasAnchor" number="10.4.2">
 <h3><span class="header-section-number">10.4.2</span> Testing using <code>gdbsource</code><a href="testing.html#testing-using-gdbsource" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -608,11 +607,11 @@ This is the code that would go into the .cpp files in tests/gtest.</p>
 <h3><span class="header-section-number">10.4.4</span> R template<a href="testing.html#r-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Naming conventions for {testthat} files follow the <a href="https://style.tidyverse.org/tests.html">tidyverse test convention</a> as well as the using <code>test-rcpp-[description].R</code> for tests of Rcpp code and <code>test-integration-[description].R</code> for integration tests without a corresponding R function.</p>
 <p>The format for an individual testthat test is is:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="testing.html#cb38-1" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
-<span id="cb38-2"><a href="testing.html#cb38-2" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="testing.html#cb38-3" tabindex="-1"></a>  ...test body...</span>
-<span id="cb38-4"><a href="testing.html#cb38-4" tabindex="-1"></a></span>
-<span id="cb38-5"><a href="testing.html#cb38-5" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="testing.html#cb34-1" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">&quot;TestName&quot;</span>, {</span>
+<span id="cb34-2"><a href="testing.html#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="testing.html#cb34-3" tabindex="-1"></a>  ...test body...</span>
+<span id="cb34-4"><a href="testing.html#cb34-4" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="testing.html#cb34-5" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 <div id="random-numbers" class="section level3 hasAnchor" number="10.4.5">
 <h3><span class="header-section-number">10.4.5</span> Random numbers<a href="testing.html#random-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h3>

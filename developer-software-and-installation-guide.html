@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Developer Software and Installation Guide | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Developer Software and Installation Guide | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2024-09-20" />
+<meta name="date" content="2025-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -236,7 +236,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#clone-and-build"><i class="fa fa-check"></i><b>6.3.1</b> Clone and build</a></li>
 <li class="chapter" data-level="6.3.2" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#precompiled"><i class="fa fa-check"></i><b>6.3.2</b> Precompiled</a></li>
-<li class="chapter" data-level="6.3.3" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#fixing-fatal-error"><i class="fa fa-check"></i><b>6.3.3</b> Fixing Fatal Error</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="developer-software-and-installation-guide.html"><a href="developer-software-and-installation-guide.html#getting-help"><i class="fa fa-check"></i><b>6.4</b> Getting Help</a></li>
 </ul></li>
@@ -436,7 +435,8 @@ need to contribute to this project as well as ways FIMS can be installed.</p>
 <h3><span class="header-section-number">6.3.1</span> Clone and build<a href="developer-software-and-installation-guide.html#clone-and-build" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Cloning FIMS and building it is a good option if you intend to modify files in FIMS and want to test them out.
 - Clone the <a href="https://github.com/NOAA-FIMS/FIMS">FIMS repository</a> from the terminal via <code>git clone https://github.com/NOAA-FIMS/FIMS.git</code>.
-- Build FIMS within R using <code>devtools::load_all()</code>, which mimics package building, or <code>devtools::install()</code>, which actually builds the package from local files.</p>
+- Build FIMS within R using <code>devtools::install()</code> which builds the package from local files and installs it within your R library. Thus, when you use <code>library(FIMS)</code> the build of FIMS from your cloned files will be used. Note, that if you update your cloned files you will need to install FIMS again.
+- Installing FIMS with <code>devtools::load_all()</code> is not recommended because the function uses shim files for things like <code>system.file()</code> which can cause FIMS to not function as expected. For example, if you try to optimize the same model twice, you will more than likely not get estimates of uncertainty from the second model run. The reason is currently unknown but the behavior does not exist if you build FIMS with <code>devtools::install()</code> so that is what we recommend. Additionally, <code>devtools::load_all()</code> adds the debugger flag <code>-O0 -g</code> which leads to Windows users seeing <code>Fatal error: can't write &lt;xxx&gt; bytes to section .text of FIMS.o: 'file too big</code>. Thus, Windows users need to run <code>withr::local_options(pkg.build_extra_flags = FALSE)</code> at the beginning of every R session before calling <code>devtools::load_all()</code>. If you want to compile FIMS with the debugger turned on you will need to run the {withr} function in addition to manually modifying the call to PKG_CXXFLAGS in the <a href="https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win">Makevars.win</a> file in <code>src</code> to <code>PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g</code>.</p>
 </div>
 <div id="precompiled" class="section level3 hasAnchor" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> Precompiled<a href="developer-software-and-installation-guide.html#precompiled" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -444,18 +444,6 @@ need to contribute to this project as well as ways FIMS can be installed.</p>
 <li>Download from R universe within R using <code>install.packages("FIMS", repos = c("https://noaa-fims.r-universe.dev", "https://cloud.r-project.org"))</code>.</li>
 <li>Install from GitHub within R using <code>devtools::install_github("NOAA-FIMS/FIMS)</code> to compile yourself, which allows you to be more specific about which version of the code is being built (e.g., you can refer to a tag or branch, which is not possible with the R universe install).</li>
 </ul>
-</div>
-<div id="fixing-fatal-error" class="section level3 hasAnchor" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> Fixing Fatal Error<a href="developer-software-and-installation-guide.html#fixing-fatal-error" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Windows users can expect to see some derivative of the following error message in their R session if they have not yet set some flags using {withr}.</p>
-<pre><code>Fatal error: can&#39;t write &lt;xxx&gt; bytes to section .text of FIMS.o: &#39;file too big</code></pre>
-<p>You can easily fix this by running the following line in your local R session. This call will need to be repeated each time you open a new session.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="developer-software-and-installation-guide.html#cb7-1" tabindex="-1"></a>withr<span class="sc">::</span><span class="fu">local_options</span>(<span class="at">pkg.build_extra_flags =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>This fix does not work when <code>devtools::test()</code> is called and FIMS is re-compiled. The call to <code>devtools::test()</code> in this case overwrites the local options set by {withr}. Compile FIMS first using <code>devtools::load_all()</code> before running <code>devtools::test()</code>.</p>
-<p>This fix removes the debugger flag <code>-O0 -g</code> from being automatically inserted for certain devtools calls (e.g. <code>devtools::load_all()</code>). Windows developers wanting to compile FIMS with the debugger turned on will need to run the above script in addition to manually modifying the call to PKG_CXXFLAGS in the <a href="https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win">Makevars.win</a> file in <code>src</code> to the following:</p>
-<pre><code>PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g</code></pre>
-<p>To turn off the debugger flag, remove the <code>-O1 -g</code> flag:</p>
-<pre><code>PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS</code></pre>
 </div>
 </div>
 <div id="getting-help" class="section level2 hasAnchor" number="6.4">
