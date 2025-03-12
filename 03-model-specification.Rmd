@@ -13,7 +13,7 @@ and two sexes.
 
 ### Atomic functions
 
-Wherever possible, `FIMS` avoids reinginvent atomic functions with
+Wherever possible, `FIMS` avoids reinventing atomic functions with
 extant definitions in `TMB`. If there is a need for a new atomic
 function the development team can add it to `TMB` using the
 `TMB_ATOMIC_VECTOR_FUNCTION()` macro following the instructions
