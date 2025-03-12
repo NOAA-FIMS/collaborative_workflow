@@ -47,7 +47,7 @@ jobs:
           echo "::set-output name=msg::${last_commit_msg}"
 
       - name: Cache bookdown results
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: docs
           key: bookdown-${{ hashFiles('**/*Rmd') }}
@@ -57,7 +57,7 @@ jobs:
         run: Rscript -e 'bookdown::render_book(quiet = TRUE)'
 
       - name: Save artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Bookdown_html
           path: docs
