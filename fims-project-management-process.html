@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="fims-development-cycle" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> FIMS development cycle<a href="fims-project-management-process.html#fims-development-cycle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>FIMS is structured as an agile software development process with live development on the web and Github. The development process cycles through a planning, analysis, and design phase leading to the establishment of a developmental Milestone. The implementation phase is made up of several development sprints that meet the objectives of the established Milestone. This is followed by testing &amp; integration and a maintenance phase before the cycle starts over again. FIMS is currently in the implementation phase of Milestone 1. See <a href="m1-model-specification.html#m1-model-specification">M1 model specification</a> for a description of the model.</p>
+<p>FIMS is structured as an agile software development process with live development on GitHub. The development process cycles through a planning, analysis, and design phase leading to the establishment of a developmental Milestone. The implementation phase is made up of several development sprints that meet the objectives of the established Milestone. This is followed by testing &amp; integration and a maintenance phase before the cycle starts over again. For each Milestone, we use <a href="https://semver.org/">semantic versioning</a> to establish the major, minor, and patch number for the release.</p>
 <div class="figure"><span style="display:block;" id="fig:devcycle"></span>
 <img src="dev%20cycle.png" alt="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1" width="75%" />
 <p class="caption">
@@ -417,8 +417,8 @@ Figure 3.2: Flow chart that describes above process visually, e.g., how an issue
 </div>
 <div id="m2-development-workflow" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> M2 development workflow<a href="fims-project-management-process.html#m2-development-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-b15d5033a8c96d3d8ab4" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b15d5033a8c96d3d8ab4">{"x":{"diagram":"\ngraph TD\n    A -- R interface group --> C[short-lived feature branch];\n    A -- Documentation group --> D[short-lived feature branch];\n    A -- NLL group --> E[development branch];\n    A -- More features group --> E[development branch];\n    E --> F[short-lived feature branch];\n    C --> G[Merge into main];\n    D --> G;\n    F --> E;\n    E --> G;"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-d1a26ae9958b9b8c66ae" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d1a26ae9958b9b8c66ae">{"x":{"diagram":"\ngraph TD\n    A -- R interface group --> C[short-lived feature branch];\n    A -- Documentation group --> D[short-lived feature branch];\n    A -- NLL group --> E[development branch];\n    A -- More features group --> E[development branch];\n    E --> F[short-lived feature branch];\n    C --> G[Merge into main];\n    D --> G;\n    F --> E;\n    E --> G;"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="feature-validation" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Feature validation<a href="fims-project-management-process.html#feature-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
