@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Contributor Guidelines | FIMS Developer Handbook</title>
   <meta name="description" content="This is a handbook for FIMS developers and contributors." />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Contributor Guidelines | FIMS Developer Handbook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2025-03-12" />
+<meta name="date" content="2025-05-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -415,8 +415,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://github.com/features/code-review">Code review</a> ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase. Tools within GitHub allow for reviewers to analyze code changes, provide inline comments, and view change histories with ease.</p>
 <p><a href="https://google.github.io/eng-practices/review/">Google’s code review guide</a> provides a useful set of guidelines for both reviewers and code authors.</p>
 <p>Below is a flowchart for the FIMS code review process. The author starts by submitting a PR, ensuring documentation, tests, and continuous integration checks are complete. The initiator of the PR must propose a reviewer (see <a href="contributor-guidelines.html#assigning-reviewers">Assigning Reviewers</a>). The reviewer receives the review request and either executes the review independently or pairs with another team representative if assistance is needed. Based on the review, changes may be requested, which the author must address before approval. Once the PR is approved, the author must rebase and merge it into the desired branch.</p>
-<div id="htmlwidget-39733c04b4681a846865" style="width:672px;height:1000px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-39733c04b4681a846865">{"x":{"diagram":"\n        graph TB\n        A[Author: Submit a pull request PR<br/><br/>- Documentation included<br/>- Tests implemented<br/>- CI checks passed]\n        B[Author: Propose a reviewer<br/><br/>- Default assignee: an OST rep for a quick review]\n        \n        A-->B\n        B-->C[Reviewer: Receive code review request]\n        C --> |No assistance needed| E[Reviewer: Execute code review]\n        C --> |Help wanted| D[Reviewer: Add an additional reviewer to the PR] \n        D --> E\n        E --> |Changes needed| F[Reviewer: Request changes] \n        F --> G[Author: Make changes]\n        G --> H[Reviewer: Approve PR]\n        E --> |No changes needed| H\n        H --> I[Author: Rebase and merge PR]\n \n        style A text-align:left, fill:#FFF\n        style B fill:#FFF\n        style G fill:#FFF\n        style I fill:#FFF\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2a61b1829891a31a23e9" style="width:672px;height:1000px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2a61b1829891a31a23e9">{"x":{"diagram":"\n        graph TB\n        A[Author: Submit a pull request PR<br/><br/>- Documentation included<br/>- Tests implemented<br/>- CI checks passed]\n        B[Author: Propose a reviewer<br/><br/>- Default assignee: an OST rep for a quick review]\n        \n        A-->B\n        B-->C[Reviewer: Receive code review request]\n        C --> |No assistance needed| E[Reviewer: Execute code review]\n        C --> |Help wanted| D[Reviewer: Add an additional reviewer to the PR] \n        D --> E\n        E --> |Changes needed| F[Reviewer: Request changes] \n        F --> G[Author: Make changes]\n        G --> H[Reviewer: Approve PR]\n        E --> |No changes needed| H\n        H --> I[Author: Rebase and merge PR]\n \n        style A text-align:left, fill:#FFF\n        style B fill:#FFF\n        style G fill:#FFF\n        style I fill:#FFF\n"},"evals":[],"jsHooks":[]}</script>
 <div id="assigning-reviewers" class="section level5 hasAnchor" number="7.2.4.2.1">
 <h5><span class="header-section-number">7.2.4.2.1</span> Assigning Reviewers<a href="contributor-guidelines.html#assigning-reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Reviewers of PRs for changes to the codebase in FIMS should be suggested by the author of the PR. For those FIMS Implementation Team Members that keep their status in GitHub current (see <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status">“Setting a status”</a> for more information), authors of PRs can use the status information to prevent assigning a reviewer who is known to be “Busy”.</p>
