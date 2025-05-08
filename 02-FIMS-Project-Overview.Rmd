@@ -79,7 +79,7 @@ Pull requests from forks will be reviewed the same as a pull request submitted f
 
 ## FIMS development cycle 
 
-FIMS is structured as an agile software development process with live development on the web and Github. The development process cycles through a planning, analysis, and design phase leading to the establishment of a developmental Milestone. The implementation phase is made up of several development sprints that meet the objectives of the established Milestone. This is followed by testing & integration and a maintenance phase before the cycle starts over again. FIMS is currently in the implementation phase of Milestone 1. See [M1 model specification](#m1-model-specification) for a description of the model.
+FIMS is structured as an agile software development process with live development on GitHub. The development process cycles through a planning, analysis, and design phase leading to the establishment of a developmental Milestone. The implementation phase is made up of several development sprints that meet the objectives of the established Milestone. This is followed by testing & integration and a maintenance phase before the cycle starts over again. For each Milestone, we use [semantic versioning](https://semver.org/) to establish the major, minor, and patch number for the release.
 
 ```{r devcycle, echo = FALSE, out.width='75%', fig.cap="FIMS Development Cycle. Current development stage is the implementation phase of Milestone 1"} 
 knitr::include_graphics("dev cycle.png")
