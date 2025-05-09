@@ -1,30 +1,16 @@
 # M1 model specification
 
-This section describes the implementation of the modules in FIMS in
-milestone 1. For the first milestone, we  implemented enough
-complexity to adequately test a very standard population model. For this
-reason, we implemented the minimum structure that can run the model
-described in [Li et al. 2021](https://spo.nmfs.noaa.gov/content/fishery-bulletin/comparison-4-primary-age-structured-stock-assessment-models-used-united). 
-The FIMS at the end of milestone 1 is an age-structured
-integrated assessment model with two fleets (one survey, one fishery)
-and two sexes.
+This section describes the implementation of the modules in FIMS in milestone 1. For the first milestone, we  implemented enough complexity to adequately test a very standard population model. For this reason, we implemented the minimum structure that can run the model described in [Li et al. 2021](https://spo.nmfs.noaa.gov/content/fishery-bulletin/comparison-4-primary-age-structured-stock-assessment-models-used-united). The FIMS at the end of milestone 1 is an age-structured integrated assessment model with two fleets (one survey, one fishery) and one sex.
 
 ## Inherited functors from `TMB`
 
 ### Atomic functions
 
-Wherever possible, `FIMS` avoids reinventing atomic functions with
-extant definitions in `TMB`. If there is a need for a new atomic
-function the development team can add it to `TMB` using the
-`TMB_ATOMIC_VECTOR_FUNCTION()` macro following the instructions
-[here](https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives). 
-Prototype atomic functions under development for future FIMS milestones are stored in the [fims_math.hpp](https://github.com/NOAA-FIMS/m1-prototypes/blob/main/fims_math.hpp) file in the [m1-prototypes](https://github.com/NOAA-FIMS/m1-prototypes) repository.
+Wherever possible, we avoid reinventing atomic functions with extant definitions in `TMB`. If there is a need for a new atomic function the development team can add it to `TMB` using the `TMB_ATOMIC_VECTOR_FUNCTION()` macro following the instructions [here](https://kaskr.github.io/adcomp/_book/AtomicFunctions.html#example-adding-new-primitive-function-with-known-derivatives). Prototype atomic functions under development for future FIMS milestones are stored in the [fims_math.hpp](https://github.com/NOAA-FIMS/m1-prototypes/blob/main/fims_math.hpp) file in the [m1-prototypes](https://github.com/NOAA-FIMS/m1-prototypes) repository.
 
 ### Statistical distributions
 
-All of the statistical distributions needed for the first milestone of
-`FIMS` are implemented in `TMB` and need not be replicated.
-Code can be found [here](http://kaskr.github.io/adcomp/group__R__style__distribution.html).
+All of the statistical distributions needed for the first milestone of `FIMS` are implemented in `TMB` and need not be replicated. Code can be found [here](http://kaskr.github.io/adcomp/group__R__style__distribution.html).
 
 |Distribution | Name| FIMS wrapper |
 | ------------|---------|----------|
@@ -60,42 +46,19 @@ where $\mu$ is the mean of the distribution of $\mathrm{ln(x)}$ and $\sigma^2$ i
 
 ## Beverton-Holt recruitment function
 
-For parity with existing stock assessment models, the first recruitment
-option in FIMS is the steepness parameterization of the Beverton-Holt model (Beverton and Holt, 1957),
+For parity with existing stock assessment models, the first recruitment option in FIMS is the steepness parameterization of the Beverton-Holt model (Beverton and Holt, 1957),
 
 $$R_t(S_{t-1})  =\frac{0.8R_0hS_{t-1}}{0.2R_0\phi_0(1-h) + S_{t-1}(h-0.2)}$$
-where $R_t$ and $S_t$ are mean recruitment and spawning biomass at time
-$t$, $h$ is steepness, and $\phi_0$ is the unfished
-spawning biomass per recruit. The initial FIMS model implements a
-static spawning biomass-per-recruit function, with the ability to
-overload the method in the future to allow for time-variation in
-spawning biomass per recruit that results from variation in life-history
-characteristics (e.g., natural mortality, maturity, or weight-at-age). 
-Recruitment deviations ($r_t$) are assumed to be
-normally distributed in log space with standard deviation $\sigma_R$,
+where $R_t$ and $S_t$ are mean recruitment and spawning biomass at time $t$, $h$ is steepness, and $\phi_0$ is the unfished spawning biomass per recruit. The initial FIMS model implements a static spawning biomass-per-recruit function, with the ability to overload the method in the future to allow for time-variation in spawning biomass per recruit that results from variation in life-history characteristics (e.g., natural mortality, maturity, or weight-at-age). Recruitment deviations ($r_t$) are assumed to be normally distributed in log space with standard deviation $\sigma_R$,
 $$r_t \sim N(0,\sigma_R^2)$$
 
-Because $r_t$ are applied as multiplicative, lognormal deviations,
-predictions of realized recruitment include a term for bias correction ($\sigma^2_R/2$). However, 
-true $r_t$ values are not known, but rather estimated ($\hat{r}_t$), 
-and thus the bias correction applies an
-adjustment factor, $b_t=\frac{E[SD(\hat{r}_{t})]^2}{\sigma_R^2}$ (Methot and
-Taylor, 2011). The adjusted bias correction, mean recruitment, and recruitment deviations are 
-then used to compute realized recruitment ($R^*_t$),
-$$R^*_t=R_t\cdot\mathrm{exp}\Bigg(\hat{r}_{t}-b_t\frac{\sigma_R^2}{2}\Bigg)$$
-The recruitment function should take as input the values of $S_t$,
-$h$, $R_0$, $\phi_0$, $\sigma_R$, and $\hat{r}_{t}$, and return mean-unbiased ($R_t$) and
-realized ($R^*_t$) recruitment.
+Because $r_t$ are applied as multiplicative, lognormal deviations, predictions of realized recruitment include a term for bias correction ($\sigma^2_R/2$). However, true $r_t$ values are not known, but rather estimated ($\hat{r}_t$), and thus the bias correction applies an adjustment factor, $b_t=\frac{E[SD(\hat{r}_{t})]^2}{\sigma_R^2}$ (Methot and Taylor, 2011). The adjusted bias correction, mean recruitment, and recruitment deviations are then used to compute realized recruitment ($R^*_t$), $$R^*_t=R_t\cdot\mathrm{exp}\Bigg(\hat{r}_{t}-b_t\frac{\sigma_R^2}{2}\Bigg)$$ The recruitment function should take as input the values of $S_t$, $h$, $R_0$, $\phi_0$, $\sigma_R$, and $\hat{r}_{t}$, and return mean-unbiased ($R_t$) and realized ($R^*_t$) recruitment.
 
 ## Logistic function with extensions
+
 $$y_i=\frac{1}{1+\mathrm{exp}(-s \cdot(x_i-\nu))}$$
 
-Where $y_i$ is the quantity of interest (proportion mature, selected,
-etc.), $x_i$ is the index (can be age or size or any other quantity),
-$\nu$ is the median (inflection point), and $s$ is the slope parameter 
-from an alternative parameterization. Logistic functions for maturity 
-and selectivity should inherit and extend upon the base logistic
-function implementation.
+Where $y_i$ is the quantity of interest (proportion mature, selected, etc.), $x_i$ is the index (can be age or size or any other quantity), $\nu$ is the median (inflection point), and $s$ is the slope parameter from an alternative parameterization. Logistic functions for maturity and selectivity should inherit and extend upon the base logistic function implementation.
 
 The parameterization for the double logistic curve is specified as 
 
@@ -104,125 +67,74 @@ Where $s_1$ and and $\nu_1$ are the slope and median (50%) parameters for the as
 
 ## Catch and fishing mortality
 
-The Baranov catch equation relates catch to instantaneous fishing and
-natural mortality.
+The Baranov catch equation relates catch to instantaneous fishing and natural mortality.
 
 $$ C_{f,a,t}=\frac{F_{f,a,t}}{F_{f,a,t}+M}\Bigg[1-\mathrm{exp}(-F_{f,a,t}-M)\Bigg]N_{a,t}$$
 
-Where $C_{f,a,t}$ is the catch at age $a$ at time $t$ for fleet $f$, $F_t$
-is instantaneous fishing mortality, $M$ is assumed constant over ages
-and time in the minimum viable assessment model, $N_{a,t}$ is the number
-of age $a$ fish at time $t$.
+Where $C_{f,a,t}$ is the catch at age $a$ at time $t$ for fleet $f$, $F_t$ is instantaneous fishing mortality, $M$ is assumed constant over ages and time in the minimum viable assessment model, $N_{a,t}$ is the number of age $a$ fish at time $t$.
 
 $$F_{f,a,t}=\sum_{a=0}^A s_{f,a}F_t$$
 
-$s_{f,a}$ is selectivity at age $a$ for fleet $f$. Selectivity-at-age is
-constant over time.
+$s_{f,a}$ is selectivity at age $a$ for fleet $f$. Selectivity-at-age is constant over time.
 
-Catch is in metric tons and survey is in number, so calculating catch
-weight ($CW_t$) is done as follows:
+Catch is in metric tons and survey is in number, so calculating catch weight ($CW_t$) is done as follows:
 $$ CW_t=\sum_{a=0}^A C_{a,t}w_a $$
 
 Survey numbers are calculated as follows
 
 $$I_t=q_t\sum_{a=0}^AN_{a,t}$$
-Where $I_t$ is the survey index and $q_t$ is survey catchability at time
-$t$.
+Where $I_t$ is the survey index and $q_t$ is survey catchability at time $t$.
 
 ## Modeling loops
 
-This tier associates the expected values for each population section
-associated with a data source to that data source using a likelihood
-function. These likelihood functions are then combined into an objective
-function that is passed to TMB.
+This tier associates the expected values for each population section associated with a data source to that data source using a likelihood function. These likelihood functions are then combined into an objective function that is passed to TMB.
 
-The population loop is initialized at a user-specified age, time
-increment, and seasonal structure, rather than assuming ages, years, or
-seasons follow any pre-defined structure. Population categories will be
-described flexibly, such that subpopulations such as unique sexes,
-stocks, species, or areas can be handled identically to reduce
-duplication. Each subpopulation will have a unique set of attributes
-assigned to it, such that each subpopulation can share or have a
-different functional process (e.g., recruitment function, size-at-age)
-than a different category.
+The population loop is initialized at a user-specified age, time increment, and seasonal structure, rather than assuming ages, years, or seasons follow any pre-defined structure. Population categories will be described flexibly, such that subpopulations such as unique sexes, stocks, species, or areas can be handled identically to reduce duplication. Each subpopulation will have a unique set of attributes assigned to it, such that each subpopulation can share or have a different functional process (e.g., recruitment function, size-at-age) than a different category.
 
-Spawning time and recruitment time are user-specified and can occur more
-than once per year. For the purposes of replicating model comparison
-project outputs, in milestone 1, all processes including spawning and
-recruitment occur January 1, but these should be specified via the
-`spawn_time` and `recruit_time` inputs into FIMS to allow for future
-flexibility. Spawning and recruitment timing can be input as a scalar or
-vector to account for multiple options.
+Spawning time and recruitment time are user-specified and can occur more than once per year. For the purposes of replicating model comparison project outputs, in milestone 1, all processes including spawning and recruitment occur January 1, but these should be specified via the `spawn_time` and `recruit_time` inputs into FIMS to allow for future flexibility. Spawning and recruitment timing can be input as a scalar or vector to account for multiple options.
 
-Within the population loop, matrices denoting population properties at
-different partitions (age, season, sex) are translated into a single,
-dimension-folded index. A lookup table is computed at model start so
-that the dimension-folded index can be mapped to its corresponding
-population partition or time partition (e.g., population(sex, area, age,
-species, time, ...)) so the programmer can understand what is happening.
-The model steps through each specified timestep to match the data to
-expected values, and population processes occur in the closest specified
-timestep to the user-input process timing (e.g., recruitment) across a
-small timestep that is a predefined constant.
+Within the population loop, matrices denoting population properties at different partitions (age, season, sex) are translated into a single, dimension-folded index. A lookup table is computed at model start so that the dimension-folded index can be mapped to its corresponding population partition or time partition (e.g., population(sex, area, age, species, time, ...)) so the programmer can understand what is happening. The model steps through each specified timestep to match the data to expected values, and population processes occur in the closest specified timestep to the user-input process timing (e.g., recruitment) across a small timestep that is a predefined constant.
 
 ## Expected numbers and quantities
 
-The expected values are calculated as follows in the population.hpp
-file:
+The expected values are calculated as follows in the population.hpp file:
 $$ B_t=\sum_{a=0}^AN_{a,t}w_a$$
-where $B_t$ is total biomass in time $t$, $N$ is total numbers, $w_a$ is
-weight-at-age $a$ in kilograms.
+where $B_t$ is total biomass in time $t$, $N$ is total numbers, $w_a$ is weight-at-age $a$ in kilograms.
 
 $$N_t=\sum_{a=0}^AN_{a,t}$$
 where $N_at$ is the total number of fish at age $a$ in time $t$.
 
 $$UnfishedNAA_{t,0} = R0_{t}$$
 
-Annual unfished numbers at age and unfished spawning biomass are tracked 
-in the model assuming annual recruitment at rzero and only natural mortality. 
-This provides a dynamic reference point that accounts for time varying rzero 
-and M. This does not currently include recruitment deviations. 
+Annual unfished numbers at age and unfished spawning biomass are tracked in the model assuming annual recruitment at rzero and only natural mortality. This provides a dynamic reference point that accounts for time varying rzero and M. This does not currently include recruitment deviations. 
 $$UnfishedNAA_{t,0} = R0_{t}$$
 $$UnfishedNAA_{t,a} = UnfishedNAA_{t-1,a-1}exp(-M_{t-1,a-1})$$
-for all t>0 and numbers at age at the start of the first year are model parameter
-inputs.
+for all t>0 and numbers at age at the start of the first year are model parameter inputs.
 
 $$ UnfishedSSB_t=\sum_{a=0}^AUnfishedNAA_{a,t}w_aFracFemale_aFracMature_a$$
-All spawning stock biomass values are current calculated at January 1 each year. 
-This will be updated in future milestones.
+All spawning stock biomass values are current calculated at January 1 each year. This will be updated in future milestones.
 
 ## Initial values
 
 The initial equilibrium recruitment ($R_{eq}$) is calculated as follows:
 
 $$R_{eq} = \frac{R_{0}(4h\phi_{F} - (1-h)\phi_{0})}{(5h-1)\phi_{F}} $$
-where $\phi_{F}$ is the initial spawning biomass per recruitment given
-the initial fishing mortality $F$.
+where $\phi_{F}$ is the initial spawning biomass per recruitment given the initial fishing mortality $F$.
 
-The initial population structure at the start of the first model year is 
-input as an estimated parameter vector of numbers at age. This allows maximum 
-flexibility for the model to estimate non-equilibrium starting conditions. 
-Future milestones could add an option to input a single F value used to 
-calculate an equilibrium starting structure. 
+The initial population structure at the start of the first model year is input as an estimated parameter vector of numbers at age. This allows maximum flexibility for the model to estimate non-equilibrium starting conditions. Future milestones could add an option to input a single F value used to calculate an equilibrium starting structure. 
 
 
 ## Likelihood calculations
 
-Age composition likelihood links proportions at age from data to model
-using a multinomial likelihood function. The multinomial and lognormal
-distributions, including atomic functions are provided within `TMB`.
+Age composition likelihood links proportions at age from data to model using a multinomial likelihood function. The multinomial and lognormal distributions, including atomic functions are provided within `TMB`.
 
-Survey index likelihood links estimated CPUE to input data CPUE in
-biomass using a lognormal distribution. (model.hpp)
+Survey index likelihood links estimated CPUE to input data CPUE in biomass using a lognormal distribution. (model.hpp)
 
-Catch index likelihood links estimated catch to input data catch in
-biomass using a lognormal distribution. (model.hpp)
+Catch index likelihood links estimated catch to input data catch in biomass using a lognormal distribution. (model.hpp)
 
-Age composition likelihoods link catch-at-age to expected catch-at-age
-using a multinomial distribution.
+Age composition likelihoods link catch-at-age to expected catch-at-age using a multinomial distribution.
 
-Recruitment deviations control the difference between expected and realized recruitment, 
-and they follow a lognormal distribution. (recruitment_base.hpp)
+Recruitment deviations control the difference between expected and realized recruitment, and they follow a lognormal distribution. (recruitment_base.hpp)
 
 ## Statistical Inference:
 
