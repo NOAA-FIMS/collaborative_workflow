@@ -1,8 +1,6 @@
 fig:devcycle
 fig:flowchart
-contributing-to-this-book
-description
-edit-and-preview-book-changes
+welcome
 code-of-conduct
 fims-contributor-conduct
 our-pledge

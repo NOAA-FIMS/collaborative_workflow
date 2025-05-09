@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2025-05-08" />
+<meta name="date" content="2025-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,11 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Contributing to this book</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i><b>1.1</b> Description</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
 <li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of conduct</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS contributor conduct</a></li>
@@ -415,8 +411,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://github.com/features/code-review">Code review</a> ensures health and continuous improvement of the FIMS codebase, while simultaneously helping FIMS developers become familiar with the codebase. Tools within GitHub allow for reviewers to analyze code changes, provide inline comments, and view change histories with ease.</p>
 <p><a href="https://google.github.io/eng-practices/review/">Google’s code review guide</a> provides a useful set of guidelines for both reviewers and code authors.</p>
 <p>Below is a flowchart for the FIMS code review process. The author starts by submitting a PR, ensuring documentation, tests, and continuous integration checks are complete. The initiator of the PR must propose a reviewer (see <a href="contributor-guidelines.html#assigning-reviewers">Assigning Reviewers</a>). The reviewer receives the review request and either executes the review independently or pairs with another team representative if assistance is needed. Based on the review, changes may be requested, which the author must address before approval. Once the PR is approved, the author must rebase and merge it into the desired branch.</p>
-<div id="htmlwidget-91f16839f63c70c76733" style="width:672px;height:1000px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-91f16839f63c70c76733">{"x":{"diagram":"\n        graph TB\n        A[Author: Submit a pull request PR<br/><br/>- Documentation included<br/>- Tests implemented<br/>- CI checks passed]\n        B[Author: Propose a reviewer<br/><br/>- Default assignee: an OST rep for a quick review]\n        \n        A-->B\n        B-->C[Reviewer: Receive code review request]\n        C --> |No assistance needed| E[Reviewer: Execute code review]\n        C --> |Help wanted| D[Reviewer: Add an additional reviewer to the PR] \n        D --> E\n        E --> |Changes needed| F[Reviewer: Request changes] \n        F --> G[Author: Make changes]\n        G --> H[Reviewer: Approve PR]\n        E --> |No changes needed| H\n        H --> I[Author: Rebase and merge PR]\n \n        style A text-align:left, fill:#FFF\n        style B fill:#FFF\n        style G fill:#FFF\n        style I fill:#FFF\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ffa2ff9e5ee8aca284af" style="width:672px;height:1000px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ffa2ff9e5ee8aca284af">{"x":{"diagram":"\n        graph TB\n        A[Author: Submit a pull request PR<br/><br/>- Documentation included<br/>- Tests implemented<br/>- CI checks passed]\n        B[Author: Propose a reviewer<br/><br/>- Default assignee: an OST rep for a quick review]\n        \n        A-->B\n        B-->C[Reviewer: Receive code review request]\n        C --> |No assistance needed| E[Reviewer: Execute code review]\n        C --> |Help wanted| D[Reviewer: Add an additional reviewer to the PR] \n        D --> E\n        E --> |Changes needed| F[Reviewer: Request changes] \n        F --> G[Author: Make changes]\n        G --> H[Reviewer: Approve PR]\n        E --> |No changes needed| H\n        H --> I[Author: Rebase and merge PR]\n \n        style A text-align:left, fill:#FFF\n        style B fill:#FFF\n        style G fill:#FFF\n        style I fill:#FFF\n"},"evals":[],"jsHooks":[]}</script>
 <div id="assigning-reviewers" class="section level5 hasAnchor" number="7.2.4.2.1">
 <h5><span class="header-section-number">7.2.4.2.1</span> Assigning Reviewers<a href="contributor-guidelines.html#assigning-reviewers" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Reviewers of PRs for changes to the codebase in FIMS should be suggested by the author of the PR. For those FIMS Implementation Team Members that keep their status in GitHub current (see <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status">“Setting a status”</a> for more information), authors of PRs can use the status information to prevent assigning a reviewer who is known to be “Busy”.</p>

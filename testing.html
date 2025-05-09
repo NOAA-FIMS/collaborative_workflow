@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2025-05-08" />
+<meta name="date" content="2025-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,11 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Contributing to this book</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i><b>1.1</b> Description</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
 <li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of conduct</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS contributor conduct</a></li>
@@ -615,11 +611,8 @@ This is the code that would go into the .cpp files in tests/gtest.</p>
 </div>
 <div id="random-numbers" class="section level3 hasAnchor" number="10.4.5">
 <h3><span class="header-section-number">10.4.5</span> Random numbers<a href="testing.html#random-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Simulation results might be dependent on the order of calls, leading to failed tests just because different random numbers are used or the order of the simulation changes through model
-development (see <a href="https://github.com/NOAA-FIMS/FIMS-planning/issues/25">FIMS-planning discussion 25</a> for details). Below are some potential soluations.
-- Add a TRUE/FALSE parameter in each FIMS simulation module for
-setting up testing seed. When testing the module, set the parameter to
-TRUE to fix the seed number in R and conduct tests. If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error.
+<p>Simulation results might be dependent on the order of calls, leading to failed tests just because different random numbers are used or the order of the simulation changes through model development (see <a href="https://github.com/NOAA-FIMS/FIMS-planning/issues/25">FIMS-planning discussion 25</a> for details). Below are some potential soluations.
+- Add a TRUE/FALSE parameter in each FIMS simulation module for setting up testing seed. When testing the module, set the parameter to TRUE to fix the seed number in R and conduct tests. If adding a TRUE/FALSE parameter does not work as expected, then carefully check simulated data from each component and make sure it is not a model coding error.
 - Use <code>set.seed()</code> from R to set the seed and investigate using {rstream} to generate multiple streams of random numbers to associate distinct streams of random numbers with different sources of randomness. {rstream} was specifically designed to address the issue of needing very long streams of pseudo-random numbers for parallel computations. See <a href="https://www.iro.umontreal.ca/~lecuyer/myftp/papers/rstream.pdf">the rstream paper</a> and <a href="http://www-labs.iro.umontreal.ca/~lecuyer/myftp/streams00/">RngStreams</a> for more details.</p>
 
 </div>

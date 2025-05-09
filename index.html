@@ -23,7 +23,7 @@
 <meta name="author" content="FIMS Implementation Team" />
 
 
-<meta name="date" content="2025-05-08" />
+<meta name="date" content="2025-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,11 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">FIMS Developer Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Contributing to this book</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i><b>1.1</b> Description</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#edit-and-preview-book-changes"><i class="fa fa-check"></i><b>1.2</b> Edit and preview book changes</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
 <li class="chapter" data-level="2" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>2</b> Code of conduct</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#fims-contributor-conduct"><i class="fa fa-check"></i><b>2.1</b> FIMS contributor conduct</a></li>
@@ -312,46 +308,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">FIMS Developer Handbook</h1>
 <p class="author"><em>FIMS Implementation Team</em></p>
-<p class="date"><em>2025-05-08</em></p>
+<p class="date"><em>2025-05-09</em></p>
 </div>
-<div id="contributing-to-this-book" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Contributing to this book<a href="index.html#contributing-to-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This is a book written in <strong>Markdown</strong> describing the FIMS development
-workflow for FIMS developers and contributors. It is intended as a
-living document and will change over time as the FIMS project matures.
-Some sections may be incomplete or missing entirely. Suggestions or
-contributions may be made via the FIMS collaborative workflow github site
-<a href="https://github.com/NOAA-FIMS/collaborative_workflow" class="uri">https://github.com/NOAA-FIMS/collaborative_workflow</a>. This section describes how to edit
-and contribute to the book.</p>
-<div id="description" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Description<a href="index.html#description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Each <strong>bookdown</strong> chapter is an .Rmd file, and each .Rmd file can
-contain one or more chapters. A chapter <em>must</em> start with a first-level
-heading: <code># A good chapter</code>, and can contain one (and only one)
-first-level heading.</p>
-<p>Use second-level and higher headings within chapters like:
-<code>## A short section</code> or <code>### An even shorter section</code>.</p>
-<p>The <code>index.Rmd</code> file is required, and is also your first book chapter.
-It will be the homepage when you render the book.</p>
-</div>
-<div id="edit-and-preview-book-changes" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Edit and preview book changes<a href="index.html#edit-and-preview-book-changes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When you want to make a change to this book, follow the below steps:
-1. Create a new feature branch either from the issue requesting the
-change or from the repo on Github.
-2. Pull the remote branch into your local branch and make your changes
-to the .Rmd files locally.
-3. When you are done editing, do not render the book locally, but push
-your changes to the remote feature branch.
-4. Pushing to the remote feature branch initiates a Github action that
-creates a .zip file you should download and unzip. Open the file
-index.html in a browser to preview the rendered .html content. If the
-action fails, this means the bookdown could not be rendered. Use the
-Github action log to determine what the problem is.
-5. When the book can be rendered and you are satisfied with the changes,
-submit a pull request to merge the feature branch into <code>main</code>.</p>
+<div id="welcome" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Welcome<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Welcome to the Fisheries Integrated Modeling System (FIMS) developer handbook. This is a book written in <strong>markdown</strong> describing the workflow for FIMS developers and contributors. It is intended to be a living document and will change over time as FIMS matures.</p>
+<p>Suggestions or contributions to the handbook may be made via the FIMS collaborative workflow GitHub site <a href="https://github.com/NOAA-FIMS/collaborative_workflow" class="uri">https://github.com/NOAA-FIMS/collaborative_workflow</a>. Please follow the steps below if you wish to make a change to this book,</p>
+<ol style="list-style-type: decimal">
+<li>Create a new feature branch off of main (dev for FIMS and case-studies) and edit the files in the branch.</li>
+<li>When you are done editing, push your changes to the remote feature branch.</li>
+<li>Pushing to the remote feature branch initiates a GitHub action that creates a .zip file that you can download and unzip. Open the file index.html in a browser to preview the rendered .html content. If the action fails, this means the bookdown could not be rendered. Use log from the GitHub to determine the problem with the files.</li>
+<li>When the book can be rendered and you are satisfied with the changes, submit a pull request to merge the feature branch into <code>main</code>.</li>
+</ol>
 
-</div>
 </div>
             </section>
 
