@@ -71,7 +71,13 @@ Regional representatives are expected to assist in FIMS implementation through d
 
 The code of conduct enforcer is responsible for responding to allegations of [code of conduct](#code-of-conduct) violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.
 
-### External collaborators
+### Collaborators
+
+Collaborators interested in contributing to FIMS development can fork and clone any public repository within the NOAA-FIMS GitHub organization, make changes, and submit a pull request. Be sure to fork all branches and make feature branches off of your forked dev branch though. Developing off of dev branches rather than main allows for adequate testing and upkeep of downstream code. Collaborators are strongly encouraged to submit an issue to the respective repository prior to embarking on any development. In general, it is hard for developers to keep up to speed with development inside of forked repositories, and thus, ample communication will help to ensure that code can easily be merged in when the time is right.
+
+Pull requests from forks will be reviewed under the same guidelines as pull requests from internal branches. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide passing tests that check the new feature. Broad guidelines for reviews can be found in the reviewer checklist after a pull request is submitted.
+
+Non-GitHub contributions are also welcome. These contributions can include such things as an email noting where documentation is unclear or holding office hours to help individuals set up models. We encourage collaborators to feel welcome to contribute in any way they can, and we will do our best to incorporate these contributions into the FIMS projects. We thank you in advance for being part of the team.
 
 ## Authorship
 
