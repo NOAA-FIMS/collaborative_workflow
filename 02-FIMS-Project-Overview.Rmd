@@ -71,11 +71,17 @@ Regional representatives are expected to assist in FIMS implementation through d
 
 The code of conduct enforcer is responsible for responding to allegations of [code of conduct](#code-of-conduct) violations in an appropriate manner. This could include a conversation with the violator, his or her manager, up to and including expulsion from the FIMS development team. If the violator is an external collaborator, they can be banned from contributing to the FIMS Github resources in the future.
 
-### External collaborators
+### Collaborators
 
-External collaborators interested in contributing to FIMS development are required to clone or fork the FIMS repository, make changes, and submit a pull request. However, collaborators are strongly encouraged to submit an issue via the main FIMS repository for discussion prior to development. In general, forks are discouraged for development that is intended for integration into FIMS as it becomes difficult to keep track of multiple forks. If collaborators wish to use FIMS as a starting-point for a brand new project that they do not intend to merge back into the main branch, they can start a fork. However, if they intend to create a pull request, they should clone the repository and use a branch.
+Collaborators interested in contributing to FIMS development can fork and clone any public repository within the NOAA-FIMS GitHub organization, make changes, and submit a pull request. Be sure to fork all branches and make feature branches off of your forked dev branch though. Developing off of dev branches rather than main allows for adequate testing and upkeep of downstream code. Collaborators are strongly encouraged to submit an issue to the respective repository prior to embarking on any development. In general, it is hard for developers to keep up to speed with development inside of forked repositories, and thus, ample communication will help to ensure that code can easily be merged in when the time is right.
 
-Pull requests from forks will be reviewed the same as a pull request submitted from a branch. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide tests that check the new feature.
+Pull requests from forks will be reviewed under the same guidelines as pull requests from internal branches. Users will need to conform to the same standards and all contributions must pass the standard tests as well as provide passing tests that check the new feature. Broad guidelines for reviews can be found in the reviewer checklist after a pull request is submitted.
+
+Non-GitHub contributions are also welcome. These contributions can include such things as an email noting where documentation is unclear or holding office hours to help individuals set up models. We encourage collaborators to feel welcome to contribute in any way they can, and we will do our best to incorporate these contributions into the FIMS projects. We thank you in advance for being part of the team.
+
+## Authorship
+
+The current development team of FIMS is listed in the [DESCRIPTION file](https://github.com/NOAA-FIMS/FIMS/blob/main/DESCRIPTION) located in the root directory of the FIMS repository. The full list of contributors to the FIMS project can be found on the [FIMS website](https://noaa-fims.github.io). When publications or presentations are developed using FIMS, the authors should feel free to list only those who contributed to that publication or presentation in whatever order they collectively see fit.
 
 ## FIMS development cycle 
 
