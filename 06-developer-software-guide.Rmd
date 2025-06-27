@@ -79,6 +79,7 @@ Additional settings for R are available in the [extension wiki](https://github.c
 ```
 
 Other helpful extensions for VS Code are available in the VScode marketplace, e.g.,
+
   - Github Copilot: An AI tool that helps with line completion.
   - Live Share: Collaborate on the same file remotely with other developers.
   - Rewrap: Helps rewrapping comments and text lines at a specified character count. Note that to get it working it will be necessary to add [rulers](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_vertical-rulers).
@@ -138,6 +139,7 @@ Doxygen is required to build the C++ documentation for FIMS, which automates the
 ### R
 
 The following is needed:
+
 - The version of R [specified in the DESCRIPTION file](https://github.com/NOAA-FIMS/FIMS/blob/f0d4e766ddfc70c6dbb99e92385298c31ccff136/DESCRIPTION#L57) or newer (or RStudio version 1.2.5042 or newer)
 - The version of [`TMB`](https://github.com/kaskr/adcomp/wiki/Download) [specified in the DESCRIPTION file](https://github.com/NOAA-FIMS/FIMS/blob/f0d4e766ddfc70c6dbb99e92385298c31ccff136/DESCRIPTION#L65) or newer
 - Windows users will need [Rtools](https://cran.r-project.org/bin/windows/Rtools)
@@ -147,6 +149,7 @@ The following is needed:
 ### Clone and build
 
 Cloning FIMS and building it is a good option if you intend to modify files in FIMS and want to test them out.
+
   - Clone the [FIMS repository](https://github.com/NOAA-FIMS/FIMS) from the terminal via `git clone https://github.com/NOAA-FIMS/FIMS.git`.
   - Build FIMS within R using `devtools::install()` which builds the package from local files and installs it within your R library. Thus, when you use `library(FIMS)` the build of FIMS from your cloned files will be used. Note, that if you update your cloned files you will need to install FIMS again.
   - Installing FIMS with `devtools::load_all()` is not recommended because the function uses shim files for things like `system.file()` which can cause FIMS to not function as expected. For example, if you try to optimize the same model twice, you will more than likely not get estimates of uncertainty from the second model run. The reason is currently unknown but the behavior does not exist if you build FIMS with `devtools::install()` so that is what we recommend. Additionally, `devtools::load_all()` adds the debugger flag `-O0 -g` which leads to Windows users seeing `Fatal error: can't write <xxx> bytes to section .text of FIMS.o: 'file too big`. Thus, Windows users need to run `withr::local_options(pkg.build_extra_flags = FALSE)` at the beginning of every R session before calling `devtools::load_all()`. If you want to compile FIMS with the debugger turned on you will need to run the {withr} function in addition to manually modifying the call to PKG_CXXFLAGS in the [Makevars.win](https://github.com/NOAA-FIMS/FIMS/blob/doc-install/src/Makevars.win) file in `src` to `PKG_CXXFLAGS =  -DTMB_MODEL  -DTMB_EIGEN_DISABLE_WARNINGS -O1 -g`.
