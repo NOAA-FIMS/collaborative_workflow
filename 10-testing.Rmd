@@ -150,36 +150,8 @@ Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
 
 ### Debugging a C++ test
 
-There are two ways to debug a C++ test, interactively using `gdb` or via print statements.
-
-To debug C++ code (e.g., segmentation error/memory corruption) using gdb:
-```bash
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
-cmake --build build --parallel 16
-ctest --test-dir build --parallel 16
-gdb ./build/tests/gtest/population_dynamics_population.exe
-c // to continue without paging
-run // to see which line of code is broken
-print this->log_naa // for example, print this->log_naa to see the value of log_naa; 
-print i // for example, print i from the broken for loop
-bt // backtrace
-q // to quit
-```
-
-To debug C++ code with print statements you must update the C++ in the desired `.hpp` file by adding `std::ofstream out(“file_name.txt”)` and using `out << variable;` to print out values of the variable. The output of the print statements will be in `FIMS/build/tests/gtest/debug.txt` after you run the `cmake` and `ctest` calls the [instructions in Build and run the tests](#build-and-run-the-tests).
-
-```c
-nfleets = fleets.size();
-std::ofstream out("debug.txt");
-out <<nfleets;
-```
-
-More complex examples with text identifying the quantities
-
-```c
-out <<" fleet_index: "<<fleet_index<<" index_yaf: "<<index_yaf<<" index_yf: "<<index_yf<<"\n";
-out <<" population.Fmort[index_yf]: "<<population.Fmort[index_yf]<<"\n";
-```
+There are two ways to debug a C++ test, interactively using `gdb` or via print statements. 
+For more details, see the FIMS [testing cheat sheet](https://github.com/NOAA-FIMS/FIMS/blob/main/tests/README.md).
 
 ### Benchmark example
 
